@@ -1,11 +1,12 @@
-index.html
-snowboard-guide.html
+/index.html
+/snowboard-guide.html
 _site/
 build.log
 .validation/
 log/
 research/
 node_modules/
+3d/
 __pycache__/
 *.pyc
 .DS_Store

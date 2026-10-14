@@ -30,6 +30,34 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
 
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install locked prototype dependencies
+        run: |
+          if ! npm ci > npm-install.log 2>&1; then
+            tail -n 80 npm-install.log
+            exit 1
+          fi
+
+      - name: Validate and build 3D prototype
+        run: |
+          if ! npm run typecheck > prototype-typecheck.log 2>&1; then
+            tail -n 80 prototype-typecheck.log
+            exit 1
+          fi
+          if ! npm test > prototype-test.log 2>&1; then
+            tail -n 80 prototype-test.log
+            exit 1
+          fi
+          if ! npm run build:prototype > prototype-build.log 2>&1; then
+            tail -n 80 prototype-build.log
+            exit 1
+          fi
+
       - name: Build self-contained HTML
         run: |
           if ! python3 build.py > build.log 2>&1; then
@@ -39,6 +67,7 @@ jobs:
           mkdir -p _site
           cp index.html _site/index.html
           cp snowboard-guide.html _site/snowboard-guide.html
+          cp -R 3d _site/3d
           touch _site/.nojekyll
 
       - name: Upload public site

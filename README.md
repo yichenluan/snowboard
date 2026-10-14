@@ -6,7 +6,13 @@
 
 ## 打开与使用
 
-用浏览器打开 `snowboard-guide.html`。正文、关节小人、阶段图和交互图都在一个文件中，不需要安装、服务器或联网。资料链接需要网络。
+用浏览器打开 `snowboard-guide.html`。正文、原有关节小人、阶段图和交互图都在一个文件中，不需要安装、服务器或联网。新增三维原型和资料链接需要联网打开；保存的单文件 HTML 也保留三维原型的在线入口。
+
+## 搓雪小回转三维原型
+
+[打开三维动作实验室](https://yichenluan.github.io/snowboard-guide/3d/)：本轮仅升级一组完整原型，包含正确示范、错误对照和侧滑接单弯练习。重点是同步观察身体姿态、板刃、滑行方向和动作转换；其他课程继续使用原有示意。主站首页及对应三课均有入口。
+
+原型采用 Three.js 与 React Three Fiber，人体和场景在代码中生成，不请求外部模型、字体或 CDN 脚本。需要浏览器支持图形渲染；加载的三维动作是教学用定性示意，不给出个人肌肉力值或压力百分比。它是独立网页，不打包进单文件离线教材。
 
 正文按 13 个技术模块组织，每个条目包含：
 
@@ -47,7 +53,7 @@
 
 ## 维护源码
 
-唯一内容维护入口为 `content.json`。修改后运行：
+教材内容维护入口为 `content.json`。修改后运行：
 
 ```sh
 python3 build.py
@@ -63,6 +69,29 @@ python3 build.py
 | `styles.css` | 桌面、手机、打印布局 |
 | `shell.html` | 页面模板 |
 | `build.py` | 生成单文件 HTML |
+| `prototype/` | 三维原型的页面、动作模型与交互 |
+| `tests/` | 原型动作与教学约束的检查 |
+| `vite.config.ts` / `tsconfig.json` | 三维原型构建与类型检查 |
+| `package.json` / `package-lock.json` | 固定前端依赖与命令 |
+
+维护三维原型需要 Node.js 22（22.12 或更高的 22.x 版本）：
+
+```sh
+npm ci
+npm run dev:prototype
+```
+
+开发服务器地址见命令输出。发布前运行：
+
+```sh
+mkdir -p log
+npm run typecheck > log/prototype-typecheck.log 2>&1
+npm test > log/prototype-test.log 2>&1
+npm run build:prototype > log/prototype-build.log 2>&1
+python3 build.py > log/build.log 2>&1
+```
+
+Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相对路径，可部署在 GitHub Pages 项目子目录。预览完整站点可运行 `python3 -m http.server 8000`，再打开 `http://localhost:8000/`；三维页面为 `http://localhost:8000/3d/`。生成的 `3d/` 不提交，由 Actions 从锁定依赖重新构建。
 
 新增条目使用稳定 `id`，明确 `module`、`kind` 与 `level`。正文字段为 `summary`、`goal`、`prerequisites`、`mechanics`、`execution`、`checks`、`drill`、`mistakes` 和 `citations`；不再使用视频评价字段。
 
