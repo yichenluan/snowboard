@@ -21,8 +21,10 @@ const registry = JSON.parse(inputs['lesson-player/registry.json']);
 if(registry.version!==1 || !Array.isArray(registry.types) || registry.types.some(t=>typeof t!=='string') || new Set(registry.types).size!==registry.types.length) throw new Error('课程三维注册清单格式无效');
 const partialVariants=registry.partialVariants||{};
 if(Object.values(partialVariants).some(v=>!Array.isArray(v)||v.some(item=>typeof item!=='string')))throw new Error('部分迁移变体格式无效');
-const fullyImplementedTypes=new Set(registry.types);
-const implementedTypes = new Set([...registry.types,...Object.keys(partialVariants)]);
+const drylandTypes=registry.drylandTypes||[];
+if(!Array.isArray(drylandTypes)||drylandTypes.some(t=>typeof t!=='string'))throw new Error('离雪迁移类型格式无效');
+const fullyImplementedTypes=new Set([...registry.types,...drylandTypes]);
+const implementedTypes = new Set([...fullyImplementedTypes,...Object.keys(partialVariants)]);
 const implemented=demo=>fullyImplementedTypes.has(demo.type)||Boolean(partialVariants[demo.type]?.includes(demo.variant||''));
 // SnowDemo only registers presets at evaluation time. No DOM, I/O, timers or
 // renderer are supplied: a future module with initialization side effects fails.
@@ -67,6 +69,7 @@ const modelNames = {
   unknown: '未归类',
 };
 const destinationFor = demo => {
+  if(drylandTypes.includes(demo.type))return 'D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md';
   if(implemented(demo)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':['toe-edge','heel-edge','inclination'].includes(demo.type)?'D2':['pressure-flex','pressure-extend','edge-change-up','edge-change-down'].includes(demo.type)?'D4':'D3'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
   if(partialVariants[demo.type]&&!demo.variant)return `D4：仅${partialVariants[demo.type].join('、')}已接入；其他任务仍待独立迁移`;
   if (library.presets[demo.type]?.dry) return 'D6：保留离雪独立动作；逐项审阅后决定 2D / 3D';

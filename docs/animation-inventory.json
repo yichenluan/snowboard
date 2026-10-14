@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "b3f369c3ac14eb669fe61b608ced04528965e474628b98ccd09bebad315db85e",
+    "content.json": "d7e4e0c750d4c354e80a08fde223676545b1256b5cb2408cab640dda271662dd",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
     "app.js": "ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67",
-    "lesson-player/registry.json": "e9ab22a9b31102c89f03b85d13fff42167f9776504adc2f8c39d45a4c2353f3e"
+    "lesson-player/registry.json": "9ea44f2d6fb1abc9efe693bd8d241c830d094edef0efa573446600ac625160c6"
   },
   "scope": "静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确",
   "counts": {
@@ -19,16 +19,16 @@
     "registeredTypes": 37,
     "referencedTypes": 35,
     "applicationVariantKeys": 70,
-    "presentationConfigurations": 86,
+    "presentationConfigurations": 89,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 14,
-    "fullyImplemented3DTypes": 12,
+    "implemented3DTypes": 18,
+    "fullyImplemented3DTypes": 16,
     "partiallyImplemented3DTypes": 2,
-    "implemented3DReferences": 53,
-    "remainingLegacyReferences": 81,
-    "replacedLegacyReferences": 53
+    "implemented3DReferences": 65,
+    "remainingLegacyReferences": 69,
+    "replacedLegacyReferences": 65
   },
   "modules": [
     {
@@ -562,7 +562,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "dry-plank",
@@ -592,7 +592,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "dry-wall-edge",
@@ -607,7 +607,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "ankle-mobility",
@@ -681,7 +681,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "pedalling",
@@ -1780,10 +1780,23 @@
       ],
       "configurations": [
         {
+          "task": "bodyweight-squat",
+          "type": "dry-squat"
+        },
+        {
+          "task": "supported-shallow-squat",
+          "type": "dry-squat"
+        },
+        {
+          "task": "warmup-shallow",
+          "type": "dry-squat"
+        },
+        {
+          "task": "shoe-knee-baseline",
           "type": "dry-squat"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "dry-calf-raise",
@@ -1793,10 +1806,11 @@
       ],
       "configurations": [
         {
+          "task": "bilateral-calf-raise",
           "type": "dry-calf-raise"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "dry-plank",
@@ -1819,10 +1833,11 @@
       ],
       "configurations": [
         {
+          "task": "bilateral-ankle-rock",
           "type": "dry-wall-edge"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "ankle-mobility",
@@ -1870,11 +1885,12 @@
       ],
       "configurations": [
         {
+          "task": "shallow-hold",
           "type": "dry-squat",
           "variant": "hold"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "dry-shoulder-rolls",
@@ -1884,10 +1900,11 @@
       ],
       "configurations": [
         {
+          "task": "shoulder-rolls",
           "type": "dry-shoulder-rolls"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "shoulder-coordination",
@@ -4823,31 +4840,14 @@
       "config": {
         "type": "dry-squat",
         "focus": "建立可以下降、停住、返回的屈伸控制，为非雪力量训练打基础。",
-        "steps": [
-          {
-            "label": "站立准备",
-            "detail": "脚掌支撑，自然膝轨迹。"
-          },
-          {
-            "label": "受控下降",
-            "detail": "髋后下移，踝膝配合。"
-          },
-          {
-            "label": "合适深度",
-            "detail": "脚跟不抬，背部不失控。"
-          },
-          {
-            "label": "平稳起身",
-            "detail": "髋躯干一起升高，呼吸不中断。"
-          }
-        ],
         "autoplay": false,
         "duration": 10000,
-        "title": "自重深蹲：脚掌踩稳，髋膝踝一起动 · 动作示意"
+        "title": "自重深蹲：脚掌踩稳，髋膝踝一起动 · 动作示意",
+        "task": "bodyweight-squat"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-strength/2",
@@ -4859,32 +4859,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-calf-raise",
-        "focus": "保持足踝对齐、连续控制和两侧均衡，在非雪条件下发展小腿能力。",
-        "steps": [
-          {
-            "label": "双脚支撑",
-            "detail": "扶稳支撑，踝自然。"
-          },
-          {
-            "label": "缓慢提踵",
-            "detail": "脚跟升起，脚掌球部保留接触。"
-          },
-          {
-            "label": "短暂停留",
-            "detail": "避免踝向内外塌。"
-          },
-          {
-            "label": "受控下降",
-            "detail": "脚跟缓慢回地，不砸落。"
-          }
-        ],
+        "focus": "普通鞋轻扶稳椅：先把支撑移向前掌，再双跟抬起、短停、受控回地；与雪上前刃站姿分开。",
         "autoplay": false,
         "duration": 10000,
-        "title": "双脚提踵：慢慢抬跟，也慢慢放下 · 动作示意"
+        "title": "双脚提踵：慢慢抬跟，也慢慢放下 · 动作示意",
+        "task": "bilateral-calf-raise"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-strength/3",
@@ -4933,32 +4916,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-wall-edge",
-        "focus": "辨认受控踝背屈，并把这种活动感迁移到雪靴内的小幅前刃控制。",
-        "steps": [
-          {
-            "label": "轻扶支撑",
-            "detail": "全脚掌接地，肩髋自然。"
-          },
-          {
-            "label": "小幅屈踝膝",
-            "detail": "膝沿脚趾方向前移，脚跟不抬。"
-          },
-          {
-            "label": "维持可控",
-            "detail": "能正常呼吸，无关节疼痛。"
-          },
-          {
-            "label": "返回中立",
-            "detail": "平稳返回起点，不弹直膝盖。"
-          }
-        ],
+        "focus": "普通鞋双脚并列、全掌留地、双手轻扶墙；观察小腿前移，不演示雪靴内的前刃动作。",
         "autoplay": false,
         "duration": 10000,
-        "title": "扶墙屈踝：小腿向前，脚跟留地 · 动作示意"
+        "title": "扶墙屈踝：小腿向前，脚跟留地 · 动作示意",
+        "task": "bilateral-ankle-rock"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-heel-rehearsal/1",
@@ -4970,32 +4936,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-squat",
-        "focus": "学会髋向后下方移动时仍保留足底支撑，并能受控返回。",
-        "steps": [
-          {
-            "label": "稳定站立",
-            "detail": "脚掌完整支撑。"
-          },
-          {
-            "label": "小幅下降",
-            "detail": "髋膝踝共同活动，保持平衡。"
-          },
-          {
-            "label": "保留余量",
-            "detail": "不坐到失衡、不锁膝拉伸。"
-          },
-          {
-            "label": "平稳返回",
-            "detail": "髋躯干一起恢复。"
-          }
-        ],
+        "focus": "普通鞋下小幅协调髋膝踝，双手轻扶稳椅；此段不复制雪上后刃的动态平衡。",
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃动作预习：屁股后下移，身体保持平衡 · 动作示意"
+        "title": "普通鞋浅蹲预习：双手轻扶稳椅",
+        "task": "supported-shallow-squat"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-flexibility/1",
@@ -5119,32 +5068,15 @@
       "config": {
         "type": "dry-squat",
         "focus": "练习在低幅负荷下维持位置与呼吸，识别姿态开始失控的信号。",
-        "steps": [
-          {
-            "label": "舒适站距",
-            "detail": "不用强行宽站距。"
-          },
-          {
-            "label": "小幅下降",
-            "detail": "脚掌完整支撑，膝髋协调。"
-          },
-          {
-            "label": "短时保持",
-            "detail": "呼吸正常，关节没有疼痛。"
-          },
-          {
-            "label": "及时结束",
-            "detail": "在失控前受控站起。"
-          }
-        ],
         "variant": "hold",
         "autoplay": false,
         "duration": 10000,
-        "title": "浅半蹲保持：能呼吸，也能随时站起 · 动作示意"
+        "title": "浅半蹲保持：能呼吸，也能随时站起 · 动作示意",
+        "task": "shallow-hold"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-calf/1",
@@ -5156,32 +5088,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-calf-raise",
-        "focus": "保持足踝对齐、连续控制和两侧均衡，在非雪条件下发展小腿能力。",
-        "steps": [
-          {
-            "label": "双脚支撑",
-            "detail": "扶稳支撑，踝自然。"
-          },
-          {
-            "label": "缓慢提踵",
-            "detail": "脚跟升起，脚掌球部保留接触。"
-          },
-          {
-            "label": "短暂停留",
-            "detail": "避免踝向内外塌。"
-          },
-          {
-            "label": "受控下降",
-            "detail": "脚跟缓慢回地，不砸落。"
-          }
-        ],
+        "focus": "普通鞋轻扶稳椅：先把支撑移向前掌，再双跟抬起、短停、受控回地；与雪上前刃站姿分开。",
         "autoplay": false,
         "duration": 10000,
-        "title": "双脚提踵：慢慢抬跟，也慢慢放下 · 动作示意"
+        "title": "双脚提踵：慢慢抬跟，也慢慢放下 · 动作示意",
+        "task": "bilateral-calf-raise"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-squat/1",
@@ -5194,31 +5109,14 @@
       "config": {
         "type": "dry-squat",
         "focus": "建立可以下降、停住、返回的屈伸控制，为非雪力量训练打基础。",
-        "steps": [
-          {
-            "label": "站立准备",
-            "detail": "脚掌支撑，自然膝轨迹。"
-          },
-          {
-            "label": "受控下降",
-            "detail": "髋后下移，踝膝配合。"
-          },
-          {
-            "label": "合适深度",
-            "detail": "脚跟不抬，背部不失控。"
-          },
-          {
-            "label": "平稳起身",
-            "detail": "髋躯干一起升高，呼吸不中断。"
-          }
-        ],
         "autoplay": false,
         "duration": 10000,
-        "title": "自重深蹲：脚掌踩稳，髋膝踝一起动 · 动作示意"
+        "title": "自重深蹲：脚掌踩稳，髋膝踝一起动 · 动作示意",
+        "task": "bodyweight-squat"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-plank/1",
@@ -5378,32 +5276,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-shoulder-rolls",
-        "focus": "在上雪前活动肩部，辨认肩部活动与整条手臂甩动的区别。",
-        "steps": [
-          {
-            "label": "站稳放松",
-            "detail": "手臂自然垂下。"
-          },
-          {
-            "label": "前向绕肩",
-            "detail": "肩的小幅圆周活动，不甩整条手臂。"
-          },
-          {
-            "label": "反向绕肩",
-            "detail": "舒适范围内后绕。"
-          },
-          {
-            "label": "恢复",
-            "detail": "肩自然放松，继续呼吸。"
-          }
-        ],
+        "focus": "站定拆解肩带前后绕动，手臂自然垂放；完整热身还可配合踏步。",
         "autoplay": false,
         "duration": 10000,
-        "title": "肩绕环热身：肩膀画小圈，手臂放松 · 动作示意"
+        "title": "肩绕环热身：肩膀画小圈，手臂放松 · 动作示意",
+        "task": "shoulder-rolls"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-warmup/1",
@@ -5415,32 +5296,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-shoulder-rolls",
-        "focus": "在上雪前活动肩部，辨认肩部活动与整条手臂甩动的区别。",
-        "steps": [
-          {
-            "label": "站稳放松",
-            "detail": "手臂自然垂下。"
-          },
-          {
-            "label": "前向绕肩",
-            "detail": "肩的小幅圆周活动，不甩整条手臂。"
-          },
-          {
-            "label": "反向绕肩",
-            "detail": "舒适范围内后绕。"
-          },
-          {
-            "label": "恢复",
-            "detail": "肩自然放松，继续呼吸。"
-          }
-        ],
+        "focus": "站定拆解肩带前后绕动，手臂自然垂放；完整热身还可配合踏步。",
         "autoplay": false,
         "duration": 10000,
-        "title": "肩绕环热身：肩膀画小圈，手臂放松 · 动作示意"
+        "title": "肩绕环热身：肩膀画小圈，手臂放松 · 动作示意",
+        "task": "shoulder-rolls"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-warmup/2",
@@ -5452,32 +5316,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-squat",
-        "focus": "只做舒适的小幅屈伸，逐渐活动起来；动画不规定当天训练深度或组数。",
-        "steps": [
-          {
-            "label": "稳定站立",
-            "detail": "脚掌完整支撑。"
-          },
-          {
-            "label": "小幅下降",
-            "detail": "髋膝踝共同活动，保持平衡。"
-          },
-          {
-            "label": "保留余量",
-            "detail": "不坐到失衡、不锁膝拉伸。"
-          },
-          {
-            "label": "平稳返回",
-            "detail": "髋躯干一起恢复。"
-          }
-        ],
+        "focus": "普通鞋小幅屈伸往返，逐渐活动起来；不规定当天训练深度或组数。",
         "autoplay": false,
         "duration": 10000,
-        "title": "热身示例：小幅屈伸"
+        "title": "热身示例：小幅屈伸",
+        "task": "warmup-shallow"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-warmup/3",
@@ -5489,32 +5336,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-wall-edge",
-        "focus": "辨认受控踝背屈，并把这种活动感迁移到雪靴内的小幅前刃控制。",
-        "steps": [
-          {
-            "label": "轻扶支撑",
-            "detail": "全脚掌接地，肩髋自然。"
-          },
-          {
-            "label": "小幅屈踝膝",
-            "detail": "膝沿脚趾方向前移，脚跟不抬。"
-          },
-          {
-            "label": "维持可控",
-            "detail": "能正常呼吸，无关节疼痛。"
-          },
-          {
-            "label": "返回中立",
-            "detail": "平稳返回起点，不弹直膝盖。"
-          }
-        ],
+        "focus": "普通鞋双脚并列、全掌留地、双手轻扶墙；观察小腿前移，不演示雪靴内的前刃动作。",
         "autoplay": false,
         "duration": 10000,
-        "title": "扶墙屈踝：小腿向前，脚跟留地 · 动作示意"
+        "title": "扶墙屈踝：小腿向前，脚跟留地 · 动作示意",
+        "task": "bilateral-ankle-rock"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-warmup/4",
@@ -5549,32 +5379,15 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-squat",
-        "focus": "在固定脚朝向下保持可控膝轨迹，避免为了姿态外观强迫内夹或外撑。",
-        "steps": [
-          {
-            "label": "自然站距",
-            "detail": "两脚朝向与髋的舒适范围一致。"
-          },
-          {
-            "label": "协调屈曲",
-            "detail": "膝沿脚方向活动，不向内硬扣。"
-          },
-          {
-            "label": "保留脚掌支撑",
-            "detail": "踝不塌，髋和膝一起控制。"
-          },
-          {
-            "label": "返回检查",
-            "detail": "无疼痛，能重复。"
-          }
-        ],
+        "focus": "只展示本课的普通鞋基线；穿靴及扣板复查留在后续实际练习，不能由此画面替代。",
         "autoplay": false,
         "duration": 10000,
-        "title": "膝盖怎么走：顺着脚的自然方向屈伸 · 动作示意"
+        "title": "普通鞋基线：膝沿脚向小幅屈伸",
+        "task": "shoe-knee-baseline"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v24-heel-edge/1",

@@ -32,7 +32,7 @@ const mid = (a: Vec3, b: Vec3): Vec3 => [
   (a[2] + b[2]) / 2,
 ];
 
-function Segment({
+export function Segment({
   a,
   b,
   r = 0.045,
@@ -66,7 +66,7 @@ function Segment({
     </mesh>
   );
 }
-function Ball({
+export function Ball({
   position,
   r = 0.04,
   color,
@@ -790,7 +790,7 @@ function Snow({
     </>
   );
 }
-class SceneBoundary extends Component<
+export class SceneBoundary extends Component<
   { children: ReactNode; fallback?: ReactNode },
   { failed: boolean }
 > {

@@ -16,12 +16,12 @@
 | 无动作/装备图课程 | 12 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
 | 已注册 / 有引用的类型 | 37 / 35 | SnowDemo.types；类型不是互不共享的独立实现 |
 | 应用变体键 | 70 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 86 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 展示配置组合 | 89 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 14 / 53 | 按注册表已切换默认渲染；不代表教学认证 |
-| 全量 / 部分接入类型 | 12 / 2 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
-| 剩余旧动画引用 | 81 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 18 / 65 | 按注册表已切换默认渲染；不代表教学认证 |
+| 全量 / 部分接入类型 | 16 / 2 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
+| 剩余旧动画引用 | 69 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -125,15 +125,15 @@
 | `rotation` | 同向协调旋转：下肢引导、上身跟进 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `counter-rotation` | 反向旋转：特定任务的短时分离 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `switch` | 反脚滑行：原后脚变成前脚 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `dry-squat` | 离雪自重深蹲：髋膝协调、全脚掌支撑 | 离雪站立关节模型 | 6 / 2 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-squat` | 离雪自重深蹲：髋膝协调、全脚掌支撑 | 离雪站立关节模型 | 6 / 2 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-plank` | 离雪前平板支撑：肘在肩下、躯干一线 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-calf-raise` | 离雪提踵：抬脚跟、缓慢下放 | 离雪站立关节模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-wall-edge` | 离雪扶墙前刃体感：踝膝髋协调 | 离雪站立关节模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-calf-raise` | 离雪提踵：抬脚跟、缓慢下放 | 离雪站立关节模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
+| `dry-wall-edge` | 离雪扶墙前刃体感：踝膝髋协调 | 离雪站立关节模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `ankle-mobility` | 扶墙小腿伸展：后脚跟留在地面 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `hip-mobility` | 半跪髋屈肌伸展：骨盆控制、躯干直立 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `dry-hamstring` | 仰卧动态腘绳肌活动：托腿、慢伸膝 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `mixed-rotation` | 肩部节奏组合：前刃反拧 → 回到居中位置 → 后刃协调 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `dry-shoulder-rolls` | 离雪肩部绕环：放松双臂、小幅活动 | 离雪站立关节模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-shoulder-rolls` | 离雪肩部绕环：放松双臂、小幅活动 | 离雪站立关节模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `pedalling`（同帧：twist） | 踩踏式协调：前后脚逐步配合 | 雪上关键帧 + 双腿 IK | 0 / 0 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `short-turns` | 普通搓雪小回转：圆弯、持续引导 | 小回转共享时序/轨迹 + 双腿 IK | 20 / 11 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `short-turn-progression` | 侧滑接单个换刃弯 | 小回转共享时序/轨迹 + 双腿 IK | 9 / 6 | D5：按变体独立审阅后接入共享 3D；待迁移 |
@@ -204,15 +204,15 @@
 | `short-turns:low-stuck` | s-short-diagnosis/6 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `short-turns:round:retract` | s-short-diagnosis/7、s-short-adapt/3 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `short-turns:over-inclined` | s-short-diagnosis/10 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `dry-squat` | v22-strength/1、v22-heel-rehearsal/1、v22-squat/1、s22-warmup/2、v23-knees/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-calf-raise` | v22-strength/2、v22-calf/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-squat` | v22-strength/1、v22-heel-rehearsal/1、v22-squat/1、s22-warmup/2、v23-knees/1 | 4 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
+| `dry-calf-raise` | v22-strength/2、v22-calf/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-plank` | v22-strength/3、v22-plank/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-wall-edge` | v22-wall/1、s22-warmup/3 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-wall-edge` | v22-wall/1、s22-warmup/3 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `ankle-mobility` | v22-flexibility/1、s22-ankle-mobility/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `hip-mobility` | v22-flexibility/2、s22-hip-mobility/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `dry-hamstring` | v22-flexibility/3、s22-hamstring/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-squat:hold` | v22-hold/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-squat:hold` | v22-hold/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
+| `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `pressure-extend` | v21-linear/1 | 1 | D4：仅phase-study已接入；其他任务仍待独立迁移 |
 
@@ -458,8 +458,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | b3f369c3ac14eb669fe61b608ced04528965e474628b98ccd09bebad315db85e |
+| content.json | d7e4e0c750d4c354e80a08fde223676545b1256b5cb2408cab640dda271662dd |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
-| lesson-player/registry.json | e9ab22a9b31102c89f03b85d13fff42167f9776504adc2f8c39d45a4c2353f3e |
+| lesson-player/registry.json | 9ea44f2d6fb1abc9efe693bd8d241c830d094edef0efa573446600ac625160c6 |
 

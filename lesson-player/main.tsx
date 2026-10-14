@@ -4,8 +4,10 @@ import { TeachingScene, type View } from "../prototype/scene";
 import { boardToWorld, type MotionState, type Stance, type Vec3 } from "../prototype/motion";
 import { LESSON_TYPES, canRenderLesson, lessonTrail, sampleLesson, type LessonConfig } from "./motion";
 import { LessonDiagnostics } from "./diagnostics";
+import { usePlayback, PlaybackControls, type PlayerApi } from "./player-controls";
+import { DrylandPlayer, canRenderDryland } from "./dryland-player";
+import registry from "./registry.json";
 
-type PlayerApi = { destroy():void; play():void; pause():void; seek(t:number):void; setView(view:string):void; element:HTMLElement };
 declare global { interface Window { SnowLesson3D: { types: readonly string[]; canRender(config:LessonConfig):boolean; mount(container: HTMLElement|string, config: LessonConfig):PlayerApi } } }
 const edges={toe:"前刃 · 脚尖侧",heel:"后刃 · 脚跟侧",flat:"接近平板"};
 const views: [View,string][]=[["follow","斜视"],["side","看前后平衡"],["front","看两刃成角"],["boots","雪靴近景"]];
@@ -79,34 +81,19 @@ function DirectionComparison({state}:{state:MotionState}) {
   </svg>;
 }
 function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi>}}) {
-  const [time,setTime]=useState(0),[playing,setPlaying]=useState(false),[speed,setSpeed]=useState(.65);
+  const root=useRef<HTMLDivElement>(null);
+  const duration=Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
+  const clock=usePlayback(duration,root,api),{time,setPlaying,seek}=clock;
   const [stance,setStance]=useState<Stance>(config.stance??"regular");
   const [fromEdge,setFromEdge]=useState<"toe"|"heel">(config.fromEdge??"heel");
   const sampledConfig=useMemo(()=>({...config,fromEdge}),[config,fromEdge]);
   const [view,setView]=useState<View>(toView(config.view)),[reset,setReset]=useState(0);
   const [skeleton,setSkeleton]=useState(Boolean(config.jointLabels)),[touchRotate,setTouchRotate]=useState(false),[flat,setFlat]=useState(false);
   const [expanded,setExpanded]=useState(false);
-  const root=useRef<HTMLDivElement>(null);
   const dialog=useRef<HTMLDialogElement>(null),expandButton=useRef<HTMLButtonElement>(null);
   const frame=useMemo(()=>sampleLesson(time,sampledConfig,stance),[time,sampledConfig,stance]);
   const trail=useMemo(()=>lessonTrail(sampledConfig,stance),[sampledConfig,stance]);
-  const duration=Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
-  const play=()=>{if(time>=1)setTime(0);setPlaying(true);};
-  const seek=(t:number)=>{setPlaying(false);setTime(Math.max(0,Math.min(1,Number.isFinite(t)?t:0)));};
-  api.current={...api.current,play,pause:()=>setPlaying(false),seek,setView:(v:string)=>{setView(toView(v));setReset(n=>n+1);}};
-  useEffect(()=>{
-    if(!playing)return;
-    let last=performance.now(),id=0;
-    const tick=(now:number)=>{const delta=Math.min(now-last,60);last=now;setTime(t=>{const next=t+delta*speed/duration;if(next>=1){setPlaying(false);return 1;}return next;});id=requestAnimationFrame(tick);};
-    id=requestAnimationFrame(tick);return()=>cancelAnimationFrame(id);
-  },[playing,speed,duration]);
-  useEffect(()=>{
-    const visibility=()=>{if(document.hidden)setPlaying(false);};
-    document.addEventListener("visibilitychange",visibility);
-    const observer=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)setPlaying(false);});
-    if(root.current)observer.observe(root.current);
-    return()=>{observer.disconnect();document.removeEventListener("visibilitychange",visibility);};
-  },[]);
+  api.current.setView=(v:string)=>{setView(toView(v));setReset(n=>n+1);};
   useEffect(()=>{
     if(expanded) dialog.current?.showModal();
     else if(dialog.current?.open) {dialog.current.close();expandButton.current?.focus();}
@@ -118,7 +105,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     <div className="sl3-views" role="group" aria-label="观察视角">{views.map(([v,label])=><button key={v} onClick={()=>{setView(v);setFlat(false);setReset(n=>n+1);}} aria-pressed={!flat&&view===v}>{label}</button>)}<button aria-pressed={flat} onClick={()=>setFlat(v=>!v)}>平面骨架</button></div>
     <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail}/>}</div>
     <div className="sl3-status"><strong>{edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
-    <div className="sl3-play"><button onClick={()=>playing?setPlaying(false):play()}>{playing?"暂停":time>=1?"重新播放":"播放"}</button><input aria-label="动作进度" type="range" min="0" max="1000" value={Math.round(time*1000)} onChange={e=>seek(Number(e.target.value)/1000)}/><label>速度 <select aria-label="播放速度" value={speed} onChange={e=>setSpeed(Number(e.target.value))}><option value="0.35">慢放</option><option value="0.65">分解</option><option value="1">正常</option></select></label></div>
+    <PlaybackControls clock={clock}/>
     <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>前脚 <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
     {frame.task==="single-transition"&&!config.fromEdge&&<div className="sl3-options"><label>转换方向 <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">后刃 → 前刃</option><option value="toe">前刃 → 后刃</option></select></label></div>}
     <p className="sl3-hint sl3-input-help">鼠标拖动旋转、滚轮缩放；再次点视角复位。触屏旋转关闭时可滚动页面。</p>
@@ -139,7 +126,7 @@ function mount(target:HTMLElement|string,config:LessonConfig):PlayerApi {
   const element=document.createElement("div");container.replaceChildren(element);
   const root=createRoot(element),ref:{current:Partial<PlayerApi>}={current:{}};
   let destroyed=false;
-  root.render(<Player config={config} api={ref}/>);
+  root.render(canRenderDryland(config)?<DrylandPlayer config={config} api={ref}/>:<Player config={config} api={ref}/>);
   return {element,play:()=>ref.current.play?.(),pause:()=>ref.current.pause?.(),seek:t=>ref.current.seek?.(t),setView:v=>ref.current.setView?.(v),destroy:()=>{if(destroyed)return;destroyed=true;root.unmount();element.remove();}};
 }
-window.SnowLesson3D={types:LESSON_TYPES,canRender:canRenderLesson,mount};
+window.SnowLesson3D={types:[...LESSON_TYPES,...registry.drylandTypes],canRender:c=>canRenderLesson(c)||canRenderDryland(c),mount};
