@@ -55,10 +55,12 @@ function Segment({
         args={[r, Math.max(0.001, direction.length() - r * 2), 5, 10]}
       />
       <meshStandardMaterial
+        key={transparent ? "xray" : "solid"}
         color={color}
         roughness={0.75}
         transparent={transparent}
         opacity={transparent ? 0.36 : 1}
+        depthWrite={!transparent}
       />
     </mesh>
   );
@@ -277,9 +279,11 @@ function Rider({
       >
         <sphereGeometry args={[1, 24, 16]} />
         <meshStandardMaterial
+          key={xray ? "xray" : "solid"}
           color={C.body}
           transparent={xray}
           opacity={xray ? 0.32 : 1}
+          depthWrite={!xray}
         />
       </mesh>
       <mesh
@@ -289,9 +293,11 @@ function Rider({
       >
         <sphereGeometry args={[1, 24, 16]} />
         <meshStandardMaterial
+          key={xray ? "xray" : "solid"}
           color={C.pants}
           transparent={xray}
           opacity={xray ? 0.32 : 1}
+          depthWrite={!xray}
         />
       </mesh>
       <Segment a={j.chest} b={j.neck} r={0.065} color="#dcb18e" />
@@ -483,7 +489,7 @@ function CameraRig({
   stateRef.current = state;
   const poseCamera = () => {
     const s = stateRef.current,
-      target = V(s.board.position).add(new THREE.Vector3(0, 0.8, 0)),
+      target = V(s.board.position).add(new THREE.Vector3(0, 0.64, 0)),
       yaw = s.board.yaw;
     const offset =
       view === "front"
