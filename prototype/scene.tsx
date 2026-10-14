@@ -453,12 +453,12 @@ function Rider({
             color="#b5914b"
             dashed
           />
-          <Arrow
+          {Math.hypot(...state.travel) > 0.001 && <Arrow
             from={add(b.position, [0, 0.03, 0])}
             direction={state.travel}
             length={0.85}
             color="#3c768c"
-          />
+          />}
         </>
       )}
     </>
@@ -730,6 +730,7 @@ function JointLabels({
       );
       label.style.transform = "translate(" + x + "px," + y + "px)";
       label.style.display =
+        Math.abs(projected.x)>1 || Math.abs(projected.y)>1 || projected.z>1 ||
         layer === "force" && i === 2 && Math.abs(slip) <= 0.06
           ? "none"
           : "block";
@@ -790,7 +791,7 @@ function Snow({
   );
 }
 class SceneBoundary extends Component<
-  { children: ReactNode },
+  { children: ReactNode; fallback?: ReactNode },
   { failed: boolean }
 > {
   state = { failed: false };
@@ -798,13 +799,13 @@ class SceneBoundary extends Component<
     return { failed: true };
   }
   render() {
-    return this.state.failed ? (
+    return this.state.failed ? (this.props.fallback ?? (
       <div className="scene-fallback">
         <strong>当前设备未能打开三维画面</strong>
         <p>仍可使用轨迹、阶段说明与下方练习。</p>
         <a href="../#lesson=s-short-integrated">打开原有示意 →</a>
       </div>
-    ) : (
+    )) : (
       this.props.children
     );
   }
@@ -822,6 +823,8 @@ export function TeachingScene({
   motion,
   reset,
   touchRotate,
+  fallback,
+  supportRail,
 }: {
   state: MotionState;
   trail: Vec3[];
@@ -835,9 +838,11 @@ export function TeachingScene({
   motion: boolean;
   reset: number;
   touchRotate: boolean;
+  fallback?: ReactNode;
+  supportRail?: [Vec3, Vec3];
 }) {
   return (
-    <SceneBoundary>
+    <SceneBoundary fallback={fallback}>
       <Canvas
         frameloop="demand"
         dpr={[1, 1.7]}
@@ -847,7 +852,7 @@ export function TeachingScene({
           alpha: false,
           powerPreference: "high-performance",
         }}
-        fallback={
+        fallback={fallback ??
           <div className="scene-fallback">
             设备暂不支持三维显示；可继续查看轨迹和分阶段说明。
           </div>
@@ -860,6 +865,7 @@ export function TeachingScene({
         <hemisphereLight args={["#fbf8ea", "#6e8779", 1.8]} />
         <directionalLight position={[-3, 7, 4]} intensity={2.3} />
         <Snow trail={trail} time={time} mode={mode} />
+        {supportRail&&<group><Segment a={supportRail[0]} b={supportRail[1]} r={0.024} color="#7c817a"/>{supportRail.map((p,i)=><Segment key={i} a={[p[0],0,p[2]]} b={p} r={0.024} color="#7c817a"/>)}</group>}
         <mesh
           position={[state.board.position[0], 0.001, state.board.position[2]]}
           rotation={[-Math.PI / 2, 0, 0]}

@@ -57,9 +57,14 @@ jobs:
             tail -n 80 prototype-build.log
             exit 1
           fi
+          if ! npm run build:lessons > lessons-build.log 2>&1; then
+            tail -n 80 lessons-build.log
+            exit 1
+          fi
 
       - name: Build self-contained HTML
         run: |
+          node scripts/inventory-animations.mjs --check
           if ! python3 build.py > build.log 2>&1; then
             tail -n 80 build.log
             exit 1

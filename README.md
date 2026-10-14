@@ -6,11 +6,11 @@
 
 ## 打开与使用
 
-用浏览器打开 `snowboard-guide.html`。正文、原有关节小人、阶段图和交互图都在一个文件中，不需要安装、服务器或联网。新增三维原型和资料链接需要联网打开；保存的单文件 HTML 也保留三维原型的在线入口。
+用浏览器打开 `snowboard-guide.html`。正文、课内三维、阶段图和交互图都打包在一个文件中；课内动作无外部模型或脚本请求。无 WebGL 时保留同源可播放骨架。独立小回转原型和资料链接需要联网；保存的 HTML 保留这些在线入口。
 
 ## 搓雪小回转三维原型
 
-[打开三维动作实验室](https://yichenluan.github.io/snowboard-guide/3d/)：本轮仅升级一组完整原型，包含正确示范、错误对照和侧滑接单弯练习。重点是同步观察身体姿态、板刃、滑行方向和动作转换；其他课程继续使用原有示意。主站首页及对应三课均有入口。
+[打开三维动作实验室](https://yichenluan.github.io/snowboard-guide/3d/)：包含正确示范、错误对照和侧滑接单弯练习。课内第一批已接入 6 类型、28 个引用，覆盖中立屈伸、前后平衡、两刃姿态、内倾与成角；其余 106 个引用继续逐项迁移。主站首页及小回转对应三课仍有独立原型入口。
 
 原型采用 Three.js 与 React Three Fiber，人体和场景在代码中生成，不请求外部模型、字体或 CDN 脚本。需要浏览器支持图形渲染；加载的三维动作是教学用定性示意，不给出个人肌肉力值或压力百分比。它是独立网页，不打包进单文件离线教材。
 
@@ -53,9 +53,10 @@
 
 ## 维护源码
 
-教材内容维护入口为 `content.json`。修改后运行：
+教材内容维护入口为 `content.json`。首次或三维源码变化后先构建课内程序，再生成 HTML：
 
 ```sh
+npm run build:lessons
 python3 build.py
 ```
 
@@ -70,6 +71,7 @@ python3 build.py
 | `shell.html` | 页面模板 |
 | `build.py` | 生成单文件 HTML |
 | `prototype/` | 三维原型的页面、动作模型与交互 |
+| `lesson-player/` | 课内三维任务、播放器、同源降级和旧接口桥接 |
 | `tests/` | 原型动作与教学约束的检查 |
 | `vite.config.ts` / `tsconfig.json` | 三维原型构建与类型检查 |
 | `package.json` / `package-lock.json` | 固定前端依赖与命令 |
@@ -88,7 +90,9 @@ mkdir -p log
 npm run typecheck > log/prototype-typecheck.log 2>&1
 npm test > log/prototype-test.log 2>&1
 npm run build:prototype > log/prototype-build.log 2>&1
+npm run build:lessons > log/lessons-build.log 2>&1
 python3 build.py > log/build.log 2>&1
+node scripts/inventory-animations.mjs --check
 ```
 
 Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相对路径，可部署在 GitHub Pages 项目子目录。预览完整站点可运行 `python3 -m http.server 8000`，再打开 `http://localhost:8000/`；三维页面为 `http://localhost:8000/3d/`。生成的 `3d/` 不提交，由 Actions 从锁定依赖重新构建。
@@ -129,6 +133,6 @@ Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相�
 
 ## 后刃与换刃复核资料
 
-本轮仅修订三维原型，未替换旧动画。查看 [证据与适用边界](docs/teaching-research.md)、[原型问题与验收](docs/prototype-review.md)、[全站动画清单](docs/animation-inventory.md)。全站共134个旧动画引用及2个装备交互图，不能把102课当成102套独立动画。
+全站迁移范围为134个动画引用及2个装备交互图，不能把102课当成102套独立动画。首批28个引用已切换为课内三维，验收与局限见 [课程播放器审阅](docs/lesson-player-review.md)、[基础研究](docs/lesson-foundations-research.md)、[进阶研究](docs/lesson-advanced-research.md)、[离雪研究](docs/lesson-dryland-research.md)及 [全站清单](docs/animation-inventory.md)。原型的历史证据和验收仍分别保存在原有文档。
 
 清单可复现：`node scripts/inventory-animations.mjs`；仅检查：`node scripts/inventory-animations.mjs --check`。原型更新仍须完成实际多视角与连续阶段审阅，不能仅凭测试通过判定教学正确。

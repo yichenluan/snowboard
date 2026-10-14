@@ -1,14 +1,22 @@
 """将可维护源码打包为完全离线的单文件 HTML。"""
 import json
+import re
 from pathlib import Path
 
 root = Path(__file__).resolve().parent
 data = json.loads((root / "content.json").read_text())
 html = (root / "shell.html").read_text()
+runtime_path = root / ".validation/lesson-player-build/runtime.js"
+if not runtime_path.is_file():
+    raise SystemExit("缺少课程三维程序，请先运行 npm run build:lessons")
+# Inline classic script: no module fetch, external model, font or CDN dependency.
+runtime = re.sub(r"</script", r"<\\/script", runtime_path.read_text(), flags=re.IGNORECASE)
 replacements = {
-    "/* GUIDE_STYLE */": (root / "styles.css").read_text() + "\n" + (root / "progression.css").read_text(),
+    "/* GUIDE_STYLE */": "\n".join((root / name).read_text() for name in ["styles.css", "progression.css", "lesson-player/styles.css"]),
     "/* GUIDE_DATA */": json.dumps(data, ensure_ascii=False).replace("<", "\\u003c"),
     "/* GUIDE_ANIMATIONS */": (root / "animations.js").read_text(),
+    "/* GUIDE_LESSON_RUNTIME */": runtime,
+    "/* GUIDE_LESSON_BRIDGE */": (root / "lesson-player/bridge.js").read_text(),
     "/* GUIDE_PROGRESSION */": (root / "progression.js").read_text(),
     "/* GUIDE_APP */": (root / "app.js").read_text(),
 }

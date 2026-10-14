@@ -11,7 +11,7 @@
 ## 日常更新
 
 1. 修改 `content.json` 中的知识点、练习或来源；原有动作示意维护在 `animations.js`，三维小回转原型维护在 `prototype/`。
-2. 在本地运行 `python3 build.py`。如果修改了三维原型，使用 Node.js 22 运行 `npm ci`、`npm run typecheck`、`npm test` 和 `npm run build:prototype`；用本地 HTTP 服务预览主站与 `/3d/`。
+2. 使用 Node.js 22；依赖缺失或锁文件变化时运行 `npm ci`。运行 `npm run typecheck`、`npm test`、`npm run build:prototype`、`npm run build:lessons`，再执行 `python3 build.py`；用本地 HTTP 服务预览主站与 `/3d/`。
 3. 将源码提交并推送到 `main`，等待 Actions 中的 `Deploy snowboard guide` 完成。
 4. 在站点上刷新对应条目，检查新正文及动画。
 
@@ -30,10 +30,12 @@ gh auth setup-git --hostname github.com
 
 ```sh
 mkdir -p log
-python3 build.py > log/build.log 2>&1
 npm run typecheck > log/prototype-typecheck.log 2>&1
 npm test > log/prototype-test.log 2>&1
 npm run build:prototype > log/prototype-build.log 2>&1
+npm run build:lessons > log/lessons-build.log 2>&1
+python3 build.py > log/build.log 2>&1
+node scripts/inventory-animations.mjs --check
 git add content.json app.js animations.js styles.css progression.js progression.css shell.html build.py README.md DEPLOYMENT.md prototype tests package.json package-lock.json tsconfig.json vite.config.ts .github/workflows/pages.yml .gitignore
 git commit -m "improvement(guide): update teaching content"
 git push origin main
@@ -54,7 +56,7 @@ Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，�
 
 建议将这些本地输出加入 `.gitignore`：`_site/`、`3d/`、`build.log`、`log/`、`research/`、`node_modules/`、`__pycache__/`、`*.pyc`。生成的 `index.html` 和 `snowboard-guide.html` 也可忽略，由工作流生成。
 
-离线教材仍是单个 HTML，三维入口在 `file:` 打开时自动指向线上站点。三维原型需通过 HTTP(S) 页面加载，并需要浏览器图形支持；未加入主教材的“保存网页”导出包。原型构建后的依赖全部随站点发布，无需运行时连接 npm 或第三方 CDN。
+离线教材仍是单个 HTML：课内三维使用内联 IIFE、内联样式与程序生成模型，不请求 CDN、外部字体或模型；无 WebGL 时降级为同一状态的可播放骨架。`build.py` 缺少三维构建时会明确失败。独立 `/3d/` 原型在 `file:` 教材中的入口仍指向线上，不加入单文件导出。具体离线与浏览器验收边界见 `docs/lesson-player-review.md`。
 
 笔记、收藏和个人补充仍只保存在访问者自己的浏览器中，推送源码不会上传浏览器记录。发布时使用原始源码构建，不要把“保存网页”导出的个人版本放进仓库。更换域名或清理浏览器前先导出备份。
 

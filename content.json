@@ -11,7 +11,7 @@
     "method": "先说清动作与雪板怎样配合，再给出具体练习、观察方法和下一步。技术依据以CASI、AASI、SBINZ教练教材为主，装备和非雪训练另列一手资料。",
     "coverage": "围绕刻滑和搓雪小回转两条重点路线组织；站姿、立刃、压力、转向等是共同基础，反脚、体能和装备可并行发展。保留原条目ID，已有个人笔记仍能对应。",
     "limitations": "运动感受是教学提示，不等于测量。原创动画是定性运动学示意，没有真实测力、精确个人角度或诊断。专项主题先说明任务与前提，具体个人动作调整需结合现场观察。视频时间只作为来源定位，章节首次课件采样约有±10秒误差。",
-    "contentRevision": 3
+    "contentRevision": 4
   },
   "modules": [
     {
@@ -614,7 +614,8 @@
             }
           ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "stationary"
         }
       ],
       "animationGuide": "把基础微屈和专门低位练习分开；关节标签帮助读者建立身体部位与动作链的对应。",
@@ -816,7 +817,7 @@
         {
           "error": "只把髋顶到前腿外侧",
           "cause": "局部推髋让躯干侧折，未形成可调整的全身位置。",
-          "fix": "缩小幅度，让腿长和身体重心一起变化。",
+          "fix": "缩小幅度，两腿协调屈伸，骨盆与躯干沿板长小幅移动。",
           "check": "两脚仍有效参与，回中不需甩肩。"
         },
         {
@@ -857,7 +858,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "前后重心：调节两脚承重 · 动作示意"
+        "title": "前后重心：调节两脚承重 · 动作示意",
+        "task": "stationary"
       },
       "drill": {
         "terrain": "平地感知后，到能随时停止的缓坡短斜滑。",
@@ -989,7 +991,8 @@
           "title": "前后调节：找到两脚都可用的位置",
           "focus": "这是范围感知，不要求每弯固定做一次前中后",
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "stationary"
         }
       ]
     },
@@ -1066,7 +1069,7 @@
       ],
       "demo": {
         "type": "fore-aft",
-        "focus": "用压力变化感知前后位置",
+        "focus": "观察身体沿板长的小幅移动与回中；实际承重感觉需在练习中验证",
         "steps": [
           {
             "label": "前",
@@ -1084,7 +1087,8 @@
         "variant": "front-center-back",
         "autoplay": false,
         "duration": 10000,
-        "title": "前—中—后：感受两脚承重变化 · 动作示意"
+        "title": "前—中—后：感受两脚承重变化 · 动作示意",
+        "task": "stationary"
       },
       "drill": {
         "terrain": "平地与熟悉缓坡短斜滑；能在试验段后轻松停住。",
@@ -1206,7 +1210,8 @@
         "variant": "toe",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃高低站位：蹲得下，也站得起 · 动作示意"
+        "title": "前刃高低站位：蹲得下，也站得起 · 动作示意",
+        "task": "single-arc"
       },
       "drill": {
         "terrain": "熟悉宽缓压雪雪道，先做前刃单弯。",
@@ -1337,7 +1342,7 @@
             {
               "at": 0.35,
               "label": "观察平衡状态",
-              "detail": "看绿色近似重心、髋与肩，体会整体倾入和关节折角的差别。"
+              "detail": "看近似质心标记、髋与肩，体会整体倾入和关节折角的差别。"
             },
             {
               "at": 0.82,
@@ -1346,7 +1351,8 @@
             }
           ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "edge-release-study"
         },
         {
           "type": "inclination",
@@ -1370,7 +1376,7 @@
             {
               "at": 0.35,
               "label": "观察平衡状态",
-              "detail": "看绿色近似重心、髋与肩，体会整体倾入和关节折角的差别。"
+              "detail": "看近似质心标记、髋与肩，体会整体倾入和关节折角的差别。"
             },
             {
               "at": 0.82,
@@ -1379,7 +1385,8 @@
             }
           ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "edge-release-study"
         }
       ],
       "animationGuide": "让读者看到同一刃角可以由不同的整体倾斜和关节折角组合产生，而不是只背“主动/被动”两个术语。两幅都是低幅机制对照，不能在静止时照图向内倒。",
@@ -1501,7 +1508,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "原地练前刃，再用单弯验证 · 动作示意"
+        "title": "原地练前刃，再用单弯验证 · 动作示意",
+        "task": "static-edge"
       },
       "drill": {
         "terrain": "平坦、不会自行滑走的位置；再到熟悉宽缓坡。",
@@ -1620,7 +1628,8 @@
           "view": "width",
           "jointLabels": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "edge-release-study"
         },
         {
           "type": "heel-edge",
@@ -1629,7 +1638,8 @@
           "view": "width",
           "jointLabels": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "edge-release-study"
         }
       ],
       "animationGuide": "关节标签把抽象发力口令落实到可见的靴、踝、膝和髋；前后刃分别观察而不是把同一个身体倒伏动作镜像当教学。",
@@ -1760,7 +1770,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃调角：膝髋渐进移动，脚踝能调 · 动作示意"
+        "title": "前刃调角：膝髋渐进移动，脚踝能调 · 动作示意",
+        "task": "edge-release-study"
       },
       "drill": {
         "terrain": "熟悉的宽缓压雪雪道，先做前刃单弯。",
@@ -1884,7 +1895,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃发力：脚跟、高背板与膝髋配合 · 动作示意"
+        "title": "后刃发力：脚跟、高背板与膝髋配合 · 动作示意",
+        "task": "edge-release-study"
       },
       "drill": {
         "terrain": "平地感知后，到熟悉缓坡后刃侧滑与单弯。",
@@ -1999,7 +2011,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "原地练后刃：立得起，也放得下 · 动作示意"
+        "title": "原地练后刃：立得起，也放得下 · 动作示意",
+        "task": "static-edge"
       },
       "drill": {
         "terrain": "平坦不会自行滑走的雪面，再到熟悉缓坡。",
@@ -2118,7 +2131,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃成角：腿调角，上身保持平衡 · 动作示意"
+        "title": "前刃成角：腿调角，上身保持平衡 · 动作示意",
+        "task": "edge-release-study"
       },
       "drill": {
         "terrain": "已经能稳定完成前刃单弯的宽缓坡。",
@@ -2241,7 +2255,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃成角：髋向脚跟侧，上身配合平衡 · 动作示意"
+        "title": "后刃成角：髋向脚跟侧，上身配合平衡 · 动作示意",
+        "task": "edge-release-study"
       },
       "drill": {
         "terrain": "后刃单弯和停止已可靠的熟悉宽缓坡。",
@@ -2469,7 +2484,8 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃单弯：稳住一段，再完成并停住 · 动作示意"
+        "title": "后刃单弯：稳住一段，再完成并停住 · 动作示意",
+        "task": "single-turn-stop"
       },
       "drill": {
         "terrain": "熟悉宽缓坡，出弯和停止区清楚。",
@@ -2708,7 +2724,8 @@
           "title": "雪鞋内的踝膝配合",
           "focus": "小腿逐渐靠近靴舌，膝髋一起配合，不踮脚硬撑",
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "edge-release-study"
         }
       ]
     },
@@ -2821,7 +2838,8 @@
           "title": "前刃：站高一点仍能屈伸",
           "focus": "只作姿态与活动余量对照，不能从高度直接推算压力",
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "single-arc"
         },
         {
           "type": "center-high",
@@ -2829,7 +2847,8 @@
           "title": "后刃：站高一点仍能屈伸",
           "focus": "只作姿态与活动余量对照，不能从高度直接推算压力",
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "single-arc"
         }
       ]
     },
@@ -2930,7 +2949,8 @@
         "path": "j-turn",
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃内倾练习：先稳住弧线，再加幅度 · 动作示意"
+        "title": "后刃内倾练习：先稳住弧线，再加幅度 · 动作示意",
+        "task": "single-turn-stop"
       },
       "drill": {
         "terrain": "抓地均匀、停止区清楚的熟悉宽缓坡。",
@@ -3051,7 +3071,8 @@
         "variant": "heel",
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃高低对照：站高一点仍能控刃 · 动作示意"
+        "title": "后刃高低对照：站高一点仍能控刃 · 动作示意",
+        "task": "single-arc"
       },
       "drill": {
         "terrain": "后刃单弯已稳定的容易压雪雪道。",
@@ -3297,7 +3318,8 @@
         "variant": "toe",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃内倾：手臂自然，不主动够雪 · 动作示意"
+        "title": "前刃内倾：手臂自然，不主动够雪 · 动作示意",
+        "task": "edge-release-study"
       },
       "drill": {
         "terrain": "前刃单弯已稳定的宽缓坡。",
@@ -3703,11 +3725,11 @@
       ],
       "demo": {
         "type": "fore-aft",
-        "focus": "先观察承重，再恢复后脚参与",
+        "focus": "观察后刃弧线中的前后位置与回中；实际承重和板尾响应另在练习中验证",
         "steps": [
           {
             "label": "观察",
-            "detail": "看两脚刃角与板尾轨迹。"
+            "detail": "看双脚位置与板尾路线；刚体雪板不表示前后脚不同刃角。"
           },
           {
             "label": "微调",
@@ -3721,7 +3743,8 @@
         "variant": "rear-heel",
         "autoplay": false,
         "duration": 10000,
-        "title": "开放后刃：让后脚也能稳稳控刃 · 动作示意"
+        "title": "开放后刃：让后脚也能稳稳控刃 · 动作示意",
+        "task": "single-arc"
       },
       "drill": {
         "terrain": "自然站姿后刃连弯已稳定的熟悉宽缓坡。",
@@ -3846,7 +3869,8 @@
         "variant": "front-return-toe",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃入弯：前脚带入，后脚接上 · 动作示意"
+        "title": "前刃入弯：前脚带入，后脚接上 · 动作示意",
+        "task": "single-arc"
       },
       "drill": {
         "terrain": "两刃圆弯可靠的熟悉缓坡。",
@@ -5835,7 +5859,7 @@
         },
         {
           "title": "完整释放旧刃",
-          "body": "膝踝逐渐减旧折角，必要时缩短腿长减载，髋与板重新接近居中。",
+          "body": "按所选过渡方式协调屈腿，同时减小旧刃角，髋与板重新接近居中；屈腿本身不等于即时减压。",
           "cue": "先让旧刃松开",
           "observe": "转换不会伴随突然横踢。"
         },
@@ -6710,11 +6734,11 @@
       "demos": [
         {
           "type": "fore-aft",
-          "focus": "先观察承重，再恢复后脚参与",
+          "focus": "观察后刃弧线中的前后位置与回中；实际承重和板尾响应另在练习中验证",
           "steps": [
             {
               "label": "观察",
-              "detail": "看两脚刃角与板尾轨迹。"
+              "detail": "看双脚位置与板尾路线；刚体雪板不表示前后脚不同刃角。"
             },
             {
               "label": "微调",
@@ -6728,7 +6752,8 @@
           "variant": "rear-heel",
           "autoplay": false,
           "duration": 10000,
-          "title": "开放后刃：让后脚也能稳稳控刃 · 动作示意"
+          "title": "开放后刃：让后脚也能稳稳控刃 · 动作示意",
+          "task": "single-arc"
         }
       ],
       "relatedLessons": [
@@ -12166,10 +12191,11 @@
       ],
       "demo": {
         "type": "heel-edge",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "可控动作基线，用于与实际视频比较；本段不复现绊刃、滑出或颤振。",
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃摔倒怎么查：被绊住，还是板滑走 · 动作示意"
+        "title": "后刃摔倒怎么查：被绊住，还是板滑走 · 动作示意",
+        "task": "edge-release-study"
       }
     },
     {
@@ -12510,10 +12536,11 @@
       ],
       "demo": {
         "type": "toe-edge",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "可控动作基线，用于与实际视频比较；本段不复现绊刃、滑出或颤振。",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃站不稳：别只顾往前趴 · 动作示意"
+        "title": "前刃站不稳：别只顾往前趴 · 动作示意",
+        "task": "edge-release-study"
       }
     },
     {
@@ -12621,10 +12648,11 @@
       ],
       "demo": {
         "type": "fore-aft",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "沿板长的小幅位置调整与回中；不显示真实承重，也不据此诊断单腿疲劳",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃后腿特别累：查位置，也查活动是否受限 · 动作示意"
+        "title": "前刃后腿特别累：查位置，也查活动是否受限 · 动作示意",
+        "task": "stationary"
       }
     },
     {

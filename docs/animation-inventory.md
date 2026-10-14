@@ -2,24 +2,25 @@
 
 由 `node scripts/inventory-animations.mjs` 生成。不要直接编辑此文件；迁移分类与人工验收说明维护在脚本，课程用途、配置和资料维护在原有源码。`node scripts/inventory-animations.mjs --check` 可检查清单是否与源码同步。完整配置、逐课资料定位和 claim 见 [JSON 清单](animation-inventory.json)。
 
-**当前不批量迁移。** 搓雪小回转原型的后刃姿态、雪靴活动与两向换刃逻辑仍是教学审阅重点。旧示意继续保留；新增 3D 入口不等于旧示意已替换。此清单核验覆盖与引用，不把源码参数、自动测试或已有资料链接当作动作正确的证明。
+**全站逐批迁移中。** 课内三维按注册表接管默认播放器，其余引用仍用旧示意。此清单核验代码覆盖，不把源码、自动测试或资料链接当作教学正确的证明。实际观察与未完成项见 [课程播放器审阅](lesson-player-review.md)。
 
 ## 数量与口径
 
 | 项目 | 数量 | 含义 |
 | --- | --- | --- |
 | 课程 / 模块 | 102 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
-| 含旧动画的课程 | 88 | 按 app.js：非空 demos 优先，否则 demo |
-| 旧动画引用 | 134 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
+| 含动画的课程 | 88 | 按 app.js：非空 demos 优先，否则 demo |
+| 迁移范围内的动画引用 | 134 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
 | 装备交互图 | 2 | app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画 |
 | 主站显示的示意总数 | 136 | 旧动画引用 + 装备图；不额外把 3D 链接计入 |
 | 无动作/装备图课程 | 12 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
 | 已注册 / 有引用的类型 | 37 / 35 | SnowDemo.types；类型不是互不共享的独立实现 |
 | 应用变体键 | 70 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 82 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 展示配置组合 | 85 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 已替换旧引用 | 0 | 当前 3D 是并行原型，旧课程内动画全部仍在 |
+| 课内三维类型 / 引用 | 6 / 28 | 按注册表已切换默认渲染；不代表教学认证 |
+| 剩余旧动画引用 | 106 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -36,14 +37,14 @@
 
 `pedalling` 与 `twist` 引用同一组 keyframes / steps；只是换了标题，不是第二套独立动作。其他类型之间可能表达同一能力，但本盘点不凭名称强行合并。
 
-建议分批去向：D1 中立/屈伸/前后平衡；D2 两刃非对称站姿和成角；D3 转向/滑移/旋转；D4 压力与换刃；D5 连弯及各纠错变体；D6 离雪专项；D7 装备与概念图。该顺序是依赖分组；当前只盘点，原型关键问题解决前不批量迁移。
+分批去向：D1 中立/屈伸/前后平衡；D2 两刃非对称站姿和成角；D3 转向/滑移/旋转；D4 压力与换刃；D5 连弯及各纠错变体；D6 离雪专项；D7 装备与概念图。共用装备和骨长约束，姿态、时序、路线与末态按任务独立审阅。
 
 ## 入口、发布与离线约束
 
 - 课程入口：`/#lesson=<稳定 ID>`；同课多示意由 `data-demo` 按索引切换，`showDemo` 先 destroy 再 mount，当前只挂载 1 个旧动画。下方逐项 ID 的 `/N` 表示同课第 N 个按钮，并非额外 URL 路由。
 - 纠错按钮按 `type:variant:transition` 匹配；`path`、`turnShape`、`edgeSide` 等不在键中。后续迁移应保留所有实际配置，不能只按 demoKey 合并。
 - `build.py` 把 content.json、animations.js、app.js、progression.js 和样式内联到两个相同的 HTML；课程 ID、笔记、收藏、skillProgress / skillTarget、导入导出与保存网页都应保留。
-- 原有 SVG 与装备图可单文件离线使用。3D 原型是单独联网页面，`file:` 导出的课程入口指向线上。未来替换前必须明确：单文件保留等价 2D 降级，还是提供含 3D 资源的离线包；不能让保存网页静默缺内容。
+- 课内三维 IIFE、样式与课程数据直接内联进单文件，无运行时外部模型、字体或 CDN；无 WebGL 时显示同源可播放骨架。独立 `/3d/` 原型及外部资料仍需联网。导出重开验证与浏览器限制见审阅记录。
 - 首页技术全景、能力 DAG 与 shell.html 的装饰人物没有动作时间线，不计入上述动作/装备示意数量；它们的入口和能力前置关系仍属于回归范围。
 
 | 3D 来源课程 | 模式 | 当前状态 |
@@ -99,26 +100,26 @@
 
 | 类型 | 预设教学用途 | 共享模型 | 引用 / 键数 | 去向 |
 | --- | --- | --- | --- | --- |
-| `center-low` | 降低重心：屈踝、屈膝、屈髋 | 雪上关键帧 + 双腿 IK | 1 / 1 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `center-high` | 可活动的中立姿态 | 雪上关键帧 + 双腿 IK | 4 / 2 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `fore-aft` | 沿板长的平衡与压力调整 | 雪上关键帧 + 双腿 IK | 7 / 4 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `toe-edge` | 前刃：用关节逐渐立刃 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
-| `heel-edge` | 后刃：髋膝踝协调，不折腰坐尾 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
-| `absorption` | 屈曲吸收：腿变短，身体更平顺 | 雪上关键帧 + 双腿 IK | 0 / 0 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `pressure-extend` | 伸展调压：有节奏地改变腿长 | 雪上关键帧 + 双腿 IK | 4 / 3 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `pressure-flex` | 屈曲的两个阶段：开始下蹲与停住下落 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `inclination` | 内倾与关节折角的组合 | 雪上关键帧 + 双腿 IK | 4 / 4 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
-| `edge-change-up` | 伸展式换刃：旧刃 → 回到居中位置 → 新刃 | 雪上关键帧 + 双腿 IK | 5 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `edge-change-down` | 回收式换刃：屈腿让板从身下通过 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
+| `center-low` | 降低重心：屈踝、屈膝、屈髋 | 雪上关键帧 + 双腿 IK | 1 / 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `center-high` | 可活动的中立姿态 | 雪上关键帧 + 双腿 IK | 4 / 2 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `fore-aft` | 沿板长的平衡与压力调整 | 雪上关键帧 + 双腿 IK | 7 / 4 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `toe-edge` | 前刃：用关节逐渐立刃 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `heel-edge` | 后刃：髋膝踝协调，不折腰坐尾 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `absorption` | 屈曲吸收：腿变短，身体更平顺 | 雪上关键帧 + 双腿 IK | 0 / 0 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `pressure-extend` | 伸展调压：有节奏地改变腿长 | 雪上关键帧 + 双腿 IK | 4 / 3 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `pressure-flex` | 屈曲的两个阶段：开始下蹲与停住下落 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `inclination` | 内倾与关节折角的组合 | 雪上关键帧 + 双腿 IK | 4 / 4 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `edge-change-up` | 伸展式换刃：旧刃 → 回到居中位置 → 新刃 | 雪上关键帧 + 双腿 IK | 5 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `edge-change-down` | 回收式换刃：屈腿让板从身下通过 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `steering` | 脚、膝、髋渐进引导雪板转向 | 雪上关键帧 + 双腿 IK | 7 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `shoulder-coordination` | 视线、肩髋与下肢协调 | 雪上关键帧 + 双腿 IK | 7 / 5 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `garland` | 花环练习：同一刃、重复释放与建刃 | 雪上关键帧 + 双腿 IK | 2 / 2 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `j-turn` | J 形转弯：短直滑 → 单一圆弧 → 横坡 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `rail-track` | 浅弧刃滑：让板尾跟随板头 | 雪上关键帧 + 双腿 IK | 4 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `gaze-control` | 头部观察与肩髋控制：转头不甩板 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `hip-edge-change` | 髋引导换刃：保持踝膝协调 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `knee-edge-change` | 用膝盖的移动体会换刃：小幅、渐进、协调 | 雪上关键帧 + 双腿 IK | 1 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `retraction-turns` | 回收式连续转弯：屈曲换刃、弯内伸展 | 雪上关键帧 + 双腿 IK | 2 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
+| `hip-edge-change` | 髋引导换刃：保持踝膝协调 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `knee-edge-change` | 用膝盖的移动体会换刃：小幅、渐进、协调 | 雪上关键帧 + 双腿 IK | 1 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `retraction-turns` | 回收式连续转弯：屈曲换刃、弯内伸展 | 雪上关键帧 + 双腿 IK | 2 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `twist`（同帧：pedalling） | 扭板：前后脚不同刃角的协调 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `rotation` | 同向协调旋转：下肢引导、上身跟进 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `counter-rotation` | 反向旋转：特定任务的短时分离 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
@@ -133,9 +134,9 @@
 | `mixed-rotation` | 肩部节奏组合：前刃反拧 → 回到居中位置 → 后刃协调 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `dry-shoulder-rolls` | 离雪肩部绕环：放松双臂、小幅活动 | 离雪站立关节模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `pedalling`（同帧：twist） | 踩踏式协调：前后脚逐步配合 | 雪上关键帧 + 双腿 IK | 0 / 0 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `short-turns` | 普通搓雪小回转：圆弯、持续引导 | 小回转共享时序/轨迹 + 双腿 IK | 20 / 11 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-progression` | 侧滑接单个换刃弯 | 小回转共享时序/轨迹 + 双腿 IK | 9 / 6 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-balance` | 双脚居中引导：板头板尾都在转 | 小回转共享时序/轨迹 + 双腿 IK | 5 / 3 | D5：原型验收后按变体接入共享 3D；当前冻结 |
+| `short-turns` | 普通搓雪小回转：圆弯、持续引导 | 小回转共享时序/轨迹 + 双腿 IK | 20 / 11 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-progression` | 侧滑接单个换刃弯 | 小回转共享时序/轨迹 + 双腿 IK | 9 / 6 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-balance` | 双脚居中引导：板头板尾都在转 | 小回转共享时序/轨迹 + 双腿 IK | 5 / 3 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 
 ## 变体键与全部实际配置
 
@@ -143,65 +144,65 @@
 
 | 变体键 | 引用 ID | 不同配置数 | 去向 |
 | --- | --- | --- | --- |
-| `center-low:neutral` | v-base-stance/1 | 1 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
+| `center-low:neutral` | v-base-stance/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination:arms-feedback` | v-arms-feedback/1、v-hand-back-cue/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `fore-aft` | v-fore-aft-movement/1、v24-rear-load/1 | 1 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `fore-aft:front-center-back` | v-fore-aft-roles/1、v-fore-aft-drill/1 | 2 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `center-high:toe` | v-toe-high-low/1、v-low-high-principle/1 | 1 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `inclination:inclination-focused` | v-active-passive-edge/1 | 1 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
-| `inclination:angulation-focused` | v-active-passive-edge/2 | 1 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
-| `toe-edge` | v-toe-static-five/1、v-toe-tongue/1、v-toe-lock-ankle/1、v-toe-counterbalance/1、v-toe-ankle-role/1、v24-toe-unstable/1 | 2 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
-| `heel-edge` | v-toe-tongue/2、v-heel-pull/1、v-heel-static-repetition/1、v-heel-counterbalance/1、v-heel-brief-hold/1、v24-heel-edge/1 | 2 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
+| `fore-aft` | v-fore-aft-movement/1、v24-rear-load/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `fore-aft:front-center-back` | v-fore-aft-roles/1、v-fore-aft-drill/1 | 2 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `center-high:toe` | v-toe-high-low/1、v-low-high-principle/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `inclination:inclination-focused` | v-active-passive-edge/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `inclination:angulation-focused` | v-active-passive-edge/2 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `toe-edge` | v-toe-static-five/1、v-toe-tongue/1、v-toe-lock-ankle/1、v-toe-counterbalance/1、v-toe-ankle-role/1、v24-toe-unstable/1 | 3 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `heel-edge` | v-toe-tongue/2、v-heel-pull/1、v-heel-static-repetition/1、v-heel-counterbalance/1、v-heel-brief-hold/1、v24-heel-edge/1 | 4 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `steering` | v-lower-body-priority/1、v14-steering/3、v20-carve/1、v20-traffic/1、v20-traffic/2、s-short-adapt/5、s-short-adapt/6 | 4 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `center-high:heel` | v-low-high-principle/2、v-heel-height-progression/1 | 1 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `inclination:heel` | v-heel-low-inclination/1 | 1 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
-| `pressure-extend:heel` | v-heel-incline-extension/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `inclination:toe` | v-toe-reach-snow/1 | 1 | D2：两刃非对称姿态/成角 3D；等待原型复核 |
+| `center-high:heel` | v-low-high-principle/2、v-heel-height-progression/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `inclination:heel` | v-heel-low-inclination/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `pressure-extend:heel` | v-heel-incline-extension/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `inclination:toe` | v-toe-reach-snow/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-flex:phase-study` | v-pressure-overview/1、v11-flex/1 | 1 | D4：保留二维阶段图；人体部分另行审阅 |
 | `pressure-extend:phase-study` | v-pressure-overview/2、v11-extend/1 | 1 | D4：保留二维阶段图；人体部分另行审阅 |
-| `pressure-flex:toe` | v-toe-kneel-pressure/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `fore-aft:rear-heel` | v-heel-open-rear-foot/1、v-heel-open-loading/1 | 1 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `fore-aft:front-return-toe` | v-toe-front-participation/1 | 1 | D1：中立、屈伸和前后平衡 3D；当前保留旧版 |
-| `hip-edge-change:open` | v11-lateral/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `short-turns:round` | v12-rhythm-why/1、s-short-rhythm/1、s-short-diagnosis/1 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 3 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `edge-change-down:retraction-study` | v13-down-drill/2、v-transition-map/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
+| `pressure-flex:toe` | v-toe-kneel-pressure/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `fore-aft:rear-heel` | v-heel-open-rear-foot/1、v-heel-open-loading/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `fore-aft:front-return-toe` | v-toe-front-participation/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `hip-edge-change:open` | v11-lateral/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `short-turns:round` | v12-rhythm-why/1、s-short-rhythm/1、s-short-diagnosis/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 3 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `edge-change-down:retraction-study` | v13-down-drill/2、v-transition-map/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `garland:toe` | v14-steering/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `garland:heel` | v14-steering/2 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `twist` | v14-twist/1、s14-twist-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `gaze-control` | v15-gaze-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `hip-edge-change` | v16-hip-change/1、v16-hip-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `knee-edge-change` | v17-knee-change/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
-| `retraction-turns` | v17-retract-drill/1、v19-stable-upper/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
+| `hip-edge-change` | v16-hip-change/1、v16-hip-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `knee-edge-change` | v17-knee-change/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `retraction-turns` | v17-retract-drill/1、v19-stable-upper/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `rotation` | v-shoulder-rhythm-map/1、v18-follow/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `counter-rotation` | v-shoulder-rhythm-map/2、v19-counter/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `short-turns:round:extend` | v-shoulder-rhythm-map/3、v-toe-open-causal/2、v19-stable-upper/1、s-short-integrated/1、s22-warmup/4 | 2 | D5：原型验收后按变体接入共享 3D；当前冻结 |
+| `short-turns:round:extend` | v-shoulder-rhythm-map/3、v-toe-open-causal/2、v19-stable-upper/1、s-short-integrated/1、s22-warmup/4 | 2 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `shoulder-coordination:neutral` | v-mid-position-30/1、v18-neutral/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `mixed-rotation` | v19-mixed/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `shoulder-coordination:open-heel` | v-heel-open-progression/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `short-turns:asymmetric:extend` | v-toe-open-causal/1 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
+| `short-turns:asymmetric:extend` | v-toe-open-causal/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `shoulder-coordination:closed-toe` | v-toe-closed-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `switch` | v19-switch/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `j-turn` | v-toe-low-drill/1、s-short-adapt/7 | 2 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `rail-track` | v20-carve/2、s20-rails/1、v24-skid-track/1、v21-method/1 | 3 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `short-turns:round:flex` | s-short-integrated/2 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turns:tail-brake` | s-short-integrated/3、s-short-diagnosis/2 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-progression:side-slip` | s-short-sideslip/1 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-progression:side-slip-shorter` | s-short-sideslip/2 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-progression:linked` | s-short-sideslip/3 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-progression:medium-to-short` | s-short-size-ladder/1、s-short-adapt/2 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-progression:short-steady` | s-short-size-ladder/2、s-short-adapt/1 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-progression:short-to-medium` | s-short-size-ladder/3、s-short-adapt/4 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-balance:centered` | s-short-balance/1 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-balance:nose-pivot` | s-short-balance/2、s-short-diagnosis/8 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turn-balance:back-seat` | s-short-balance/3、s-short-diagnosis/9 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turns:asymmetric` | s-short-rhythm/2、s-short-diagnosis/5 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turns:shoulder-led` | s-short-diagnosis/3 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turns:edge-locked` | s-short-diagnosis/4 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turns:low-stuck` | s-short-diagnosis/6 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turns:round:retract` | s-short-diagnosis/7、s-short-adapt/3 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
-| `short-turns:over-inclined` | s-short-diagnosis/10 | 1 | D5：原型验收后按变体接入共享 3D；当前冻结 |
+| `short-turns:round:flex` | s-short-integrated/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:tail-brake` | s-short-integrated/3、s-short-diagnosis/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-progression:side-slip` | s-short-sideslip/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-progression:side-slip-shorter` | s-short-sideslip/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-progression:linked` | s-short-sideslip/3 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-progression:medium-to-short` | s-short-size-ladder/1、s-short-adapt/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-progression:short-steady` | s-short-size-ladder/2、s-short-adapt/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-progression:short-to-medium` | s-short-size-ladder/3、s-short-adapt/4 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-balance:centered` | s-short-balance/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-balance:nose-pivot` | s-short-balance/2、s-short-diagnosis/8 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turn-balance:back-seat` | s-short-balance/3、s-short-diagnosis/9 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:asymmetric` | s-short-rhythm/2、s-short-diagnosis/5 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:shoulder-led` | s-short-diagnosis/3 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:edge-locked` | s-short-diagnosis/4 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:low-stuck` | s-short-diagnosis/6 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:round:retract` | s-short-diagnosis/7、s-short-adapt/3 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:over-inclined` | s-short-diagnosis/10 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `dry-squat` | v22-strength/1、v22-heel-rehearsal/1、v22-squat/1、s22-warmup/2、v23-knees/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `dry-calf-raise` | v22-strength/2、v22-calf/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `dry-plank` | v22-strength/3、v22-plank/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
@@ -212,11 +213,11 @@
 | `dry-squat:hold` | v22-hold/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `pressure-extend` | v21-linear/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核 |
+| `pressure-extend` | v21-linear/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 
 ## 逐课用途、资料与替换入口
 
-所有现有旧动画均为“保留 / 未完成本轮教学验收”。未配动画的课保留正文；不视作漏迁。课程链接打开后，按清单 `/N` 查看第 N 个示意。课程级原始 locator / claim 完整写入 JSON。
+每个引用的 renderer/status 保存在 JSON：lesson-3d 表示默认播放器已接入；legacy-svg 表示待迁移。状态不代替教学验收。未配动画的课保留正文；不视作漏迁。课程链接打开后，按清单 `/N` 查看第 N 个示意。
 
 | 课程入口 | 教学用途（原 goal） | 全部示意键（按按钮次序） | 现有资料 |
 | --- | --- | --- | --- |
@@ -456,7 +457,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 570cf61cb276b472425319249b7f3e66fbbc8c24981b0dfb73276f541ea7439a |
+| content.json | fc4fa1a25c095cec9194b5b644a5654b13a43cf0631c78092e16e1c3e7ce4c73 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
-| app.js | 57ca3bea39583a4aa2918ea001a5c8988ff59e15a17f975458b3d2b15e67ebaa |
+| app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
+| lesson-player/registry.json | 55812efc2e5fcfc9a7ab1150f9f9e38fa184aef53205d76a1367bbcbf4dfd483 |
 

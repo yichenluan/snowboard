@@ -198,7 +198,7 @@ function kneeFlexion(hip: Vec3, knee: Vec3, ankle: Vec3): number {
   return 180 - Math.acos(clamp(dot(upper, lower), -1, 1)) * DEG;
 }
 
-interface Route {
+export interface Route {
   position: Vec3;
   travel: Vec3;
   yaw: number;
@@ -346,8 +346,23 @@ function routeAt(time: number, mode: Mode, requestedHold: number): Route {
   };
 }
 
-function buildRegular(time: number, mode: Mode, hold: number): MotionState {
-  const route = routeAt(time, mode, hold);
+/** Each lesson authors posture independently; the equipment/bone solver is shared. */
+export interface PoseOptions {
+  cuffPitch?: number;
+  rearCuffPitch?: number;
+  shinSide?: number;
+  hipTilt?: number;
+  legBend?: number;
+  hipYaw?: number;
+  shoulderYaw?: number;
+  torsoPitch?: number;
+  torsoAlong?: number;
+  frontHand?: Vec3;
+  rearHand?: Vec3;
+  lookDirection?: Vec3;
+}
+
+export function buildPose(route: Route, mode: Mode = "correct", pose: PoseOptions = {}): MotionState {
   const board: BoardState = {
     position: [...route.position],
     yaw: route.yaw,
@@ -393,29 +408,34 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
   // the whole board's tilt supply the visibly different heel-side arrangement.
   const toeLean = Math.max(0, route.lean);
   const heelLean = Math.max(0, -route.lean);
-  const cuffPitch = BOOT_SETUP.neutralCuff + 3 * route.lean + route.lean ** 2;
-  const makeKnee = (ankle: Vec3, boot: BootState): Vec3 => {
-    boot.cuffPitch = cuffPitch;
-    const pitch = cuffPitch / DEG;
+  const cuffPitch = pose.cuffPitch ?? BOOT_SETUP.neutralCuff + 3 * route.lean + route.lean ** 2;
+  const makeKnee = (ankle: Vec3, boot: BootState, cuff: number): Vec3 => {
+    boot.cuffPitch = cuff;
+    const pitch = cuff / DEG;
+    // A small boot-relative lateral lean is an authored equipment assumption.
+    // It moves the entire shin before solving the pelvis, never detaches a foot.
+    const toeLocal = boot.toeDirection;
+    const side: Vec3 = [normal[1]*toeLocal[2]-normal[2]*toeLocal[1], normal[2]*toeLocal[0]-normal[0]*toeLocal[2], normal[0]*toeLocal[1]-normal[1]*toeLocal[0]];
     return add(
       ankle,
       mul(
-        add(
+        unit(add(add(
           mul(normal, Math.cos(pitch)),
           mul(boot.toeDirection, Math.sin(pitch)),
-        ),
+        ), mul(side, Math.tan(pose.shinSide ?? 0)))),
         BODY.shin,
       ),
     );
   };
-  const frontKnee = makeKnee(frontAnkle, boots.front);
-  const rearKnee = makeKnee(rearAnkle, boots.rear);
+  const frontKnee = makeKnee(frontAnkle, boots.front, cuffPitch);
+  const rearKnee = makeKnee(rearAnkle, boots.rear, pose.rearCuffPitch ?? cuffPitch);
   const hipYaw =
-    board.yaw + 0.11 + (mode === "error" ? 0.14 : 0.035) * route.lean;
-  const hipAxis = yawAxis(hipYaw);
+    pose.hipYaw ?? board.yaw + 0.11 + (mode === "error" ? 0.14 : 0.035) * route.lean;
+  const hipTilt = pose.hipTilt ?? 0;
+  const hipAxis = add(mul(yawAxis(hipYaw), Math.cos(hipTilt)), [0, Math.sin(hipTilt), 0]);
   // One extension-transition example: least flexed near flat, flexion develops
   // on the new edge. These are authored dimensions, not prescribed joint angles.
-  const legBend =
+  const legBend = pose.legBend ??
     30 + (17 + 3 * route.lean) * (1 - route.extension) + 4 * route.braking;
   const pelvis = pelvisFromKnees(
     frontKnee,
@@ -430,15 +450,15 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
   const rearHip = add(pelvis, mul(hipAxis, -BODY.hipWidth / 2));
 
   // The torso changes heading less than the board while remaining naturally open.
-  const shoulderYaw = -PI / 2 + 0.28 + (board.yaw + PI / 2) * 0.62;
+  const shoulderYaw = pose.shoulderYaw ?? -PI / 2 + 0.28 + (board.yaw + PI / 2) * 0.62;
   // A neutral, fixed-length trunk articulates at the hip. On toeside the hips
   // move towards the toe edge while the trunk stays more upright than the legs;
   // it does not reach further in with the chest or arch the lumbar spine.
-  const torsoPitch = 0.1 - 0.17 * toeLean + 0.4 * heelLean;
-  const torsoUp = add(
+  const torsoPitch = pose.torsoPitch ?? 0.1 - 0.17 * toeLean + 0.4 * heelLean;
+  const torsoUp = unit(add(add(
     [0, Math.cos(torsoPitch), 0],
     mul(toe, Math.sin(torsoPitch)),
-  );
+  ), mul(yawAxis(board.yaw), pose.torsoAlong ?? 0)));
   const rawShoulderAxis = yawAxis(shoulderYaw);
   const shoulderAxis = unit(
     sub(rawShoulderAxis, mul(torsoUp, dot(rawShoulderAxis, torsoUp))),
@@ -449,11 +469,11 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
   const frontShoulder = add(chest, mul(shoulderAxis, BODY.shoulderWidth / 2));
   const rearShoulder = add(chest, mul(shoulderAxis, -BODY.shoulderWidth / 2));
   const shoulderToe = yawToe(shoulderYaw);
-  const frontHand = add(
+  const frontHand = pose.frontHand ?? add(
     add(frontShoulder, [0, -0.34, 0]),
     add(mul(shoulderToe, 0.25), mul(shoulderAxis, 0.035)),
   );
-  const rearHand = add(
+  const rearHand = pose.rearHand ?? add(
     add(rearShoulder, [0, -0.34, 0]),
     add(mul(shoulderToe, 0.25), mul(shoulderAxis, -0.035)),
   );
@@ -508,7 +528,8 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
   );
   const nose = yawAxis(board.yaw);
   // Look toward the route with a finite neck turn, independent of shoulder yaw.
-  const travelFacing = Math.atan2(route.travel[0], route.travel[2]);
+  const lookDirection = pose.lookDirection ?? route.travel;
+  const travelFacing = Math.hypot(...lookDirection)>1e-8 ? Math.atan2(lookDirection[0],lookDirection[2]) : shoulderYaw;
   const headTurn = clamp(
     Math.atan2(
       Math.sin(travelFacing - shoulderYaw),
@@ -556,7 +577,10 @@ export function sampleMotion(
   stance: Stance = "regular",
   hold = 0.55,
 ): MotionState {
-  const state = buildRegular(time, mode, hold);
+  return applyStance(buildPose(routeAt(time, mode, hold), mode), stance);
+}
+
+export function applyStance(state: MotionState, stance: Stance): MotionState {
   if (stance === "regular") return state;
   const mirrorBoot = (boot: BootState): BootState => ({
     ...boot,

@@ -14,9 +14,12 @@ import vm from 'node:vm';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const check = process.argv.includes('--check');
 if (process.argv.slice(2).some(arg => arg !== '--check')) throw new Error('用法：node scripts/inventory-animations.mjs [--check]');
-const inputNames = ['content.json', 'animations.js', 'app.js'];
+const inputNames = ['content.json', 'animations.js', 'app.js', 'lesson-player/registry.json'];
 const inputs = Object.fromEntries(await Promise.all(inputNames.map(async name => [name, await readFile(resolve(root, name), 'utf8')])));
 const data = JSON.parse(inputs['content.json']);
+const registry = JSON.parse(inputs['lesson-player/registry.json']);
+if(registry.version!==1 || !Array.isArray(registry.types) || registry.types.some(t=>typeof t!=='string') || new Set(registry.types).size!==registry.types.length) throw new Error('课程三维注册清单格式无效');
+const implementedTypes = new Set(registry.types);
 // SnowDemo only registers presets at evaluation time. No DOM, I/O, timers or
 // renderer are supplied: a future module with initialization side effects fails.
 const sandbox = { window: {} };
@@ -25,6 +28,7 @@ const library = sandbox.window.SnowDemo;
 if (!library?.presets || !Array.isArray(library.types)) throw new Error('SnowDemo 导出格式已改变，请复核盘点脚本');
 const issues = [];
 const issue = (level, code, detail) => issues.push({ level, code, detail });
+for(const type of implementedTypes) if(!library.types.includes(type)) issue('error','unknown-3d-type',type);
 const unique = values => [...new Set(values)];
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(k => [k, stable(value[k])])) : value;
 const key = demo => [demo.type, demo.variant, demo.transition].filter(Boolean).join(':');
@@ -59,12 +63,13 @@ const modelNames = {
   unknown: '未归类',
 };
 const destinationFor = demo => {
+  if(implementedTypes.has(demo.type)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':'D2'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
   if (library.presets[demo.type]?.dry) return 'D6：保留离雪独立动作；逐项审阅后决定 2D / 3D';
   if (demo.pressureDiagram || demo.variant === 'phase-study') return 'D4：保留二维阶段图；人体部分另行审阅';
-  if (library.shortVariants[demo.type]) return 'D5：原型验收后按变体接入共享 3D；当前冻结';
+  if (library.shortVariants[demo.type]) return 'D5：按变体独立审阅后接入共享 3D；待迁移';
   if (['center-low', 'center-high', 'fore-aft'].includes(demo.type)) return 'D1：中立、屈伸和前后平衡 3D；当前保留旧版';
   if (['toe-edge', 'heel-edge', 'inclination'].includes(demo.type)) return 'D2：两刃非对称姿态/成角 3D；等待原型复核';
-  if (['pressure-flex', 'pressure-extend', 'absorption', 'edge-change-up', 'edge-change-down', 'hip-edge-change', 'knee-edge-change', 'retraction-turns'].includes(demo.type)) return 'D4：屈伸/换刃 3D + 必要二维时间图；等待原型复核';
+  if (['pressure-flex', 'pressure-extend', 'absorption', 'edge-change-up', 'edge-change-down', 'hip-edge-change', 'knee-edge-change', 'retraction-turns'].includes(demo.type)) return 'D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移';
   return 'D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版';
 };
 const prototypeMatch = inputs['app.js'].match(/const prototypeModes\s*=\s*(\{[^;]+\});/);
@@ -75,7 +80,7 @@ const references = [];
 const illustrations = [];
 const lessonIds = new Set();
 const moduleIds = new Set(data.modules.map(m => m.id));
-const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop']);
+const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task']);
 for (const [lessonIndex, lesson] of data.lessons.entries()) {
   if (lessonIds.has(lesson.id)) issue('error', 'duplicate-lesson', lesson.id);
   lessonIds.add(lesson.id);
@@ -92,7 +97,7 @@ for (const [lessonIndex, lesson] of data.lessons.entries()) {
     if (demo.transition && !['extend', 'flex', 'retract'].includes(demo.transition)) issue('error', 'unknown-transition', `${lesson.id}：${demo.transition}`);
     for (const field of Object.keys(demo)) if (!acceptedFields.has(field)) issue('warning', 'new-config-field', `${lesson.id}：${field}，请复核去重与迁移影响`);
     for (const step of demo.steps || []) if (step.at != null && (!Number.isFinite(step.at) || step.at < 0 || step.at > 1)) issue('error', 'invalid-phase', `${lesson.id}：${JSON.stringify(step)}`);
-    const ref = { id: `${lesson.id}/${index + 1}`, lesson: lesson.id, index, locator, entry, key: key(demo), model: modelFor(demo.type), config: demo, destination: destinationFor(demo), status: 'legacy-retained-unreviewed' };
+    const ref = { id: `${lesson.id}/${index + 1}`, lesson: lesson.id, index, locator, entry, key: key(demo), model: modelFor(demo.type), config: demo, destination: destinationFor(demo), renderer: implementedTypes.has(demo.type)?'lesson-3d':'legacy-svg', status: implementedTypes.has(demo.type)?'implemented-review-in-progress':'legacy-retained-unreviewed' };
     references.push(ref); lessonRecord.references.push(ref.id);
   }
   if (lesson.illustration) {
@@ -139,7 +144,10 @@ const counts = {
   declaredShortVariants: Object.values(library.shortVariants).reduce((n, v) => n + v.length, 0),
   prototypeModes: unique(Object.values(prototypeModes)).length,
   prototypeLessonEntries: Object.keys(prototypeModes).length,
-  replacedLegacyReferences: 0,
+  implemented3DTypes: implementedTypes.size,
+  implemented3DReferences: references.filter(r=>r.renderer==='lesson-3d').length,
+  remainingLegacyReferences: references.filter(r=>r.renderer==='legacy-svg').length,
+  replacedLegacyReferences: references.filter(r=>r.renderer==='lesson-3d').length,
 };
 const modules = data.modules.map(module => {
   const ls = lessons.filter(l => l.module === module.id), ids = new Set(ls.map(l => l.id));
@@ -162,14 +170,14 @@ const lines = [
   '',
   '由 `node scripts/inventory-animations.mjs` 生成。不要直接编辑此文件；迁移分类与人工验收说明维护在脚本，课程用途、配置和资料维护在原有源码。`node scripts/inventory-animations.mjs --check` 可检查清单是否与源码同步。完整配置、逐课资料定位和 claim 见 [JSON 清单](animation-inventory.json)。',
   '',
-  '**当前不批量迁移。** 搓雪小回转原型的后刃姿态、雪靴活动与两向换刃逻辑仍是教学审阅重点。旧示意继续保留；新增 3D 入口不等于旧示意已替换。此清单核验覆盖与引用，不把源码参数、自动测试或已有资料链接当作动作正确的证明。',
+  '**全站逐批迁移中。** 课内三维按注册表接管默认播放器，其余引用仍用旧示意。此清单核验代码覆盖，不把源码、自动测试或资料链接当作教学正确的证明。实际观察与未完成项见 [课程播放器审阅](lesson-player-review.md)。',
   '',
   '## 数量与口径',
   '',
   table(['项目', '数量', '含义'], [
     ['课程 / 模块', `${counts.lessons} / ${counts.modules}`, '稳定课程 ID 与导航单元；不等于独立动画'],
-    ['含旧动画的课程', counts.lessonsWithDemos, '按 app.js：非空 demos 优先，否则 demo'],
-    ['旧动画引用', counts.legacyDemoReferences, '每个课程内每个可选示意各计 1 次，可重复引用同一模型'],
+    ['含动画的课程', counts.lessonsWithDemos, '按 app.js：非空 demos 优先，否则 demo'],
+    ['迁移范围内的动画引用', counts.legacyDemoReferences, '每个课程内每个可选示意各计 1 次，可重复引用同一模型'],
     ['装备交互图', counts.illustrationReferences, 'app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画'],
     ['主站显示的示意总数', counts.siteDisplayedDemonstrations, '旧动画引用 + 装备图；不额外把 3D 链接计入'],
     ['无动作/装备图课程', counts.lessonsWithoutVisuals, '原理与方法仍有正文，不应为凑全 3D 强制补动画'],
@@ -178,7 +186,8 @@ const lines = [
     ['展示配置组合', counts.presentationConfigurations, '去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作'],
     ['小回转声明变体', counts.declaredShortVariants, '3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量'],
     ['3D 模式 / 课程入口', `${counts.prototypeModes} / ${counts.prototypeLessonEntries}`, '另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景'],
-    ['已替换旧引用', counts.replacedLegacyReferences, '当前 3D 是并行原型，旧课程内动画全部仍在'],
+    ['课内三维类型 / 引用', `${counts.implemented3DTypes} / ${counts.implemented3DReferences}`, '按注册表已切换默认渲染；不代表教学认证'],
+    ['剩余旧动画引用', counts.remainingLegacyReferences, '继续逐项迁移，未缩减范围'],
   ]),
   '',
   '## 当前实现的共享关系与迁移去向',
@@ -193,14 +202,14 @@ const lines = [
   '',
   '`pedalling` 与 `twist` 引用同一组 keyframes / steps；只是换了标题，不是第二套独立动作。其他类型之间可能表达同一能力，但本盘点不凭名称强行合并。',
   '',
-  '建议分批去向：D1 中立/屈伸/前后平衡；D2 两刃非对称站姿和成角；D3 转向/滑移/旋转；D4 压力与换刃；D5 连弯及各纠错变体；D6 离雪专项；D7 装备与概念图。该顺序是依赖分组；当前只盘点，原型关键问题解决前不批量迁移。',
+  '分批去向：D1 中立/屈伸/前后平衡；D2 两刃非对称站姿和成角；D3 转向/滑移/旋转；D4 压力与换刃；D5 连弯及各纠错变体；D6 离雪专项；D7 装备与概念图。共用装备和骨长约束，姿态、时序、路线与末态按任务独立审阅。',
   '',
   '## 入口、发布与离线约束',
   '',
   '- 课程入口：`/#lesson=<稳定 ID>`；同课多示意由 `data-demo` 按索引切换，`showDemo` 先 destroy 再 mount，当前只挂载 1 个旧动画。下方逐项 ID 的 `/N` 表示同课第 N 个按钮，并非额外 URL 路由。',
   '- 纠错按钮按 `type:variant:transition` 匹配；`path`、`turnShape`、`edgeSide` 等不在键中。后续迁移应保留所有实际配置，不能只按 demoKey 合并。',
   '- `build.py` 把 content.json、animations.js、app.js、progression.js 和样式内联到两个相同的 HTML；课程 ID、笔记、收藏、skillProgress / skillTarget、导入导出与保存网页都应保留。',
-  '- 原有 SVG 与装备图可单文件离线使用。3D 原型是单独联网页面，`file:` 导出的课程入口指向线上。未来替换前必须明确：单文件保留等价 2D 降级，还是提供含 3D 资源的离线包；不能让保存网页静默缺内容。',
+  '- 课内三维 IIFE、样式与课程数据直接内联进单文件，无运行时外部模型、字体或 CDN；无 WebGL 时显示同源可播放骨架。独立 `/3d/` 原型及外部资料仍需联网。导出重开验证与浏览器限制见审阅记录。',
   '- 首页技术全景、能力 DAG 与 shell.html 的装饰人物没有动作时间线，不计入上述动作/装备示意数量；它们的入口和能力前置关系仍属于回归范围。',
   '',
   table(['3D 来源课程', '模式', '当前状态'], Object.entries(prototypeModes).map(([id, mode]) => [`[${id}](https://yichenluan.github.io/snowboard-guide/#lesson=${id})`, `[${mode}](https://yichenluan.github.io/snowboard-guide/3d/?mode=${mode})`, '并行原型 / 教学复核中；旧示意仍保留'])),
@@ -243,7 +252,7 @@ const lines = [
   '',
   '## 逐课用途、资料与替换入口',
   '',
-  '所有现有旧动画均为“保留 / 未完成本轮教学验收”。未配动画的课保留正文；不视作漏迁。课程链接打开后，按清单 `/N` 查看第 N 个示意。课程级原始 locator / claim 完整写入 JSON。',
+  '每个引用的 renderer/status 保存在 JSON：lesson-3d 表示默认播放器已接入；legacy-svg 表示待迁移。状态不代替教学验收。未配动画的课保留正文；不视作漏迁。课程链接打开后，按清单 `/N` 查看第 N 个示意。',
   '',
   table(['课程入口', '教学用途（原 goal）', '全部示意键（按按钮次序）', '现有资料'], lessons.map(l => [courseLink(l), `${l.title}：${l.goal}`, l.references.length ? l.references.map(id => { const r = references.find(r => r.id === id); return `${r.index + 1}. \`${r.key}\``; }).join('<br>') : l.illustration ? `交互：\`${l.illustration.type}\` → D7` : '正文保留，无动作图', sourceLabels(l)])),
   '',
