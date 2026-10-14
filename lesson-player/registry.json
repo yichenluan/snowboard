@@ -1,6 +1,7 @@
 {
   "version": 1,
   "drylandTypes": ["dry-squat", "dry-calf-raise", "dry-wall-edge", "dry-shoulder-rolls"],
-  "types": ["center-low", "center-high", "fore-aft", "toe-edge", "heel-edge", "inclination", "steering", "garland", "j-turn", "gaze-control", "rail-track", "edge-change-up"],
+  "types": ["center-low", "center-high", "fore-aft", "toe-edge", "heel-edge", "inclination", "steering", "garland", "j-turn", "gaze-control", "rail-track", "edge-change-up", "hip-edge-change", "knee-edge-change", "retraction-turns"],
+  "requiredTasks": {"hip-edge-change":["board-coordinate-study","stationary-hip-rock","hip-transition"],"knee-edge-change":["coordinated-knee-transition"],"retraction-turns":["linked-retraction-skid"]},
   "partialVariants": {"pressure-flex":["phase-study","toe"],"pressure-extend":["phase-study","heel","timing-study"],"edge-change-down":["lower-com","retraction-study"]}
 }

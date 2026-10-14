@@ -11,7 +11,7 @@
     "method": "先说清动作与雪板怎样配合，再给出具体练习、观察方法和下一步。技术依据以CASI、AASI、SBINZ教练教材为主，装备和非雪训练另列一手资料。",
     "coverage": "围绕刻滑和搓雪小回转两条重点路线组织；站姿、立刃、压力、转向等是共同基础，反脚、体能和装备可并行发展。保留原条目ID，已有个人笔记仍能对应。",
     "limitations": "运动感受是教学提示，不等于测量。原创动画是定性运动学示意，没有真实测力、精确个人角度或诊断。专项主题先说明任务与前提，具体个人动作调整需结合现场观察。视频时间只作为来源定位，章节首次课件采样约有±10秒误差。",
-    "contentRevision": 8
+    "contentRevision": 9
   },
   "modules": [
     {
@@ -4155,29 +4155,14 @@
       ],
       "demo": {
         "type": "hip-edge-change",
-        "focus": "按雪板坐标观察双脚共同支撑前刃与后刃",
-        "steps": [
-          {
-            "label": "确定工作刃",
-            "detail": "用板坐标辨认脚趾侧与脚跟侧。"
-          },
-          {
-            "label": "协调进入前刃",
-            "detail": "踝膝髋共同调刃，髋不能孤立地硬顶。"
-          },
-          {
-            "label": "回到居中位置释放",
-            "detail": "释放旧刃，保持前后可调。"
-          },
-          {
-            "label": "协调进入后刃",
-            "detail": "髋膝保留屈曲余量，不拉直锁膝。"
-          }
-        ],
+        "focus": "原地辨认板长与板宽：先在平板内调整支撑，再立小刃并回平板；后续滑行另行验证。",
         "variant": "open",
         "autoplay": false,
         "duration": 10000,
-        "title": "开放站姿：分清板头板尾与两侧板刃 · 动作示意"
+        "title": "开放站姿：分清板头板尾与两侧板刃 · 动作示意",
+        "task": "board-coordinate-study",
+        "jointLabels": true,
+        "view": "width"
       },
       "drill": {
         "terrain": "平地先辨方向，再到熟悉双刃单弯的宽缓坡。",
@@ -5345,28 +5330,14 @@
       ],
       "demo": {
         "type": "hip-edge-change",
-        "focus": "髋是注意焦点，踝膝仍参与",
-        "steps": [
-          {
-            "label": "可活动姿态",
-            "detail": "膝踝自然屈曲，不能孤立锁死。"
-          },
-          {
-            "label": "髋参与前刃",
-            "detail": "小幅调整髋，踝膝配合。"
-          },
-          {
-            "label": "释放回到居中位置",
-            "detail": "身体和板恢复可调关系。"
-          },
-          {
-            "label": "髋参与后刃",
-            "detail": "调整髋膝而不锁膝拉到极限。"
-          }
-        ],
+        "focus": "本例用温和伸展过渡观察髋跨板宽换侧；踝膝与胸廓共同配合，末态仍滑行。",
         "autoplay": false,
         "duration": 10000,
-        "title": "髋参与换刃：向板刃移动，不向板尾坐 · 动作示意"
+        "title": "髋参与换刃：向板刃移动，不向板尾坐 · 动作示意",
+        "task": "hip-transition",
+        "jointLabels": true,
+        "view": "width",
+        "transitionReference": "snow"
       }
     },
     {
@@ -5471,28 +5442,13 @@
       ],
       "demo": {
         "type": "hip-edge-change",
-        "focus": "先小幅、每次回到中立",
-        "steps": [
-          {
-            "label": "静态准备",
-            "detail": "不靠速度支撑大幅倾斜。"
-          },
-          {
-            "label": "小前刃",
-            "detail": "协调踝膝髋，不把人送出板面。"
-          },
-          {
-            "label": "回到居中位置检查",
-            "detail": "能否无需甩臂回到平板关系。"
-          },
-          {
-            "label": "小后刃",
-            "detail": "膝保留余量，再回中立。"
-          }
-        ],
+        "focus": "原地依次练两侧：先在平板内调整，再立小刃；先放回平板，再回中，不沿路线滑走。",
         "autoplay": false,
         "duration": 10000,
-        "title": "髋部换侧练习：原地感知，滑行验证 · 动作示意"
+        "title": "髋部换侧练习：原地感知，滑行验证 · 动作示意",
+        "task": "stationary-hip-rock",
+        "jointLabels": true,
+        "view": "width"
       }
     },
     {
@@ -5601,28 +5557,14 @@
       ],
       "demo": {
         "type": "knee-edge-change",
-        "focus": "膝是观察点：踝膝髋协同",
-        "steps": [
-          {
-            "label": "保留腿长余量",
-            "detail": "不用低到不能继续回收的姿态。"
-          },
-          {
-            "label": "膝踝参与释放",
-            "detail": "减小旧刃角，关节继续可调。"
-          },
-          {
-            "label": "板从身下通过",
-            "detail": "脚留在固定器内，身体与板关系改变。"
-          },
-          {
-            "label": "新刃衔接",
-            "detail": "自然膝轨迹与髋踝配合，不追求最快。"
-          }
-        ],
+        "focus": "一次协调屈曲转换：以膝为观察点，看踝膝髋共同放旧刃、过近平板和接新侧。",
         "autoplay": false,
         "duration": 10000,
-        "title": "从膝的移动看踝膝髋怎样换刃 · 动作示意"
+        "title": "从膝的移动看踝膝髋怎样换刃 · 动作示意",
+        "task": "coordinated-knee-transition",
+        "jointLabels": true,
+        "view": "width",
+        "transitionReference": "snow"
       }
     },
     {
@@ -5739,31 +5681,16 @@
       ],
       "demo": {
         "type": "retraction-turns",
-        "focus": "回收 → 过渡 → 伸展衔接；不踢离轨迹",
-        "steps": [
-          {
-            "label": "旧弯准备",
-            "detail": "保留能回收的腿长。"
-          },
-          {
-            "label": "回收释放",
-            "detail": "脚与板一起从身体下方通过。"
-          },
-          {
-            "label": "新弯接触",
-            "detail": "渐进伸腿，膝留余量。"
-          },
-          {
-            "label": "另一侧重复",
-            "detail": "保持同一走廊和可控速度。"
-          }
-        ],
+        "focus": "两次转换分别收短腿长、在新弯恢复；保留可控滑移与自然上身运动。",
         "autoplay": false,
         "duration": 10000,
         "title": "回收式搓雪小回转：板从身下通过 · 动作示意",
         "transitionReference": "snow",
         "skid": true,
-        "trackDiagnostics": true
+        "trackDiagnostics": true,
+        "task": "linked-retraction-skid",
+        "jointLabels": true,
+        "view": "width"
       },
       "relatedLessons": [
         "s-short-integrated",
@@ -7544,31 +7471,16 @@
         },
         {
           "type": "retraction-turns",
-          "focus": "回收小回转中的分离示例；普通搓雪小回转也能分离，不必先学会回收。",
-          "steps": [
-            {
-              "label": "自然上身",
-              "detail": "不固定僵硬躯干。"
-            },
-            {
-              "label": "下肢回收",
-              "detail": "释放旧刃，腿在身下变化。"
-            },
-            {
-              "label": "新弯伸展",
-              "detail": "保持雪面接触和可调整姿态。"
-            },
-            {
-              "label": "另一侧衔接",
-              "detail": "观察上身比下肢更平顺而非绝对静止。"
-            }
-          ],
+          "focus": "选修回收对照：板横向通过与肩部转动来自同一状态；上身较平顺，但不固定胸廓。",
           "autoplay": false,
           "duration": 10000,
           "title": "选修对照：回收小回转的上下身配合",
           "transitionReference": "snow",
           "skid": true,
-          "trackDiagnostics": true
+          "trackDiagnostics": true,
+          "task": "linked-retraction-skid",
+          "jointLabels": true,
+          "view": "width"
         }
       ],
       "relatedLessons": [

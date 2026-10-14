@@ -11,7 +11,7 @@ const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
 const subtract=(a:Vec3,b:Vec3):Vec3=>a.map((v,i)=>v-b[i]) as Vec3;
 
 test("every migrated course preserves feet, both legs and finite equipment movement throughout its own task",()=>{
-  assert.equal(refs.length,59,"review added/removed references explicitly");
+  assert.equal(refs.length,65,"review added/removed references explicitly");
   for(const config of refs) for(const stance of ["regular","goofy"] as const) {
     let before:ReturnType<typeof sampleLesson>|undefined;
     for(let i=0;i<=200;i++) {

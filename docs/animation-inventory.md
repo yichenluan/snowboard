@@ -16,12 +16,12 @@
 | 无动作/装备图课程 | 12 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
 | 已注册 / 有引用的类型 | 37 / 35 | SnowDemo.types；类型不是互不共享的独立实现 |
 | 应用变体键 | 70 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 89 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 展示配置组合 | 90 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 19 / 71 | 按注册表已切换默认渲染；不代表教学认证 |
-| 全量 / 部分接入类型 | 16 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
-| 剩余旧动画引用 | 63 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 22 / 77 | 按注册表已切换默认渲染；不代表教学认证 |
+| 全量 / 部分接入类型 | 19 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
+| 剩余旧动画引用 | 57 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -164,7 +164,7 @@
 | `pressure-flex:toe` | v-toe-kneel-pressure/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft:rear-heel` | v-heel-open-rear-foot/1、v-heel-open-loading/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft:front-return-toe` | v-toe-front-participation/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `hip-edge-change:open` | v11-lateral/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `hip-edge-change:open` | v11-lateral/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `short-turns:round` | v12-rhythm-why/1、s-short-rhythm/1、s-short-diagnosis/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 4 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
@@ -173,9 +173,9 @@
 | `garland:heel` | v14-steering/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `twist` | v14-twist/1、s14-twist-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `gaze-control` | v15-gaze-drill/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `hip-edge-change` | v16-hip-change/1、v16-hip-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `knee-edge-change` | v17-knee-change/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `retraction-turns` | v17-retract-drill/1、v19-stable-upper/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `hip-edge-change` | v16-hip-change/1、v16-hip-drill/1 | 2 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `knee-edge-change` | v17-knee-change/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `retraction-turns` | v17-retract-drill/1、v19-stable-upper/2 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `rotation` | v-shoulder-rhythm-map/1、v18-follow/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `counter-rotation` | v-shoulder-rhythm-map/2、v19-counter/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `short-turns:round:extend` | v-shoulder-rhythm-map/3、v-toe-open-causal/2、v19-stable-upper/1、s-short-integrated/1、s22-warmup/4 | 2 | D5：按变体独立审阅后接入共享 3D；待迁移 |
@@ -458,8 +458,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 06aa4bb4a5109758b314538e30ffd642436bb2031c042faf3ab9a1a6e90b0348 |
+| content.json | b0b12b76af9311db84aaba8f1ff2198a4b3346741794b02f9374680e6b285d37 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
-| lesson-player/registry.json | 84f003f66e3f84b383308d2fd2fb671067a20b326a518f935443e4dbfb910659 |
+| lesson-player/registry.json | 361b3f3ddfbc47420491e3b9fb774872a02381d073222084fd0078f481d29ff6 |
 

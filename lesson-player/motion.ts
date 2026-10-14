@@ -3,10 +3,14 @@ import registry from "./registry.json";
 import { isTurningLesson, sampleTurningLesson } from "./turns";
 import { supportsPressureLesson, pressureLessonTask, samplePressureLesson } from "./pressure";
 import { supportsAdvancedPressureLesson, advancedPressureTask, sampleAdvancedPressureLesson } from "./pressure-advanced";
+import { supportsCoordinationLesson, coordinationTask, sampleCoordinationLesson } from "./coordination";
 
 const partialVariants:Record<string,string[]>=registry.partialVariants;
 export const LESSON_TYPES: readonly string[] = [...registry.types,...Object.keys(partialVariants)];
-export const canRenderLesson=(config:LessonConfig)=>registry.types.includes(config.type)||Boolean(partialVariants[config.type]?.includes(config.variant??""));
+const requiredTasks:Record<string,string[]>=registry.requiredTasks;
+export const canRenderLesson=(config:LessonConfig)=>requiredTasks[config.type]
+  ?requiredTasks[config.type].includes(config.task??"")&&supportsCoordinationLesson(config)
+  :registry.types.includes(config.type)||Boolean(partialVariants[config.type]?.includes(config.variant??""));
 export interface LessonConfig {
   type: string;
   title?: string;
@@ -51,6 +55,7 @@ const range = (t: number) => {
   return lerp([0,1,0,-1][i], [1,0,-1,0][i], smooth(t*4-i));
 };
 export function lessonTask(c: LessonConfig): string {
+  if(supportsCoordinationLesson(c))return coordinationTask(c)!;
   if(supportsAdvancedPressureLesson(c))return advancedPressureTask(c)!;
   if(supportsPressureLesson(c))return pressureLessonTask(c);
   if(isTurningLesson(c)) return c.task ?? ({steering:"linked-steering", "rail-track":"linked-rails", garland:"same-edge-garland", "j-turn":"j-turn-stop", "gaze-control":"traverse-observation"}[c.type]!);
@@ -104,6 +109,7 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
 
 export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "regular"): LessonFrame {
   if(!canRenderLesson(c)) throw new Error(`尚未实现的三维动作：${c.type}/${c.variant??"default"}`);
+  if(supportsCoordinationLesson(c))return sampleCoordinationLesson(time,c,stance);
   if(supportsAdvancedPressureLesson(c))return sampleAdvancedPressureLesson(time,c,stance);
   if(supportsPressureLesson(c))return samplePressureLesson(time,c,stance);
   if(isTurningLesson(c)) return sampleTurningLesson(time,c,stance);

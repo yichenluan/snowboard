@@ -12,6 +12,9 @@ declare global { interface Window { SnowLesson3D: { types: readonly string[]; ca
 const edges={toe:"前刃 · 脚尖侧",heel:"后刃 · 脚跟侧",flat:"接近平板"};
 const views: [View,string][]=[["follow","斜视"],["side","看前后平衡"],["front","看两刃成角"],["boots","雪靴近景"]];
 function evidenceFor(c:LessonConfig):string {
+  if(c.type==="retraction-turns")return "依据 CASI Level 3 Guide 第13页、SBINZ 手册 B/06 的回收过渡，以及 CASI Reference Guide 第59页的上下身配合设计。转换先收短实际髋踝距离，再在新弯逐渐恢复；上身允许自然运动。回收是可选策略，不是所有搓雪小回转的必要条件。";
+  if(c.type==="knee-edge-change")return "依据 CASI Reference Guide 第43–50页的站姿、关节协调与调刃，以及第52页的屈曲过渡设计。膝是观察点，仍由踝膝髋共同完成；此例不演示膝独立扭板，也未计算真实压力。";
+  if(c.type==="hip-edge-change")return c.task==="hip-transition"?"依据 CASI Reference Guide 第43–50页的站姿、调刃和关节协调设计。本例在滑行转换中观察髋与板的关系，采用温和伸展过渡；髋不是独立发动机。":"依据 CASI Reference Guide 第43–50页的站姿与调刃关系设计。本段为平地原地感知：先在平板支撑范围内调整，再立小刃并回平板；不代表坡面自主站稳或滑行动态平衡。";
   if(c.variant==="timing-study")return "依据 CASI Reference Guide 的 Timing & Coordination（55–57 页）设计。三档只平移同一髋踝距离包络；板路径、刃角与动画时长固定。腿长图显示几何距离，不是压力，三档不是优劣排名。";
   if(c.type==="edge-change-down")return "依据 SBINZ 手册 B/06 对身体降低与板回收的区分，以及 CASI Reference Guide 的 Down Un-weighting（52、54 页）设计。两种机制分别编排路线和幅度，不能据此比较同条件效率；固定雪面图显示板、骨盆与胸廓，未计算真实压力。";
   if(c.type==="pressure-flex"&&c.variant==="toe"||c.type==="pressure-extend"&&c.variant==="heel")return "依据 CASI Reference Guide 的屈伸与压力管理（51–54 页）设计。本例只展示同刃弯中的腿长、身体关系和渐停；屈伸速度、开始与结束不能直接转成真实压力值。";
@@ -83,6 +86,21 @@ function DirectionComparison({state}:{state:MotionState}) {
     <text x="12" y="153">方向随同一状态更新；角度不是练习目标值</text>
   </svg>;
 }
+function BoardDirections({state}:{state:MotionState}) {
+  const b=state.board,long=[Math.cos(b.yaw),0,-Math.sin(b.yaw)],width=[Math.sin(b.yaw),0,Math.cos(b.yaw)];
+  const toeSign=width[0]*state.boots.front.toeDirection[0]+width[2]*state.boots.front.toeDirection[2]>=0?1:-1;
+  const p=(v:Vec3)=>{const q=v.map((n,i)=>n-b.position[i]);return [180+145*(q[0]*long[0]+q[2]*long[2]),93-145*toeSign*(q[0]*width[0]+q[2]*width[2])];};
+  const corners=[[-b.length/2,0,-b.width/2],[b.length/2,0,-b.width/2],[b.length/2,0,b.width/2],[-b.length/2,0,b.width/2]] as Vec3[];
+  return <svg className="sl3-direction" viewBox="0 0 360 180" role="img" aria-label="随板俯视，板头板尾与前后刃是两组方向">
+    <text x="12" y="18">随板俯视：脚向与两组方向</text>
+    <polygon points={corners.map(v=>p(boardToWorld(v,b)).join(",")).join(" ")} fill="#e4d5b7" stroke="#b68143"/>
+    <text x="310" y="96">板头</text><text x="10" y="96">板尾</text>
+    <text x="150" y="40">前刃 · 脚尖侧</text><text x="150" y="148">后刃 · 脚跟侧</text>
+    {(["front","rear"] as const).map(k=>{const foot=state.boots[k],tip=foot.position.map((v,i)=>v+.2*foot.toeDirection[i]) as Vec3;return <g key={k}><polyline points={[foot.position,tip].map(v=>p(v).join(",")).join(" ")} stroke={k==="front"?"#ba7149":"#477c95"} strokeWidth="5"/><circle cx={p(tip)[0]} cy={p(tip)[1]} r="3" fill="#285e58"/></g>;})}
+    <circle cx={p(state.joints.pelvis)[0]} cy={p(state.joints.pelvis)[1]} r="5" fill="#285e58"/>
+    <text x="12" y="174">线段：两脚朝向　绿点：骨盆投影（不是压力中心）</text>
+  </svg>;
+}
 function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi>}}) {
   const root=useRef<HTMLDivElement>(null);
   const duration=Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
@@ -111,7 +129,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     <div className="sl3-status"><strong>{edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
     <PlaybackControls clock={clock}/>
     <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>前脚 <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
-    {["single-transition","lower-transition","retraction-transition","timing-study"].includes(frame.task)&&!config.fromEdge&&<div className="sl3-options"><label>转换方向 <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">后刃 → 前刃</option><option value="toe">前刃 → 后刃</option></select></label></div>}
+    {["single-transition","lower-transition","retraction-transition","timing-study","hip-transition","coordinated-knee-transition","linked-retraction-skid"].includes(frame.task)&&!config.fromEdge&&<div className="sl3-options"><label>{frame.task==="linked-retraction-skid"?"起始工作刃":"转换方向"} <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">{frame.task==="linked-retraction-skid"?"后刃开始":"后刃 → 前刃"}</option><option value="toe">{frame.task==="linked-retraction-skid"?"前刃开始":"前刃 → 后刃"}</option></select></label></div>}
     {frame.task==="timing-study"&&<div className="sl3-options"><label>屈伸启动时机 <select value={timing} onChange={e=>{setPlaying(false);setTiming(e.target.value as "early"|"baseline"|"late");}}><option value="early">提前</option><option value="baseline">基准</option><option value="late">稍后</option></select></label><span className="sl3-hint">保持当前进度比较；只改启动时刻</span></div>}
     <p className="sl3-hint sl3-input-help">鼠标拖动旋转、滚轮缩放；再次点视角复位。触屏旋转关闭时可滚动页面。</p>
     </div><div className="sl3-explain">
@@ -119,6 +137,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     <div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>
     {config.type==="inclination"&&<p className="sl3-hint">本组比较身体与板的几何关系；实际组合仍需匹配速度、弯形和雪况。</p>}
     {frame.task==="static-edge"&&<p className="sl3-hint">双手扶稳护栏帮助感知动作；撤去支撑后的自主平衡需另行练习。</p>}
+    {["board-coordinate-study","stationary-hip-rock"].includes(frame.task)&&<><BoardDirections state={frame.state}/><p className="sl3-hint">仅演示平地原地感知，板角小不等于身体完全不移动；先回平板再回中，滑行效果需另行验证。</p></>}
     {frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/>}
     {(config.pressureDiagram||config.legLengthDiagram||config.transitionReference==="snow")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}
     {config.type==="edge-change-down"&&<p className="sl3-hint">两种示例分别编排路线和幅度，用于辨认运动机制；不能据此比较相同条件下哪种更高效。</p>}

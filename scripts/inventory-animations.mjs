@@ -25,7 +25,9 @@ const drylandTypes=registry.drylandTypes||[];
 if(!Array.isArray(drylandTypes)||drylandTypes.some(t=>typeof t!=='string'))throw new Error('离雪迁移类型格式无效');
 const fullyImplementedTypes=new Set([...registry.types,...drylandTypes]);
 const implementedTypes = new Set([...fullyImplementedTypes,...Object.keys(partialVariants)]);
-const implemented=demo=>fullyImplementedTypes.has(demo.type)||Boolean(partialVariants[demo.type]?.includes(demo.variant||''));
+const requiredTasks=registry.requiredTasks||{};
+if(Object.values(requiredTasks).some(v=>!Array.isArray(v)||v.some(item=>typeof item!=='string')))throw new Error('任务门控格式无效');
+const implemented=demo=>(fullyImplementedTypes.has(demo.type)&&(!requiredTasks[demo.type]||requiredTasks[demo.type].includes(demo.task)))||Boolean(partialVariants[demo.type]?.includes(demo.variant||''));
 // SnowDemo only registers presets at evaluation time. No DOM, I/O, timers or
 // renderer are supplied: a future module with initialization side effects fails.
 const sandbox = { window: {} };
@@ -70,7 +72,7 @@ const modelNames = {
 };
 const destinationFor = demo => {
   if(drylandTypes.includes(demo.type))return 'D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md';
-  if(implemented(demo)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':['toe-edge','heel-edge','inclination'].includes(demo.type)?'D2':['pressure-flex','pressure-extend','edge-change-up','edge-change-down'].includes(demo.type)?'D4':'D3'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
+  if(implemented(demo)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':['toe-edge','heel-edge','inclination'].includes(demo.type)?'D2':['pressure-flex','pressure-extend','edge-change-up','edge-change-down','hip-edge-change','knee-edge-change','retraction-turns'].includes(demo.type)?'D4':'D3'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
   if(partialVariants[demo.type]&&!demo.variant)return `D4：仅${partialVariants[demo.type].join('、')}已接入；其他任务仍待独立迁移`;
   if (library.presets[demo.type]?.dry) return 'D6：保留离雪独立动作；逐项审阅后决定 2D / 3D';
   if (demo.pressureDiagram || demo.variant === 'phase-study') return 'D4：保留二维阶段图；人体部分另行审阅';
@@ -100,6 +102,7 @@ for (const [lessonIndex, lesson] of data.lessons.entries()) {
   for (const [index, demo] of demos.entries()) {
     const locator = `lessons[${lessonIndex}].${lesson.demos?.length ? `demos[${index}]` : 'demo'}`;
     if (!library.types.includes(demo.type)) issue('error', 'unknown-type', `${lesson.id} ${locator}：${demo.type}`);
+    if(requiredTasks[demo.type]&&!requiredTasks[demo.type].includes(demo.task))issue('error','missing-task',`${lesson.id}：${demo.type}需要明确受支持的task`);
     if (demo.path && !library.paths.includes(demo.path)) issue('error', 'unknown-path', `${lesson.id}：${demo.path}`);
     if (library.shortVariants[demo.type] && demo.variant && !library.shortVariants[demo.type].includes(demo.variant)) issue('error', 'unknown-short-variant', `${lesson.id}：${key(demo)}`);
     if (demo.transition && !['extend', 'flex', 'retract'].includes(demo.transition)) issue('error', 'unknown-transition', `${lesson.id}：${demo.transition}`);
