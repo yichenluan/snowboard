@@ -11,11 +11,12 @@ const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
 const subtract=(a:Vec3,b:Vec3):Vec3=>a.map((v,i)=>v-b[i]) as Vec3;
 
 test("every migrated course preserves feet, both legs and finite equipment movement throughout its own task",()=>{
-  assert.equal(refs.length,65,"review added/removed references explicitly");
+  assert.equal(refs.length,77,"review added/removed references explicitly");
   for(const config of refs) for(const stance of ["regular","goofy"] as const) {
     let before:ReturnType<typeof sampleLesson>|undefined;
-    for(let i=0;i<=200;i++) {
-      const frame=sampleLesson(i/200,config,stance),s=frame.state,j=s.joints;
+    const samples=Math.max(200,Math.ceil((config.duration??10000)/50));
+    for(let i=0;i<=samples;i++) {
+      const frame=sampleLesson(i/samples,config,stance),s=frame.state,j=s.joints;
       for(const leg of ["front","rear"] as const) {
         assert.ok(Math.abs(distance(j[`${leg}Hip`],j[`${leg}Knee`])-BODY.thigh)<1e-9);
         assert.ok(Math.abs(distance(j[`${leg}Knee`],j[`${leg}Ankle`])-BODY.shin)<1e-9);

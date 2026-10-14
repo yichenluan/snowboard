@@ -25,7 +25,11 @@
     "edge-change-up",
     "hip-edge-change",
     "knee-edge-change",
-    "retraction-turns"
+    "retraction-turns",
+    "shoulder-coordination",
+    "rotation",
+    "counter-rotation",
+    "mixed-rotation"
   ],
   "requiredTasks": {
     "hip-edge-change": [
@@ -38,6 +42,23 @@
     ],
     "retraction-turns": [
       "linked-retraction-skid"
+    ],
+    "shoulder-coordination": [
+      "arms-traverse-stop",
+      "arms-linked-feedback",
+      "neutral-linked",
+      "orientation-progression",
+      "toe-orientation-stop",
+      "heel-baseline-stop"
+    ],
+    "rotation": [
+      "linked-rotation"
+    ],
+    "counter-rotation": [
+      "heel-speed-check"
+    ],
+    "mixed-rotation": [
+      "counter-to-linked"
     ]
   },
   "partialVariants": {

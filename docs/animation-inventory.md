@@ -12,16 +12,17 @@
 | 含动画的课程 | 88 | 按 app.js：非空 demos 优先，否则 demo |
 | 迁移范围内的动画引用 | 134 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
 | 装备交互图 | 2 | app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画 |
+| 已独立审阅的装备图 | 2 | 保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md |
 | 主站显示的示意总数 | 136 | 旧动画引用 + 装备图；不额外把 3D 链接计入 |
 | 无动作/装备图课程 | 12 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
 | 已注册 / 有引用的类型 | 37 / 35 | SnowDemo.types；类型不是互不共享的独立实现 |
 | 应用变体键 | 70 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 90 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 展示配置组合 | 91 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 26 / 85 | 按注册表已切换默认渲染；不代表教学认证 |
-| 全量 / 部分接入类型 | 23 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
-| 剩余旧动画引用 | 49 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 30 / 97 | 按注册表已切换默认渲染；不代表教学认证 |
+| 全量 / 部分接入类型 | 27 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
+| 剩余旧动画引用 | 37 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -146,7 +147,7 @@
 | 变体键 | 引用 ID | 不同配置数 | 去向 |
 | --- | --- | --- | --- |
 | `center-low:neutral` | v-base-stance/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `shoulder-coordination:arms-feedback` | v-arms-feedback/1、v-hand-back-cue/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `shoulder-coordination:arms-feedback` | v-arms-feedback/1、v-hand-back-cue/1 | 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft` | v-fore-aft-movement/1、v24-rear-load/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft:front-center-back` | v-fore-aft-roles/1、v-fore-aft-drill/1 | 2 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `center-high:toe` | v-toe-high-low/1、v-low-high-principle/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
@@ -176,14 +177,14 @@
 | `hip-edge-change` | v16-hip-change/1、v16-hip-drill/1 | 2 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `knee-edge-change` | v17-knee-change/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `retraction-turns` | v17-retract-drill/1、v19-stable-upper/2 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `rotation` | v-shoulder-rhythm-map/1、v18-follow/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `counter-rotation` | v-shoulder-rhythm-map/2、v19-counter/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `rotation` | v-shoulder-rhythm-map/1、v18-follow/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `counter-rotation` | v-shoulder-rhythm-map/2、v19-counter/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `short-turns:round:extend` | v-shoulder-rhythm-map/3、v-toe-open-causal/2、v19-stable-upper/1、s-short-integrated/1、s22-warmup/4 | 2 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `shoulder-coordination:neutral` | v-mid-position-30/1、v18-neutral/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `mixed-rotation` | v19-mixed/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `shoulder-coordination:open-heel` | v-heel-open-progression/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `shoulder-coordination:neutral` | v-mid-position-30/1、v18-neutral/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `mixed-rotation` | v19-mixed/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `shoulder-coordination:open-heel` | v-heel-open-progression/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `short-turns:asymmetric:extend` | v-toe-open-causal/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `shoulder-coordination:closed-toe` | v-toe-closed-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `shoulder-coordination:closed-toe` | v-toe-closed-drill/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `switch` | v19-switch/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `j-turn` | v-toe-low-drill/1、s-short-adapt/7 | 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `rail-track` | v20-carve/2、s20-rails/1、v24-skid-track/1、v21-method/1 | 3 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
@@ -213,7 +214,7 @@
 | `dry-hamstring` | v22-flexibility/3、s22-hamstring/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-squat:hold` | v22-hold/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
-| `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-extend:timing-study` | v21-linear/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 
 ## 逐课用途、资料与替换入口
@@ -462,8 +463,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 8d5479f8d3dca7649421e45defaf7af886d722d58e7234c1b44302628fb12c9b |
+| content.json | 3a03871e01c4144847f644a1f38f3542ab0690145e960349b28d5324c278ac1e |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
-| app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
-| lesson-player/registry.json | 68634051330af6ff865653cb001726785bb0ef2bec3a0a702c4d8de9c5733224 |
+| app.js | 25513cc789103ed8c0a498d038d1979a2107b33fe2840f673d240b2302d8e7e3 |
+| lesson-player/registry.json | 6c20ba5c4736f94dc7dafb961a8d6fb656f02af7a3ac9ce673bac21f1d09fd77 |
 

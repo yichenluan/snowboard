@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "8d5479f8d3dca7649421e45defaf7af886d722d58e7234c1b44302628fb12c9b",
+    "content.json": "3a03871e01c4144847f644a1f38f3542ab0690145e960349b28d5324c278ac1e",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67",
-    "lesson-player/registry.json": "68634051330af6ff865653cb001726785bb0ef2bec3a0a702c4d8de9c5733224"
+    "app.js": "25513cc789103ed8c0a498d038d1979a2107b33fe2840f673d240b2302d8e7e3",
+    "lesson-player/registry.json": "6c20ba5c4736f94dc7dafb961a8d6fb656f02af7a3ac9ce673bac21f1d09fd77"
   },
   "scope": "静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确",
   "counts": {
@@ -16,19 +16,20 @@
     "legacyDemoReferences": 134,
     "illustrationReferences": 2,
     "siteDisplayedDemonstrations": 136,
+    "reviewedIllustrations": 2,
     "registeredTypes": 37,
     "referencedTypes": 35,
     "applicationVariantKeys": 70,
-    "presentationConfigurations": 90,
+    "presentationConfigurations": 91,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 26,
-    "fullyImplemented3DTypes": 23,
+    "implemented3DTypes": 30,
+    "fullyImplemented3DTypes": 27,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 85,
-    "remainingLegacyReferences": 49,
-    "replacedLegacyReferences": 85
+    "implemented3DReferences": 97,
+    "remainingLegacyReferences": 37,
+    "replacedLegacyReferences": 97
   },
   "modules": [
     {
@@ -830,11 +831,26 @@
       ],
       "configurations": [
         {
+          "edgeSide": "toe",
+          "jointLabels": true,
+          "skid": true,
+          "task": "arms-traverse-stop",
+          "trackDiagnostics": true,
           "type": "shoulder-coordination",
-          "variant": "arms-feedback"
+          "variant": "arms-feedback",
+          "view": "follow"
+        },
+        {
+          "jointLabels": true,
+          "skid": true,
+          "task": "arms-linked-feedback",
+          "trackDiagnostics": true,
+          "type": "shoulder-coordination",
+          "variant": "arms-feedback",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "fore-aft",
@@ -1390,10 +1406,15 @@
       ],
       "configurations": [
         {
-          "type": "rotation"
+          "jointLabels": true,
+          "skid": true,
+          "task": "linked-rotation",
+          "trackDiagnostics": true,
+          "type": "rotation",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "counter-rotation",
@@ -1403,10 +1424,15 @@
       ],
       "configurations": [
         {
-          "type": "counter-rotation"
+          "jointLabels": true,
+          "skid": true,
+          "task": "heel-speed-check",
+          "trackDiagnostics": true,
+          "type": "counter-rotation",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:round:extend",
@@ -1441,11 +1467,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "neutral-linked",
+          "trackDiagnostics": true,
           "type": "shoulder-coordination",
-          "variant": "neutral"
+          "variant": "neutral",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "mixed-rotation",
@@ -1454,10 +1485,15 @@
       ],
       "configurations": [
         {
-          "type": "mixed-rotation"
+          "jointLabels": true,
+          "skid": true,
+          "task": "counter-to-linked",
+          "trackDiagnostics": true,
+          "type": "mixed-rotation",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "shoulder-coordination:open-heel",
@@ -1466,11 +1502,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "orientation-progression",
+          "trackDiagnostics": true,
           "type": "shoulder-coordination",
-          "variant": "open-heel"
+          "variant": "open-heel",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:asymmetric:extend",
@@ -1495,11 +1536,17 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "rotationComparison": "natural",
+          "skid": true,
+          "task": "toe-orientation-stop",
+          "trackDiagnostics": true,
           "type": "shoulder-coordination",
-          "variant": "closed-toe"
+          "variant": "closed-toe",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "switch",
@@ -1954,10 +2001,15 @@
       ],
       "configurations": [
         {
-          "type": "shoulder-coordination"
+          "jointLabels": true,
+          "skid": true,
+          "task": "heel-baseline-stop",
+          "trackDiagnostics": true,
+          "type": "shoulder-coordination",
+          "view": "follow"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "pressure-extend:timing-study",
@@ -2028,29 +2080,21 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "手臂是朝向参考，身体仍可调整",
-        "steps": [
-          {
-            "label": "参考",
-            "detail": "轻架双臂，标出髋肩朝向。"
-          },
-          {
-            "label": "观察",
-            "detail": "头看前方，身体避免无意大幅转开。"
-          },
-          {
-            "label": "迁移",
-            "detail": "双臂放松下落，仍保持同样控制。"
-          }
-        ],
+        "focus": "同刃短斜滑：轻架双臂短暂侧看、看回前方，放臂后复测；观察结束后独立渐停。可分别检查前刃与后刃。",
         "variant": "arms-feedback",
         "autoplay": false,
         "duration": 10000,
-        "title": "双臂作参考：转头观察时别把板带跑 · 动作示意"
+        "title": "短斜滑观察：架臂、放臂复测与独立停止",
+        "task": "arms-traverse-stop",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true,
+        "edgeSide": "toe"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-fore-aft-movement/1",
@@ -3427,32 +3471,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rotation",
-        "focus": "肩髋与板的同向协调",
-        "steps": [
-          {
-            "label": "自然朝向",
-            "detail": "从适合固定器角度的姿态开始。"
-          },
-          {
-            "label": "顺向协调",
-            "detail": "肩髋随计划弯形适量同向变化。"
-          },
-          {
-            "label": "下肢持续",
-            "detail": "保持脚膝髋对板的细致控制。"
-          },
-          {
-            "label": "平顺换向",
-            "detail": "不抡肩，不把后脚甩出弧线。"
-          }
-        ],
+        "focus": "连续看板轴、髋线和肩线的世界朝向：主要弯段总体同向，幅度和时机可以不同；换向极值附近允许自然相位差，片段末态仍在滑行。",
         "autoplay": false,
         "duration": 10000,
-        "title": "同向旋转：腿带着板转，上身自然跟随 · 动作观察"
+        "title": "同向协调：观察板、髋与肩的连续朝向",
+        "task": "linked-rotation",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-shoulder-rhythm-map/2",
@@ -3464,32 +3495,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "counter-rotation",
-        "focus": "专项示意：在已会的低速搓雪调速中，上下身小幅反向；普通小回转不用每弯套用。",
-        "steps": [
-          {
-            "label": "已有后刃基线",
-            "detail": "先具备低速检查与恢复路线能力；小幅减角减轻板上压力。"
-          },
-          {
-            "label": "肩髋有限反向",
-            "detail": "下肢让板轴更横坡，上身同时有限反向，不硬拧膝。"
-          },
-          {
-            "label": "同刃上支撑",
-            "detail": "渐进恢复原工作刃，形成短而可控的滑移。"
-          },
-          {
-            "label": "恢复原路线",
-            "detail": "减张力与负荷，回自然协调；需现场观察，示意不作入门处方。"
-          }
-        ],
+        "focus": "从已有后刃斜行进入，小幅减刃后板髋与肩同时反向，再恢复同后刃和原来的自然朝向。全程不换刃、不腾空；最后仍在斜行，未计算真实压力或制动力。",
         "autoplay": false,
         "duration": 10000,
-        "title": "反向旋转：已掌握调速动作后的专项练习 · 动作观察"
+        "title": "后刃专项调速：一次小幅反向后恢复自然",
+        "task": "heel-speed-check",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-shoulder-rhythm-map/3",
@@ -3525,14 +3543,19 @@
       "config": {
         "type": "shoulder-coordination",
         "variant": "neutral",
-        "title": "自然朝向：两条腿仍可活动",
-        "focus": "比较舒适朝向下的屈伸与转向；图中的角度只是示意，不是统一标准。",
+        "title": "自然朝向：两侧弧线与可调整的转换",
+        "focus": "用自然朝向连续完成前后刃弧线，观察两腿活动与转换。肩髋可随路线调整；示意角度不是统一标准，片段末态仍在滑行。",
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "neutral-linked",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v19-mixed/1",
@@ -3544,32 +3567,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "mixed-rotation",
-        "focus": "反向协调 → 回中立 → 同向协调",
-        "steps": [
-          {
-            "label": "自然参考",
-            "detail": "识别肩线、髋线和板的方向。"
-          },
-          {
-            "label": "小幅反向协调",
-            "detail": "仅在明确进阶练习中用，避免卡刃强扭。"
-          },
-          {
-            "label": "回中立",
-            "detail": "恢复可控制、能继续调整的姿态。"
-          },
-          {
-            "label": "同向协调",
-            "detail": "转入另一侧弯，检查路线和刃痕。"
-          }
-        ],
+        "focus": "先做一次后刃反向调速，在同后刃上解除分离，再释放后刃接自然前刃、后刃圆弧。后续不重复专项反向动作；片段末态仍在滑行，完整练习随后自行结束。",
         "autoplay": false,
-        "duration": 10000,
-        "title": "旋转方式切换：反向调整后接回自然圆弯 · 动作观察"
+        "duration": 18000,
+        "title": "后刃调速后恢复自然连弯",
+        "task": "counter-to-linked",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-heel-open-loading/1",
@@ -3616,29 +3626,20 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "自然参考朝向与下肢协调，不硬锁肩胯",
-        "steps": [
-          {
-            "label": "参考",
-            "detail": "按固定器小幅开放。"
-          },
-          {
-            "label": "切换",
-            "detail": "下肢引导，两脚有效参与。"
-          },
-          {
-            "label": "组合",
-            "detail": "加入屈伸和少量倾斜，验证控制。"
-          }
-        ],
+        "focus": "五组依次为自然基线、只改朝向、只改屈伸时机、只改身体倾斜、回自然基线；每组从同一基准比较。路线与板角固定，不据此判断真实压力或抓地优劣。",
         "variant": "open-heel",
         "autoplay": false,
-        "duration": 10000,
-        "title": "开肩姿态练习：朝向、屈伸、倾斜分开试 · 动作观察"
+        "duration": 40000,
+        "title": "五组对照：朝向、时机与身体倾斜分别比较",
+        "task": "orientation-progression",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-toe-open-causal/1",
@@ -3696,29 +3697,21 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "减少过量开放，保持自然协调朝向",
-        "steps": [
-          {
-            "label": "对照",
-            "detail": "观察原姿势的板头板尾轨迹。"
-          },
-          {
-            "label": "参考位",
-            "detail": "髋肩回舒适协调朝向，脚靴不被扭动。"
-          },
-          {
-            "label": "检验",
-            "detail": "下肢引导圆弯，比较两脚支撑。"
-          }
-        ],
+        "focus": "切换自然朝向与略多开放，在同进度比较髋肩和两腿。两档脚位、路线、板角与时长相同，完成前刃单弯并停止；不模拟两脚压力或局部板扭转，也不证明某个肩角更好。",
         "variant": "closed-toe",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃双脚配合：用自然朝向找回前脚引导 · 动作观察"
+        "title": "前刃单弯：自然朝向与略多开放对照",
+        "task": "toe-orientation-stop",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true,
+        "rotationComparison": "natural"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-hand-back-cue/1",
@@ -3730,29 +3723,20 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "手臂提示只用于观察，放松后保持控制",
-        "steps": [
-          {
-            "label": "参考",
-            "detail": "双臂自然微弯，标出肩朝向。"
-          },
-          {
-            "label": "反馈",
-            "detail": "发现无意旋转并恢复协调。"
-          },
-          {
-            "label": "放松",
-            "detail": "手臂回自然位置，下肢继续引导。"
-          }
-        ],
+        "focus": "先轻架双臂完成一组两侧圆弯，再放下手臂重复同样弯形。手臂只作肩线参考；这里展示可控基线，没有故意制造抢肩反例。",
         "variant": "arms-feedback",
         "autoplay": false,
-        "duration": 10000,
-        "title": "用手臂作参照：发现多余的转肩 · 动作观察"
+        "duration": 18000,
+        "title": "手臂参考：架臂与自然双臂重复同样圆弯",
+        "task": "arms-linked-feedback",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v18-follow/1",
@@ -3764,32 +3748,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rotation",
-        "focus": "肩髋与板的同向协调",
-        "steps": [
-          {
-            "label": "自然朝向",
-            "detail": "从适合固定器角度的姿态开始。"
-          },
-          {
-            "label": "顺向协调",
-            "detail": "肩髋随计划弯形适量同向变化。"
-          },
-          {
-            "label": "下肢持续",
-            "detail": "保持脚膝髋对板的细致控制。"
-          },
-          {
-            "label": "平顺换向",
-            "detail": "不抡肩，不把后脚甩出弧线。"
-          }
-        ],
+        "focus": "连续看板轴、髋线和肩线的世界朝向：主要弯段总体同向，幅度和时机可以不同；换向极值附近允许自然相位差，片段末态仍在滑行。",
         "autoplay": false,
         "duration": 10000,
-        "title": "同向旋转：腿带着板转，上身自然跟随 · 动作观察"
+        "title": "同向协调：观察板、髋与肩的连续朝向",
+        "task": "linked-rotation",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v18-neutral/1",
@@ -3802,14 +3773,19 @@
       "config": {
         "type": "shoulder-coordination",
         "variant": "neutral",
-        "title": "自然朝向：两条腿仍可活动",
-        "focus": "比较舒适朝向下的屈伸与转向；图中的角度只是示意，不是统一标准。",
+        "title": "自然朝向：两侧弧线与可调整的转换",
+        "focus": "用自然朝向连续完成前后刃弧线，观察两腿活动与转换。肩髋可随路线调整；示意角度不是统一标准，片段末态仍在滑行。",
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "neutral-linked",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v19-counter/1",
@@ -3821,32 +3797,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "counter-rotation",
-        "focus": "专项示意：在已会的低速搓雪调速中，上下身小幅反向；普通小回转不用每弯套用。",
-        "steps": [
-          {
-            "label": "已有后刃基线",
-            "detail": "先具备低速检查与恢复路线能力；小幅减角减轻板上压力。"
-          },
-          {
-            "label": "肩髋有限反向",
-            "detail": "下肢让板轴更横坡，上身同时有限反向，不硬拧膝。"
-          },
-          {
-            "label": "同刃上支撑",
-            "detail": "渐进恢复原工作刃，形成短而可控的滑移。"
-          },
-          {
-            "label": "恢复原路线",
-            "detail": "减张力与负荷，回自然协调；需现场观察，示意不作入门处方。"
-          }
-        ],
+        "focus": "从已有后刃斜行进入，小幅减刃后板髋与肩同时反向，再恢复同后刃和原来的自然朝向。全程不换刃、不腾空；最后仍在斜行，未计算真实压力或制动力。",
         "autoplay": false,
         "duration": 10000,
-        "title": "反向旋转：已掌握调速动作后的专项练习 · 动作观察"
+        "title": "后刃专项调速：一次小幅反向后恢复自然",
+        "task": "heel-speed-check",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v19-switch/1",
@@ -5176,14 +5139,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "观察自然朝向下的后刃单弯可控基线，完成出口并停止保刃。此图未复现甩尾的全部病因，不用静态姿态推断后脚压力。",
         "autoplay": false,
         "duration": 10000,
-        "title": "开肩后板尾乱甩：查刃角、前后平衡和转肩 · 动作示意"
+        "title": "后刃单弯可控基线：对照轨迹与身体组织",
+        "task": "heel-baseline-stop",
+        "view": "follow",
+        "jointLabels": true,
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v24-heel-transition/1",
@@ -5320,16 +5288,16 @@
       "entry": "https://yichenluan.github.io/snowboard-guide/#lesson=v23-angles",
       "type": "binding-stance",
       "focus": "俯视脚的朝向；数字为几何示例，不是推荐设置。",
-      "destination": "D7：保留二维装备几何交互；按厂家依据独立验收",
-      "status": "retained-2d-unreviewed"
+      "destination": "D7：保留二维装备几何交互；来源与实际验收见 lesson-equipment-review.md",
+      "status": "retained-2d-reviewed"
     },
     {
       "lesson": "s23-boot-centering",
       "entry": "https://yichenluan.github.io/snowboard-guide/#lesson=s23-boot-centering",
       "type": "boot-clearance",
       "focus": "横向截面说明外伸与接触关系，不计算个人最大刃角。",
-      "destination": "D7：保留二维装备几何交互；按厂家依据独立验收",
-      "status": "retained-2d-unreviewed"
+      "destination": "D7：保留二维装备几何交互；来源与实际验收见 lesson-equipment-review.md",
+      "status": "retained-2d-reviewed"
     }
   ],
   "lessons": [
@@ -6831,8 +6799,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 p.43、45、47–48、59；Position & Balance / Pivot / Separation",
+          "claim": "自然站姿保持可调整；同向、反向和上下身分离需观察连续运动，不能只凭静态夹角判断。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6855,8 +6823,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 p.43、45；Position & Balance / Stance & Binding Set Up",
+          "claim": "自然站姿强调舒适、活动能力及固定器设置的影响，不以单一肩角替代动态平衡。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6877,8 +6845,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.48、59、120；Counter Rotation / Separation / Steering Versatility",
-          "claim": "同向与反向旋转、上下身分离可按高级任务组合，需同时保留位置平衡和板响应。",
+          "locator": "印刷 p.48、59；Counter Rotation / Separation / Steering",
+          "claim": "反向旋转是专项转向手段，需恢复可调整的姿态；上下身分离与后续自然转向要按任务协调。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6929,8 +6897,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 p.43、45、47–50、51–57；Position / Pivot / Edging / Pressure / Timing",
+          "claim": "朝向、成角和屈伸时机都应随任务协调；分组单变量对照是本课编排，画面高度与板角不等于真实压力或抓地。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6974,8 +6942,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 p.43、45、48、59；Position & Balance / Lower Body Rotation / Steering",
+          "claim": "自然站姿与固定器设置影响活动能力；下肢共同转向，进阶引导可区分前脚入弯与后脚完成的阶段。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6996,8 +6964,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 p.43、47–48；Neutral Position / Rotational Movements",
+          "claim": "手臂自然、身体可调整；过量上身旋转可能影响平衡及雪板响应。架臂与放臂复测是本课据此编排的观察练习。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7018,8 +6986,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 p.47–48、59；Pivot / Steering",
+          "claim": "下肢关节共同引导雪板，上下身需要协调；转向应结合刃角、枢转及所需弯形观察。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7040,8 +7008,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 p.43、45；Position & Balance / Stance & Binding Set Up",
+          "claim": "自然站姿强调舒适、活动能力及固定器设置的影响，不以单一肩角替代动态平衡。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"

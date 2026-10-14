@@ -88,9 +88,11 @@ const prototypeModes = vm.runInNewContext(`(${prototypeMatch[1]})`, {}, { timeou
 const lessons = [];
 const references = [];
 const illustrations = [];
+// Explicitly reviewed entries; new equipment illustrations remain unreviewed.
+const reviewedIllustrations = new Set(["v23-angles:binding-stance", "s23-boot-centering:boot-clearance"]);
 const lessonIds = new Set();
 const moduleIds = new Set(data.modules.map(m => m.id));
-const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'legLengthDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task', 'fromEdge', 'timing', 'side']);
+const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'legLengthDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task', 'fromEdge', 'timing', 'side', 'rotationComparison']);
 for (const [lessonIndex, lesson] of data.lessons.entries()) {
   if (lessonIds.has(lesson.id)) issue('error', 'duplicate-lesson', lesson.id);
   lessonIds.add(lesson.id);
@@ -113,7 +115,7 @@ for (const [lessonIndex, lesson] of data.lessons.entries()) {
   }
   if (lesson.illustration) {
     if (!['binding-stance', 'boot-clearance'].includes(lesson.illustration.type)) issue('error', 'unknown-illustration', `${lesson.id}：${lesson.illustration.type}`);
-    illustrations.push({ lesson: lesson.id, entry, ...lesson.illustration, destination: 'D7：保留二维装备几何交互；按厂家依据独立验收', status: 'retained-2d-unreviewed' });
+    illustrations.push({ lesson: lesson.id, entry, ...lesson.illustration, destination: 'D7：保留二维装备几何交互；来源与实际验收见 lesson-equipment-review.md', status: reviewedIllustrations.has(`${lesson.id}:${lesson.illustration.type}`) ? 'retained-2d-reviewed' : 'retained-2d-unreviewed' });
   }
   for (const mistake of lesson.mistakes || []) {
     if (!mistake.demoKey) continue;
@@ -149,6 +151,7 @@ const counts = {
   lessonsWithoutVisuals: lessons.filter(l => !l.references.length && !l.illustration).length,
   legacyDemoReferences: references.length, illustrationReferences: illustrations.length,
   siteDisplayedDemonstrations: references.length + illustrations.length,
+  reviewedIllustrations: illustrations.filter(i=>i.status==='retained-2d-reviewed').length,
   registeredTypes: types.length, referencedTypes: types.filter(t => t.references.length).length,
   applicationVariantKeys: variants.length,
   presentationConfigurations: unique(references.map(r => configKey(r.config))).length,
@@ -192,6 +195,7 @@ const lines = [
     ['含动画的课程', counts.lessonsWithDemos, '按 app.js：非空 demos 优先，否则 demo'],
     ['迁移范围内的动画引用', counts.legacyDemoReferences, '每个课程内每个可选示意各计 1 次，可重复引用同一模型'],
     ['装备交互图', counts.illustrationReferences, 'app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画'],
+    ['已独立审阅的装备图', counts.reviewedIllustrations, '保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md'],
     ['主站显示的示意总数', counts.siteDisplayedDemonstrations, '旧动画引用 + 装备图；不额外把 3D 链接计入'],
     ['无动作/装备图课程', counts.lessonsWithoutVisuals, '原理与方法仍有正文，不应为凑全 3D 强制补动画'],
     ['已注册 / 有引用的类型', `${counts.registeredTypes} / ${counts.referencedTypes}`, 'SnowDemo.types；类型不是互不共享的独立实现'],
