@@ -1,0 +1,11 @@
+index.html
+snowboard-guide.html
+_site/
+build.log
+.validation/
+log/
+research/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
