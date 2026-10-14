@@ -72,13 +72,15 @@
       const state = analysis.status.get(n.id);
       const faded = analysis.targetInfo && !analysis.targetPath.has(n.id) && n.role !== 'support';
       const parents = n.requires.map(id => analysis.byId.get(id).title);
-      return `<button type="button" class="skill-node ${state}${n.id === selected.id ? ' is-selected' : ''}${path.has(n.id) ? ' is-path' : ''}${faded ? ' is-faded' : ''}" data-skill-node="${esc(n.id)}" data-skill-select="${esc(n.id)}" aria-pressed="${n.id === selected.id}" aria-label="${esc(n.title)}，${statusNames[state]}${n.role === 'support' ? '，辅助技术' : ''}"><strong>${esc(n.title)}</strong><small><span class="skill-status-dot" aria-hidden="true"></span>${n.role === 'support' ? '辅助 · ' : ''}${statusNames[state]}</small><span class="skill-parent-copy">${parents.length ? '前置：' + esc(parents.join(' + ')) : '起点：先对照通过标准自查'}</span></button>`;
+      const laneName = {carving:'刻滑路线',short:'搓雪小回转',switch:'并行 · 反脚'}[n.lane];
+      return `<button type="button" class="skill-node ${state}${n.id === selected.id ? ' is-selected' : ''}${path.has(n.id) ? ' is-path' : ''}${faded ? ' is-faded' : ''}" data-lane="${esc(n.lane || 'common')}" data-skill-node="${esc(n.id)}" data-skill-select="${esc(n.id)}" aria-pressed="${n.id === selected.id}" aria-label="${esc(n.title)}，${statusNames[state]}${n.role === 'support' ? '，辅助技术' : ''}">${laneName ? `<span class="skill-lane">${laneName}</span>` : ''}<strong>${esc(n.title)}</strong><small><span class="skill-status-dot" aria-hidden="true"></span>${n.role === 'support' ? '辅助 · ' : ''}${statusNames[state]}</small><span class="skill-parent-copy">${parents.length ? '前置：' + esc(parents.join(' + ')) : '起点：先对照通过标准自查'}</span></button>`;
     };
     const recommendations = analysis.ready.slice(0, 2);
     const abilities = map.nodes.filter(n => n.role !== 'support');
     return `<section class="skill-planner" aria-labelledby="skill-planner-title">
       <header class="skill-planner-head"><div><div class="map-kicker">YOUR NEXT TURN · 能力前置与进阶</div><h2 id="skill-planner-title">现在练什么，下一步去哪里</h2><p>${esc(map.intro)}</p></div><label class="skill-target-select">我想发展的方向<select data-skill-target aria-label="选择进阶方向">${options.map(o => `<option value="${esc(o.id)}"${o.id === target ? ' selected' : ''}>${esc(o.title)}</option>`).join('')}</select></label></header>
-      <div class="skill-summary"><p><strong>${abilities.filter(n => analysis.complete.has(n.id)).length} / ${abilities.length} 项结果能力通过自查</strong><span>读过条目或某一趟成功，尚不等于掌握。</span></p><div class="skill-recommendations"><span>现在可练 · 每次选一个</span>${recommendations.length ? recommendations.map(n => `<button type="button" data-skill-select="${esc(n.id)}">${esc(n.title)} →</button>`).join('') : '<span>当前方向已完成自查，可复测迁移或选择另一分支。</span>'}</div>${analysis.review.length ? `<p class="skill-progress-warning">${analysis.review.length} 项已勾选但前置未确认，这些勾选暂不计为通过。请点击“需补核前置”的节点核对。</p>` : ''}</div>
+      <div class="skill-goals"><button type="button" data-skill-goal="carving" aria-pressed="${target === 'carving'}"><small>重点路线 01</small><strong>刻滑</strong><span>单弧窄痕 → 连续浅弧 → 弯形可选</span></button><button type="button" data-skill-goal="short" aria-pressed="${target === 'short'}"><small>重点路线 02</small><strong>搓雪小回转</strong><span>逐步缩弯 → 完整小回转 → 保持与变化</span></button></div>${map.goalNote ? `<p class="skill-goal-note">${esc(map.goalNote)}</p>` : ''}
+      <div class="skill-summary"><p><strong>${abilities.filter(n => analysis.complete.has(n.id)).length} / ${abilities.length} 项结果能力通过自查</strong><span>读过条目或某一趟成功，尚不等于掌握。</span></p><div class="skill-recommendations"><span>现在可练 · 每次选一个</span>${recommendations.length ? recommendations.map(n => `<button type="button" data-skill-select="${esc(n.id)}">${esc(n.title)} →</button>`).join('') : '<span>当前方向已完成自查，可以换一个条件复测，或选择另一条路线。</span>'}</div>${analysis.review.length ? `<p class="skill-progress-warning">${analysis.review.length} 项已勾选但前置未确认，这些勾选暂不计为通过。请点击“需补核前置”的节点核对。</p>` : ''}</div>
       <div class="skill-legend"><span><i class="complete"></i>已通过自查</span><span><i class="ready"></i>现在可练</span><span><i class="locked"></i>先补前置</span><span><i class="review"></i>需补核前置</span><span class="skill-line-key">实线箭头：练习前置</span><span class="skill-line-key support">虚线箭头：选中节点的辅助技术</span></div>
       <div class="skill-layout"><div class="skill-graph-scroll" tabindex="0" aria-label="能力关系图，可横向滚动"><div class="skill-graph"><svg class="skill-edges" aria-hidden="true"></svg>${map.stages.map((s, i) => `<section class="skill-column"><h3 class="skill-stage-title"><small>${String(i + 1).padStart(2, '0')}</small>${esc(s.title)}</h3>${map.nodes.filter(n => n.stage === s.id && n.role !== 'support').map(nodeButton).join('')}</section>`).join('')}<section class="skill-support-strip"><h3>辅助技术 · 按问题选练，不计入结果能力进度</h3><div>${map.nodes.filter(n => n.role === 'support').map(nodeButton).join('')}</div></section></div></div>
       <section class="skill-details" aria-labelledby="skill-selected-title"><header><div><small class="skill-selected-status ${status}">${statusNames[status]}${selected.role === 'support' ? ' · 辅助技术' : ''}</small><h3 id="skill-selected-title">${esc(selected.title)}</h3><p>${esc(selected.focus)}</p></div><label class="skill-mastery-toggle"><input type="checkbox" data-skill-mastered="${esc(selected.id)}"${analysis.marked.has(selected.id) ? ' checked' : ''}>我已按下方标准通过自查</label></header>
@@ -105,6 +107,12 @@
       const supportLane = Math.max(...map.nodes.filter(n => n.role !== 'support').map(n => positions.get(n.id)?.bottom || 0)) + 12;
       function curve(from, to, support) {
         const a = positions.get(from), b = positions.get(to); if (!a || !b) return;
+        if (analysis.byId.get(to).role === 'support') {
+          // Optional cards may wrap to a second row: use the gutters so a
+          // prerequisite never appears to pass through an unrelated card.
+          curves.push(`<path class="skill-edge is-path${support ? ' support' : ''}" d="M ${a.right} ${a.y} H ${a.right + 5} V ${supportLane} H ${b.left - 5} V ${b.y} H ${b.left - 2}" marker-end="url(#skill-arrow${support ? '-support' : ''})"/>`);
+          return;
+        }
         if (support && analysis.byId.get(from).role === 'support') {
           const x1 = (a.left + a.right) / 2, x2 = b.right + 8;
           curves.push(`<path class="skill-edge support is-path" d="M ${x1} ${a.top} V ${supportLane} H ${x2} V ${b.y} H ${b.right + 3}" marker-end="url(#skill-arrow-support)"/>`);
@@ -124,6 +132,7 @@
         curves.push(`<path class="skill-edge${cls}" d="M ${x1} ${a.y} C ${bend} ${a.y}, ${bend} ${b.y}, ${x2 - 3} ${b.y}" marker-end="url(#skill-arrow${support ? '-support' : ''})"/>`);
       }
       map.nodes.filter(n => n.role !== 'support').forEach(n => n.requires.forEach(id => curve(id, n.id, false)));
+      if (selectedNode?.role === 'support') selectedNode.requires.forEach(id => curve(id, selected, false));
       selectedNode?.supports.forEach(id => curve(id, selected, true));
       svg.setAttribute('viewBox', `0 0 ${rect.width} ${rect.height}`);
       svg.innerHTML = `<defs><marker id="skill-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 8 4 L 0 8 z" fill="#8fa596"/></marker><marker id="skill-arrow-support" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 8 4 L 0 8 z" fill="#b09459"/></marker></defs>${curves.join('')}`;
@@ -134,7 +143,9 @@
       if (!analysis.byId.has(selectedId)) selectedId = analysis.ready[0]?.id || map.nodes[0].id;
       root.innerHTML = markup(map, analysis, selectedId, target, lessons);
       root.querySelectorAll('[data-skill-select]').forEach(button => button.onclick = () => { selectedId = button.dataset.skillSelect; onSelect?.(selectedId); draw(`[data-skill-node="${CSS.escape(selectedId)}"]`); root.querySelector('.skill-details')?.scrollIntoView({block:'nearest'}); });
-      root.querySelector('[data-skill-target]').onchange = event => { target = event.target.value; const next = analyze(map, progress, target); selectedId = next.ready[0]?.id || next.targetInfo?.nodeIds?.[0] || map.nodes[0].id; onTarget?.(target); onSelect?.(selectedId); draw('[data-skill-target]'); };
+      function changeTarget(value, focus = '[data-skill-target]') { target = value; const next = analyze(map, progress, target); selectedId = next.ready[0]?.id || next.targetInfo?.nodeIds?.at(-1) || map.nodes[0].id; onTarget?.(target); onSelect?.(selectedId); draw(focus); }
+      root.querySelector('[data-skill-target]').onchange = event => changeTarget(event.target.value);
+      root.querySelectorAll('[data-skill-goal]').forEach(button => button.onclick = () => changeTarget(button.dataset.skillGoal, `[data-skill-goal="${button.dataset.skillGoal}"]`));
       root.querySelector('[data-skill-mastered]').onchange = event => { const id = event.target.dataset.skillMastered; progress = event.target.checked ? [...new Set([...progress, id])] : progress.filter(value => value !== id); onProgress?.(progress); draw('[data-skill-mastered]'); };
       root.querySelectorAll('[data-skill-lesson]').forEach(button => button.onclick = () => onLesson?.(button.dataset.skillLesson));
       if (focusSelector) root.querySelector(focusSelector)?.focus({preventScroll:true});

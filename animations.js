@@ -22,6 +22,12 @@
  * trackDiagnostics:true shows board axis and travel direction; turnShape:'open'|'closed'
  * changes the skidded/carved route without pretending to calculate speed.
  * jointLabels:true labels ankle, knee, hip and shoulder in body/width views.
+ * Short-turn families: short-turns (round / tail-brake / shoulder-led /
+ * edge-locked / asymmetric / low-stuck / over-inclined), short-turn-progression
+ * (side-slip / side-slip-shorter / linked / medium-to-short / short-to-medium /
+ * short-steady), and
+ * short-turn-balance (centered / nose-pivot / back-seat). All share synchronized
+ * board, travel and joint phases; transition:extend|flex|retract is optional.
  * Skeleton fields: h = hip height; fore = longitudinal hip offset;
  * hipY/shoulderY = lateral positions; edge = qualitative board roll;
  * hipYaw/shoulderYaw = relative rotation; twist = front/rear roll difference.
@@ -65,7 +71,7 @@
       title:'可活动的中立姿态', view:'body',
       keyframes:[key(0,{h:84}),key(.32,{h:106}),key(.58,{h:102}),
         key(.78,{h:89}),key(1,{h:84})],
-      steps:[step(0,'自然屈膝','双脚支撑，头、躯干、髋与雪板构成可活动的姿态。'),
+      steps:[step(0,'自然屈膝','两脚一起支撑，头、躯干、髋与雪板构成可活动的姿态。'),
         step(.2,'舒展而不僵直','升高髋的位置，膝盖仍留余量；站高不等于锁膝。'),
         step(.6,'小幅屈伸检查','若还能平稳上下活动，说明姿态没有把关节锁住。')]
     },
@@ -75,8 +81,8 @@
         key(.5,{fore:0}),key(.73,{fore:-14,h:94,torsoX:4}),key(1,{fore:0})],
       steps:[step(0,'从居中开始','观察髋与双脚的位置关系，而非只移动头或前伸手臂。'),
         step(.16,'小幅前脚侧调整','髋向板头侧移动，双腿协调屈伸；演示不是固定前脚重量比例。'),
-        step(.42,'归中','回到双脚之间，给下一阶段保留选择。'),
-        step(.65,'后脚侧调整再归中','用于体会前后范围；普通压雪道滑行不要长期坐在板尾。')]
+        step(.42,'回到居中位置','回到双脚之间，给下一阶段保留选择。'),
+        step(.65,'后脚侧调整再回到居中位置','用于体会前后范围；普通压雪道滑行不要长期坐在板尾。')]
     },
     'toe-edge': {
       title:'前刃：用关节逐渐立刃', view:'width',
@@ -85,7 +91,7 @@
       steps:[step(0,'居中、平板示意','这是关节关系演示；雪上操作要匹配坡度、速度与刃的方向。'),
         step(.24,'逐渐进入前刃','踝膝向脚尖侧活动，髋随之调整；并非踮起脚尖硬撑。'),
         step(.56,'关节折角保持平衡','板的角度增加，躯干不必以相同幅度倒向内侧。'),
-        step(.84,'减小刃角、归中','平稳释放旧刃，不突然把身体甩过雪板。')]
+        step(.84,'减小刃角、回到居中位置','平稳释放旧刃，不突然把身体甩过雪板。')]
     },
     'heel-edge': {
       title:'后刃：髋膝踝协调，不折腰坐尾', view:'width',
@@ -94,7 +100,7 @@
       steps:[step(0,'从居中开始','脚固定在雪板上，先观察横向的平衡。'),
         step(.24,'髋向脚跟侧调整','膝踝保留活动，利用靴筒、固定器和雪板传递动作。'),
         step(.56,'躯干保持支撑','避免只弯腰、臀部远离雪板；角度随速度、雪况调整。'),
-        step(.84,'释放、归中','减小刃角，再准备下一次动作。')]
+        step(.84,'释放、回到居中位置','减小刃角，再准备下一次动作。')]
     },
     'absorption': {
       title:'屈曲吸收：腿变短，身体更平顺', view:'body',
@@ -104,7 +110,7 @@
       terrain:'bump',
       steps:[step(0,'接近小起伏','脚与雪板仍在雪面，预留屈曲范围。'),
         step(.3,'腿部屈曲吸收','板随地形上升，腿变短；减少地形把躯干顶起的幅度。'),
-        step(.6,'越过后逐步恢复','随雪面变化恢复腿长，不突然蹬直。'),
+        step(.6,'越过后逐步恢复','随雪面变化逐渐伸腿，不突然蹬直。'),
         step(.85,'区分姿态与压力','蹲得低不自动等于压力大；压力取决于运动、速度与雪板雪面相互作用。')]
     },
     'pressure-extend': {
@@ -115,15 +121,15 @@
       steps:[step(0,'从屈曲姿态开始','留出伸展范围，身体仍与雪板保持平衡。'),
         step(.06,'伸展开始：暂时增压','腿部伸展使身体向上加速时，板雪接触压力暂时增加。'),
         step(.3,'伸展停止：暂时减压','停止伸展后，上升惯性带来短暂减压；幅度由动作速度与条件决定。'),
-        step(.68,'再次屈曲管理反馈','避免以僵直双腿承受弯内或地形增加的负荷。')]
+        step(.68,'再次屈膝，缓和压力变化','避免以僵直双腿承受弯内或地形增加的压力。')]
     },
     'pressure-flex': {
-      title:'屈曲的两个阶段：减压与承接',view:'body',
+      title:'屈曲的两个阶段：开始下蹲与停住下落',view:'body',
       keyframes:[key(0,{h:103}),key(.38,{h:76,hipY:-5,shoulderY:11}),
         key(.64,{h:76,hipY:-5,shoulderY:11}),key(1,{h:103})],
       steps:[step(0,'较高、可活动的姿态','留出屈曲范围；此演示保持板雪接触。'),
-        step(.05,'开始屈曲：暂时减压','身体向下加速，腿部回收，板雪接触压力暂时减小。'),
-        step(.38,'屈曲停止：承接增压','身体停止继续下落，减速过程可暂时增加板雪接触压力。'),
+        step(.05,'开始屈曲：暂时减压','身体向下加速，双腿屈曲，板雪接触压力暂时减小。'),
+        step(.38,'停止下蹲：压力暂时增加','身体停止继续下落，减速过程可暂时增加板雪接触压力。'),
         step(.7,'平稳恢复高度','不能把“越蹲越压”当通用口诀；动作阶段、速度、弯形与地形共同决定压力。')]
     },
     'inclination': {
@@ -134,10 +140,10 @@
       steps:[step(0,'从居中开始','真实转弯需要速度和弯形支持；静止时不能照图向内倒。'),
         step(.15,'适量内倾','髋与躯干向弯内移动，幅度取决于当前转弯条件。'),
         step(.43,'增加关节折角','踝、膝、髋的角度调整让刃角与全身倾斜不必一一对应。'),
-        step(.68,'保留调节空间','躯干相对更接近支撑区域，仍可调刃、吸收与归中。')]
+        step(.68,'保留调节空间','躯干相对更接近支撑区域，仍可调刃、屈腿吸收，并回到居中位置。')]
     },
     'edge-change-up': {
-      title:'伸展式换刃：旧刃 → 归中 → 新刃', view:'width',
+      title:'伸展式换刃：旧刃 → 回到居中位置 → 新刃', view:'width',
       keyframes:[key(0,{h:82,edge:25,hipY:17,shoulderY:12}),
         key(.28,{h:101,edge:11,hipY:7,shoulderY:6}),key(.44,{h:106,edge:0,hipY:0,shoulderY:3}),
         key(.7,{h:94,edge:-21,hipY:-16,shoulderY:-5}),
@@ -145,7 +151,7 @@
       steps:[step(0,'旧弯仍有支撑','从可屈伸的姿态准备释放旧刃。'),
         step(.18,'伸展并释放','舒展双腿同时减小刃角；动作节奏影响压力变化。'),
         step(.38,'经过居中位置','旧刃释放，板短暂接近平；示意不要求刻意长时间直滑。'),
-        step(.58,'渐进建立新刃','进入新弯后逐渐屈曲管理压力；避免站直后猛砸新刃。')]
+        step(.58,'渐进建立新刃','进入新弯后逐渐屈膝，缓和压力变化；避免站直后猛砸新刃。')]
     },
     'edge-change-down': {
       title:'回收式换刃：屈腿让板从身下通过', view:'width',
@@ -153,10 +159,10 @@
         key(.28,{h:85,edge:13,hipY:8,shoulderY:10}),key(.46,{h:73,edge:0,hipY:0,shoulderY:5}),
         key(.7,{h:88,edge:-20,hipY:-15,shoulderY:-6}),
         key(1,{h:101,edge:-25,hipY:-19,shoulderY:-12})],
-      steps:[step(0,'旧弯有屈曲余量','这是进阶节奏，不作为首次学习转弯的必修动作。'),
+      steps:[step(0,'旧弯结束前，双腿还能再弯一些','这是进阶节奏，不作为首次学习转弯的必修动作。'),
         step(.18,'主动回收双腿','缩短腿长并释放旧刃，身体和板的横向关系开始变化。'),
-        step(.38,'低位通过归中','雪板从身体下方通过，脚固定在板上；不是单纯弯腰。'),
-        step(.6,'进入新弯再伸展','渐进恢复腿长以维持雪面接触，不把每个弯都做成僵硬深蹲。')]
+        step(.38,'屈腿经过居中位置','雪板从身体下方通过，脚固定在板上；不是单纯弯腰。'),
+        step(.6,'进入新弯再伸展','逐渐伸腿以维持雪面接触，不把每个弯都做成僵硬深蹲。')]
     },
     'steering': {
       title:'脚、膝、髋渐进引导雪板转向', view:'track',
@@ -167,9 +173,9 @@
         key(1,{fore:0,hipYaw:-10,shoulderYaw:-5,edge:-19,hipY:-16})],
       path:'linked-skid',
       steps:[step(0,'看向计划路线','视线帮助选择路线，手臂不用猛甩。'),
-        step(.15,'下肢渐进引导','脚与膝的运动通过靴与固定器传给板；前后脚可有不同节奏。'),
+        step(.15,'下肢渐进引导','脚与膝的运动通过靴与固定器传给板；前后脚可先后配合。'),
         step(.4,'持续引导弯形','髋与躯干协调跟进；转向不等于靠后脚横扫。'),
-        step(.65,'释放并转入下一弯','回到可调整的中立关系，再引导另一侧；俯视宽带表示搓雪。')]
+        step(.65,'释放并转入下一弯','回到能继续调整的位置，再引导另一侧；俯视宽带表示搓雪。')]
     },
     'shoulder-coordination': {
       title:'视线、肩髋与下肢协调', view:'track',
@@ -180,7 +186,7 @@
       path:'linked-skid',
       steps:[step(0,'先确认路线','抬头观察前方与周围，肩髋保持自然关系。'),
         step(.16,'协调而非抡肩','下肢引导雪板，肩髋随任务适度协调；不靠甩手拧肩驱动每个转弯。'),
-        step(.41,'保持可控制的上身','肩线和髋线只是方向示意，不要求永远完全平行雪板。'),
+        step(.41,'上身平顺，不僵住','肩线和髋线只是方向示意，不要求永远完全平行雪板。'),
         step(.66,'平顺换向','动作连续；高级反拧等特定任务不在本初中级演示中。')]
     },
     'garland': {
@@ -202,7 +208,7 @@
       steps:[step(0,'短距离可控直滑','使用宽缓、具安全停止区的雪道；先具备基本滑行和停止能力。'),
         step(.2,'渐进进入一个刃','踝膝髋协调立刃 / 引导，避免突然抓刃。'),
         step(.5,'持续完成圆弧','方向逐渐转向横坡，用弯形降低速度。'),
-        step(.8,'横坡完成并停住','这是一侧的单弯；另一刃要分别练习，不急于连续换刃。')]
+        step(.8,'横坡完成并停住','这是单独练一侧转弯；另一刃要分别练习，不急于连续换刃。')]
     },
     'rail-track': {
       title:'浅弧刃滑：让板尾跟随板头', view:'track',path:'rail',
@@ -231,17 +237,17 @@
         key(.48,{h:96}),key(.76,{h:94,edge:-21,hipY:-18,shoulderY:-7}),key(1,{h:94,edge:-21,hipY:-18,shoulderY:-7})],
       steps:[step(0,'髋的横向路径','它是注意力线索，不是独立于踝膝的唯一驱动器。'),
         step(.14,'髋参与前刃','髋配合踝膝进入前刃，避免折腰替代横向移动。'),
-        step(.37,'经过支撑区域','髋与板的横向关系改变，躯干仍可控制，释放并归中。'),
+        step(.37,'经过支撑区域','髋与板的横向关系改变，躯干仍可控制，释放并回到居中位置。'),
         step(.6,'建立后刃的支撑','髋移向新弯，踝膝共同调节新刃；不追求极端倒伏。')]
     },
     'knee-edge-change': {
-      title:'膝部线索换刃：小幅、渐进、协调',view:'width',
+      title:'用膝盖的移动体会换刃：小幅、渐进、协调',view:'width',
       keyframes:[key(0,{h:96,edge:22,hipY:12,shoulderY:9}),
         key(.28,{h:88,edge:8,hipY:4,shoulderY:6,twist:4}),key(.46,{h:89,edge:0,hipY:0,shoulderY:4}),
         key(.74,{h:93,edge:-19,hipY:-14,shoulderY:-3}),key(1,{h:95,edge:-23,hipY:-18,shoulderY:-7})],
-      steps:[step(0,'用膝的方向体会立刃','膝不是孤立杠杆，动作仍涉及踝和髋。'),
-        step(.18,'小关节渐进调整','降低旧刃角，膝保持脚尖方向的自然运动，不强压内扣。'),
-        step(.4,'归中后换侧','保持双脚固定，经过可调整的中立关系。'),
+      steps:[step(0,'借膝盖的移动体会立刃','膝不是孤立杠杆，动作仍涉及踝和髋。'),
+        step(.18,'踝膝逐渐配合','降低旧刃角，膝保持脚尖方向的自然运动，不强压内扣。'),
+        step(.4,'回到居中位置后换侧','保持双脚固定，经过身体与雪板相对居中的位置。'),
         step(.63,'协调建立新刃','不要为了膝先动而僵硬锁髋或锁踝；体感线索因人而异。')]
     },
     'retraction-turns': {
@@ -250,17 +256,17 @@
         key(.5,{h:103,edge:-24,hipY:-19,shoulderY:-12}),key(.74,{h:77}),key(1,{h:103,edge:24,hipY:15,shoulderY:19})],
       steps:[step(0,'旧弯预留回收空间','进阶节奏：腿还有缩短余量，再准备释放旧刃。'),
         step(.12,'回收通过换刃','屈腿释放旧刃，让板从身下通过。'),
-        step(.36,'新弯内逐渐伸展','逐渐恢复腿长并保持雪面接触；不把板猛踢到身外。'),
+        step(.36,'新弯内逐渐伸展','逐渐伸腿并保持雪面接触；不把板猛踢到身外。'),
         step(.64,'另一侧重复','再次回收并建立另一侧支撑，动作时机随速度、半径和雪况调整。')]
     },
     'twist': {
       title:'扭板：前后脚不同刃角的协调',view:'body',
       keyframes:[key(0,{edge:15,hipY:9}),key(.24,{twist:-8,edge:10,fore:5,h:92,hipY:5}),
         key(.46,{twist:-8,edge:-12,hipY:-9}),key(.68,{edge:-17,hipY:-13}),key(1,{edge:-17,hipY:-13})],
-      steps:[step(0,'板头与板尾分别观察','已有工作刃支撑。扭板是沿板长的扭转，区别于整块板绕垂直轴转向。'),
-        step(.13,'前后脚不同节奏','前段先释放，通过踝膝屈伸与适量旋转，让两端出现不同刃角；板变形经过夸张。'),
-        step(.37,'协调完成建刃','前段先进入新刃，后脚逐渐配合，建立所需的整条刃支撑。'),
-        step(.63,'回到协调支撑','两端重新更接近同一刃角，不持续保持大扭转，也不是前后脚轮流猛踩。')]
+      steps:[step(0,'板头与板尾分别观察','当前雪刃仍在控制滑行。扭板是沿板长的扭转，区别于整块板绕垂直轴转向。'),
+        step(.13,'前后脚不同节奏','板头一侧先减小刃角，通过踝膝屈伸与适量旋转，让两端出现不同刃角；板变形经过夸张。'),
+        step(.37,'协调完成建刃','板头一侧先进入新刃，后脚逐渐配合，建立所需的整条刃支撑。'),
+        step(.63,'两脚重新配合','两端重新更接近同一刃角，不持续保持大扭转，也不是前后脚轮流猛踩。')]
     },
     'rotation': {
       title:'同向协调旋转：下肢引导、上身跟进',view:'track',path:'linked-skid',
@@ -268,7 +274,7 @@
         key(.5,{}),key(.76,{hipYaw:-15,shoulderYaw:-12,edge:-16,hipY:-13}),key(1,{})],
       steps:[step(0,'先选择路线','看向需要去的方向，保持上身稳定。'),
         step(.14,'关节协调旋转','下肢与髋引导雪板，上身适量跟进；不是把肩转多少板就转多少。'),
-        step(.4,'归中并准备换向','肩、髋、板的关系持续调整，避免旋转过量导致失衡。'),
+        step(.4,'回到居中位置并准备换向','肩、髋、板的关系持续调整，避免旋转过量导致失衡。'),
         step(.64,'另一侧协调','用相同原则做反方向圆弧，重点是连续与可控制。')]
     },
     'counter-rotation': {
@@ -276,18 +282,18 @@
       keyframes:[key(0,{}),key(.25,{hipYaw:-10,shoulderYaw:19,edge:12,hipY:7}),
         key(.45,{hipYaw:-5,shoulderYaw:8,edge:18,hipY:10}),
         key(.65,{edge:18,hipY:10}),key(1,{edge:18,hipY:10})],
-      steps:[step(0,'限定为进阶专项','先熟悉小幅速度检查与稳定的下肢枢转，再在教练指导下练习特定分离任务。'),
-        step(.14,'短时上 / 下身分离','上、下身呈相反旋转；动作大小应匹配任务，不靠甩肩拧腰硬转。'),
-        step(.25,'下肢枢转与上身分别观察','分离是暂时策略，不根据最终开放姿势判断是否用了反拧。'),
+      steps:[step(0,'限定为进阶专项','先熟悉小幅速度检查与稳定的双腿引导转板，再在教练指导下练习特定分离任务。'),
+        step(.14,'短时上 / 下身分离','上、下身呈相反旋转；动作幅度要适合当前练习，不靠甩肩拧腰硬转。'),
+        step(.25,'分别观察双腿转板与上身朝向','分离是暂时策略，不根据最终开放姿势判断是否用了反拧。'),
         step(.56,'恢复协调关系','完成后及时恢复协调和支撑；不把相反肩转、强压髋膝作为刻滑通用口令。')]
     },
     'switch': {
-      title:'反脚滑行：原后脚成为行进前脚',view:'track',path:'linked-skid',switch:true,
+      title:'反脚滑行：原后脚变成前脚',view:'track',path:'linked-skid',switch:true,
       keyframes:[key(0,{}),key(.24,{fore:-7,edge:-16,hipY:-13,hipYaw:-6,shoulderYaw:-3}),
         key(.5,{}),key(.76,{fore:-7,edge:16,hipY:9,hipYaw:6,shoulderYaw:3}),key(1,{})],
       steps:[step(0,'保持原固定器站姿','双脚没有在固定器中转过去；改变的是滑行方向。'),
-        step(.14,'原后脚侧引导','新的行进前脚负责路线引导，重新学习两侧的圆弧与停止。'),
-        step(.4,'降低难度练归中','从更缓坡与更低速度开始，保留基本屈伸和刃控制。'),
+        step(.14,'原后脚侧引导','反脚滑行时，新的前脚配合后脚引导路线，重新学习两侧的圆弧与停止。'),
+        step(.4,'先在缓坡练居中平衡','从更缓坡与更低速度开始，保留基本屈伸和刃控制。'),
         step(.64,'另一侧也要练习','反脚不是左右键的替换；它训练相反方向的平衡和协调。')]
     },
     'dry-squat': {
@@ -295,7 +301,7 @@
       keyframes:[key(0,{h:112}),key(.4,{h:74,hipY:-21,shoulderY:11}),
         key(.63,{h:74,hipY:-21,shoulderY:11}),key(1,{h:112})],
       steps:[step(0,'双脚稳定站地','舒适站距，脚尖可稍向外；全脚掌着地。'),
-        step(.17,'髋后移并下蹲','髋膝协调屈曲，膝循脚趾方向，脊柱保持可控制的中立。'),
+        step(.17,'髋后移并下蹲','髋膝协调屈曲，膝盖顺着脚尖方向弯曲，背部保持自然，不塌腰或弓背。'),
         step(.4,'到可控制的深度','不以最低位置为目标；脚跟不离地，不靠强压膝或折腰增加深度。'),
         step(.7,'平稳起身','髋与躯干一起回升；离雪体能不能替代雪上的平衡与刃控制。')]
     },
@@ -327,9 +333,9 @@
     'ankle-mobility': {
       title:'扶墙小腿伸展：后脚跟留在地面',view:'body',dry:'ankle',
       keyframes:[key(0,{h:0}),key(.42,{h:1}),key(.78,{h:1}),key(1,{h:0})],
-      steps:[step(0,'双手扶墙、前后站距','前腿略屈，后腿后撤，后脚全掌着地。'),
+      steps:[step(0,'双手扶墙、前后站立','前腿略屈，后腿后撤，后脚全掌着地。'),
         step(.18,'身体小幅前移','前膝适度弯曲，后脚跟不抬；不让后踝向内外塌。'),
-        step(.44,'感到舒适牵伸即可','不是强压韧带或追求极限；有疼痛就停止。'),
+        step(.44,'感到轻柔拉伸即可','不是强压韧带或追求极限；有疼痛就停止。'),
         step(.81,'回位并换侧','动画只示范一侧，左右侧分别练习。')]
     },
     'hip-mobility': {
@@ -337,7 +343,7 @@
       keyframes:[key(0,{h:0}),key(.42,{h:1}),key(.78,{h:1}),key(1,{h:0})],
       steps:[step(0,'一膝垫地、另一脚前方踩地','保持平衡，前脚全掌着地。'),
         step(.18,'轻收骨盆、轻夹臀','保持躯干直立，不用腰椎后弯代替髋前侧伸展。'),
-        step(.44,'小幅向前移','在舒适范围感到后侧腿髋前方牵伸；不弹振、不过压。'),
+        step(.44,'小幅向前移','在舒适范围感到后侧腿髋前侧拉伸；不来回弹压、不强拉。'),
         step(.81,'回位并换侧','左右侧分别练习，动画时间不代表推荐保持时长。')]
     },
     'dry-hamstring': {
@@ -345,19 +351,19 @@
       keyframes:[key(0,{h:0}),key(.44,{h:1}),key(.62,{h:1}),key(1,{h:0})],
       steps:[step(0,'仰卧、一腿朝胸前抬起','另一腿伸直留在垫上，手托抬起腿的大腿后侧。'),
         step(.18,'缓慢伸膝','大腿保持支撑，逐渐伸小腿，在舒适范围内活动。'),
-        step(.46,'不强拉到极限','感到温和牵伸即可，不用外力压韧带。'),
+        step(.46,'不强拉到极限','感到轻柔拉伸即可，不用外力压韧带。'),
         step(.7,'控制屈膝返回','慢慢屈膝，左右侧分别练习。')]
     }
   });
   presets['mixed-rotation']={
-    title:'肩部节奏组合：前刃反拧 → 归中 → 后刃协调',view:'track',path:'linked-skid',
+    title:'肩部节奏组合：前刃反拧 → 回到居中位置 → 后刃协调',view:'track',path:'linked-skid',
     keyframes:[key(0,{edge:14,hipY:8,hipYaw:-5,shoulderYaw:10}),
       key(.22,{edge:19,hipY:11,hipYaw:-9,shoulderYaw:17}),key(.48,{}),
       key(.78,{edge:-18,hipY:-14,hipYaw:-10,shoulderYaw:-9}),key(1,{edge:-18,hipY:-14})],
     steps:[step(0,'前刃短时上 / 下身分离','进阶可选任务，肩线与下身呈相反旋转，不作为基础转弯必修。'),
       step(.34,'恢复中立协调','释放旧刃，回到可调整的肩髋关系，不强锁关节。'),
       step(.63,'后刃小幅同向协调','下肢引导，肩髋适量同向跟进；不是抡肩甩板。'),
-      step(.87,'完成任务再检查轨迹','此组合不保证纯刻滑，优先检查控速、抓地与可恢复性。')]
+      step(.87,'完成任务再检查轨迹','此组合不保证纯刻滑，优先检查控速、抓地与失衡后能否及时稳住。')]
   };
   presets['dry-shoulder-rolls']={
     title:'离雪肩部绕环：放松双臂、小幅活动',view:'body',dry:'shoulder',
@@ -368,6 +374,136 @@
       step(.89,'结束并放松','这是一般活动热身，不是治疗处方；不以疼痛或极限活动为目标。')]
   };
   presets.pedalling=Object.assign({},presets.twist,{title:'踩踏式协调：前后脚逐步配合'});
+  // Short-turn routes share one clock with the joint model. They are teaching
+  // sketches, not a speed or force simulation. Route progress is measured along
+  // the drawn path so shrinking the turns does not silently accelerate the rider.
+  const shortTypes=['short-turns','short-turn-progression','short-turn-balance'];
+  const shortVariantsByType=Object.freeze({
+    'short-turns':Object.freeze(['round','tail-brake','shoulder-led','edge-locked','asymmetric','low-stuck','over-inclined']),
+    'short-turn-progression':Object.freeze(['side-slip','side-slip-shorter','linked','medium-to-short','short-to-medium','short-steady']),
+    'short-turn-balance':Object.freeze(['centered','nose-pivot','back-seat'])
+  });
+  const shortVariants={
+    round:['普通搓雪小回转：圆弯、持续引导','双脚一起引导，弯中持续搓雪；先减小旧刃角，再换向。'],
+    'tail-brake':['对照：弯尾突然横刹','前半弯直冲，末段突然把板横过来；观察方向突变和集中在弯尾的宽雪痕。'],
+    'shoulder-led':['对照：抡肩抢转','肩膀先大幅甩动，雪板随后急转；上身路线也更摇摆。'],
+    'edge-locked':['对照：旧刃不放，换向拖延','本该换刃时还咬着旧刃，路线拖长；随后突然转板补救。'],
+    asymmetric:['对照：两侧弯形不对称','两侧弯的宽度和完成程度不同；不要只用数拍掩盖路线差异。'],
+    'low-stuck':['对照：一直蹲在最低处','腿部几乎不再伸屈，遇到换刃和压力变化时缺少调整余地。'],
+    'over-inclined':['对照：身体内倒过多，雪板向外滑','当前速度和雪面撑不住这样的内倾，身体倒在弯内、板向外滑；先缩小倾斜幅度，重新找回两脚支撑。'],
+    'side-slip':['侧滑接单个换刃弯','先侧滑稳住，再转到另一刃继续侧滑；每次单弯后都能重新控速。'],
+    'side-slip-shorter':['逐步缩短侧滑段','保持单弯质量，逐步缩短两次转弯之间的侧滑距离。'],
+    linked:['把单弯接成连续短弯','侧滑段缩短后平顺接弯；仍需完成两侧圆弧，不急着加快。'],
+    'medium-to-short':['从中弯逐步缩成小弯','逐步缩小弯的宽度和下降距离，双脚引导跟上弯形；不靠直冲增加速度。'],
+    'short-to-medium':['从小弯逐步放回中弯','逐步放大弯的宽度和下降距离；弯仍要做完整，不靠长时间朝坡下直冲放大弯。'],
+    'short-steady':['连续小弯：保持走廊与节奏','连续做大小接近的圆弯；前后刃的弯形、出口和节奏一起检查。'],
+    centered:['双脚居中引导：板头板尾都在转','身体大致位于两脚之间，两脚协调引导；不是把板头钉在雪里只甩板尾。'],
+    'nose-pivot':['对照：压住板头、甩动板尾','身体持续压在前脚一侧，板尾大幅横扫；注意宽雪痕与突然转向。'],
+    'back-seat':['对照：长期后坐，入弯拖延','髋落在后脚一侧，转向开始得晚；旧弯拖长后再急着换向。']
+  };
+  shortTypes.forEach(type=>{
+    const variant=type==='short-turn-progression'?'side-slip':type==='short-turn-balance'?'centered':'round';
+    presets[type]={title:shortVariants[variant][0],view:'track',path:'short-turns',
+      skid:true,trackDiagnostics:true,keyframes:[key(0,{}),key(1,{})],
+      steps:[step(0,'看路线与身体位置',shortVariants[variant][1]),
+        step(.22,'观察前半弯','看板头指向与实际移动方向的差别。'),
+        step(.48,'观察两弯之间','减小旧刃角，双腿仍有调整空间。'),
+        step(.74,'比较另一侧','两侧都完成计划弯形，保持可控速度。')]};
+  });
+  function isShort(config){return shortTypes.includes(config.type);}
+  function shortVariant(config){return config.variant||(config.type==='short-turn-progression'?'side-slip':config.type==='short-turn-balance'?'centered':'round');}
+  function shortRaw(config,u){
+    const v=shortVariant(config),slip=['side-slip','side-slip-shorter','linked'].includes(v);
+    if(slip){
+      const n=Math.min(1,Math.floor(u*2)),q=u*2-n,s=n? -1:1;
+      const hold=v==='side-slip'?.48:v==='side-slip-shorter'?.22:0;
+      const a=smooth(clamp((q-hold)/(1-hold),0,1));
+      return {x:s*.16*Math.sin(PI*a),y:u,a,n,q,hold,slip:true};
+    }
+    const medium=v==='medium-to-short',widen=v==='short-to-medium',cycles=v==='short-steady'?2:1;
+    const phase=2*PI*(medium?1.15*u+1.15*u*u:widen?3.45*u-1.15*u*u:cycles*u);
+    let wave=Math.sin(phase),amplitude=medium?lerp(.25,.095,u):widen?lerp(.095,.25,u):.18;
+    if(v==='over-inclined')amplitude=.25;
+    if(v==='asymmetric')amplitude*=wave>0?1:.52;
+    if(['tail-brake','nose-pivot'].includes(v))wave=Math.asin(.985*wave)/Math.asin(.985);
+    if(['edge-locked','back-seat'].includes(v)){
+      const half=phase/PI,n=Math.floor(half),q=half-n;
+      const delayed=q<.26?q*.28:.0728+(q-.26)/.74*.9272;
+      wave=Math.sin((n+delayed)*PI);
+    }
+    return {x:amplitude*wave,y:u,phase,slip:false};
+  }
+  function prepareShort(config,width){
+    const points=Array.from({length:401},(_,i)=>shortRaw(config,i/400));
+    const distances=[0];
+    points.slice(1).forEach((p,i)=>distances.push(distances[i]+Math.hypot((p.x-points[i].x)*width,(p.y-points[i].y)*184)));
+    return {points,distances,total:distances[distances.length-1]};
+  }
+  function shortTime(config,t,width){
+    const cache=config.shortCache;
+    if(!cache||cache.width!==width)config.shortCache=Object.assign({width},prepareShort(config,width));
+    const {distances,total}=config.shortCache,target=clamp(t,0,1)*total;
+    let lo=0,hi=distances.length-1;
+    while(hi-lo>1){const m=(lo+hi)>>1;if(distances[m]<target)lo=m;else hi=m;}
+    return (lo+(target-distances[lo])/(distances[hi]-distances[lo]||1))/400;
+  }
+  function shortState(config,t,width){
+    const u=shortTime(config,t,width),v=shortVariant(config),raw=shortRaw(config,u);
+    const before=shortRaw(config,clamp(u-.0001,0,1)),after=shortRaw(config,clamp(u+.0001,0,1));
+    const angle=Math.atan2((after.y-before.y)*184,(after.x-before.x)*width);
+    let phase=raw.phase||0,edge,boardAngle,turn;
+    if(raw.slip){
+      // Keep the skidding edge uphill of the actual travel direction. The board
+      // rotates from cross-slope through the fall line to the opposite side;
+      // interpolating heading independently of the route could put the working
+      // edge downhill and accidentally demonstrate an edge catch.
+      boardAngle=clamp(angle-(raw.n?-1:1)*PI/2*Math.cos(PI*raw.a),0,PI);
+      edge=(raw.n?1:-1)*18*Math.cos(PI*raw.a);
+      turn=raw.q<raw.hold?'侧滑稳住':raw.a<.4?'减小旧刃角，进入单弯':raw.a<.65?'板头转向坡下':'另一刃逐渐接住';
+      phase=(raw.n+raw.a)*PI;
+    } else {
+      edge=22*Math.sin(phase);
+      const sign=Math.sign(Math.sin(phase))||1;
+      let skew=rad(18*Math.sin(phase));
+      if(['tail-brake','nose-pivot'].includes(v))skew=rad(48*sign*Math.pow(Math.abs(Math.sin(phase)),8));
+      if(v==='shoulder-led')skew+=rad(14*Math.sin(phase+.6));
+      if(['edge-locked','back-seat'].includes(v)){
+        const delayed=Math.sin(phase-.28);
+        edge=(v==='edge-locked'?35:23)*delayed;
+        skew=rad(28*delayed);
+      }
+      boardAngle=angle+skew;
+      const q=((phase/PI)%1+1)%1;
+      turn=q<.18?'释放旧刃，准备新弯':q<.48?'双脚引导进入弯中':q<.78?'持续引导，控制滑移':'完成弯形，准备换向';
+      if(v==='tail-brake')turn=q>.35&&q<.66?'突然横刹，雪痕变宽':'斜向下冲，缺少持续引导';
+      if(v==='nose-pivot')turn=q>.35&&q<.66?'板头附近打转，板尾横扫':'持续压住前脚，等下一次甩尾';
+      if(v==='shoulder-led')turn='肩膀先甩动，雪板急着跟转';
+      if(v==='edge-locked')turn=q<.27?'旧刃没有及时释放':'拖延后急转，错过平顺换向';
+      if(v==='back-seat')turn=q<.27?'后坐使入弯拖延':'旧弯拖长，再急着换向';
+      if(v==='asymmetric')turn=Math.sin(phase)>0?'这一侧弯更宽':'这一侧弯更窄';
+      if(v==='low-stuck')turn='一直蹲低，双腿难以再调整';
+      if(v==='over-inclined')turn='身体内倒过多，板向弯外滑';
+    }
+    const bend=Math.abs(Math.sin(phase)),transition=config.transition||'extend';
+    let h=transition==='extend'?102-17*bend:80+18*bend;
+    if(raw.slip)h=94-8*Math.abs(Math.cos(PI*raw.a));
+    if(v==='low-stuck')h=73+Math.sin(phase)*1.5;
+    const relative=(PI/2-boardAngle)*180/PI;
+    const pose=Object.assign({},base,{h,edge,hipY:edge*.64,shoulderY:edge*.35,
+      hipYaw:clamp(relative*.22,-16,16),shoulderYaw:clamp(relative*.6,-42,42),fore:3*Math.sin(phase)});
+    if(v==='shoulder-led'){
+      pose.shoulderYaw=34*Math.sin(phase+.8);pose.hipYaw=16*Math.sin(phase+.3);
+      pose.shoulderY+=14*Math.sin(phase+.8);pose.arms=.65;
+    }
+    if(v==='nose-pivot'){pose.fore=25;pose.torsoX=-4;pose.hipYaw=22*Math.sin(phase);}
+    if(v==='back-seat'){pose.fore=-23;pose.torsoX=4;h=87;pose.h=87;}
+    if(v==='over-inclined'){pose.hipY=edge*1.2;pose.shoulderY=edge*2;}
+    if(transition==='retract'){
+      pose.hipY=edge*1.6;pose.shoulderY=pose.hipY+3;pose.referenceHipHeight=90;
+    }
+    return {pose,pos:[width*.5+raw.x*width,60+184*u],angle,boardAngle,turn,u,phase,
+      bad:['tail-brake','shoulder-led','edge-locked','asymmetric','low-stuck','over-inclined','nose-pivot','back-seat'].includes(v)};
+  }
   const threePhaseMap={
     'center-low':[0,.25,.6],'center-high':[0,.2,.6],'fore-aft':[0,.16,.65],
     'toe-edge':[0,.24,.84],'heel-edge':[0,.24,.84],
@@ -423,6 +559,10 @@
       .sd-legend{font-size:11px;color:var(--sd-muted);gap:5px 13px;margin:8px 0 4px;line-height:1.6}
       .sd-legend i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
       .sd-note{font-size:11px;line-height:1.65;color:var(--sd-muted);margin:5px 0 0}
+      .sd-short-status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:8px 0;font-size:12px;line-height:1.6}
+      .sd-short-status>span{padding:6px 9px;background:var(--sd-bg);border-radius:7px}
+      .sd-short-status b{display:block;font-weight:600}.sd-leg-meter{display:block;height:5px;background:var(--sd-line);border-radius:4px;margin-top:5px;overflow:hidden}
+      .sd-leg-meter i{display:block;height:100%;background:var(--sd-person)}
       .sd-play{min-width:59px}.sd-progress-value{font-variant-numeric:tabular-nums}
       @media(prefers-color-scheme:dark){.sd-demo{--sd-bg:var(--surface,#152b3a);--sd-ink:var(--ink,#e8f0f6);--sd-muted:var(--muted-text,#abc0ce);--sd-line:var(--line,#365267);--sd-white:var(--paper,#102330);--sd-person:#559bc4;--sd-limb:#98b9cd;--sd-green:#5eaf9d}}
       @media(max-width:480px){.sd-toolbar{display:block}.sd-tabs{margin-top:8px}.sd-demo button,.sd-demo select{min-height:36px}.sd-scene text{font-size:14px}.sd-scene .sd-small{font-size:12px}.sd-phase{min-height:85px}}
@@ -484,7 +624,7 @@
     // a comfortably flexed reference from lower and higher positions.
     // Keep an IK reach margin: the tallest pose still has usable knee flexion.
     const segment=dry?53:50;
-    // A fixed snow-world height is used only by the retraction mechanism study.
+    // A fixed snow-world height illustrates the optional retraction mechanism.
     // Board/feet still share exactly the same roll, lift and lateral translation;
     // IK solves both legs with the same segment lengths as every other snow pose.
     const drawingHeight=dry?pose.h:Number.isFinite(pose.referenceHipHeight)?
@@ -543,8 +683,9 @@
     const floor = 255;
     const span=config.variant==='retraction-study'&&view==='body'?359:285;
     const scale = Math.min(1.14,(width-38)/span);
-    const under= config.transitionReference==='snow'&&config.variant!=='lower-com'&&
-      ['edge-change-down','retraction-turns','knee-edge-change'].includes(config.type);
+    const under= (config.transitionReference==='snow'&&config.variant!=='lower-com'&&
+      ['edge-change-down','retraction-turns','knee-edge-change'].includes(config.type))||
+      (isShort(config)&&config.transition==='retract');
     const boardShift=under?-pose.hipY:0;
     const project = ([x,y,z]) => {
       y+=boardShift;
@@ -640,15 +781,15 @@
       out += text(16,31,config.studyFlat?'平板参考 · 看髋高度变化':'沿板长观察前后位置','sd-muted');
       if(Math.abs(pose.fore)>2) out += line([center,hip[1]-14],[hip[0],hip[1]-14],
         'var(--sd-blue)',2,`marker-end="url(#${id}-motion)"`);
-      out += text(width-14,31,config.studyFlat?'垂向屈伸':'髋的运动方向','sd-small','end');
+      out += text(width-14,31,config.studyFlat?'上下屈伸':'髋的运动方向','sd-small','end');
     } else if(view==='width') {
-      out += text(14,30,config.studyFlat?'平板参考 · 垂向屈伸与关节协调':
+      out += text(14,30,config.studyFlat?'平板参考 · 上下屈伸与关节协调':
         config.variant==='lower-com'?'重心向板降低 · 看竖向路径':
         config.variant==='retraction-study'?'回收过渡 · 板从身体下方通过':
         config.transitionReference==='snow'?'雪面固定参考 · 看身体与板的路径':'从板头方向看 · 横向关节关系','sd-muted');
       out += text(width-14,52,Math.abs(pose.edge)<3?'接近平板':pose.edge>0?'当前：前刃':'当前：后刃','sd-small','end');
     } else if(!config.terrain) {
-      out += text(14,30,config.studyFlat?'平板直线参考 · 垂向屈伸':config.dry?'地面关节示意 · 膝髋踝协调':'立体关节示意 · 脚固定在雪板','sd-muted');
+      out += text(14,30,config.studyFlat?'平板直线参考 · 上下屈伸':config.dry?'地面关节示意 · 膝髋踝协调':'立体关节示意 · 脚固定在雪板','sd-muted');
     }
     if(config.type==='gaze-control')out+=text(width-14,52,'观察雪镜朝向 · 肩髋不过量旋转','sd-small','end');
     if(config.jointLabels&&['body','width'].includes(view)) {
@@ -786,37 +927,59 @@
   function sceneTrack(pose,t,config,stance,id,width,side) {
     const mirror=stance==='goofy'?-1:1;
     const route=config.path||'straight';
+    const short=isShort(config),state=short?shortState(config,t,width):null;
+    const at=p=>short?shortState(config,p,width).pos:trackPoint(route,p,width,side,config.turnShape);
     const map=([x,y])=>[mirror===-1?width-x:x,y];
-    const pts=Array.from({length:101},(_,i)=>map(trackPoint(route,i/100,width,side,config.turnShape)));
+    const pts=Array.from({length:101},(_,i)=>map(at(i/100)));
     const full=pts.map((p,i)=>`${i?'L':'M'} ${pt(p)}`).join(' ');
     const count=Math.max(2,Math.round(t*100)+1);
     const passed=pts.slice(0,count).map((p,i)=>`${i?'L':'M'} ${pt(p)}`).join(' ');
-    const pos=map(trackPoint(route,t,width,side,config.turnShape));
-    let angle=trackAngle(route,t,width,side,config.turnShape);
+    const pos=map(at(t));
+    let angle=short?state.angle:trackAngle(route,t,width,side,config.turnShape);
     if(mirror===-1) angle=PI-angle;
     const skidding=config.type==='steering'||route==='linked-skid'||route==='garland'||config.skid;
     const pivotAmplitude=config.trackDiagnostics?22:13;
     const skew=config.type==='steering'||route==='linked-skid' ? rad(pivotAmplitude*Math.sin(2*PI*t))*mirror :
+      config.skid&&config.type==='retraction-turns'?rad(18*Math.cos(2*PI*t))*mirror:
+      config.skid&&['j-turn','single-arc'].includes(route)?rad(clamp(pose.edge*.7,-18,18))*mirror:
       config.skid?rad(pose.hipYaw)*mirror:0;
-    const boardAngle=angle+skew+(config.switch?PI:0);
-    const basis=(u,v)=>[pos[0]+u*Math.cos(boardAngle)-mirror*v*Math.sin(boardAngle),
-      pos[1]+u*Math.sin(boardAngle)+mirror*v*Math.cos(boardAngle)];
+    const boardAngle=short?(mirror===-1?PI-state.boardAngle:state.boardAngle):angle+skew+(config.switch?PI:0);
+    const scale=short?.73:1;
+    const basis=(u,v)=>[pos[0]+scale*(u*Math.cos(boardAngle)-mirror*v*Math.sin(boardAngle)),
+      pos[1]+scale*(u*Math.sin(boardAngle)+mirror*v*Math.cos(boardAngle))];
     const line=(a,b,color,stroke=2,extra='')=>`<line x1="${round(a[0])}" y1="${round(a[1])}" x2="${round(b[0])}" y2="${round(b[1])}" stroke="${color}" stroke-width="${stroke}" stroke-linecap="round" ${extra}/>`;
     let out=`<defs><marker id="${id}-down" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="var(--sd-muted)"/></marker><marker id="${id}-travel" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 Z" fill="var(--sd-green)"/></marker></defs>`;
-    out+=`<text x="14" y="24" class="sd-muted">俯视 · 路线 / 朝向 / 刃痕</text>`;
+    out+=`<text x="14" y="24" class="sd-muted">${short&&state.bad?'问题对照 · 观察后回到正确示范':'俯视 · 路线 / 朝向 / 雪痕'}</text>`;
     out+=line([width-30,43],[width-30,95],'var(--sd-muted)',1.4,`marker-end="url(#${id}-down)"`);
     out+=`<text x="${width-38}" y="112" class="sd-small" text-anchor="end">落线 ↓</text>`;
     out+=`<path d="${full}" fill="none" stroke="var(--sd-line)" stroke-width="2" stroke-dasharray="4 5"/>`;
+    if(short)out+=`<path d="${full}" fill="none" stroke="var(--sd-blue)" stroke-opacity=".08" stroke-width="18" stroke-linecap="round"/>`;
     if(skidding) {
-      out+=`<path d="${passed}" fill="none" stroke="var(--sd-blue)" stroke-opacity=".20" stroke-width="18" stroke-linecap="round"/>`;
+      if(short&&['tail-brake','nose-pivot'].includes(shortVariant(config))){
+        // A diagnostic sketch: the swath grows at the abrupt board pivot. A
+        // uniform wide swath would hide the very fault this comparison teaches.
+        pts.slice(1,count).forEach((p,i)=>{
+          const st=shortState(config,(i+.5)/100,width);
+          const band=5+24*Math.pow(Math.abs(Math.sin(st.phase)),8);
+          out+=line(pts[i],p,'var(--sd-blue)',round(band),'opacity=".20"');
+        });
+      }else out+=`<path d="${passed}" fill="none" stroke="var(--sd-blue)" stroke-opacity=".20" stroke-width="18" stroke-linecap="round"/>`;
       out+=`<path d="${passed}" fill="none" stroke="var(--sd-blue)" stroke-width="1.8"/>`;
     } else {
       out+=`<path d="${passed}" fill="none" stroke="var(--sd-blue)" stroke-width="3" stroke-linecap="round"/>`;
     }
+    if(short){
+      const bodyPath=Array.from({length:101},(_,i)=>{
+        const st=shortState(config,i/100,width),p=st.pose,a=st.boardAngle;
+        return map([st.pos[0]+scale*(p.fore*.12*Math.cos(a)-p.shoulderY*.22*Math.sin(a)),
+          st.pos[1]+scale*(p.fore*.12*Math.sin(a)+p.shoulderY*.22*Math.cos(a))]);
+      }).map((p,i)=>`${i?'L':'M'} ${pt(p)}`).join(' ');
+      out+=`<path data-short-body-path d="${bodyPath}" fill="none" stroke="var(--sd-green)" stroke-width="1.7" stroke-dasharray="2 4"/>`;
+    }
     const corners=[[-33,-8],[27,-8],[34,-4],[34,4],[27,8],[-33,8],[-37,0]].map(p=>basis(...p));
-    out+=`<polygon points="${poly(corners)}" fill="var(--sd-board)" stroke="var(--sd-limb)" stroke-width="1.8"/>`;
+    out+=`<polygon data-sd-board points="${poly(corners)}" fill="var(--sd-board)" stroke="var(--sd-limb)" stroke-width="1.8"/>`;
     const currentSide=pose.edge>2?8:pose.edge<-2?-8:0;
-    if(currentSide) out+=line(basis(-29,currentSide),basis(27,currentSide),'var(--sd-blue)',3);
+    if(currentSide) out+=line(basis(-29,currentSide),basis(27,currentSide),'var(--sd-blue)',3,'data-sd-active-edge');
     [-1,1].forEach(sign=> {
       const ankle=basis(sign*14,0);
       out+=line(basis(sign*14,-4),basis(sign*14,6),'var(--sd-limb)',5);
@@ -839,6 +1002,10 @@
     out+=line(head,basis(pose.fore*.12+7*Math.sin(rad(pose.look)),
       pose.shoulderY*.22+7*Math.cos(rad(pose.look))),'var(--sd-white)',2);
     out+=line(basis(29,0),basis(36,0),'var(--sd-limb)',2);
+    if(config.type==='short-turn-balance'){
+      const pivot=basis(config.variant==='nose-pivot'?18:config.variant==='back-seat'?-18:0,0);
+      out+=`<circle data-short-pivot cx="${round(pivot[0])}" cy="${round(pivot[1])}" r="6" fill="none" stroke="var(--sd-hip)" stroke-width="2"/>`;
+    }
     if(config.trackDiagnostics) {
       const vx=Math.cos(angle),vy=Math.sin(angle);
       let length=58;
@@ -846,18 +1013,19 @@
       if(vx>0)length=Math.min(length,(width-18-pos[0])/vx);
       if(vx<0)length=Math.min(length,(pos[0]-18)/(-vx));
       const travel=[pos[0]+length*vx,pos[1]+length*vy];
-      out+=line(pos,travel,'var(--sd-green)',2,`marker-end="url(#${id}-travel)"`);
-      out+=line(basis(-34,0),basis(35,0),'var(--sd-limb)',1.5,'stroke-dasharray="3 3"');
+      out+=line(pos,travel,'var(--sd-green)',2,`data-sd-travel-arrow marker-end="url(#${id}-travel)"`);
+      out+=line(basis(-34,0),basis(35,0),'var(--sd-limb)',1.5,'data-sd-board-axis stroke-dasharray="3 3"');
     }
     let footnote=route==='garland'?'同一刃可控引导 · 接近落线后回横坡':
       skidding?'宽色带：可控搓雪示意；不代表实际搓雪量':
       route==='rail'?'细窄线：板尾跟随板头的刃滑轨迹':
       route==='j-turn'||route==='single-arc'?'单刃圆弧转向横坡；轨迹与速度为示意':
-      route==='transition'?'两弯间过渡：旧刃弧线 → 归中 → 新刃弧线':
+      route==='transition'?'两弯间过渡：旧刃弧线 → 回到居中位置 → 新刃弧线':
       route==='retraction'?'连续弯：弯内伸展、过渡回收；轨迹为示意':'直滑示意：本视图只帮助确认板头方向';
     if(config.switch)footnote='反脚：原后脚在滑行方向前方 · 双脚未交换位置';
-    if(config.studyFlat)footnote='平板直线参考 · 此处只观察垂向屈伸';
+    if(config.studyFlat)footnote='平板直线参考 · 此处只观察上下屈伸';
     if(config.turnShape)footnote=config.turnShape==='open'?'开放弯：末段更朝落线；此图不计算速度':'更闭合的弯：末段更多转向横坡；此图不计算速度';
+    if(short)footnote='浅色带：完整计划路线；绿色虚线：上身中心';
     const limit=Math.max(17,Math.floor((width-28)/12));
     const caption=Array.from(footnote);
     const lines=caption.length>limit?[caption.slice(0,limit).join(''),caption.slice(limit).join('')]:[footnote];
@@ -884,11 +1052,11 @@
     const path=values.map((v,i)=>`${i?'L':'M'} ${round(left+span*i/80)},${round(y(v))}`).join(' ');
     const pointPose=getPose(t),pointSk=skeleton(pointPose,config.terrain,t);
     const x=left+span*t,pointY=y(pointSk.hipCenter[2]-pointSk.lift);
-    let out=`<text x="8" y="18">${extending?'伸展':'屈曲'}：动作阶段与接触负荷</text>
+    let out=`<text x="8" y="18">${extending?'伸展':'屈曲'}：动作阶段与接触压力</text>
       <text x="8" y="44" class="sd-small">髋较高</text><text x="8" y="79" class="sd-small">髋较低</text>
       <path d="M ${left} 82 H ${right}" fill="none" stroke="var(--sd-line)" stroke-width="1"/>
       <path d="${path}" fill="none" stroke="var(--sd-person)" stroke-width="2.5"/>
-      <text x="8" y="103" class="sd-small">阶段</text><text x="8" y="130" class="sd-small">负荷</text>`;
+      <text x="8" y="103" class="sd-small">阶段</text><text x="8" y="130" class="sd-small">压力</text>`;
     stages.forEach(s=>{
       const sx=left+span*s.from,sw=span*(s.to-s.from),cx=sx+sw/2;
       out+=`<rect x="${round(sx)}" y="89" width="${round(sw)}" height="46" fill="${s.color}" fill-opacity=".12"/>
@@ -909,6 +1077,8 @@
     const preset=opts.type==='hip-mobility'&&opts.variant==='hamstring'?presets['dry-hamstring']:
       presets[opts.type]||presets['center-low'];
     const config=Object.assign({},preset,opts);
+    const short=isShort(config),shortInfo=short&&shortVariantsByType[config.type].includes(shortVariant(config))?shortVariants[shortVariant(config)]:null;
+    if(short&&!shortInfo)throw new Error(`SnowDemo.mount: 未知短弯对照 ${config.variant}`);
     if(opts.type==='edge-change-down'&&['lower-com','retraction-study'].includes(opts.variant))
       config.transitionReference='snow';
     config.view=config.dry?'body':opts.view||(opts.variant==='arms-feedback'?'body':preset.view);
@@ -950,15 +1120,19 @@
     const downStudy=opts.type==='edge-change-down'&&['lower-com','retraction-study'].includes(opts.variant);
     const downTitle=opts.variant==='lower-com'?'屈曲减重：重心向雪板降低':'回收过渡：雪板回到身体下方';
     const downSteps=opts.variant==='lower-com'?
-      [step(0,'旧弯支持','保留屈曲余量，准备释放旧刃。'),
+      [step(0,'旧刃仍在控制滑行','保留屈曲余量，准备释放旧刃。'),
         step(.18,'重心向板降低','踝膝髋协调屈曲，受控下降，同时减小旧刃角。'),
-        step(.46,'低位经过归中','板接近平，身体在过渡较低；不以最低位置为目标。'),
-        step(.65,'渐进建立新刃','恢复腿长与支撑，完成计划路线；实际动作可与回收混合。')]:
-      [step(0,'旧弯支持','板在身体外侧，腿保留屈曲余量。'),
+        step(.46,'屈腿经过居中位置','板接近平，身体在过渡较低；不以最低位置为目标。'),
+        step(.65,'渐进建立新刃','逐渐伸腿与支撑，完成计划路线；实际动作可与回收混合。')]:
+      [step(0,'旧刃仍在控制滑行','板在身体外侧，腿保留屈曲余量。'),
         step(.18,'板向身体下方回收','两腿协调屈曲，旧刃角减小；板保持贴雪。'),
         step(.46,'板从身下通过','比较固定雪面参考：躯干路径较稳定，双脚仍固定在板上。'),
         step(.65,'新弯渐进伸展','板继续向另一侧运行，恢复下肢支撑；真实动作可与降低重心混合。')];
-    const rawSteps=Array.isArray(opts.steps)&&opts.steps.length?opts.steps:downStudy?downSteps:preset.steps;
+    const shortSteps=short?[step(0,shortInfo[0],shortInfo[1]),
+      step(.24,'停下来比较方向','绿色箭头表示实际移动方向，雪板虚线表示板头板尾的朝向；两者有夹角时，板仍在搓雪。'),
+      step(.49,'继续观察换刃','看下方当前阶段，比较两侧动作；切换到“前后刃”或“立体”视角，进度保持不变。'),
+      step(.76,'检查另一侧与出口','正确示范中，两脚协调引导、上身平顺；问题对照只用于识别，不需要故意模仿错误。')]:null;
+    const rawSteps=Array.isArray(opts.steps)&&opts.steps.length?opts.steps:short?shortSteps:downStudy?downSteps:preset.steps;
     const defaultPhase=phaseMap(opts.type,opts.variant,rawSteps.length,preset);
     const steps=rawSteps.map((s,i)=>typeof s==='string'?step(defaultPhase[i],s,''):
       step(s.at==null?defaultPhase[i]:s.at,s.title||s.label||`阶段 ${i+1}`,s.note||s.detail||''))
@@ -968,20 +1142,21 @@
     const root=document.createElement('div');
     root.className='sd-demo';
     root.dataset.type=opts.type;
-    const title=opts.title||(downStudy?downTitle:preset.title);
+    const title=opts.title||(short?shortInfo[0]:downStudy?downTitle:preset.title);
     const pressureEnabled=opts.pressureDiagram&&['pressure-flex','pressure-extend'].includes(opts.type);
     const views=config.dry?[['body','地面动作']]:[['body','立体'],['length','前后'],['width','前后刃'],['track','轨迹']];
     const stanceLabel=opts.type==='switch'?'惯用前脚':'前脚';
     root.innerHTML=`<div class="sd-toolbar"><p class="sd-title">${esc(title)}</p><div class="sd-tabs" role="group" aria-label="演示视角">${views.map(([v,l])=>`<button type="button" data-sd-view="${v}" aria-pressed="${v===config.view}">${l}</button>`).join('')}</div></div>
       ${opts.focus?`<p class="sd-note" style="margin:0 0 8px">观察重点：${esc(opts.focus)}</p>`:''}
       <svg class="sd-scene" xmlns="${NS}" role="img" aria-labelledby="${id}-title ${id}-desc" viewBox="0 0 520 305"><title id="${id}-title">${esc(title)}动作示意</title><desc id="${id}-desc">${config.dry?'离雪关节小人，在地面或垫子上演示受控体能与活动度动作。播放时间不代表训练时长。':'关节小人脚固定在雪板上，髋、膝、躯干随动作阶段变化。绿色菱形为近似重心，虚线为位置投影。图中不计算真实受力。'}</desc><g data-sd-art></g></svg>
-      ${opts.trackDiagnostics?'<p class="sd-note sd-track-note">绿线标行进方向，虚线标板长朝向；宽色带表示可控滑移，窄线表示刃滑。箭头只示方向，不表示力或速度大小。</p>':''}
-      ${pressureEnabled?`<svg class="sd-pressure-chart" xmlns="${NS}" viewBox="0 0 520 162" role="img" aria-label="髋高度与屈伸压力阶段的定性对应"><g data-sd-pressure></g></svg><p class="sd-note">平板直线参考：“增 / 减”标出屈伸动作带来的暂时负荷变化；保持时无额外法向加速度，动作效应消退并回到基线，静态高低不持续增减压。平直水平面的简化关系是 N ≈ mg + m·aₙ，aₙ 指法向加速度；真实雪坡还要考虑坡度、弯形和地形。此图不计算力。</p>`:''}
+      ${config.trackDiagnostics?'<p class="sd-note sd-track-note">绿色箭头标实际移动方向，板上虚线标板头板尾的朝向；宽色带表示搓雪，窄线表示刃滑。箭头只标方向，不表示力或速度大小。</p>':''}
+      ${short?'<div class="sd-short-status" aria-live="off"><span>当前动作<b data-short-phase></b></span><span>雪板与身体<b data-short-edge></b><span class="sd-leg-meter" aria-hidden="true"><i data-short-leg></i></span></span></div><p class="sd-note">下方条形随双腿伸屈变化，不表示压力。路线按匀速播放，便于比较动作；图中不计算真实滑行速度，缩小弯形不等于加速下冲。</p>':''}
+      ${pressureEnabled?`<svg class="sd-pressure-chart" xmlns="${NS}" viewBox="0 0 520 162" role="img" aria-label="髋高度与屈伸压力阶段的定性对应"><g data-sd-pressure></g></svg><p class="sd-note">平板直线参考：“增 / 减”表示双腿开始动作和逐渐停住时，脚下压力的短暂变化。保持同一高度后，这部分变化会消退；站得高或低本身不能说明压力大小。平地的简化关系是 N ≈ mg + m·aₙ，aₙ 指垂直地面的加速度；雪坡还要考虑坡度、弯形和地形。此图不计算力。</p>`:''}
       <div class="sd-controls"><button class="sd-play" type="button" aria-label="播放动作演示">播放</button><label>速度<select class="sd-speed" aria-label="播放速度"><option value=".25">0.25 倍</option><option value=".5" selected>0.5 倍</option><option value="1">1 倍</option></select></label><label${config.dry?' hidden style="display:none"':''}>${stanceLabel}<select class="sd-stance" aria-label="${stanceLabel}方向"><option value="regular">Regular · 左脚前</option><option value="goofy">Goofy · 右脚前</option></select></label>${!config.studyFlat&&['garland','j-turn','inclination','pressure-flex','pressure-extend','absorption'].includes(opts.type)?'<label>刃<select class="sd-edge-side" aria-label="练习刃"><option value="toe">前刃</option><option value="heel">后刃</option></select></label>':''}</div>
       <div class="sd-progress-label"><label for="${id}-range">拖动查看动作阶段</label><span class="sd-progress-value">0%</span></div><input id="${id}-range" class="sd-range" type="range" min="0" max="1000" step="1" value="0" aria-label="动作阶段"/>
       <p class="sd-phase" aria-live="polite"></p><div class="sd-steps" role="group" aria-label="动作分阶段">${steps.map((s,i)=>`<button type="button" data-sd-step="${i}" aria-pressed="false">${i+1}. ${esc(s.title)}</button>`).join('')}</div>
       <div class="sd-legend"><span><i style="background:var(--sd-person)"></i>肩 / 躯干</span><span><i style="background:var(--sd-hip)"></i>髋</span>${config.dry?'':'<span><i style="background:var(--sd-green)"></i>近似重心 / 投影</span><span><i style="background:var(--sd-blue)"></i>当前刃 / 运动方向</span>'}</div>
-      <p class="sd-note">${config.dry?'离雪体能 / 活动度动作，比例为示意；播放时长不代表训练时长。动作在可控制、无疼痛范围内进行；不能代替雪上技能训练。':'定性运动学示意，比例与动作幅度经过夸张；不是受力仿真，也不提供精确角度或重量比例处方。虚线是位置投影，不是发力箭头。'}</p>`;
+      <p class="sd-note">${config.dry?'离雪体能 / 活动度动作，比例为示意；播放时长不代表训练时长。动作在可控制、无疼痛范围内进行；不能代替雪上技能训练。':'动作用于说明先后配合，比例与幅度经过夸张；不计算真实受力，角度和前后脚压力比例不能照图照搬。虚线是位置投影，不是发力箭头。'}</p>`;
     container.appendChild(root);
     const svg=root.querySelector('.sd-scene');
     const art=root.querySelector('[data-sd-art]');
@@ -1010,6 +1185,7 @@
       return index;
     }
     function getPose(p) {
+      if(short)return shortState(config,p,width).pose;
       let pose=sample(frames,p);
       if(opts.variant==='arms-feedback')pose.arms=p<.44?1:
         1-smooth(clamp((p-.44)/.22,0,1));
@@ -1048,6 +1224,16 @@
         sceneBody(pose,progress,config,view,stance,id,width));
       if(pressureArt)pressureArt.innerHTML=scenePressure(getPose,progress,config,width);
       if(trackNote)trackNote.hidden=view!=='track';
+      if(short){
+        const state=shortState(config,progress,width),h1=shortState(config,clamp(progress-.005,0,1),width).pose.h;
+        const h2=shortState(config,clamp(progress+.005,0,1),width).pose.h;
+        const leg=Math.abs(h2-h1)<.12?'双腿保持可调高度':h2>h1?'双腿逐渐伸展':'双腿逐渐屈曲';
+        root.querySelector('[data-short-phase]').textContent=state.turn;
+        root.querySelector('[data-short-edge]').textContent=`${Math.abs(pose.edge)<3?'接近平板':pose.edge>0?'前刃':'后刃'} · ${shortVariant(config)==='low-stuck'?'一直蹲低，活动余量小':leg}`;
+        root.querySelector('[data-short-leg]').style.width=`${round(clamp((pose.h-68)/39,0,1)*100)}%`;
+        root.dataset.shortVariant=shortVariant(config);
+        root.dataset.shortPhase=state.turn;
+      }
       range.value=String(Math.round(progress*1000));
       percentage.textContent=`${Math.round(progress*100)}%`;
       const index=currentStep();
@@ -1119,6 +1305,6 @@
     if(opts.autoplay&&!reduce)play();
     return {destroy,play,pause,seek,setView,element:root};
   }
-  global.SnowDemo={mount,types:Object.keys(presets),presets,
-    paths:['straight','single-arc','j-turn','garland','rail','linked-skid','transition','retraction']};
+  global.SnowDemo={mount,types:Object.keys(presets),presets,shortVariants:shortVariantsByType,
+    paths:['straight','single-arc','j-turn','garland','rail','linked-skid','transition','retraction','short-turns']};
 })(window);
