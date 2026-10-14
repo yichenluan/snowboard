@@ -13,6 +13,16 @@ const mul=(a:Vec3,n:number):Vec3=>a.map(v=>v*n) as Vec3;
 const mid=(a:Vec3,b:Vec3):Vec3=>a.map((v,i)=>(v+b[i])/2) as Vec3;
 const color={left:"#477c95",right:"#c47745",body:"#275b58",bone:"#ffdfa2"};
 const sides:Side[]=["left","right"];
+function viewFocus(frame:DrylandFrame,view:DryView):{center:Vec3;radius?:number} {
+  if(!frame.cameraTarget)return {center:[0,view==="feet"?.15:view==="shoulders"?1.35:.85,.08]};
+  const points:Vec3[]=view==="feet"
+    ?sides.flatMap(side=>{const f=frame.feet[side];return [f.ankle,f.heel,f.ball,f.toe];})
+    :view==="shoulders"?[frame.joints.chest,frame.joints.neck,frame.joints.head,...sides.flatMap(side=>{const l=frame.joints[side];return [l.shoulder,l.elbow];})]:[];
+  if(!points.length)return {center:frame.cameraTarget};
+  const low=[0,1,2].map(i=>Math.min(...points.map(p=>p[i]))) as Vec3,high=[0,1,2].map(i=>Math.max(...points.map(p=>p[i]))) as Vec3;
+  const center=mid(low,high),radius=Math.max(...points.map(p=>V(p).distanceTo(V(center))))+.08;
+  return {center,radius};
+}
 
 function OrientedBox({center,right,up,forward,size,tint,opacity=1}:{center:Vec3;right:Vec3;up:Vec3;forward:Vec3;size:Vec3;tint:string;opacity?:number}) {
   const q=new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(V(right),V(up),V(forward)));
@@ -23,9 +33,9 @@ function Shoe({foot}:{foot:DryFoot}) {
   const rearLength=V(foot.ball).distanceTo(V(foot.heel)),frontLength=V(foot.toe).distanceTo(V(foot.ball));
   return <>
     <OrientedBox center={add(mid(foot.heel,foot.ball),mul(foot.rearUp,foot.soleThickness/2))} right={foot.right} up={foot.rearUp} forward={foot.rearForward} size={[foot.width,foot.soleThickness,rearLength]} tint="#dedbcf"/>
-    <OrientedBox center={add(mid(foot.ball,foot.toe),[0,foot.soleThickness/2,0])} right={foot.right} up={[0,1,0]} forward={foot.forward} size={[foot.width,foot.soleThickness,frontLength]} tint="#dedbcf"/>
+    <OrientedBox center={add(mid(foot.ball,foot.toe),mul(foot.frontUp,foot.soleThickness/2))} right={foot.right} up={foot.frontUp} forward={foot.forward} size={[foot.width,foot.soleThickness,frontLength]} tint="#dedbcf"/>
     <OrientedBox center={add(mid(foot.heel,foot.ball),mul(foot.rearUp,foot.soleThickness+.022))} right={foot.right} up={foot.rearUp} forward={foot.rearForward} size={[foot.width*.94,.044,rearLength*.86]} tint="#284552"/>
-    <OrientedBox center={add(mid(foot.ball,foot.toe),[0,foot.soleThickness+.009,0])} right={foot.right} up={[0,1,0]} forward={foot.forward} size={[foot.width*.94,.018,frontLength]} tint="#284552"/>
+    <OrientedBox center={add(mid(foot.ball,foot.toe),mul(foot.frontUp,foot.soleThickness+.009))} right={foot.right} up={foot.frontUp} forward={foot.forward} size={[foot.width*.94,.018,frontLength]} tint="#284552"/>
   </>;
 }
 function Hand({hand}:{hand:DryHand}) {
@@ -49,7 +59,7 @@ function DryRider({frame,skeleton}:{frame:DrylandFrame;skeleton:boolean}) {
   const forward=V(j.left.hip).sub(V(j.right.hip)).cross(V(j.chest).sub(V(j.pelvis))).normalize().toArray() as Vec3;
   return <>
     <Segment a={j.pelvis} b={j.chest} r={.13} color={color.body} transparent={skeleton}/>
-    <Segment a={j.left.hip} b={j.right.hip} r={.10} color="#284552" transparent={skeleton}/>
+    <Segment a={j.left.hip} b={j.right.hip} r={frame.pelvisRadius??.10} color="#284552" transparent={skeleton}/>
     <Segment a={j.chest} b={j.neck} r={.055} color="#caa37c"/>
     <Segment a={j.neck} b={j.head} r={.07} color="#caa37c"/>
     <Ball position={j.head} r={.105} color="#284552"/>
@@ -65,11 +75,13 @@ function DryRider({frame,skeleton}:{frame:DrylandFrame;skeleton:boolean}) {
       {skeleton&&<>{[[l.hip,l.knee],[l.knee,l.ankle],[l.shoulder,l.elbow],[l.elbow,l.wrist]].map(([a,b],i)=><Segment key={i} a={a} b={b} r={.012} color={color.bone}/>)}{[l.hip,l.knee,l.ankle,l.shoulder,l.elbow,l.wrist].map((p,i)=><Ball key={i} position={p} r={.022} color={color.bone}/>)}</>}
     </group>;})}
     {skeleton&&<Segment a={j.pelvis} b={j.chest} r={.015} color={color.bone}/>}
+    {frame.pelvisForward&&[-.17,.17].map(x=>{const anchor=add(j.pelvis,[x,0,0]),direction=frame.pelvisForward!;return <Segment key={x} a={add(anchor,mul(direction,-.10))} b={add(anchor,mul(direction,.10))} r={.008} color={color.bone}/>;})}
   </>;
 }
-function Camera({view,reset,touchRotate}:{view:DryView;reset:number;touchRotate:boolean}) {
+function Camera({frame,view,reset,touchRotate}:{frame:DrylandFrame;view:DryView;reset:number;touchRotate:boolean}) {
   const {camera,gl,invalidate,size}=useThree();
   const controls=useMemo(()=>new OrbitControls(camera,gl.domElement),[camera,gl]);
+  const latestFrame=useRef(frame);latestFrame.current=frame;
   const touch=useRef(touchRotate);touch.current=touchRotate;
   useEffect(()=>{
     controls.enablePan=false;controls.enableDamping=false;controls.minDistance=.7;controls.maxDistance=7;
@@ -80,10 +92,13 @@ function Camera({view,reset,touchRotate}:{view:DryView;reset:number;touchRotate:
     return()=>{controls.removeEventListener("change",change);gl.domElement.removeEventListener("pointerdown",pointer,true);controls.dispose();};
   },[controls,gl,invalidate]);
   useEffect(()=>{
-    const target=new THREE.Vector3(0,view==="feet"?.15:view==="shoulders"?1.35:.85,.08);
+    const focus=viewFocus(latestFrame.current,view),target=V(focus.center);
     const offset=view==="front"?new THREE.Vector3(0,.15,3.6):view==="side"?new THREE.Vector3(3.6,.15,0):view==="feet"?new THREE.Vector3(1.05,.35,-1.1):view==="shoulders"?new THREE.Vector3(.65,.15,.85):new THREE.Vector3(2.7,1.1,3.0);
+    if(focus.radius){const vertical=THREE.MathUtils.degToRad(size.width<500?37:34)/2,horizontal=Math.atan(Math.tan(vertical)*size.width/Math.max(1,size.height));offset.setLength(Math.max(.8,focus.radius/Math.sin(Math.min(vertical,horizontal))*1.2));}
     controls.target.copy(target);camera.position.copy(target).add(offset);camera.up.set(0,1,0);camera.lookAt(target);controls.update();invalidate();
-  },[view,reset,camera,controls,invalidate]);
+    // A task/view reset chooses a target once. Playback must not overwrite the
+    // observer's chosen orbit, or chase a moving extremity in close-up.
+  },[frame.task,view,reset,camera,controls,invalidate]);
   useEffect(()=>{gl.domElement.style.touchAction=touchRotate?"none":"pan-y pinch-zoom";},[gl,touchRotate]);
   useEffect(()=>{if(camera instanceof THREE.PerspectiveCamera){camera.fov=size.width<500?37:34;camera.updateProjectionMatrix();}invalidate();},[camera,size.width,invalidate]);
   useFrame(()=>controls.update());return null;
@@ -100,14 +115,20 @@ function Labels({frame,enabled}:{frame:DrylandFrame;enabled:boolean}) {
   },[gl,enabled]);
   useFrame(()=>{
     const points=[frame.joints.left.knee,frame.joints.right.knee,frame.joints.pelvis,frame.joints.chest];
+    const placed:{x:number;y:number;width:number}[]=[];
     labels.current.forEach((el,i)=>{
       const p=V(points[i]).project(camera);
       el.style.display=Math.abs(p.x)>1||Math.abs(p.y)>1||p.z>1?"none":"block";
+      if(el.style.display==="none")return;
       const other=i<2?V(points[1-i]).project(camera):null;
       const isLeft=i<2&&(Math.abs(p.x-other!.x)<.01?i===0:p.x<other!.x);
       const dx=i<2?(isLeft?-58:12):i===2?18:-62;
       const x=Math.max(0,Math.min(size.width-56,(p.x+1)*size.width/2+dx));
-      const y=Math.max(0,Math.min(size.height-24,(-p.y+1)*size.height/2-10));el.style.transform=`translate(${x}px,${y}px)`;
+      const baseY=Math.max(0,Math.min(size.height-24,(-p.y+1)*size.height/2-10));
+      const width=el.offsetWidth||56;
+      const y=[0,24,-24,48,-48].map(offset=>Math.max(0,Math.min(size.height-24,baseY+offset)))
+        .find(candidate=>placed.every(r=>x+width+3<r.x||r.x+r.width+3<x||candidate+23<r.y||r.y+23<candidate))??baseY;
+      placed.push({x,y,width});el.style.transform=`translate(${x}px,${y}px)`;
     });
   });return null;
 }
@@ -116,15 +137,15 @@ export function DrylandScene({frame,view,skeleton,touchRotate,reset,fallback}:{f
     <ambientLight intensity={1.6}/><hemisphereLight args={["#fbf8ea","#6e8779",1.8]}/><directionalLight position={[-3,7,4]} intensity={2.3}/>
     {frame.props.map(prop=><Prop key={prop.id} prop={prop}/>)}
     <gridHelper args={[3,30,"#c6d2c8","#d8e1d9"]} position={[0,.001,0]}/>
-    <DryRider frame={frame} skeleton={skeleton}/><Camera view={view} reset={reset} touchRotate={touchRotate}/><Labels frame={frame} enabled={skeleton}/>
+    <DryRider frame={frame} skeleton={skeleton}/><Camera frame={frame} view={view} reset={reset} touchRotate={touchRotate}/><Labels frame={frame} enabled={skeleton}/>
   </Canvas></SceneBoundary>;
 }
 
 /** A second projection of the same ordinary-shoe model, including actual props. */
 export function DrylandPlanar({frame,view}:{frame:DrylandFrame;view:DryView}) {
-  const side=view==="side"||view==="feet",scale=view==="feet"?280:view==="shoulders"?400:120;
+  const side=view==="side"||view==="feet",focus=viewFocus(frame,view),scale=frame.cameraTarget?(focus.radius?Math.min(280,105/Math.max(.12,focus.radius)):115):view==="feet"?280:view==="shoulders"?400:120;
   const originY=view==="feet"?210:view==="shoulders"?690:270;
-  const point=(p:Vec3)=>[180+scale*(side?-p[2]:p[0]),originY-scale*p[1]];
+  const point=(p:Vec3)=>frame.cameraTarget?[180+scale*(side?-(p[2]-focus.center[2]):p[0]-focus.center[0]),170-scale*(p[1]-focus.center[1])]:[180+scale*(side?-p[2]:p[0]),originY-scale*p[1]];
   const path=(a:Vec3,b:Vec3)=>[point(a),point(b)].map(p=>p.join(",")).join(" ");
   const silhouette=(points:Vec3[])=>{
     const p=points.map(point).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
@@ -143,8 +164,9 @@ export function DrylandPlanar({frame,view}:{frame:DrylandFrame;view:DryView}) {
     return <polygon key={prop.id} points={silhouette(corners)} fill={prop.id==="wall"?"#dce5de":"none"} fillOpacity=".45" stroke="#b7c7bc" strokeWidth="2"/>;
   };
   const j=frame.joints;
-  return <svg viewBox="0 0 360 300" role="img" aria-label={`普通鞋${side?"侧面":"正面"}同源骨架与支撑`}>
-    <text x="12" y="20">普通鞋 · {side?"侧面":"正面"} · 同一动作状态</text>
+  const direction=side?"侧面":["forearm-plank","supine-hamstring"].includes(frame.task)?"头尾方向":"正面";
+  return <svg viewBox="0 0 360 300" role="img" aria-label={`普通鞋${direction}同源骨架与支撑`}>
+    <text x="12" y="20">普通鞋 · {direction} · 同一动作状态</text>
     {frame.props.map(propShape)}
     <polyline points={path(j.left.hip,j.right.hip)} stroke={color.body} strokeWidth="7"/>
     <polyline points={path(j.pelvis,j.chest)} stroke={color.body} strokeWidth="9"/>
@@ -156,7 +178,8 @@ export function DrylandPlanar({frame,view}:{frame:DrylandFrame;view:DryView}) {
       {[l.knee,l.ankle].map((p,i)=><circle key={i} cx={point(p)[0]} cy={point(p)[1]} r="4" fill="#fff" stroke={color[which]}/>)}
     </g>;})}
     <circle cx={point(j.head)[0]} cy={point(j.head)[1]} r="12" fill={color.body}/>
-    {frame.contacts.filter(c=>c.id.endsWith(".palm")).map(c=><circle key={c.id} cx={point(c.point)[0]} cy={point(c.point)[1]} r="3" fill="#3b8e76"/>)}
+    {frame.pelvisForward&&[-.17,.17].map(x=>{const anchor=add(j.pelvis,[x,0,0]),direction=frame.pelvisForward!;return <polyline key={x} points={path(add(anchor,mul(direction,-.10)),add(anchor,mul(direction,.10)))} stroke="#b38838" strokeWidth="3"/>;})}
+    {frame.contacts.filter(c=>c.id.endsWith(".palm")||c.surface==="mat"||c.id.endsWith(".thigh-hold")).map(c=><circle key={c.id} cx={point(c.point)[0]} cy={point(c.point)[1]} r="3" fill="#3b8e76"/>)}
     <text x="12" y="292">蓝：左侧　橙：右侧　地面与支撑位置固定</text>
   </svg>;
 }

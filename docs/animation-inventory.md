@@ -19,9 +19,9 @@
 | 展示配置组合 | 90 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 22 / 77 | 按注册表已切换默认渲染；不代表教学认证 |
-| 全量 / 部分接入类型 | 19 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
-| 剩余旧动画引用 | 57 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 26 / 85 | 按注册表已切换默认渲染；不代表教学认证 |
+| 全量 / 部分接入类型 | 23 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
+| 剩余旧动画引用 | 49 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -126,12 +126,12 @@
 | `counter-rotation` | 反向旋转：特定任务的短时分离 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `switch` | 反脚滑行：原后脚变成前脚 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `dry-squat` | 离雪自重深蹲：髋膝协调、全脚掌支撑 | 离雪站立关节模型 | 6 / 2 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
-| `dry-plank` | 离雪前平板支撑：肘在肩下、躯干一线 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-plank` | 离雪前平板支撑：肘在肩下、躯干一线 | 离雪侧面专用模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-calf-raise` | 离雪提踵：抬脚跟、缓慢下放 | 离雪站立关节模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-wall-edge` | 离雪扶墙前刃体感：踝膝髋协调 | 离雪站立关节模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
-| `ankle-mobility` | 扶墙小腿伸展：后脚跟留在地面 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `hip-mobility` | 半跪髋屈肌伸展：骨盆控制、躯干直立 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-hamstring` | 仰卧动态腘绳肌活动：托腿、慢伸膝 | 离雪侧面专用模型 | 2 / 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `ankle-mobility` | 扶墙小腿伸展：后脚跟留在地面 | 离雪侧面专用模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
+| `hip-mobility` | 半跪髋屈肌伸展：骨盆控制、躯干直立 | 离雪侧面专用模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
+| `dry-hamstring` | 仰卧动态腘绳肌活动：托腿、慢伸膝 | 离雪侧面专用模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `mixed-rotation` | 肩部节奏组合：前刃反拧 → 回到居中位置 → 后刃协调 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `dry-shoulder-rolls` | 离雪肩部绕环：放松双臂、小幅活动 | 离雪站立关节模型 | 2 / 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `pedalling`（同帧：twist） | 踩踏式协调：前后脚逐步配合 | 雪上关键帧 + 双腿 IK | 0 / 0 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
@@ -206,11 +206,11 @@
 | `short-turns:over-inclined` | s-short-diagnosis/10 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `dry-squat` | v22-strength/1、v22-heel-rehearsal/1、v22-squat/1、s22-warmup/2、v23-knees/1 | 4 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-calf-raise` | v22-strength/2、v22-calf/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
-| `dry-plank` | v22-strength/3、v22-plank/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `dry-plank` | v22-strength/3、v22-plank/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-wall-edge` | v22-wall/1、s22-warmup/3 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
-| `ankle-mobility` | v22-flexibility/1、s22-ankle-mobility/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `hip-mobility` | v22-flexibility/2、s22-hip-mobility/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
-| `dry-hamstring` | v22-flexibility/3、s22-hamstring/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
+| `ankle-mobility` | v22-flexibility/1、s22-ankle-mobility/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
+| `hip-mobility` | v22-flexibility/2、s22-hip-mobility/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
+| `dry-hamstring` | v22-flexibility/3、s22-hamstring/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-squat:hold` | v22-hold/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
@@ -302,7 +302,7 @@
 | [v22-hold](https://yichenluan.github.io/snowboard-guide/#lesson=v22-hold) | 浅半蹲保持：能呼吸，也能随时站起：在停留中维持姿态，并平稳结束动作。 | 1. `dry-squat:hold` | [S25](#source-s25)、[S21](#source-s21) |
 | [v22-calf](https://yichenluan.github.io/snowboard-guide/#lesson=v22-calf) | 双脚提踵：慢慢抬跟，也慢慢放下：提起、短停和下降都能控制，双脚不向内外翻。 | 1. `dry-calf-raise` | [S28](#source-s28)、[S16](#source-s16) |
 | [v22-squat](https://yichenluan.github.io/snowboard-guide/#lesson=v22-squat) | 自重深蹲：脚掌踩稳，髋膝踝一起动：完成可控的下降、短停和起身，为离雪力量训练打基础。 | 1. `dry-squat` | [S25](#source-s25)、[S29](#source-s29)、[S21](#source-s21) |
-| [v22-plank](https://yichenluan.github.io/snowboard-guide/#lesson=v22-plank) | 前臂平板支撑：身体成线，呼吸不断：在短时支撑中保持躯干形态，并平稳放回地面。 | 1. `dry-plank` | [S27](#source-s27) |
+| [v22-plank](https://yichenluan.github.io/snowboard-guide/#lesson=v22-plank) | 前臂平板支撑：身体成线，呼吸不断：在短时前臂支撑中保持躯干形态与呼吸，并让膝受控回垫。 | 1. `dry-plank` | [S27](#source-s27)、[S34](#source-s34) |
 | [s22-hamstring](https://yichenluan.github.io/snowboard-guide/#lesson=s22-hamstring) | 大腿后侧动态拉伸：托住大腿，慢慢伸屈膝：大腿大致不动时，小腿能在舒适范围往返。 | 1. `dry-hamstring` | [S29](#source-s29) |
 | [s22-hip-mobility](https://yichenluan.github.io/snowboard-guide/#lesson=s22-hip-mobility) | 半跪髋前侧拉伸：轻收骨盆，再小幅前移：分清髋前侧拉伸和腰部代偿，能主动退回。 | 1. `hip-mobility` | [S29](#source-s29)、[S24](#source-s24) |
 | [s22-ankle-mobility](https://yichenluan.github.io/snowboard-guide/#lesson=s22-ankle-mobility) | 扶墙拉伸小腿：后脚跟踩地，慢慢前移：保持脚踝稳定，在舒适范围内拉伸并返回。 | 1. `ankle-mobility` | [S28](#source-s28)、[S24](#source-s24) |
@@ -453,13 +453,17 @@
 
 - **A03** [二级教练课程指南：小回转观察要点（中英对照）](https://members.casi-acms.com/documents/Level%202%20translated%207%20Days%20Course%20Guide.pdf)（CASI）。印刷 p.9，小回转评估；p.12，膝脚引导与居中转向
 
+<a id="source-s34"></a>
+
+- **S34** [Optimise cancer prehabilitation：Plank on knees / Plank](https://www.nth.nhs.uk/resources/optimise-cancer-prehabilitation/)（North Tees and Hartlepool NHS Foundation Trust）。Plank on knees / Plank
+
 
 ## 输入指纹
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | b0b12b76af9311db84aaba8f1ff2198a4b3346741794b02f9374680e6b285d37 |
+| content.json | 8d5479f8d3dca7649421e45defaf7af886d722d58e7234c1b44302628fb12c9b |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
-| lesson-player/registry.json | 361b3f3ddfbc47420491e3b9fb774872a02381d073222084fd0078f481d29ff6 |
+| lesson-player/registry.json | 68634051330af6ff865653cb001726785bb0ef2bec3a0a702c4d8de9c5733224 |
 

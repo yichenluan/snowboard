@@ -6,7 +6,8 @@ import type {Vec3} from "../prototype/motion.ts";
 
 const content=JSON.parse(readFileSync(new URL("../content.json",import.meta.url),"utf8"));
 const all:DrylandConfig[]=content.lessons.flatMap((l:{demos?:DrylandConfig[];demo?:DrylandConfig})=>l.demos?.length?l.demos:l.demo?[l.demo]:[]);
-const refs=all.filter(canRenderDryland),sides=["left","right"] as const;
+const standingTypes=new Set(["dry-squat","dry-calf-raise","dry-wall-edge","dry-shoulder-rolls"]);
+const refs=all.filter(c=>standingTypes.has(c.type)&&canRenderDryland(c)),sides=["left","right"] as const;
 const distance=(a:Vec3,b:Vec3)=>Math.hypot(...a.map((v,i)=>v-b[i]));
 const cross=(o:Vec3,a:Vec3,b:Vec3)=>(a[0]-o[0])*(b[2]-o[2])-(a[2]-o[2])*(b[0]-o[0]);
 function hull(points:Vec3[]) {
@@ -77,8 +78,105 @@ test("shoulder rolls move the girdle subtly while feet, torso and neck remain st
   }
   assert.ok(max>.02&&max<.03);assert.deepEqual(sampleDryland(1,c).joints,first.joints);
 });
-test("unimplemented floor and asymmetric tasks cannot silently produce a standing placeholder",()=>{
-  for(const type of ["dry-plank","ankle-mobility","hip-mobility","dry-hamstring"]) {
-    assert.equal(drylandCapability(type),"deferred");assert.equal(canRenderDryland({type}),false);assert.throws(()=>sampleDryland(.5,{type}),/not implemented/);
+const additionalTypes=["dry-plank","ankle-mobility","hip-mobility","dry-hamstring"] as const;
+test("additional tasks preserve bones, fixed supports and their endpoints",()=>{
+  const extra=all.filter(c=>(additionalTypes as readonly string[]).includes(c.type));
+  assert.equal(extra.length,8);
+  for(const type of additionalTypes)for(const side of sides) {
+    const c={type,side},first=sampleDryland(0,c),stable=new Map<string,Vec3>();
+    for(let i=0;i<=200;i++) {
+      const f=sampleDryland(i/200,c);
+      assert.ok(f.metrics.maxBoneError<1e-9);
+      assert.deepEqual(f.props,first.props);
+      for(const contact of f.contacts) {
+        assert.ok(distance(contact.point,contact.target)<1e-9);
+        if(["mat","wall","floor"].includes(contact.surface)) {
+          if(stable.has(contact.id))assert.ok(distance(contact.point,stable.get(contact.id)!)<1e-9);
+          else stable.set(contact.id,contact.point);
+        }
+      }
+      if(f.contacts.some(contact=>contact.surface==="mat")) {
+        const polygon=hull(f.contacts.filter(contact=>contact.surface==="mat").map(contact=>contact.point));
+        for(let k=0;k<polygon.length;k++)assert.ok(cross(polygon[k],polygon[(k+1)%polygon.length],f.estimatedCom)>=-1e-9);
+      }
+    }
+    assert.deepEqual(sampleDryland(1,c).joints,first.joints);
+    assert.deepEqual(sampleDryland(1,c).feet,first.feet);
+  }
+});
+test("supine hamstring holds the thigh while the knee moves",()=>{
+  for(const side of sides) {
+    const c={type:"dry-hamstring",side},first=sampleDryland(0,c),peak=sampleDryland(.5,c);
+    assert.equal(peak.pelvisRadius,.13);
+    assert.ok(first.metrics.knee[side]>100);
+    assert.ok(peak.metrics.knee[side]>25&&peak.metrics.knee[side]<45);
+    assert.deepEqual(first.joints[side].hip,peak.joints[side].hip);
+    assert.deepEqual(first.joints[side].knee,peak.joints[side].knee);
+    assert.deepEqual(first.hands,peak.hands);
+    for(const name of ["back","head","pelvis.-0.01","pelvis.0.01"])assert.ok(peak.contacts.some(contact=>contact.id===name));
+    const held=peak.contacts.filter(contact=>contact.surface===side+".thigh");
+    assert.equal(held.length,2);
+    const leg=peak.joints[side],axis=leg.knee.map((v,i)=>v-leg.hip[i]) as Vec3,length=distance(leg.hip,leg.knee);
+    for(const contact of held) {
+      const offset=contact.point.map((v,i)=>v-leg.hip[i]);
+      const along=offset.reduce((sum,v,i)=>sum+v*axis[i]/length,0);
+      const radial=Math.sqrt(offset.reduce((sum,v)=>sum+v*v,0)-along*along);
+      assert.ok(along>.07&&along<length-.07);
+      assert.ok(Math.abs(radial-.07)<1e-9);
+    }
+  }
+});
+test("half kneeling changes pelvic direction before translating the hips",()=>{
+  const c={type:"hip-mobility",side:"left" as const};
+  const first=sampleDryland(0,c),tucked=sampleDryland(.3,c),forward=sampleDryland(.6,c);
+  assert.deepEqual(first.joints.pelvis,tucked.joints.pelvis);
+  assert.ok(tucked.pelvisForward![1]>.06);
+  assert.ok(forward.joints.pelvis[2]>first.joints.pelvis[2]+.06);
+  assert.deepEqual(first.joints.left.knee,forward.joints.left.knee);
+  assert.deepEqual(first.feet,forward.feet);
+});
+test("plank closes the fixed support chain and holds a sagittal shoulder hip ankle line",()=>{
+  const c={type:"dry-plank"},first=sampleDryland(0,c),hold=sampleDryland(.5,c),end=sampleDryland(1,c);
+  assert.equal(first.contacts.filter(c=>c.id.endsWith(".knee")).length,2);
+  assert.equal(hold.contacts.filter(c=>c.id.endsWith(".knee")).length,0);
+  assert.equal(end.contacts.filter(c=>c.id.endsWith(".knee")).length,2);
+  for(const side of sides) {
+    assert.deepEqual(first.joints[side].elbow,hold.joints[side].elbow);
+    assert.deepEqual(first.joints[side].wrist,hold.joints[side].wrist);
+    assert.deepEqual(first.feet[side],hold.feet[side]);
+    const {shoulder,hip,ankle}=hold.joints[side];
+    const area=(hip[1]-ankle[1])*(shoulder[2]-ankle[2])-(hip[2]-ankle[2])*(shoulder[1]-ankle[1]);
+    assert.ok(Math.abs(area)<1e-9);
+    for(const contact of hold.contacts.filter(c=>c.id.startsWith(side+".forearm.")))assert.ok(Math.abs(hold.joints[side].elbow[1]-contact.point[1]-.032)<1e-9);
+  }
+});
+test("additional capabilities reject an unrelated task",()=>{
+  assert.equal(drylandCapability("ankle-mobility"),"standing");
+  for(const type of ["dry-plank","hip-mobility","dry-hamstring"])assert.equal(drylandCapability(type),"floor");
+  assert.throws(()=>sampleDryland(.5,{type:"dry-plank",task:"bodyweight-squat"}),/Invalid dryland task/);
+});
+test("asymmetric tasks mirror anatomical sides and keep shoe meshes above their supports",()=>{
+  const mirror=(p:Vec3):Vec3=>[-p[0],p[1],p[2]];
+  const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
+  const cross3=(a:Vec3,b:Vec3):Vec3=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+  for(const type of additionalTypes)for(let i=0;i<=100;i++) {
+    const left=sampleDryland(i/100,{type,side:"left"}),right=sampleDryland(i/100,{type,side:"right"});
+    for(const side of sides) {
+      const opposite=side==="left"?"right":"left";
+      for(const key of ["hip","knee","ankle","shoulder","elbow","wrist"] as const)assert.ok(distance(mirror(left.joints[side][key]),right.joints[opposite][key])<1e-9);
+      for(const key of ["heel","ball","toe","ankle"] as const)assert.ok(distance(mirror(left.feet[side][key]),right.feet[opposite][key])<1e-9);
+      const f=left.feet[side],surface=type==="ankle-mobility"?0:.015;
+      // Renderer bases must be rotations, including a raised ordinary shoe's
+      // front segment. Assuming global UP would invert its visible support.
+      for(const [forward,up] of [[f.forward,f.frontUp],[f.rearForward,f.rearUp]]) {
+        assert.ok(Math.abs(dot(forward,up))<1e-9);
+        assert.ok(distance(cross3(f.right,up),forward)<1e-9);
+      }
+      for(const [a,b,up] of [[f.heel,f.ball,f.rearUp],[f.ball,f.toe,f.frontUp]])for(const p of [a,b])for(const x of [-1,1])for(const h of [0,f.soleThickness]) {
+        const y=p[1]+x*f.right[1]*f.width/2+up[1]*h;
+        assert.ok(y>=surface-1e-9,"shoe sole mesh may not penetrate its floor or mat");
+      }
+    }
+    if(type==="dry-hamstring")assert.ok(Math.abs(left.joints.pelvis[1]-left.pelvisRadius!-.015)<1e-9,"visible pelvis capsule must meet its recorded mat contact");
   }
 });

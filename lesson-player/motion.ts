@@ -21,6 +21,7 @@ export interface LessonConfig {
   edgeSide?: string;
   view?: string;
   stance?: Stance;
+  side?: "left" | "right";
   duration?: number;
   autoplay?: boolean;
   jointLabels?: boolean;

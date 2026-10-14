@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "b0b12b76af9311db84aaba8f1ff2198a4b3346741794b02f9374680e6b285d37",
+    "content.json": "8d5479f8d3dca7649421e45defaf7af886d722d58e7234c1b44302628fb12c9b",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
     "app.js": "ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67",
-    "lesson-player/registry.json": "361b3f3ddfbc47420491e3b9fb774872a02381d073222084fd0078f481d29ff6"
+    "lesson-player/registry.json": "68634051330af6ff865653cb001726785bb0ef2bec3a0a702c4d8de9c5733224"
   },
   "scope": "静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确",
   "counts": {
@@ -23,12 +23,12 @@
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 22,
-    "fullyImplemented3DTypes": 19,
+    "implemented3DTypes": 26,
+    "fullyImplemented3DTypes": 23,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 77,
-    "remainingLegacyReferences": 57,
-    "replacedLegacyReferences": 77
+    "implemented3DReferences": 85,
+    "remainingLegacyReferences": 49,
+    "replacedLegacyReferences": 85
   },
   "modules": [
     {
@@ -577,7 +577,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "dry-calf-raise",
@@ -622,7 +622,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "hip-mobility",
@@ -637,7 +637,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "dry-hamstring",
@@ -652,7 +652,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "type": "mixed-rotation",
@@ -1846,10 +1846,13 @@
       ],
       "configurations": [
         {
-          "type": "dry-plank"
+          "jointLabels": true,
+          "task": "forearm-plank",
+          "type": "dry-plank",
+          "view": "side"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "dry-wall-edge",
@@ -1873,10 +1876,14 @@
       ],
       "configurations": [
         {
-          "type": "ankle-mobility"
+          "jointLabels": true,
+          "side": "left",
+          "task": "split-calf-stretch",
+          "type": "ankle-mobility",
+          "view": "oblique"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "hip-mobility",
@@ -1886,10 +1893,14 @@
       ],
       "configurations": [
         {
-          "type": "hip-mobility"
+          "jointLabels": true,
+          "side": "left",
+          "task": "half-kneel-hip-flexor",
+          "type": "hip-mobility",
+          "view": "side"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "dry-hamstring",
@@ -1899,10 +1910,14 @@
       ],
       "configurations": [
         {
-          "type": "dry-hamstring"
+          "jointLabels": true,
+          "side": "left",
+          "task": "supine-hamstring",
+          "type": "dry-hamstring",
+          "view": "side"
         }
       ],
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
     },
     {
       "key": "dry-squat:hold",
@@ -4735,32 +4750,17 @@
       "model": "dry-planar",
       "config": {
         "type": "dry-plank",
-        "focus": "在支撑负荷下保持躯干形态与正常呼吸，避免塌腰和抬髋代偿。",
-        "steps": [
-          {
-            "label": "设置支撑",
-            "detail": "前臂与脚稳住，肘在肩下。"
-          },
-          {
-            "label": "建立躯干控制",
-            "detail": "躯干抬离地面，不塌腰。"
-          },
-          {
-            "label": "维持呼吸",
-            "detail": "肩髋脚一线，保持正常呼吸。"
-          },
-          {
-            "label": "受控结束",
-            "detail": "在动作失控前放回地面。"
-          }
-        ],
+        "focus": "前臂与膝先支稳，受控抬膝伸腿并保持呼吸，再让膝回垫；保持时间服从动作质量。",
         "autoplay": false,
         "duration": 10000,
-        "title": "前臂平板支撑：身体成线，呼吸不断 · 动作示意"
+        "title": "前臂平板支撑：身体成线，呼吸不断 · 动作示意",
+        "task": "forearm-plank",
+        "view": "side",
+        "jointLabels": true
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-wall/1",
@@ -4812,32 +4812,18 @@
       "model": "dry-planar",
       "config": {
         "type": "ankle-mobility",
-        "focus": "按受限部位选择本练习；维护需要的小腿与踝活动范围，并保持足部稳定。",
-        "steps": [
-          {
-            "label": "扶墙准备",
-            "detail": "前后脚踩稳，后脚跟接地。"
-          },
-          {
-            "label": "略前移",
-            "detail": "前腿屈曲，后小腿舒适拉伸。"
-          },
-          {
-            "label": "保持范围",
-            "detail": "踝不塌、脚跟不抬。"
-          },
-          {
-            "label": "返回换侧",
-            "detail": "受控退回中立。"
-          }
-        ],
+        "focus": "所选练习腿在后：双手扶墙、后跟留地，在舒适范围前移与返回；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "扶墙拉伸小腿：后脚跟踩地，慢慢前移 · 动作示意"
+        "title": "扶墙拉伸小腿：后脚跟踩地，慢慢前移 · 动作示意",
+        "task": "split-calf-stretch",
+        "view": "oblique",
+        "jointLabels": true,
+        "side": "left"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-flexibility/2",
@@ -4849,32 +4835,18 @@
       "model": "dry-planar",
       "config": {
         "type": "hip-mobility",
-        "focus": "按受限部位选择本练习；辨认髋前侧活动与腰部代偿，得到主动可返回的伸展范围。",
-        "steps": [
-          {
-            "label": "半跪设置",
-            "detail": "后膝垫地，前脚踩稳。"
-          },
-          {
-            "label": "骨盆控制",
-            "detail": "轻收骨盆，腰不后弯。"
-          },
-          {
-            "label": "小幅前移",
-            "detail": "只到舒适髋前侧肌肉伸展。"
-          },
-          {
-            "label": "受控返回",
-            "detail": "回原位，再换侧。"
-          }
-        ],
+        "focus": "所选练习腿在后：先轻收骨盆，再小幅前移，保持前脚与后膝支撑；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "半跪髋前侧拉伸：轻收骨盆，再小幅前移 · 动作示意"
+        "title": "半跪髋前侧拉伸：轻收骨盆，再小幅前移 · 动作示意",
+        "task": "half-kneel-hip-flexor",
+        "view": "side",
+        "jointLabels": true,
+        "side": "left"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-flexibility/3",
@@ -4886,32 +4858,18 @@
       "model": "dry-planar",
       "config": {
         "type": "dry-hamstring",
-        "focus": "按受限部位选择本练习；改善或维护需要的肌肉活动范围，保持腰背与膝的舒适控制。",
-        "steps": [
-          {
-            "label": "仰卧准备",
-            "detail": "一腿屈向胸前，手托大腿后。"
-          },
-          {
-            "label": "缓慢伸膝",
-            "detail": "只进入舒适肌肉拉伸范围。"
-          },
-          {
-            "label": "受控屈膝",
-            "detail": "保持连续控制，不弹震。"
-          },
-          {
-            "label": "受控屈回",
-            "detail": "此处示范一侧，完成后可换侧练；不强压末端范围。"
-          }
-        ],
+        "focus": "双手托住所选腿的大腿后侧，保持大腿位置，主动缓慢伸屈膝；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "大腿后侧动态拉伸：托住大腿，慢慢伸屈膝 · 动作示意"
+        "title": "大腿后侧动态拉伸：托住大腿，慢慢伸屈膝 · 动作示意",
+        "task": "supine-hamstring",
+        "view": "side",
+        "jointLabels": true,
+        "side": "left"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-hold/1",
@@ -4984,32 +4942,17 @@
       "model": "dry-planar",
       "config": {
         "type": "dry-plank",
-        "focus": "在支撑负荷下保持躯干形态与正常呼吸，避免塌腰和抬髋代偿。",
-        "steps": [
-          {
-            "label": "设置支撑",
-            "detail": "前臂与脚稳住，肘在肩下。"
-          },
-          {
-            "label": "建立躯干控制",
-            "detail": "躯干抬离地面，不塌腰。"
-          },
-          {
-            "label": "维持呼吸",
-            "detail": "肩髋脚一线，保持正常呼吸。"
-          },
-          {
-            "label": "受控结束",
-            "detail": "在动作失控前放回地面。"
-          }
-        ],
+        "focus": "前臂与膝先支稳，受控抬膝伸腿并保持呼吸，再让膝回垫；保持时间服从动作质量。",
         "autoplay": false,
         "duration": 10000,
-        "title": "前臂平板支撑：身体成线，呼吸不断 · 动作示意"
+        "title": "前臂平板支撑：身体成线，呼吸不断 · 动作示意",
+        "task": "forearm-plank",
+        "view": "side",
+        "jointLabels": true
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-hamstring/1",
@@ -5021,32 +4964,18 @@
       "model": "dry-planar",
       "config": {
         "type": "dry-hamstring",
-        "focus": "改善或维护需要的肌肉活动范围，保持腰背与膝的舒适控制。",
-        "steps": [
-          {
-            "label": "仰卧准备",
-            "detail": "一腿屈向胸前，手托大腿后。"
-          },
-          {
-            "label": "缓慢伸膝",
-            "detail": "只进入舒适肌肉拉伸范围。"
-          },
-          {
-            "label": "受控屈膝",
-            "detail": "保持连续控制，不弹震。"
-          },
-          {
-            "label": "受控屈回",
-            "detail": "此处示范一侧，完成后可换侧练；不强压末端范围。"
-          }
-        ],
+        "focus": "双手托住所选腿的大腿后侧，保持大腿位置，主动缓慢伸屈膝；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "大腿后侧动态拉伸：托住大腿，慢慢伸屈膝 · 动作示意"
+        "title": "大腿后侧动态拉伸：托住大腿，慢慢伸屈膝 · 动作示意",
+        "task": "supine-hamstring",
+        "view": "side",
+        "jointLabels": true,
+        "side": "left"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-hip-mobility/1",
@@ -5058,32 +4987,18 @@
       "model": "dry-planar",
       "config": {
         "type": "hip-mobility",
-        "focus": "辨认髋前侧活动与腰部代偿，得到主动可返回的伸展范围。",
-        "steps": [
-          {
-            "label": "半跪设置",
-            "detail": "后膝垫地，前脚踩稳。"
-          },
-          {
-            "label": "骨盆控制",
-            "detail": "轻收骨盆，腰不后弯。"
-          },
-          {
-            "label": "小幅前移",
-            "detail": "只到舒适髋前侧肌肉伸展。"
-          },
-          {
-            "label": "受控返回",
-            "detail": "回原位，再换侧。"
-          }
-        ],
+        "focus": "所选练习腿在后：先轻收骨盆，再小幅前移，保持前脚与后膝支撑；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "半跪髋前侧拉伸：轻收骨盆，再小幅前移 · 动作示意"
+        "title": "半跪髋前侧拉伸：轻收骨盆，再小幅前移 · 动作示意",
+        "task": "half-kneel-hip-flexor",
+        "view": "side",
+        "jointLabels": true,
+        "side": "left"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-ankle-mobility/1",
@@ -5095,32 +5010,18 @@
       "model": "dry-planar",
       "config": {
         "type": "ankle-mobility",
-        "focus": "维护需要的小腿与踝活动范围，并保持足部稳定。",
-        "steps": [
-          {
-            "label": "扶墙准备",
-            "detail": "前后脚踩稳，后脚跟接地。"
-          },
-          {
-            "label": "略前移",
-            "detail": "前腿屈曲，后小腿舒适拉伸。"
-          },
-          {
-            "label": "保持范围",
-            "detail": "踝不塌、脚跟不抬。"
-          },
-          {
-            "label": "返回换侧",
-            "detail": "受控退回中立。"
-          }
-        ],
+        "focus": "所选练习腿在后：双手扶墙、后跟留地，在舒适范围前移与返回；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "扶墙拉伸小腿：后脚跟踩地，慢慢前移 · 动作示意"
+        "title": "扶墙拉伸小腿：后脚跟踩地，慢慢前移 · 动作示意",
+        "task": "split-calf-stretch",
+        "view": "oblique",
+        "jointLabels": true,
+        "side": "left"
       },
-      "destination": "D6：保留离雪独立动作；逐项审阅后决定 2D / 3D",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s22-shoulder/1",
@@ -7865,16 +7766,24 @@
       "id": "v22-plank",
       "title": "前臂平板支撑：身体成线，呼吸不断",
       "module": "off-snow",
-      "goal": "在短时支撑中保持躯干形态，并平稳放回地面。",
+      "goal": "在短时前臂支撑中保持躯干形态与呼吸，并让膝受控回垫。",
       "entry": "https://yichenluan.github.io/snowboard-guide/#lesson=v22-plank",
       "citations": [
         {
           "source": "S27",
           "locator": "Steps 1–3",
-          "claim": "肘肩位置、整体抬离地面、保持呼吸与受控结束。",
+          "claim": "肘肩位置、躯干与腿的组织、自然呼吸和避免塌腰抬髋。",
           "canonicalSource": "S27",
           "title": "Front Plank",
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
+        },
+        {
+          "source": "S34",
+          "locator": "Plank on knees / Plank",
+          "claim": "前臂膝支撑及平板姿态；本课连接两姿态的连续过渡为作者编排。",
+          "canonicalSource": "S34",
+          "title": "Optimise cancer prehabilitation：Plank on knees / Plank",
+          "url": "https://www.nth.nhs.uk/resources/optimise-cancer-prehabilitation/"
         }
       ],
       "prototypeMode": null,
