@@ -11516,5 +11516,148 @@
         "s22-warmup"
       ]
     }
-  ]
+  ],
+  "technicalMap": {
+    "title": "单板进阶，一张图看清全局",
+    "intro": "身体怎样动，调节的是哪些板控关系，最后从路线与板痕看结果。点任一节点，进入对应技术点或模块。",
+    "goal": "路线、速度与滑移，能够主动选择",
+    "goalNote": "双刃可控与连续转弯是基础；刻滑、短弯、反脚是可并行发展的方向。",
+    "body": [
+      {
+        "title": "居中与前后调整",
+        "note": "踝膝髋可活动，重心与双脚保持可调整关系",
+        "lesson": "v-base-stance",
+        "modules": [
+          "stance"
+        ]
+      },
+      {
+        "title": "整体内倾与关节成角",
+        "note": "按弯形与支持条件组合，分别观察身体倾斜与刃角",
+        "lesson": "v-active-passive-edge",
+        "modules": [
+          "edging",
+          "inclination"
+        ]
+      },
+      {
+        "title": "屈伸、承接与回收",
+        "note": "腿长变化配合释放与承接，身体低不直接等于压力大",
+        "lesson": "v-pressure-overview",
+        "modules": [
+          "pressure"
+        ]
+      },
+      {
+        "title": "下肢引导与旋转协调",
+        "note": "踝膝髋共同工作，上身配合观察、平衡与任务",
+        "lesson": "v14-steering",
+        "modules": [
+          "transition",
+          "rotation"
+        ]
+      }
+    ],
+    "controls": [
+      {
+        "title": "沿板长负载分配",
+        "note": "板头与板尾的参与",
+        "lesson": "v-fore-aft-roles"
+      },
+      {
+        "title": "跨板宽负载分配",
+        "note": "脚趾侧与脚跟侧支持",
+        "lesson": "v11-lateral"
+      },
+      {
+        "title": "总接触负荷",
+        "note": "整板承受的负荷大小",
+        "lesson": "v-pressure-overview"
+      },
+      {
+        "title": "刃角",
+        "note": "板底与局部雪面的夹角",
+        "lesson": "v-active-passive-edge"
+      },
+      {
+        "title": "枢转",
+        "note": "板轴在雪面内改变朝向",
+        "lesson": "v14-steering"
+      },
+      {
+        "title": "扭转",
+        "note": "板前后段存在刃角差",
+        "lesson": "v14-twist"
+      }
+    ],
+    "results": [
+      {
+        "title": "弯形、走廊与速度",
+        "note": "出口方向、占用宽度与控速是否符合计划",
+        "lesson": "v20-traffic"
+      },
+      {
+        "title": "窄刃痕与可控滑移",
+        "note": "板尾是否跟随板头，滑移比例是否可以选择",
+        "lesson": "v20-carve"
+      },
+      {
+        "title": "换刃连续性与恢复",
+        "note": "旧刃能释放，新刃渐进承接，始终保留调整余量",
+        "lesson": "v-transition-map"
+      }
+    ],
+    "baseline": [
+      "稳定双刃",
+      "连续弯可控",
+      "主动选择板表现"
+    ],
+    "branches": [
+      {
+        "title": "浅弧 → 进阶刻滑",
+        "note": "窄刃痕、弯形与路线控制",
+        "lesson": "v20-path"
+      },
+      {
+        "title": "短弯与回收",
+        "note": "紧凑走廊中的腿长与过渡",
+        "lesson": "v17-retract-drill"
+      },
+      {
+        "title": "上下身分离",
+        "note": "平顺上身与活动下肢",
+        "lesson": "v19-stable-upper"
+      },
+      {
+        "title": "反脚控制",
+        "note": "重建相反方向的双刃控制",
+        "lesson": "v19-switch"
+      }
+    ],
+    "supports": [
+      {
+        "title": "装备提供可用姿态",
+        "note": "靴配合、前倾、站距、角度与两刃空间",
+        "module": "equipment"
+      },
+      {
+        "title": "体能支持动作质量",
+        "note": "热身、力量、耐力与可控制活动度",
+        "module": "off-snow"
+      }
+    ],
+    "feedback": {
+      "title": "用反馈决定下一步",
+      "steps": [
+        "观察板痕 / 录像",
+        "提出一个假设",
+        "只改一个变量",
+        "回完整滑行复测"
+      ],
+      "modules": [
+        "diagnosis",
+        "discussion"
+      ]
+    }
+  }
 }

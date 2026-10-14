@@ -17,6 +17,27 @@
 
 `build.py` 只依赖 Python 标准库。工作流从源码重新生成 HTML，不依赖上一次的生成文件。页面采用内联 CSS、JavaScript 和内容数据，没有必须从仓库根路径加载的资源，适用于 GitHub Pages 的项目子目录。
 
+## 用命令行更新
+
+首次需要登录 GitHub CLI，并让 Git 使用该认证。登录时使用仓库所属账户，不将密码或令牌写进源码、日志或聊天。
+
+```sh
+gh auth login --hostname github.com --git-protocol https --web
+gh auth setup-git --hostname github.com
+```
+
+之后在仓库中修改源码，再执行：
+
+```sh
+mkdir -p log
+python3 build.py > log/build.log 2>&1
+git add content.json app.js animations.js styles.css shell.html README.md DEPLOYMENT.md
+git commit -m "improvement(guide): update teaching content"
+git push origin main
+```
+
+Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，再用 `gh run watch <run-id> --exit-status` 等待对应部署结果；无需通过浏览器上传源码。
+
 ## 发布范围
 
 站点构建目录 `_site/` 只放：
