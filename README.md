@@ -10,7 +10,7 @@
 
 ## 搓雪小回转三维原型
 
-[打开三维动作实验室](https://yichenluan.github.io/snowboard-guide/3d/)：包含正确示范、错误对照和侧滑接单弯练习。课内第一批已接入 6 类型、28 个引用，覆盖中立屈伸、前后平衡、两刃姿态、内倾与成角；其余 106 个引用继续逐项迁移。主站首页及小回转对应三课仍有独立原型入口。
+[打开三维动作实验室](https://yichenluan.github.io/snowboard-guide/3d/)：包含正确示范、错误对照和侧滑接单弯练习。课内源码已接入 11 类型、44 个引用，覆盖基础姿态与平衡、转向、花环、J弯、减少枢转和观察练习；其余 90 个引用继续逐项迁移。主站首页及小回转对应三课仍有独立原型入口。源码接入范围与线上发布状态分别记录，不能将本地实现视为已经部署。
 
 原型采用 Three.js 与 React Three Fiber，人体和场景在代码中生成，不请求外部模型、字体或 CDN 脚本。需要浏览器支持图形渲染；加载的三维动作是教学用定性示意，不给出个人肌肉力值或压力百分比。它是独立网页，不打包进单文件离线教材。
 
@@ -133,6 +133,6 @@ Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相�
 
 ## 后刃与换刃复核资料
 
-全站迁移范围为134个动画引用及2个装备交互图，不能把102课当成102套独立动画。首批28个引用已切换为课内三维，验收与局限见 [课程播放器审阅](docs/lesson-player-review.md)、[基础研究](docs/lesson-foundations-research.md)、[进阶研究](docs/lesson-advanced-research.md)、[离雪研究](docs/lesson-dryland-research.md)及 [全站清单](docs/animation-inventory.md)。原型的历史证据和验收仍分别保存在原有文档。
+全站迁移范围为134个动画引用及2个装备交互图，不能把102课当成102套独立动画。44个引用已在源码切换为课内三维，验收与局限见 [课程播放器审阅](docs/lesson-player-review.md)、[基础研究](docs/lesson-foundations-research.md)、[转向研究](docs/lesson-turning-research.md)、[进阶研究](docs/lesson-advanced-research.md)、[离雪研究](docs/lesson-dryland-research.md)及 [全站清单](docs/animation-inventory.md)。原型的历史证据和验收仍分别保存在原有文档。
 
 清单可复现：`node scripts/inventory-animations.mjs`；仅检查：`node scripts/inventory-animations.mjs --check`。原型更新仍须完成实际多视角与连续阶段审阅，不能仅凭测试通过判定教学正确。

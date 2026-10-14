@@ -63,7 +63,7 @@ const modelNames = {
   unknown: '未归类',
 };
 const destinationFor = demo => {
-  if(implementedTypes.has(demo.type)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':'D2'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
+  if(implementedTypes.has(demo.type)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':['toe-edge','heel-edge','inclination'].includes(demo.type)?'D2':'D3'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
   if (library.presets[demo.type]?.dry) return 'D6：保留离雪独立动作；逐项审阅后决定 2D / 3D';
   if (demo.pressureDiagram || demo.variant === 'phase-study') return 'D4：保留二维阶段图；人体部分另行审阅';
   if (library.shortVariants[demo.type]) return 'D5：按变体独立审阅后接入共享 3D；待迁移';

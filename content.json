@@ -11,7 +11,7 @@
     "method": "先说清动作与雪板怎样配合，再给出具体练习、观察方法和下一步。技术依据以CASI、AASI、SBINZ教练教材为主，装备和非雪训练另列一手资料。",
     "coverage": "围绕刻滑和搓雪小回转两条重点路线组织；站姿、立刃、压力、转向等是共同基础，反脚、体能和装备可并行发展。保留原条目ID，已有个人笔记仍能对应。",
     "limitations": "运动感受是教学提示，不等于测量。原创动画是定性运动学示意，没有真实测力、精确个人角度或诊断。专项主题先说明任务与前提，具体个人动作调整需结合现场观察。视频时间只作为来源定位，章节首次课件采样约有±10秒误差。",
-    "contentRevision": 4
+    "contentRevision": 5
   },
   "modules": [
     {
@@ -2390,7 +2390,8 @@
           "title": "双腿带板：圆弯中的持续引导",
           "focus": "板轴与实际移动方向分开看",
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-steering"
         }
       ]
     },
@@ -5088,33 +5089,12 @@
         {
           "type": "garland",
           "title": "前刃花环：同一刃反复释放与建立",
-          "focus": "蓝色前刃不变；板头接近落线后转回横坡，先练半个弯",
+          "focus": "当前前刃不变；板头接近落线后转回横坡，先练半个弯",
           "view": "track",
           "variant": "toe",
-          "steps": [
-            {
-              "at": 0,
-              "label": "同一刃横坡参考",
-              "detail": "先具备同一刃的斜滑和停止能力，选择开阔缓坡。"
-            },
-            {
-              "at": 0.05,
-              "label": "释放一点、接近落线",
-              "detail": "刃角减小，脚膝髋协调引导板头向下，不跨过落线换到另一刃。"
-            },
-            {
-              "at": 0.24,
-              "label": "重新建刃、转回横坡",
-              "detail": "逐渐增加原工作刃角并完成半弯，用弯形限制速度。"
-            },
-            {
-              "at": 0.56,
-              "label": "同刃重复并检查",
-              "detail": "重复释放与建立；蓝色工作刃不变。另一刃要分开练。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "same-edge-garland"
         },
         {
           "type": "garland",
@@ -5122,30 +5102,9 @@
           "focus": "路线与工作刃一同反向；保持同一后刃，控制下降量",
           "view": "track",
           "variant": "heel",
-          "steps": [
-            {
-              "at": 0,
-              "label": "同一刃横坡参考",
-              "detail": "先具备同一刃的斜滑和停止能力，选择开阔缓坡。"
-            },
-            {
-              "at": 0.05,
-              "label": "释放一点、接近落线",
-              "detail": "刃角减小，脚膝髋协调引导板头向下，不跨过落线换到另一刃。"
-            },
-            {
-              "at": 0.24,
-              "label": "重新建刃、转回横坡",
-              "detail": "逐渐增加原工作刃角并完成半弯，用弯形限制速度。"
-            },
-            {
-              "at": 0.56,
-              "label": "同刃重复并检查",
-              "detail": "重复释放与建立；蓝色工作刃不变。另一刃要分开练。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "same-edge-garland"
         },
         {
           "type": "steering",
@@ -5153,30 +5112,9 @@
           "focus": "与同刃花环对照：两脚和下肢协调完成完整换刃",
           "view": "track",
           "trackDiagnostics": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "规划走廊",
-              "detail": "抬头看路线，准备能够结束的圆弧。"
-            },
-            {
-              "at": 0.15,
-              "label": "下肢渐进引导",
-              "detail": "踝膝髋共同引导方向，双臂自然。"
-            },
-            {
-              "at": 0.4,
-              "label": "持续完成弯形",
-              "detail": "继续引导到可控制的方向，不横扫后脚。"
-            },
-            {
-              "at": 0.65,
-              "label": "释放并衔接另一弯",
-              "detail": "恢复可调整关系，再在另一刃形成圆弧。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-steering"
         }
       ],
       "animationGuide": "把同刃的转向准备练习与完整连续换刃并列；花环训练的是进入和完成半弯，而不是在落线上急换刃。"
@@ -5550,27 +5488,10 @@
       "demo": {
         "type": "gaze-control",
         "focus": "头部观察与肩髋稳定的区别",
-        "steps": [
-          {
-            "label": "先选路线",
-            "detail": "建立可停住的慢速方向。"
-          },
-          {
-            "label": "短暂观察",
-            "detail": "头部小幅观察，肩线不跟着猛转。"
-          },
-          {
-            "label": "保持板控",
-            "detail": "下肢继续负责原有路线与刃角。"
-          },
-          {
-            "label": "看回前方",
-            "detail": "恢复前方观察，确认下一次转向空间。"
-          }
-        ],
         "autoplay": false,
         "duration": 10000,
-        "title": "转头观察时，保持原来的路线 · 动作示意"
+        "title": "转头观察时，保持原来的路线 · 动作示意",
+        "task": "traverse-observation"
       }
     },
     {
@@ -8109,30 +8030,17 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.97–99；Introducing Carving / Garlands and single arcs",
+          "locator": "印刷 p.86、97–98；J-turn / Introducing Carving / isolated traverses or arcs",
           "claim": "先在缓坡用单弧和横切建立纯刃平衡，减少板尾枢转，再发展连续弧线。"
         }
       ],
       "demo": {
         "type": "j-turn",
         "focus": "前刃 J 弯检验控制，不演示膝撞雪",
-        "steps": [
-          {
-            "label": "进入",
-            "detail": "舒适中低位，观察路线。"
-          },
-          {
-            "label": "前刃",
-            "detail": "踝膝协调，刃角渐进建立。"
-          },
-          {
-            "label": "完成",
-            "detail": "沿可控弧线朝横坡完成并停。"
-          }
-        ],
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃 J 弯：让雪板沿一条弧线转向横坡 · 动作观察"
+        "title": "前刃 J 弯：让雪板沿一条弧线转向横坡 · 动作观察",
+        "task": "j-turn-stop"
       }
     },
     {
@@ -8252,25 +8160,27 @@
         {
           "type": "steering",
           "title": "可控搓雪：板轴与移动方向可错开",
-          "focus": "在同一条路线比较滑移；宽轨迹是一种控制工具，不等于失控",
+          "focus": "在同一条路线比较板轴与移动方向的偏差；受控滑移是一种控制工具，不等于失控",
           "view": "track",
           "path": "rail",
           "trackDiagnostics": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-steering"
         },
         {
           "type": "rail-track",
-          "title": "刻滑：板尾沿板头的窄轨迹走",
-          "focus": "观察板轴沿路线渐变，板尾不主动横扫，绿色箭头只表示行进方向",
+          "title": "减少枢转：板轴顺着示意路线变化",
+          "focus": "观察板轴沿路线渐变，板尾不主动横扫，行进方向线只表示行进方向",
           "view": "track",
           "path": "rail",
           "trackDiagnostics": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-rails"
         }
       ],
-      "animationGuide": "使用同一路线，让“板轴与移动方向是否错开”和“窄刃痕/可控滑移”成为可观察的差别。搓雪与刻滑都是技术工具，不能把一切滑移都评价成错误。"
+      "animationGuide": "使用同一路线比较板轴与移动方向的偏差；板头板尾线是刚体端点路径，实际窄刃痕仍需在雪上检验。搓雪与刻滑都是技术工具，不能把一切滑移都评价成错误。"
     },
     {
       "id": "v20-traffic",
@@ -8389,7 +8299,8 @@
           "turnShape": "open",
           "trackDiagnostics": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-steering"
         },
         {
           "type": "steering",
@@ -8399,7 +8310,8 @@
           "turnShape": "closed",
           "trackDiagnostics": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-steering"
         }
       ],
       "animationGuide": "新增弯形与控速专题：比较朝落线的浅弯和更多转向横坡的圆弧，不用简单“刃越高越慢”替代路线选择，也不以相同播放速度伪造速度仿真。"
@@ -8604,36 +8516,19 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.61、97–99；gentle open arcs / Introducing Carving",
+          "locator": "印刷 p.61、97–98；gentle open arcs / Introducing Carving",
           "claim": "缓坡开放浅弧适合发展纯刃平衡，减少枢转并以轨迹检验。"
         }
       ],
       "demo": {
         "type": "rail-track",
-        "focus": "板尾沿板头走过的轨迹滑行，避免旋转甩尾",
-        "steps": [
-          {
-            "label": "短距离开始",
-            "detail": "使用可停住的速度和停止区。"
-          },
-          {
-            "label": "前刃浅弧",
-            "detail": "渐进立刃，让侧切引导方向。"
-          },
-          {
-            "label": "释放回到居中位置",
-            "detail": "过渡短暂接近平板。"
-          },
-          {
-            "label": "后刃浅弧",
-            "detail": "渐进立另一刃，完成后停住查刃痕。"
-          }
-        ],
+        "focus": "先用减少枢转的浅弧连接两刃，再渐进搓雪转向横坡并停止；端点路径为刚体几何示意。",
         "autoplay": false,
-        "duration": 10000,
+        "duration": 14000,
         "title": "浅弧连刃：用小刃角连接连续窄痕 · 动作观察",
         "trackDiagnostics": true,
-        "path": "rail"
+        "path": "rail",
+        "task": "rails-then-stop"
       }
     },
     {
@@ -9633,7 +9528,8 @@
           "turnShape": "open",
           "trackDiagnostics": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-steering"
         },
         {
           "type": "steering",
@@ -9643,7 +9539,8 @@
           "turnShape": "closed",
           "trackDiagnostics": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "linked-steering"
         },
         {
           "type": "j-turn",
@@ -9653,7 +9550,8 @@
           "skid": true,
           "trackDiagnostics": true,
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "j-turn-stop"
         }
       ],
       "citations": [
@@ -12765,11 +12663,12 @@
       ],
       "demo": {
         "type": "rail-track",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "减少枢转的动作基线，用于与实际视频和雪痕比较；不复现不同扫尾原因。",
         "autoplay": false,
         "duration": 10000,
         "title": "想刻滑却扫尾：先找轨迹从哪里变宽 · 动作示意",
-        "trackDiagnostics": true
+        "trackDiagnostics": true,
+        "task": "linked-rails"
       }
     },
     {
@@ -12990,29 +12889,12 @@
       ],
       "demo": {
         "type": "rail-track",
-        "focus": "以小幅刃滑为例：只改一处，再回自然连弯",
-        "steps": [
-          {
-            "label": "建立基线",
-            "detail": "先选择已能控速的浅弧滑行。"
-          },
-          {
-            "label": "只改小幅刃角",
-            "detail": "聚焦踝膝髋渐进调刃，其他变量先保留。"
-          },
-          {
-            "label": "检查刃痕",
-            "detail": "短距离结束后看窄痕与速度是否改善。"
-          },
-          {
-            "label": "回完整滑行",
-            "detail": "恢复自然连弯，确认改动可迁移。"
-          }
-        ],
+        "focus": "以浅弧动作作为对照样例；实际练习先建立基线、只改一项，再回自然滑行验证。",
         "autoplay": false,
         "duration": 10000,
         "title": "怎么安排练习：先滑一遍，拆一项，再自然滑 · 动作示意",
-        "trackDiagnostics": true
+        "trackDiagnostics": true,
+        "task": "linked-rails"
       }
     },
     {

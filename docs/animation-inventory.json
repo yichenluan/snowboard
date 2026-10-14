@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "fc4fa1a25c095cec9194b5b644a5654b13a43cf0631c78092e16e1c3e7ce4c73",
+    "content.json": "161994146b249b47a109551132956b053e1ee14aa6e0d4bed760ee1f57b47744",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
     "app.js": "ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67",
-    "lesson-player/registry.json": "55812efc2e5fcfc9a7ab1150f9f9e38fa184aef53205d76a1367bbcbf4dfd483"
+    "lesson-player/registry.json": "3740305a2cb1a30f80de86c0b518809647e713c748ad1c189be6f47317abe661"
   },
   "scope": "静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确",
   "counts": {
@@ -23,10 +23,10 @@
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 6,
-    "implemented3DReferences": 28,
-    "remainingLegacyReferences": 106,
-    "replacedLegacyReferences": 28
+    "implemented3DTypes": 11,
+    "implemented3DReferences": 44,
+    "remainingLegacyReferences": 90,
+    "replacedLegacyReferences": 44
   },
   "modules": [
     {
@@ -347,7 +347,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "type": "shoulder-coordination",
@@ -387,7 +387,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "type": "j-turn",
@@ -402,7 +402,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "type": "rail-track",
@@ -419,7 +419,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "type": "gaze-control",
@@ -433,7 +433,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "type": "hip-edge-change",
@@ -991,30 +991,34 @@
       ],
       "configurations": [
         {
+          "task": "linked-steering",
           "trackDiagnostics": true,
           "type": "steering",
           "view": "track"
         },
         {
           "path": "rail",
+          "task": "linked-steering",
           "trackDiagnostics": true,
           "type": "steering",
           "view": "track"
         },
         {
+          "task": "linked-steering",
           "trackDiagnostics": true,
           "turnShape": "open",
           "type": "steering",
           "view": "track"
         },
         {
+          "task": "linked-steering",
           "trackDiagnostics": true,
           "turnShape": "closed",
           "type": "steering",
           "view": "track"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "center-high:heel",
@@ -1249,12 +1253,13 @@
       ],
       "configurations": [
         {
+          "task": "same-edge-garland",
           "type": "garland",
           "variant": "toe",
           "view": "track"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "garland:heel",
@@ -1263,12 +1268,13 @@
       ],
       "configurations": [
         {
+          "task": "same-edge-garland",
           "type": "garland",
           "variant": "heel",
           "view": "track"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "twist",
@@ -1290,10 +1296,11 @@
       ],
       "configurations": [
         {
+          "task": "traverse-observation",
           "type": "gaze-control"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "hip-edge-change",
@@ -1475,16 +1482,18 @@
       ],
       "configurations": [
         {
+          "task": "j-turn-stop",
           "type": "j-turn"
         },
         {
           "skid": true,
+          "task": "j-turn-stop",
           "trackDiagnostics": true,
           "type": "j-turn",
           "view": "track"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "rail-track",
@@ -1497,21 +1506,24 @@
       "configurations": [
         {
           "path": "rail",
+          "task": "linked-rails",
           "trackDiagnostics": true,
           "type": "rail-track",
           "view": "track"
         },
         {
           "path": "rail",
+          "task": "rails-then-stop",
           "trackDiagnostics": true,
           "type": "rail-track"
         },
         {
+          "task": "linked-rails",
           "trackDiagnostics": true,
           "type": "rail-track"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:round:flex",
@@ -2445,11 +2457,12 @@
         "title": "双腿带板：圆弯中的持续引导",
         "focus": "板轴与实际移动方向分开看",
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-steering"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-heel-brief-hold/1",
@@ -3314,37 +3327,16 @@
       "config": {
         "type": "garland",
         "title": "前刃花环：同一刃反复释放与建立",
-        "focus": "蓝色前刃不变；板头接近落线后转回横坡，先练半个弯",
+        "focus": "当前前刃不变；板头接近落线后转回横坡，先练半个弯",
         "view": "track",
         "variant": "toe",
-        "steps": [
-          {
-            "at": 0,
-            "label": "同一刃横坡参考",
-            "detail": "先具备同一刃的斜滑和停止能力，选择开阔缓坡。"
-          },
-          {
-            "at": 0.05,
-            "label": "释放一点、接近落线",
-            "detail": "刃角减小，脚膝髋协调引导板头向下，不跨过落线换到另一刃。"
-          },
-          {
-            "at": 0.24,
-            "label": "重新建刃、转回横坡",
-            "detail": "逐渐增加原工作刃角并完成半弯，用弯形限制速度。"
-          },
-          {
-            "at": 0.56,
-            "label": "同刃重复并检查",
-            "detail": "重复释放与建立；蓝色工作刃不变。另一刃要分开练。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "same-edge-garland"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v14-steering/2",
@@ -3360,34 +3352,13 @@
         "focus": "路线与工作刃一同反向；保持同一后刃，控制下降量",
         "view": "track",
         "variant": "heel",
-        "steps": [
-          {
-            "at": 0,
-            "label": "同一刃横坡参考",
-            "detail": "先具备同一刃的斜滑和停止能力，选择开阔缓坡。"
-          },
-          {
-            "at": 0.05,
-            "label": "释放一点、接近落线",
-            "detail": "刃角减小，脚膝髋协调引导板头向下，不跨过落线换到另一刃。"
-          },
-          {
-            "at": 0.24,
-            "label": "重新建刃、转回横坡",
-            "detail": "逐渐增加原工作刃角并完成半弯，用弯形限制速度。"
-          },
-          {
-            "at": 0.56,
-            "label": "同刃重复并检查",
-            "detail": "重复释放与建立；蓝色工作刃不变。另一刃要分开练。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "same-edge-garland"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v14-steering/3",
@@ -3403,34 +3374,13 @@
         "focus": "与同刃花环对照：两脚和下肢协调完成完整换刃",
         "view": "track",
         "trackDiagnostics": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "规划走廊",
-            "detail": "抬头看路线，准备能够结束的圆弧。"
-          },
-          {
-            "at": 0.15,
-            "label": "下肢渐进引导",
-            "detail": "踝膝髋共同引导方向，双臂自然。"
-          },
-          {
-            "at": 0.4,
-            "label": "持续完成弯形",
-            "detail": "继续引导到可控制的方向，不横扫后脚。"
-          },
-          {
-            "at": 0.65,
-            "label": "释放并衔接另一弯",
-            "detail": "恢复可调整关系，再在另一刃形成圆弧。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-steering"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v14-twist/1",
@@ -3518,31 +3468,14 @@
       "config": {
         "type": "gaze-control",
         "focus": "头部观察与肩髋稳定的区别",
-        "steps": [
-          {
-            "label": "先选路线",
-            "detail": "建立可停住的慢速方向。"
-          },
-          {
-            "label": "短暂观察",
-            "detail": "头部小幅观察，肩线不跟着猛转。"
-          },
-          {
-            "label": "保持板控",
-            "detail": "下肢继续负责原有路线与刃角。"
-          },
-          {
-            "label": "看回前方",
-            "detail": "恢复前方观察，确认下一次转向空间。"
-          }
-        ],
         "autoplay": false,
         "duration": 10000,
-        "title": "转头观察时，保持原来的路线 · 动作示意"
+        "title": "转头观察时，保持原来的路线 · 动作示意",
+        "task": "traverse-observation"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v16-hip-change/1",
@@ -4274,27 +4207,14 @@
       "config": {
         "type": "j-turn",
         "focus": "前刃 J 弯检验控制，不演示膝撞雪",
-        "steps": [
-          {
-            "label": "进入",
-            "detail": "舒适中低位，观察路线。"
-          },
-          {
-            "label": "前刃",
-            "detail": "踝膝协调，刃角渐进建立。"
-          },
-          {
-            "label": "完成",
-            "detail": "沿可控弧线朝横坡完成并停。"
-          }
-        ],
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃 J 弯：让雪板沿一条弧线转向横坡 · 动作观察"
+        "title": "前刃 J 弯：让雪板沿一条弧线转向横坡 · 动作观察",
+        "task": "j-turn-stop"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v20-carve/1",
@@ -4307,16 +4227,17 @@
       "config": {
         "type": "steering",
         "title": "可控搓雪：板轴与移动方向可错开",
-        "focus": "在同一条路线比较滑移；宽轨迹是一种控制工具，不等于失控",
+        "focus": "在同一条路线比较板轴与移动方向的偏差；受控滑移是一种控制工具，不等于失控",
         "view": "track",
         "path": "rail",
         "trackDiagnostics": true,
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-steering"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v20-carve/2",
@@ -4328,17 +4249,18 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "title": "刻滑：板尾沿板头的窄轨迹走",
-        "focus": "观察板轴沿路线渐变，板尾不主动横扫，绿色箭头只表示行进方向",
+        "title": "减少枢转：板轴顺着示意路线变化",
+        "focus": "观察板轴沿路线渐变，板尾不主动横扫，行进方向线只表示行进方向",
         "view": "track",
         "path": "rail",
         "trackDiagnostics": true,
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-rails"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v20-traffic/1",
@@ -4356,11 +4278,12 @@
         "turnShape": "open",
         "trackDiagnostics": true,
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-steering"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v20-traffic/2",
@@ -4378,11 +4301,12 @@
         "turnShape": "closed",
         "trackDiagnostics": true,
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-steering"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s20-rails/1",
@@ -4394,34 +4318,17 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "focus": "板尾沿板头走过的轨迹滑行，避免旋转甩尾",
-        "steps": [
-          {
-            "label": "短距离开始",
-            "detail": "使用可停住的速度和停止区。"
-          },
-          {
-            "label": "前刃浅弧",
-            "detail": "渐进立刃，让侧切引导方向。"
-          },
-          {
-            "label": "释放回到居中位置",
-            "detail": "过渡短暂接近平板。"
-          },
-          {
-            "label": "后刃浅弧",
-            "detail": "渐进立另一刃，完成后停住查刃痕。"
-          }
-        ],
+        "focus": "先用减少枢转的浅弧连接两刃，再渐进搓雪转向横坡并停止；端点路径为刚体几何示意。",
         "autoplay": false,
-        "duration": 10000,
+        "duration": 14000,
         "title": "浅弧连刃：用小刃角连接连续窄痕 · 动作观察",
         "trackDiagnostics": true,
-        "path": "rail"
+        "path": "rail",
+        "task": "rails-then-stop"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-integrated/1",
@@ -5003,11 +4910,12 @@
         "turnShape": "open",
         "trackDiagnostics": true,
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-steering"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-adapt/6",
@@ -5025,11 +4933,12 @@
         "turnShape": "closed",
         "trackDiagnostics": true,
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "linked-steering"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-adapt/7",
@@ -5047,11 +4956,12 @@
         "skid": true,
         "trackDiagnostics": true,
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "j-turn-stop"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v22-strength/1",
@@ -5926,15 +5836,16 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "减少枢转的动作基线，用于与实际视频和雪痕比较；不复现不同扫尾原因。",
         "autoplay": false,
         "duration": 10000,
         "title": "想刻滑却扫尾：先找轨迹从哪里变宽 · 动作示意",
-        "trackDiagnostics": true
+        "trackDiagnostics": true,
+        "task": "linked-rails"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v21-method/1",
@@ -5946,33 +5857,16 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "focus": "以小幅刃滑为例：只改一处，再回自然连弯",
-        "steps": [
-          {
-            "label": "建立基线",
-            "detail": "先选择已能控速的浅弧滑行。"
-          },
-          {
-            "label": "只改小幅刃角",
-            "detail": "聚焦踝膝髋渐进调刃，其他变量先保留。"
-          },
-          {
-            "label": "检查刃痕",
-            "detail": "短距离结束后看窄痕与速度是否改善。"
-          },
-          {
-            "label": "回完整滑行",
-            "detail": "恢复自然连弯，确认改动可迁移。"
-          }
-        ],
+        "focus": "以浅弧动作作为对照样例；实际练习先建立基线、只改一项，再回自然滑行验证。",
         "autoplay": false,
         "duration": 10000,
         "title": "怎么安排练习：先滑一遍，拆一项，再自然滑 · 动作示意",
-        "trackDiagnostics": true
+        "trackDiagnostics": true,
+        "task": "linked-rails"
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v21-linear/1",
@@ -7871,7 +7765,7 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.97–99；Introducing Carving / Garlands and single arcs",
+          "locator": "印刷 p.86、97–98；J-turn / Introducing Carving / isolated traverses or arcs",
           "claim": "先在缓坡用单弧和横切建立纯刃平衡，减少板尾枢转，再发展连续弧线。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8007,7 +7901,7 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.61、97–99；gentle open arcs / Introducing Carving",
+          "locator": "印刷 p.61、97–98；gentle open arcs / Introducing Carving",
           "claim": "缓坡开放浅弧适合发展纯刃平衡，减少枢转并以轨迹检验。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",

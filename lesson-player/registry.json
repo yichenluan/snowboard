@@ -1,4 +1,4 @@
 {
   "version": 1,
-  "types": ["center-low", "center-high", "fore-aft", "toe-edge", "heel-edge", "inclination"]
+  "types": ["center-low", "center-high", "fore-aft", "toe-edge", "heel-edge", "inclination", "steering", "garland", "j-turn", "gaze-control", "rail-track"]
 }

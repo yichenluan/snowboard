@@ -19,8 +19,8 @@
 | 展示配置组合 | 85 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 6 / 28 | 按注册表已切换默认渲染；不代表教学认证 |
-| 剩余旧动画引用 | 106 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 11 / 44 | 按注册表已切换默认渲染；不代表教学认证 |
+| 剩余旧动画引用 | 90 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -111,12 +111,12 @@
 | `inclination` | 内倾与关节折角的组合 | 雪上关键帧 + 双腿 IK | 4 / 4 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-up` | 伸展式换刃：旧刃 → 回到居中位置 → 新刃 | 雪上关键帧 + 双腿 IK | 5 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `edge-change-down` | 回收式换刃：屈腿让板从身下通过 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `steering` | 脚、膝、髋渐进引导雪板转向 | 雪上关键帧 + 双腿 IK | 7 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `steering` | 脚、膝、髋渐进引导雪板转向 | 雪上关键帧 + 双腿 IK | 7 / 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination` | 视线、肩髋与下肢协调 | 雪上关键帧 + 双腿 IK | 7 / 5 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `garland` | 花环练习：同一刃、重复释放与建刃 | 雪上关键帧 + 双腿 IK | 2 / 2 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `j-turn` | J 形转弯：短直滑 → 单一圆弧 → 横坡 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `rail-track` | 浅弧刃滑：让板尾跟随板头 | 雪上关键帧 + 双腿 IK | 4 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `gaze-control` | 头部观察与肩髋控制：转头不甩板 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `garland` | 花环练习：同一刃、重复释放与建刃 | 雪上关键帧 + 双腿 IK | 2 / 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `j-turn` | J 形转弯：短直滑 → 单一圆弧 → 横坡 | 雪上关键帧 + 双腿 IK | 2 / 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `rail-track` | 浅弧刃滑：让板尾跟随板头 | 雪上关键帧 + 双腿 IK | 4 / 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `gaze-control` | 头部观察与肩髋控制：转头不甩板 | 雪上关键帧 + 双腿 IK | 1 / 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `hip-edge-change` | 髋引导换刃：保持踝膝协调 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `knee-edge-change` | 用膝盖的移动体会换刃：小幅、渐进、协调 | 雪上关键帧 + 双腿 IK | 1 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `retraction-turns` | 回收式连续转弯：屈曲换刃、弯内伸展 | 雪上关键帧 + 双腿 IK | 2 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
@@ -153,7 +153,7 @@
 | `inclination:angulation-focused` | v-active-passive-edge/2 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `toe-edge` | v-toe-static-five/1、v-toe-tongue/1、v-toe-lock-ankle/1、v-toe-counterbalance/1、v-toe-ankle-role/1、v24-toe-unstable/1 | 3 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `heel-edge` | v-toe-tongue/2、v-heel-pull/1、v-heel-static-repetition/1、v-heel-counterbalance/1、v-heel-brief-hold/1、v24-heel-edge/1 | 4 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `steering` | v-lower-body-priority/1、v14-steering/3、v20-carve/1、v20-traffic/1、v20-traffic/2、s-short-adapt/5、s-short-adapt/6 | 4 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `steering` | v-lower-body-priority/1、v14-steering/3、v20-carve/1、v20-traffic/1、v20-traffic/2、s-short-adapt/5、s-short-adapt/6 | 4 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `center-high:heel` | v-low-high-principle/2、v-heel-height-progression/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `inclination:heel` | v-heel-low-inclination/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-extend:heel` | v-heel-incline-extension/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
@@ -168,10 +168,10 @@
 | `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 3 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `edge-change-down:retraction-study` | v13-down-drill/2、v-transition-map/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `garland:toe` | v14-steering/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `garland:heel` | v14-steering/2 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `garland:toe` | v14-steering/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `garland:heel` | v14-steering/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `twist` | v14-twist/1、s14-twist-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `gaze-control` | v15-gaze-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `gaze-control` | v15-gaze-drill/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `hip-edge-change` | v16-hip-change/1、v16-hip-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `knee-edge-change` | v17-knee-change/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `retraction-turns` | v17-retract-drill/1、v19-stable-upper/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
@@ -184,8 +184,8 @@
 | `short-turns:asymmetric:extend` | v-toe-open-causal/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `shoulder-coordination:closed-toe` | v-toe-closed-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `switch` | v19-switch/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `j-turn` | v-toe-low-drill/1、s-short-adapt/7 | 2 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `rail-track` | v20-carve/2、s20-rails/1、v24-skid-track/1、v21-method/1 | 3 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
+| `j-turn` | v-toe-low-drill/1、s-short-adapt/7 | 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `rail-track` | v20-carve/2、s20-rails/1、v24-skid-track/1、v21-method/1 | 3 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `short-turns:round:flex` | s-short-integrated/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `short-turns:tail-brake` | s-short-integrated/3、s-short-diagnosis/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `short-turn-progression:side-slip` | s-short-sideslip/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
@@ -457,8 +457,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | fc4fa1a25c095cec9194b5b644a5654b13a43cf0631c78092e16e1c3e7ce4c73 |
+| content.json | 161994146b249b47a109551132956b053e1ee14aa6e0d4bed760ee1f57b47744 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
-| lesson-player/registry.json | 55812efc2e5fcfc9a7ab1150f9f9e38fa184aef53205d76a1367bbcbf4dfd483 |
+| lesson-player/registry.json | 3740305a2cb1a30f80de86c0b518809647e713c748ad1c189be6f47317abe661 |
 

@@ -33,8 +33,10 @@ function PlanarDiagram({state,plane="width",supportRail}:{state:MotionState;plan
     <text x="15" y="291">橙：原前脚侧　蓝：原后脚侧</text>
   </svg>;
 }
-function RouteDiagram({state,trail,time}:{state:MotionState;trail:Vec3[];time:number}) {
-  const xs=trail.map(v=>v[0]),zs=trail.map(v=>v[2]);
+function RouteDiagram({state,trail,time,config,stance}:{state:MotionState;trail:Vec3[];time:number;config:LessonConfig;stance:Stance}) {
+  const traces=useMemo(()=>config.trackDiagnostics||config.type==="rail-track"?Array.from({length:201},(_,i)=>{const b=sampleLesson(i/200,config,stance).state.board;return [boardToWorld([b.length/2,0,0],b),boardToWorld([-b.length/2,0,0],b)];}):null,[config,stance]);
+  const bounds=useMemo(()=>config.turnShape?lessonTrail({...config,turnShape:"closed"},stance):trail,[config,stance,trail]);
+  const xs=bounds.map(v=>v[0]),zs=bounds.map(v=>v[2]);
   const x0=Math.min(...xs)-1.1,x1=Math.max(...xs)+1.1,z0=Math.min(...zs)-1,z1=Math.max(...zs)+1;
   const scale=Math.min(310/(x1-x0),160/(z1-z0));
   const p=(v:Vec3)=>[180+(v[0]-(x0+x1)/2)*scale,98+(v[2]-(z0+z1)/2)*scale];
@@ -43,13 +45,17 @@ function RouteDiagram({state,trail,time}:{state:MotionState;trail:Vec3[];time:nu
   const board=[boardToWorld([-b.length/2,0,0],b),boardToWorld([b.length/2,0,0],b)];
   const end:Vec3=[b.position[0]+state.travel[0],0,b.position[2]+state.travel[2]];
   const [nx,ny]=p(board[1]);
-  return <svg className="sl3-route" viewBox="0 0 360 205" role="img" aria-label="同一动作的俯视路线，圆点标出板头">
+  const traceEnd=Math.round(time*200)+1;
+  const gazeEnd:Vec3=[b.position[0]+state.gaze[0]*1.6,0,b.position[2]+state.gaze[2]*1.6];
+  return <><svg className="sl3-route" viewBox="0 0 360 205" role="img" aria-label="同一动作的俯视路线，圆点标出板头">
     <polyline points={path(trail)} fill="none" stroke="#ccd8cf" strokeDasharray="4 4"/>
     <polyline points={path(trail.slice(0,Math.max(1,Math.round(time*100)+1)))} fill="none" stroke="#3b7f72" strokeWidth="2"/>
+    {traces&&[0,1].map(k=><polyline key={k} points={path(traces.slice(0,traceEnd).map(v=>v[k]))} fill="none" stroke={k===0?"#c27b45":"#95608c"} strokeWidth="1.6"/>)}
     <polyline points={path(board)} stroke="#b68143" strokeWidth="5" strokeLinecap="round"/><circle cx={nx} cy={ny} r="4" fill="#533b22"/>
     {Math.hypot(...state.travel)>.01&&<polyline points={path([b.position,end])} stroke="#477c95" strokeWidth="2"/>}
+    {config.type==="gaze-control"&&<polyline points={path([b.position,gazeEnd])} stroke="#ac7132" strokeWidth="3"/>}
     <text x="12" y="19">俯视：板轴、移动方向、路线同源</text><text x="12" y="195">坡下 ↓　棕色：板轴　蓝色：移动方向</text>
-  </svg>;
+  </svg>{traces&&<p className="sl3-hint">橙线：板头；紫线：板尾。两条线是刚体端点路径，不是两脚各留一道雪痕，也不是板雪接触计算。</p>}{config.type==="gaze-control"&&<p className="sl3-hint">金色线：实际头部朝向；短暂扫描后回前方，板路线不变。</p>}{config.turnShape&&<p className="sl3-hint">开放／闭合使用相同图幅和最小弯径；播放时长随路线长度变化，不计算真实滑速。</p>}</>;
 }
 function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi>}}) {
   const [time,setTime]=useState(0),[playing,setPlaying]=useState(false),[speed,setSpeed]=useState(.65);
@@ -61,7 +67,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
   const dialog=useRef<HTMLDialogElement>(null),expandButton=useRef<HTMLButtonElement>(null);
   const frame=useMemo(()=>sampleLesson(time,config,stance),[time,config,stance]);
   const trail=useMemo(()=>lessonTrail(config,stance),[config,stance]);
-  const duration=Math.max(4000,config.duration??10000);
+  const duration=Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
   const play=()=>{if(time>=1)setTime(0);setPlaying(true);};
   const seek=(t:number)=>{setPlaying(false);setTime(Math.max(0,Math.min(1,Number.isFinite(t)?t:0)));};
   api.current={...api.current,play,pause:()=>setPlaying(false),seek,setView:(v:string)=>{setView(toView(v));setReset(n=>n+1);}};
@@ -97,8 +103,8 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     <div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>
     {config.type==="inclination"&&<p className="sl3-hint">本组比较身体与板的几何关系；实际组合仍需匹配速度、弯形和雪况。</p>}
     {frame.task==="static-edge"&&<p className="sl3-hint">双手扶稳护栏帮助感知动作；撤去支撑后的自主平衡需另行练习。</p>}
-    {frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time}/>}
-    <details className="sl3-evidence"><summary>动作依据与示意边界</summary><p>依据 CASI Reference Guide 的站姿与平衡（43–50 页）、两刃差异（155 页）、前后调整（173 页）及单弯任务（86–88 页）设计。关节幅度、刃角与时长为作者编排，尚未经过教练实拍逐帧标定。</p><p>两脚、骨长与装备连接受约束；小腿的前倾和少量侧向活动是此示例的软靴假设，不是个人活动上限。圆点为分段质心估计，方向线不表示力或承重比例。</p><a href="https://members.casi-acms.com/documents/Ref_Guide.pdf" target="_blank" rel="noreferrer">阅读 CASI 原始教材 ↗</a></details>
+    {frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={config} stance={stance}/>}
+    <details className="sl3-evidence"><summary>动作依据与示意边界</summary><p>{["steering","garland","j-turn","gaze-control","rail-track"].includes(config.type)?"依据 CASI Reference Guide 的观察与下肢转向（43–48 页）、滑移和刻滑（60–61 页）、花环与 J 弯（86 页）、弯形（88 页）及独立浅弧（97–98 页）设计。刚体板只展示几何关系，尚无侧切受载变形和真实雪痕求解。":"依据 CASI Reference Guide 的站姿与平衡（43–50 页）、两刃差异（155 页）、前后调整（173 页）及单弯任务（86–88 页）设计。"}关节幅度、刃角与时长为作者编排，尚未经过教练实拍逐帧标定。</p><p>两脚、骨长与装备连接受约束；小腿的前倾和少量侧向活动是此示例的软靴假设，不是个人活动上限。圆点为分段质心估计，方向线不表示力或承重比例。</p><a href="https://members.casi-acms.com/documents/Ref_Guide.pdf" target="_blank" rel="noreferrer">阅读 CASI 原始教材 ↗</a></details>
     </div></section>;
   return <><div ref={root}>{!expanded&&content}</div><dialog className="sl3-dialog" ref={dialog} aria-label={`放大观察：${config.title??config.type}`} onCancel={()=>setExpanded(false)} onClose={()=>setExpanded(false)}>{expanded&&content}</dialog></>;
 }

@@ -11,7 +11,7 @@ const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
 const subtract=(a:Vec3,b:Vec3):Vec3=>a.map((v,i)=>v-b[i]) as Vec3;
 
 test("every migrated course preserves feet, both legs and finite equipment movement throughout its own task",()=>{
-  assert.equal(refs.length,28,"review added/removed references explicitly");
+  assert.equal(refs.length,44,"review added/removed references explicitly");
   for(const config of refs) for(const stance of ["regular","goofy"] as const) {
     let before:ReturnType<typeof sampleLesson>|undefined;
     for(let i=0;i<=200;i++) {
@@ -28,7 +28,8 @@ test("every migrated course preserves feet, both legs and finite equipment movem
       }
       assert.ok(Math.abs(distance(j.pelvis,j.chest)-BODY.trunk)<1e-9);
       if(before) {
-        for(const key of Object.keys(j) as (keyof typeof j)[]) assert.ok(distance(j[key],before.state.joints[key])<.08,`continuous ${config.type} ${key}`);
+        const shift=subtract(s.board.position,before.state.board.position);
+        for(const key of Object.keys(j) as (keyof typeof j)[]) assert.ok(distance(subtract(j[key],shift),before.state.joints[key])<.08,`continuous pose ${config.type} ${key}`);
         assert.ok(distance(s.gaze,before.state.gaze)<.08,"stopping must not snap the head to a new direction");
       }
       before=frame;

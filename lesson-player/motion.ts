@@ -1,5 +1,6 @@
 import { applyStance, buildPose, type MotionState, type PoseOptions, type Route, type Stance, type Vec3 } from "../prototype/motion";
 import registry from "./registry.json";
+import { isTurningLesson, sampleTurningLesson } from "./turns";
 
 export const LESSON_TYPES: readonly string[] = registry.types;
 export interface LessonConfig {
@@ -15,6 +16,9 @@ export interface LessonConfig {
   duration?: number;
   autoplay?: boolean;
   jointLabels?: boolean;
+  turnShape?: "open" | "closed";
+  skid?: boolean;
+  trackDiagnostics?: boolean;
 }
 export interface Stage { at: number; title: string; detail: string }
 export interface LessonFrame {
@@ -38,6 +42,7 @@ const range = (t: number) => {
   return lerp([0,1,0,-1][i], [1,0,-1,0][i], smooth(t*4-i));
 };
 export function lessonTask(c: LessonConfig): string {
+  if(isTurningLesson(c)) return c.task ?? ({steering:"linked-steering", "rail-track":"linked-rails", garland:"same-edge-garland", "j-turn":"j-turn-stop", "gaze-control":"traverse-observation"}[c.type]!);
   return c.task ?? (c.type === "center-low" || c.type === "fore-aft" && !["rear-heel","front-return-toe"].includes(c.variant ?? "") ? "stationary" : c.type === "center-high" || c.type === "fore-aft" ? "single-arc" : c.path === "j-turn" ? "single-turn-stop" : "edge-release-study");
 }
 function side(c: LessonConfig): 1|-1 {
@@ -88,6 +93,7 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
 
 export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "regular"): LessonFrame {
   if(!LESSON_TYPES.includes(c.type)) throw new Error(`尚未实现的三维动作：${c.type}`);
+  if(isTurningLesson(c)) return sampleTurningLesson(time,c,stance);
   const t=clamp(Number.isFinite(time)?time:0), task=lessonTask(c), s=side(c);
   const moving=!["stationary","static-edge"].includes(task);
   const stages=stagesFor(c,task);
