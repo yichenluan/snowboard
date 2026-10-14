@@ -8,12 +8,13 @@ const content=JSON.parse(readFileSync(new URL("../content.json",import.meta.url)
 const refs:LessonConfig[]=content.lessons.flatMap((l:{demos?:LessonConfig[];demo?:LessonConfig})=>l.demos?.length?l.demos:l.demo?[l.demo]:[]).filter((c:LessonConfig)=>/^(pressure-|edge-change-)/.test(c.type));
 const distance=(a:Vec3,b:Vec3)=>Math.hypot(...a.map((v,i)=>v-b[i]));
 
-test("partial pressure migration admits only reviewed variants and rejects remaining tasks",()=>{
+test("pressure migration covers all fifteen references but rejects unknown variants",()=>{
   assert.equal(refs.length,15);
-  assert.equal(refs.filter(canRenderLesson).length,9);
-  const deferred=refs.filter(c=>!canRenderLesson(c));
-  assert.equal(deferred.length,6);
-  for(const c of deferred)assert.throws(()=>sampleLesson(.5,c),/尚未实现/);
+  assert.equal(refs.filter(canRenderLesson).length,15);
+  for(const type of ["pressure-flex","pressure-extend","edge-change-down"]) {
+    assert.equal(canRenderLesson({type}),false);
+    assert.throws(()=>sampleLesson(.5,{type,variant:"unknown"}),/尚未实现/);
+  }
 });
 
 test("flat-ground phase studies retain a stationary support and keep estimated COM within it",()=>{

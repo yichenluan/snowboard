@@ -1,11 +1,31 @@
 import { useMemo } from "react";
 import { type Stance, type Vec3 } from "../prototype/motion";
 import { sampleLesson, type LessonConfig } from "./motion";
+import { meanLegLength } from "./pressure-advanced";
 
 /** Both diagrams read world-space output. Neither creates a pressure signal. */
 export function LessonDiagnostics({config,stance,time}:{config:LessonConfig;stance:Stance;time:number}) {
   const samples=useMemo(()=>Array.from({length:161},(_,i)=>sampleLesson(i/160,config,stance).state),[config,stance]);
+  const timingCurves=useMemo(()=>config.variant==="timing-study"?(["early","baseline","late"] as const).map((timing,index)=>({timing,label:["提前","基准","稍后"][index],color:["#b47740","#285e58","#477c95"][index],values:Array.from({length:161},(_,i)=>meanLegLength(sampleLesson(i/160,{type:"pressure-extend",variant:"timing-study",fromEdge:config.fromEdge,timing},stance).state))})):null,[config.variant,config.fromEdge,stance]);
   const current=sampleLesson(time,config,stance).state;
+  if(config.legLengthDiagram) {
+    const values=samples.map(meanLegLength),all=timingCurves?.flatMap(c=>c.values)??values;
+    const lo=Math.min(...all)-.005,hi=Math.max(...all)+.005;
+    const p=(i:number,v:number)=>[38+i/160*284,170-(v-lo)/(hi-lo)*115];
+    const curves=timingCurves??[{timing:"baseline",label:"同源腿长",color:"#285e58",values}];
+    const selected=config.timing??"baseline",now=p(time*160,meanLegLength(current));
+    return <div className="sl3-diagnostic"><svg viewBox="0 0 360 220" role="img" aria-label="双腿髋踝平均距离随时间变化，不是压力曲线">
+      <text x="12" y="18">两腿髋—踝平均距离（m）</text>
+      {curves.map((c,i)=><text key={c.timing} x={40+i*100} y="38" style={{fill:c.color}}>{c.label}{timingCurves&&c.timing===selected?" · 当前":""}</text>)}
+      <path d="M38 50V170H328" fill="none" stroke="#bacdc2"/>
+      {[lo,(lo+hi)/2,hi].map(v=><g key={v}><path d={`M38 ${p(0,v)[1]}H328`} stroke="#dce5dc"/><text x="2" y={p(0,v)[1]+4}>{v.toFixed(3)}</text></g>)}
+      {timingCurves&&<path d="M180 50V170" stroke="#b4b9b0" strokeDasharray="3 3"/>}
+      {curves.map(c=><polyline key={c.timing} points={c.values.map((v,i)=>p(i,v).join(",")).join(" ")} fill="none" stroke={c.color} strokeWidth={c.timing===selected?2.5:1.2} strokeDasharray={c.timing===selected?undefined:"3 3"}/>)}
+      <circle cx={now[0]} cy={now[1]} r="4" fill="#8b5038"/>
+      <text x="38" y="189">0%</text><text x="162" y="189">50%</text><text x="300" y="189">100%</text>
+      <text x="12" y="211">{timingCurves?"竖虚线：同一平板时刻；纵轴放大看差异":"纵轴放大显示同一人体的几何距离变化"}</text>
+    </svg><p className="sl3-hint">髋到踝的直线距离表示双腿伸缩程度，骨段本身没有变长；它不是质心高度、肌肉力或压力。</p></div>;
+  }
   if(config.pressureDiagram) {
     const heights=samples.map(s=>s.com[1]),lo=Math.min(...heights)-.01,hi=Math.max(...heights)+.01;
     const p=(i:number,y:number)=>[32+i/160*290,178-(y-lo)/(hi-lo)*130];

@@ -2,5 +2,5 @@
   "version": 1,
   "drylandTypes": ["dry-squat", "dry-calf-raise", "dry-wall-edge", "dry-shoulder-rolls"],
   "types": ["center-low", "center-high", "fore-aft", "toe-edge", "heel-edge", "inclination", "steering", "garland", "j-turn", "gaze-control", "rail-track", "edge-change-up"],
-  "partialVariants": {"pressure-flex":["phase-study"],"pressure-extend":["phase-study"]}
+  "partialVariants": {"pressure-flex":["phase-study","toe"],"pressure-extend":["phase-study","heel","timing-study"],"edge-change-down":["lower-com","retraction-study"]}
 }

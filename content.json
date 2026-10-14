@@ -11,7 +11,7 @@
     "method": "先说清动作与雪板怎样配合，再给出具体练习、观察方法和下一步。技术依据以CASI、AASI、SBINZ教练教材为主，装备和非雪训练另列一手资料。",
     "coverage": "围绕刻滑和搓雪小回转两条重点路线组织；站姿、立刃、压力、转向等是共同基础，反脚、体能和装备可并行发展。保留原条目ID，已有个人笔记仍能对应。",
     "limitations": "运动感受是教学提示，不等于测量。原创动画是定性运动学示意，没有真实测力、精确个人角度或诊断。专项主题先说明任务与前提，具体个人动作调整需结合现场观察。视频时间只作为来源定位，章节首次课件采样约有±10秒误差。",
-    "contentRevision": 7
+    "contentRevision": 8
   },
   "modules": [
     {
@@ -3176,25 +3176,13 @@
       ],
       "demo": {
         "type": "pressure-extend",
-        "focus": "可控后刃中改变腿长，不锁膝",
-        "steps": [
-          {
-            "label": "稳定",
-            "detail": "适量倾斜与成角。"
-          },
-          {
-            "label": "伸展",
-            "detail": "腿略变长，观察相对压力。"
-          },
-          {
-            "label": "柔和收腿",
-            "detail": "屈腿重新协调重心，仍可释放。"
-          }
-        ],
+        "focus": "同一后刃弧线中小幅伸腿、柔和收回并渐停；观察实际腿长与板角，不显示真实压力。",
         "variant": "heel",
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃弯里渐进伸腿与收腿 · 动作示意"
+        "title": "后刃弯里渐进伸腿与收腿 · 动作示意",
+        "task": "same-edge-extension",
+        "legLengthDiagram": true
       },
       "drill": {
         "terrain": "熟悉宽缓雪道，保持原舒适速度。",
@@ -3562,25 +3550,13 @@
       ],
       "demo": {
         "type": "pressure-flex",
-        "focus": "前刃上柔和收腿、收住下沉，保持计划弧线；幅度为示意",
-        "steps": [
-          {
-            "label": "建立刃",
-            "detail": "以踝膝协调建立合适前刃角。"
-          },
-          {
-            "label": "渐进屈曲",
-            "detail": "腿变短以调节压力，启动阶段可减压。"
-          },
-          {
-            "label": "柔和收住",
-            "detail": "平顺控制屈曲末端，仍保留关节活动。"
-          }
-        ],
+        "focus": "同一前刃弧线中柔和屈腿、收住下降并渐停；保留余量，不用猛跪或蹲到底。",
         "variant": "toe",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃吸收压力：柔和屈腿，不猛跪 · 动作示意"
+        "title": "前刃吸收压力：柔和屈腿，不猛跪 · 动作示意",
+        "task": "same-edge-absorption",
+        "legLengthDiagram": true
       },
       "drill": {
         "terrain": "前刃圆弯稳定、雪面平整的熟悉宽缓坡。",
@@ -4573,69 +4549,27 @@
           "type": "edge-change-down",
           "variant": "lower-com",
           "title": "屈曲减重：重心向雪板降低",
-          "focus": "固定雪面参照，观察受控下降、腿长缩短与旧刃释放；实际动作可与回收混合",
-          "steps": [
-            {
-              "label": "旧弯支撑",
-              "detail": "在可控制的弧线中保留屈曲余量。",
-              "at": 0
-            },
-            {
-              "label": "受控降低",
-              "detail": "踝膝髋共同屈曲，重心向板靠近，同时减旧刃角。",
-              "at": 0.18
-            },
-            {
-              "label": "低位过渡",
-              "detail": "雪板经过接近平板的过渡位置，下降平顺受控，未用尽活动范围。",
-              "at": 0.46
-            },
-            {
-              "label": "建立新刃",
-              "detail": "逐渐伸腿并建立新刃，继续完成计划弧线。",
-              "at": 0.65
-            }
-          ],
+          "focus": "固定雪面中观察身体降低与腿长缩短；本例的路线和幅度用于机制拆解。",
           "transitionReference": "snow",
           "autoplay": false,
           "duration": 10000,
           "view": "width",
           "path": "transition",
-          "jointLabels": true
+          "jointLabels": true,
+          "task": "lower-transition"
         },
         {
           "type": "edge-change-down",
           "variant": "retraction-study",
           "title": "回收过渡：雪板回到身体下方",
-          "focus": "固定雪面参照，比较板的横向路径与较稳定的躯干高度；示意不是数值力学仿真",
-          "steps": [
-            {
-              "label": "旧弯支撑",
-              "detail": "板在身体外侧沿弧线运行，腿长保留回收余量。",
-              "at": 0
-            },
-            {
-              "label": "协调回收",
-              "detail": "两腿变短，板沿既定路径回到身体下方，旧刃角减小。",
-              "at": 0.18
-            },
-            {
-              "label": "经过下方",
-              "detail": "板从接近平板的过渡位置换到另一侧，躯干路线相对平顺。",
-              "at": 0.46
-            },
-            {
-              "label": "新弯伸展",
-              "detail": "渐进伸腿并建立新刃，板继续贴雪。",
-              "at": 0.65
-            }
-          ],
+          "focus": "固定雪面中观察板通过身下、腿长收短后恢复；不锁死胸廓，允许身体自然起伏。",
           "transitionReference": "snow",
           "autoplay": false,
           "duration": 10000,
           "view": "width",
           "path": "transition",
-          "jointLabels": true
+          "jointLabels": true,
+          "task": "retraction-transition"
         }
       ],
       "animationGuide": "把两种屈曲过渡机制分开观察：降低重心示意身体向板下降；回收示意在躯干路径较稳定时雪板从身下通过。均保留脚板固定与贴雪，低幅示意，真实动作可混合。"
@@ -4779,36 +4713,15 @@
         {
           "type": "edge-change-down",
           "title": "回收式过渡：板从身下通过",
-          "focus": "固定雪面参考：下肢回收，板横向通过，躯干横向路径更平顺",
+          "focus": "固定雪面中观察板通过身下、腿长收短后恢复；不锁死胸廓，允许身体自然起伏。",
           "view": "width",
           "path": "transition",
           "transitionReference": "snow",
           "jointLabels": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "旧弯支撑",
-              "detail": "工作刃仍有支撑，身体保持可调整。"
-            },
-            {
-              "at": 0.18,
-              "label": "释放旧刃",
-              "detail": "逐渐减小旧刃角，用屈伸调节腿长，不猛甩躯干。"
-            },
-            {
-              "at": 0.44,
-              "label": "经过换刃位置",
-              "detail": "板短暂接近平，身体和支撑区域重新协调；不是刻意长期平板直滑。"
-            },
-            {
-              "at": 0.65,
-              "label": "渐进建立新刃",
-              "detail": "进入新弯后继续管理接触与弯形，双脚始终在固定器内。"
-            }
-          ],
           "variant": "retraction-study",
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "retraction-transition"
         },
         {
           "type": "edge-change-up",
@@ -12642,28 +12555,15 @@
       ],
       "demo": {
         "type": "pressure-extend",
-        "focus": "小幅、平顺地伸展，保留关节余量",
-        "steps": [
-          {
-            "label": "舒适屈曲",
-            "detail": "预留伸展范围。"
-          },
-          {
-            "label": "渐进伸展",
-            "detail": "不猛弹膝或踢板。"
-          },
-          {
-            "label": "控制末端",
-            "detail": "保留继续屈曲余量，不锁膝。"
-          },
-          {
-            "label": "受控屈回",
-            "detail": "恢复自然姿态，确认仍能释放。"
-          }
-        ],
+        "focus": "提前、基准、稍后三档保持相同板路线、刃角及腿长变化幅度与时长，只移动启动时刻。",
         "autoplay": false,
         "duration": 10000,
-        "title": "动作时机：什么时候开始，什么时候停 · 动作示意"
+        "title": "固定路线，只改变屈伸启动时刻",
+        "variant": "timing-study",
+        "view": "width",
+        "jointLabels": true,
+        "task": "timing-study",
+        "legLengthDiagram": true
       }
     },
     {

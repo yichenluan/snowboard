@@ -2,6 +2,7 @@ import { applyStance, buildPose, type MotionState, type PoseOptions, type Route,
 import registry from "./registry.json";
 import { isTurningLesson, sampleTurningLesson } from "./turns";
 import { supportsPressureLesson, pressureLessonTask, samplePressureLesson } from "./pressure";
+import { supportsAdvancedPressureLesson, advancedPressureTask, sampleAdvancedPressureLesson } from "./pressure-advanced";
 
 const partialVariants:Record<string,string[]>=registry.partialVariants;
 export const LESSON_TYPES: readonly string[] = [...registry.types,...Object.keys(partialVariants)];
@@ -23,7 +24,9 @@ export interface LessonConfig {
   skid?: boolean;
   trackDiagnostics?: boolean;
   fromEdge?: "toe" | "heel";
+  timing?: "early" | "baseline" | "late";
   pressureDiagram?: boolean;
+  legLengthDiagram?: boolean;
   transitionReference?: string;
 }
 export interface Stage { at: number; title: string; detail: string }
@@ -48,6 +51,7 @@ const range = (t: number) => {
   return lerp([0,1,0,-1][i], [1,0,-1,0][i], smooth(t*4-i));
 };
 export function lessonTask(c: LessonConfig): string {
+  if(supportsAdvancedPressureLesson(c))return advancedPressureTask(c)!;
   if(supportsPressureLesson(c))return pressureLessonTask(c);
   if(isTurningLesson(c)) return c.task ?? ({steering:"linked-steering", "rail-track":"linked-rails", garland:"same-edge-garland", "j-turn":"j-turn-stop", "gaze-control":"traverse-observation"}[c.type]!);
   return c.task ?? (c.type === "center-low" || c.type === "fore-aft" && !["rear-heel","front-return-toe"].includes(c.variant ?? "") ? "stationary" : c.type === "center-high" || c.type === "fore-aft" ? "single-arc" : c.path === "j-turn" ? "single-turn-stop" : "edge-release-study");
@@ -100,6 +104,7 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
 
 export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "regular"): LessonFrame {
   if(!canRenderLesson(c)) throw new Error(`尚未实现的三维动作：${c.type}/${c.variant??"default"}`);
+  if(supportsAdvancedPressureLesson(c))return sampleAdvancedPressureLesson(time,c,stance);
   if(supportsPressureLesson(c))return samplePressureLesson(time,c,stance);
   if(isTurningLesson(c)) return sampleTurningLesson(time,c,stance);
   const t=clamp(Number.isFinite(time)?time:0), task=lessonTask(c), s=side(c);

@@ -19,9 +19,9 @@
 | 展示配置组合 | 89 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 18 / 65 | 按注册表已切换默认渲染；不代表教学认证 |
-| 全量 / 部分接入类型 | 16 / 2 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
-| 剩余旧动画引用 | 69 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 19 / 71 | 按注册表已切换默认渲染；不代表教学认证 |
+| 全量 / 部分接入类型 | 16 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
+| 剩余旧动画引用 | 63 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -107,11 +107,11 @@
 | `toe-edge` | 前刃：用关节逐渐立刃 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `heel-edge` | 后刃：髋膝踝协调，不折腰坐尾 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `absorption` | 屈曲吸收：腿变短，身体更平顺 | 雪上关键帧 + 双腿 IK | 0 / 0 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `pressure-extend` | 伸展调压：有节奏地改变腿长 | 雪上关键帧 + 双腿 IK | 4 / 3 | D4：仅phase-study已接入；其他任务仍待独立迁移 |
-| `pressure-flex` | 屈曲的两个阶段：开始下蹲与停住下落 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：仅phase-study已接入；其他任务仍待独立迁移 |
+| `pressure-extend` | 伸展调压：有节奏地改变腿长 | 雪上关键帧 + 双腿 IK | 4 / 3 | D4：仅phase-study、heel、timing-study已接入；其他任务仍待独立迁移 |
+| `pressure-flex` | 屈曲的两个阶段：开始下蹲与停住下落 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：仅phase-study、toe已接入；其他任务仍待独立迁移 |
 | `inclination` | 内倾与关节折角的组合 | 雪上关键帧 + 双腿 IK | 4 / 4 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-up` | 伸展式换刃：旧刃 → 回到居中位置 → 新刃 | 雪上关键帧 + 双腿 IK | 5 / 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `edge-change-down` | 回收式换刃：屈腿让板从身下通过 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `edge-change-down` | 回收式换刃：屈腿让板从身下通过 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：仅lower-com、retraction-study已接入；其他任务仍待独立迁移 |
 | `steering` | 脚、膝、髋渐进引导雪板转向 | 雪上关键帧 + 双腿 IK | 7 / 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination` | 视线、肩髋与下肢协调 | 雪上关键帧 + 双腿 IK | 7 / 5 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `garland` | 花环练习：同一刃、重复释放与建刃 | 雪上关键帧 + 双腿 IK | 2 / 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
@@ -157,18 +157,18 @@
 | `steering` | v-lower-body-priority/1、v14-steering/3、v20-carve/1、v20-traffic/1、v20-traffic/2、s-short-adapt/5、s-short-adapt/6 | 4 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `center-high:heel` | v-low-high-principle/2、v-heel-height-progression/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `inclination:heel` | v-heel-low-inclination/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `pressure-extend:heel` | v-heel-incline-extension/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `pressure-extend:heel` | v-heel-incline-extension/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `inclination:toe` | v-toe-reach-snow/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-flex:phase-study` | v-pressure-overview/1、v11-flex/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-extend:phase-study` | v-pressure-overview/2、v11-extend/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `pressure-flex:toe` | v-toe-kneel-pressure/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `pressure-flex:toe` | v-toe-kneel-pressure/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft:rear-heel` | v-heel-open-rear-foot/1、v-heel-open-loading/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft:front-return-toe` | v-toe-front-participation/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `hip-edge-change:open` | v11-lateral/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `short-turns:round` | v12-rhythm-why/1、s-short-rhythm/1、s-short-diagnosis/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
 | `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 4 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `edge-change-down:retraction-study` | v13-down-drill/2、v-transition-map/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `edge-change-down:retraction-study` | v13-down-drill/2、v-transition-map/2 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `garland:toe` | v14-steering/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `garland:heel` | v14-steering/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `twist` | v14-twist/1、s14-twist-drill/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
@@ -214,7 +214,7 @@
 | `dry-squat:hold` | v22-hold/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `pressure-extend` | v21-linear/1 | 1 | D4：仅phase-study已接入；其他任务仍待独立迁移 |
+| `pressure-extend:timing-study` | v21-linear/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 
 ## 逐课用途、资料与替换入口
 
@@ -322,7 +322,7 @@
 | [v24-skid-track](https://yichenluan.github.io/snowboard-guide/#lesson=v24-skid-track) | 想刻滑却扫尾：先找轨迹从哪里变宽：用一个容易的单弧验证原因，再连接两侧。 | 1. `rail-track` | [S16](#source-s16)、[S10](#source-s10)、[S26](#source-s26) |
 | [v-heel-two-run-claim](https://yichenluan.github.io/snowboard-guide/#lesson=v-heel-two-run-claim) | 什么时候升级：能重复、能结束、自然滑也能用：给一个目标写清通过标准，用结果决定是否升级。 | 正文保留，无动作图 | [S16](#source-s16)、[S26](#source-s26) |
 | [v21-method](https://yichenluan.github.io/snowboard-guide/#lesson=v21-method) | 怎么安排练习：先滑一遍，拆一项，再自然滑：把一个滑行问题写成能执行、能比较的短组练习。 | 1. `rail-track` | [T01](#source-t01)、[S26](#source-s26) |
-| [v21-linear](https://yichenluan.github.io/snowboard-guide/#lesson=v21-linear) | 动作时机：什么时候开始，什么时候停：能调整一段屈伸的时机与速度，同时保持圆弯。 | 1. `pressure-extend` | [S16](#source-s16)、[T01](#source-t01)、[S26](#source-s26) |
+| [v21-linear](https://yichenluan.github.io/snowboard-guide/#lesson=v21-linear) | 动作时机：什么时候开始，什么时候停：能调整一段屈伸的时机与速度，同时保持圆弯。 | 1. `pressure-extend:timing-study` | [S16](#source-s16)、[T01](#source-t01)、[S26](#source-s26) |
 | [v3-index](https://yichenluan.github.io/snowboard-guide/#lesson=v3-index) | 进阶怎么选课：两条主线与并行能力：根据当前问题和前置能力，选一项值得练的内容。 | 正文保留，无动作图 | [S16](#source-s16)、[T01](#source-t01)、[T02](#source-t02)、[T03](#source-t03)、[S26](#source-s26) |
 
 ## 现有资料索引
@@ -458,8 +458,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | d7e4e0c750d4c354e80a08fde223676545b1256b5cb2408cab640dda271662dd |
+| content.json | 06aa4bb4a5109758b314538e30ffd642436bb2031c042faf3ab9a1a6e90b0348 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
-| lesson-player/registry.json | 9ea44f2d6fb1abc9efe693bd8d241c830d094edef0efa573446600ac625160c6 |
+| lesson-player/registry.json | 84f003f66e3f84b383308d2fd2fb671067a20b326a518f935443e4dbfb910659 |
 
