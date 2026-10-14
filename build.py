@@ -6,9 +6,10 @@ root = Path(__file__).resolve().parent
 data = json.loads((root / "content.json").read_text())
 html = (root / "shell.html").read_text()
 replacements = {
-    "/* GUIDE_STYLE */": (root / "styles.css").read_text(),
+    "/* GUIDE_STYLE */": (root / "styles.css").read_text() + "\n" + (root / "progression.css").read_text(),
     "/* GUIDE_DATA */": json.dumps(data, ensure_ascii=False).replace("<", "\\u003c"),
     "/* GUIDE_ANIMATIONS */": (root / "animations.js").read_text(),
+    "/* GUIDE_PROGRESSION */": (root / "progression.js").read_text(),
     "/* GUIDE_APP */": (root / "app.js").read_text(),
 }
 for marker, content in replacements.items():

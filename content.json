@@ -11659,5 +11659,583 @@
         "discussion"
       ]
     }
+  },
+  "progressionMap": {
+    "version": 1,
+    "intro": "先按通过标准确认已有能力，再选择进阶方向。实线连前置任务，虚线连辅助技术；点击节点，看这次的练习与下一步。",
+    "stages": [
+      {
+        "id": "entry",
+        "title": "入口自查"
+      },
+      {
+        "id": "link",
+        "title": "稳定连弯"
+      },
+      {
+        "id": "refine",
+        "title": "共同控制"
+      },
+      {
+        "id": "prepare",
+        "title": "专项起点"
+      },
+      {
+        "id": "progress",
+        "title": "连续应用"
+      },
+      {
+        "id": "apply",
+        "title": "变化与适应"
+      }
+    ],
+    "targets": [
+      {
+        "id": "carving",
+        "title": "刻滑与弯形",
+        "nodeIds": [
+          "dual-edge-control",
+          "linked-skidded-turns",
+          "turn-shape-control",
+          "smooth-edge-change",
+          "isolated-carved-arcs",
+          "open-linked-carves",
+          "adjustable-carved-turns"
+        ]
+      },
+      {
+        "id": "short",
+        "title": "短弯与回收",
+        "nodeIds": [
+          "dual-edge-control",
+          "linked-skidded-turns",
+          "turn-shape-control",
+          "smooth-edge-change",
+          "flexion-release",
+          "short-linked-turns",
+          "retraction-short-turns"
+        ]
+      },
+      {
+        "id": "switch",
+        "title": "反脚控制",
+        "nodeIds": [
+          "dual-edge-control",
+          "linked-skidded-turns",
+          "switch-basic-control",
+          "switch-linked-turns"
+        ]
+      }
+    ],
+    "nodes": [
+      {
+        "id": "dual-edge-control",
+        "title": "双刃控速与主动停止",
+        "stage": "entry",
+        "role": "ability",
+        "requires": [],
+        "supports": [],
+        "gate": [
+          "趾刃与跟刃都能在熟悉缓坡渐进减速并停住。",
+          "能主动结束练习，不以绊刃摔倒或扶人作为停止方式。",
+          "开始前能选择可见停止区并观察上下方。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v-base-stance",
+          "v-toe-tongue",
+          "v-heel-pull",
+          "v23-highback"
+        ],
+        "focus": "本站进阶练习的入口；不足时先回基础课程补双刃侧滑与停止。",
+        "practice": "双刃各做短距离侧滑，渐进增减刃角，在预定区结束。"
+      },
+      {
+        "id": "linked-skidded-turns",
+        "title": "连续搓雪弯",
+        "stage": "link",
+        "role": "ability",
+        "requires": [
+          "dual-edge-control"
+        ],
+        "supports": [
+          "fore-aft-balance",
+          "edging-balance"
+        ],
+        "gate": [
+          "能在熟悉缓坡连续完成两侧弯。",
+          "每弯都能向横坡发展并保持可停的速度。",
+          "换侧无需抡肩或踢后脚才能救回。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v-progression",
+          "v-transition-map",
+          "v14-steering"
+        ],
+        "focus": "连弯先保证两侧都可结束，之后再精修动作。",
+        "practice": "宽缓坡做短组圆弧连弯；不足时回双刃单弯。"
+      },
+      {
+        "id": "turn-shape-control",
+        "title": "弯形与走廊可选",
+        "stage": "refine",
+        "role": "ability",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [
+          "lower-body-steering",
+          "fore-aft-balance"
+        ],
+        "gate": [
+          "同一缓坡能主动做较开放和较闭合的圆弯。",
+          "改变弯大小后仍在计划走廊内，速度可控。",
+          "能提前为其他滑行者调整路线和停止位置。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v20-traffic",
+          "v20-carve"
+        ],
+        "focus": "优先用弯完成程度和路线控速，增加刃角不等同于更有效减速。",
+        "practice": "保持坡度与舒适速度，先只改出口朝向，再只改弯宽。"
+      },
+      {
+        "id": "smooth-edge-change",
+        "title": "旧刃释放与平顺过渡",
+        "stage": "refine",
+        "role": "ability",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [
+          "edging-balance",
+          "leg-length-control",
+          "fore-aft-balance"
+        ],
+        "gate": [
+          "能连续减旧刃、经过可调整关系、渐进建立新刃。",
+          "两侧过渡都无卡刃、猛弹或突然扫尾。",
+          "平顺换侧后仍能按计划完成下一弯。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v-transition-map",
+          "v15-incline-change",
+          "v16-hip-change"
+        ],
+        "focus": "标准是支持连续和下一弯可选，过渡高度按任务变化。",
+        "practice": "保留原圆弯路线，缩小动作，拍短组录像找释放断点。"
+      },
+      {
+        "id": "fore-aft-balance",
+        "title": "居中与前后平衡",
+        "stage": "refine",
+        "role": "support",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [],
+        "gate": [
+          "两脚都保留支持，不长期挂在后腿。",
+          "可小幅改变沿板长负载并回到可活动基线。",
+          "自然连弯时没有因前后失衡反复救动作。"
+        ],
+        "lessons": [
+          "v-base-stance",
+          "v-fore-aft-movement",
+          "v-fore-aft-drill",
+          "v-fore-aft-roles"
+        ],
+        "focus": "按板头板尾响应调节，前中后不是每弯必须夸张重复的动作。",
+        "practice": "短横切做小幅前—中—后感知，再撤口令回圆弯。"
+      },
+      {
+        "id": "edging-balance",
+        "title": "工作刃平衡与渐进调角",
+        "stage": "refine",
+        "role": "support",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [],
+        "gate": [
+          "两侧都能渐进增减刃角。",
+          "调刃时保留踝膝髋活动，不依靠触雪支撑。",
+          "能主动减角退出，不在弯尾卡死。"
+        ],
+        "lessons": [
+          "v-active-passive-edge",
+          "v-toe-counterbalance",
+          "v-heel-counterbalance",
+          "v-low-high-principle"
+        ],
+        "focus": "整体倾斜与关节成角按任务组合，姿态深度不作升级标准。",
+        "practice": "两侧低强度单弧对照，用板痕和可释放程度确认抓地。"
+      },
+      {
+        "id": "lower-body-steering",
+        "title": "下肢引导与扭转感知",
+        "stage": "refine",
+        "role": "support",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [],
+        "gate": [
+          "可用下肢小幅渐进改变板轴，不突然甩板尾。",
+          "能分辨改变板朝向与改变前后段刃角。",
+          "缩小动作后仍能完成原圆弯路线。"
+        ],
+        "lessons": [
+          "v14-steering",
+          "v14-twist",
+          "s14-twist-drill"
+        ],
+        "focus": "枢转和扭转是可选工具，不要求所有刻滑都明显扭板。",
+        "practice": "缓坡短组圆弯；扭转另用低速踏动感知，再回自然滑行。"
+      },
+      {
+        "id": "leg-length-control",
+        "title": "腿长变化与负荷时机",
+        "stage": "refine",
+        "role": "support",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [],
+        "gate": [
+          "滑行中可小幅协调屈伸，不锁膝也不蹲到底。",
+          "腿长改变时路线与速度仍可控。",
+          "能分辨释放和承接，身体低不直接当作压力大。"
+        ],
+        "lessons": [
+          "v-pressure-overview",
+          "v11-flex",
+          "v11-extend",
+          "v12-up-drill",
+          "v13-down-drill"
+        ],
+        "focus": "伸展与屈曲是策略选择，无需先通过伸展式才练屈曲式。",
+        "practice": "同一圆弯路线分别体验小幅伸展和屈曲过渡，比较支持连续性。"
+      },
+      {
+        "id": "upper-lower-separation",
+        "title": "上下身分离与观察",
+        "stage": "refine",
+        "role": "support",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [
+          "lower-body-steering"
+        ],
+        "gate": [
+          "目光短暂转向时路线不被无意带偏。",
+          "下肢能引导雪板，上身平顺而不僵锁。",
+          "两侧都能回到自然参考关系。"
+        ],
+        "lessons": [
+          "v19-stable-upper",
+          "v15-gaze-drill",
+          "v-shoulder-rhythm-map"
+        ],
+        "focus": "协调能力与进阶工具，不是冻结肩膀的姿势要求。",
+        "practice": "低速圆弯中做短暂观察或手臂参照，再撤去参照复测。"
+      },
+      {
+        "id": "isolated-carved-arcs",
+        "title": "两侧单弧窄痕",
+        "stage": "prepare",
+        "role": "ability",
+        "requires": [
+          "turn-shape-control",
+          "smooth-edge-change"
+        ],
+        "supports": [
+          "edging-balance",
+          "fore-aft-balance"
+        ],
+        "gate": [
+          "趾刃与跟刃分别能留下一条连续窄弧。",
+          "板尾跟随板头，弧中不靠扫尾改方向。",
+          "能主动减角并用已掌握的滑移方式结束。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v-toe-low-drill",
+          "v-heel-brief-hold",
+          "v20-carve"
+        ],
+        "focus": "先找两侧纯刃支持，再连接；这是建议教学路径。",
+        "practice": "宽阔非常缓坡做双侧独立 J 弧，完成后查痕并停住。"
+      },
+      {
+        "id": "open-linked-carves",
+        "title": "浅弧连续刻滑",
+        "stage": "progress",
+        "role": "ability",
+        "requires": [
+          "isolated-carved-arcs"
+        ],
+        "supports": [
+          "smooth-edge-change",
+          "edging-balance"
+        ],
+        "gate": [
+          "短组两侧都留下连续窄刃痕。",
+          "过渡没有明显扇形扫尾。",
+          "开放浅弧仍能在既定终点受控结束。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "s20-rails",
+          "v20-carve"
+        ],
+        "focus": "开放浅弧会积累速度，窄痕与结束能力同时达标。",
+        "practice": "非常缓坡限定短组和结束区，小刃角连浅弧，结束查痕。"
+      },
+      {
+        "id": "adjustable-carved-turns",
+        "title": "刻滑弯形与滑移可选",
+        "stage": "apply",
+        "role": "ability",
+        "requires": [
+          "open-linked-carves",
+          "turn-shape-control"
+        ],
+        "supports": [
+          "leg-length-control",
+          "upper-lower-separation",
+          "fore-aft-balance"
+        ],
+        "gate": [
+          "浅弧逐步增加弯完成程度后仍维持两侧窄痕。",
+          "需要时可主动改为滑移并恢复受控路线。",
+          "只小幅改变一个条件后仍能释放和结束。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v20-path",
+          "v-toe-touch-criterion",
+          "v20-traffic"
+        ],
+        "focus": "进阶目标是路线、支持和退出可选；高刃角与更高速需另评条件。",
+        "practice": "熟悉缓坡先只改出口方向，再只改弯宽；失去窄痕回单弧查断点。"
+      },
+      {
+        "id": "flexion-release",
+        "title": "屈曲释放与回收过渡",
+        "stage": "prepare",
+        "role": "ability",
+        "requires": [
+          "turn-shape-control",
+          "smooth-edge-change"
+        ],
+        "supports": [
+          "leg-length-control"
+        ],
+        "gate": [
+          "腿长缩短与旧刃释放同步。",
+          "新刃支持建立后能渐进恢复腿长。",
+          "无跳板、猛蹲或横踢，圆弯仍能控速。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v13-down-drill",
+          "v17-knee-change"
+        ],
+        "focus": "先较慢较宽圆弯体验，回收不是把板抽离雪面。",
+        "practice": "保持原圆弯只改过渡腿长；录像对照身体降低与板回身下。"
+      },
+      {
+        "id": "short-linked-turns",
+        "title": "较小圆弯与紧凑走廊",
+        "stage": "progress",
+        "role": "ability",
+        "requires": [
+          "turn-shape-control",
+          "smooth-edge-change"
+        ],
+        "supports": [
+          "lower-body-steering",
+          "upper-lower-separation",
+          "leg-length-control"
+        ],
+        "gate": [
+          "弯宽减小后两侧仍是可完成的圆弯。",
+          "节奏加快不会让出口越来越直或速度持续增加。",
+          "可恢复原中弧并主动停止。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v20-traffic",
+          "v14-steering",
+          "v19-stable-upper"
+        ],
+        "focus": "不以纯刻滑或回收式换刃为强制前置，搓雪短弯同样有效。",
+        "practice": "熟悉坡度只逐步缩小弯宽，先检查弯形，再检查节奏。"
+      },
+      {
+        "id": "retraction-short-turns",
+        "title": "回收小回转",
+        "stage": "apply",
+        "role": "ability",
+        "requires": [
+          "short-linked-turns",
+          "flexion-release"
+        ],
+        "supports": [
+          "upper-lower-separation",
+          "leg-length-control",
+          "lower-body-steering"
+        ],
+        "gate": [
+          "较短弯中雪板能连续通过身体下方。",
+          "上身路线较平顺，腿保留伸展与回收余量。",
+          "短组不加速失控，可恢复熟悉弯形并停住。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v17-retract-drill",
+          "v13-down-drill"
+        ],
+        "focus": "把已验证的过渡策略迁移到较短弯，不靠更快节奏硬做。",
+        "practice": "先较慢小弧，再小幅增加节奏；同任务比较身体高度与板路径。"
+      },
+      {
+        "id": "switch-basic-control",
+        "title": "反脚双刃与单弯",
+        "stage": "prepare",
+        "role": "ability",
+        "requires": [
+          "linked-skidded-turns"
+        ],
+        "supports": [
+          "fore-aft-balance",
+          "lower-body-steering",
+          "edging-balance"
+        ],
+        "gate": [
+          "反脚方向两刃分别能短横切、减速和停止。",
+          "能以新的行进前脚引导双侧单弯。",
+          "可在初级缓坡内低速结束，不以转回常规脚逃离任务。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v19-switch",
+          "v14-steering"
+        ],
+        "focus": "反脚回更容易地形重建基线，与刻滑、短弯并行。",
+        "practice": "反脚双刃短横切与单弯，分别检查行进前脚和停止能力。"
+      },
+      {
+        "id": "switch-linked-turns",
+        "title": "反脚连续控速弯",
+        "stage": "progress",
+        "role": "ability",
+        "requires": [
+          "switch-basic-control"
+        ],
+        "supports": [
+          "lower-body-steering",
+          "fore-aft-balance"
+        ],
+        "gate": [
+          "反脚能低速连续完成两侧圆弯。",
+          "每弯出口与速度可控，并能主动停止。",
+          "不用转回常规脚才维持路线。",
+          "两侧结果可重复；撤去动作口令回自然滑行后，仍能完成并主动退出。"
+        ],
+        "lessons": [
+          "v19-switch",
+          "v20-traffic"
+        ],
+        "focus": "反脚连弯不要求先会常规刻滑，先建立相反方向同样可靠的控制。",
+        "practice": "初级缓坡做反脚短组圆弯，撤去口令复测；只改弯宽或节奏之一。"
+      }
+    ],
+    "sources": [
+      {
+        "title": "SBINZ Fundamentals Snowboard Levels",
+        "url": "https://www.nzsia.org/wp-content/uploads/2018/05/Detailed-instructor-info-Fundamentals-Snowboard-Levels.pdf",
+        "note": "pp.1–2：入门到连弯，之后分别发展弯形、反脚和刻滑。公开旧版能力表；本站 DAG 为教学设计归纳。"
+      },
+      {
+        "title": "CASI Level 1 Course Guide",
+        "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf",
+        "note": "印刷 pp.7–9：三项核心能力，以及同时列出的搓雪、反脚基础弯与开放刻滑任务。认证规格不直接作为普通用户阈值。"
+      },
+      {
+        "title": "AASI Snowboard Performance Guide",
+        "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf",
+        "note": "印刷 pp.4–5、14–15、24–25：按任务融合基本原则，搓雪与刻滑是不同板表现。"
+      },
+      {
+        "title": "CASI The Critical Link",
+        "url": "https://casi-acms.com/casi-blog/the-critical-link/",
+        "note": "换弯处重建可调整支持关系，受控进入新刃，可据此观察过渡质量。"
+      },
+      {
+        "title": "SBINZ Instructor Manual 2017",
+        "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf",
+        "note": "Chapter 6 / B06 区分屈曲减重与回收，旧版公开手册用作机制说明。"
+      },
+      {
+        "title": "CASI Carving Instructor",
+        "url": "https://casi-acms.com/courses/carving-instructor/",
+        "note": "专项刻滑强调已有经验、适配装备、练习与反馈；认证前提不转成普通学员技能锁。"
+      }
+    ],
+    "relationshipNote": "这些关系根据教学资料归纳，用于安排练习，不是统一认证阶梯。前置关注双侧控速、可重复与主动退出；辅助动作按具体问题选择，不计入结果能力进度，也不作为专项解锁条件。不同分支可并行；勾选后续节点不会替你确认前置。",
+    "moduleLinks": {
+      "overview": [
+        "linked-skidded-turns",
+        "turn-shape-control"
+      ],
+      "stance": [
+        "fore-aft-balance"
+      ],
+      "edging": [
+        "edging-balance"
+      ],
+      "inclination": [
+        "edging-balance"
+      ],
+      "pressure": [
+        "leg-length-control"
+      ],
+      "transition": [
+        "smooth-edge-change",
+        "lower-body-steering"
+      ],
+      "rotation": [
+        "upper-lower-separation",
+        "switch-basic-control"
+      ],
+      "carving": [
+        "isolated-carved-arcs",
+        "adjustable-carved-turns"
+      ],
+      "off-snow": [
+        "leg-length-control",
+        "fore-aft-balance"
+      ],
+      "equipment": [
+        "dual-edge-control",
+        "edging-balance"
+      ],
+      "diagnosis": [
+        "smooth-edge-change",
+        "turn-shape-control"
+      ],
+      "discussion": [
+        "turn-shape-control",
+        "adjustable-carved-turns",
+        "retraction-short-turns",
+        "switch-linked-turns"
+      ]
+    }
   }
 }

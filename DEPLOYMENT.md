@@ -31,7 +31,7 @@ gh auth setup-git --hostname github.com
 ```sh
 mkdir -p log
 python3 build.py > log/build.log 2>&1
-git add content.json app.js animations.js styles.css shell.html README.md DEPLOYMENT.md
+git add content.json app.js animations.js styles.css progression.js progression.css shell.html build.py README.md DEPLOYMENT.md
 git commit -m "improvement(guide): update teaching content"
 git push origin main
 ```
