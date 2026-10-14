@@ -15,8 +15,7 @@ import "./styles.css";
 const views: { id: View; label: string }[] = [
   { id: "follow", label: "整体" },
   { id: "side", label: "看前后重心" },
-  { id: "front", label: "看两刃与屈伸" },
-  { id: "free", label: "自由观察" },
+  { id: "front", label: "看髋与反弓" },
 ];
 const edgeName = {
   toe: "前刃 · 脚尖侧",
@@ -38,6 +37,7 @@ function App() {
   const [skeleton, setSkeleton] = useState(false),
     [motion, setMotion] = useState(true),
     [hold, setHold] = useState(0.55),
+    [touchRotate, setTouchRotate] = useState(false),
     [reset, setReset] = useState(0);
   const state = useMemo(
     () => sampleMotion(Math.min(time, 1 - 1e-6), mode, stance, hold),
@@ -164,17 +164,32 @@ function App() {
           <div className="scene-shell">
             <header className="scene-header">
               <span className="scene-title">{selected.title}</span>
-              <nav className="view-tabs" aria-label="观察视角">
+              <nav
+                className="view-tabs"
+                aria-label="切换预设视角，随后仍可拖动旋转"
+              >
                 {views.map((v) => (
                   <button
                     key={v.id}
-                    className={"view-tab " + (view === v.id ? "active" : "")}
-                    aria-pressed={view === v.id}
-                    onClick={() => setView(v.id)}
+                    className="view-tab"
+                    onClick={() => {
+                      setView(v.id);
+                      setReset((n) => n + 1);
+                    }}
                   >
                     {v.label}
                   </button>
                 ))}
+                <button
+                  className={
+                    "view-tab touch-rotate-toggle " +
+                    (touchRotate ? "active" : "")
+                  }
+                  aria-pressed={touchRotate}
+                  onClick={() => setTouchRotate((enabled) => !enabled)}
+                >
+                  触屏旋转：{touchRotate ? "开" : "关"}
+                </button>
               </nav>
             </header>
             <div
@@ -184,6 +199,7 @@ function App() {
               data-phase={state.phase}
               data-time={time.toFixed(4)}
               data-edge={state.edge}
+              data-touch-rotate={touchRotate}
             >
               <TeachingScene
                 state={state}
@@ -197,6 +213,7 @@ function App() {
                 skeleton={skeleton}
                 motion={motion}
                 reset={reset}
+                touchRotate={touchRotate}
               />
               <div className="scene-overlay">
                 <span className="scene-badge">{edgeName[state.edge]}</span>
@@ -236,9 +253,14 @@ function App() {
                 </button>
               </div>
               <div className="camera-hint">
-                {view === "free"
-                  ? "拖动旋转 · 双指缩放"
-                  : "镜头跟随雪板 · 切换视角，动作保持同一时刻"}
+                <span className="camera-mouse-hint">
+                  鼠标拖动旋转 · 滚轮缩放 · 播放时保留观察角度
+                </span>
+                <span className="camera-touch-hint">
+                  {touchRotate
+                    ? "单指旋转 · 双指缩放 · 关闭触屏旋转可滑动页面"
+                    : "手指上下滑动页面 · 开启“触屏旋转”可转动模型"}
+                </span>
               </div>
             </div>
             <div className="scene-legend">

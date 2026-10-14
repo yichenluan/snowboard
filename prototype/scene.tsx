@@ -11,7 +11,7 @@ import {
   type Stance,
 } from "./motion";
 
-export type View = "follow" | "side" | "front" | "free";
+export type View = "follow" | "side" | "front";
 export type Layer = "posture" | "force";
 const C = {
   front: "#c47745",
@@ -175,19 +175,27 @@ function Rider({
     b = state.board;
   const xray = skeleton || layer === "force";
   const hipAxis = V(j.frontHip).sub(V(j.rearHip));
-  const hipYaw =
-    Math.atan2(-hipAxis.z, hipAxis.x) + (stance === "regular" ? 0 : Math.PI);
   const q = new THREE.Quaternion().setFromEuler(
     new THREE.Euler(b.roll, b.yaw, 0, "YXZ"),
   );
   const shoulderAxis = V(j.frontShoulder).sub(V(j.rearShoulder)).normalize();
-  const facing = new THREE.Vector3(
-    -shoulderAxis.z,
-    0,
-    shoulderAxis.x,
-  ).multiplyScalar(stance === "regular" ? 1 : -1);
-  const chestYaw = Math.atan2(facing.x, facing.z);
   const toeSign = stance === "regular" ? 1 : -1;
+  const torsoUp = V(j.neck).sub(V(j.pelvis)).normalize();
+  // Orient the visible body from the same joint frame as the skeleton.
+  const bodyFrame = (axis: THREE.Vector3) => {
+    const right = axis.clone().normalize().multiplyScalar(toeSign);
+    const up = torsoUp
+      .clone()
+      .addScaledVector(right, -torsoUp.dot(right))
+      .normalize();
+    const forward = new THREE.Vector3().crossVectors(right, up).normalize();
+    return new THREE.Quaternion().setFromRotationMatrix(
+      new THREE.Matrix4().makeBasis(right, up, forward),
+    );
+  };
+  const chestQuaternion = bodyFrame(shoulderAxis);
+  const hipQuaternion = bodyFrame(hipAxis);
+  const facing = new THREE.Vector3(0, 0, 1).applyQuaternion(chestQuaternion);
   const edgeSide =
     state.edge === "toe" ? toeSign : state.edge === "heel" ? -toeSign : 0;
   const edgeColor = new THREE.Color("#d2e1d9")
@@ -242,14 +250,31 @@ function Rider({
           quaternion = bootQuat(which);
         const local = (v: Vec3): Vec3 =>
           add(ankle, V(v).applyQuaternion(quaternion).toArray() as Vec3);
+        const knee = which === "front" ? j.frontKnee : j.rearKnee;
+        const shinUp = V(knee).sub(V(ankle)).normalize();
+        const toeDirection = V(state.boots[which].toeDirection);
+        const shinForward = toeDirection
+          .clone()
+          .addScaledVector(shinUp, -toeDirection.dot(shinUp))
+          .normalize();
+        const shinRight = new THREE.Vector3()
+          .crossVectors(shinUp, shinForward)
+          .normalize();
+        const cuffQuaternion = new THREE.Quaternion().setFromRotationMatrix(
+          new THREE.Matrix4().makeBasis(shinRight, shinUp, shinForward),
+        );
+        const cuffPosition = V(ankle)
+          .addScaledVector(shinUp, 0.03)
+          .addScaledVector(toeDirection, -0.015)
+          .toArray() as Vec3;
         return (
           <group key={which}>
             <mesh position={local([0, -0.094, 0.028])} quaternion={quaternion}>
               <boxGeometry args={[0.115, 0.085, 0.285]} />
               <meshStandardMaterial color="#eee9d9" roughness={0.9} />
             </mesh>
-            <mesh position={local([0, 0.027, -0.045])} quaternion={quaternion}>
-              <boxGeometry args={[0.108, 0.15, 0.115]} />
+            <mesh position={cuffPosition} quaternion={cuffQuaternion}>
+              <boxGeometry args={[0.108, 0.16, 0.115]} />
               <meshStandardMaterial color="#e2ddcd" roughness={0.9} />
             </mesh>
             <mesh position={local([0, -0.005, 0.055])} quaternion={quaternion}>
@@ -274,7 +299,7 @@ function Rider({
       />
       <mesh
         position={j.chest}
-        rotation={[0, chestYaw, 0]}
+        quaternion={chestQuaternion}
         scale={[0.225, 0.185, 0.125]}
       >
         <sphereGeometry args={[1, 24, 16]} />
@@ -288,7 +313,7 @@ function Rider({
       </mesh>
       <mesh
         position={j.pelvis}
-        rotation={[0, hipYaw, 0]}
+        quaternion={hipQuaternion}
         scale={[0.185, 0.115, 0.125]}
       >
         <sphereGeometry args={[1, 24, 16]} />
@@ -303,7 +328,7 @@ function Rider({
       <Segment a={j.chest} b={j.neck} r={0.065} color="#dcb18e" />
       <mesh
         position={j.head}
-        rotation={[0, chestYaw, 0]}
+        quaternion={chestQuaternion}
         scale={[0.12, 0.145, 0.13]}
       >
         <sphereGeometry args={[1, 24, 20]} />
@@ -314,7 +339,7 @@ function Rider({
           j.head,
           facing.clone().multiplyScalar(0.115).toArray() as Vec3,
         )}
-        rotation={[0, chestYaw, 0]}
+        quaternion={chestQuaternion}
         scale={[0.104, 0.041, 0.025]}
       >
         <sphereGeometry args={[1, 20, 12]} />
@@ -474,10 +499,12 @@ function CameraRig({
   state,
   view,
   reset,
+  touchRotate,
 }: {
   state: MotionState;
   view: View;
   reset: number;
+  touchRotate: boolean;
 }) {
   const { camera, gl, invalidate, size } = useThree();
   const controls = useMemo(
@@ -487,6 +514,8 @@ function CameraRig({
   const previous = useRef(V(state.board.position));
   const stateRef = useRef(state);
   stateRef.current = state;
+  const touchRotateRef = useRef(touchRotate);
+  touchRotateRef.current = touchRotate;
   const poseCamera = () => {
     const s = stateRef.current,
       target = V(s.board.position).add(new THREE.Vector3(0, 0.64, 0)),
@@ -501,12 +530,10 @@ function CameraRig({
     camera.up.set(0, 1, 0);
     controls.target.copy(target);
     camera.lookAt(target);
-    if (camera instanceof THREE.PerspectiveCamera) {
-      camera.fov = size.width < 500 ? 37 : 34;
-      camera.updateProjectionMatrix();
-    }
+    previous.current.copy(V(s.board.position));
   };
   useEffect(() => {
+    controls.enabled = true;
     controls.enableDamping = false;
     controls.enablePan = false;
     controls.minDistance = 2.6;
@@ -514,27 +541,44 @@ function CameraRig({
     controls.minPolarAngle = 0.2;
     controls.maxPolarAngle = Math.PI * 0.47;
     const onChange = () => invalidate();
+    // Ignore touch input before OrbitControls captures it. Mouse controls stay
+    // available while an ordinary finger drag can scroll the surrounding page.
+    const onPointerDown = (event: PointerEvent) => {
+      if (event.pointerType === "touch" && !touchRotateRef.current) {
+        event.stopImmediatePropagation();
+      }
+    };
     controls.addEventListener("change", onChange);
+    gl.domElement.addEventListener("pointerdown", onPointerDown, true);
     return () => {
       controls.removeEventListener("change", onChange);
+      gl.domElement.removeEventListener("pointerdown", onPointerDown, true);
       controls.dispose();
     };
-  }, [controls, invalidate]);
+  }, [controls, gl, invalidate]);
   useEffect(() => {
     poseCamera();
     controls.update();
-    gl.domElement.style.touchAction = view === "free" ? "none" : "pan-y";
     invalidate();
-  }, [view, reset, size.width]);
+  }, [view, reset]);
+  useEffect(() => {
+    gl.domElement.style.touchAction = touchRotate ? "none" : "pan-y pinch-zoom";
+  }, [gl, touchRotate]);
+  useEffect(() => {
+    if (camera instanceof THREE.PerspectiveCamera) {
+      camera.fov = size.width < 500 ? 37 : 34;
+      camera.updateProjectionMatrix();
+    }
+    invalidate();
+  }, [camera, size.width, invalidate]);
   useFrame(() => {
-    controls.enabled = view === "free";
-    if (view === "free") {
-      const now = V(state.board.position),
-        delta = now.clone().sub(previous.current);
-      camera.position.add(delta);
-      controls.target.add(delta);
-    } else poseCamera();
-    previous.current.copy(V(state.board.position));
+    // Presets establish a starting angle. Animation follows translation only,
+    // so it never replaces the angle or distance chosen by the viewer.
+    const now = V(state.board.position),
+      delta = now.clone().sub(previous.current);
+    camera.position.add(delta);
+    controls.target.add(delta);
+    previous.current.copy(now);
     controls.update();
   });
   return null;
@@ -556,7 +600,7 @@ function JointLabels({
     labels.current = (
       layer === "force"
         ? ["重力", "雪面支持", "滑移阻力"]
-        : ["骨盆", "前膝", "后膝"]
+        : ["骨盆", "前膝", "后膝", "胸廓"]
     ).map((name, i) => {
       const label = document.createElement("span");
       label.textContent = name;
@@ -611,7 +655,12 @@ function JointLabels({
               -Math.sign(slip) * lateral[2] * 0.65,
             ]),
           ]
-        : [state.joints.pelvis, state.joints.frontKnee, state.joints.rearKnee];
+        : [
+            state.joints.pelvis,
+            state.joints.frontKnee,
+            state.joints.rearKnee,
+            state.joints.chest,
+          ];
     const front = V(points[1]).project(camera),
       rear = V(points[2]).project(camera);
     labels.current.forEach((label, i) => {
@@ -619,9 +668,11 @@ function JointLabels({
       const dx =
         i === 0
           ? 18
-          : (i === 1 ? front.x < rear.x : rear.x < front.x)
-            ? -58
-            : 15;
+          : i === 3
+            ? -62
+            : (i === 1 ? front.x < rear.x : rear.x < front.x)
+              ? -58
+              : 15;
       const x = Math.max(
         4,
         Math.min(size.width - 55, ((projected.x + 1) * size.width) / 2 + dx),
@@ -726,6 +777,7 @@ export function TeachingScene({
   skeleton,
   motion,
   reset,
+  touchRotate,
 }: {
   state: MotionState;
   trail: Vec3[];
@@ -738,6 +790,7 @@ export function TeachingScene({
   skeleton: boolean;
   motion: boolean;
   reset: number;
+  touchRotate: boolean;
 }) {
   return (
     <SceneBoundary>
@@ -795,7 +848,12 @@ export function TeachingScene({
             />
           )
         )}
-        <CameraRig state={state} view={view} reset={reset} />
+        <CameraRig
+          state={state}
+          view={view}
+          reset={reset}
+          touchRotate={touchRotate}
+        />
         <JointLabels
           state={state}
           enabled={skeleton || layer === "force"}

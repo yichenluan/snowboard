@@ -89,6 +89,9 @@ export const BODY = Object.freeze({
   bootLength: 0.285,
   bootWidth: 0.115,
   ankleHeight: 0.15,
+  trunk: 0.35,
+  neck: 0.145,
+  head: 0.115,
 });
 
 const PI = Math.PI;
@@ -322,10 +325,14 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
   );
   const forward = yawAxis(board.yaw);
   const toe = yawToe(board.yaw);
-  const pelvisHeight = 0.8 + 0.115 * route.extension - 0.035 * route.braking;
-  // Modest toe/heel adjustment and hip hinge; this is not a prescribed weight split.
+  // Toe/heel flexion is asymmetric: avoid copying a heelside sitting pose onto
+  // toeside. These are authored example dimensions, not prescribed technique.
+  const toeLean = Math.max(0, route.lean);
+  const heelLean = Math.max(0, -route.lean);
+  const pelvisHeight =
+    0.8 + 0.115 * route.extension + 0.06 * toeLean - 0.035 * route.braking;
   const foreAft = mode === "error" ? 0.11 * route.braking : 0.018 * route.lean;
-  const pelvisToe = -0.055 + 0.12 * route.lean;
+  const pelvisToe = -0.035 + 0.22 * route.lean + 0.02 * route.lean ** 2;
   const pelvis = add(
     add(board.position, mul(forward, foreAft)),
     mul(toe, pelvisToe),
@@ -343,11 +350,21 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
 
   // The torso changes heading less than the board while remaining naturally open.
   const shoulderYaw = -PI / 2 + 0.28 + (board.yaw + PI / 2) * 0.62;
-  const shoulderAxis = yawAxis(shoulderYaw);
-  const chestToe = 0.075 + 0.045 * Math.max(0, -route.lean);
-  const chest = add(add(pelvis, [0, 0.335, 0]), mul(toe, chestToe));
-  const neck = add(add(chest, [0, 0.145, 0]), mul(toe, -0.008));
-  const head = add(neck, [0, 0.115, 0]);
+  // A neutral, fixed-length trunk articulates at the hip. On toeside the hips
+  // move towards the toe edge while the trunk stays more upright than the legs;
+  // it does not reach further in with the chest or arch the lumbar spine.
+  const torsoPitch = 0.1 - 0.17 * toeLean + 0.25 * heelLean;
+  const torsoUp = add(
+    [0, Math.cos(torsoPitch), 0],
+    mul(toe, Math.sin(torsoPitch)),
+  );
+  const rawShoulderAxis = yawAxis(shoulderYaw);
+  const shoulderAxis = unit(
+    sub(rawShoulderAxis, mul(torsoUp, dot(rawShoulderAxis, torsoUp))),
+  );
+  const chest = add(pelvis, mul(torsoUp, BODY.trunk));
+  const neck = add(chest, mul(torsoUp, BODY.neck));
+  const head = add(neck, mul(torsoUp, BODY.head));
   const frontShoulder = add(chest, mul(shoulderAxis, BODY.shoulderWidth / 2));
   const rearShoulder = add(chest, mul(shoulderAxis, -BODY.shoulderWidth / 2));
   const shoulderToe = yawToe(shoulderYaw);

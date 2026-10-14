@@ -336,7 +336,28 @@ li + li {
 .scene-canvas canvas {
   display: block;
   max-width: 100%;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+}
+.scene-canvas canvas:active {
+  cursor: grabbing;
+}
+.scene-canvas[data-touch-rotate="true"] canvas {
   touch-action: none;
+}
+.touch-rotate-toggle {
+  border-left: 1px solid #cbd7ca;
+}
+.camera-touch-hint {
+  display: none;
+}
+@media (hover: none), (pointer: coarse) {
+  .camera-mouse-hint {
+    display: none;
+  }
+  .camera-touch-hint {
+    display: inline;
+  }
 }
 .camera-hint {
   position: absolute;
