@@ -4,7 +4,7 @@ import { sampleMotion, sampleTrail, type Mode, type Stance } from "./motion";
 import { TeachingScene, TopMap, type View, type Layer } from "./scene";
 import {
   MODES,
-  PHASE_LABELS,
+  phaseLabels,
   PRACTICE,
   SOURCES,
   BOUNDARY,
@@ -16,6 +16,7 @@ const views: { id: View; label: string }[] = [
   { id: "follow", label: "整体" },
   { id: "side", label: "看前后重心" },
   { id: "front", label: "看髋与反弓" },
+  { id: "boots", label: "看雪靴与高背" },
 ];
 const edgeName = {
   toe: "前刃 · 脚尖侧",
@@ -27,12 +28,17 @@ function App() {
     const m = new URLSearchParams(location.search).get("mode");
     return m === "error" || m === "drill" ? m : "correct";
   });
-  const [time, setTime] = useState(0.125),
+  const [time, setTime] = useState(() => {
+      const value = new URLSearchParams(location.search).get("t");
+      return value !== null && Number.isFinite(+value)
+        ? Math.max(0, Math.min(1, +value))
+        : 0.84;
+    }),
     [playing, setPlaying] = useState(false),
     [speed, setSpeed] = useState(0.5),
     [loop, setLoop] = useState(false);
   const [stance, setStance] = useState<Stance>("regular"),
-    [view, setView] = useState<View>("follow"),
+    [view, setView] = useState<View>("front"),
     [layer, setLayer] = useState<Layer>("posture");
   const [skeleton, setSkeleton] = useState(false),
     [motion, setMotion] = useState(true),
@@ -54,9 +60,10 @@ function App() {
     state.edge,
     state.drillHolding,
   );
+  const labels = phaseLabels(mode);
   const phaseTimes = useMemo(
     () =>
-      PHASE_LABELS.map((_, phase) => {
+      labels.map((_, phase) => {
         const samples = Array.from(
           { length: 201 },
           (_, i) => (state.half + i / 200) / 2,
@@ -104,6 +111,31 @@ function App() {
       document.removeEventListener("visibilitychange", pauseWhenHidden);
     };
   }, [playing, speed, loop]);
+  const checkpoints = useMemo(
+    () =>
+      ([0, 1] as const).map((half) => {
+        // Find the actual edge crossing in the SAME motion model, also
+        // in the side-slip drill. No independent animation timeline.
+        let lo = half / 2,
+          hi = (half + 1) / 2 - 1e-6;
+        const oldSign = Math.sign(
+          sampleMotion(lo, mode, stance, hold).board.roll,
+        );
+        for (let i = 0; i < 24; i++) {
+          const mid = (lo + hi) / 2;
+          if (
+            Math.sign(sampleMotion(mid, mode, stance, hold).board.roll) ===
+            oldSign
+          )
+            lo = mid;
+          else hi = mid;
+        }
+        const crossing = (lo + hi) / 2;
+        const offset = 0.055 * (mode === "drill" ? 1 - hold : 1);
+        return { half, crossing, offset };
+      }),
+    [mode, stance, hold],
+  );
   const selectMode = (next: Mode) => {
     setPlaying(false);
     setMode(next);
@@ -121,9 +153,7 @@ function App() {
     if (time >= 1) setTime(0);
     setPlaying((v) => !v);
   };
-  const currentPhase = state.drillHolding
-    ? "侧滑准备"
-    : PHASE_LABELS[state.phase];
+  const currentPhase = state.drillHolding ? "侧滑准备" : labels[state.phase];
   return (
     <main className="lab-page">
       <header className="lab-header">
@@ -141,7 +171,7 @@ function App() {
           <a className="lab-back" href="../#lesson=s-short-integrated">
             返回完整教学 ↗
           </a>
-          <span className="lab-status">三维教学原型 · 等你试用</span>
+          <span className="lab-status">三维教学原型 · 后刃与换刃复核版</span>
         </div>
       </header>
       <nav className="mode-tabs" aria-label="选择教学模式">
@@ -359,7 +389,7 @@ function App() {
           </div>
           {layer === "force" && (
             <p className="force-note">
-              图中分开画作用方向，箭头长度不代表大小，也没有计算合力。缓坡坐标下，重力含沿坡分量；雪面支持与横向滑移作用画在板雪接触处。身体如何配合，见同步的阶段说明。
+              图中分开画作用方向，箭头长度不代表大小，也没有计算合力。缓坡坐标下，重力含沿坡分量；雪面作用箭头画在板中央便于阅读，起点只是排版锚点，不是接触点或压力中心。身体如何配合，见同步的阶段说明。
             </p>
           )}
           <section className="lab-timeline" aria-label="逐阶段观察">
@@ -411,7 +441,7 @@ function App() {
               </button>
             </div>
             <nav className="phase-steps" aria-label="当前弯的四个阶段">
-              {PHASE_LABELS.map((name, i) => (
+              {labels.map((name, i) => (
                 <button
                   key={name}
                   className={
@@ -434,6 +464,41 @@ function App() {
               点击阶段会暂停；拖动进度可逐帧观察。示意播放节奏不等于实际滑速。
             </p>
           </section>
+          {mode !== "error" && (
+            <section
+              className="transition-inspector"
+              aria-label="两种换刃的关键帧"
+            >
+              <strong>逐帧核对换刃</strong>
+              <p>
+                先减旧刃 → 低刃角过渡 →
+                接入新刃。此例适量伸展过渡，屈曲换刃是另一种策略。身体移动提示不是发力箭头。
+              </p>
+              {checkpoints.map(({ half, crossing, offset }) => {
+                return (
+                  <div className="transition-row" key={half}>
+                    <span>{half === 0 ? "后换前" : "前换后"}</span>
+                    {[
+                      { label: "减旧刃", at: crossing - offset },
+                      { label: "近放平", at: crossing },
+                      { label: "接新刃", at: crossing + offset },
+                    ].map(({ label, at }) => (
+                      <button
+                        key={label}
+                        onClick={() => seek(at)}
+                        aria-label={`${half === 0 ? "后换前" : "前换后"}：${label}`}
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                );
+              })}
+              <p>
+                观察后刃：鞋底固定，靴筒由高背承托，膝髋仍能配合。观察前刃：膝向鞋头侧调节，髋跟上，胸口不抢先扑入。
+              </p>
+            </section>
+          )}
           {mode === "drill" ? (
             <section className="drill-levels">
               <strong>循序渐进：只缩短侧滑等待</strong>
@@ -562,7 +627,8 @@ function App() {
         </ul>
         <p className="prototype-note">{BOUNDARY}</p>
         <p className="prototype-note">
-          正常示范选用轻微伸展过渡，其他换刃策略需另作对照。图中的人体质心由身体分段位置粗略估计；不测量肌肉激活、足底压力或关节负荷。
+          正常示范选用轻微伸展过渡；伸展是否减压取决于动作时序，不能仅凭站高或蹲低判断。本例靴筒相对鞋底的前倾约为
+          12–18°，只是这套示意装备的编排范围，不是雪靴通用上限，也不是临床踝角。人体质心由身体分段位置粗略估计，不测量肌肉激活、足底压力或关节负荷。
         </p>
       </details>
       <footer className="lab-footer">

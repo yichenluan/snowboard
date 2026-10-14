@@ -1368,3 +1368,36 @@ li + li {
     bottom: 62px;
   }
 }
+
+.transition-inspector {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border: 1px solid #c9d9c5;
+  border-radius: 9px;
+  background: #edf2e7;
+  font-size: 12px;
+}
+.transition-inspector p {
+  margin: 6px 0;
+  color: #5f7866;
+  font-size: 11px;
+}
+.transition-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+}
+.transition-row span {
+  min-width: 48px;
+  font-weight: 600;
+}
+.transition-row button {
+  flex: 1;
+  min-height: 44px;
+  padding: 5px;
+  border: 1px solid #c9d9c5;
+  border-radius: 6px;
+  background: #fffefa;
+  font-size: 11px;
+}

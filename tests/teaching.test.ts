@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { getTeaching, PHASE_LABELS } from "../prototype/lesson.ts";
+import { getTeaching, phaseLabels } from "../prototype/lesson.ts";
 import { sampleMotion, type Mode } from "../prototype/motion.ts";
 
 test("every motion sample has complete teaching and holding describes controlled side slipping", () => {
@@ -56,7 +56,7 @@ test("every motion sample has complete teaching and holding describes controlled
               getTeaching(mode, s.phase, s.half, s.edge, false).title,
             );
           } else {
-            assert.equal(s.phaseName, PHASE_LABELS[s.phase]);
+            assert.equal(s.phaseName, phaseLabels(mode)[s.phase]);
             assert.doesNotMatch(teaching.title, /^稳住.*侧滑，再出发$/);
           }
         }
@@ -102,7 +102,20 @@ test("correct-mode stage text names the old edge on release and the target edge 
         if (phase === 0) assert.match(teaching.title, /释放/);
         if (phase === 1) assert.match(teaching.title, /接入/);
         if (phase === 2) assert.match(teaching.title, /继续工作/);
-        if (phase === 3) assert.match(teaching.title, /准备释放/);
+        if (phase === 3) assert.match(teaching.title, /开始释放/);
       }
+    }
+});
+
+test("new-edge teaching never starts on the old edge, and the drill ends with side-slip recovery", () => {
+  for (const mode of ["correct", "drill"] as const)
+    for (let i = 0; i < 2000; i++) {
+      const s = sampleMotion(i / 2000, mode);
+      if (s.phase === 1 && !s.drillHolding)
+        assert.ok(
+          s.edge === "flat" || s.edge === (s.half === 0 ? "toe" : "heel"),
+        );
+      if (mode === "drill" && s.phase === 3 && !s.drillHolding)
+        assert.equal(s.phaseName, "恢复侧滑");
     }
 });

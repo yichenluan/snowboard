@@ -27,6 +27,8 @@ export interface BootState {
   toeDirection: Vec3;
   up: Vec3;
   localPosition: Vec3;
+  /** Tibia relative to the fixed sole, NOT a measured anatomical ankle angle. */
+  cuffPitch: number;
 }
 
 export interface MotionState {
@@ -53,6 +55,7 @@ export interface MotionState {
   /** Body-segment weighted position: visual estimate, not measured centre of mass. */
   com: Vec3;
   travel: Vec3;
+  gaze: Vec3;
   edge: Edge;
   phase: 0 | 1 | 2 | 3;
   phaseName: string;
@@ -71,6 +74,7 @@ export interface MotionState {
     /** Absolute board-axis versus travel angle, in degrees. */
     skidAngle: number;
   };
+  /** Geometric low edge only. Never use as an inferred centre of pressure. */
   contact: Vec3;
   /** Board normal, distinct from the snow normal and from the snow reaction. */
   normal: Vec3;
@@ -97,7 +101,14 @@ export const BODY = Object.freeze({
 const PI = Math.PI;
 const TAU = PI * 2;
 const DEG = 180 / PI;
-const PHASES = ["释放旧刃", "引导入弯", "完成弧线", "准备换侧"] as const;
+export const PHASES = ["释放旧刃", "接入新刃", "完成弧线", "开始减刃"] as const;
+
+/** Authored soft-boot example, not a universal boot ROM or fitting recommendation. */
+export const BOOT_SETUP = Object.freeze({
+  highbackLean: 12,
+  neutralCuff: 14,
+  maxCuff: 20,
+});
 const add = (a: Vec3, b: Vec3): Vec3 => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
 const sub = (a: Vec3, b: Vec3): Vec3 => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
 const mul = (a: Vec3, k: number): Vec3 => [a[0] * k, a[1] * k, a[2] * k];
@@ -139,20 +150,35 @@ export function boardToWorld(local: Vec3, board: BoardState): Vec3 {
   return add(board.position, boardVectorToWorld(local, board));
 }
 
-/** Exact two-link IK. Pole is the boot's toe side, never a camera direction. */
-function kneeIK(hip: Vec3, ankle: Vec3, toe: Vec3): Vec3 {
-  const delta = sub(ankle, hip);
-  const distance = mag(delta);
-  if (distance >= BODY.thigh + BODY.shin - 1e-6 || distance < 0.12) {
-    throw new Error(`Unreachable authored leg: ${distance.toFixed(5)} m`);
+/**
+ * Feet and finite cuff motion determine the shins first. The pelvis is then on
+ * the intersection circle of two thigh-length spheres (centres include the
+ * hip-width offsets). This preserves both legs exactly, without unconstrained
+ * ankle flexion or a post-IK clamp that would detach feet/stretch bones.
+ */
+function pelvisFromKnees(
+  front: Vec3,
+  rear: Vec3,
+  hipAxis: Vec3,
+  up: Vec3,
+  toe: Vec3,
+  thighBack: number,
+): Vec3 {
+  const offset = mul(hipAxis, BODY.hipWidth / 2);
+  const a = sub(front, offset),
+    b = add(rear, offset);
+  const separation = mag(sub(b, a));
+  if (separation >= 2 * BODY.thigh || separation < 1e-6) {
+    throw new Error("Unreachable boot-constrained pelvis");
   }
-  const axis = unit(delta);
-  const projection = sub(toe, mul(axis, dot(toe, axis)));
-  const bend = unit(projection);
-  const along =
-    (BODY.thigh ** 2 - BODY.shin ** 2 + distance ** 2) / (2 * distance);
-  const height = Math.sqrt(Math.max(0, BODY.thigh ** 2 - along ** 2));
-  return add(add(hip, mul(axis, along)), mul(bend, height));
+  const axis = unit(sub(b, a));
+  const desired = sub(
+    mul(up, Math.cos(thighBack)),
+    mul(toe, Math.sin(thighBack)),
+  );
+  const radial = unit(sub(desired, mul(axis, dot(desired, axis))));
+  const radius = Math.sqrt(BODY.thigh ** 2 - (separation / 2) ** 2);
+  return add(mix(a, b, 0.5), mul(radial, radius));
 }
 
 function elbowIK(shoulder: Vec3, hand: Vec3, pole: Vec3): Vec3 {
@@ -187,6 +213,43 @@ interface Route {
   braking: number;
 }
 
+/** Geometry of the side-slip connector, shared by its route and event timing. */
+function drillGeometry(v: number, sign = 1) {
+  const e = ease(v);
+  const de = 30 * v * v * (v - 1) * (v - 1);
+  const travel = unit([sign * 0.65 * PI * Math.cos(PI * e) * de, 0, 3.6]);
+  const yawProgress = smooth(v / (v + 0.36 * (1 - v)));
+  const yaw = -PI / 2 - sign * (PI * yawProgress - PI / 2);
+  return { travel, yaw, slip: yaw - Math.atan2(-travel[2], travel[0]) };
+}
+const DRILL_FLAT = (() => {
+  let lo = 0,
+    hi = 1;
+  for (let i = 0; i < 40; i++) {
+    const mid = (lo + hi) / 2;
+    if (drillGeometry(mid).slip > 0) lo = mid;
+    else hi = mid;
+  }
+  return (lo + hi) / 2;
+})();
+// Monotone C1 curve with a shared slope at the event. This authors one
+// extension/flexion cycle, independent of small changes in skid angle.
+function drillLean(v: number) {
+  const before = v < DRILL_FLAT;
+  const span = before ? DRILL_FLAT : 1 - DRILL_FLAT;
+  const u = before ? v / span : (v - DRILL_FLAT) / span;
+  const y0 = before ? -1 : 0,
+    y1 = before ? 0 : 1;
+  const m0 = before ? 0 : 2,
+    m1 = before ? 2 : 0;
+  return (
+    (2 * u ** 3 - 3 * u * u + 1) * y0 +
+    (u ** 3 - 2 * u * u + u) * span * m0 +
+    (-2 * u ** 3 + 3 * u * u) * y1 +
+    (u ** 3 - u * u) * span * m1
+  );
+}
+
 /** A cycle translates downhill. time=1 is the next cycle, not a teleport to time=0. */
 function routeAt(time: number, mode: Mode, requestedHold: number): Route {
   const t = Number.isFinite(time) ? time : 0;
@@ -195,7 +258,7 @@ function routeAt(time: number, mode: Mode, requestedHold: number): Route {
   const u = frac(t * 2);
   const sign = half === 0 ? 1 : -1;
   const phaseAt = (v: number): 0 | 1 | 2 | 3 =>
-    v < 0.2 ? 0 : v < 0.48 ? 1 : v < 0.82 ? 2 : 3;
+    v < 0.18 ? 0 : v < 0.48 ? 1 : v < 0.82 ? 2 : 3;
 
   if (mode === "drill") {
     const hold = clamp(
@@ -216,16 +279,12 @@ function routeAt(time: number, mode: Mode, requestedHold: number): Route {
       (holding
         ? (hold > 0 ? u / hold : 0) * sideDistance
         : sideDistance + turnDistance * v);
-    const de = 30 * v * v * (v - 1) * (v - 1);
-    const dx = holding ? 0 : sign * 0.65 * PI * Math.cos(PI * e) * de;
-    const travel = unit([dx, 0, holding ? 3.2 : turnDistance]);
-    const travelYaw = Math.atan2(-travel[2], travel[0]);
+    const geometry = drillGeometry(v, sign);
+    const travel: Vec3 = holding ? [0, 0, 1] : geometry.travel;
     // Old uphill edge releases before the new uphill edge develops. At either
     // side-slip endpoint the board is transverse and cannot flip downhill edge.
-    const release = 0.2;
-    const yawProgress = smooth(v / (v + 0.36 * (1 - v)));
-    const yaw = -PI / 2 - sign * (PI * yawProgress - PI / 2);
-    const slipOffset = yaw - travelYaw;
+    const yaw = geometry.yaw;
+    const slipOffset = geometry.slip;
     const roll = -0.27 * Math.sin(slipOffset);
     const load = Math.abs(Math.sin(slipOffset));
     return {
@@ -234,16 +293,20 @@ function routeAt(time: number, mode: Mode, requestedHold: number): Route {
       yaw,
       roll,
       edgeLoad: load,
-      phase: holding ? 3 : phaseAt(v),
+      phase: holding
+        ? 3
+        : roll * sign < 0
+          ? 0
+          : v < 0.48
+            ? 1
+            : v < 0.82
+              ? 2
+              : 3,
       half,
       progress: v,
       holding,
-      lean: roll / 0.27,
-      extension: holding
-        ? 0
-        : 1.8 *
-          Math.sin(PI * v) ** 2 *
-          Math.exp(-(((v - release) / 0.19) ** 2)),
+      lean: sign * drillLean(v),
+      extension: 1 - drillLean(v) ** 2,
       braking: 0,
     };
   }
@@ -266,7 +329,7 @@ function routeAt(time: number, mode: Mode, requestedHold: number): Route {
   const roll =
     mode === "error"
       ? Math.sign(s) * (0.065 * Math.abs(s) + 0.47 * braking)
-      : 0.31 * s;
+      : 0.24 * s;
   return {
     position: [x, 0, length * t],
     travel,
@@ -309,6 +372,7 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
       yaw: Math.atan2(-toeDirection[2], toeDirection[0]),
       toeDirection,
       up: normal,
+      cuffPitch: BOOT_SETUP.neutralCuff,
     };
   };
   const boots = {
@@ -323,37 +387,54 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
     [-BODY.stanceWidth / 2, BODY.ankleHeight, 0],
     board,
   );
-  const forward = yawAxis(board.yaw);
   const toe = yawToe(board.yaw);
-  // Toe/heel flexion is asymmetric: avoid copying a heelside sitting pose onto
-  // toeside. These are authored example dimensions, not prescribed technique.
+  // The sole and highback keep their binding frame. More heel-edge angle does
+  // not require folding the boot further toward the toe: knee/hip flexion and
+  // the whole board's tilt supply the visibly different heel-side arrangement.
   const toeLean = Math.max(0, route.lean);
   const heelLean = Math.max(0, -route.lean);
-  const pelvisHeight =
-    0.8 + 0.115 * route.extension + 0.06 * toeLean - 0.035 * route.braking;
-  const foreAft = mode === "error" ? 0.11 * route.braking : 0.018 * route.lean;
-  const pelvisToe = -0.035 + 0.22 * route.lean + 0.02 * route.lean ** 2;
-  const pelvis = add(
-    add(board.position, mul(forward, foreAft)),
-    mul(toe, pelvisToe),
-  );
-  pelvis[1] = board.position[1] + pelvisHeight;
+  const cuffPitch = BOOT_SETUP.neutralCuff + 3 * route.lean + route.lean ** 2;
+  const makeKnee = (ankle: Vec3, boot: BootState): Vec3 => {
+    boot.cuffPitch = cuffPitch;
+    const pitch = cuffPitch / DEG;
+    return add(
+      ankle,
+      mul(
+        add(
+          mul(normal, Math.cos(pitch)),
+          mul(boot.toeDirection, Math.sin(pitch)),
+        ),
+        BODY.shin,
+      ),
+    );
+  };
+  const frontKnee = makeKnee(frontAnkle, boots.front);
+  const rearKnee = makeKnee(rearAnkle, boots.rear);
   const hipYaw =
-    board.yaw +
-    0.11 +
-    (mode === "error" ? 0.14 * route.lean : 0.035 * route.lean);
+    board.yaw + 0.11 + (mode === "error" ? 0.14 : 0.035) * route.lean;
   const hipAxis = yawAxis(hipYaw);
+  // One extension-transition example: least flexed near flat, flexion develops
+  // on the new edge. These are authored dimensions, not prescribed joint angles.
+  const legBend =
+    30 + (17 + 3 * route.lean) * (1 - route.extension) + 4 * route.braking;
+  const pelvis = pelvisFromKnees(
+    frontKnee,
+    rearKnee,
+    hipAxis,
+    normal,
+    boardVectorToWorld([0, 0, 1], board),
+    (legBend - cuffPitch) / DEG,
+  );
+  const pelvisHeight = pelvis[1] - board.position[1];
   const frontHip = add(pelvis, mul(hipAxis, BODY.hipWidth / 2));
   const rearHip = add(pelvis, mul(hipAxis, -BODY.hipWidth / 2));
-  const frontKnee = kneeIK(frontHip, frontAnkle, boots.front.toeDirection);
-  const rearKnee = kneeIK(rearHip, rearAnkle, boots.rear.toeDirection);
 
   // The torso changes heading less than the board while remaining naturally open.
   const shoulderYaw = -PI / 2 + 0.28 + (board.yaw + PI / 2) * 0.62;
   // A neutral, fixed-length trunk articulates at the hip. On toeside the hips
   // move towards the toe edge while the trunk stays more upright than the legs;
   // it does not reach further in with the chest or arch the lumbar spine.
-  const torsoPitch = 0.1 - 0.17 * toeLean + 0.25 * heelLean;
+  const torsoPitch = 0.1 - 0.17 * toeLean + 0.4 * heelLean;
   const torsoUp = add(
     [0, Math.cos(torsoPitch), 0],
     mul(toe, Math.sin(torsoPitch)),
@@ -426,15 +507,31 @@ function buildRegular(time: number, mode: Mode, hold: number): MotionState {
     board,
   );
   const nose = yawAxis(board.yaw);
+  // Look toward the route with a finite neck turn, independent of shoulder yaw.
+  const travelFacing = Math.atan2(route.travel[0], route.travel[2]);
+  const headTurn = clamp(
+    Math.atan2(
+      Math.sin(travelFacing - shoulderYaw),
+      Math.cos(travelFacing - shoulderYaw),
+    ),
+    -PI / 3,
+    PI / 3,
+  );
+  const gaze = yawToe(shoulderYaw + headTurn);
   return {
     board,
     joints,
     boots,
     com,
     travel: route.travel,
+    gaze,
     edge,
     phase: route.phase,
-    phaseName: route.holding ? "稳住侧滑，准备下一弯" : PHASES[route.phase],
+    phaseName: route.holding
+      ? "稳住侧滑，准备下一弯"
+      : mode === "drill" && route.phase === 3
+        ? "恢复侧滑"
+        : PHASES[route.phase],
     half: route.half,
     turnProgress: route.progress,
     drillHolding: route.holding,
@@ -493,6 +590,7 @@ export function sampleMotion(
     },
     com: mirror(state.com),
     travel: mirror(state.travel),
+    gaze: mirror(state.gaze),
     contact: mirror(state.contact),
     normal: mirror(state.normal),
     turnYaw: -PI - state.turnYaw,

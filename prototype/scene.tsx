@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import {
   boardToWorld,
+  BOOT_SETUP,
   sampleMotion,
   type MotionState,
   type Vec3,
@@ -11,7 +12,7 @@ import {
   type Stance,
 } from "./motion";
 
-export type View = "follow" | "side" | "front";
+export type View = "follow" | "side" | "front" | "boots";
 export type Layer = "posture" | "force";
 const C = {
   front: "#c47745",
@@ -195,7 +196,17 @@ function Rider({
   };
   const chestQuaternion = bodyFrame(shoulderAxis);
   const hipQuaternion = bodyFrame(hipAxis);
-  const facing = new THREE.Vector3(0, 0, 1).applyQuaternion(chestQuaternion);
+  const facing = V(state.gaze);
+  const headRight = new THREE.Vector3()
+    .crossVectors(new THREE.Vector3(0, 1, 0), facing)
+    .normalize();
+  const headQuaternion = new THREE.Quaternion().setFromRotationMatrix(
+    new THREE.Matrix4().makeBasis(
+      headRight,
+      new THREE.Vector3(0, 1, 0),
+      facing,
+    ),
+  );
   const edgeSide =
     state.edge === "toe" ? toeSign : state.edge === "heel" ? -toeSign : 0;
   const edgeColor = new THREE.Color("#d2e1d9")
@@ -264,8 +275,28 @@ function Rider({
           new THREE.Matrix4().makeBasis(shinRight, shinUp, shinForward),
         );
         const cuffPosition = V(ankle)
-          .addScaledVector(shinUp, 0.03)
-          .addScaledVector(toeDirection, -0.015)
+          .addScaledVector(shinUp, 0.055)
+          .toArray() as Vec3;
+        // Highback belongs to the binding, not the animated shin. At the heel
+        // control pose its front face meets the cuff's rear face. On toe flexion
+        // the cuff can move forward away from it while the sole stays fixed.
+        const highbackQuaternion = quaternion
+          .clone()
+          .multiply(
+            new THREE.Quaternion().setFromAxisAngle(
+              new THREE.Vector3(1, 0, 0),
+              (BOOT_SETUP.highbackLean * Math.PI) / 180,
+            ),
+          );
+        const highbackUp = new THREE.Vector3(0, 1, 0).applyQuaternion(
+          highbackQuaternion,
+        );
+        const highbackForward = new THREE.Vector3(0, 0, 1).applyQuaternion(
+          highbackQuaternion,
+        );
+        const highbackPosition = V(ankle)
+          .addScaledVector(highbackUp, 0.055)
+          .addScaledVector(highbackForward, -0.07)
           .toArray() as Vec3;
         return (
           <group key={which}>
@@ -274,7 +305,7 @@ function Rider({
               <meshStandardMaterial color="#eee9d9" roughness={0.9} />
             </mesh>
             <mesh position={cuffPosition} quaternion={cuffQuaternion}>
-              <boxGeometry args={[0.108, 0.16, 0.115]} />
+              <boxGeometry args={[0.108, 0.21, 0.12]} />
               <meshStandardMaterial color="#e2ddcd" roughness={0.9} />
             </mesh>
             <mesh position={local([0, -0.005, 0.055])} quaternion={quaternion}>
@@ -283,8 +314,8 @@ function Rider({
                 color={which === "front" ? C.front : C.rear}
               />
             </mesh>
-            <mesh position={local([0, -0.025, -0.125])} quaternion={quaternion}>
-              <boxGeometry args={[0.12, 0.23, 0.02]} />
+            <mesh position={highbackPosition} quaternion={highbackQuaternion}>
+              <boxGeometry args={[0.12, 0.21, 0.02]} />
               <meshStandardMaterial color="#354b55" />
             </mesh>
           </group>
@@ -328,7 +359,7 @@ function Rider({
       <Segment a={j.chest} b={j.neck} r={0.065} color="#dcb18e" />
       <mesh
         position={j.head}
-        quaternion={chestQuaternion}
+        quaternion={headQuaternion}
         scale={[0.12, 0.145, 0.13]}
       >
         <sphereGeometry args={[1, 24, 20]} />
@@ -339,7 +370,7 @@ function Rider({
           j.head,
           facing.clone().multiplyScalar(0.115).toArray() as Vec3,
         )}
-        quaternion={chestQuaternion}
+        quaternion={headQuaternion}
         scale={[0.104, 0.041, 0.025]}
       >
         <sphereGeometry args={[1, 20, 12]} />
@@ -433,6 +464,12 @@ function Rider({
     </>
   );
 }
+/** Direction-diagram anchor, deliberately NOT the low edge / pressure centre. */
+const forceAnchor = (state: MotionState): Vec3 => [
+  state.board.position[0],
+  0.07,
+  state.board.position[2],
+];
 function Forces({ state }: { state: MotionState }) {
   const lateral: Vec3 = [
     Math.sin(state.board.yaw),
@@ -450,16 +487,15 @@ function Forces({ state }: { state: MotionState }) {
         length={0.68}
         color="#ba6c38"
       />
-      <Ball position={state.contact} r={0.035} color="#349583" />
       <Arrow
-        from={state.contact}
+        from={forceAnchor(state)}
         direction={[0, 1, 0]}
         length={0.9}
         color="#349583"
       />
       {Math.abs(sideSpeed) > 0.06 && (
         <Arrow
-          from={add(state.contact, [0, 0.04, 0])}
+          from={add(forceAnchor(state), [0, 0.04, 0])}
           direction={resistance}
           length={0.65}
           color="#8a6db1"
@@ -518,14 +554,22 @@ function CameraRig({
   touchRotateRef.current = touchRotate;
   const poseCamera = () => {
     const s = stateRef.current,
-      target = V(s.board.position).add(new THREE.Vector3(0, 0.64, 0)),
+      target = V(s.board.position).add(
+        new THREE.Vector3(0, view === "boots" ? 0.2 : 0.64, 0),
+      ),
       yaw = s.board.yaw;
     const offset =
-      view === "front"
-        ? new THREE.Vector3(Math.cos(yaw) * 4.1, 1.2, -Math.sin(yaw) * 4.1)
-        : view === "side"
-          ? new THREE.Vector3(Math.sin(yaw) * 4.1, 1.1, Math.cos(yaw) * 4.1)
-          : new THREE.Vector3(3.5, 2.05, 3.55);
+      view === "boots"
+        ? new THREE.Vector3(
+            Math.cos(yaw) * 1.7 + Math.sin(yaw) * 0.4,
+            0.5,
+            -Math.sin(yaw) * 1.7 + Math.cos(yaw) * 0.4,
+          )
+        : view === "front"
+          ? new THREE.Vector3(Math.cos(yaw) * 4.1, 1.2, -Math.sin(yaw) * 4.1)
+          : view === "side"
+            ? new THREE.Vector3(Math.sin(yaw) * 4.1, 1.1, Math.cos(yaw) * 4.1)
+            : new THREE.Vector3(3.5, 2.05, 3.55);
     camera.position.copy(target).add(offset);
     camera.up.set(0, 1, 0);
     controls.target.copy(target);
@@ -536,7 +580,7 @@ function CameraRig({
     controls.enabled = true;
     controls.enableDamping = false;
     controls.enablePan = false;
-    controls.minDistance = 2.6;
+    controls.minDistance = 1.1;
     controls.maxDistance = 8;
     controls.minPolarAngle = 0.2;
     controls.maxPolarAngle = Math.PI * 0.47;
@@ -599,7 +643,7 @@ function JointLabels({
     const host = gl.domElement.parentElement!;
     labels.current = (
       layer === "force"
-        ? ["重力", "雪面支持", "滑移阻力"]
+        ? ["重力", "法向作用方向", "侧向作用方向"]
         : ["骨盆", "前膝", "后膝", "胸廓"]
     ).map((name, i) => {
       const label = document.createElement("span");
@@ -648,8 +692,8 @@ function JointLabels({
               -0.68 * Math.cos(Math.PI / 18),
               0.68 * Math.sin(Math.PI / 18),
             ]),
-            add(state.contact, [0, 0.9, 0]),
-            add(state.contact, [
+            add(forceAnchor(state), [0, 0.9, 0]),
+            add(forceAnchor(state), [
               -Math.sign(slip) * lateral[0] * 0.65,
               0.04,
               -Math.sign(slip) * lateral[2] * 0.65,

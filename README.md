@@ -126,3 +126,9 @@ Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相�
 新动画提供板轴与实际移动方向、身体路线、刃侧和双腿屈伸的同步示意；正确动作与错误示意明确区分。轨迹按匀速播放只为比较，不计算真实受力和滑速。
 
 新增课程可用 `relatedLessons` 连接下一步。错误卡可用 `lesson` 指向对应练习，`demoKey`（类型:变体:可选换刃方式）打开同课动作对照。新增短弯动画变体须属于 `SnowDemo.shortVariants`；导入时会校验，避免错误配置覆盖个人知识库。
+
+## 后刃与换刃复核资料
+
+本轮仅修订三维原型，未替换旧动画。查看 [证据与适用边界](docs/teaching-research.md)、[原型问题与验收](docs/prototype-review.md)、[全站动画清单](docs/animation-inventory.md)。全站共134个旧动画引用及2个装备交互图，不能把102课当成102套独立动画。
+
+清单可复现：`node scripts/inventory-animations.mjs`；仅检查：`node scripts/inventory-animations.mjs --check`。原型更新仍须完成实际多视角与连续阶段审阅，不能仅凭测试通过判定教学正确。

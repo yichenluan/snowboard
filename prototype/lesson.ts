@@ -1,3 +1,4 @@
+import { PHASES } from "./motion";
 export type TeachingMode = "correct" | "error" | "drill";
 export type WorkingEdge = "toe" | "heel" | "flat";
 
@@ -35,7 +36,9 @@ export const MODES: {
   },
 ];
 
-export const PHASE_LABELS = ["释放旧刃", "引导入弯", "完成弧线", "准备换侧"];
+export const PHASE_LABELS = PHASES;
+export const phaseLabels = (mode: TeachingMode): readonly string[] =>
+  mode === "drill" ? ["释放旧刃", "接入新刃", "完成弧线", "恢复侧滑"] : PHASES;
 
 const edgeName = (edge: WorkingEdge): string =>
   edge === "toe"
@@ -66,7 +69,20 @@ export function getTeaching(
   const toePosture =
     "膝随脚尖方向调整，骨盆跟随下肢向脚尖侧移动，避免髋留在后面、只把膝和胸口向前送。胸廓比下肢更直立，髋部适量形成反弓；脊柱保持中性，不用挺腰制造弓形。";
   const heelPosture =
-    "髋向脚跟侧移动，膝髋适度弯曲；胸廓通过髋部折叠适量回到板上方。前后刃的姿态不必对称，不把臀部远远坐到板外，也不塌腰驼背。";
+    "后刃由板倾、屈膝和屈髋共同形成：髋向脚跟侧、膝保留弯曲，胸廓经髋部折叠适量回到板上方。小腿由靴筒和高背承托；鞋底固定，不能靠大幅折踝、抬起整只脚或把腿锁直来立刃。";
+
+  const releaseAction =
+    target === "heel"
+      ? "前换后：本例适量伸膝、调整髋与胸廓的关系，逐渐减小前刃角度；骨盆从脚尖侧随双腿移向板上方。先让旧刃松开，不抢先扭肩髋、压向前脚或把后脚甩出去。"
+      : "后换前：本例适量伸膝、打开髋角，从后刃的屈髋姿态回到过渡。髋随双腿由脚跟侧移向板上方，逐渐减小后刃角度；不能臀部仍留在后面，只用前肩往弯内倒。";
+  const engageAction =
+    target === "heel"
+      ? "前换后：经过低刃角过渡后，髋继续向脚跟侧移动，两膝与髋重新渐进屈曲；胸廓适量回到板上方。双腿继续带板，后刃随身体与板的关系逐渐建立，不是一拍猛翘脚尖。"
+      : "后换前：经过低刃角过渡后，膝向各自鞋头方向调节，髋跟着移向脚尖侧。小腿适量作用于靴舌，两腿继续带板；不留下髋，只推膝或扑胸。";
+  const transmission =
+    target === "heel"
+      ? "后刃的控制经鞋底、绑带以及靴后部—高背传到固定器和雪板。踝仍会调节，但不承担全部动作；图中不测量各部位受力比例。"
+      : "前刃的控制经鞋底、靴舌与绑带传到固定器和雪板。有限踝部调节与膝髋配合，不能把整个身体的移动都做成靴筒折弯。";
 
   if (mode === "drill" && drillHolding) {
     return {
@@ -129,8 +145,7 @@ export function getTeaching(
     return [
       {
         title: `从${previousShort}侧滑，逐渐释放`,
-        action:
-          "保持两脚有控制，逐渐减小旧刃角度，让双腿能把板带向坡下。不要同时抢着大幅扭肩。",
+        action: releaseAction,
         force:
           "踝膝髋协调改变板的倾斜，雪面原来对旧刃的约束逐渐减小。雪板仍然接触雪面，不需要跳起来。",
         observe:
@@ -139,8 +154,8 @@ export function getTeaching(
       },
       {
         title: `经过坡下，逐渐接入${targetShort}`,
-        action: `两腿继续引导雪板转向；${target === "toe" ? "前刃侧膝踝随身体平顺调整" : "后刃侧膝髋协调，保留两脚支撑"}，不要只把后脚踢出去。`,
-        force: `根据板的朝向与实际移动方向接入新刃，逐渐建立${targetShort}的板雪作用；不是用固定器强扭膝盖。`,
+        action: engageAction,
+        force: `${transmission} 根据板的朝向与滑移方向接刃，不强扭膝盖。`,
         observe:
           "俯视图里，侧滑段之间出现一段完整弧线；板头朝向与移动箭头可以不同，这是搓雪。",
         cue: "双腿一起带，接到另一刃。",
@@ -169,8 +184,7 @@ export function getTeaching(
   return [
     {
       title: `逐渐释放${previousShort}，进入下一弯`,
-      action:
-        "本示范在过渡中适量伸腿，同时踝膝髋配合减小旧刃角度。上身平顺向前，两脚都保留带板的能力。",
+      action: releaseAction,
       force:
         "身体的作用经雪靴、固定器传到板上，改变板的倾斜。减刃让旧刃对转向的限制逐渐减小，不等于雪板失去所有压力。",
       observe:
@@ -179,9 +193,8 @@ export function getTeaching(
     },
     {
       title: `双腿引导，逐渐接入${targetShort}`,
-      action:
-        "两腿通过髋部转动和膝踝协调，引导板头板尾一起改向。上身可以自然调整，路线比雪板平顺，不用死朝坡下。",
-      force: `通过双脚、雪靴和固定器把转向作用传给雪板；随转弯发展渐进使用${targetShort}。不要把动作理解成单独拧膝盖或后脚踢板尾。`,
+      action: engageAction,
+      force: transmission,
       observe:
         "在俯视图中对比黄色板头方向与蓝色实际移动方向：它们有夹角，雪板在可控滑移中转弯。",
       cue: "两条腿一起带，弯中就控速。",
@@ -196,10 +209,10 @@ export function getTeaching(
       cue: "持续带板，两边都走圆。",
     },
     {
-      title: `完成出口，准备释放${targetShort}`,
+      title: `完成出口，开始释放${targetShort}`,
       action:
-        "出口仍按计划向横坡发展，身体保持可调整。双腿准备下一次减刃和转向，上身不突然反甩。",
-      force: `${contact}这一弯的作用仍在持续；到下一次释放时逐渐减小旧刃角度，不为赶拍子提前丢掉控速。`,
+        "出口仍向横坡发展，本例已经开始适量伸展、减小刃角，为下一次换侧留出活动空间。保持双脚引导，上身不突然反甩。",
+      force: `${contact}刃角正在减小，但当前刃仍在工作。释放与下一弯连续相接，减刃不等于压力归零，伸展也不自动等于减压。`,
       observe:
         "板尾没有突然横扫；进入下一弯时，方向和姿态变化都连续。完整周期应在两侧重复做到。",
       cue: "这一弯走完，下一弯顺着接。",
@@ -231,13 +244,13 @@ export const PRACTICE = {
 
 export const SOURCES = [
   {
-    label: "CASI · Reference Guide，p.50、178",
+    label: "CASI · Reference Guide，p.50–52、155、178",
     url: "https://members.casi-acms.com/documents/Ref_Guide.pdf",
-    note: "p.50 说明踝膝髋共同形成 angulation，并随坡度、速度、目的调整；p.178 是侧滑接单弯、逐步缩短侧滑段的练习来源。",
+    note: "p.50–52 说明反弓与多种屈伸转换；p.155 区分两刃姿态，直背不等于上身竖直；p.178 提供侧滑接单弯进阶。照片用于关系审阅，未提取关节角。",
   },
   {
-    label: "CASI · 二级课程指南，p.9、12",
-    url: "https://members.casi-acms.com/documents/Level%202%20translated%207%20Days%20Course%20Guide.pdf",
+    label: "CASI · 二级课程指南，p.7–9、12",
+    url: "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf",
     note: "用下肢引导、沿板长居中、弯形圆润对称。教练考核坡度和走廊宽度不直接用作练习门槛。",
   },
   {
@@ -245,7 +258,17 @@ export const SOURCES = [
     url: "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf",
     note: "搓雪中配合反弓与适量倾倒，避免身体过度倒入弯内、刃角过高而难以连弯。原型采用一种伸展过渡示例，回收并非前置条件。",
   },
+  {
+    label: "CASI · 前后刃的不对称性",
+    url: "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/",
+    note: "前换后避免过早扭转肩髋而失去板尾控制；后换前避免髋留在后刃、用前肩倾倒代替下肢引导。两侧不能只把姿态取反。",
+  },
+  {
+    label: "Burton · 固定器高背与前倾调节",
+    url: "https://www.burton.com/en-au/blogs/the-burton-blog/how-to-adjust-snowboard-bindings",
+    note: "说明高背对小腿的支持及其调节作用。示意中高背属于固定器，靴筒有限形变；这里的形变幅度不是所有雪靴的活动上限。",
+  },
 ];
 
 export const BOUNDARY =
-  "这是用于观察动作先后和空间关系的三维示意。路线、姿态和箭头由同一时间线生成；力箭头仅说明作用方向，不表示测得的压力、肌肉用力比例或真实滑速。身体质心也不能直接等同于骨盆位置。关节角度与位移是为表达关系编排的示例，尚未按教练实拍或动作捕捉标定；自动测试验证几何与示意关系，不能认证真实滑行姿态。";
+  "这是用于观察动作先后和空间关系的三维示意。路线、姿态和箭头由同一时间线生成；力箭头仅说明作用方向，雪面作用箭头的起点只是排版锚点，不是压力中心。不测量压力、肌肉用力比例或真实滑速。雪板按刚体展示，未模拟板头板尾的扭转形变或先后受压。身体质心也不能直接等同于骨盆位置。关节角度与位移是为表达关系编排的示例，尚未按教练实拍或动作捕捉标定；自动测试验证几何与示意关系，不能认证真实滑行姿态。";

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   boardVectorToWorld,
+  BOOT_SETUP,
   sampleMotion,
   type Mode,
   type Stance,
@@ -47,7 +48,7 @@ test("the demonstration uses different hip and torso responses on toe and heel e
       const counted = { toe: 0, heel: 0 };
       for (let i = 0; i < 400; i++) {
         const s = sampleMotion(i / 400, mode, stance);
-        if (s.metrics.edgeAngle < 14 || s.edge === "flat") continue;
+        if (s.metrics.edgeAngle < 10 || s.edge === "flat") continue;
         const edge = s.edge;
         counted[edge]++;
         const boardSide = boardVectorToWorld(
@@ -86,4 +87,75 @@ test("the demonstration uses different hip and torso responses on toe and heel e
       );
     }
   }
+});
+
+// Equipment constraints protect the model, not a universal anatomical ROM.
+// Measure from actual output joints, not the advertised cuffPitch field.
+test("fixed soles and finite cuff motion remain compatible throughout all modes", () => {
+  for (const mode of modes)
+    for (const stance of stances) {
+      for (let i = 0; i <= 600; i++) {
+        const s = sampleMotion(i / 600, mode, stance);
+        for (const side of ["front", "rear"] as const) {
+          const shin = unit(
+            sub(s.joints[`${side}Knee`], s.joints[`${side}Ankle`]),
+          );
+          const boot = s.boots[side];
+          const pitch =
+            (Math.atan2(dot(shin, boot.toeDirection), dot(shin, boot.up)) *
+              180) /
+            Math.PI;
+          assert.ok(
+            pitch >= BOOT_SETUP.highbackLean - 1e-7,
+            "shin must not fold through the fixed highback",
+          );
+          assert.ok(
+            pitch <= BOOT_SETUP.maxCuff + 1e-7,
+            "hip placement must not demand unlimited boot deformation",
+          );
+          const inPlane = Math.hypot(
+            dot(shin, boot.up),
+            dot(shin, boot.toeDirection),
+          );
+          assert.ok(
+            inPlane > 0.99999,
+            "this example must not add unmodelled sideways boot collapse",
+          );
+        }
+      }
+    }
+});
+
+test("each connector has one extension transition, with both knees flexing again on the new edge", () => {
+  for (const mode of ["correct", "drill"] as const)
+    for (const half of [0, 1]) {
+      const samples = Array.from({ length: 1001 }, (_, i) =>
+        sampleMotion((half + i / 1001) / 2, mode, "regular", 0),
+      );
+      const flat = samples.reduce(
+        (best, s, i) =>
+          Math.abs(s.board.roll) < Math.abs(samples[best].board.roll)
+            ? i
+            : best,
+        0,
+      );
+      for (const leg of ["frontKnee", "rearKnee"] as const) {
+        const low = samples[flat].metrics[leg];
+        assert.ok(low < samples[0].metrics[leg] - 2);
+        const later = samples.slice(flat + 80);
+        if (mode === "drill") {
+          // A side-slip connector should not introduce an unexplained second
+          // extension while the learner is returning to controlled side slipping.
+          let maximum = low;
+          for (const s of later) {
+            assert.ok(
+              s.metrics[leg] > maximum - 1,
+              "unexpected second extension in connector",
+            );
+            maximum = Math.max(maximum, s.metrics[leg]);
+          }
+        }
+        assert.ok(Math.max(...later.map((s) => s.metrics[leg])) > low + 5);
+      }
+    }
 });
