@@ -1,4 +1,5 @@
 {
   "version": 1,
-  "types": ["center-low", "center-high", "fore-aft", "toe-edge", "heel-edge", "inclination", "steering", "garland", "j-turn", "gaze-control", "rail-track"]
+  "types": ["center-low", "center-high", "fore-aft", "toe-edge", "heel-edge", "inclination", "steering", "garland", "j-turn", "gaze-control", "rail-track", "edge-change-up"],
+  "partialVariants": {"pressure-flex":["phase-study"],"pressure-extend":["phase-study"]}
 }

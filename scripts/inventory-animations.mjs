@@ -19,7 +19,11 @@ const inputs = Object.fromEntries(await Promise.all(inputNames.map(async name =>
 const data = JSON.parse(inputs['content.json']);
 const registry = JSON.parse(inputs['lesson-player/registry.json']);
 if(registry.version!==1 || !Array.isArray(registry.types) || registry.types.some(t=>typeof t!=='string') || new Set(registry.types).size!==registry.types.length) throw new Error('课程三维注册清单格式无效');
-const implementedTypes = new Set(registry.types);
+const partialVariants=registry.partialVariants||{};
+if(Object.values(partialVariants).some(v=>!Array.isArray(v)||v.some(item=>typeof item!=='string')))throw new Error('部分迁移变体格式无效');
+const fullyImplementedTypes=new Set(registry.types);
+const implementedTypes = new Set([...registry.types,...Object.keys(partialVariants)]);
+const implemented=demo=>fullyImplementedTypes.has(demo.type)||Boolean(partialVariants[demo.type]?.includes(demo.variant||''));
 // SnowDemo only registers presets at evaluation time. No DOM, I/O, timers or
 // renderer are supplied: a future module with initialization side effects fails.
 const sandbox = { window: {} };
@@ -63,7 +67,8 @@ const modelNames = {
   unknown: '未归类',
 };
 const destinationFor = demo => {
-  if(implementedTypes.has(demo.type)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':['toe-edge','heel-edge','inclination'].includes(demo.type)?'D2':'D3'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
+  if(implemented(demo)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':['toe-edge','heel-edge','inclination'].includes(demo.type)?'D2':['pressure-flex','pressure-extend','edge-change-up','edge-change-down'].includes(demo.type)?'D4':'D3'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
+  if(partialVariants[demo.type]&&!demo.variant)return `D4：仅${partialVariants[demo.type].join('、')}已接入；其他任务仍待独立迁移`;
   if (library.presets[demo.type]?.dry) return 'D6：保留离雪独立动作；逐项审阅后决定 2D / 3D';
   if (demo.pressureDiagram || demo.variant === 'phase-study') return 'D4：保留二维阶段图；人体部分另行审阅';
   if (library.shortVariants[demo.type]) return 'D5：按变体独立审阅后接入共享 3D；待迁移';
@@ -80,7 +85,7 @@ const references = [];
 const illustrations = [];
 const lessonIds = new Set();
 const moduleIds = new Set(data.modules.map(m => m.id));
-const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task']);
+const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task', 'fromEdge']);
 for (const [lessonIndex, lesson] of data.lessons.entries()) {
   if (lessonIds.has(lesson.id)) issue('error', 'duplicate-lesson', lesson.id);
   lessonIds.add(lesson.id);
@@ -97,7 +102,7 @@ for (const [lessonIndex, lesson] of data.lessons.entries()) {
     if (demo.transition && !['extend', 'flex', 'retract'].includes(demo.transition)) issue('error', 'unknown-transition', `${lesson.id}：${demo.transition}`);
     for (const field of Object.keys(demo)) if (!acceptedFields.has(field)) issue('warning', 'new-config-field', `${lesson.id}：${field}，请复核去重与迁移影响`);
     for (const step of demo.steps || []) if (step.at != null && (!Number.isFinite(step.at) || step.at < 0 || step.at > 1)) issue('error', 'invalid-phase', `${lesson.id}：${JSON.stringify(step)}`);
-    const ref = { id: `${lesson.id}/${index + 1}`, lesson: lesson.id, index, locator, entry, key: key(demo), model: modelFor(demo.type), config: demo, destination: destinationFor(demo), renderer: implementedTypes.has(demo.type)?'lesson-3d':'legacy-svg', status: implementedTypes.has(demo.type)?'implemented-review-in-progress':'legacy-retained-unreviewed' };
+    const ref = { id: `${lesson.id}/${index + 1}`, lesson: lesson.id, index, locator, entry, key: key(demo), model: modelFor(demo.type), config: demo, destination: destinationFor(demo), renderer: implemented(demo)?'lesson-3d':'legacy-svg', status: implemented(demo)?'implemented-review-in-progress':'legacy-retained-unreviewed' };
     references.push(ref); lessonRecord.references.push(ref.id);
   }
   if (lesson.illustration) {
@@ -145,6 +150,8 @@ const counts = {
   prototypeModes: unique(Object.values(prototypeModes)).length,
   prototypeLessonEntries: Object.keys(prototypeModes).length,
   implemented3DTypes: implementedTypes.size,
+  fullyImplemented3DTypes:fullyImplementedTypes.size,
+  partiallyImplemented3DTypes:Object.keys(partialVariants).length,
   implemented3DReferences: references.filter(r=>r.renderer==='lesson-3d').length,
   remainingLegacyReferences: references.filter(r=>r.renderer==='legacy-svg').length,
   replacedLegacyReferences: references.filter(r=>r.renderer==='lesson-3d').length,
@@ -187,6 +194,7 @@ const lines = [
     ['小回转声明变体', counts.declaredShortVariants, '3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量'],
     ['3D 模式 / 课程入口', `${counts.prototypeModes} / ${counts.prototypeLessonEntries}`, '另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景'],
     ['课内三维类型 / 引用', `${counts.implemented3DTypes} / ${counts.implemented3DReferences}`, '按注册表已切换默认渲染；不代表教学认证'],
+    ['全量 / 部分接入类型', `${counts.fullyImplemented3DTypes} / ${counts.partiallyImplemented3DTypes}`, '部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成'],
     ['剩余旧动画引用', counts.remainingLegacyReferences, '继续逐项迁移，未缩减范围'],
   ]),
   '',

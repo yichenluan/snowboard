@@ -11,7 +11,7 @@
     "method": "先说清动作与雪板怎样配合，再给出具体练习、观察方法和下一步。技术依据以CASI、AASI、SBINZ教练教材为主，装备和非雪训练另列一手资料。",
     "coverage": "围绕刻滑和搓雪小回转两条重点路线组织；站姿、立刃、压力、转向等是共同基础，反脚、体能和装备可并行发展。保留原条目ID，已有个人笔记仍能对应。",
     "limitations": "运动感受是教学提示，不等于测量。原创动画是定性运动学示意，没有真实测力、精确个人角度或诊断。专项主题先说明任务与前提，具体个人动作调整需结合现场观察。视频时间只作为来源定位，章节首次课件采样约有±10秒误差。",
-    "contentRevision": 5
+    "contentRevision": 6
   },
   "modules": [
     {
@@ -3433,71 +3433,29 @@
         {
           "type": "pressure-flex",
           "title": "屈腿：开始下沉、收住、低位保持",
-          "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+          "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
           "variant": "phase-study",
           "view": "body",
           "pressureDiagram": true,
           "jointLabels": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "向下加速",
-              "detail": "开始向下加速，屈腿动作可能暂时减轻脚下压力。"
-            },
-            {
-              "at": 0.19,
-              "label": "减速收住",
-              "detail": "逐渐减慢下沉并收住，脚下压力可能暂时增加。"
-            },
-            {
-              "at": 0.38,
-              "label": "低位保持",
-              "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-            },
-            {
-              "at": 0.65,
-              "label": "恢复微屈",
-              "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "pressure-phase-study"
         },
         {
           "type": "pressure-extend",
           "title": "伸腿：开始站起、停止上升、高位保持",
-          "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+          "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
           "variant": "phase-study",
           "view": "body",
           "pressureDiagram": true,
           "jointLabels": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "向上加速",
-              "detail": "开始向上加速，伸腿动作可能暂时增加脚下压力。"
-            },
-            {
-              "at": 0.16,
-              "label": "减速至高位",
-              "detail": "上升逐渐变慢并停住，脚下压力可能暂时减小。"
-            },
-            {
-              "at": 0.32,
-              "label": "高位保持",
-              "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-            },
-            {
-              "at": 0.65,
-              "label": "恢复微屈",
-              "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "pressure-phase-study"
         }
       ],
-      "animationGuide": "平板/平地直线参考的高度与压力阶段图，把动作方向、加速/减速和保持分开；仅用于屈伸原理，弯内与地形压力另由滑行示范解释。图不含测力数值。",
+      "animationGuide": "原地平板的屈伸与估计质心高度图，把动作方向、加速、减速和保持分开。曲线不是压力；雪上压力还受弯形、速度与地形影响。",
       "drill": {
         "terrain": "先在平地看动画与做小幅感知，再到自然连弯已稳定的缓坡。",
         "setup": "选一个实际现象，例如弯尾跳动或旧刃难放开，不用脚底感觉猜精确受力。",
@@ -3986,35 +3944,14 @@
         {
           "type": "pressure-flex",
           "title": "屈腿：开始下沉、收住、低位保持",
-          "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+          "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
           "variant": "phase-study",
           "view": "body",
           "pressureDiagram": true,
           "jointLabels": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "向下加速",
-              "detail": "开始向下加速，屈腿动作可能暂时减轻脚下压力。"
-            },
-            {
-              "at": 0.19,
-              "label": "减速收住",
-              "detail": "逐渐减慢下沉并收住，脚下压力可能暂时增加。"
-            },
-            {
-              "at": 0.38,
-              "label": "低位保持",
-              "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-            },
-            {
-              "at": 0.65,
-              "label": "恢复微屈",
-              "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "pressure-phase-study"
         }
       ],
       "animationGuide": "把开始下沉、逐渐收住和低位保持分开看，避免把“低”直接等同于压力更大。",
@@ -4130,35 +4067,14 @@
         {
           "type": "pressure-extend",
           "title": "伸腿：开始站起、停止上升、高位保持",
-          "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+          "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
           "variant": "phase-study",
           "view": "body",
           "pressureDiagram": true,
           "jointLabels": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "向上加速",
-              "detail": "开始向上加速，伸腿动作可能暂时增加脚下压力。"
-            },
-            {
-              "at": 0.16,
-              "label": "减速至高位",
-              "detail": "上升逐渐变慢并停住，脚下压力可能暂时减小。"
-            },
-            {
-              "at": 0.32,
-              "label": "高位保持",
-              "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-            },
-            {
-              "at": 0.65,
-              "label": "恢复微屈",
-              "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "pressure-phase-study"
         }
       ],
       "animationGuide": "把伸展加速与上升减速明确分开，不用高位位置替代卸压时机。",
@@ -4527,38 +4443,17 @@
         {
           "type": "edge-change-up",
           "title": "伸展式过渡：身体跨过板",
-          "focus": "固定雪面参考：看髋和重心向另一侧通过，双腿在过渡较舒展",
+          "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
           "view": "width",
           "path": "transition",
           "transitionReference": "snow",
           "jointLabels": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "旧弯支撑",
-              "detail": "工作刃仍有支撑，身体保持可调整。"
-            },
-            {
-              "at": 0.18,
-              "label": "释放旧刃",
-              "detail": "逐渐减小旧刃角，用屈伸调节腿长，不猛甩躯干。"
-            },
-            {
-              "at": 0.44,
-              "label": "经过换刃位置",
-              "detail": "板短暂接近平，身体和支撑区域重新协调；不是刻意长期平板直滑。"
-            },
-            {
-              "at": 0.65,
-              "label": "渐进建立新刃",
-              "detail": "进入新弯后继续管理接触与弯形，双脚始终在固定器内。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "single-transition"
         }
       ],
-      "animationGuide": "给伸展式换刃使用固定雪面参考，使髋和重心的跨板过程更清楚；不把抬高本身当减压。"
+      "animationGuide": "固定雪面投影显示板中心、骨盆和胸廓的世界路径，两向转换可分别观察；骨盆不等于质心，伸展启动也不等于立即减压。"
     },
     {
       "id": "v13-down-drill",
@@ -4872,35 +4767,14 @@
         {
           "type": "edge-change-up",
           "title": "伸展式过渡：身体跨过板",
-          "focus": "固定雪面参考：看髋和重心向另一侧通过，双腿在过渡较舒展",
+          "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
           "view": "width",
           "path": "transition",
           "transitionReference": "snow",
           "jointLabels": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "旧弯支撑",
-              "detail": "工作刃仍有支撑，身体保持可调整。"
-            },
-            {
-              "at": 0.18,
-              "label": "释放旧刃",
-              "detail": "逐渐减小旧刃角，用屈伸调节腿长，不猛甩躯干。"
-            },
-            {
-              "at": 0.44,
-              "label": "经过换刃位置",
-              "detail": "板短暂接近平，身体和支撑区域重新协调；不是刻意长期平板直滑。"
-            },
-            {
-              "at": 0.65,
-              "label": "渐进建立新刃",
-              "detail": "进入新弯后继续管理接触与弯形，双脚始终在固定器内。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "single-transition"
         },
         {
           "type": "edge-change-down",
@@ -4943,30 +4817,9 @@
           "view": "track",
           "path": "transition",
           "trackDiagnostics": true,
-          "steps": [
-            {
-              "at": 0,
-              "label": "旧弯支撑",
-              "detail": "工作刃仍有支撑，身体保持可调整。"
-            },
-            {
-              "at": 0.18,
-              "label": "释放旧刃",
-              "detail": "逐渐减小旧刃角，用屈伸调节腿长，不猛甩躯干。"
-            },
-            {
-              "at": 0.44,
-              "label": "经过换刃位置",
-              "detail": "板短暂接近平，身体和支撑区域重新协调；不是刻意长期平板直滑。"
-            },
-            {
-              "at": 0.65,
-              "label": "渐进建立新刃",
-              "detail": "进入新弯后继续管理接触与弯形，双脚始终在固定器内。"
-            }
-          ],
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "single-transition"
         }
       ],
       "animationGuide": "以固定雪面参考显示两种不同的相对运动：身体跨过板与板从身下通过。两种策略共享释放、居中、建新刃的基本顺序，不作为所有人必须照抄的唯一节奏。"
@@ -5356,29 +5209,13 @@
       "demo": {
         "type": "edge-change-up",
         "transitionReference": "snow",
-        "focus": "固定雪面参考：释放、回到居中位置、进入新侧",
-        "steps": [
-          {
-            "label": "旧弯支撑",
-            "detail": "两腿可动，走到计划出口。"
-          },
-          {
-            "label": "释放回到居中位置",
-            "detail": "减旧刃角，身体与板重新接近。"
-          },
-          {
-            "label": "新侧建立",
-            "detail": "踝膝髋参与，刃和身体一起建立。"
-          },
-          {
-            "label": "接续新弧",
-            "detail": "新弯里继续调节压力和弧线，不用肩先扑过去。"
-          }
-        ],
+        "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
         "title": "身体怎样跨过雪板进入下一弯 · 动作示意",
         "autoplay": false,
-        "duration": 10000
-      }
+        "duration": 10000,
+        "task": "single-transition"
+      },
+      "animationGuide": "选用温和伸展过渡展示释放、回中与新刃建立；这是本段的动作策略，不代表所有换刃都必须伸腿。"
     },
     {
       "id": "v15-gaze-drill",
@@ -12317,11 +12154,13 @@
       ],
       "demo": {
         "type": "edge-change-up",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "后刃释放到新前刃的可控基线，用于和实际录像比较；本段不复现所有换刃延迟原因。",
         "autoplay": false,
         "duration": 10000,
         "title": "后刃换前刃总是慢：先看旧刃放开没有 · 动作示意",
-        "transitionReference": "snow"
+        "transitionReference": "snow",
+        "task": "single-transition",
+        "fromEdge": "heel"
       }
     },
     {

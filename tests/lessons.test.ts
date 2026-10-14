@@ -2,16 +2,16 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { readFileSync } from "node:fs";
 import { BODY, boardToWorld, type Vec3 } from "../prototype/motion.ts";
-import { LESSON_TYPES, sampleLesson, type LessonConfig } from "../lesson-player/motion.ts";
+import { canRenderLesson, sampleLesson, type LessonConfig } from "../lesson-player/motion.ts";
 
 const content=JSON.parse(readFileSync(new URL("../content.json",import.meta.url),"utf8"));
-const refs:LessonConfig[]=content.lessons.flatMap((l:{demos?:LessonConfig[];demo?:LessonConfig})=>l.demos?.length?l.demos:l.demo?[l.demo]:[]).filter((c:LessonConfig)=>LESSON_TYPES.includes(c.type));
+const refs:LessonConfig[]=content.lessons.flatMap((l:{demos?:LessonConfig[];demo?:LessonConfig})=>l.demos?.length?l.demos:l.demo?[l.demo]:[]).filter(canRenderLesson);
 const distance=(a:Vec3,b:Vec3)=>Math.hypot(...a.map((v,i)=>v-b[i]));
 const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
 const subtract=(a:Vec3,b:Vec3):Vec3=>a.map((v,i)=>v-b[i]) as Vec3;
 
 test("every migrated course preserves feet, both legs and finite equipment movement throughout its own task",()=>{
-  assert.equal(refs.length,44,"review added/removed references explicitly");
+  assert.equal(refs.length,53,"review added/removed references explicitly");
   for(const config of refs) for(const stance of ["regular","goofy"] as const) {
     let before:ReturnType<typeof sampleLesson>|undefined;
     for(let i=0;i<=200;i++) {

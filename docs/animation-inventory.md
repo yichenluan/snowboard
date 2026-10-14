@@ -16,11 +16,12 @@
 | 无动作/装备图课程 | 12 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
 | 已注册 / 有引用的类型 | 37 / 35 | SnowDemo.types；类型不是互不共享的独立实现 |
 | 应用变体键 | 70 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 85 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 展示配置组合 | 86 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 11 / 44 | 按注册表已切换默认渲染；不代表教学认证 |
-| 剩余旧动画引用 | 90 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 14 / 53 | 按注册表已切换默认渲染；不代表教学认证 |
+| 全量 / 部分接入类型 | 12 / 2 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
+| 剩余旧动画引用 | 81 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -106,10 +107,10 @@
 | `toe-edge` | 前刃：用关节逐渐立刃 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `heel-edge` | 后刃：髋膝踝协调，不折腰坐尾 | 雪上关键帧 + 双腿 IK | 6 / 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `absorption` | 屈曲吸收：腿变短，身体更平顺 | 雪上关键帧 + 双腿 IK | 0 / 0 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `pressure-extend` | 伸展调压：有节奏地改变腿长 | 雪上关键帧 + 双腿 IK | 4 / 3 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
-| `pressure-flex` | 屈曲的两个阶段：开始下蹲与停住下落 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `pressure-extend` | 伸展调压：有节奏地改变腿长 | 雪上关键帧 + 双腿 IK | 4 / 3 | D4：仅phase-study已接入；其他任务仍待独立迁移 |
+| `pressure-flex` | 屈曲的两个阶段：开始下蹲与停住下落 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：仅phase-study已接入；其他任务仍待独立迁移 |
 | `inclination` | 内倾与关节折角的组合 | 雪上关键帧 + 双腿 IK | 4 / 4 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `edge-change-up` | 伸展式换刃：旧刃 → 回到居中位置 → 新刃 | 雪上关键帧 + 双腿 IK | 5 / 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `edge-change-up` | 伸展式换刃：旧刃 → 回到居中位置 → 新刃 | 雪上关键帧 + 双腿 IK | 5 / 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-down` | 回收式换刃：屈腿让板从身下通过 | 雪上关键帧 + 双腿 IK | 3 / 2 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `steering` | 脚、膝、髋渐进引导雪板转向 | 雪上关键帧 + 双腿 IK | 7 / 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination` | 视线、肩髋与下肢协调 | 雪上关键帧 + 双腿 IK | 7 / 5 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
@@ -158,14 +159,14 @@
 | `inclination:heel` | v-heel-low-inclination/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-extend:heel` | v-heel-incline-extension/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `inclination:toe` | v-toe-reach-snow/1 | 1 | D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `pressure-flex:phase-study` | v-pressure-overview/1、v11-flex/1 | 1 | D4：保留二维阶段图；人体部分另行审阅 |
-| `pressure-extend:phase-study` | v-pressure-overview/2、v11-extend/1 | 1 | D4：保留二维阶段图；人体部分另行审阅 |
+| `pressure-flex:phase-study` | v-pressure-overview/1、v11-flex/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `pressure-extend:phase-study` | v-pressure-overview/2、v11-extend/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-flex:toe` | v-toe-kneel-pressure/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `fore-aft:rear-heel` | v-heel-open-rear-foot/1、v-heel-open-loading/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft:front-return-toe` | v-toe-front-participation/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `hip-edge-change:open` | v11-lateral/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `short-turns:round` | v12-rhythm-why/1、s-short-rhythm/1、s-short-diagnosis/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 3 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 4 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `edge-change-down:retraction-study` | v13-down-drill/2、v-transition-map/2 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
 | `garland:toe` | v14-steering/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
@@ -213,7 +214,7 @@
 | `dry-squat:hold` | v22-hold/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：保留离雪独立动作；逐项审阅后决定 2D / 3D |
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
-| `pressure-extend` | v21-linear/1 | 1 | D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移 |
+| `pressure-extend` | v21-linear/1 | 1 | D4：仅phase-study已接入；其他任务仍待独立迁移 |
 
 ## 逐课用途、资料与替换入口
 
@@ -457,8 +458,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 161994146b249b47a109551132956b053e1ee14aa6e0d4bed760ee1f57b47744 |
+| content.json | b3f369c3ac14eb669fe61b608ced04528965e474628b98ccd09bebad315db85e |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67 |
-| lesson-player/registry.json | 3740305a2cb1a30f80de86c0b518809647e713c748ad1c189be6f47317abe661 |
+| lesson-player/registry.json | e9ab22a9b31102c89f03b85d13fff42167f9776504adc2f8c39d45a4c2353f3e |
 

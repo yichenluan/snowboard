@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "161994146b249b47a109551132956b053e1ee14aa6e0d4bed760ee1f57b47744",
+    "content.json": "b3f369c3ac14eb669fe61b608ced04528965e474628b98ccd09bebad315db85e",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
     "app.js": "ac075d1d68ed8bd8625e66dc8516b6568cdf8a8fdacb840c4b1335ed0a488c67",
-    "lesson-player/registry.json": "3740305a2cb1a30f80de86c0b518809647e713c748ad1c189be6f47317abe661"
+    "lesson-player/registry.json": "e9ab22a9b31102c89f03b85d13fff42167f9776504adc2f8c39d45a4c2353f3e"
   },
   "scope": "静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确",
   "counts": {
@@ -19,14 +19,16 @@
     "registeredTypes": 37,
     "referencedTypes": 35,
     "applicationVariantKeys": 70,
-    "presentationConfigurations": 85,
+    "presentationConfigurations": 86,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 11,
-    "implemented3DReferences": 44,
-    "remainingLegacyReferences": 90,
-    "replacedLegacyReferences": 44
+    "implemented3DTypes": 14,
+    "fullyImplemented3DTypes": 12,
+    "partiallyImplemented3DTypes": 2,
+    "implemented3DReferences": 53,
+    "remainingLegacyReferences": 81,
+    "replacedLegacyReferences": 53
   },
   "modules": [
     {
@@ -255,7 +257,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "D4：仅phase-study已接入；其他任务仍待独立迁移"
     },
     {
       "type": "pressure-flex",
@@ -272,7 +274,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "D4：仅phase-study已接入；其他任务仍待独立迁移"
     },
     {
       "type": "inclination",
@@ -310,7 +312,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "type": "edge-change-down",
@@ -1087,12 +1089,13 @@
         {
           "jointLabels": true,
           "pressureDiagram": true,
+          "task": "pressure-phase-study",
           "type": "pressure-flex",
           "variant": "phase-study",
           "view": "body"
         }
       ],
-      "destination": "D4：保留二维阶段图；人体部分另行审阅"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "pressure-extend:phase-study",
@@ -1104,12 +1107,13 @@
         {
           "jointLabels": true,
           "pressureDiagram": true,
+          "task": "pressure-phase-study",
           "type": "pressure-extend",
           "variant": "phase-study",
           "view": "body"
         }
       ],
-      "destination": "D4：保留二维阶段图；人体部分另行审阅"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "pressure-flex:toe",
@@ -1194,22 +1198,31 @@
         {
           "jointLabels": true,
           "path": "transition",
+          "task": "single-transition",
           "transitionReference": "snow",
           "type": "edge-change-up",
           "view": "width"
         },
         {
           "path": "transition",
+          "task": "single-transition",
           "trackDiagnostics": true,
           "type": "edge-change-up",
           "view": "track"
         },
         {
+          "task": "single-transition",
+          "transitionReference": "snow",
+          "type": "edge-change-up"
+        },
+        {
+          "fromEdge": "heel",
+          "task": "single-transition",
           "transitionReference": "snow",
           "type": "edge-change-up"
         }
       ],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "edge-change-down:lower-com",
@@ -1898,7 +1911,7 @@
           "type": "pressure-extend"
         }
       ],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "D4：仅phase-study已接入；其他任务仍待独立迁移"
     }
   ],
   "references": [
@@ -2713,39 +2726,18 @@
       "config": {
         "type": "pressure-flex",
         "title": "屈腿：开始下沉、收住、低位保持",
-        "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+        "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
         "variant": "phase-study",
         "view": "body",
         "pressureDiagram": true,
         "jointLabels": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "向下加速",
-            "detail": "开始向下加速，屈腿动作可能暂时减轻脚下压力。"
-          },
-          {
-            "at": 0.19,
-            "label": "减速收住",
-            "detail": "逐渐减慢下沉并收住，脚下压力可能暂时增加。"
-          },
-          {
-            "at": 0.38,
-            "label": "低位保持",
-            "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-          },
-          {
-            "at": 0.65,
-            "label": "恢复微屈",
-            "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "pressure-phase-study"
       },
-      "destination": "D4：保留二维阶段图；人体部分另行审阅",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-pressure-overview/2",
@@ -2758,39 +2750,18 @@
       "config": {
         "type": "pressure-extend",
         "title": "伸腿：开始站起、停止上升、高位保持",
-        "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+        "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
         "variant": "phase-study",
         "view": "body",
         "pressureDiagram": true,
         "jointLabels": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "向上加速",
-            "detail": "开始向上加速，伸腿动作可能暂时增加脚下压力。"
-          },
-          {
-            "at": 0.16,
-            "label": "减速至高位",
-            "detail": "上升逐渐变慢并停住，脚下压力可能暂时减小。"
-          },
-          {
-            "at": 0.32,
-            "label": "高位保持",
-            "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-          },
-          {
-            "at": 0.65,
-            "label": "恢复微屈",
-            "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "pressure-phase-study"
       },
-      "destination": "D4：保留二维阶段图；人体部分另行审阅",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-toe-kneel-pressure/1",
@@ -2907,39 +2878,18 @@
       "config": {
         "type": "pressure-flex",
         "title": "屈腿：开始下沉、收住、低位保持",
-        "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+        "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
         "variant": "phase-study",
         "view": "body",
         "pressureDiagram": true,
         "jointLabels": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "向下加速",
-            "detail": "开始向下加速，屈腿动作可能暂时减轻脚下压力。"
-          },
-          {
-            "at": 0.19,
-            "label": "减速收住",
-            "detail": "逐渐减慢下沉并收住，脚下压力可能暂时增加。"
-          },
-          {
-            "at": 0.38,
-            "label": "低位保持",
-            "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-          },
-          {
-            "at": 0.65,
-            "label": "恢复微屈",
-            "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "pressure-phase-study"
       },
-      "destination": "D4：保留二维阶段图；人体部分另行审阅",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v11-extend/1",
@@ -2952,39 +2902,18 @@
       "config": {
         "type": "pressure-extend",
         "title": "伸腿：开始站起、停止上升、高位保持",
-        "focus": "平地上的简化屈伸示意：比较加速、减速与保持；实际转弯还受弯形和雪面影响",
+        "focus": "原地平板：分别观察加速、减速和保持；曲线只显示估计质心高度，不是压力。",
         "variant": "phase-study",
         "view": "body",
         "pressureDiagram": true,
         "jointLabels": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "向上加速",
-            "detail": "开始向上加速，伸腿动作可能暂时增加脚下压力。"
-          },
-          {
-            "at": 0.16,
-            "label": "减速至高位",
-            "detail": "上升逐渐变慢并停住，脚下压力可能暂时减小。"
-          },
-          {
-            "at": 0.32,
-            "label": "高位保持",
-            "detail": "这个平地简化示意中，保持高度不再产生额外加速度，短时压力变化回到原水平。真实雪坡还要看弯形、坡度与起伏，不能只凭高低判断。"
-          },
-          {
-            "at": 0.65,
-            "label": "恢复微屈",
-            "detail": "平顺恢复到方便继续活动的位置；本图不计算这个阶段的总压力。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "pressure-phase-study"
       },
-      "destination": "D4：保留二维阶段图；人体部分另行审阅",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v11-lateral/1",
@@ -3055,39 +2984,18 @@
       "config": {
         "type": "edge-change-up",
         "title": "伸展式过渡：身体跨过板",
-        "focus": "固定雪面参考：看髋和重心向另一侧通过，双腿在过渡较舒展",
+        "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
         "view": "width",
         "path": "transition",
         "transitionReference": "snow",
         "jointLabels": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "旧弯支撑",
-            "detail": "工作刃仍有支撑，身体保持可调整。"
-          },
-          {
-            "at": 0.18,
-            "label": "释放旧刃",
-            "detail": "逐渐减小旧刃角，用屈伸调节腿长，不猛甩躯干。"
-          },
-          {
-            "at": 0.44,
-            "label": "经过换刃位置",
-            "detail": "板短暂接近平，身体和支撑区域重新协调；不是刻意长期平板直滑。"
-          },
-          {
-            "at": 0.65,
-            "label": "渐进建立新刃",
-            "detail": "进入新弯后继续管理接触与弯形，双脚始终在固定器内。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "single-transition"
       },
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v13-down-drill/1",
@@ -3192,39 +3100,18 @@
       "config": {
         "type": "edge-change-up",
         "title": "伸展式过渡：身体跨过板",
-        "focus": "固定雪面参考：看髋和重心向另一侧通过，双腿在过渡较舒展",
+        "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
         "view": "width",
         "path": "transition",
         "transitionReference": "snow",
         "jointLabels": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "旧弯支撑",
-            "detail": "工作刃仍有支撑，身体保持可调整。"
-          },
-          {
-            "at": 0.18,
-            "label": "释放旧刃",
-            "detail": "逐渐减小旧刃角，用屈伸调节腿长，不猛甩躯干。"
-          },
-          {
-            "at": 0.44,
-            "label": "经过换刃位置",
-            "detail": "板短暂接近平，身体和支撑区域重新协调；不是刻意长期平板直滑。"
-          },
-          {
-            "at": 0.65,
-            "label": "渐进建立新刃",
-            "detail": "进入新弯后继续管理接触与弯形，双脚始终在固定器内。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "single-transition"
       },
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-transition-map/2",
@@ -3287,34 +3174,13 @@
         "view": "track",
         "path": "transition",
         "trackDiagnostics": true,
-        "steps": [
-          {
-            "at": 0,
-            "label": "旧弯支撑",
-            "detail": "工作刃仍有支撑，身体保持可调整。"
-          },
-          {
-            "at": 0.18,
-            "label": "释放旧刃",
-            "detail": "逐渐减小旧刃角，用屈伸调节腿长，不猛甩躯干。"
-          },
-          {
-            "at": 0.44,
-            "label": "经过换刃位置",
-            "detail": "板短暂接近平，身体和支撑区域重新协调；不是刻意长期平板直滑。"
-          },
-          {
-            "at": 0.65,
-            "label": "渐进建立新刃",
-            "detail": "进入新弯后继续管理接触与弯形，双脚始终在固定器内。"
-          }
-        ],
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "single-transition"
       },
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v14-steering/1",
@@ -3430,32 +3296,15 @@
       "config": {
         "type": "edge-change-up",
         "transitionReference": "snow",
-        "focus": "固定雪面参考：释放、回到居中位置、进入新侧",
-        "steps": [
-          {
-            "label": "旧弯支撑",
-            "detail": "两腿可动，走到计划出口。"
-          },
-          {
-            "label": "释放回到居中位置",
-            "detail": "减旧刃角，身体与板重新接近。"
-          },
-          {
-            "label": "新侧建立",
-            "detail": "踝膝髋参与，刃和身体一起建立。"
-          },
-          {
-            "label": "接续新弧",
-            "detail": "新弯里继续调节压力和弧线，不用肩先扑过去。"
-          }
-        ],
+        "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
         "title": "身体怎样跨过雪板进入下一弯 · 动作示意",
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "single-transition"
       },
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v15-gaze-drill/1",
@@ -5776,15 +5625,17 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "edge-change-up",
-        "focus": "按症状观察对应的雪板表现",
+        "focus": "后刃释放到新前刃的可控基线，用于和实际录像比较；本段不复现所有换刃延迟原因。",
         "autoplay": false,
         "duration": 10000,
         "title": "后刃换前刃总是慢：先看旧刃放开没有 · 动作示意",
-        "transitionReference": "snow"
+        "transitionReference": "snow",
+        "task": "single-transition",
+        "fromEdge": "heel"
       },
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v24-toe-unstable/1",
@@ -5901,7 +5752,7 @@
         "duration": 10000,
         "title": "动作时机：什么时候开始，什么时候停 · 动作示意"
       },
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移",
+      "destination": "D4：仅phase-study已接入；其他任务仍待独立迁移",
       "renderer": "legacy-svg",
       "status": "legacy-retained-unreviewed"
     }

@@ -1,8 +1,11 @@
 import { applyStance, buildPose, type MotionState, type PoseOptions, type Route, type Stance, type Vec3 } from "../prototype/motion";
 import registry from "./registry.json";
 import { isTurningLesson, sampleTurningLesson } from "./turns";
+import { supportsPressureLesson, pressureLessonTask, samplePressureLesson } from "./pressure";
 
-export const LESSON_TYPES: readonly string[] = registry.types;
+const partialVariants:Record<string,string[]>=registry.partialVariants;
+export const LESSON_TYPES: readonly string[] = [...registry.types,...Object.keys(partialVariants)];
+export const canRenderLesson=(config:LessonConfig)=>registry.types.includes(config.type)||Boolean(partialVariants[config.type]?.includes(config.variant??""));
 export interface LessonConfig {
   type: string;
   title?: string;
@@ -19,6 +22,9 @@ export interface LessonConfig {
   turnShape?: "open" | "closed";
   skid?: boolean;
   trackDiagnostics?: boolean;
+  fromEdge?: "toe" | "heel";
+  pressureDiagram?: boolean;
+  transitionReference?: string;
 }
 export interface Stage { at: number; title: string; detail: string }
 export interface LessonFrame {
@@ -42,6 +48,7 @@ const range = (t: number) => {
   return lerp([0,1,0,-1][i], [1,0,-1,0][i], smooth(t*4-i));
 };
 export function lessonTask(c: LessonConfig): string {
+  if(supportsPressureLesson(c))return pressureLessonTask(c);
   if(isTurningLesson(c)) return c.task ?? ({steering:"linked-steering", "rail-track":"linked-rails", garland:"same-edge-garland", "j-turn":"j-turn-stop", "gaze-control":"traverse-observation"}[c.type]!);
   return c.task ?? (c.type === "center-low" || c.type === "fore-aft" && !["rear-heel","front-return-toe"].includes(c.variant ?? "") ? "stationary" : c.type === "center-high" || c.type === "fore-aft" ? "single-arc" : c.path === "j-turn" ? "single-turn-stop" : "edge-release-study");
 }
@@ -92,7 +99,8 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
 }
 
 export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "regular"): LessonFrame {
-  if(!LESSON_TYPES.includes(c.type)) throw new Error(`尚未实现的三维动作：${c.type}`);
+  if(!canRenderLesson(c)) throw new Error(`尚未实现的三维动作：${c.type}/${c.variant??"default"}`);
+  if(supportsPressureLesson(c))return samplePressureLesson(time,c,stance);
   if(isTurningLesson(c)) return sampleTurningLesson(time,c,stance);
   const t=clamp(Number.isFinite(time)?time:0), task=lessonTask(c), s=side(c);
   const moving=!["stationary","static-edge"].includes(task);
