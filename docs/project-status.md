@@ -17,6 +17,14 @@
 
 可复现数量见[动画清单](animation-inventory.md)和[JSON清单](animation-inventory.json)。`absorption`、`pedalling` 是无当前课程引用的旧预设，不计入已接入任务。保留 `animations.js` 来源代码不意味着现有课程仍使用旧动画。
 
+## 2026-10-15 顶部入口与共用页脚
+
+按用户要求移除“备份数据”“保存网页”“导入补充”三个按钮及其处理代码，清理相关操作提示和无用样式。收藏、学习进度、个人补充和回收站仍使用原 localStorage 键，单文件构建与既有离线能力保留。共用页脚加入 [GitHub 项目仓库](https://github.com/yichenluan/snowboard)和微信（WeChat）：`Huunnter`，首页、课程及其他内容视图均显示。
+
+本次92/92既有测试、类型检查、两项Vite构建、单文件构建、清单同步及差异检查通过。实际浏览器核对宽窄视口的页脚、三个入口移除、首页及课程可打开；本地验证收藏、能力自查和个人补充在刷新后仍可读取，窄屏无页面横向溢出。未改动作或课程内容，不新增教学验收结论。工程日志为 `log/footer-*`，本次证据目录为 `.validation/site-footer/`。
+
+以下各节的导入导出验收及迁移操作属于当时版本的历史记录，不代表当前仍有这些功能。
+
 ## 2026-10-15 GitHub 课程评论
 
 用户确认网站尚未正式上线，无需保留旧笔记或兼容迁移。课程原本机笔记栏直接替换为“观察与讨论”：由 Utterances 提供 GitHub 登录及 Markdown 评论，公开存放在 `yichenluan/snowboard` 的 Issues；首次发言创建该课的 Issue。博客原有 Gitalk 与博客评论仓库保持独立。

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="面向已入门雪友的单板进阶手册：动作原理、身体关系、阶段示意、练习进阶与常见错误。可离线查询和继续补充。">
+  <meta name="description" content="面向已入门雪友的单板进阶手册：动作原理、身体关系、阶段示意、练习进阶与常见错误。结合动作示意与练习反馈持续进阶。">
   <title>单板滑雪 · 进阶动作手册</title>
   <style>/* GUIDE_STYLE */</style>
 </head>
@@ -13,13 +13,12 @@
     <a class="brand" href="#"><span class="brand-symbol" aria-hidden="true">↗</span><span>雪上笔记<small>SNOWBOARD FIELD GUIDE</small></span></a>
     <div class="side-caption">你的动作学习手册</div>
     <nav id="nav"></nav>
-    <div class="side-bottom"><p>理解动作，再把它带上雪道。</p><span>离线可用 · 可持续补充</span></div>
+    <div class="side-bottom"><p>理解动作，再把它带上雪道。</p><span>循序练习 · 持续积累</span></div>
   </aside>
   <div class="page">
     <header class="topbar">
       <button id="menu-toggle" class="icon-button" aria-label="展开导航" aria-expanded="false">☰</button>
       <div class="breadcrumb">单板滑雪 <span>/</span> 进阶滑行</div>
-      <div class="top-actions"><button id="export-json" class="quiet-button">备份数据</button><button id="export-html" class="quiet-button">保存网页</button><button id="import-button" class="quiet-button">导入补充</button><input id="import-file" type="file" accept=".json,application/json" hidden></div>
     </header>
     <main id="main" tabindex="-1">
       <section class="hero hero-compact" id="hero">
@@ -35,7 +34,6 @@
   <dialog id="add-dialog"><form id="add-form"><div class="dialog-top"><h2>添加一条补充</h2><button type="button" id="close-dialog" class="icon-button" aria-label="关闭">×</button></div><p class="muted">先保存观察与出处。未经核验的补充会保留“待核验”标签，不生成推荐动作。</p><label>标题<input name="title" required maxlength="100" placeholder="这条补充解决什么问题？"></label><label>模块<select name="module" id="add-module"></select></label><label>内容<textarea name="summary" required rows="6" maxlength="10000" placeholder="动作观察、练习经验或需要继续核实的问题"></textarea></label><label>来源链接（可选）<input name="url" type="url" placeholder="https://…"></label><button class="primary-button" type="submit">保存补充</button></form></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script id="guide-data" type="application/json">/* GUIDE_DATA */</script>
-  <script id="initial-user-state" type="application/json">{}</script>
   <script>/* GUIDE_ANIMATIONS */</script>
   <script id="lesson-3d-runtime">/* GUIDE_LESSON_RUNTIME */</script>
   <script>/* GUIDE_LESSON_BRIDGE */</script>

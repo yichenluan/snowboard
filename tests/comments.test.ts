@@ -164,7 +164,7 @@ test('saved files and offline pages do not request comments; retry recovers afte
   mounted.destroy();
 });
 
-test('OAuth callback is consumed at startup, preserves the course and stays separate from user export data',()=>{
+test('OAuth callback is consumed at startup, preserves the course and stays separate from user records',()=>{
   const b=browser({href:'https://jinke.me/snowboard/?keep=1&utterances=test-session#lesson=s-short'});
   assert.equal(b.location.href,'https://jinke.me/snowboard/?keep=1#lesson=s-short');
   assert.equal(b.storage.get('snowboard-utterances-session'),'test-session');
