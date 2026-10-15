@@ -465,6 +465,6 @@
 | --- | --- |
 | content.json | d3b136f869061c73926ba2fd617283bcbb5e6b53f5152c1048d3f31a9e939381 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
-| app.js | 8dd5f4969e471d95ab8f561ef5ad8de4bc8150a5bb08a7a5996dafed267884d4 |
+| app.js | ac104f2fec1902c8b0c9c0ff270311ff6a87424ba8c3a38dbef19c09596f845a |
 | lesson-player/registry.json | 5c657d9aa412aa6667ab79782b00e35202e5ed72cee07e1d2943c8a212682bae |
 

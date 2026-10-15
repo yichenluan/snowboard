@@ -84,9 +84,19 @@ Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，�
 
 离线教材仍是单个 HTML：课内三维使用内联 IIFE、内联样式与程序生成模型，不请求 CDN、外部字体或模型；无 WebGL 时降级为同一状态的可播放骨架。`build.py` 缺少课内三维构建时会明确失败。独立原型在 `file:` 教材中的入口指向 `https://jinke.me/snowboard/3d/`，不加入单文件导出。实际导出内容已核对，`file:` 直接重开和断网运行仍未实测；具体范围见[播放器审阅](docs/lesson-player-review.md)。
 
-笔记、收藏和个人补充仍只保存在访问者自己的浏览器中，推送源码不会上传浏览器记录。发布时使用原始源码构建，不要把“保存网页”导出的个人版本放进仓库。更换域名或清理浏览器前先导出备份。
+收藏、学习进度和个人补充仍只保存在访问者自己的浏览器中，推送源码不会上传浏览器记录。发布时使用原始源码构建，不要把“保存网页”导出的个人版本放进仓库。更换域名或清理浏览器前先导出备份。
 
 从 `https://jinke.me/` 移到 `https://jinke.me/snowboard/` 只改变路径，origin 不变，且本项目保留原 localStorage 存储键，因此原有个人记录可以继续读取。此前 `https://yichenluan.github.io` 下的记录仍因跨 origin 隔离，需从原浏览器导出 JSON 后在新站导入，不能自动读取。
+
+## GitHub 评论
+
+课程评论使用 [Utterances](https://utteranc.es/)，公开存放在 `yichenluan/snowboard` 的 Issues。仓库需保持公开且启用 Issues；Utterances GitHub App 仅安装到该仓库，权限为读取 metadata、读写 Issues。它不需要本站配置 OAuth client secret，也没有代码写入权限。
+
+`comments.js` 按稳定课程 ID 生成唯一 Issue 搜索标识，切换课程会销毁旧 iframe 与监听器；不要改成 pathname 映射，因为本站全部课程共用 `/snowboard/` 路径。课程标题和网址变化不改变讨论标识。iframe 参数与 [官方 client.ts](https://github.com/utterance/utterances/blob/master/src/client.ts) 保持一致，显式传入含课程 hash 的正式网址，以便 GitHub 登录后返回原课程。此处使用官方脚本生成的 iframe 协议，上游协议变动时需复核。
+
+登录回调的 `utterances` 参数会从地址栏移除，会话放在独立存储键中；不写入课程数据、JSON 备份或导出网页。第三方评论代码运行在跨域 iframe 内。高度消息必须来自当前 iframe 和 `https://utteranc.es`；离课会清理监听器。`file:` 离线文件不加载评论，保留当前课程在线入口；离线进入课程时显示重试入口。
+
+原本机笔记栏已直接替换为“观察与讨论”，不提供旧笔记迁移。公开评论不包含在“备份数据”和“保存网页”导出中。本机的收藏、学习进度、个人补充继续使用原有功能。
 
 ## 构建与回退
 

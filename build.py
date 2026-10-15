@@ -1,4 +1,4 @@
-"""将可维护源码打包为完全离线的单文件 HTML。"""
+"""将课程源码打包为离线可读的单文件 HTML；GitHub 评论需联网。"""
 import json
 import re
 from pathlib import Path
@@ -18,6 +18,7 @@ replacements = {
     "/* GUIDE_LESSON_RUNTIME */": runtime,
     "/* GUIDE_LESSON_BRIDGE */": (root / "lesson-player/bridge.js").read_text(),
     "/* GUIDE_PROGRESSION */": (root / "progression.js").read_text(),
+    "/* GUIDE_COMMENTS */": (root / "comments.js").read_text(),
     "/* GUIDE_APP */": (root / "app.js").read_text(),
 }
 for marker, content in replacements.items():
