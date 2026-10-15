@@ -20,6 +20,7 @@ replacements = {
     "/* GUIDE_PROGRESSION */": (root / "progression.js").read_text(),
     "/* GUIDE_ASSESSMENT */": (root / "assessment.js").read_text(),
     "/* GUIDE_COMMENTS */": (root / "comments.js").read_text(),
+    "/* GUIDE_STATE */": (root / "guide-state.js").read_text(),
     "/* GUIDE_APP */": (root / "app.js").read_text(),
 }
 for marker, content in replacements.items():

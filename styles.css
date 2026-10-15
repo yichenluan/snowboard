@@ -238,3 +238,8 @@
 .source-item.source-selected{border-left:3px solid var(--accent,#285e58);padding-left:12px;background:#f1f6f1}.source-selection{font-size:13px;color:var(--accent,#285e58)}
 
 .practice-dose{margin:16px 0;padding:14px 16px;border:1px solid var(--line);border-left:3px solid #527a70;border-radius:5px;background:#f1f5ee;font-size:12px}.practice-dose p{margin:6px 0 0;font-size:13px!important;line-height:1.8}
+
+/* Independent learning branches; the original course page layout is retained. */
+.route-section{padding:24px;border:1px solid var(--line);border-radius:12px;background:var(--paper);margin-bottom:18px}
+.route-section h2{margin:0 0 10px}.route-entry{padding:12px;background:#edf3eb;border-radius:8px}.route-entry strong{display:block;margin-bottom:4px}
+.route-lessons{padding-left:22px;display:grid;gap:8px}.route-lessons .stage-link{text-align:left;white-space:normal}.curriculum-standards{padding:20px;border:1px solid var(--line);border-radius:12px}.curriculum-standards>summary{cursor:pointer;font-weight:600}.curriculum-standards .stage{grid-template-columns:1fr}

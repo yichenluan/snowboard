@@ -8,7 +8,7 @@
  */
 import { readFile, writeFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
-import { resolve, dirname } from 'node:path';
+import { resolve, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import vm from 'node:vm';
 
@@ -19,7 +19,7 @@ const check = args.includes('--check');
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 const hash = value => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(stable(value))).digest('hex');
 const read = name => readFile(resolve(root, name), 'utf8');
-const names = ['content.json', 'app.js', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
+const names = ['content.json', 'app.js', 'guide-state.js', 'scripts/inventory-teaching.mjs', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
   ...(await readdir(resolve(root, 'lesson-player'))).filter(name => /\.(ts|tsx|js|css)$/.test(name)).map(name => `lesson-player/${name}`),
   ...(await readdir(resolve(root, 'prototype'))).filter(name => /\.(ts|tsx|css)$/.test(name)).map(name => `prototype/${name}`)];
 const input = Object.fromEntries(await Promise.all(names.map(async name => [name, await read(name)])));
@@ -33,11 +33,56 @@ const sourceMap = new Map(data.sources.flatMap(source => [source.id, ...(source.
 const humanReads = new Map(manual.reviewedLessons.map(review => [review.id, review]));
 const entryReads = new Map((manual.reviewedEntries || []).map(review => [review.id, review]));
 const sourceIds = lesson => [...new Set((lesson.citations || []).map(c => sourceMap.get(c.source)?.id || c.source))];
+const guideSandbox={window:{},URLSearchParams};
+vm.runInNewContext(input['guide-state.js'],guideSandbox,{timeout:1000});
+if(typeof guideSandbox.window.SnowGuide?.checks!=='function')throw new Error('缺少单一来源的课程自检方法');
+const lessonChecks=lesson=>guideSandbox.window.SnowGuide.checks(lesson);
+
 const ref = id => `https://jinke.me/snowboard/#lesson=${encodeURIComponent(id)}`;
 const demos = lesson => lesson.demos?.length ? lesson.demos : lesson.demo ? [lesson.demo] : [];
 const entries = [], errors = [], warnings = [];
-const uiFiles = ['app.js', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html'];
+const uiFiles = ['app.js', 'guide-state.js', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html'];
 const animationFiles = names.filter(name => name.startsWith('lesson-player/') || name.startsWith('prototype/'));
+// Follow actual local runtime imports. Only known dispatcher edges are gated by
+// the configured task; imports from a task to a shared helper are never pruned.
+const dependencyPolicy = 'runtime-imports-with-task-routing-v1';
+const taskModules = new Set(['carving','rotation','short-turns','expert-short-turns','expert-short-sequence','expert-carving','switch','twist','turns','pressure','pressure-advanced','coordination'].map(name=>`lesson-player/${name}.ts`));
+const conditionalModules = new Set([...taskModules,'lesson-player/dryland-player.tsx','lesson-player/dryland.ts','lesson-player/diagnostics.tsx','lesson-player/twist-diagram.tsx']);
+const dispatchers = new Set(['lesson-player/main.tsx','lesson-player/motion.ts','lesson-player/diagnostics.tsx']);
+function localImports(file) {
+  const source=input[file],specifiers=[];
+  if(!source||!/[.](?:ts|tsx|js)$/.test(file))return [];
+  for(const match of source.matchAll(/(?:^|\n)\s*(?:import\s+(?!type\b)([^;]+?)\s+from\s*|export\s+(?!type\b)(?:\{[^}]*\}|\*)\s+from\s*)["']([^"']+)["']/g)){
+    const clause=match[1]?.trim();
+    // `import { type A, type B }` is also erased at runtime.
+    if(clause?.startsWith('{')&&clause.endsWith('}')&&clause.slice(1,-1).split(',').filter(s=>s.trim()).every(s=>s.trim().startsWith('type ')))continue;
+    specifiers.push(match[2]);
+  }
+  for(const match of source.matchAll(/(?:^|\n)\s*import\s*["']([^"']+)["']/g))specifiers.push(match[1]);
+  return [...new Set(specifiers.filter(specifier=>specifier.startsWith('.')).map(specifier=>{
+    const path=relative(root,resolve(root,dirname(file),specifier)).replaceAll('\\','/');
+    const found=[path,...['.ts','.tsx','.js','.json','.css'].map(ext=>path+ext)].find(candidate=>Object.hasOwn(input,candidate));
+    if(!found)throw new Error(`依赖清单不能解析本地导入：${file} → ${specifier}`);
+    return found;
+  }))];
+}
+const importGraph=Object.fromEntries(animationFiles.map(file=>[file,localImports(file)]));
+function dependencyClosure(roots,allowedConditional) {
+  const visited=new Set();
+  function visit(file) {
+    if(visited.has(file))return;
+    if(!Object.hasOwn(input,file))throw new Error(`依赖文件未纳入输入：${file}`);
+    visited.add(file);
+    for(const dependency of importGraph[file]||[]){
+      if(allowedConditional&&dispatchers.has(file)&&conditionalModules.has(dependency)&&!allowedConditional.has(dependency))continue;
+      visit(dependency);
+    }
+  }
+  roots.forEach(visit);
+  return [...visited].sort();
+}
+const prototypeFiles=dependencyClosure(['prototype/main.tsx']);
+
 const observedKeys = ['pageAccessible', 'animationRendered', 'teachingVerified'];
 const observations = new Map();
 for (const observation of manual.observations) {
@@ -58,9 +103,9 @@ function observationFor(entry, dimension, applicable = true) {
   if (dimension === 'teachingVerified' && record.status === 'passed' && (!record.sourceChecks?.length || !record.scope)) throw new Error(`教学通过必须有逐结论来源复核和核验范围：${entry.id}`);
   return { ...record, evidence };
 }
-function add({ id, kind, title, location, goal, payload, files = [], lessonId, sources = [], details = {}, accessible = true, animated = false, reviewPart }) {
+function add({ id, kind, title, location, goal, payload, files = [], lessonId, sources = [], details = {}, accessible = true, animated = false, reviewPart, dependencyVersion }) {
   const entry = { id, kind, title, location, page: lessonId ? ref(lessonId) : null, goal, lessonId: lessonId || null, contentFingerprint: hash(payload),
-    fingerprint: hash({ payload, files: Object.fromEntries(files.map(file => [file, digests[file] || null])) }), sources, details };
+    fingerprint: hash({ payload, ...(dependencyVersion?{dependencyPolicy:dependencyVersion}:{}), files: Object.fromEntries(files.map(file => [file, digests[file] || null])) }), dependencyFiles:[...new Set(files)].sort(), ...(dependencyVersion?{dependencyPolicy:dependencyVersion}:{}), sources, details };
   const lessonRead = lessonId && humanReads.get(lessonId);
   const readIsCurrent = lessonRead && lessonRead.fingerprint === hash(lessons.get(lessonId));
   const entryRead = entryReads.get(id);
@@ -76,7 +121,7 @@ function add({ id, kind, title, location, goal, payload, files = [], lessonId, s
     teachingVerified: observationFor(entry, 'teachingVerified', !['source', 'feature'].includes(kind)),
   };
   entry.modification = { status: 'not-recorded', evidence: [] };
-  if (manual.baseline?.entryPayloadHashes && ['lesson','drill','diagnosis','animation','illustration','skill','curriculum','term','source','module','assessment-protocol','assessment-criterion','video-study','video-segment'].includes(kind)) {
+  if (manual.baseline?.entryPayloadHashes && ['lesson','drill','diagnosis','animation','illustration','skill','curriculum','term','source','module','assessment-protocol','assessment-criterion','video-study','video-segment','navigation-route'].includes(kind)) {
     const original=manual.baseline.entryPayloadHashes[id];
     entry.modification={status:original===entry.contentFingerprint?'unchanged':original?'modified':'added',evidence:[`审查起点 ${manual.baseline.commit}；按条目内容指纹比较，不表示教学通过。`],baselineFingerprint:original||null,currentFingerprint:entry.contentFingerprint};
   }
@@ -86,8 +131,8 @@ function add({ id, kind, title, location, goal, payload, files = [], lessonId, s
 }
 
 const pages = [
-  ['overview', '内容总览', '课程导航、技术分类与学习入口', 'renderOverview', data.modules],
-  ['curriculum', '进阶练习路线', '按能力选择前置、当前练习和下一步', 'renderCurriculum', data.curriculum],
+  ['overview', '内容总览', '课程导航、技术分类与学习入口', 'renderOverview', {modules:data.modules,navigationRoutes:data.navigationRoutes}],
+  ['curriculum', '进阶练习路线', '按能力选择前置、当前练习和下一步', 'renderCurriculum', {navigationRoutes:data.navigationRoutes,curriculum:data.curriculum}],
   ['progression', '能力图与自查', '区分结果能力、必要前置、可选辅助与并行方向', 'SnowProgression', data.progressionMap],
   ['technical-map', '动作技术全景', '联系身体动作、板控关系与滑行结果', 'renderTechnicalMap', data.technicalMap],
   ['sources', '资料与阅读依据', '找到来源版本和适用范围', 'renderSources', data.sources],
@@ -96,7 +141,7 @@ const pages = [
   ['prototype', '独立三维原型', '对照搓雪小回转、急甩尾与侧滑接单弯', 'prototype/main.tsx', { modes: ['correct','error','drill'], route: '/3d/' }],
 ];
 for (const [id, title, goal, renderer, payload] of pages) {
-  const e = add({ id: `page:${id}`, kind: 'page', title, goal, location: id === 'prototype' ? 'prototype/main.tsx' : `app.js#${renderer}`, files: id === 'prototype' ? animationFiles : uiFiles, payload,
+  const e = add({ id: `page:${id}`, kind: 'page', title, goal, location: id === 'prototype' ? 'prototype/main.tsx' : `app.js#${renderer}`, files: id === 'prototype' ? prototypeFiles : uiFiles, payload,
     animated: id === 'prototype', details: { navigation: ['overview','prototype'].includes(id) ? '直接入口' : '站内导航／关联入口；不把源码函数存在算作页面访问' } });
   if (id === 'glossary' && !data.glossary?.length) e.states.codePresent = { status: 'missing', evidence: ['content.json 中尚无 glossary 条目'] };
 }
@@ -110,7 +155,7 @@ const features = [
   ['assessment','雪上练习证据记录','保存跨课草稿、多趟条件与观察证据，不自动评分或授予能力','assessment.js'],
   ['video-study','真人示范分析卡','区分已观察画面、教学应用和不可推断范围，按时间返回官方原片','app.js#videoStudyMarkup'],
 ];
-for (const [id,title,goal,location] of features) add({id:`feature:${id}`,kind:'feature',title,goal,location,payload:{id,title},files:id==='lesson-player'?animationFiles:['app.js','progression.js','comments.js',...(['assessment','video-study'].includes(id)?['assessment.js','assessment.css','build.py','shell.html']:[])],details:{verification:'功能执行及用户数据恢复必须单独实测。'}});
+for (const [id,title,goal,location] of features) add({id:`feature:${id}`,kind:'feature',title,goal,location,payload:{id,title},files:id==='lesson-player'?animationFiles:['app.js','guide-state.js','progression.js','comments.js',...(['assessment','video-study'].includes(id)?['assessment.js','assessment.css','build.py','shell.html']:[])],details:{verification:'功能执行及用户数据恢复必须单独实测。'}});
 for (const [index,module] of data.modules.entries()) add({id:`module:${module.id}`,kind:'module',title:module.title,goal:module.intro,location:`content.json#/modules/${index}`,payload:module,files:uiFiles,details:{lessons:data.lessons.filter(l=>l.module===module.id).map(l=>l.id)}});
 
 const registered = new Set([...registry.types, ...(registry.drylandTypes || [])]);
@@ -129,8 +174,21 @@ const moduleFor = demo => registry.drylandTypes?.includes(demo.type) ? 'lesson-p
   ['hip-edge-change','knee-edge-change','retraction-turns'].includes(demo.type) ? 'lesson-player/coordination.ts' :
   ['rotation','counter-rotation','mixed-rotation','shoulder-coordination'].includes(demo.type) ? 'lesson-player/rotation.ts' :
   ['steering','garland','j-turn','gaze-control','rail-track'].includes(demo.type) ? 'lesson-player/turns.ts' :
-  ['pressure-flex','pressure-extend','edge-change-down'].includes(demo.type) ? 'lesson-player/pressure-advanced.ts / lesson-player/pressure.ts' :
+  ['pressure-flex','pressure-extend','edge-change-down'].includes(demo.type) ? (demo.variant==='phase-study'?'lesson-player/pressure.ts':'lesson-player/pressure-advanced.ts') :
   demo.type === 'edge-change-up' ? 'lesson-player/pressure.ts' : 'lesson-player/motion.ts';
+function animationDependencies(demo) {
+  const dry=registry.drylandTypes?.includes(demo.type);
+  const selected=new Set(dry?['lesson-player/dryland-player.tsx','lesson-player/dryland.ts']:moduleFor(demo).split(' / '));
+  const diagnostics=!dry&&(demo.pressureDiagram||demo.legLengthDiagram||demo.transitionReference==='snow'||demo.task==='expert-load-release');
+  if(diagnostics){
+    selected.add('lesson-player/diagnostics.tsx');
+    // Diagnostics directly calls meanLegLength from this module, independently
+    // of which task produced the state. This is a real shared dependency.
+    selected.add('lesson-player/pressure-advanced.ts');
+  }
+  if(demo.type==='twist')selected.add('lesson-player/twist-diagram.tsx');
+  return dependencyClosure(['lesson-player/main.tsx','lesson-player/styles.css','lesson-player/bridge.js',...selected],selected);
+}
 const specificationsFor = demo => demo.type === 'expert-short-sequence'
   ? ['docs/level4-short-animation-coverage.md', 'docs/level4-animation-coverage-review.md', 'docs/level4-animation-source-claim-review.md']
   : demo.type === 'expert-carving'
@@ -155,8 +213,9 @@ for (const [index,lesson] of data.lessons.entries()) {
     if(!(lesson.citations||[]).some(c=>c.source===source))errors.push(`${lesson.id}.${field}[${i}] 的来源 ${source} 未列于本课 citations，页面按钮会被过滤`);
   }
   if (lesson.drill) {
-    const drill = add({id:`drill:${lesson.id}`,kind:'drill',title:`${lesson.title} · 练习`,goal:lesson.goal,location:`${location}/drill`,payload:lesson.drill,files:uiFiles,lessonId:lesson.id,sources:citations,reviewPart:'drill',details:{...lesson.drill,doseBoundary:'原文中的数字或次数仅按其来源/教学建议解释；缺少 dose 字段不代表正文没有任何练习量。'}});
-    drill.structuralFindings = ['terrain','setup','steps','success','stop','progression'].filter(field => !lesson.drill[field] || Array.isArray(lesson.drill[field]) && !lesson.drill[field].length).map(field=>`缺少 ${field}`);
+    const drill = add({id:`drill:${lesson.id}`,kind:'drill',title:`${lesson.title} · 练习`,goal:lesson.goal,location:`${location}/drill`,payload:{...lesson.drill,effectiveChecks:lessonChecks(lesson)},files:uiFiles,lessonId:lesson.id,sources:citations,reviewPart:'drill',details:{...lesson.drill,effectiveChecks:lessonChecks(lesson),checksSource:'lesson.checks 与差异 drill.success 去重合并，和页面 SnowGuide.checks 同源',doseBoundary:'原文中的数字或次数仅按其来源/教学建议解释；缺少 dose 字段不代表正文没有任何练习量。'}});
+    drill.structuralFindings = ['terrain','setup','steps','stop','progression'].filter(field => !lesson.drill[field] || Array.isArray(lesson.drill[field]) && !lesson.drill[field].length).map(field=>`缺少 ${field}`);
+    if(!lessonChecks(lesson).length)drill.structuralFindings.push('缺少有效自检标准（checks / drill.success）');
   }
   for (const [i,mistake] of (lesson.mistakes || []).entries()) {
     // A label-derived key survives reordering. Rename explicitly with `id` when
@@ -166,7 +225,7 @@ for (const [index,lesson] of data.lessons.entries()) {
     if (mistake.lesson && !lessons.has(mistake.lesson)) errors.push(`${lesson.id} 的纠错课程不存在：${mistake.lesson}`);
   }
   for (const [i,demo] of demos(lesson).entries()) {
-    const e=add({id:`animation:${lesson.id}/${i+1}`,kind:'animation',title:demo.title||`${lesson.title} · ${demo.type}`,goal:demo.focus||lesson.animationGuide||lesson.goal,location:`${location}/${lesson.demos?.length?`demos/${i}`:'demo'}`,payload:{demo,lessonGoal:lesson.goal,citations:lesson.citations,execution:lesson.execution},files:animationFiles,lessonId:lesson.id,sources:citations,animated:true,details:{config:demo,renderer:implemented(demo)?'lesson-3d':'unsupported-or-legacy',dataSource:moduleFor(demo),sharedContract:'prototype/motion.ts / prototype/scene.tsx（离雪使用独立普通鞋模型）',spec:{technicalId:lesson.id,reviewDocuments:specificationsFor(demo),context:lesson.drill?.terrain||null,phases:demo.steps||[],phaseSource:moduleFor(demo),frontRearLegTasks:lesson.execution,boardPath:demo.path||demo.task||'由运行时任务生成；请沿 dataSource 追踪',edgePressure:'刃角为几何输出；压力仅在明确图例和简化条件下示意，无实测压力或肌肉模型',annotations:demo.focus||lesson.animationGuide||null,errorComparison:(lesson.mistakes||[]).filter(m=>m.demoKey).map(m=>({error:m.error,demoKey:m.demoKey})),simplification:'程序化运动学示意；配置存在、共享骨架和数值测试不构成逐配置教学校准',unverified:['当前引用的完整过渡和循环接缝','两种前脚方向及实体多视角','与来源条件对应的真实示范比对']}}});
+    const e=add({id:`animation:${lesson.id}/${i+1}`,kind:'animation',title:demo.title||`${lesson.title} · ${demo.type}`,goal:demo.focus||lesson.animationGuide||lesson.goal,location:`${location}/${lesson.demos?.length?`demos/${i}`:'demo'}`,payload:{demo,lessonGoal:lesson.goal,citations:lesson.citations,execution:lesson.execution},files:animationDependencies(demo),dependencyVersion:dependencyPolicy,lessonId:lesson.id,sources:citations,animated:true,details:{config:demo,renderer:implemented(demo)?'lesson-3d':'unsupported-or-legacy',dataSource:moduleFor(demo),sharedContract:'prototype/motion.ts / prototype/scene.tsx（离雪使用独立普通鞋模型）',spec:{technicalId:lesson.id,reviewDocuments:specificationsFor(demo),context:lesson.drill?.terrain||null,phases:demo.steps||[],phaseSource:moduleFor(demo),frontRearLegTasks:lesson.execution,boardPath:demo.path||demo.task||'由运行时任务生成；请沿 dataSource 追踪',edgePressure:'刃角为几何输出；压力仅在明确图例和简化条件下示意，无实测压力或肌肉模型',annotations:demo.focus||lesson.animationGuide||null,errorComparison:(lesson.mistakes||[]).filter(m=>m.demoKey).map(m=>({error:m.error,demoKey:m.demoKey})),simplification:'程序化运动学示意；配置存在、共享骨架和数值测试不构成逐配置教学校准',unverified:['当前引用的完整过渡和循环接缝','两种前脚方向及实体多视角','与来源条件对应的真实示范比对']}}});
     if (!implemented(demo)) errors.push(`${e.id} 未被当前三维注册门控支持`);
   }
   if (lesson.illustration) add({id:`illustration:${lesson.id}`,kind:'illustration',title:lesson.title,goal:lesson.goal,location:`${location}/illustration`,payload:lesson.illustration,files:['app.js'],lessonId:lesson.id,sources:citations,details:lesson.illustration});
@@ -194,6 +253,15 @@ for(const [index,protocol] of (data.assessmentProtocols||[]).entries()){
     if(criterion.lessonId&&!lessons.has(criterion.lessonId))errors.push(`评估维度 ${protocol.id}/${criterion.id} 的课程不存在：${criterion.lessonId}`);
   }
 }
+for(const [index,route] of (data.navigationRoutes||[]).entries()){
+  add({id:`navigation-route:${route.id}`,kind:'navigation-route',title:route.title,goal:route.summary,location:`content.json#/navigationRoutes/${index}`,payload:route,files:uiFiles,details:{...route,boundary:'页面入口和上下课共用的路线，不等同能力达标顺序。'}});
+  for(const field of ['id','title','summary','entry'])if(typeof route[field]!=='string'||!route[field].trim())errors.push(`学习路线 ${route.id||index} 缺少有效 ${field}`);
+  if(!Array.isArray(route.lessons)||!route.lessons.length)errors.push(`学习路线 ${route.id||index} 缺少课程`);
+  else{
+    if(new Set(route.lessons).size!==route.lessons.length)errors.push(`学习路线 ${route.id} 含重复课程`);
+    for(const id of route.lessons)if(!lessons.has(id))errors.push(`学习路线 ${route.id} 的课程不存在：${id}`);
+  }
+}
 for (const [index,stage] of (data.curriculum || []).entries()) {
   add({id:`curriculum:${stage.id||hash(stage.title).slice(0,10)}`,kind:'curriculum',title:stage.title,goal:stage.goal,location:`content.json#/curriculum/${index}`,payload:stage,files:uiFiles,details:stage});
   for (const id of stage.lessons||[]) if(!lessons.has(id))errors.push(`路线课程不存在：${id}`);
@@ -214,14 +282,14 @@ for (const [index,source] of data.sources.entries()) add({id:`source:${source.id
 const animationEntries=entries.filter(entry=>entry.kind==='animation');
 for(const type of allTypes){
   const refs=animationEntries.filter(entry=>entry.details.config.type===type);
-  add({id:`animation-type:${type}`,kind:'animation-type',title:legacyLibrary?.presets?.[type]?.title||type,goal:refs.length?'列明该类型被哪些课程和任务引用；不把类型注册作为逐配置审查通过':'旧预设来源登记；当前没有课程引用，不计页面已展示',location:'lesson-player/registry.json / animations.js',payload:{type,requiredTasks:registry.requiredTasks?.[type],partialVariants:registry.partialVariants?.[type],references:refs.map(e=>e.id)},files:animationFiles,accessible:false,details:{references:refs.map(e=>e.id),currentRegistered:registered.has(type)||Object.hasOwn(registry.partialVariants||{},type),unreferenced:!refs.length}});
+  add({id:`animation-type:${type}`,kind:'animation-type',title:legacyLibrary?.presets?.[type]?.title||type,goal:refs.length?'列明该类型被哪些课程和任务引用；不把类型注册作为逐配置审查通过':'旧预设来源登记；当前没有课程引用，不计页面已展示',location:'lesson-player/registry.json / animations.js',payload:{type,requiredTasks:registry.requiredTasks?.[type],partialVariants:registry.partialVariants?.[type],references:refs.map(e=>e.id)},files:[...new Set(refs.flatMap(e=>e.dependencyFiles))],dependencyVersion:dependencyPolicy,accessible:false,details:{references:refs.map(e=>e.id),currentRegistered:registered.has(type)||Object.hasOwn(registry.partialVariants||{},type),unreferenced:!refs.length}});
 }
 for(const task of [...new Set(animationEntries.map(entry=>entry.details.config.task).filter(Boolean))]){
   const refs=animationEntries.filter(entry=>entry.details.config.task===task);
-  add({id:`animation-task:${task}`,kind:'animation-task',title:task,goal:[...new Set(refs.map(e=>e.goal))].join('；'),location:[...new Set(refs.map(e=>e.details.dataSource))].join(' / '),payload:{task,references:refs.map(e=>e.id),configurations:refs.map(e=>e.details.config)},files:animationFiles,accessible:false,sources:[...new Set(refs.flatMap(e=>e.sources))],details:{references:refs.map(e=>e.id),scope:'任务仅作去重索引；逐引用显示目标、配置、画面和教学证据见 animation 条目。'}});
+  add({id:`animation-task:${task}`,kind:'animation-task',title:task,goal:[...new Set(refs.map(e=>e.goal))].join('；'),location:[...new Set(refs.map(e=>e.details.dataSource))].join(' / '),payload:{task,references:refs.map(e=>e.id),configurations:refs.map(e=>e.details.config)},files:[...new Set(refs.flatMap(e=>e.dependencyFiles))],dependencyVersion:dependencyPolicy,accessible:false,sources:[...new Set(refs.flatMap(e=>e.sources))],details:{references:refs.map(e=>e.id),scope:'任务仅作去重索引；逐引用显示目标、配置、画面和教学证据见 animation 条目。'}});
 }
 for(const [mode,title,goal]of [['correct','连续搓雪小回转参考','观察圆弧、可控滑移和两向转换'],['error','急甩尾反例','分辨弯尾集中横刹与整弯控速'],['drill','侧滑接单弯','观察同刃侧滑、旧刃释放与单弯接续']]){
-  const entry=add({id:`prototype:${mode}`,kind:'prototype-animation',title,goal,location:`prototype/main.tsx?mode=${mode}`,payload:{mode},files:animationFiles,animated:true,sources:['S16','A02','A03'],details:{route:`https://jinke.me/snowboard/3d/?mode=${mode}`,source:'prototype/motion.ts / prototype/lesson.ts / prototype/scene.tsx',scope:'独立原型实际观察单独登记，不从课内同源模型继承通过。'}});
+  const entry=add({id:`prototype:${mode}`,kind:'prototype-animation',title,goal,location:`prototype/main.tsx?mode=${mode}`,payload:{mode},files:prototypeFiles,dependencyVersion:dependencyPolicy,animated:true,sources:['S16','A02','A03'],details:{route:`https://jinke.me/snowboard/3d/?mode=${mode}`,source:'prototype/motion.ts / prototype/lesson.ts / prototype/scene.tsx',scope:'独立原型实际观察单独登记，不从课内同源模型继承通过。'}});
   entry.page=entry.details.route;
 }
 
@@ -251,13 +319,13 @@ const kinds=[...new Set(entries.map(e=>e.kind))];
 const dimensions=items=>Object.fromEntries(observedKeys.map(key=>[key,{applicable:items.filter(e=>e.states[key].status!=='not-applicable').length,...Object.fromEntries(['passed','partial','failed','blocked','stale','not-verified','not-applicable'].map(status=>[status,items.filter(e=>e.states[key].status===status).length]))}]));
 const aggregate=items=>({discovered:items.length,sourcePresent:items.filter(e=>e.states.codePresent.status==='present').length,textReviewed:items.filter(e=>e.review.status==='text-reviewed').length,reviewStale:items.filter(e=>e.review.status==='needs-recheck').length,modified:items.filter(e=>['modified','added'].includes(e.modification.status)).length,pageAccessible:items.filter(e=>e.states.pageAccessible.status==='passed').length,animationRendered:items.filter(e=>e.states.animationRendered.status==='passed').length,teachingVerified:items.filter(e=>e.states.teachingVerified.status==='passed').length,dimensions:dimensions(items)});
 const revalidation=entries.flatMap(entry=>observedKeys.filter(d=>entry.states[d].status==='stale').map(dimension=>({id:entry.id,kind:entry.kind,dimension,previousStatus:entry.states[dimension].previousStatus,previousScope:entry.states[dimension].scope||null,evidence:entry.states[dimension].evidence,reason:entry.states[dimension].reason})));
-const report={schemaVersion:1,auditDate:manual.auditDate,scope:manual.scope||'全站登记与本轮证据账本；机器结构检查、全文审读、来源核验和实际渲染观察分别报告。',inputs:digests,counts:aggregate(entries),byKind:Object.fromEntries(kinds.map(kind=>[kind,aggregate(entries.filter(e=>e.kind===kind))])),evidenceSummary:manual.evidenceSummary||{},revalidation,issues,structural:{status:errors.length?'failed':'passed',errors,warnings,limits:'仅检查登记、字段、引用、注册门控和能力图；不判断技术正确、页面可见或动画渲染。'},entries};
+const report={schemaVersion:1,dependencyPolicy,auditDate:manual.auditDate,scope:manual.scope||'全站登记与本轮证据账本；机器结构检查、全文审读、来源核验和实际渲染观察分别报告。',inputs:digests,counts:aggregate(entries),byKind:Object.fromEntries(kinds.map(kind=>[kind,aggregate(entries.filter(e=>e.kind===kind))])),evidenceSummary:manual.evidenceSummary||{},revalidation,issues,structural:{status:errors.length?'failed':'passed',errors,warnings,limits:'仅检查登记、字段、引用、注册门控和能力图；不判断技术正确、页面可见或动画渲染。'},entries};
 const md=v=>String(v??'—').replace(/\|/g,'\\|').replace(/\r?\n/g,' ');
 const table=(headers,rows)=>[`| ${headers.join(' | ')} |`,`| ${headers.map(()=>'---').join(' | ')} |`,...rows.map(row=>`| ${row.map(md).join(' | ')} |`)].join('\n');
 const status={present:'存在',missing:'缺失','not-verified':'未核验','not-applicable':'不适用',passed:'通过',failed:'失败',partial:'部分',blocked:'阻塞',stale:'证据已过期','text-reviewed':'全文已读','not-reviewed':'未审读','needs-recheck':'内容已变待复查'};
 const lines=['# 全站教学审查登记','',
   '由 `node scripts/inventory-teaching.mjs` 生成；`--check` 检查同步。人工审查维护在 [teaching-audit-review.json](teaching-audit-review.json)，完整动作规格、字段位置和证据见 [JSON 清单](teaching-audit.json)。',
-  '',`审查日期：${manual.auditDate}。登记包含页面、模块、每课正文、每课练习、每项错误诊断、每个动画引用、装备图、路线、能力节点、术语、来源、训练记录协议及维度、真人分析卡及片段。相同动作被不同课程引用时分别登记。`,
+  '',`审查日期：${manual.auditDate}。登记包含页面、模块、每课正文、每课练习、导航路线、每项错误诊断、每个动画引用、装备图、路线、能力节点、术语、来源、训练记录协议及维度、真人分析卡及片段。相同动作被不同课程引用时分别登记。`,
   '', '**口径：**“全文已读”只表明相应文字有有效人工审读记录；可能是本轮全文阅读，也可能保留历史全文并复读本轮差分，具体范围以记录为准。“教学已核验”必须另有逐结论来源检查与明确范围。代码存在、页面访问、动画渲染、教学核验互不继承，历史迁移/发布记录不会自动填成通过。修改统计按审查起点的条目内容指纹比较（含新增），不是 Git 行数；页面和功能代码变更须另记，不扩大到全部课程。',
   '', '## 覆盖率与证据边界','',table(['条目类型','已登记','代码存在','正文已读','内容已变待复查','有修改登记','页面实际可访问','动画实际渲染','教学已核验'],kinds.map(kind=>{const c=report.byKind[kind];return[kind,c.discovered,c.sourcePresent,c.textReviewed,c.reviewStale,c.modified,c.pageAccessible,c.animationRendered,c.teachingVerified];})),
   '',table(['独立观察维度','适用分母','通过','部分','失败','阻塞','历史证据过期','未核验'],observedKeys.map(key=>{const c=report.counts.dimensions[key];return[key,c.applicable,c.passed,c.partial,c.failed,c.blocked,c.stale,c['not-verified']];})),
@@ -265,6 +333,8 @@ const lines=['# 全站教学审查登记','',
   '',`机器结构检查：${report.structural.status}；${errors.length} 项错误、${warnings.length} 项提醒。通过只说明引用、必要字段、注册门控与能力图结构自洽。`,
   '', '## 问题与处理','',table(['问题 ID','严重度','现有问题','问题证据','修改方案','关联来源','修改状态','验证结果'],issues.map(i=>[i.id,i.severity,i.problem,i.evidence.join('；'),i.proposal,i.sources.join('、'),i.modification,i.validation])),
   '', '## 更新和回填方法','',
+  '动画依赖按实际本地导入、已注册任务分派与启用的图表计算；dependencyFiles 列出每条所依赖源码。共享人体、场景和播放器改动仍使相应引用失效；独立任务改动只使其依赖引用失效。算法版本改变不迁移旧观察指纹，历史证据继续保留 stale。规则和限制见 [依赖说明](audit-dependency-review.md)。',
+
   '1. 新增或修改课程、术语、路线、动画后重新生成；稳定课程 ID 是关联主键。错误项优先提供显式 id，没有时用标题内容生成键；改名会出现新键。动画编号延续现有清单的 lessonId/序号，调整顺序或配置后指纹会使旧证据失效。',
   '2. 课程全文审读写 reviewedLessons，含明确 parts、reviewer、evidence 与当时课程 fingerprint；术语等独立条目的文字审读写 reviewedEntries，fingerprint 取条目的 contentFingerprint。内容改变自动标为待复查。审读不会把动画或来源标为已核验。',
   '3. 实际观察写 observations：id、dimension（pageAccessible / animationRendered / teachingVerified）、当前条目的 fingerprint、status（passed / partial / failed / blocked）、date、scope、非空 evidence。教学 passed 额外需要 sourceChecks。每个维度每条目一条当前记录；旧记录可在其 evidence 中引用独立历史文件。',

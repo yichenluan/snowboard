@@ -92,8 +92,8 @@
 | 压力与屈伸时序 | 10 | 12 | 0 | 0 |
 | 换刃与下肢引导 | 10 | 14 | 0 | 0 |
 | 旋转协调与反脚 | 13 | 17 | 0 | 0 |
-| 刻滑 · 基础、低姿态与专家任务 | 11 | 10 | 0 | 3 |
-| 小回转 · 基础到Expert Short Radius | 13 | 35 | 0 | 2 |
+| 刻滑 · 从浅弧到进阶大弯 | 11 | 10 | 0 | 3 |
+| 小回转 · 从连续圆弯到进阶短弯 | 13 | 35 | 0 | 2 |
 | 热身与体能 | 13 | 20 | 0 | 0 |
 | 装备与舒适站姿 | 6 | 1 | 2 | 3 |
 | 滑行问题诊断 | 6 | 6 | 0 | 0 |
@@ -248,9 +248,9 @@
 | [v-toe-high-low](https://jinke.me/snowboard/#lesson=v-toe-high-low) | 前刃高低站位：蹲得下，也站得起：站高一点和蹲低一点都能控刃，不靠锁膝或折腰。 | 1. `center-high:toe` | [S03](#source-s03)、[S16](#source-s16) |
 | [v-active-passive-edge](https://jinke.me/snowboard/#lesson=v-active-passive-edge) | 立刃的两种配合：身体内倾与关节成角：能用小动作立刃，并知道加大内倾时要看路线和抓地。 | 1. `inclination:inclination-focused`<br>2. `inclination:angulation-focused` | [S16](#source-s16)、[F01](#source-f01)、[S01](#source-s01)、[S10](#source-s10) |
 | [v-toe-static-five](https://jinke.me/snowboard/#lesson=v-toe-static-five) | 原地练前刃，再用单弯验证：每次立刃后都能恢复，并把感觉对应到实际雪痕。 | 1. `toe-edge` | [S06](#source-s06)、[S16](#source-s16) |
-| [v-toe-tongue](https://jinke.me/snowboard/#lesson=v-toe-tongue) | 前刃发力：胫骨贴靴舌，脚跟留在靴内：前刃能渐进立起、稳住，也能按路线慢慢放开。 | 1. `toe-edge`<br>2. `heel-edge` | [S06](#source-s06)、[S16](#source-s16) |
+| [v-toe-tongue](https://jinke.me/snowboard/#lesson=v-toe-tongue) | 前刃基础：脚跟踩稳，膝髋一起调刃：前刃能渐进立起、稳住，也能按路线慢慢放开。 | 1. `toe-edge`<br>2. `heel-edge` | [S06](#source-s06)、[S16](#source-s16) |
 | [v-toe-lock-ankle](https://jinke.me/snowboard/#lesson=v-toe-lock-ankle) | 前刃调角：膝髋渐进移动，脚踝能调：刃角稍大后仍能控制路线，并能顺畅进入下一步。 | 1. `toe-edge` | [S06](#source-s06)、[S16](#source-s16) |
-| [v-heel-pull](https://jinke.me/snowboard/#lesson=v-heel-pull) | 后刃发力：脚跟、高背板与膝髋配合：后刃既能稳住，也能继续屈伸和放开，不靠踢后脚。 | 1. `heel-edge` | [S06](#source-s06)、[S16](#source-s16) |
+| [v-heel-pull](https://jinke.me/snowboard/#lesson=v-heel-pull) | 后刃基础：脚跟踩稳，膝髋保持能动：后刃既能稳住，也能继续屈伸和放开，不靠踢后脚。 | 1. `heel-edge` | [S06](#source-s06)、[S16](#source-s16) |
 | [v-heel-static-repetition](https://jinke.me/snowboard/#lesson=v-heel-static-repetition) | 原地练后刃：立得起，也放得下：后刃动作能自主完成，不靠他人拉住或大摆臂。 | 1. `heel-edge` | [S06](#source-s06)、[S16](#source-s16) |
 | [v-toe-counterbalance](https://jinke.me/snowboard/#lesson=v-toe-counterbalance) | 前刃成角：腿调角，上身保持平衡：增加一点前刃角度后，仍能稳住路线并进入下一弯。 | 1. `toe-edge` | [S16](#source-s16)、[S06](#source-s06)、[S10](#source-s10)、[S17](#source-s17) |
 | [v-heel-counterbalance](https://jinke.me/snowboard/#lesson=v-heel-counterbalance) | 后刃成角：髋向脚跟侧，上身配合平衡：后刃脚下变重时还能调整，不整个人向弯内躺倒。 | 1. `heel-edge` | [S06](#source-s06)、[S16](#source-s16) |
@@ -267,13 +267,13 @@
 | [v-toe-kneel-pressure](https://jinke.me/snowboard/#lesson=v-toe-kneel-pressure) | 前刃吸收压力：柔和屈腿，不猛跪：吸收压力变化后仍能继续调刃，不猛跪、不蹲到底。 | 1. `pressure-flex:toe` | [S16](#source-s16)、[S10](#source-s10)、[S06](#source-s06) |
 | [v-heel-open-rear-foot](https://jinke.me/snowboard/#lesson=v-heel-open-rear-foot) | 开放后刃：让后脚也能稳稳控刃：后刃板尾能按计划转弯，下一弯也不被后坐拖住。 | 1. `fore-aft:rear-heel` | [S01](#source-s01)、[S10](#source-s10)、[S16](#source-s16)、[S17](#source-s17) |
 | [v-toe-front-participation](https://jinke.me/snowboard/#lesson=v-toe-front-participation) | 前刃入弯：试前脚引导，保持双脚接续：入弯更顺，弯中仍由两脚配合，不一直压在前脚。 | 1. `fore-aft:front-return-toe` | [S10](#source-s10)、[S03](#source-s03)、[S16](#source-s16)、[S17](#source-s17)、[S06](#source-s06) |
-| [v11-flex](https://jinke.me/snowboard/#lesson=v11-flex) | 屈腿调压：开始下沉与收住动作不同：按需要缩短腿长，同时保住路线和后续活动空间。 | 1. `pressure-flex:phase-study` | [S16](#source-s16)、[S10](#source-s10)、[A01](#source-a01) |
-| [v11-extend](https://jinke.me/snowboard/#lesson=v11-extend) | 伸腿调压：开始站起与停止上升不同：渐进伸腿后仍能屈回来，不靠猛蹬制造转弯。 | 1. `pressure-extend:phase-study` | [S16](#source-s16)、[S10](#source-s10)、[A01](#source-a01) |
+| [v11-flex](https://jinke.me/snowboard/#lesson=v11-flex) | 屈腿与压力：开始下蹲和收住动作有何不同：按需要缩短腿长，同时保住路线和后续活动空间。 | 1. `pressure-flex:phase-study` | [S16](#source-s16)、[S10](#source-s10)、[A01](#source-a01) |
+| [v11-extend](https://jinke.me/snowboard/#lesson=v11-extend) | 伸腿与压力：开始站起和停止上升有何不同：渐进伸腿后仍能屈回来，不靠猛蹬制造转弯。 | 1. `pressure-extend:phase-study` | [S16](#source-s16)、[S10](#source-s10)、[A01](#source-a01) |
 | [v11-lateral](https://jinke.me/snowboard/#lesson=v11-lateral) | 开放站姿：分清板头板尾与两侧板刃：分清向前刃/后刃移动，与向板头/板尾偏移。 | 1. `hip-edge-change:open` | [S16](#source-s16)、[S01](#source-s01)、[S17](#source-s17) |
 | [v12-rhythm-why](https://jinke.me/snowboard/#lesson=v12-rhythm-why) | 连弯节奏：先完成弯形，再调整快慢：连续换刃少停顿，弯尾不堆成一次猛烈急刹。 | 1. `short-turns:round` | [S16](#source-s16)、[S06](#source-s06) |
 | [v12-up-drill](https://jinke.me/snowboard/#lesson=v12-up-drill) | 伸展式换刃：起身同时放开旧刃：贴雪完成换刃，并给新弯继续屈腿留空间。 | 1. `edge-change-up` | [S10](#source-s10)、[S16](#source-s16)、[S06](#source-s06) |
 | [v13-down-drill](https://jinke.me/snowboard/#lesson=v13-down-drill) | 屈曲换刃与回收换刃：两种收腿方式：分清两种动作路径，放开旧刃后平顺接上新刃。 | 1. `edge-change-down:lower-com`<br>2. `edge-change-down:retraction-study` | [S06](#source-s06)、[S16](#source-s16)、[T01](#source-t01) |
-| [v-transition-map](https://jinke.me/snowboard/#lesson=v-transition-map) | 看清换刃：放旧刃、经过平板、建新刃：旧刃能放开，新刃能连续建立，中间不僵停也不扑肩。 | 1. `edge-change-up`<br>2. `edge-change-down:retraction-study`<br>3. `edge-change-up` | [S16](#source-s16)、[S17](#source-s17)、[S06](#source-s06) |
+| [v-transition-map](https://jinke.me/snowboard/#lesson=v-transition-map) | 双向换刃：放开旧刃，顺畅接上新弯：旧刃能放开，新刃能连续建立，中间不僵停也不扑肩。 | 1. `edge-change-up`<br>2. `edge-change-down:retraction-study`<br>3. `edge-change-up` | [S16](#source-s16)、[S17](#source-s17)、[S06](#source-s06) |
 | [v14-steering](https://jinke.me/snowboard/#lesson=v14-steering) | 下肢引导搓雪弯：连续转向，不甩后脚：转出连续圆弧，避免前脚钉住、后脚突然把板尾甩过去。 | 1. `garland:toe`<br>2. `garland:heel`<br>3. `steering` | [S16](#source-s16)、[A02](#source-a02)、[S10](#source-s10) |
 | [v14-twist](https://jinke.me/snowboard/#lesson=v14-twist) | 板体扭转：前后脚调刃可以有先后：辨认两脚独立动作，并让后段及时接上新刃。 | 1. `twist` | [S16](#source-s16)、[S01](#source-s01) |
 | [v15-incline-change](https://jinke.me/snowboard/#lesson=v15-incline-change) | 身体怎样跨过雪板进入下一弯：身体跨板顺畅，不把肩先扔进新弯等雪板追上。 | 1. `edge-change-up` | [S17](#source-s17)、[S16](#source-s16) |
@@ -300,9 +300,9 @@
 | [v-toe-low-drill](https://jinke.me/snowboard/#lesson=v-toe-low-drill) | 前刃 J 弯：让雪板沿一条弧线转向横坡：完成可控的前刃单弧，知道哪里抓刃、哪里开始扫尾。 | 1. `j-turn` | [S16](#source-s16) |
 | [v20-carve](https://jinke.me/snowboard/#lesson=v20-carve) | 刻滑和搓雪：主动选择滑移多少：能减少或增加滑移，同时把圆弯和速度控制好。 | 1. `steering`<br>2. `rail-track` | [S16](#source-s16)、[S10](#source-s10) |
 | [v20-traffic](https://jinke.me/snowboard/#lesson=v20-traffic) | 弯形控速：弯尾朝哪里，速度就怎样变化：在选定走廊内用完整圆弧控速，减少弯尾突然横刹。 | 1. `steering`<br>2. `steering` | [S16](#source-s16)、[S37](#source-s37) |
-| [v20-path](https://jinke.me/snowboard/#lesson=v20-path) | 刻滑进阶路线：基础、低姿态与专家任务：按当前板表现选出一项练习，分清基础、低姿态应用与官方专家任务的条件和证据。 | 正文保留，无动作图 | [S16](#source-s16)、[T02](#source-t02)、[S19](#source-s19)、[S10](#source-s10)、[S38](#source-s38) |
-| [s20-rails](https://jinke.me/snowboard/#lesson=s20-rails) | 浅弧连刃：用小刃角连接连续窄痕：两侧各留下连续窄痕，并在预定位置主动结束。 | 1. `rail-track` | [S16](#source-s16) |
-| [s-short-integrated](https://jinke.me/snowboard/#lesson=s-short-integrated) | 搓雪小回转：把释放、转向和控速连成一组：在自选走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。 | 1. `short-turns:round:extend`<br>2. `short-turns:round:flex`<br>3. `short-turns:tail-brake` | [A02](#source-a02)、[S10](#source-s10)、[S16](#source-s16)、[D01](#source-d01)、[S35](#source-s35) |
+| [v20-path](https://jinke.me/snowboard/#lesson=v20-path) | 刻滑怎么练：基础、进阶与低姿态选修：按当前板表现选出一项练习，分清基础、低姿态应用与官方高阶任务的条件和证据。 | 正文保留，无动作图 | [S16](#source-s16)、[T02](#source-t02)、[S19](#source-s19)、[S10](#source-s10)、[S38](#source-s38) |
+| [s20-rails](https://jinke.me/snowboard/#lesson=s20-rails) | 浅刻滑：连接两侧窄痕，按计划结束：两侧各留下连续窄痕，并在预定位置主动结束。 | 1. `rail-track` | [S16](#source-s16) |
+| [s-short-integrated](https://jinke.me/snowboard/#lesson=s-short-integrated) | 连续小回转：圆弯不断，速度可控：在自选走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。 | 1. `short-turns:round:extend`<br>2. `short-turns:round:flex`<br>3. `short-turns:tail-brake` | [A02](#source-a02)、[S10](#source-s10)、[S16](#source-s16)、[D01](#source-d01)、[S35](#source-s35) |
 | [s-short-sideslip](https://jinke.me/snowboard/#lesson=s-short-sideslip) | 侧滑接单弯：一步步连成搓雪小回转：把“能用两刃侧滑和单弯停止”接到“连续的小搓雪弯”，补上换侧练习的中间台阶。 | 1. `short-turn-progression:side-slip`<br>2. `short-turn-progression:side-slip-shorter`<br>3. `short-turn-progression:linked` | [S16](#source-s16) |
 | [s-short-size-ladder](https://jinke.me/snowboard/#lesson=s-short-size-ladder) | 从中弯到小弯：逐级缩小，再回到中弯：能主动缩小弯，也能随时放大弯，避免只会跟着固定节拍摆板。 | 1. `short-turn-progression:medium-to-short`<br>2. `short-turn-progression:short-steady`<br>3. `short-turn-progression:short-to-medium` | [S16](#source-s16)、[A02](#source-a02) |
 | [s-short-balance](https://jinke.me/snowboard/#lesson=s-short-balance) | 双脚带板与前后平衡：不要围着板头甩尾：缩弯时保留两脚的控制，找到能连续换侧的前后位置。 | 1. `short-turn-balance:centered`<br>2. `short-turn-balance:nose-pivot`<br>3. `short-turn-balance:back-seat` | [A02](#source-a02)、[S10](#source-s10) |
@@ -339,16 +339,16 @@
 | [v21-linear](https://jinke.me/snowboard/#lesson=v21-linear) | 动作时机：什么时候开始，什么时候停：能调整一段屈伸的时机与速度，同时保持圆弯。 | 1. `pressure-extend:timing-study` | [S16](#source-s16)、[T01](#source-t01)、[S26](#source-s26) |
 | [v3-index](https://jinke.me/snowboard/#lesson=v3-index) | 进阶怎么选课：两条主线与并行能力：根据当前问题和前置能力，选一项值得练的内容。 | 正文保留，无动作图 | [S16](#source-s16)、[T01](#source-t01)、[T02](#source-t02)、[T03](#source-t03)、[S26](#source-s26) |
 | [s-duck-low-linked](https://jinke.me/snowboard/#lesson=s-duck-low-linked) | 低姿态八字刻滑：保持窄痕，完成两侧转换：降低姿态后，两侧仍能连续窄痕、控制出口和速度，并保留随时调刃、屈伸和主动退出的能力。 | 1. `duck-carve` | [S19](#source-s19)、[S16](#source-s16)、[S10](#source-s10)、[D01](#source-d01)、[S17](#source-s17)、[T02](#source-t02)、[S36](#source-s36) |
-| [s-short-expert-map](https://jinke.me/snowboard/#lesson=s-short-expert-map) | Expert Short Radius：先对齐终点与当前能力：说清专家任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S41](#source-s41) |
-| [s-short-expert-steering](https://jinke.me/snowboard/#lesson=s-short-expert-steering) | 专家短弯转向：走廊内建立完整而可选的弧线：在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米专家任务。 | 1. `expert-short-turns:progressive` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-short-expert-pressure](https://jinke.me/snowboard/#lesson=s-short-expert-pressure) | 专家短弯调压：管理加载、释放与板的响应：在既有可控弧线中识别加载和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。 | 1. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-short-expert-flow](https://jinke.me/snowboard/#lesson=s-short-expert-flow) | 专家短弯连续性：把每一弧接成完整滑段：在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。 | 1. `expert-short-sequence:planned-recovery` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-short-expert-transfer](https://jinke.me/snowboard/#lesson=s-short-expert-transfer) | 专家短弯迁移：换一个条件，重新建立结果：能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。 | 1. `expert-short-sequence:guided-slide` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-short-expert-review](https://jinke.me/snowboard/#lesson=s-short-expert-review) | Expert Short Radius专项复核：完整证据与下一步训练：形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、仍需发展和当前条件下可重复的表现。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S39](#source-s39)、[S40](#source-s40) |
-| [s-carve-expert-arc](https://jinke.me/snowboard/#lesson=s-carve-expert-arc) | 专家刻滑弧线：落线前建立，控制出弯并接续：两侧新弧在落线前建立可用支撑，以立刃和调压维持刻滑路径，再用可控出口把动量带入下一弧。 | 1. `expert-carving:linked` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 专家刻滑调压：加载、释放与两侧连续支撑：两侧加载与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。 | 1. `expert-carving:coordinated` | [S38](#source-s38)、[S16](#source-s16)、[D01](#source-d01) |
-| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 专家刻滑变化：先重建控制，再应用低姿态八字：在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。 | 1. `expert-carving:lower-recover` | [S38](#source-s38)、[S16](#source-s16)、[S19](#source-s19)、[D01](#source-d01) |
-| [s-carve-expert-review](https://jinke.me/snowboard/#lesson=s-carve-expert-review) | 专家刻滑专项复核：官方任务与低姿态证据分别判断：能够对照官方任务与十二项观察提出有证据的判断，保留未知，并把一个真实差距转成下一次练习。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S39](#source-s39) |
+| [s-short-expert-map](https://jinke.me/snowboard/#lesson=s-short-expert-map) | 进阶小回转：先看任务要求，再选练习：说清高阶任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S41](#source-s41) |
+| [s-short-expert-steering](https://jinke.me/snowboard/#lesson=s-short-expert-steering) | 进阶小回转：在窄走廊里保持完整弯形：在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。 | 1. `expert-short-turns:progressive` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-pressure](https://jinke.me/snowboard/#lesson=s-short-expert-pressure) | 进阶小回转：屈伸与换刃时机：在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。 | 1. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-flow](https://jinke.me/snowboard/#lesson=s-short-expert-flow) | 进阶小回转：从入段到结束都保持控制：在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。 | 1. `expert-short-sequence:planned-recovery` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-transfer](https://jinke.me/snowboard/#lesson=s-short-expert-transfer) | 进阶小回转：换一个条件，重新找到节奏：能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。 | 1. `expert-short-sequence:guided-slide` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-review](https://jinke.me/snowboard/#lesson=s-short-expert-review) | 进阶小回转复盘：用完整滑段找下一步：形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、还需练习和当前条件下可重复的表现。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S39](#source-s39)、[S40](#source-s40) |
+| [s-carve-expert-arc](https://jinke.me/snowboard/#lesson=s-carve-expert-arc) | 进阶刻滑：落线前立刃，顺畅完成出弯：两侧新弧在落线前建立可用支撑，以立刃和控压维持刻滑路径，再用可控出口把动量带入下一弧。 | 1. `expert-carving:linked` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 进阶刻滑：屈伸与换刃时机：两侧承压与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。 | 1. `expert-carving:coordinated` | [S38](#source-s38)、[S16](#source-s16)、[D01](#source-d01) |
+| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 进阶刻滑：适应变化，再选练低姿态：在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。 | 1. `expert-carving:lower-recover` | [S38](#source-s38)、[S16](#source-s16)、[S19](#source-s19)、[D01](#source-d01) |
+| [s-carve-expert-review](https://jinke.me/snowboard/#lesson=s-carve-expert-review) | 进阶刻滑复盘：分清任务要求与低姿态表现：能够对照官方任务与十二项观察提出有证据的判断，保留未知，并把一个真实差距转成下一次练习。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S39](#source-s39) |
 
 ## 现有资料索引
 
@@ -384,7 +384,7 @@
 
 <a id="source-s11"></a>
 
-- **S11** [Snowboard Level Three](https://www.nzsia.org/snowboard/snowboard-level-three-new/)（NZSIA / SBINZ）。Ride Module / Carving及Freeriding评估要点
+- **S11** [Snowboard Level Three](https://www.nzsia.org/snowboard/snowboard-level-three-new/)（NZSIA / SBINZ）。Ride Module / Carving、Freeriding及Versatility Riding评估要点
 
 <a id="source-s15"></a>
 
@@ -519,8 +519,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | eac45c2329ab9e5121d0a97b99d20fac49a01a4afa510863398192cb85624127 |
+| content.json | 3b38fcc5c3b77d80126ee18f8b4a2811676e87e842bc599bf058a2797235af14 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
-| app.js | 05d58c9ea1a08ae27d7ff9b2c1b27176a61ba16b7bd8f68b851a242d9b9cb9fe |
+| app.js | 54dbd14a8bb964ef6062fbf4ff687f534d9276e0adfa6bf3b3356b1e4c0870dd |
 | lesson-player/registry.json | 903d8535b6ac24926a8d7cd53c064408a42bd9385b65812921372ceb4f625da9 |
 

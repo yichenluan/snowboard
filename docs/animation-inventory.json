@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "eac45c2329ab9e5121d0a97b99d20fac49a01a4afa510863398192cb85624127",
+    "content.json": "3b38fcc5c3b77d80126ee18f8b4a2811676e87e842bc599bf058a2797235af14",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "05d58c9ea1a08ae27d7ff9b2c1b27176a61ba16b7bd8f68b851a242d9b9cb9fe",
+    "app.js": "54dbd14a8bb964ef6062fbf4ff687f534d9276e0adfa6bf3b3356b1e4c0870dd",
     "lesson-player/registry.json": "903d8535b6ac24926a8d7cd53c064408a42bd9385b65812921372ceb4f625da9"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
@@ -90,7 +90,7 @@
     },
     {
       "id": "carving",
-      "title": "刻滑 · 基础、低姿态与专家任务",
+      "title": "刻滑 · 从浅弧到进阶大弯",
       "lessons": 11,
       "demoReferences": 10,
       "illustrationReferences": 0,
@@ -98,7 +98,7 @@
     },
     {
       "id": "short-turns",
-      "title": "小回转 · 基础到Expert Short Radius",
+      "title": "小回转 · 从连续圆弯到进阶短弯",
       "lessons": 13,
       "demoReferences": 35,
       "illustrationReferences": 0,
@@ -2776,7 +2776,7 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃发力：脚跟、高背板与膝髋配合 · 动作示意",
+        "title": "后刃基础：脚跟、高背板与膝髋配合",
         "task": "edge-release-study"
       },
       "destination": "D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
@@ -3108,7 +3108,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "inclination",
-        "focus": "身体随弧线倾入，手臂和上身自然组织",
+        "focus": "身体随弧线倾入，手臂和上身自然配合",
         "steps": [
           {
             "label": "控制",
@@ -4322,7 +4322,7 @@
         "focus": "先用减少枢转的浅弧连接两刃，再渐进搓雪转向横坡并停止；端点路径为刚体几何示意。",
         "autoplay": false,
         "duration": 14000,
-        "title": "浅弧连刃：用小刃角连接连续窄痕 · 动作观察",
+        "title": "浅刻滑：连接两侧窄痕，按计划结束 · 动作观察",
         "trackDiagnostics": true,
         "path": "rail",
         "task": "rails-then-stop"
@@ -5590,7 +5590,7 @@
         "focus": "观察自然朝向下的后刃单弯可控基线，完成出口并停止保刃。此图未复现甩尾的全部病因，不用静态姿态推断后脚压力。",
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃单弯可控基线：对照轨迹与身体组织",
+        "title": "后刃单弯可控基线：对照轨迹与身体配合",
         "task": "heel-baseline-stop",
         "view": "follow",
         "jointLabels": true,
@@ -5764,7 +5764,7 @@
         "task": "expert-corridor-steering",
         "variant": "progressive",
         "trackDiagnostics": true,
-        "title": "专家目标观察 · 连续引导与弧线接续",
+        "title": "进阶目标观察 · 连续引导与弧线接续",
         "focus": "在同一可见走廊任务下观察转向分配与完整弧线；作者运动示意不代表L4实测速度、真实抓地或评分。",
         "autoplay": false,
         "duration": 16000,
@@ -5789,8 +5789,8 @@
         "variant": "continuous",
         "trackDiagnostics": true,
         "legLengthDiagram": true,
-        "title": "动作组织 · 连续调节腿长与释放准备",
-        "focus": "同线路、同板姿态下只比较身体与腿长组织；这不是雪板真实压力、弹性能、反弹或加速度仿真。",
+        "title": "动作配合 · 连续调节腿长与释放准备",
+        "focus": "同线路、同板姿态下只比较身体与屈伸；这不是雪板真实压力、弹性能、反弹或加速度仿真。",
         "autoplay": false,
         "duration": 16000,
         "jointLabels": true,
@@ -5813,7 +5813,7 @@
         "task": "expert-run-recovery",
         "variant": "planned-recovery",
         "title": "完整滑段：入段、连续短弯与主动回宽恢复",
-        "focus": "观察稳定目标通道前后的完整组织；恢复段仍在滑行，重播只是重看有限滑段，不代表停车或滑行无缝循环。",
+        "focus": "观察稳定目标通道前后的完整过程；恢复段仍在滑行，重播只是重看有限滑段，不代表停车或滑行无缝循环。",
         "duration": 24000,
         "trackDiagnostics": true,
         "autoplay": false,
@@ -5837,7 +5837,7 @@
         "task": "expert-steering-range",
         "variant": "guided-slide",
         "title": "同一路线：改变引导策略后重新建立连续短弯",
-        "focus": "切换两种可用策略，比较同一路线上板轴与移动方向、刃角和身体组织的差异；不把其中一种认定为所有雪况下的正确答案。",
+        "focus": "切换两种可用策略，比较同一路线上板轴与移动方向、刃角和身体配合的差异；不把其中一种认定为所有雪况下的正确答案。",
         "duration": 28000,
         "trackDiagnostics": true,
         "autoplay": false,
@@ -5860,8 +5860,8 @@
         "type": "expert-carving",
         "task": "expert-carve-arc",
         "variant": "linked",
-        "title": "专家刻滑弧线：落线前建刃、完整出口与连续接续",
-        "focus": "10米示意通道内观察六弧接续。7–15米是官方通道宽度，不是转弯半径；本模型未模拟专家滑速或真实抓地。",
+        "title": "进阶刻滑弧线：落线前建刃、完整出口与连续接续",
+        "focus": "10米示意通道内观察六弧接续。7–15米是官方通道宽度，不是转弯半径；本模型未模拟官方要求的滑行速度或真实抓地。",
         "duration": 24000,
         "trackDiagnostics": true,
         "autoplay": false,
@@ -6555,7 +6555,7 @@
     },
     {
       "id": "v-toe-tongue",
-      "title": "前刃发力：胫骨贴靴舌，脚跟留在靴内",
+      "title": "前刃基础：脚跟踩稳，膝髋一起调刃",
       "module": "edging",
       "goal": "前刃能渐进立起、稳住，也能按路线慢慢放开。",
       "entry": "https://jinke.me/snowboard/#lesson=v-toe-tongue",
@@ -6710,7 +6710,7 @@
     },
     {
       "id": "v-heel-pull",
-      "title": "后刃发力：脚跟、高背板与膝髋配合",
+      "title": "后刃基础：脚跟踩稳，膝髋保持能动",
       "module": "edging",
       "goal": "后刃既能稳住，也能继续屈伸和放开，不靠踢后脚。",
       "entry": "https://jinke.me/snowboard/#lesson=v-heel-pull",
@@ -7423,8 +7423,8 @@
         },
         {
           "source": "S11",
-          "locator": "2026-10-15读取，Ride Module / Carving及Freeriding评估要点",
-          "claim": "现行三级网页要求压力调节、有效刃角与侧切、战术选择和对雪况适应。 适用边界：当前页面未列明屈曲/伸展两种换刃；不从课程级别推导统一高低姿态。",
+          "locator": "2026-10-15复核，Ride Module / Carving及Versatility Riding评估要点",
+          "claim": "Carving部分要求压力调节、有效刃角与侧切和路线选择；Versatility部分明确列出屈曲与伸展两种换刃。适用边界：这是不同评估小节的任务要求，不从课程级别或换刃方式推导所有雪友统一的高低姿态。",
           "evidence": "direct",
           "canonicalSource": "S11",
           "title": "Snowboard Level Three",
@@ -7857,7 +7857,7 @@
     },
     {
       "id": "v11-flex",
-      "title": "屈腿调压：开始下沉与收住动作不同",
+      "title": "屈腿与压力：开始下蹲和收住动作有何不同",
       "module": "pressure",
       "goal": "按需要缩短腿长，同时保住路线和后续活动空间。",
       "entry": "https://jinke.me/snowboard/#lesson=v11-flex",
@@ -7952,7 +7952,7 @@
     },
     {
       "id": "v11-extend",
-      "title": "伸腿调压：开始站起与停止上升不同",
+      "title": "伸腿与压力：开始站起和停止上升有何不同",
       "module": "pressure",
       "goal": "渐进伸腿后仍能屈回来，不靠猛蹬制造转弯。",
       "entry": "https://jinke.me/snowboard/#lesson=v11-extend",
@@ -8275,7 +8275,7 @@
     },
     {
       "id": "v-transition-map",
-      "title": "看清换刃：放旧刃、经过平板、建新刃",
+      "title": "双向换刃：放开旧刃，顺畅接上新弯",
       "module": "transition",
       "goal": "旧刃能放开，新刃能连续建立，中间不僵停也不扑肩。",
       "entry": "https://jinke.me/snowboard/#lesson=v-transition-map",
@@ -9444,9 +9444,9 @@
     },
     {
       "id": "v20-path",
-      "title": "刻滑进阶路线：基础、低姿态与专家任务",
+      "title": "刻滑怎么练：基础、进阶与低姿态选修",
       "module": "carving",
-      "goal": "按当前板表现选出一项练习，分清基础、低姿态应用与官方专家任务的条件和证据。",
+      "goal": "按当前板表现选出一项练习，分清基础、低姿态应用与官方高阶任务的条件和证据。",
       "entry": "https://jinke.me/snowboard/#lesson=v20-path",
       "citations": [
         {
@@ -9510,7 +9510,7 @@
     },
     {
       "id": "s20-rails",
-      "title": "浅弧连刃：用小刃角连接连续窄痕",
+      "title": "浅刻滑：连接两侧窄痕，按计划结束",
       "module": "carving",
       "goal": "两侧各留下连续窄痕，并在预定位置主动结束。",
       "entry": "https://jinke.me/snowboard/#lesson=s20-rails",
@@ -9533,7 +9533,7 @@
     },
     {
       "id": "s-short-integrated",
-      "title": "搓雪小回转：把释放、转向和控速连成一组",
+      "title": "连续小回转：圆弯不断，速度可控",
       "module": "short-turns",
       "goal": "在自选走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-integrated",
@@ -10983,9 +10983,9 @@
     },
     {
       "id": "s-short-expert-map",
-      "title": "Expert Short Radius：先对齐终点与当前能力",
+      "title": "进阶小回转：先看任务要求，再选练习",
       "module": "short-turns",
-      "goal": "说清专家任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。",
+      "goal": "说清高阶任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-map",
       "citations": [
         {
@@ -11049,9 +11049,9 @@
     },
     {
       "id": "s-short-expert-steering",
-      "title": "专家短弯转向：走廊内建立完整而可选的弧线",
+      "title": "进阶小回转：在窄走廊里保持完整弯形",
       "module": "short-turns",
-      "goal": "在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米专家任务。",
+      "goal": "在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-steering",
       "citations": [
         {
@@ -11099,9 +11099,9 @@
     },
     {
       "id": "s-short-expert-pressure",
-      "title": "专家短弯调压：管理加载、释放与板的响应",
+      "title": "进阶小回转：屈伸与换刃时机",
       "module": "short-turns",
-      "goal": "在既有可控弧线中识别加载和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。",
+      "goal": "在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-pressure",
       "citations": [
         {
@@ -11149,7 +11149,7 @@
     },
     {
       "id": "s-short-expert-flow",
-      "title": "专家短弯连续性：把每一弧接成完整滑段",
+      "title": "进阶小回转：从入段到结束都保持控制",
       "module": "short-turns",
       "goal": "在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
@@ -11199,7 +11199,7 @@
     },
     {
       "id": "s-short-expert-transfer",
-      "title": "专家短弯迁移：换一个条件，重新建立结果",
+      "title": "进阶小回转：换一个条件，重新找到节奏",
       "module": "short-turns",
       "goal": "能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-transfer",
@@ -11258,9 +11258,9 @@
     },
     {
       "id": "s-short-expert-review",
-      "title": "Expert Short Radius专项复核：完整证据与下一步训练",
+      "title": "进阶小回转复盘：用完整滑段找下一步",
       "module": "short-turns",
-      "goal": "形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、仍需发展和当前条件下可重复的表现。",
+      "goal": "形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、还需练习和当前条件下可重复的表现。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-review",
       "citations": [
         {
@@ -11324,9 +11324,9 @@
     },
     {
       "id": "s-carve-expert-arc",
-      "title": "专家刻滑弧线：落线前建立，控制出弯并接续",
+      "title": "进阶刻滑：落线前立刃，顺畅完成出弯",
       "module": "carving",
-      "goal": "两侧新弧在落线前建立可用支撑，以立刃和调压维持刻滑路径，再用可控出口把动量带入下一弧。",
+      "goal": "两侧新弧在落线前建立可用支撑，以立刃和控压维持刻滑路径，再用可控出口把动量带入下一弧。",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-arc",
       "citations": [
         {
@@ -11383,9 +11383,9 @@
     },
     {
       "id": "s-carve-expert-pressure",
-      "title": "专家刻滑调压：加载、释放与两侧连续支撑",
+      "title": "进阶刻滑：屈伸与换刃时机",
       "module": "carving",
-      "goal": "两侧加载与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。",
+      "goal": "两侧承压与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-pressure",
       "citations": [
         {
@@ -11460,7 +11460,7 @@
     },
     {
       "id": "s-carve-expert-variation",
-      "title": "专家刻滑变化：先重建控制，再应用低姿态八字",
+      "title": "进阶刻滑：适应变化，再选练低姿态",
       "module": "carving",
       "goal": "在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-variation",
@@ -11555,7 +11555,7 @@
     },
     {
       "id": "s-carve-expert-review",
-      "title": "专家刻滑专项复核：官方任务与低姿态证据分别判断",
+      "title": "进阶刻滑复盘：分清任务要求与低姿态表现",
       "module": "carving",
       "goal": "能够对照官方任务与十二项观察提出有证据的判断，保留未知，并把一个真实差距转成下一次练习。",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-review",

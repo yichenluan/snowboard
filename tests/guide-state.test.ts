@@ -1,0 +1,66 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import test from 'node:test';
+import vm from 'node:vm';
+
+const context = vm.createContext({ window: {}, URLSearchParams });
+vm.runInContext(readFileSync(new URL('../guide-state.js', import.meta.url), 'utf8'), context);
+const guide = context.window.SnowGuide;
+const data = {
+  lessons: [
+    { id: 'front', module: 'edge' },
+    { id: 'unrelated', module: 'other' },
+    { id: 'back', module: 'edge' },
+    { id: 'turn', module: 'turn' },
+  ],
+  navigationRoutes: [{ id: 'basics', lessons: ['front', 'back', 'turn'] }],
+};
+
+test('路线中的下一课使用路线顺序，直接进入则使用模块顺序，不跟全局插入顺序跳转', () => {
+  assert.equal(guide.lessonSequence(data, 'front', 'basics').next.id, 'back');
+  assert.equal(guide.lessonSequence(data, 'back', 'basics').next.id, 'turn');
+  assert.equal(guide.lessonSequence(data, 'front', null).next.id, 'back');
+  assert.equal(guide.lessonSequence(data, 'back', null).next, null);
+  assert.equal(guide.lessonSequence(data, 'unrelated', 'basics').route, null);
+  assert.equal(guide.lessonSequence(data, 'missing', 'basics').next, null);
+});
+
+test('课程深链保留路线，旧课程链接不变且异常转义不会抛错', () => {
+  const address = guide.lessonLocation('s20-rails', 'carving');
+  assert.equal(guide.parseLocation(address).lesson, 's20-rails');
+  assert.equal(guide.parseLocation(address).route, 'carving');
+  assert.equal(guide.parseLocation('#lesson=s20-rails').route, null);
+  assert.equal(guide.parseLocation('#route=carving').lesson, null);
+  assert.doesNotThrow(() => guide.parseLocation('#lesson=%XX'));
+});
+
+test('只保存个人数据并读取旧快照，旧正文不能覆盖当前课程', () => {
+  const stored = {
+    guide: { lessons: [{ id: 'obsolete' }], schemaVersion: 2 },
+    baseRevision: 'old',
+    user: {
+      bookmarks: ['front'], additions: [{ id: 'note' }], trash: [{ id: 'recover' }],
+      skillProgress: ['skill'], skillTarget: 'short',
+      assessmentRecords: [{ id: 'run', protocolId: 'short', observation: '撤提示后仍能控速' }],
+      assessmentDrafts: { short: { terrain: '缓坡', criteria: { balance: { status: 'repeat', note: '已有证据' } } } },
+    },
+  };
+  const loaded = guide.readUser(stored);
+  const next = guide.userSnapshot(loaded, 'current');
+  assert.equal(next.baseRevision, 'current');
+  assert.equal(next.guide, undefined);
+  assert.equal(next.user.bookmarks[0], 'front');
+  assert.equal(next.user.additions[0].id, 'note');
+  assert.equal(next.user.trash[0].id, 'recover');
+  assert.equal(next.user.assessmentRecords[0].observation, '撤提示后仍能控速');
+  assert.equal(next.user.assessmentDrafts.short.criteria.balance.note, '已有证据');
+  assert.equal(guide.readUser(stored.user).skillTarget, 'short');
+  assert.equal(stored.guide.lessons[0].id, 'obsolete');
+});
+
+test('专项筛选不随显示标题改变，重复自检只显示一次且保留不同观察点', () => {
+  assert.equal(guide.specialist({ levelKey: 'specialist', level: '进阶刻滑' }), true);
+  assert.equal(guide.specialist({ levelKey: 'progression', level: '专项' }), false);
+  const checks = guide.checks({ checks: ['窄痕', '能退出'], drill: { success: ['窄痕', '撤提示复现'] } });
+  assert.equal(checks.join('|'), '窄痕|能退出|撤提示复现');
+});

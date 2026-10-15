@@ -5,6 +5,7 @@ import { BODY, boardToWorld, type MotionState, type Stance, type Vec3 } from "..
 import { surfaceHalfWidthAt } from "../prototype/board-surface";
 import { LESSON_TYPES, canRenderLesson, lessonTrail, sampleLesson, type LessonConfig } from "./motion";
 import { LessonDiagnostics } from "./diagnostics";
+import { comparisonFor } from "./comparison";
 import { usePlayback, PlaybackControls, type PlayerApi } from "./player-controls";
 import { DrylandPlayer, canRenderDryland } from "./dryland-player";
 import { isRotationLesson } from "./rotation";
@@ -167,8 +168,9 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
   const [expanded,setExpanded]=useState(false);
   const dialog=useRef<HTMLDialogElement>(null),expandButton=useRef<HTMLButtonElement>(null);
   const frame=useMemo(()=>sampleLesson(time,sampledConfig,stance),[time,sampledConfig,stance]);
-  const referenceConfig=useMemo(()=>({...sampledConfig,...(expert?{variant:expertOptions[0].value}:carve?{posture:posture==="low"?"normal" as const:"low" as const}:{task:"round-linked-skid",variant:"round"})}),[sampledConfig,carve,posture,expert]);
-  const reference=useMemo(()=>emphasis&&(carve||shortCompare||expert)?sampleLesson(time,referenceConfig,stance):null,[emphasis,carve,shortCompare,expert,time,referenceConfig,stance]);
+  const comparison=useMemo(()=>comparisonFor(sampledConfig,{...(expert?{variants:expertOptions}:{}),carve,shortCompare}),[sampledConfig,expert,carve,shortCompare]);
+  const referenceConfig=comparison?.config??sampledConfig;
+  const reference=useMemo(()=>emphasis&&comparison?sampleLesson(time,comparison.config,stance):null,[emphasis,comparison,time,stance]);
   const trail=useMemo(()=>lessonTrail(sampledConfig,stance),[sampledConfig,stance]);
   api.current.setView=(v:string)=>{setView(toView(v));setReset(n=>n+1);};
   useEffect(()=>{
@@ -181,9 +183,9 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     <div className="sl3-observe">
     <div className="sl3-options"><label>观察模式 <select aria-label="观察模式" value={emphasis?"emphasis":"baseline"} onChange={e=>setEmphasis(e.target.value==="emphasis")}><option value="baseline">基准动作</option><option value="emphasis">教学强调</option></select></label><label><input type="checkbox" checked={showRoute} onChange={e=>setShowRoute(e.target.checked)}/>俯视路线图</label></div>
     {emphasis&&<p className="sl3-hint">教学强调增加骨架与同源平面观察；支持对照的任务另加同步参考。身体幅度、时序与板路线不放大。可配合慢放和分段重播，切回基准保持当前进度。</p>}
-    {carve&&<div className="sl3-options"><label>同路线姿态 <select aria-label="同路线姿态" value={posture} onChange={e=>{setPlaying(false);setPosture(e.target.value as CarvePosture);}}><option value="normal">正常高度</option><option value="low">较低姿态</option><option value="reach">反例：前刃探胸</option></select></label></div>}
+    {carve&&<div className="sl3-options"><label>同路线姿态 <select aria-label="同路线姿态" value={posture} onChange={e=>{setPlaying(false);setPosture(e.target.value as CarvePosture);}}><option value="normal">正常高度</option><option value="low">稍低一些</option><option value="reach">反例：前刃探胸</option></select></label></div>}
     {shortCompare&&<div className="sl3-options"><label>同进度动作 <select aria-label="同进度动作" value={shortError?"error":"correct"} onChange={e=>{setPlaying(false);setShortError(e.target.value==="error");}}><option value="correct">连续圆弯参考</option><option value="error">反例：末段急甩尾</option></select></label></div>}
-    {expert&&<div className="sl3-options"><label>专家任务对照 <select aria-label="专家任务对照" value={expertVariant} onChange={e=>{setPlaying(false);setExpertVariant(e.target.value);}}>{expertOptions.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}</select></label><span className="sl3-hint">切换保留进度；可随时返回参考动作</span></div>}
+    {expertOptions.length>1&&<div className="sl3-options"><label>动作对照 <select aria-label="动作对照" value={expertVariant} onChange={e=>{setPlaying(false);setExpertVariant(e.target.value);}}>{expertOptions.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}</select></label><span className="sl3-hint">切换保留进度；可随时返回参考动作</span></div>}
     <div className="sl3-views" role="group" aria-label="观察视角">{views.map(([v,label])=><button key={v} onClick={()=>{setView(v);setFlat(false);setReset(n=>n+1);}} aria-pressed={!flat&&view===v}>{label}</button>)}<button aria-pressed={flat} onClick={()=>setFlat(v=>!v)}>平面骨架</button></div>
     <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton||emphasis} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail} corridor={frame.corridor} corridorSections={frame.corridorSections}/>}</div>
     <div className="sl3-status"><strong>{frame.segmentEdges?`原前脚处：${edges[frame.segmentEdges.front]}；原后脚处：${edges[frame.segmentEdges.rear]}`:edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
@@ -210,7 +212,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     {frame.task==="static-edge"&&<p className="sl3-hint">双手扶稳护栏帮助感知动作；撤去支撑后的自主平衡需另行练习。</p>}
     {["board-coordinate-study","stationary-hip-rock"].includes(frame.task)&&<><BoardDirections state={frame.state}/><p className="sl3-hint">仅演示平地原地感知，板角小不等于身体完全不移动；先回平板再回中，滑行效果需另行验证。</p></>}
     {showRoute&&frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/>}
-    {emphasis&&<div className="sl3-comparison">{reference&&<figure><figcaption>{expert?expertOptions[0].label:carve?(posture==="low"?"正常高度参考 · 同路线同板角":posture==="reach"?"较低姿态参考 · 同路线同腿长":"较低姿态参考 · 同路线同板角"):"连续圆弯参考"}</figcaption><PlanarDiagram state={reference.state} plane={view==="side"?"length":"width"}/></figure>}<figure><figcaption>当前动作 · 同一时刻 {Math.round(time*100)}%</figcaption><PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/></figure></div>}
+    {emphasis&&<div className="sl3-comparison">{reference&&<figure><figcaption>{comparison?.label}</figcaption><PlanarDiagram state={reference.state} plane={view==="side"?"length":"width"}/></figure>}<figure><figcaption>当前动作 · 同一时刻 {Math.round(time*100)}%</figcaption><PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/></figure></div>}
     {showRoute&&emphasis&&(shortCompare||expert)&&reference&&<><p className="sl3-hint">同步路线参考：下图为参考动作，当前路线已在上方显示。{expertCarve||expertSequence?"本组共用板中心路线，具体固定条件见上方任务说明；不是同速度或同压力试验。":expertShort&&config.task==="expert-load-release"?"本组路线与板角完全相同，比较腿长调节时机；不是压力试验。":"同进度指同一周期位置；两种路线不同，不是同速度或同压力试验。"}</p><RouteDiagram state={reference.state} trail={lessonTrail(referenceConfig,stance)} time={time} config={referenceConfig} stance={stance}/></>}
     {(isRotationLesson(config)||short||expert)&&<RotationDirections state={frame.state}/>}
     {twist&&<><TwistSectionDiagram state={frame.state} stance={stance}/><p className="sl3-hint">绿色线与圆点仅标几何低侧；局部可短暂离雪约9.2毫米，未计算整刃接触、板材刚度或真实压力。两段角差按实际值显示。</p></>}

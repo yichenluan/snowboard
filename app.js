@@ -3,12 +3,12 @@
   const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const safeUrl=v=>{try{const u=new URL(v);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch{return '';}};
   const time=s=>`${Math.floor(s/60)}:${String(Math.floor(s)%60).padStart(2,'0')}`;
-  let data=JSON.parse($('guide-data').textContent);
+  const data=JSON.parse($('guide-data').textContent),guide=window.SnowGuide;
   const defaultTechnicalMap=data.technicalMap;
   const defaultProgressionMap=data.progressionMap;
   const embeddedRevision=Array.from(JSON.stringify(data)).reduce((h,c)=>Math.imul(h^c.codePointAt(0),16777619)>>>0,2166136261).toString(16),storageKey='snowboard-field-guide-BV161TT6gE7L-v1';
   let user={bookmarks:[],additions:[],trash:[],skillProgress:[],skillTarget:'all'},storageAvailable=true,activeDemo=null,activePlanner=null,activeComments=null,toastTimer=null,editingAddition=null;
-  try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved){if(saved.baseRevision===embeddedRevision&&saved.guide?.schemaVersion===2&&saved.guide.meta?.videoUrl===data.meta.videoUrl)data=saved.guide;Object.assign(user,saved.user||saved);}}catch{storageAvailable=false;}
+  try{const saved=JSON.parse(localStorage.getItem(storageKey)||'null');if(saved)user=guide.readUser(saved);}catch{storageAvailable=false;}
   if(!data.technicalMap)data.technicalMap=defaultTechnicalMap;
   if(!window.SnowProgression?.validate(data.progressionMap))data.progressionMap=defaultProgressionMap;
   ['bookmarks','additions','trash'].forEach(k=>{if(!Array.isArray(user[k]))user[k]=[];});
@@ -18,18 +18,18 @@
   user.assessmentDrafts=user.assessmentDrafts&&typeof user.assessmentDrafts==='object'&&!Array.isArray(user.assessmentDrafts)?user.assessmentDrafts:{};
   const progressionMap=()=>window.SnowProgression?.validate(data.progressionMap)?data.progressionMap:defaultProgressionMap;
   const kinds={concept:'技术原理',movement:'动作与发力',drill:'练习方法',discussion:'学习策略'};
-  let state={page:'overview',module:'all',query:'',kind:'all',lesson:null};
+  let state={page:'overview',module:'all',query:'',kind:'all',lesson:null,route:null};
   const demos=l=>Array.isArray(l.demos)&&l.demos.length?l.demos:l.demo?[l.demo]:[],demoCount=ls=>ls.reduce((n,l)=>n+demos(l).length+(l.illustration?1:0),0),source=id=>data.sources.find(s=>s.id===id||(s.aliases||[]).includes(id)),moduleInfo=id=>data.modules.find(m=>m.id===id);
   const flatten=v=>typeof v==='string'?v:Array.isArray(v)?v.map(flatten).join(' '):v&&typeof v==='object'?Object.values(v).map(flatten).join(' '):'';
   function toast(message){$('toast').textContent=message;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').classList.remove('show'),3500);}
   function warning(){if(!storageAvailable){$('storage-warning').hidden=false;$('storage-warning').textContent='当前浏览器无法保存个人记录，关闭或刷新页面后，本次更改可能丢失。';}}
-  function save(){try{localStorage.setItem(storageKey,JSON.stringify({baseRevision:embeddedRevision,guide:data,user}));storageAvailable=true;}catch{storageAvailable=false;warning();}return storageAvailable;}
+  function save(){try{localStorage.setItem(storageKey,JSON.stringify(guide.userSnapshot(user,embeddedRevision)));storageAvailable=true;}catch{storageAvailable=false;warning();}return storageAvailable;}
   function closeNav(){$('menu-toggle').setAttribute('aria-expanded','false');document.querySelector('.sidebar').classList.remove('open');}
   function nav(){const btn=(page,label,count,module='all')=>`<button class="nav-item ${state.page===page&&(page!=='overview'||state.module===module)?'active':''}" data-page="${esc(page)}" data-module="${esc(module)}"><span>${esc(label)}</span>${count==null?'':`<small>${count}</small>`}</button>`;
     $('nav').innerHTML=btn('overview','内容总览',data.lessons.length)+data.modules.map(m=>btn('overview',m.title,data.lessons.filter(l=>l.module===m.id).length,m.id)).join('')+'<div class="nav-separator"></div>'+btn('curriculum','进阶练习路线')+btn('glossary','术语与别名')+btn('sources','资料与阅读依据')+btn('additions','我的补充',user.additions.length);
-    $('nav').querySelectorAll('button').forEach(b=>b.onclick=()=>{state={...state,page:b.dataset.page,module:b.dataset.module,lesson:null,query:'',kind:'all'};$('search').value='';$('filter-kind').value='all';location.hash='';render();closeNav();window.scrollTo({top:0,behavior:'auto'});});}
+    $('nav').querySelectorAll('button').forEach(b=>b.onclick=()=>{state={...state,page:b.dataset.page,module:b.dataset.module,lesson:null,route:null,query:'',kind:'all'};$('search').value='';$('filter-kind').value='all';location.hash=state.page==='curriculum'?'route=':'';render();closeNav();window.scrollTo({top:0,behavior:'auto'});});}
   function bullets(items,ordered=false){if(!items?.length)return '';const t=ordered?'ol':'ul';return `<${t}>${items.map(s=>`<li>${esc(s)}</li>`).join('')}</${t}>`;}
-  function matches(l){const txt=flatten({title:l.title,summary:l.summary,goal:l.goal,prerequisites:l.prerequisites,mechanics:l.mechanics,execution:l.execution,checks:l.checks,drill:l.drill,mistakes:l.mistakes,tags:l.tags,aliases:(data.glossary||[]).filter(t=>(t.lessons||[]).includes(l.id)).map(t=>[t.name,t.original,t.aliases])}).toLowerCase();return (state.module==='all'||l.module===state.module)&&state.query.trim().toLowerCase().split(/\s+/).every(q=>txt.includes(q))&&(state.kind==='all'||state.kind==='bookmarked'&&user.bookmarks.includes(l.id)||state.kind==='specialist'&&l.level==='专项'||l.kind===state.kind);}
+  function matches(l){const txt=flatten({title:l.title,summary:l.summary,goal:l.goal,prerequisites:l.prerequisites,mechanics:l.mechanics,execution:l.execution,checks:l.checks,drill:l.drill,mistakes:l.mistakes,tags:l.tags,aliases:(data.glossary||[]).filter(t=>(t.lessons||[]).includes(l.id)).map(t=>[t.name,t.original,t.aliases])}).toLowerCase();return (state.module==='all'||l.module===state.module)&&state.query.trim().toLowerCase().split(/\s+/).every(q=>txt.includes(q))&&(state.kind==='all'||state.kind==='bookmarked'&&user.bookmarks.includes(l.id)||state.kind==='specialist'&&guide.specialist(l)||l.kind===state.kind);}
   function card(l){return `<button class="lesson-card" data-lesson="${esc(l.id)}"><div class="card-meta"><span>${esc(kinds[l.kind])}</span><span class="badge level">${esc(l.level||'进阶')}</span>${user.bookmarks.includes(l.id)?'<span>★ 已收藏</span>':''}</div><h3>${esc(l.title)}</h3><p>${esc(l.summary)}</p><div class="card-bottom"><span>${demos(l).length?'◉ '+demos(l).length+' 个动作示意':l.illustration?'◉ 交互图示':'原理与方法'}</span><span aria-hidden="true">↗</span></div></button>`;}
   function renderTechnicalMap(){
     const map=data.technicalMap||defaultTechnicalMap;
@@ -52,12 +52,12 @@
     </section>`;
   }
   function bindTechnicalMap(){
-    $('view').querySelectorAll('[data-map-module]').forEach(b=>b.onclick=()=>{state={page:'overview',module:b.dataset.mapModule,query:'',kind:'all',lesson:null};$('search').value='';$('filter-kind').value='all';location.hash='';render();closeNav();window.scrollTo({top:0,behavior:'auto'});});
-    $('view').querySelectorAll('[data-map-route]').forEach(b=>b.onclick=()=>{state={...state,page:'curriculum',lesson:null};location.hash='';render();window.scrollTo({top:0,behavior:'auto'});});
+    $('view').querySelectorAll('[data-map-module]').forEach(b=>b.onclick=()=>{state={page:'overview',module:b.dataset.mapModule,query:'',kind:'all',lesson:null,route:null};$('search').value='';$('filter-kind').value='all';location.hash='';render();closeNav();window.scrollTo({top:0,behavior:'auto'});});
+    $('view').querySelectorAll('[data-map-route]').forEach(b=>b.onclick=()=>openRoute(''));
     const root=$('skill-planner-root'),map=progressionMap();
     if(root&&window.SnowProgression?.validate(map))activePlanner=window.SnowProgression.mount(root,{map,lessons:data.lessons,progress:user.skillProgress,target:user.skillTarget,selectedId:state.skillId,onProgress:progress=>{user.skillProgress=progress;save();},onTarget:target=>{user.skillTarget=target;save();},onSelect:id=>{state.skillId=id;},onLesson:openLesson});
   }
-  function showSkill(id){state={page:'overview',module:'all',query:'',kind:'all',lesson:null,skillId:id};$('search').value='';$('filter-kind').value='all';location.hash='#technical-map';render();$('technical-map')?.scrollIntoView({block:'start'});}
+  function showSkill(id){state={page:'overview',module:'all',query:'',kind:'all',lesson:null,route:null,skillId:id};$('search').value='';$('filter-kind').value='all';location.hash='#technical-map';render();$('technical-map')?.scrollIntoView({block:'start'});}
   function bindSkillContext(){$('view').querySelectorAll('[data-show-skill]').forEach(b=>b.onclick=()=>showSkill(b.dataset.showSkill));}
   const prototypeModes={'s-short-integrated':'correct','s-short-diagnosis':'error','s-short-sideslip':'drill'};
   function prototypeUrl(mode='correct'){const url=new URL('3d/',/^https?:$/.test(location.protocol)?location.href:'https://jinke.me/snowboard/');url.searchParams.set('mode',mode);return url.href;}
@@ -70,30 +70,42 @@
     else if(state.query||state.module!=='all'||state.kind!=='all')html+='<div class="cards">'+items.map(card).join('')+'</div>';
     else data.modules.forEach((m,i)=>{const ls=items.filter(l=>l.module===m.id);if(ls.length)html+=`<section class="module-group"><div class="module-heading"><span class="module-number">${String(i+1).padStart(2,'0')}</span><h2>${esc(m.title)}</h2><span>${ls.length} 条</span></div><p class="group-intro">${esc(m.intro)}</p><div class="cards">${ls.map(card).join('')}</div></section>`;});
     if(state.query&&state.kind==='all'){const as=user.additions.filter(a=>(state.module==='all'||a.module===state.module)&&state.query.trim().toLowerCase().split(/\s+/).every(q=>flatten([a.title,a.summary]).toLowerCase().includes(q)));if(as.length)html+=`<section class="module-group"><h3>个人补充 · 待核实</h3>${as.map(additionCard).join('')}</section>`;}
-    $('view').innerHTML=html;bindLessons();bindTechnicalMap();if($('start-route'))$('start-route').onclick=()=>{state.page='curriculum';render();window.scrollTo({top:0,behavior:'auto'});};bindAdditionActions();}
-  function bindLessons(){$('view').querySelectorAll('[data-lesson]').forEach(b=>b.onclick=()=>openLesson(b.dataset.lesson));}
-  function openLesson(id){if(!data.lessons.some(l=>l.id===id))return;state.lesson=id;state.page='overview';location.hash='lesson='+encodeURIComponent(id);render();window.scrollTo({top:0,behavior:'auto'});}
+    $('view').innerHTML=html;bindLessons();bindTechnicalMap();if($('start-route'))$('start-route').onclick=()=>openRoute('');bindAdditionActions();}
+  function bindLessons(){$('view').querySelectorAll('[data-lesson]').forEach(b=>b.onclick=()=>openLesson(b.dataset.lesson,b.dataset.route||state.route));}
+  function openLesson(id, routeId = state.route) {
+    if (!data.lessons.some((l) => l.id === id)) return;
+    const sequence = guide.lessonSequence(data, id, routeId);
+    state = {
+      ...state,
+      lesson: id,
+      page: "overview",
+      route: sequence.route?.id || null,
+    };
+    location.hash = guide.lessonLocation(id, state.route);
+    render();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
   function renderGlossary(){
     const terms=data.glossary||[];
     $('view').innerHTML=`<header class="detail-head"><h1>术语与别名</h1><p>先分清身体动作、雪板运动、外部受力和体感提示。站姿、动作与路线名称各自说明；点击关联课程进入练习。</p></header><div class="glossary-list">${terms.map(t=>`<article class="analysis-box"><h2>${esc(t.name)}</h2><p class="muted">${esc(t.original||'')}${t.aliases?.length?' · 别名：'+esc(t.aliases.join('、')):''}</p><p>${esc(t.definition)}</p><p><strong>容易混淆：</strong>${esc(t.confusion)}</p><p><strong>适用情境：</strong>${esc(t.context)}</p>${(t.lessons||[]).map(id=>data.lessons.find(l=>l.id===id)).filter(Boolean).map(l=>`<button type="button" class="stage-link" data-lesson="${esc(l.id)}">${esc(l.title)} ↗</button>`).join('')}</article>`).join('')}</div>`;bindLessons();
   }
   function claimSources(item,l){return (item.sources||[]).filter(id=>(l.citations||[]).some(c=>c.source===id)).map(id=>`<button type="button" class="claim-source" data-citation="${esc(id)}">依据 · ${esc(source(id)?.title||id)} ↗</button>`).join('');}
   function videoStudyMarkup(study){if(!study)return '';return `<section class="video-study" id="learn-video"><h2>${esc(study.title)}</h2><p>${esc(study.scope)}</p>${study.segments.map(s=>{const url=safeUrl(study.url);return `<article><h3>${esc(s.label)}</h3>${url?`<a href="${esc(url)}&amp;t=${Math.floor(s.start)}" target="_blank" rel="noopener noreferrer">打开官方原片 ${time(s.start)}–${time(s.end)} ↗</a>`:''}<p><strong>画面可见：</strong>${esc(s.visible)}</p><p><strong>怎样用于练习：</strong>${esc(s.meaning)}</p><p class="video-limit"><strong>不能据此判断：</strong>${esc(s.limits)}</p></article>`;}).join('')}<p>${esc(study.practice)}</p></section>`;}
-  function renderLesson(){const l=data.lessons.find(x=>x.id===state.lesson);if(!l){state.lesson=null;renderOverview();return;}const index=data.lessons.indexOf(l),bookmarked=user.bookmarks.includes(l.id),m=moduleInfo(l.module),ds=demos(l);
+  function renderLesson(){const l=data.lessons.find(x=>x.id===state.lesson);if(!l){state.lesson=null;renderOverview();return;}const sequence=guide.lessonSequence(data,l.id,state.route),checks=guide.checks(l),bookmarked=user.bookmarks.includes(l.id),m=moduleInfo(l.module),ds=demos(l);state.route=sequence.route?.id||null;
     let reading=`<section class="lesson-purpose" id="learn-goal"><h2>这项能力解决什么</h2><p>${esc(l.goal)}</p>${l.prerequisites?.length?`<div class="prerequisites"><strong>开始前应具备</strong>${bullets(l.prerequisites)}</div>`:''}</section><section id="learn-mechanics"><h2>动作原理与身体关系</h2>${(l.mechanics||[]).map(p=>`<div class="mechanics-item"><h3>${esc(p.title)}</h3><p>${esc(p.body)}</p>${claimSources(p,l)}</div>`).join('')}</section><section id="learn-execution"><h2>具体怎么做</h2><div class="execution-steps">${(l.execution||[]).map((s,i)=>`<article class="execution-step"><div class="step-heading"><span>${i+1}</span><h3>${esc(s.title)}</h3></div><p>${esc(s.body)}</p>${s.cue?`<p class="action-cue"><strong>动作提示</strong>${esc(s.cue)}</p>`:''}${s.observe?`<p class="action-observe"><strong>观察结果</strong>${esc(s.observe)}</p>`:''}${claimSources(s,l)}</article>`).join('')}</div></section>`;
     reading+=videoStudyMarkup(l.videoStudy);
-    if(l.checks?.length)reading+=`<section id="learn-checks"><h2>怎样判断做到了</h2>${bullets(l.checks)}</section>`;
+    if(checks.length)reading+=`<section id="learn-checks"><h2>怎样判断做到了</h2>${bullets(checks)}</section>`;
     const assessmentProtocol=(data.assessmentProtocols||[]).find(p=>p.id===l.assessmentProtocol);
     if(assessmentProtocol)reading+='<section class="assessment-root" id="learn-assessment" aria-label="雪上练习证据记录"></section>';
-    if(l.drill){const d=l.drill;reading+=`<section id="learn-practice"><h2>练习方法与进阶</h2><div class="drill-summary"><p><strong>地形与前提</strong>${esc(d.terrain)}</p><p><strong>准备</strong>${esc(d.setup)}</p></div>${bullets(d.steps,true)}${d.dose?`<div class="practice-dose"><strong>建议练习量 · 本站编排</strong><p>${esc(d.dose)}</p></div>`:''}${d.success?.length?`<div class="pass-check"><strong>通过标准</strong>${bullets(d.success)}</div>`:''}${d.stop?.length?`<div class="stop-check"><strong>减小动作 / 退回一步</strong>${bullets(d.stop)}</div>`:''}${d.progression?.length?`<div class="progression"><strong>下一步</strong>${bullets(d.progression)}</div>`:''}</section>`;}
+    if(l.drill){const d=l.drill;reading+=`<section id="learn-practice"><h2>练习方法与进阶</h2><div class="drill-summary"><p><strong>地形与前提</strong>${esc(d.terrain)}</p><p><strong>准备</strong>${esc(d.setup)}</p></div>${bullets(d.steps,true)}${d.dose?`<div class="practice-dose"><strong>建议练习量 · 本站编排</strong><p>${esc(d.dose)}</p></div>`:''}${d.stop?.length?`<div class="stop-check"><strong>减小动作 / 退回一步</strong>${bullets(d.stop)}</div>`:''}${d.progression?.length?`<div class="progression"><strong>下一步</strong>${bullets(d.progression)}</div>`:''}</section>`;}
     if(l.relatedLessons?.length)reading+=`<section class="related-practice"><h2>接着练什么</h2>${l.relatedLessons.map(id=>data.lessons.find(item=>item.id===id)).filter(Boolean).map(item=>`<button type="button" class="stage-link" data-lesson="${esc(item.id)}">${esc(item.title)} ↗</button>`).join('')}</section>`;
     if(l.mistakes?.length)reading+=`<section id="learn-errors"><h2>常见错误：现象、原因与修正</h2>${l.mistakes.map(e=>`<article class="mistake"><h3>${esc(e.error)}</h3><p><strong>可能原因</strong>${esc(e.cause)}</p>${e.differentiate?`<p><strong>先区分</strong>${esc(e.differentiate)}</p>`:''}<p><strong>调整方法</strong>${esc(e.fix)}</p><p class="action-observe"><strong>再次检查</strong>${esc(e.check)}</p>${e.lesson&&data.lessons.some(item=>item.id===e.lesson)?`<button type="button" class="stage-link" data-lesson="${esc(e.lesson)}">打开对应练习：${esc(data.lessons.find(item=>item.id===e.lesson).title)} ↗</button>`:''}${e.demoKey&&ds.some(d=>[d.type,d.variant,d.transition].filter(Boolean).join(':')===e.demoKey)?`<button type="button" class="stage-link" data-error-demo="${ds.findIndex(d=>[d.type,d.variant,d.transition].filter(Boolean).join(':')===e.demoKey)}">查看对应动作示意 ↗</button>`:''}</article>`).join('')}</section>`;
     reading+=`<details class="lesson-evidence" id="learn-evidence"><summary>资料依据与进一步阅读 <span>${(l.citations||[]).length} 项</span></summary><p class="evidence-intro">资料说明技术依据；练习的组数、提示语和自查由本站按学习目标编排，动作幅度需按自己的能力、装备与雪况调整。</p><p class="source-selection" role="status" hidden></p>${(l.citations||[]).map(c=>{const s=source(c.source),url=safeUrl(s?.url||c.url);return `<div class="source-item" data-source-id="${esc(c.source)}">${c.evidence?`<span class="evidence-level">${esc({direct:"来源明确支持",synthesis:"跨来源归纳",suggestion:"本站教学建议",unverified:"待验证"}[c.evidence]||c.evidence)}</span>`:''}${url?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(s?.title||c.source)} ↗</a>`:esc(c.source)}<p>${esc(c.locator)}</p><p>${esc(c.claim)}</p></div>`;}).join('')}${l.time?`<p class="inspiration-link">选题线索（未逐帧核验）：<a href="${esc(data.meta.videoUrl)}?t=${Math.floor(l.time[0])}" target="_blank" rel="noopener noreferrer">教学视频 ${time(l.time[0])} ↗</a>。时间点不构成动作验证；本页结论依据上列原始资料和明确标注的教学推导。</p>`:''}</details>`;
     activeComments?.destroy();activeComments=null;
-    $('view').innerHTML=`<div class="detail-toolbar"><button class="quiet-button" id="back-list">← 返回内容列表</button><div><button class="quiet-button" id="prev-lesson" ${index===0?'disabled':''}>上一点</button><button class="quiet-button" id="next-lesson" ${index===data.lessons.length-1?'disabled':''}>下一点</button><button class="quiet-button" id="bookmark" aria-pressed="${bookmarked}">${bookmarked?'★ 已收藏':'☆ 收藏'}</button></div></div><header class="detail-head"><div class="card-meta"><span>${esc(m?.title)}</span><span>${esc(kinds[l.kind])}</span><span class="badge level">${esc(l.level||'进阶')}</span></div><h1>${esc(l.title)}</h1><p class="lesson-summary">${esc(l.summary)}</p><nav class="lesson-jumps" aria-label="本点阅读导航"><button type="button" data-jump="learn-goal">雪前 · 目标与前置</button><button type="button" data-jump="learn-mechanics">原理</button><button type="button" data-jump="learn-execution">动作</button>${l.drill?`<button type="button" data-jump="learn-practice">${l.module==='off-snow'?'离雪':'雪上'} · 练习</button>`:''}<button type="button" data-jump="learn-checks">雪后 · 自检</button><button type="button" data-jump="learn-errors">纠错</button><button type="button" data-jump="learn-evidence">依据</button></nav></header>${prototypeModes[l.id]?prototypeEntry(prototypeModes[l.id],true):''}${window.SnowProgression?.validate(progressionMap())?window.SnowProgression.lessonContext(progressionMap(),l,user.skillProgress):''}<div class="detail-grid"><div class="reading">${reading}</div><aside class="animation-column" aria-label="动作演示与讨论">${ds.length?`<div class="demo-switch" role="group" aria-label="教学示意选择">${ds.map((d,i)=>`<button data-demo="${i}" aria-pressed="${i===0}">${esc(d.title||'示意 '+(i+1))}</button>`).join('')}</div><div id="motion-demo"></div>`:''}${l.illustration?'<div id="interactive-illustration"></div>':''}${l.animationGuide?`<div class="analysis-box animation-guide"><h3>怎样看这组示意</h3><p>${esc(l.animationGuide)}</p></div>`:''}${ds.length||l.illustration?'<div class="demo-caption">示意用于看清运动关系与阶段。幅度和比例便于观察，不是个人受力、角度或发力比例处方。</div>':`<div class="analysis-box"><h3>先明确这项练习的目标</h3><p>${esc(l.goal)}</p></div>`}<section class="comments-box" aria-labelledby="comments-title"><div class="comments-heading"><h2 id="comments-title">观察与讨论</h2><span class="comments-badge">GitHub 评论</span></div><p class="comments-intro">记录雪况、动作观察、板痕与教练反馈。使用 GitHub 登录后发表，评论公开可见。</p><div id="lesson-comments"></div><p class="comments-footnote">每门课独立讨论 · 支持 Markdown · 需联网</p></section><div class="analysis-box"><h3>把动作感受和结果一起记录</h3><p>感觉用来发现变化；路线、板头板尾轨迹、控速与可重复性用来验证。一次只改一个变量，再回完整连弯检查。</p></div></aside></div>`;
-    bindLessons();bindSkillContext();$('view').querySelectorAll('[data-citation]').forEach(b=>b.onclick=()=>{const evidence=$('learn-evidence');evidence.open=true;const matches=[...evidence.querySelectorAll('[data-source-id]')].filter(el=>el.dataset.sourceId===b.dataset.citation);evidence.querySelectorAll('[data-source-id]').forEach(el=>el.classList.toggle('source-selected',matches.includes(el)));const notice=evidence.querySelector('.source-selection');notice.hidden=false;notice.textContent=`已标出本课对此资料的 ${matches.length} 处引用。请按各项页码与支持的结论核对适用范围。`;notice.scrollIntoView({block:'center',behavior:'smooth'});});$('view').querySelectorAll('[data-error-demo]').forEach(b=>b.onclick=()=>{const demoButton=$('view').querySelector(`[data-demo="${b.dataset.errorDemo}"]`);demoButton?.click();$('motion-demo')?.scrollIntoView({block:'center',behavior:'smooth'});});$('back-list').onclick=()=>{state.lesson=null;location.hash='';render();};$('prev-lesson').onclick=()=>openLesson(data.lessons[index-1].id);$('next-lesson').onclick=()=>openLesson(data.lessons[index+1].id);
+    $('view').innerHTML=`<div class="detail-toolbar"><button class="quiet-button" id="back-list">← 返回内容列表</button><div><button class="quiet-button" id="prev-lesson" ${!sequence.previous?'disabled':''} title="${esc(sequence.previous?.title||'')}">上一点</button><button class="quiet-button" id="next-lesson" ${!sequence.next?'disabled':''} title="${esc(sequence.next?.title||'')}">下一点</button><button class="quiet-button" id="bookmark" aria-pressed="${bookmarked}">${bookmarked?'★ 已收藏':'☆ 收藏'}</button></div></div><header class="detail-head"><div class="card-meta"><span>${esc(m?.title)}</span><span>${esc(kinds[l.kind])}</span><span class="badge level">${esc(l.level||'进阶')}</span></div><h1>${esc(l.title)}</h1><p class="lesson-summary">${esc(l.summary)}</p><nav class="lesson-jumps" aria-label="本点阅读导航"><button type="button" data-jump="learn-goal">雪前 · 目标与前置</button><button type="button" data-jump="learn-mechanics">原理</button><button type="button" data-jump="learn-execution">动作</button>${l.drill?`<button type="button" data-jump="learn-practice">${l.module==='off-snow'?'离雪':'雪上'} · 练习</button>`:''}<button type="button" data-jump="learn-checks">雪后 · 自检</button><button type="button" data-jump="learn-errors">纠错</button><button type="button" data-jump="learn-evidence">依据</button></nav></header>${prototypeModes[l.id]?prototypeEntry(prototypeModes[l.id],true):''}${window.SnowProgression?.validate(progressionMap())?window.SnowProgression.lessonContext(progressionMap(),l,user.skillProgress):''}<div class="detail-grid"><div class="reading">${reading}</div><aside class="animation-column" aria-label="动作演示与讨论">${ds.length?`<div class="demo-switch" role="group" aria-label="教学示意选择">${ds.map((d,i)=>`<button data-demo="${i}" aria-pressed="${i===0}">${esc(d.title||'示意 '+(i+1))}</button>`).join('')}</div><div id="motion-demo"></div>`:''}${l.illustration?'<div id="interactive-illustration"></div>':''}${l.animationGuide?`<div class="analysis-box animation-guide"><h3>怎样看这组示意</h3><p>${esc(l.animationGuide)}</p></div>`:''}${ds.length||l.illustration?'<div class="demo-caption">示意用于看清运动关系与阶段。幅度和比例便于观察，不是个人受力、角度或发力比例处方。</div>':`<div class="analysis-box"><h3>先明确这项练习的目标</h3><p>${esc(l.goal)}</p></div>`}<section class="comments-box" aria-labelledby="comments-title"><div class="comments-heading"><h2 id="comments-title">观察与讨论</h2><span class="comments-badge">GitHub 评论</span></div><p class="comments-intro">记录雪况、动作观察、板痕与教练反馈。使用 GitHub 登录后发表，评论公开可见。</p><div id="lesson-comments"></div><p class="comments-footnote">每门课独立讨论 · 支持 Markdown · 需联网</p></section><div class="analysis-box"><h3>把动作感受和结果一起记录</h3><p>感觉用来发现变化；路线、板头板尾轨迹、控速与可重复性用来验证。一次只改一个变量，再回完整连弯检查。</p></div></aside></div>`;
+    bindLessons();bindSkillContext();$('view').querySelectorAll('[data-citation]').forEach(b=>b.onclick=()=>{const evidence=$('learn-evidence');evidence.open=true;const matches=[...evidence.querySelectorAll('[data-source-id]')].filter(el=>el.dataset.sourceId===b.dataset.citation);evidence.querySelectorAll('[data-source-id]').forEach(el=>el.classList.toggle('source-selected',matches.includes(el)));const notice=evidence.querySelector('.source-selection');notice.hidden=false;notice.textContent=`已标出本课对此资料的 ${matches.length} 处引用。请按各项页码与支持的结论核对适用范围。`;notice.scrollIntoView({block:'center',behavior:'smooth'});});$('view').querySelectorAll('[data-error-demo]').forEach(b=>b.onclick=()=>{const demoButton=$('view').querySelector(`[data-demo="${b.dataset.errorDemo}"]`);demoButton?.click();$('motion-demo')?.scrollIntoView({block:'center',behavior:'smooth'});});$('back-list').onclick=()=>{if(state.route){openRoute(state.route);return;}state.lesson=null;location.hash='';render();};$('prev-lesson').onclick=()=>{if(sequence.previous)openLesson(sequence.previous.id,state.route);};$('next-lesson').onclick=()=>{if(sequence.next)openLesson(sequence.next.id,state.route);};
     activeComments=window.SnowComments.mount($('lesson-comments'),{lessonId:l.id,title:l.title});
-    if(assessmentProtocol&&window.SnowAssessment)window.SnowAssessment.mount($('learn-assessment'),{protocol:assessmentProtocol,records:user.assessmentRecords,draft:user.assessmentDrafts[assessmentProtocol.id],onDraft:draft=>{user.assessmentDrafts[assessmentProtocol.id]=draft;return save();},onSave:(records,draft)=>{user.assessmentRecords=records;user.assessmentDrafts[assessmentProtocol.id]=draft;return save();},onLesson:openLesson});
+    if(assessmentProtocol&&window.SnowAssessment)window.SnowAssessment.mount($('learn-assessment'),{protocol:assessmentProtocol,focusCriteriaIds:l.id.endsWith('-review')?undefined:l.assessmentCriteriaIds,records:user.assessmentRecords,draft:user.assessmentDrafts[assessmentProtocol.id],onDraft:draft=>{user.assessmentDrafts[assessmentProtocol.id]=draft;return save();},onSave:(records,draft)=>{user.assessmentRecords=records;user.assessmentDrafts[assessmentProtocol.id]=draft;return save();},onLesson:openLesson});
     const jumps=$('view').querySelector('.lesson-jumps');
     if(l.videoStudy)jumps.insertAdjacentHTML('beforeend','<button type="button" data-jump="learn-video">真人示范分析</button>');
     if(assessmentProtocol)jumps.insertAdjacentHTML('beforeend','<button type="button" data-jump="learn-assessment">记录一趟练习</button>');
@@ -142,7 +154,47 @@
     }
     el.querySelectorAll('select').forEach(s=>s.onchange=draw);draw();
   }
-  function renderCurriculum(){$('view').innerHTML=`<div class="section-heading"><div><h2>每次练习，解决一个明确问题</h2><p>按实际能力选择下一步；先用容易完成的练习建立结果，再增加速度、弯形或刃角要求。</p></div></div><div class="notice"><p>练习前观察上方来人，选择人少、视野完整、宽度与停止区足够的熟悉雪道。不能双刃控速停止时，先回入门练习。</p></div><div class="curriculum">${data.curriculum.map((s,i)=>`<section class="stage"><div class="stage-num">${String(i+1).padStart(2,'0')}</div><div><h3>${esc(s.title)}</h3><p>${esc(s.goal)}</p><p><strong>通过标准：</strong>${esc(s.gate)}</p>${s.lessons.filter(id=>data.lessons.some(l=>l.id===id)).map(id=>`<button class="stage-link" data-lesson="${esc(id)}">${esc(data.lessons.find(l=>l.id===id).title)} ↗</button>`).join('')}</div></section>`).join('')}</div>`;bindLessons();}
+  function openRoute(id) {
+    state = { ...state, page: "curriculum", lesson: null, route: id };
+    location.hash = "route=" + encodeURIComponent(id);
+    render();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+  function renderCurriculum() {
+    const routes = data.navigationRoutes || [],
+      selected = routes.find((route) => route.id === state.route);
+    const chosen = selected ? [selected] : routes;
+    $("view").innerHTML =
+      `<header class="detail-head"><h1>${selected ? esc(selected.title) : "按目标选择练习路线"}</h1><p>${selected ? esc(selected.summary) : "共同基础先确认；刻滑与小回转按目标选择，低姿态、反脚和回收分别安排。"}</p>${selected ? '<button class="quiet-button" id="all-routes">← 查看全部路线</button>' : ""}</header><div class="curriculum">${chosen
+        .map(
+          (route) =>
+            `<section class="route-section"><h2>${esc(route.title)}</h2><p>${esc(route.summary)}</p><p class="route-entry"><strong>开始前确认</strong>${esc(route.entry)}</p><ol class="route-lessons">${route.lessons
+              .map((id) => data.lessons.find((l) => l.id === id))
+              .filter(Boolean)
+              .map(
+                (l) =>
+                  `<li><button class="stage-link" data-route="${esc(route.id)}" data-lesson="${esc(l.id)}">${esc(l.title)} ↗</button></li>`,
+              )
+              .join("")}</ol></section>`,
+        )
+        .join(
+          "",
+        )}</div><details class="curriculum-standards"><summary>各阶段的通过标准与补充练习</summary>${data.curriculum
+        .map(
+          (stage) =>
+            `<section class="stage"><div><h3>${esc(stage.title)}</h3><p>${esc(stage.goal)}</p><p><strong>通过标准：</strong>${esc(stage.gate)}</p>${stage.lessons
+              .map((id) => data.lessons.find((l) => l.id === id))
+              .filter(Boolean)
+              .map(
+                (l) =>
+                  `<button class="stage-link" data-lesson="${esc(l.id)}">${esc(l.title)} ↗</button>`,
+              )
+              .join("")}</div></section>`,
+        )
+        .join("")}</details>`;
+    bindLessons();
+    if ($("all-routes")) $("all-routes").onclick = () => openRoute("");
+  }
   function renderSources(){$('view').innerHTML=`<div class="section-heading"><div><h2>资料与阅读依据</h2><p>技术框架以教练协会教材为主；装备看厂家说明，非雪动作看专业运动教育资料。</p></div></div><section class="method-panel"><h3>怎样使用这些资料</h3><p>${esc(data.meta.method)}</p><p>${esc(data.meta.audience)}</p><p>正式教材中的动作通常服务特定任务。阅读时一起看等级、雪况、地形、路线和观察目标；术语相同不代表所有场景使用同一幅度或时机。</p><div class="coverage"><div><strong>${data.lessons.length}</strong><span>技术与练习条目</span></div><div><strong>${demoCount(data.lessons)}</strong><span>动作 / 交互示意</span></div><div><strong>${data.sources.length}</strong><span>独立阅读来源</span></div></div><details class="provenance"><summary>编写范围与资料记录</summary><p>${esc(data.meta.coverage)}</p><p>${esc(data.meta.limitations)}</p><p>技术骨架参考 <a href="${esc(data.meta.videoUrl)}" target="_blank" rel="noopener noreferrer">${esc(data.meta.videoTitle)}</a>；正文按学习任务重新组织，引用和延伸阅读放在各点末尾。</p></details></section><div class="source-list">${data.sources.map(s=>`<article class="source-card"><div class="card-meta"><span>${esc(s.org)}</span></div><h3>${esc(s.title)}</h3><p>${esc(s.summary)}</p><small>${esc(s.version||'')} ${esc(s.locator||'')}</small><a href="${esc(safeUrl(s.url))}" target="_blank" rel="noopener noreferrer">阅读资料 ↗</a></article>`).join('')}</div>`;}
   function additionCard(a){return `<article class="supplement-card"><div class="card-meta"><span>${esc(moduleInfo(a.module)?.title||'个人补充')}</span><span class="badge uncertain">个人记录 · 待核实</span></div><h3>${esc(a.title)}</h3><p>${esc(a.summary)}</p>${safeUrl(a.url)?`<a href="${esc(safeUrl(a.url))}" target="_blank" rel="noopener noreferrer">阅读补充来源 ↗</a>`:''}<div class="addition-actions"><button class="quiet-button" data-edit-addition="${esc(a.id)}">编辑</button><button class="quiet-button" data-delete-addition="${esc(a.id)}">移到回收站</button></div></article>`;}
   function openAddition(a){editingAddition=a?.id||null;$('add-form').reset();$('add-module').innerHTML=data.modules.map(m=>`<option value="${esc(m.id)}">${esc(m.title)}</option>`).join('');$('add-dialog').querySelector('h2').textContent=a?'编辑补充':'添加一条补充';if(a)['title','summary','url','module'].forEach(k=>$('add-form').elements.namedItem(k).value=a[k]||'');$('add-dialog').showModal();}
@@ -151,5 +203,81 @@
   function render(){activeComments?.destroy();activeComments=null;activeDemo?.destroy?.();activeDemo=null;activePlanner?.destroy?.();activePlanner=null;nav();$('hero').hidden=state.page!=='overview'||!!state.lesson||state.module!=='all'||!!state.query||state.kind!=='all';$('search-row').hidden=state.page!=='overview'||!!state.lesson;$('hero-meta').innerHTML=`<span>适合已入门雪友</span><span>${data.lessons.length} 个技术与练习点</span><span>${demoCount(data.lessons)} 个动作 / 交互示意</span><a class="hero-map-link" href="#technical-map">查看技术全景 ↓</a>`;$('footer').innerHTML=`<p>资料更新：${esc(data.meta.reviewedAt)}。面向软靴、压雪雪道的基础巩固与进阶练习；动作选择随练习目标、装备和雪况变化。</p><p>收藏、学习进度与个人补充保存在当前浏览器；公开评论保存在 GitHub。</p><p class="footer-contact"><a href="https://github.com/yichenluan/snowboard" target="_blank" rel="noopener noreferrer">GitHub 项目仓库 <span aria-hidden="true">↗</span></a><span>微信（WeChat）：<strong>Huunnter</strong></span></p>`;if(state.lesson)renderLesson();else if(state.page==='overview')renderOverview();else if(state.page==='curriculum')renderCurriculum();else if(state.page==='glossary')renderGlossary();else if(state.page==='sources')renderSources();else renderAdditions();warning();}
   $('search').oninput=()=>{state.query=$('search').value;render();};$('filter-kind').onchange=()=>{state.kind=$('filter-kind').value;render();};$('menu-toggle').onclick=()=>{const expanded=$('menu-toggle').getAttribute('aria-expanded')!=='true';$('menu-toggle').setAttribute('aria-expanded',String(expanded));document.querySelector('.sidebar').classList.toggle('open',expanded);};document.addEventListener('click',e=>{if(innerWidth<=760&&!e.target.closest('.sidebar')&&!e.target.closest('#menu-toggle'))closeNav();});$('close-dialog').onclick=()=>$('add-dialog').close();
   $('add-form').onsubmit=e=>{e.preventDefault();const f=new FormData(e.currentTarget),a={id:editingAddition||'addition-'+Date.now(),title:String(f.get('title')).trim(),module:String(f.get('module')),summary:String(f.get('summary')).trim(),url:safeUrl(String(f.get('url'))),createdAt:new Date().toISOString()};if(editingAddition)user.additions=user.additions.map(x=>x.id===editingAddition?{...x,...a,createdAt:x.createdAt}:x);else user.additions.push(a);save();e.currentTarget.reset();$('add-dialog').close();editingAddition=null;state={...state,page:'additions',lesson:null};location.hash='';render();toast('补充已保存。');};
-  window.addEventListener('hashchange',()=>{const match=location.hash.match(/^#lesson=(.+)$/);if(match){let id;try{id=decodeURIComponent(match[1]);}catch{return;}if(id!==state.lesson){state.lesson=id;state.page='overview';render();}}else if(location.hash==='#technical-map'){state={...state,page:'overview',module:'all',query:'',kind:'all',lesson:null};$('search').value='';$('filter-kind').value='all';render();$('technical-map')?.scrollIntoView({block:'start'});}else if(!location.hash&&state.lesson){state.lesson=null;render();}});const initialHash=location.hash.match(/^#lesson=(.+)$/);if(initialHash)try{state.lesson=decodeURIComponent(initialHash[1]);}catch{}render();
+  function readLocation() {
+    const next = guide.parseLocation(location.hash);
+    if (next.lesson) {
+      const sequence = guide.lessonSequence(data, next.lesson, next.route);
+      state = {
+        ...state,
+        lesson: next.lesson,
+        route: sequence.route?.id || null,
+        page: "overview",
+      };
+    } else if (next.route !== null) {
+      state = {
+        ...state,
+        lesson: null,
+        route: next.route || null,
+        page: "curriculum",
+      };
+    } else if (location.hash === "#technical-map") {
+      state = {
+        ...state,
+        page: "overview",
+        module: "all",
+        query: "",
+        kind: "all",
+        lesson: null,
+        route: null,
+      };
+      $("search").value = "";
+      $("filter-kind").value = "all";
+    } else if (!location.hash && (state.lesson || state.page === "curriculum")) {
+      state.lesson = null;
+      state.route = null;
+      state.page = "overview";
+    }
+  }
+  window.addEventListener("hashchange", () => {
+    const next = guide.parseLocation(location.hash);
+    if (
+      next.lesson === state.lesson &&
+      next.route === (state.route || null) &&
+      next.lesson
+    )
+      return;
+    readLocation();
+    render();
+    if (location.hash === "#technical-map") {
+      const map = $("technical-map");
+      map?.scrollIntoView({ block: "start" });
+    }
+  });
+  document.querySelector(".brand").onclick = (event) => {
+    event.preventDefault();
+    state = {
+      page: "overview",
+      module: "all",
+      query: "",
+      kind: "all",
+      lesson: null,
+      route: null,
+    };
+    $("search").value = "";
+    $("filter-kind").value = "all";
+    location.hash = "";
+    render();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  };
+  document.querySelector(".skip-link").onclick = (event) => {
+    event.preventDefault();
+    $("main").focus();
+    $("main").scrollIntoView({ block: "start" });
+  };
+  readLocation();
+  render();
+  if (location.hash === "#technical-map") {
+    const map = $("technical-map");
+    map?.scrollIntoView({ block: "start" });
+  }
 })();
