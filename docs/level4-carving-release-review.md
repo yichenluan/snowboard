@@ -42,7 +42,9 @@ CASI官方2024影片的 Large Turns (Carving) 段实际观察两个窗口共13�
 
 最终教学清单884对象，585项有效文字审读、0审读过期。本轮58条页面观察覆盖7课、4练习、8诊断、5节点、2协议、23维度、3真人卡对象及6功能对象；共享依赖变化导致未重验页面仍保留stale。教学状态52项partial、0完整通过；本轮局部观察不替代全站连续画面或真人标定。
 
-本地HTML为2,398,519 bytes，SHA-256 `803a6d41ebe8f6881ec339b9542d8d7e8abea62f99db59c5fa767fe57d2b0f68`；主站与副本一致。Pages推送、Actions与线上字节核对结果待发布后补记。
+本地HTML为2,398,519 bytes，SHA-256 `803a6d41ebe8f6881ec339b9542d8d7e8abea62f99db59c5fa767fe57d2b0f68`；主站与副本一致。实现提交 `93248f8843ba2f3d34d9377bd83906f07a04fd5c` 已推送；[Actions 38710842654](https://github.com/yichenluan/snowboard/actions/runs/38710842654) 的build与deploy均成功。正式主站、副本、独立原型HTML及JS/CSS均返回200，并与本地逐字节一致。
+
+正式站实际打开路线入口、四新课、低位基础和旧小回转复核，核对113课、刻滑12维／短弯11维、7–15米／2–3米专属提示、真人两段链接与前置修复；0console error。正式站个人记录未写入。发布证据为`.validation/level4-carving/published-verification.json`与`published-smoke.json`。这一项确认验收版本已上线，不增加教学或真人标定通过数。
 
 ## 仍然保留的边界
 
