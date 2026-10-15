@@ -24,7 +24,15 @@
 - 主站HTML与本地验收构建逐字节相同：2,037,129 bytes；SHA-256为 `28fa2506e633306c7df28aa0e75d4c6109fc254918465d65284abfb95952295a`。
 - 本节记录功能验收基线，不把后续纯文档提交伪装成再次动作验收。仓库最新提交用 `git log -1` 核对，最新部署用 [Pages工作流](https://github.com/yichenluan/snowboard-guide/actions/workflows/pages.yml) 核对。
 
-入口：[主站](https://yichenluan.github.io/snowboard-guide/) · [小回转综合课](https://yichenluan.github.io/snowboard-guide/#lesson=s-short-integrated) · [扭板](https://yichenluan.github.io/snowboard-guide/#lesson=v14-twist) · [反脚](https://yichenluan.github.io/snowboard-guide/#lesson=v19-switch) · [独立原型84%](https://yichenluan.github.io/snowboard-guide/3d/?mode=correct&t=0.84)。
+入口：[主站](https://jinke.me/) · [小回转综合课](https://jinke.me/#lesson=s-short-integrated) · [扭板](https://jinke.me/#lesson=v14-twist) · [反脚](https://jinke.me/#lesson=v19-switch) · [独立原型84%](https://jinke.me/3d/?mode=correct&t=0.84)。
+
+## 2026-10-15 自定义域名迁移
+
+按用户新请求，将正式入口改为 `https://jinke.me/`，仍使用原仓库和 GitHub Actions / Pages 托管。Pages 的自定义域名已配置，阿里云根域四条 A 记录及 `www` CNAME 已写入；具体记录和 HTTPS 检查见[部署说明](../DEPLOYMENT.md)。当前入口、生成清单及离线教材的线上原型回退链接同步更新，课程 ID、个人数据键、内容版本和动作模型未改变。
+
+本次本地检查：85/85测试、类型检查、两项 Vite 构建、单文件构建及清单同步均通过。新 HTML 为2,037,101 bytes；这次域名改动不构成新的动作教学验收，上节旧功能基线的字节数与 hash 保留其历史含义。线上发布以本次提交对应的 Pages 工作流和实际 DNS / HTTPS 检查为准。
+
+个人数据按浏览器 origin 隔离。换域前使用旧页面“备份数据”，换域后通过新页面“导入补充”恢复；不能把旧地址的重定向等同于笔记、收藏和进度自动迁移。个人备份不放入公开仓库。
 
 ## 验证范围与未完成边界
 

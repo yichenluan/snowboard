@@ -8,7 +8,19 @@
 
 在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。工作流中的 `configure-pages` 负责读取站点配置；它不尝试用默认令牌自动开通 Pages。
 
-项目站点地址通常为 `https://yichenluan.github.io/snowboard-guide/`，以仓库 Pages 设置和成功部署步骤给出的实际 URL 为准。
+正式站点为 `https://jinke.me/`，独立原型位于 `/3d/`，不再包含 `/snowboard-guide/` 项目路径。域名在仓库 **Settings → Pages → Custom domain** 中配置为 `jinke.me`。本项目使用自定义 Actions 工作流，GitHub 不依赖仓库中的 `CNAME` 文件配置域名。
+
+阿里云 DNS 配置如下，TTL 使用免费版默认600秒：
+
+| 主机记录 | 类型 | 记录值 |
+| --- | --- | --- |
+| `@` | A | `185.199.108.153` |
+| `@` | A | `185.199.109.153` |
+| `@` | A | `185.199.110.153` |
+| `@` | A | `185.199.111.153` |
+| `www` | CNAME | `yichenluan.github.io` |
+
+`www.jinke.me` 作为兼容入口跳转到根域。等待 GitHub DNS 检查和证书签发成功后启用 **Enforce HTTPS**。正式发布仍需分别验证根域、旧地址重定向、HTTPS、课程锚点和原型资源；配置依据见 [GitHub 自定义域名说明](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)。
 
 ## 日常更新
 
@@ -17,7 +29,7 @@
 3. 核对差异并只提交本次相关源码，推送到 `main`，确认该提交对应的 `Deploy snowboard guide` 构建和部署均成功。
 4. 在站点上刷新对应条目，实际检查新正文、动画和控制台；不能仅凭推送成功宣称发布完成。
 
-`build.py` 只依赖 Python 标准库。工作流用 Node.js 22 与 `npm ci` 安装锁定依赖，完成共享类型检查、自动测试及原型和课内程序两项 Vite 构建，再检查清单并生成主教材 HTML。主教材采用内联资源，三维原型使用相对路径资源；两者均适用于 GitHub Pages 的项目子目录。
+`build.py` 只依赖 Python 标准库。工作流用 Node.js 22 与 `npm ci` 安装锁定依赖，完成共享类型检查、自动测试及原型和课内程序两项 Vite 构建，再检查清单并生成主教材 HTML。主教材采用内联资源，三维原型使用相对路径资源；两者均适用于自定义域根目录，也支持项目子目录。
 
 ## 用命令行更新
 
@@ -54,7 +66,7 @@ Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，�
 
 - `index.html`：在线入口。
 - `snowboard-guide.html`：同一内容的离线副本，可以通过浏览器保存。
-- `3d/`：小回转三维原型与打包资源，网址为 `https://yichenluan.github.io/snowboard-guide/3d/`。
+- `3d/`：小回转三维原型与打包资源，网址为 `https://jinke.me/3d/`。
 - `.nojekyll`：注明静态发布；Actions 发布本身不运行 Jekyll。
 
 公开仓库应只提交可维护手册源码、README、部署配置和经过检查的展示图片。不要提交研究用原视频、音频、逐字字幕、原始课件、个人备份或笔记、日志、依赖目录以及测试中间文件。
