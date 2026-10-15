@@ -36,7 +36,7 @@ const library = sandbox.window.SnowDemo;
 if (!library?.presets || !Array.isArray(library.types)) throw new Error('SnowDemo 导出格式已改变，请复核盘点脚本');
 const issues = [];
 const issue = (level, code, detail) => issues.push({ level, code, detail });
-for(const type of implementedTypes) if(!library.types.includes(type)) issue('error','unknown-3d-type',type);
+const allTypes = [...new Set([...library.types, ...implementedTypes])];
 const unique = values => [...new Set(values)];
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(k => [k, stable(value[k])])) : value;
 const key = demo => [demo.type, demo.variant, demo.transition].filter(Boolean).join(':');
@@ -58,7 +58,7 @@ const resolveCitations = lesson => (lesson.citations || []).map(c => {
 });
 const modelFor = type => {
   const preset = library.presets[type];
-  if (!preset) return 'unknown';
+  if (!preset) return implementedTypes.has(type) ? 'native-3d' : 'unknown';
   if (library.shortVariants[type]) return 'snow-short-procedural';
   if (preset.dry) return ['squat', 'calf', 'wall', 'shoulder'].includes(preset.dry) ? 'dry-standing-ik' : 'dry-planar';
   return 'snow-keyframes-ik';
@@ -68,6 +68,7 @@ const modelNames = {
   'snow-short-procedural': '小回转共享时序/轨迹 + 双腿 IK',
   'dry-standing-ik': '离雪站立关节模型',
   'dry-planar': '离雪侧面专用模型',
+  'native-3d': '原生三维独立任务（无旧预设）',
   unknown: '未归类',
 };
 const destinationFor = demo => {
@@ -92,7 +93,7 @@ const illustrations = [];
 const reviewedIllustrations = new Set(["v23-angles:binding-stance", "s23-boot-centering:boot-clearance"]);
 const lessonIds = new Set();
 const moduleIds = new Set(data.modules.map(m => m.id));
-const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'legLengthDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task', 'fromEdge', 'timing', 'side', 'rotationComparison', 'twistTiming']);
+const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'legLengthDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task', 'fromEdge', 'timing', 'side', 'rotationComparison', 'twistTiming', 'posture']);
 for (const [lessonIndex, lesson] of data.lessons.entries()) {
   if (lessonIds.has(lesson.id)) issue('error', 'duplicate-lesson', lesson.id);
   lessonIds.add(lesson.id);
@@ -103,7 +104,7 @@ for (const [lessonIndex, lesson] of data.lessons.entries()) {
   const lessonRecord = { id: lesson.id, title: lesson.title, module: lesson.module, goal: lesson.goal, entry, citations, prototypeMode: prototypeModes[lesson.id] || null, references: [], illustration: lesson.illustration || null };
   for (const [index, demo] of demos.entries()) {
     const locator = `lessons[${lessonIndex}].${lesson.demos?.length ? `demos[${index}]` : 'demo'}`;
-    if (!library.types.includes(demo.type)) issue('error', 'unknown-type', `${lesson.id} ${locator}：${demo.type}`);
+    if (!allTypes.includes(demo.type)) issue('error', 'unknown-type', `${lesson.id} ${locator}：${demo.type}`);
     if(requiredTasks[demo.type]&&!requiredTasks[demo.type].includes(demo.task))issue('error','missing-task',`${lesson.id}：${demo.type}需要明确受支持的task`);
     if (demo.path && !library.paths.includes(demo.path)) issue('error', 'unknown-path', `${lesson.id}：${demo.path}`);
     if (library.shortVariants[demo.type] && demo.variant && !library.shortVariants[demo.type].includes(demo.variant)) issue('error', 'unknown-short-variant', `${lesson.id}：${key(demo)}`);
@@ -128,14 +129,14 @@ for (const [lessonIndex, lesson] of data.lessons.entries()) {
 for (const [id, mode] of Object.entries(prototypeModes)) {
   if (!lessonIds.has(id) || !['correct', 'error', 'drill'].includes(mode)) issue('error', 'broken-prototype-entry', `${id}：${mode}`);
 }
-const types = library.types.map(type => {
+const types = allTypes.map(type => {
   const refs = references.filter(ref => ref.config.type === type);
-  const aliases = library.types.filter(other => other !== type && library.presets[other].keyframes === library.presets[type].keyframes);
+  const aliases = library.types.filter(other => other !== type && library.presets[type] && library.presets[other].keyframes === library.presets[type].keyframes);
   const connected = refs.filter(ref => ref.renderer === 'lesson-3d').length;
   const destination = refs.length
     ? `${connected}/${refs.length} 个当前课程引用已接入课内 3D；${partialVariants[type] ? `仅支持列明变体 ${partialVariants[type].join('、')}，未引用的其他变体不在接入范围` : '实际支持范围仍按 task／变体门控'}；逐引用去向见下表`
     : '旧预设保留作来源盘点；当前没有课程引用，不计入已接入引用';
-  return { type, title: library.presets[type].title, model: modelFor(type), references: refs.map(r => r.id), usedKeys: unique(refs.map(r => r.key)), declaredShortVariants: library.shortVariants[type] || [], sharedKeyframesWith: aliases, destination };
+  return { type, title: library.presets[type]?.title ?? type, model: modelFor(type), references: refs.map(r => r.id), usedKeys: unique(refs.map(r => r.key)), declaredShortVariants: library.shortVariants[type] || [], sharedKeyframesWith: aliases, destination };
 });
 const variants = unique(references.map(r => r.key)).map(variantKey => {
   const refs = references.filter(r => r.key === variantKey);
@@ -202,7 +203,7 @@ const lines = [
     ['已独立审阅的装备图', counts.reviewedIllustrations, '保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md'],
     ['主站显示的示意总数', counts.siteDisplayedDemonstrations, '课程动画引用 + 装备图；不额外把独立 3D 链接计入'],
     ['无动作/装备图课程', counts.lessonsWithoutVisuals, '原理与方法仍有正文，不应为凑全 3D 强制补动画'],
-    ['旧预设注册 / 当前有引用的类型', `${counts.registeredTypes} / ${counts.referencedTypes}`, '按 animations.js 的 SnowDemo.types 盘点来源；不等于当前三维模块数'],
+    ['注册 / 当前有引用的类型', `${counts.registeredTypes} / ${counts.referencedTypes}`, '按旧预设与课内注册表并集盘点；不等于当前三维模块数'],
     ['应用变体键', counts.applicationVariantKeys, 'type:variant:transition；与错误卡 demoKey 的匹配口径一致'],
     ['展示配置组合', counts.presentationConfigurations, '去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作'],
     ['旧小回转声明变体', counts.declaredShortVariants, 'animations.js 中 3 个类型共享 shortState；当前实现按独立任务和过渡方式接入，不以旧声明推定支持组合'],

@@ -1,7 +1,9 @@
 import assert from "node:assert/strict";
 import {test} from "node:test";
+import {readFileSync} from "node:fs";
 import {BODY,boardToWorld,type MotionState,type Vec3} from "../prototype/motion.ts";
-import {sampleShortTurnLesson as sample,shortTurnTiming as timing,shortTurnDurationMs as duration,supportsShortTurnLesson,type ShortLessonConfig} from "../lesson-player/short-turns.ts";
+import {sampleShortTurnLesson as sample,shortTurnTiming as timing,shortTurnDurationMs as duration,supportsShortTurnLesson,supportsShortTurnComparison,type ShortLessonConfig} from "../lesson-player/short-turns.ts";
+import {canRenderLesson,sampleLesson} from "../lesson-player/motion.ts";
 
 const distance=(a:Vec3,b:Vec3)=>Math.hypot(...a.map((v,i)=>v-b[i]));
 const leg=(s:MotionState)=>(distance(s.joints.frontHip,s.joints.frontAnkle)+distance(s.joints.rearHip,s.joints.rearAnkle))/2;
@@ -27,6 +29,28 @@ test("short-turn guard does not absorb unimplemented variants or task/transition
   assert.equal(supportsShortTurnLesson({...round,task:"easy-linked-check",transition:"retract"}),false);
   assert.equal(supportsShortTurnLesson({...ladder[0],transition:"flex"}),false);
   assert.equal(supportsShortTurnLesson({...round,task:"unknown"}),false);
+});
+
+test("comparison selector only offers compatible modes for actual lesson configurations",()=>{
+  const guide=JSON.parse(readFileSync(new URL("../content.json",import.meta.url),"utf8")) as {lessons:{id:string;demo?:ShortLessonConfig;demos?:ShortLessonConfig[]}[]};
+  let comparable=0;
+  const excluded=new Set<string>();
+  for(const lesson of guide.lessons)for(const c of lesson.demos?.length?lesson.demos:lesson.demo?[lesson.demo]:[]){
+    if(c.type==="short-turns"&&(c.transition==="flex"||c.transition==="retract")){
+      assert.equal(supportsShortTurnComparison(c),false,lesson.id);
+      excluded.add(lesson.id);
+    }
+    if(!supportsShortTurnComparison(c))continue;
+    comparable++;
+    for(const error of [false,true]){
+      const selected={...c,task:error?"tail-brake-study":"round-linked-skid",variant:error?"tail-brake":"round"};
+      assert.ok(canRenderLesson(selected),`${lesson.id}: ${selected.task}`);
+      for(const stance of ["regular","goofy"] as const)for(const t of [0,.125,.5,.875,1])assert.doesNotThrow(()=>sampleLesson(t,selected,stance),`${lesson.id}: ${selected.task}/${stance}/${t}`);
+    }
+  }
+  assert.ok(comparable>0,"exercise the published comparison controls");
+  for(const id of ["s-short-integrated","s-short-diagnosis","s-short-adapt"])assert.ok(excluded.has(id),`cover the previously crashing lesson ${id}`);
+  assert.equal(supportsShortTurnComparison({...round,task:"easy-linked-check"}),false);
 });
 
 test("easy turns expand both dimensions; extension/flexion compare identical board motion",()=>{

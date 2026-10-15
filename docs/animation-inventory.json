@@ -1,35 +1,35 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "d3b136f869061c73926ba2fd617283bcbb5e6b53f5152c1048d3f31a9e939381",
+    "content.json": "4fe25911738ed85d45b4a8b8a64cf0d192a657f131a9ef30fc90aae19a7a2cb5",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "95c7f01265012513c1b06f1f97fa41f0a400db7efb2fa8cb72a3e7070d75886a",
-    "lesson-player/registry.json": "5c657d9aa412aa6667ab79782b00e35202e5ed72cee07e1d2943c8a212682bae"
+    "app.js": "f97ca2d6faf29b3d2171361ccb18a60756a96a0aaed4cf367ca38722db7d919a",
+    "lesson-player/registry.json": "c49e9298431debfe4865fa2e4835b2e1fbf8be318c4783474a2afc7709c62c92"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
   "counts": {
-    "lessons": 102,
+    "lessons": 103,
     "modules": 13,
-    "lessonsWithDemos": 88,
+    "lessonsWithDemos": 89,
     "lessonsWithIllustrations": 2,
     "lessonsWithoutVisuals": 12,
-    "legacyDemoReferences": 134,
+    "legacyDemoReferences": 135,
     "illustrationReferences": 2,
-    "siteDisplayedDemonstrations": 136,
+    "siteDisplayedDemonstrations": 137,
     "reviewedIllustrations": 2,
-    "registeredTypes": 37,
-    "referencedTypes": 35,
-    "applicationVariantKeys": 70,
-    "presentationConfigurations": 92,
+    "registeredTypes": 38,
+    "referencedTypes": 36,
+    "applicationVariantKeys": 71,
+    "presentationConfigurations": 93,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 35,
-    "fullyImplemented3DTypes": 32,
+    "implemented3DTypes": 36,
+    "fullyImplemented3DTypes": 33,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 134,
+    "implemented3DReferences": 135,
     "remainingLegacyReferences": 0,
-    "replacedLegacyReferences": 134
+    "replacedLegacyReferences": 135
   },
   "modules": [
     {
@@ -91,8 +91,8 @@
     {
       "id": "carving",
       "title": "刻滑、滑移与控速",
-      "lessons": 6,
-      "demoReferences": 6,
+      "lessons": 7,
+      "demoReferences": 7,
       "illustrationReferences": 0,
       "withoutVisuals": 2
     },
@@ -804,6 +804,20 @@
       ],
       "sharedKeyframesWith": [],
       "destination": "5/5 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
+    },
+    {
+      "type": "duck-carve",
+      "title": "duck-carve",
+      "model": "native-3d",
+      "references": [
+        "s-duck-low-linked/1"
+      ],
+      "usedKeys": [
+        "duck-carve"
+      ],
+      "declaredShortVariants": [],
+      "sharedKeyframesWith": [],
+      "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     }
   ],
   "variants": [
@@ -2149,6 +2163,21 @@
         }
       ],
       "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+    },
+    {
+      "key": "duck-carve",
+      "references": [
+        "s-duck-low-linked/1"
+      ],
+      "configurations": [
+        {
+          "posture": "low",
+          "task": "linked-duck-carve",
+          "trackDiagnostics": true,
+          "type": "duck-carve"
+        }
+      ],
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     }
   ],
   "references": [
@@ -5527,6 +5556,28 @@
       "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-duck-low-linked/1",
+      "lesson": "s-duck-low-linked",
+      "index": 0,
+      "locator": "lessons[102].demo",
+      "entry": "https://jinke.me/snowboard/#lesson=s-duck-low-linked",
+      "key": "duck-carve",
+      "model": "native-3d",
+      "config": {
+        "type": "duck-carve",
+        "task": "linked-duck-carve",
+        "posture": "low",
+        "title": "低姿态八字刻滑：两侧连续转换",
+        "trackDiagnostics": true,
+        "focus": "先看正常高度，再比较降低姿态后的释放与余量；前后刃不是镜像。",
+        "autoplay": false,
+        "duration": 14000
+      },
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     }
   ],
   "illustrations": [
@@ -6098,6 +6149,15 @@
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "印刷 p.51–52、155，Pressure / Toeside vs. Heelside",
+          "claim": "后刃全身配合不同于前刃；屈伸的启动、收住和保持具有不同含义。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6238,6 +6298,15 @@
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0（2022-11-07），印刷 p.3，Snowboarding Fundamentals F3 / F5",
+          "claim": "分别列出板雪压力大小和由内倾、关节成角共同控制的板倾；不把身体高度或板角直接作为压力值。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         }
       ],
       "prototypeMode": null,
@@ -7171,6 +7240,15 @@
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "D01",
+          "locator": "正文第 4–7 段，高级滑手的两向转换与弯形比较",
+          "claim": "前换后过早旋转和后换前肩先倾入是不同的常见诊断线索；须先比较弯形和最早偏差。",
+          "evidence": "direct",
+          "canonicalSource": "D01",
+          "title": "Asymmetry in Snowboarding",
+          "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
         }
       ],
       "prototypeMode": null,
@@ -7360,8 +7438,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.60–61、97–99；Carved Turns / Introducing Carving",
-          "claim": "刻滑由板尾跟踪板头的窄轨迹识别，递进须结合平衡、控速和地形。",
+          "locator": "印刷 p.61、97–98；Introducing Carving / Analysis & Improvement",
+          "claim": "以窄痕、两侧控制和可调整姿态审查刻滑；p.98 明确讨论为触雪折腰的错误，p.99 不作为本课刻滑定位。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7489,15 +7568,16 @@
     },
     {
       "id": "v20-path",
-      "title": "刻滑进阶路线：单弧、连弧，再调整弯形",
+      "title": "刻滑进阶路线：正常高度稳定后，再练低姿态八字",
       "module": "carving",
       "goal": "根据当前最弱的一步，选出一项练习和清楚的通过标准。",
       "entry": "https://jinke.me/snowboard/#lesson=v20-path",
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.58–61、97–99、119–120；Advanced Competencies / Carving",
-          "claim": "核心能力以任务融合为基础，高级发展关注弧线、调压、转向多样性与连续性能。",
+          "locator": "印刷 p.61、97–98、155、181–182",
+          "claim": "正常刻滑的板表现、身体非对称关系与装备条件为分支提供依据；正常高度到低姿态的具体学习顺序属于本站教学设计。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7509,6 +7589,24 @@
           "canonicalSource": "T02",
           "title": "Carving Instructor：刻滑专项路径",
           "url": "https://casi-acms.com/courses/carving-instructor/"
+        },
+        {
+          "source": "S19",
+          "locator": "3 Common Snowboard Binding Angle Combinations；Snowboard Stance Angles for Different Types of Snowboards",
+          "claim": "duck stance 为前正后负，具体脚角需匹配个人与用途；用于明确本课低姿态分支的站姿范围。",
+          "evidence": "direct",
+          "canonicalSource": "S19",
+          "title": "Snowboard Stance Angles Explained",
+          "url": "https://www.burton.com/en-au/blogs/the-burton-blog/snowboard-stance-angles"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0（2022-11-07），印刷 p.5、15、25，Carved Turn",
+          "claim": "刻滑按板尾跟随板头的轨迹与各阶段控制判断，屈伸方法随任务变化；先正常高度、后小幅降低的课序是本站教学归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         }
       ],
       "prototypeMode": null,
@@ -7541,21 +7639,50 @@
       "id": "s-short-integrated",
       "title": "搓雪小回转：把释放、转向和控速连成一组",
       "module": "short-turns",
-      "goal": "不依赖刻滑或回收换刃，完成一组圆润、对称、速度可控的搓雪小回转。",
+      "goal": "在自选走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-integrated",
       "citations": [
         {
+          "source": "A02",
+          "locator": "印刷 p.7–9，Technical (Riding) Assessment / Short Radius Sliding Turns；官方英文21页版",
+          "claim": "直接支持短搓雪弯以居中、下肢引导、圆润对称、节奏、控速和调刃调压观察；3–5米是该考核任务的条件，本站不采用统一宽度门槛。",
+          "evidence": "direct",
+          "canonicalSource": "A02",
+          "title": "Level 2 Course Guide：Rider Improvement",
+          "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
+        },
+        {
           "source": "S10",
-          "locator": "印刷 p.14，Level II / Skidded Turn",
-          "claim": "搓雪转弯可采用不同屈伸时机；下肢转向、刃角和滑移共同影响路线。",
+          "locator": "v2.0（2022-11-07），印刷 / PDF p.14，Level II — Skidded Turn，F1–F6",
+          "claim": "直接支持下肢转向、可控滑移、上下身不同路线，以及不同屈伸策略；不把该任务的前后移动时序升级为全体滑手的唯一规则。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.178，Timing & Coordination",
-          "claim": "侧滑连接和逐步改变弯大小可用于短弯练习；本站组数与自查是练习组织建议。",
+          "locator": "©2021，印刷 / PDF pp.50–52、59、155：Angulation / Pressure / Pedalling / Toeside vs. Heelside",
+          "claim": "支持关节配合、板体扭转、不同屈伸压力阶段与前后刃身体关系；本课两向阶段文字是对这些关系的教学归纳，非实测动作轨迹。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "D01",
+          "locator": "2022-10-13，正文高级滑手段至结尾（以 Asymmetry affects advanced riders 开始）",
+          "claim": "提供前换后过早肩髋转动、偏前失尾与后换前肩先扑入等常见线索；它们不是每个人的必然模式。",
+          "evidence": "direct",
+          "canonicalSource": "D01",
+          "title": "Asymmetry in Snowboarding",
+          "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
+        },
+        {
+          "source": "S16",
+          "locator": "印刷 / PDF p.178，Side Slipping to Short Radius Turns / Tornado Turns",
+          "claim": "本站据侧滑缩短与逐级缩弯设计入口分流；4至6弯、2至3组、录像帧点、两趟复测和退出检查均为本站教学建议。",
+          "evidence": "suggestion",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7580,6 +7707,16 @@
           "source": "S16",
           "locator": "印刷 p.178，Side Slipping to Short Radius Turns",
           "claim": "直接依据该练习的侧滑—单弯—缩短侧滑顺序；具体地形和距离按学习者已有能力调整。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "印刷 / PDF p.178，同上",
+          "claim": "双侧各2次、4至6弯、停止和普通圆弯复测是本站对练习的组织建议；原教材示例距离与坡度不作为本课固定处方。",
+          "evidence": "suggestion",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7604,9 +7741,19 @@
           "source": "S16",
           "locator": "印刷 p.178，Tornado Turns",
           "claim": "采用逐步改变转弯大小的练习思路；本站加入回到中弯和撤提示复测。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "A02",
+          "locator": "印刷 p.7–9，Short Radius Sliding Turns",
+          "claim": "圆润、对称、控速用于观察缩弯结果；本站保留变回中弯与撤提示复测，不以考核走廊数字替代学习者控制范围。",
+          "evidence": "synthesis",
+          "canonicalSource": "A02",
+          "title": "Level 2 Course Guide：Rider Improvement",
+          "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
         }
       ],
       "prototypeMode": null,
@@ -7625,17 +7772,19 @@
       "entry": "https://jinke.me/snowboard/#lesson=s-short-balance",
       "citations": [
         {
-          "source": "A03",
-          "locator": "印刷 p.7–8，Technical (Riding) Assessment；居中、膝脚引导与短弯",
-          "claim": "以居中转向、膝脚引导和圆润对称作为小弯观察点；考核坡度与走廊数字不作为普适练习门槛。",
-          "canonicalSource": "A03",
-          "title": "二级教练课程指南：小回转观察要点（中英对照）",
-          "url": "https://members.casi-acms.com/documents/Level%202%20translated%207%20Days%20Course%20Guide.pdf"
+          "source": "A02",
+          "locator": "官方英文21页版，印刷 / PDF pp.7–9，Technical (Riding) Assessment",
+          "claim": "直接支持居中且可活动、膝脚引导、短弯居中转向与圆润对称。修正旧引用误将英文 p.7–8 标到中英对照版 A03 的来源错配。",
+          "evidence": "direct",
+          "canonicalSource": "A02",
+          "title": "Level 2 Course Guide：Rider Improvement",
+          "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
         },
         {
           "source": "S10",
           "locator": "印刷 p.14，F1 / F4",
           "claim": "前后调节与双腿屈伸、转向应结合滑行目标；不是固定重量分配。",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
@@ -7660,9 +7809,19 @@
           "source": "S16",
           "locator": "印刷 p.178，Counting, Singing, Gates, Pylons",
           "claim": "计数可帮助观察前后刃节奏的对称；本站用自然节奏起步并增加撤提示复测。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "A02",
+          "locator": "印刷 / PDF pp.7–9，Short Radius Sliding Turns",
+          "claim": "本站把完整工作刃弧作为计时边界，并将地形需要的不对称与无意偏差分开，是便于复盘的教学归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "A02",
+          "title": "Level 2 Course Guide：Rider Improvement",
+          "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
         }
       ],
       "prototypeMode": null,
@@ -7683,6 +7842,7 @@
           "source": "S10",
           "locator": "印刷 p.14，Successful / Unsuccessful Performance Contributors",
           "claim": "以滑移、立刃、下肢转向与身体路线分析表现。下方现象与练习配对为本站教学归纳，不是唯一诊断。",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
@@ -7691,9 +7851,19 @@
           "source": "S16",
           "locator": "印刷 pp.174–178，Tactics Glossary",
           "claim": "用单项练习检查技术，再回完整滑行观察效果。",
+          "evidence": "suggestion",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "D01",
+          "locator": "正文高级滑手段与结尾，比较两侧半径和完成程度",
+          "claim": "前后刃常见代偿可作为录像假设；本站的逐项区分试验与退阶配对是教学归纳，不能代替现场诊断。",
+          "evidence": "synthesis",
+          "canonicalSource": "D01",
+          "title": "Asymmetry in Snowboarding",
+          "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
         }
       ],
       "prototypeMode": "error",
@@ -7722,6 +7892,7 @@
           "source": "S16",
           "locator": "印刷 p.178，Tornado Turns",
           "claim": "以改变弯大小发展动作时机；本站用可逆变化和主动结束检验迁移。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7730,9 +7901,19 @@
           "source": "S10",
           "locator": "印刷 p.7，Timing, Intensity and Duration",
           "claim": "按需要改变弯形、大小和线路，保持控速。",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "A02",
+          "locator": "印刷 / PDF pp.7–9，Technical (Riding) Assessment",
+          "claim": "本站把保持、单项变化、主动结束和另一趟复测组合为学习者自检，不等同于该教练考核或证明可直接进入陌生陡坡。",
+          "evidence": "suggestion",
+          "canonicalSource": "A02",
+          "title": "Level 2 Course Guide：Rider Improvement",
+          "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
         }
       ],
       "prototypeMode": null,
@@ -8261,8 +8442,9 @@
       "citations": [
         {
           "source": "S19",
-          "locator": "0°定义与三类组合",
-          "claim": "正零、双正、鸭式的定义及用途。",
+          "locator": "3 Common Snowboard Binding Angle Combinations；Snowboard Stance Angles for Different Types of Snowboards",
+          "claim": "官方将前正后负称为 duck stance；具体设置需匹配个人和用途。",
+          "evidence": "direct",
           "canonicalSource": "S19",
           "title": "Snowboard Stance Angles Explained",
           "url": "https://www.burton.com/en-au/blogs/the-burton-blog/snowboard-stance-angles"
@@ -8277,8 +8459,9 @@
         },
         {
           "source": "S16",
-          "locator": "印刷 p.156–158、180–182",
-          "claim": "自然关节关系与装备配置。",
+          "locator": "印刷 p.181–182，Boots & Bindings / Stance Angles",
+          "claim": "装备、站距与脚角共同影响舒适动作；前正后负与双正是不同配置。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8564,6 +8747,24 @@
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
+        },
+        {
+          "source": "D01",
+          "locator": "正文第 4–6 段，advanced riders / front shoulder / hip and knee",
+          "claim": "后换前肩先倾入、髋未有效换侧是常见线索之一；不能仅由前刃滑出就断定原因。",
+          "evidence": "direct",
+          "canonicalSource": "D01",
+          "title": "Asymmetry in Snowboarding",
+          "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
+        },
+        {
+          "source": "S20",
+          "locator": "Heel Drag or Toe Drag；Fine-Tuning Your Individual Binding Fit / Boot Centering",
+          "claim": "鞋头或鞋跟接雪可能妨碍立刃，需检查实际外伸、横向居中与匹配；不能仅凭滑出就诊断为拖靴。",
+          "evidence": "direct",
+          "canonicalSource": "S20",
+          "title": "How to Adjust Snowboard Bindings",
+          "url": "https://www.burton.com/en-au/blogs/the-burton-blog/how-to-adjust-snowboard-bindings"
         }
       ],
       "prototypeMode": null,
@@ -8734,6 +8935,74 @@
       ],
       "prototypeMode": null,
       "references": [],
+      "illustration": null
+    },
+    {
+      "id": "s-duck-low-linked",
+      "title": "低姿态八字刻滑：保持窄痕，完成两侧转换",
+      "module": "carving",
+      "goal": "降低姿态后，两侧仍能连续窄痕、控制出口和速度，并保留随时调刃、屈伸和主动退出的能力。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-duck-low-linked",
+      "citations": [
+        {
+          "source": "S19",
+          "locator": "3 Common Snowboard Binding Angle Combinations",
+          "claim": "直接支持 duck stance 为前正后负；对称角度是常见选择而非定义要求。",
+          "evidence": "direct",
+          "canonicalSource": "S19",
+          "title": "Snowboard Stance Angles Explained",
+          "url": "https://www.burton.com/en-au/blogs/the-burton-blog/snowboard-stance-angles"
+        },
+        {
+          "source": "S16",
+          "locator": "印刷 p.50–52、97–98、155、181–182",
+          "claim": "支持成角与内倾、屈伸时序、刻滑入门判据、两刃非对称和装备条件；不提供本站低姿态动作数值。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0（2022-11-07），印刷 p.3、5、15、25，Fundamentals / Carved Turn",
+          "claim": "直接支持刻滑板尾跟随判据、受力与动作量的区分，以及按任务采用不同屈伸；不把某级考核动作当唯一规则。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "D01",
+          "locator": "2022-10-13，正文第 4–7 段（advanced riders 至 comparing turns）",
+          "claim": "支持两向常见误差不同：前换后过早旋转、后换前前肩先倾；都是排查线索。",
+          "evidence": "direct",
+          "canonicalSource": "D01",
+          "title": "Asymmetry in Snowboarding",
+          "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第 2–5 段，transition / COM and BOS",
+          "claim": "支持过渡重新组织身体与板的关系，避免过早过量投入新弯。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
+        },
+        {
+          "source": "T02",
+          "locator": "Course Overview / Am I Ready",
+          "claim": "正常高度基线、单弧对照和短组验收是本站教学归纳；官方专项强调已有刻滑经验、适配装备及反馈，未规定本课练习次数。",
+          "evidence": "suggestion",
+          "canonicalSource": "T02",
+          "title": "Carving Instructor：刻滑专项路径",
+          "url": "https://casi-acms.com/courses/carving-instructor/"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-duck-low-linked/1"
+      ],
       "illustration": null
     }
   ],

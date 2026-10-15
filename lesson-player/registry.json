@@ -34,11 +34,17 @@
     "short-turn-progression",
     "short-turn-balance",
     "switch",
-    "twist"
+    "twist",
+    "duck-carve"
   ],
   "requiredTasks": {
-    "switch": ["switch-linked-skid"],
-    "twist": ["progressive-twist", "twist-timing-compare"],
+    "switch": [
+      "switch-linked-skid"
+    ],
+    "twist": [
+      "progressive-twist",
+      "twist-timing-compare"
+    ],
     "hip-edge-change": [
       "board-coordinate-study",
       "stationary-hip-rock",
@@ -85,6 +91,9 @@
       "centered-pivot-study",
       "nose-pivot-study",
       "back-seat-study"
+    ],
+    "duck-carve": [
+      "linked-duck-carve"
     ]
   },
   "partialVariants": {

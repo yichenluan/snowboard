@@ -11,3 +11,5 @@
 .sl3-expanded{overflow:visible}
 @media(min-width:800px){.sl3-expanded{display:grid;grid-template-columns:minmax(0,1fr) 310px;grid-template-rows:auto minmax(0,1fr);height:94dvh}.sl3-expanded>.sl3-heading{grid-column:1/-1}.sl3-expanded .sl3-observe{min-width:0;min-height:0;display:flex;flex-direction:column}.sl3-expanded .sl3-observe>*{flex-shrink:0}.sl3-expanded .sl3-explain{border-left:1px solid #d9e1d5;overflow:auto}.sl3-expanded .sl3-scene{height:auto;min-height:180px;flex:1}}
 @media(max-width:799px){.sl3-dialog{width:96vw;max-height:96dvh}.sl3-expanded .sl3-scene{height:38dvh;min-height:220px}.sl3-expanded .sl3-cue{min-height:0}.sl3-expanded .sl3-heading{padding:8px 12px;position:sticky;top:0;z-index:5;background:#fafbf6}.sl3-expanded .sl3-heading h3{font-size:16px}.sl3-expanded .sl3-heading p,.sl3-expanded .sl3-input-help{display:none}}
+
+.sl3-comparison{display:flex;flex-wrap:wrap;background:#f1f4ed;gap:8px;padding:8px}.sl3-comparison figure{flex:1 1 190px;min-width:0;margin:0}.sl3-comparison figcaption{font-size:12px;text-align:center}.sl3-comparison svg{display:block;width:100%;max-height:260px}

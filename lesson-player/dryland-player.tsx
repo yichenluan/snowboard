@@ -22,6 +22,7 @@ export function DrylandPlayer({config,api}:{config:LessonConfig;api:{current:Par
   const clock=usePlayback(Math.max(4000,config.duration??10000),root,api),{time,seek}=clock;
   const [view,setView]=useState<DryView>(toView(config.view??(["dry-plank","hip-mobility","dry-hamstring"].includes(config.type)?"side":undefined))),[reset,setReset]=useState(0),[flat,setFlat]=useState(false);
   const [skeleton,setSkeleton]=useState(Boolean(config.jointLabels)),[touchRotate,setTouchRotate]=useState(false),[expanded,setExpanded]=useState(false);
+  const [emphasis,setEmphasis]=useState(false);
   const [practiceSide,setPracticeSide]=useState<Side>(config.side??"left");
   const asymmetric=["ankle-mobility","hip-mobility","dry-hamstring"].includes(config.type);
   const frame=useMemo(()=>sampleDryland(time,{...config,side:practiceSide}),[time,config,practiceSide]),source=evidence(config.type);
@@ -38,14 +39,17 @@ export function DrylandPlayer({config,api}:{config:LessonConfig;api:{current:Par
   const content=<section className={`sl3${expanded?" sl3-expanded":""}`} aria-label={config.title??"离雪动作示意"}>
     <div className="sl3-heading"><div className="sl3-heading-bar"><span>离雪练习 · 普通鞋 · 三维观察</span><button ref={expanded?undefined:expandButton} onClick={()=>setExpanded(v=>!v)}>{expanded?"收起观察":"放大观察"}</button></div><h3>{config.title??config.type}</h3>{config.focus&&<p>{config.focus}</p>}</div>
     <div className="sl3-observe">
+      <div className="sl3-options"><label>观察模式 <select aria-label="观察模式" value={emphasis?"emphasis":"baseline"} onChange={e=>setEmphasis(e.target.value==="emphasis")}><option value="baseline">基准动作</option><option value="emphasis">教学强调</option></select></label></div>
+      {emphasis&&<p className="sl3-hint">教学强调增加同源关节与平面观察，不放大身体幅度；配合慢放或重播查看支撑与进入退出。</p>}
       <div className="sl3-views" role="group" aria-label="观察视角">{[...views,...(config.type==="dry-shoulder-rolls"?[["shoulders","肩部近景"] as [DryView,string]]:[])].map(([v,label])=><button key={v} aria-pressed={!flat&&view===v} onClick={()=>{setView(v);setFlat(false);setReset(n=>n+1);}}>{v==="front"&&lying?"头尾方向":label}</button>)}<button aria-pressed={flat} onClick={()=>setFlat(v=>!v)}>平面骨架</button></div>
-      <div className="sl3-scene">{flat?<DrylandPlanar frame={frame} view={view}/>:<DrylandScene frame={frame} view={view} skeleton={skeleton} touchRotate={touchRotate} reset={reset} fallback={fallback}/>}</div>
+      <div className="sl3-scene">{flat?<DrylandPlanar frame={frame} view={view}/>:<DrylandScene frame={frame} view={view} skeleton={skeleton||emphasis} touchRotate={touchRotate} reset={reset} fallback={fallback}/>}</div>
       <div className="sl3-status"><strong>{support}</strong><span>离雪观察 · {Math.round(time*100)}%</span></div>
-      <PlaybackControls clock={clock}/>
+      <PlaybackControls clock={clock} stages={frame.phases} stage={frame.phase}/>
       <div className="sl3-options">{asymmetric&&<label>练习侧<select aria-label="练习侧" value={practiceSide} onChange={e=>{setPracticeSide(e.target.value as Side);setReset(n=>n+1);}}><option value="left">左侧</option><option value="right">右侧</option></select></label>}<label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><span className="sl3-hint">蓝：左侧　橙：右侧</span></div>
       <p className="sl3-hint sl3-input-help">鼠标拖动旋转、滚轮缩放；再次点视角复位。触屏旋转关闭时可滚动页面。</p>
       {frame.pelvisForward&&<p className="sl3-hint">骨盆旁浅黄线表示方向示意：先轻收骨盆，再小幅前移；不是关节角测量。</p>}
     </div><div className="sl3-explain">
+      {emphasis&&<DrylandPlanar frame={frame} view={view}/>}
       <div className="sl3-stages" role="group" aria-label="动作阶段">{frame.phases.map((p,i)=><button key={i} aria-pressed={frame.phase===i} onClick={()=>seek(p.at)}><span>{i+1}</span>{p.title}</button>)}</div>
       <div className="sl3-cue"><strong>{end?"已回到本段起始位置":frame.phases[frame.phase].title}</strong><p>{end?"本次示意结束，可停留观察或主动重新播放；训练次数与幅度按自己的任务另行安排。":frame.phases[frame.phase].detail}</p></div>
       <p className="sl3-hint">普通鞋模型允许脚踝随任务活动；鞋底、骨长和支撑接触共同约束动作。本段不模拟雪上压力，也不代表训练后的技术效果。</p>

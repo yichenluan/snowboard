@@ -8,16 +8,18 @@ import { LessonDiagnostics } from "./diagnostics";
 import { usePlayback, PlaybackControls, type PlayerApi } from "./player-controls";
 import { DrylandPlayer, canRenderDryland } from "./dryland-player";
 import { isRotationLesson } from "./rotation";
-import { supportsShortTurnLesson, shortTurnDurationMs, shortTurnTiming } from "./short-turns";
+import { supportsShortTurnLesson, supportsShortTurnComparison, shortTurnDurationMs, shortTurnTiming } from "./short-turns";
 import { supportsSwitchLesson } from "./switch";
 import { supportsTwistLesson, type TwistTiming } from "./twist";
 import { TwistSectionDiagram } from "./twist-diagram";
 import registry from "./registry.json";
+import { supportsCarvingLesson, type CarvePosture } from "./carving";
 
 declare global { interface Window { SnowLesson3D: { types: readonly string[]; canRender(config:LessonConfig):boolean; mount(container: HTMLElement|string, config: LessonConfig):PlayerApi } } }
 const edges={toe:"前刃 · 脚尖侧",heel:"后刃 · 脚跟侧",flat:"接近平板"};
 const views: [View,string][]=[["follow","斜视"],["side","看前后平衡"],["front","看两刃成角"],["boots","雪靴近景"]];
 function evidenceFor(c:LessonConfig):string {
+  if(supportsCarvingLesson(c))return "依据 CASI Reference Guide 第49–52、155页的调刃、屈伸与两刃差异，以及 AASI Performance Guide v2.0 第5、15页的连续刻滑任务。本站八字指前正后负的 duck stance，不是8字路线或双正角。固定器采用 +18°/−9°作者示例，不是推荐设置；正常高度与较低姿态共用路线和板角，低姿态不证明压力更大。探胸反例仅隔离身体关系，不计算失去抓地的后果。";
   if(supportsSwitchLesson(c))return "依据 CASI Reference Guide 第101–102页的反脚入门与基本搓雪连弯设计。原后脚从首帧领行，硬件鼻尾、固定器角度和脚的身份不交换；左右惯用脚只是镜像选择。本段不替代此前的独立停止与单弯练习。";
   if(supportsTwistLesson(c))return "依据 CASI Reference Guide 第59页的前后脚协调与板体扭转设计。前后段刃角与固定器局部姿态同源，时序差为作者示例；此处没有板材刚度、局部压力或真实雪面接触求解，不据此判定哪种时差更好。";
   if(supportsShortTurnLesson(c))return "依据 CASI Reference Guide 第49–50页的调刃与成角、第59页的上下身协调、第155–156页的两刃差异、第178页的侧滑接单弯，Level 2 第7、9页、Level 3 第13页与 AASI Performance Guide 第14页设计。普通圆弯、回收策略、侧滑衔接及各反例按不同任务编排；滑移并非全是错误。真实板头板尾路径、腿长与肩髋方向用于观察关系，不证明真实压力、减速度或某一原因。";
@@ -130,7 +132,10 @@ function RotationDirections({state}:{state:MotionState}) {
 function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi>}}) {
   const root=useRef<HTMLDivElement>(null);
   const short=supportsShortTurnLesson(config),shortTiming=shortTurnTiming(config);
-  const twist=supportsTwistLesson(config),switchRide=supportsSwitchLesson(config);
+  const twist=supportsTwistLesson(config),switchRide=supportsSwitchLesson(config),carve=supportsCarvingLesson(config);
+  const shortCompare=supportsShortTurnComparison(config);
+  const [posture,setPosture]=useState<CarvePosture>(config.posture??"low"),[shortError,setShortError]=useState(config.task==="tail-brake-study");
+  const [emphasis,setEmphasis]=useState(false),[showRoute,setShowRoute]=useState(true);
   const duration=short?shortTurnDurationMs(config):Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
   const clock=usePlayback(duration,root,api),{time,setPlaying,seek}=clock;
   const [stance,setStance]=useState<Stance>(config.stance??"regular");
@@ -139,12 +144,15 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
   const [rotationComparison,setRotationComparison]=useState<"natural"|"slightly-open">(config.rotationComparison??"natural");
   const [twistTiming,setTwistTiming]=useState<TwistTiming>(config.twistTiming??(config.task==="twist-timing-compare"?"near-synchronous":"front-earlier"));
   const [edgeSide,setEdgeSide]=useState(config.edgeSide??"toe");
-  const sampledConfig=useMemo(()=>({...config,fromEdge,timing,rotationComparison,...(twist?{twistTiming}:{}),...(config.task==="arms-traverse-stop"?{edgeSide}:{})}),[config,fromEdge,timing,rotationComparison,edgeSide,twist,twistTiming]);
+  const sampledConfig=useMemo(()=>({...config,...(carve?{posture}:{}),...(shortCompare?{task:shortError?"tail-brake-study":"round-linked-skid",variant:shortError?"tail-brake":"round"}:{}),fromEdge,timing,rotationComparison,...(twist?{twistTiming}:{}),...(config.task==="arms-traverse-stop"?{edgeSide}:{})}),[config,fromEdge,timing,rotationComparison,edgeSide,twist,twistTiming,carve,posture,shortCompare,shortError]);
+  useEffect(()=>{clock.setLoop(null);},[sampledConfig]);
   const [view,setView]=useState<View>(toView(config.view)),[reset,setReset]=useState(0);
   const [skeleton,setSkeleton]=useState(Boolean(config.jointLabels)),[touchRotate,setTouchRotate]=useState(false),[flat,setFlat]=useState(false);
   const [expanded,setExpanded]=useState(false);
   const dialog=useRef<HTMLDialogElement>(null),expandButton=useRef<HTMLButtonElement>(null);
   const frame=useMemo(()=>sampleLesson(time,sampledConfig,stance),[time,sampledConfig,stance]);
+  const referenceConfig=useMemo(()=>({...sampledConfig,...(carve?{posture:posture==="low"?"normal" as const:"low" as const}:{task:"round-linked-skid",variant:"round"})}),[sampledConfig,carve,posture]);
+  const reference=useMemo(()=>emphasis&&(carve||shortCompare)?sampleLesson(time,referenceConfig,stance):null,[emphasis,carve,shortCompare,time,referenceConfig,stance]);
   const trail=useMemo(()=>lessonTrail(sampledConfig,stance),[sampledConfig,stance]);
   api.current.setView=(v:string)=>{setView(toView(v));setReset(n=>n+1);};
   useEffect(()=>{
@@ -155,10 +163,14 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
   const content=<section className={`sl3${expanded?" sl3-expanded":""}`} aria-label={config.title??"三维动作示意"}>
     <div className="sl3-heading"><div className="sl3-heading-bar"><span>三维动作 · 可自由观察</span><button ref={expanded?undefined:expandButton} onClick={()=>setExpanded(v=>!v)}>{expanded?"收起观察":"放大观察"}</button></div><h3>{config.title??config.type}</h3>{config.focus&&<p>{config.focus}</p>}</div>
     <div className="sl3-observe">
+    <div className="sl3-options"><label>观察模式 <select aria-label="观察模式" value={emphasis?"emphasis":"baseline"} onChange={e=>setEmphasis(e.target.value==="emphasis")}><option value="baseline">基准动作</option><option value="emphasis">教学强调</option></select></label><label><input type="checkbox" checked={showRoute} onChange={e=>setShowRoute(e.target.checked)}/>俯视路线图</label></div>
+    {emphasis&&<p className="sl3-hint">教学强调增加骨架与同源平面观察；支持对照的任务另加同步参考。身体幅度、时序与板路线不放大。可配合慢放和分段重播，切回基准保持当前进度。</p>}
+    {carve&&<div className="sl3-options"><label>同路线姿态 <select aria-label="同路线姿态" value={posture} onChange={e=>{setPlaying(false);setPosture(e.target.value as CarvePosture);}}><option value="normal">正常高度</option><option value="low">较低姿态</option><option value="reach">反例：前刃探胸</option></select></label></div>}
+    {shortCompare&&<div className="sl3-options"><label>同进度动作 <select aria-label="同进度动作" value={shortError?"error":"correct"} onChange={e=>{setPlaying(false);setShortError(e.target.value==="error");}}><option value="correct">连续圆弯参考</option><option value="error">反例：末段急甩尾</option></select></label></div>}
     <div className="sl3-views" role="group" aria-label="观察视角">{views.map(([v,label])=><button key={v} onClick={()=>{setView(v);setFlat(false);setReset(n=>n+1);}} aria-pressed={!flat&&view===v}>{label}</button>)}<button aria-pressed={flat} onClick={()=>setFlat(v=>!v)}>平面骨架</button></div>
-    <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail}/>}</div>
+    <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton||emphasis} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail}/>}</div>
     <div className="sl3-status"><strong>{frame.segmentEdges?`原前脚处：${edges[frame.segmentEdges.front]}；原后脚处：${edges[frame.segmentEdges.rear]}`:edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
-    <PlaybackControls clock={clock}/>
+    <PlaybackControls clock={clock} stages={frame.stages} stage={frame.stage}/>
     <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>{switchRide?"惯用前脚":"前脚"} <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
     {switchRide&&<p className="sl3-hint">当前行进前脚：原后脚；原板尾领行，硬件鼻尾与两脚颜色保持身份。</p>}
     {(twist||(short||["single-transition","lower-transition","retraction-transition","timing-study","hip-transition","coordinated-knee-transition","linked-retraction-skid"].includes(frame.task))&&!config.fromEdge)&&<div className="sl3-options"><label>{(short||frame.task==="linked-retraction-skid")?"起始工作刃":"转换方向"} <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">{(short||frame.task==="linked-retraction-skid")?"后刃开始":"后刃 → 前刃"}</option><option value="toe">{(short||frame.task==="linked-retraction-skid")?"前刃开始":"前刃 → 后刃"}</option></select></label></div>}
@@ -170,10 +182,13 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     </div><div className="sl3-explain">
     <div className="sl3-stages" role="group" aria-label="动作阶段">{frame.stages.map((s,i)=><button key={i} aria-pressed={frame.stage===i} onClick={()=>seek(s.at)}><span>{i+1}</span>{s.title}</button>)}</div>
     <div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>
+    {carve&&<p className="sl3-hint">八字 = duck stance：前脚正角、后脚负角。固定器 +18°/−9°仅为本模型设置；两腿颜色标身份，较低示例是逐步降低的第一步，非极限深蹲。两种高度共用路径不证明同速度下均有真实力学平衡；骨盆高度不代表压力。</p>}
     {config.type==="inclination"&&<p className="sl3-hint">本组比较身体与板的几何关系；实际组合仍需匹配速度、弯形和雪况。</p>}
     {frame.task==="static-edge"&&<p className="sl3-hint">双手扶稳护栏帮助感知动作；撤去支撑后的自主平衡需另行练习。</p>}
     {["board-coordinate-study","stationary-hip-rock"].includes(frame.task)&&<><BoardDirections state={frame.state}/><p className="sl3-hint">仅演示平地原地感知，板角小不等于身体完全不移动；先回平板再回中，滑行效果需另行验证。</p></>}
-    {frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/>}
+    {showRoute&&frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/>}
+    {emphasis&&<div className="sl3-comparison">{reference&&<figure><figcaption>{carve?(posture==="low"?"正常高度参考 · 同路线同板角":posture==="reach"?"较低姿态参考 · 同路线同腿长":"较低姿态参考 · 同路线同板角"):"连续圆弯参考"}</figcaption><PlanarDiagram state={reference.state} plane={view==="side"?"length":"width"}/></figure>}<figure><figcaption>当前动作 · 同一时刻 {Math.round(time*100)}%</figcaption><PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/></figure></div>}
+    {showRoute&&emphasis&&shortCompare&&reference&&<><p className="sl3-hint">同步路线对照：上为圆弯参考，下为当前动作。同进度指同一周期位置；两种路线不同，不是同速度或同压力试验。</p><RouteDiagram state={reference.state} trail={lessonTrail(referenceConfig,stance)} time={time} config={referenceConfig} stance={stance}/><RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/></>}
     {(isRotationLesson(config)||short)&&<RotationDirections state={frame.state}/>}
     {twist&&<><TwistSectionDiagram state={frame.state} stance={stance}/><p className="sl3-hint">绿色线与圆点仅标几何低侧；局部可短暂离雪约9.2毫米，未计算整刃接触、板材刚度或真实压力。两段角差按实际值显示。</p></>}
     {shortTiming&&<p className="sl3-hint">每次换侧 {(shortTiming.turnMs/1000).toFixed(1)} 秒；每侧侧滑等待 {(shortTiming.waitMs/1000).toFixed(1)} 秒。缩短等待时，换侧自身的路线和用时不变；等待阶段仍在侧滑。</p>}

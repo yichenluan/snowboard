@@ -38,6 +38,12 @@ export function shortTurnTask(c:Config):ShortTask|undefined{
   if(task&&(!c.task||c.task===task)&&(!c.transition||c.transition==="extend"))return task;
 }
 export const supportsShortTurnLesson=(c:Config)=>shortTurnTask(c)!==undefined;
+// The tail-brake example uses extension. Keep flexion/retraction lessons on
+// their own strategy instead of offering an incompatible comparison config.
+export function supportsShortTurnComparison(c:Config):boolean {
+  const task=shortTurnTask(c);
+  return (task==="round-linked-skid"||task==="tail-brake-study")&&(!c.transition||c.transition==="extend");
+}
 /** Authored real timeline. The turn itself always lasts 4000 ms in this ladder. */
 export function shortTurnTiming(c:Config){
   if(shortTurnTask(c)!=="side-slip-link")return null;

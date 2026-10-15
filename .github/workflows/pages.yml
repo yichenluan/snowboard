@@ -65,6 +65,7 @@ jobs:
       - name: Build self-contained HTML
         run: |
           node scripts/inventory-animations.mjs --check
+          node scripts/inventory-teaching.mjs --check
           if ! python3 build.py > build.log 2>&1; then
             tail -n 80 build.log
             exit 1
