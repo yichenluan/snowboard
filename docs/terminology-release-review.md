@@ -30,4 +30,8 @@
 
 ## 发布核验
 
-待提交后记录对应实现提交、Actions构建／部署结果、正式站资源比对及浏览器检查。功能发布与后续纯文档记录分别标明，避免为自引用提交号反复提交。
+实现提交 `c2abf800f30bef312713e9e5e1b74d50700a8495` 已推送main；[Actions 38725660979](https://github.com/yichenluan/snowboard/actions/runs/38725660979) 的build和deploy均成功。
+
+正式主站与离线副本均2,418,737 bytes，SHA-256 `291bae737799c84df439de53dadb0278564543f9bedb210c2bd89a1856f5403e`，逐字节等于本地构建；主站、副本及独立原型HTML／JS／CSS全部200且一致。浏览器实际打开正式首页与路线课页，确认113课目录、刻滑主线、通俗标题、原课程双栏和基准／教学强调模式，无六项样板入口；0console error。证据：`.validation/revert-pilot/published-verification.json`、`published-course.jpg`。
+
+后续仅补记本段及项目交接状态，属于纯文档提交，不改变上述功能构建。

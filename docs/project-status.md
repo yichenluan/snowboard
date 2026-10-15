@@ -1,8 +1,8 @@
 # 当前项目状态与新会话入口
 
-更新日期：2026-10-15。本轮按用户要求撤回六课样板，保留通俗表达与独立功能修复。已完成本机验证，待推送与线上核验；下方本轮记录和发布基线分别注明。此前三维、来源与真人观察证据保留在历史各节。
+更新日期：2026-10-15。本轮按用户要求撤回六课样板，保留通俗表达与独立功能修复。本机验证、推送、Pages部署和线上核验均已完成。此前三维、来源与真人观察证据保留在历史各节。
 
-## 本轮待发布范围
+## 当前已发布范围
 
 | 项目 | 当前状态 |
 | --- | --- |
@@ -25,7 +25,11 @@
 
 158/158测试、类型检查、两项构建、单文件生成和来源／清单同步通过。实际浏览器检查六课回退、13项专项筛选、路线与浏览器返回、原11字段复盘及隐藏项保存、同进度动作对照和桌面宽窄屏。900教学对象含6路线，不含任务卡；未改人工观察账或动作几何，不新增教学认证。
 
-[撤回与验证范围](terminology-release-review.md) · [来源复核](terminology-source-claim-review.md) · [审计依赖分层](audit-dependency-review.md) · [修改前完整审查](comprehensive-review-2026-10-15.md)。实现提交和部署结果待发布核验后补记。
+[撤回与验证范围](terminology-release-review.md) · [来源复核](terminology-source-claim-review.md) · [审计依赖分层](audit-dependency-review.md) · [修改前完整审查](comprehensive-review-2026-10-15.md)。实现提交 `c2abf800f30bef312713e9e5e1b74d50700a8495` 已推送main；[Actions 38725660979](https://github.com/yichenluan/snowboard/actions/runs/38725660979) 的build和deploy均成功。
+
+正式主站与离线副本均2,418,737 bytes，SHA-256 `291bae737799c84df439de53dadb0278564543f9bedb210c2bd89a1856f5403e`，逐字节等于本地构建；主站、副本及独立原型HTML／JS／CSS全部200且一致。浏览器实际打开正式首页与路线课页，确认113课目录、刻滑主线、通俗标题、原课程双栏和基准／教学强调模式，无六项样板入口；0console error。证据：`.validation/revert-pilot/published-verification.json`、`published-course.jpg`。
+
+后续仅补记本段及项目交接状态，属于纯文档提交，不改变上述功能构建。
 
 ## 2026-10-15 两条四级路线三维补齐（前轮已发布）
 
