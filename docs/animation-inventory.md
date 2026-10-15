@@ -8,13 +8,13 @@
 
 | 项目 | 数量 | 含义 |
 | --- | --- | --- |
-| 课程 / 模块 | 109 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
+| 课程 / 模块 | 113 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
 | 含动画的课程 | 92 | 按 app.js：非空 demos 优先，否则 demo |
 | 迁移范围内的动画引用 | 139 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
 | 装备交互图 | 2 | app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画 |
 | 已独立审阅的装备图 | 2 | 保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md |
 | 主站显示的示意总数 | 141 | 课程动画引用 + 装备图；不额外把独立 3D 链接计入 |
-| 无动作/装备图课程 | 15 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
+| 无动作/装备图课程 | 19 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
 | 注册 / 当前有引用的类型 | 39 / 37 | 按旧预设与课内注册表并集盘点；不等于当前三维模块数 |
 | 应用变体键 | 73 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
 | 展示配置组合 | 95 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
@@ -92,7 +92,7 @@
 | 压力与屈伸时序 | 10 | 12 | 0 | 0 |
 | 换刃与下肢引导 | 10 | 14 | 0 | 0 |
 | 旋转协调与反脚 | 13 | 17 | 0 | 0 |
-| 刻滑、滑移与控速 | 7 | 7 | 0 | 2 |
+| 刻滑 · 基础、低姿态与专家任务 | 11 | 7 | 0 | 6 |
 | 小回转 · 基础到Expert Short Radius | 13 | 35 | 0 | 3 |
 | 热身与体能 | 13 | 20 | 0 | 0 |
 | 装备与舒适站姿 | 6 | 1 | 2 | 3 |
@@ -289,11 +289,11 @@
 | [v19-counter](https://jinke.me/snowboard/#lesson=v19-counter) | 反向旋转：已掌握调速动作后的专项练习：小幅增加熟悉后刃调速动作中的上下身反向配合，再恢复原路线。 | 1. `counter-rotation` | [S16](#source-s16)、[T01](#source-t01) |
 | [v19-switch](https://jinke.me/snowboard/#lesson=v19-switch) | 反脚滑行：让新的前脚带路：在反脚方向上两刃都能控速、完成弯和停止。 | 1. `switch` | [S16](#source-s16) |
 | [v19-stable-upper](https://jinke.me/snowboard/#lesson=v19-stable-upper) | 上下身分离：上身走得稳，双腿继续转弯：减少无用的甩肩，同时保留双腿引导和自然平衡。 | 1. `short-turns:round:extend`<br>2. `retraction-turns` | [S16](#source-s16)、[T01](#source-t01)、[S10](#source-s10) |
-| [v-toe-touch-criterion](https://jinke.me/snowboard/#lesson=v-toe-touch-criterion) | 刻滑是否进步：看轨迹、控速、放刃和适应：用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。 | 正文保留，无动作图 | [S16](#source-s16)、[S15](#source-s15) |
+| [v-toe-touch-criterion](https://jinke.me/snowboard/#lesson=v-toe-touch-criterion) | 刻滑是否进步：看轨迹、控速、放刃和适应：用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。 | 正文保留，无动作图 | [S16](#source-s16)、[S15](#source-s15)、[S38](#source-s38) |
 | [v-toe-low-drill](https://jinke.me/snowboard/#lesson=v-toe-low-drill) | 前刃 J 弯：让雪板沿一条弧线转向横坡：完成可控的前刃单弧，知道哪里抓刃、哪里开始扫尾。 | 1. `j-turn` | [S16](#source-s16) |
 | [v20-carve](https://jinke.me/snowboard/#lesson=v20-carve) | 刻滑和搓雪：主动选择滑移多少：能减少或增加滑移，同时把圆弯和速度控制好。 | 1. `steering`<br>2. `rail-track` | [S16](#source-s16)、[S10](#source-s10) |
 | [v20-traffic](https://jinke.me/snowboard/#lesson=v20-traffic) | 弯形控速：弯尾朝哪里，速度就怎样变化：在选定走廊内用完整圆弧控速，减少弯尾突然横刹。 | 1. `steering`<br>2. `steering` | [S16](#source-s16)、[S37](#source-s37) |
-| [v20-path](https://jinke.me/snowboard/#lesson=v20-path) | 刻滑进阶路线：正常高度稳定后，再练低姿态八字：根据当前最弱的一步，选出一项练习和清楚的通过标准。 | 正文保留，无动作图 | [S16](#source-s16)、[T02](#source-t02)、[S19](#source-s19)、[S10](#source-s10) |
+| [v20-path](https://jinke.me/snowboard/#lesson=v20-path) | 刻滑进阶路线：基础、低姿态与专家任务：按当前板表现选出一项练习，分清基础、低姿态应用与官方专家任务的条件和证据。 | 正文保留，无动作图 | [S16](#source-s16)、[T02](#source-t02)、[S19](#source-s19)、[S10](#source-s10)、[S38](#source-s38) |
 | [s20-rails](https://jinke.me/snowboard/#lesson=s20-rails) | 浅弧连刃：用小刃角连接连续窄痕：两侧各留下连续窄痕，并在预定位置主动结束。 | 1. `rail-track` | [S16](#source-s16) |
 | [s-short-integrated](https://jinke.me/snowboard/#lesson=s-short-integrated) | 搓雪小回转：把释放、转向和控速连成一组：在自选走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。 | 1. `short-turns:round:extend`<br>2. `short-turns:round:flex`<br>3. `short-turns:tail-brake` | [A02](#source-a02)、[S10](#source-s10)、[S16](#source-s16)、[D01](#source-d01)、[S35](#source-s35) |
 | [s-short-sideslip](https://jinke.me/snowboard/#lesson=s-short-sideslip) | 侧滑接单弯：一步步连成搓雪小回转：把“能用两刃侧滑和单弯停止”接到“连续的小搓雪弯”，补上换侧练习的中间台阶。 | 1. `short-turn-progression:side-slip`<br>2. `short-turn-progression:side-slip-shorter`<br>3. `short-turn-progression:linked` | [S16](#source-s16) |
@@ -338,6 +338,10 @@
 | [s-short-expert-flow](https://jinke.me/snowboard/#lesson=s-short-expert-flow) | 专家短弯连续性：把每一弧接成完整滑段：在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。 | 1. `expert-short-turns:progressive`<br>2. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-transfer](https://jinke.me/snowboard/#lesson=s-short-expert-transfer) | 专家短弯迁移：换一个条件，重新建立结果：能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-review](https://jinke.me/snowboard/#lesson=s-short-expert-review) | Expert Short Radius专项复核：完整证据与下一步训练：形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、仍需发展和当前条件下可重复的表现。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S39](#source-s39)、[S40](#source-s40) |
+| [s-carve-expert-arc](https://jinke.me/snowboard/#lesson=s-carve-expert-arc) | 专家刻滑弧线：落线前建立，控制出弯并接续：两侧新弧在落线前建立可用支撑，以立刃和调压维持刻滑路径，再用可控出口把动量带入下一弧。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16) |
+| [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 专家刻滑调压：加载、释放与两侧连续支撑：两侧加载与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[D01](#source-d01) |
+| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 专家刻滑变化：先重建控制，再应用低姿态八字：在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S19](#source-s19)、[D01](#source-d01) |
+| [s-carve-expert-review](https://jinke.me/snowboard/#lesson=s-carve-expert-review) | 专家刻滑专项复核：官方任务与低姿态证据分别判断：能够对照官方任务与十二项观察提出有证据的判断，保留未知，并把一个真实差距转成下一次练习。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S39](#source-s39) |
 
 ## 现有资料索引
 
@@ -489,7 +493,7 @@
 
 <a id="source-s38"></a>
 
-- **S38** [Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准](https://members.casi-acms.com/documents/Riding_LV4_EN.pdf)（CASI）。印刷p.5评分，p.6 Expert Short Radius Turns及总体要求，p.8技能变化，p.15版本；PDF页序相同
+- **S38** [Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准](https://members.casi-acms.com/documents/Riding_LV4_EN.pdf)（CASI）。印刷p.5评分；p.6总体、短弯及中弯搓雪；p.7自由滑行及专家大回转刻滑；p.8技能变化；p.15版本；PDF页序相同
 
 <a id="source-s40"></a>
 
@@ -501,14 +505,14 @@
 
 <a id="source-s39"></a>
 
-- **S39** [Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范](https://www.youtube.com/watch?v=XFbVBdSRGgE)（CASIACMS）。0:40.073–0:41.073，0:46.073–0:50.073；非速度、压力或关节标定
+- **S39** [Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范](https://www.youtube.com/watch?v=XFbVBdSRGgE)（CASIACMS）。小回转：40.073–41.073、46.073–50.073秒；大回转刻滑：168.293–170.793、171.293–174.293秒。2024视频任务编号与2025指南按名称对应。
 
 
 ## 输入指纹
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 24e22c495187941da94114d508acac6df6d3fb292e0e360628e38d7f60f01197 |
+| content.json | c016d424d92389755e9aa8d9be89abead55b02eefa1cd7e2fdb47e1ff9690f0f |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | 05d58c9ea1a08ae27d7ff9b2c1b27176a61ba16b7bd8f68b851a242d9b9cb9fe |
 | lesson-player/registry.json | 2e653f0e1bb2f88a862ffe42d46766b15e44db2e9ab36d76fae49e81d567f8ff |

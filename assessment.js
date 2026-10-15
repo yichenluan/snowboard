@@ -7,7 +7,7 @@
     ['date','日期','date'], ['terrain','坡面与地点','text','例如：熟悉整备坡，具体滑段与坡度变化'],
     ['snow','雪况与能见度','text','例如：平整压雪、局部硬雪、可见距离'],
     ['speed','速度与控速','text','描述全段是否加速、可否按计划退出；没有测量就不填速度数值'],
-    ['corridor','通道宽度与判断方法','text','记录约宽度、参照物；2–3 米是最终任务条件，不是初练强制值'],
+    ['corridor','通道宽度与判断方法','text','记录约宽度、参照物和可用空间；目标条件以本次专项为准'],
     ['equipment','装备与固定器设置','text','记录与上次不同之处；不确定可写未记录'],
     ['stance','站姿与滑行方向','text','Regular / Goofy，正脚 / 反脚'],
     ['change','这次只改变什么','text','例如：保持坡面、速度和弯形，只调整释放时机'],
@@ -16,6 +16,9 @@
     ['nextPractice','下一趟只练什么','textarea','具体问题 → 对应练习 → 保持哪些条件 → 如何复测']
   ];
   function normalize(record, protocol) {
+    // A missing ID can be a legacy/local draft. An explicitly different ID is
+    // another task's evidence and must never be relabelled as this protocol.
+    if (record?.protocolId !== undefined && record.protocolId !== protocol.id) record = null;
     const result = {id:typeof record?.id === 'string' ? record.id : '', protocolId:protocol.id, criteria:{}};
     for (const [key] of fields) result[key] = typeof record?.[key] === 'string' ? record[key] : '';
     for (const criterion of protocol.criteria) {
@@ -32,6 +35,7 @@
   function mount(root, {protocol, records, draft, onDraft, onSave, onLesson}) {
     let current = normalize(draft, protocol);
     let savedRecords = Array.isArray(records) ? records : [];
+    const fieldHint = (key, fallback) => typeof protocol.fieldHints?.[key] === 'string' ? protocol.fieldHints[key] : fallback || '';
     const today = () => {const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
     function readForm() {
       const values = new FormData(root.querySelector('form'));
@@ -49,7 +53,7 @@
       const entries = savedRecords.filter(r => r?.protocolId === protocol.id);
       root.innerHTML = `<h2>${esc(protocol.title)}</h2><p>${esc(protocol.intro)}</p><p class="assessment-boundary">记录本次条件、完整滑段和可观察证据。这里不计算 CASI 分数，也不自动勾选能力。记录和草稿只保存在当前浏览器，不上传录像、不发布评论。</p>
         <details ${openEditor ? 'open' : ''} class="assessment-editor"><summary>${current.id ? '编辑这趟记录' : '记录一趟练习'}</summary><form>
-        <div class="assessment-fields">${fields.map(([key,label,type,placeholder])=>`<label>${esc(label)}${type==='textarea'?`<textarea name="${key}" rows="3" maxlength="4000" placeholder="${esc(placeholder)}">${esc(current[key])}</textarea>`:`<input type="${type}" name="${key}" value="${esc(current[key])}" maxlength="1000" ${['date','terrain','snow'].includes(key)?'required':''} placeholder="${esc(placeholder||'')}">`}</label>`).join('')}</div>
+        <div class="assessment-fields">${fields.map(([key,label,type,placeholder])=>`<label>${esc(label)}${type==='textarea'?`<textarea name="${key}" rows="3" maxlength="4000" placeholder="${esc(fieldHint(key,placeholder))}">${esc(current[key])}</textarea>`:`<input type="${type}" name="${key}" value="${esc(current[key])}" maxlength="1000" ${['date','terrain','snow'].includes(key)?'required':''} placeholder="${esc(fieldHint(key,placeholder))}">`}</label>`).join('')}</div>
         <h3>逐项观察 · 看不清就保留“未观察”</h3><p>“本条件可重复”需要同条件复测证据；换坡面或雪况后重新判断。下列维度是本站复盘组织。</p>
         <div class="assessment-criteria">${protocol.criteria.map(c=>`<fieldset><legend>${esc(c.title)}</legend><p>${esc(c.observe || c.description || '')}</p><label>本次观察状态<select name="status-${esc(c.id)}" aria-label="${esc(c.title)}状态">${Object.entries(statuses).map(([value,label])=>`<option value="${value}" ${current.criteria[c.id].status===value?'selected':''}>${label}</option>`).join('')}</select></label><label>证据或不确定之处<textarea rows="2" maxlength="2000" name="note-${esc(c.id)}" placeholder="哪一弯、哪一帧、前后两趟的差异；不要只写感觉">${esc(current.criteria[c.id].note)}</textarea></label>${c.lessonId?`<button type="button" class="stage-link" data-assessment-lesson="${esc(c.lessonId)}">打开对应练习 ↗</button>`:''}</fieldset>`).join('')}</div>
         <div class="assessment-actions"><button type="submit" class="primary-button">${current.id?'保存修改':'保存这趟记录'}</button><button type="button" class="quiet-button" data-assessment-new>另记一趟</button></div><p data-assessment-status role="status" aria-live="polite"></p></form></details>
@@ -61,12 +65,13 @@
         const missing = protocol.criteria.find(c => current.criteria[c.id].status !== 'unseen' && !current.criteria[c.id].note.trim());
         if (missing) {root.querySelector('[data-assessment-status]').textContent=`请为“${missing.title}”写下观察证据，或改为“未观察”。`; form.elements.namedItem(`note-${missing.id}`).focus(); return;}
         const record = {...current, id:current.id || crypto.randomUUID()};
-        const next = savedRecords.some(r => r?.id === record.id) ? savedRecords.map(r=>r?.id===record.id ? record : r) : [...savedRecords, record];
+        const matches = r => r?.id === record.id && r.protocolId === protocol.id;
+        const next = savedRecords.some(matches) ? savedRecords.map(r=>matches(r) ? record : r) : [...savedRecords, record];
         if (onSave(next,record) === false) {root.querySelector('[data-assessment-status]').textContent='浏览器保存失败，记录仍留在当前页面；请保持页面并复制需要的文字。'; return;}
         current=record; savedRecords=next; draw(true); root.querySelector('[data-assessment-status]').textContent='已保存到当前浏览器。此记录不代表官方评定。';
       };
       root.querySelector('[data-assessment-new]').onclick=()=>{if(!canReplaceDraft())return;current=normalize(null,protocol); onDraft(current); draw(true); root.querySelector('input').focus();};
-      root.querySelectorAll('[data-assessment-edit]').forEach(button=>button.onclick=()=>{if(!canReplaceDraft())return;current=normalize(savedRecords.find(r=>r?.id===button.dataset.assessmentEdit),protocol); onDraft(current); draw(true); const editor=root.querySelector('.assessment-editor'); editor.open=true; editor.scrollIntoView({block:'start'});});
+      root.querySelectorAll('[data-assessment-edit]').forEach(button=>button.onclick=()=>{if(!canReplaceDraft())return;current=normalize(savedRecords.find(r=>r?.id===button.dataset.assessmentEdit&&r.protocolId===protocol.id),protocol); onDraft(current); draw(true); const editor=root.querySelector('.assessment-editor'); editor.open=true; editor.scrollIntoView({block:'start'});});
       root.querySelectorAll('[data-assessment-lesson]').forEach(button=>button.onclick=()=>onLesson(button.dataset.assessmentLesson));
     }
     draw();

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "auditDate": "2026-10-15",
-  "scope": "全站教学升级历史与Expert Short Radius本轮差分：新增六课、训练记录协议、真人分析及任务动画独立登记；全文阅读、来源支持、页面可达、实际渲染和教学画面分开。运行时变化保留旧观察为stale，不改哈希冒充全站重看。",
+  "scope": "全站历史审查与本轮专家刻滑差分：新增四课、十二项独立协议、真人刻滑两个窗口及既有duck有限观察；官方任务与低位应用分开，旧其他课程和动画保留原证据指纹，不因本轮发布刷新。",
   "reviewedLessons": [
     {
       "id": "v-purpose",
@@ -1237,15 +1237,38 @@
         "checks",
         "mistakes",
         "drill",
-        "citations"
+        "citations",
+        "relatedLessons"
       ],
-      "summary": "逐课复读并逐结论核对原文、归纳与本站建议；练习量、诊断条件和来源定位已修订。范围见逐结论账，真人逐帧标定另记。",
-      "fingerprint": "1941cc3da60725cad421aee3217d7c7bf91fabb921804c6547adb0bd86ad65e0",
-      "reviewer": "duck_route",
+      "summary": "复读新增专家任务原理、S38引用及关联入口；其余原全文记录保留。未宣称本轮重读全部旧课程。",
+      "fingerprint": "904fd2e423968629a722e0efcd54bd1c6f4e69d54ae1e6767472252ff9df89dc",
+      "reviewer": "inventory（本轮差分，既有全文保留）",
       "evidence": [
         "docs/source-claim-audit.json#v-toe-touch-criterion",
-        "docs/continuation-review.md"
-      ]
+        "docs/continuation-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "previousReview": {
+        "id": "v-toe-touch-criterion",
+        "date": "2026-10-15",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations"
+        ],
+        "summary": "逐课复读并逐结论核对原文、归纳与本站建议；练习量、诊断条件和来源定位已修订。范围见逐结论账，真人逐帧标定另记。",
+        "fingerprint": "1941cc3da60725cad421aee3217d7c7bf91fabb921804c6547adb0bd86ad65e0",
+        "reviewer": "duck_route",
+        "evidence": [
+          "docs/source-claim-audit.json#v-toe-touch-criterion",
+          "docs/continuation-review.md"
+        ]
+      }
     },
     {
       "id": "v-toe-low-drill",
@@ -1317,15 +1340,39 @@
         "checks",
         "mistakes",
         "drill",
-        "citations"
+        "citations",
+        "relatedLessons",
+        "assessmentProtocol"
       ],
-      "summary": "逐课复读并逐结论核对原文、归纳与本站建议；练习量、诊断条件和来源定位已修订。范围见逐结论账，真人逐帧标定另记。",
-      "fingerprint": "381c600b3b4e1267e3e4e35b088930281736a0c72a2482b4c8c6a1b0d720745f",
-      "reviewer": "duck_route",
+      "summary": "复读标题、目标、原理、执行、自查、练习、引用、关联和协议字段；保留基础课，将官方专家大弯与低位应用分开。未宣称本轮重读全部旧课程。",
+      "fingerprint": "c4bab3d8e32ff0f7681808c5a339f43e325a28603f49b1a466d1aab8cd39336a",
+      "reviewer": "inventory（本轮差分，既有全文保留）",
       "evidence": [
         "docs/source-claim-audit.json#v20-path",
-        "docs/continuation-review.md"
-      ]
+        "docs/continuation-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "previousReview": {
+        "id": "v20-path",
+        "date": "2026-10-15",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations"
+        ],
+        "summary": "逐课复读并逐结论核对原文、归纳与本站建议；练习量、诊断条件和来源定位已修订。范围见逐结论账，真人逐帧标定另记。",
+        "fingerprint": "381c600b3b4e1267e3e4e35b088930281736a0c72a2482b4c8c6a1b0d720745f",
+        "reviewer": "duck_route",
+        "evidence": [
+          "docs/source-claim-audit.json#v20-path",
+          "docs/continuation-review.md"
+        ]
+      }
     },
     {
       "id": "s20-rails",
@@ -2125,15 +2172,38 @@
         "checks",
         "mistakes",
         "drill",
-        "citations"
+        "citations",
+        "relatedLessons"
       ],
-      "summary": "逐课复读并逐结论核对原文、归纳与本站建议；练习量、诊断条件和来源定位已修订。范围见逐结论账，真人逐帧标定另记。",
-      "fingerprint": "3c37b93e20e9484ba8d3cbdb480a23fa917e9bce7f8df4f3c9b4649f9d18470d",
-      "reviewer": "inventory",
+      "summary": "复读drill.progression新增专家路线转接及relatedLessons；正文、动作配置与执行不变，原全文记录保留。未宣称本轮重读全部旧课程。",
+      "fingerprint": "dbaf4490804f0c4cd11df48bdc4f13430ea53d5e3b93fd0d22b5381c095b1a6d",
+      "reviewer": "inventory（本轮差分，既有全文保留）",
       "evidence": [
         "docs/source-claim-audit.json#s-duck-low-linked",
-        "docs/continuation-review.md"
-      ]
+        "docs/continuation-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "previousReview": {
+        "id": "s-duck-low-linked",
+        "date": "2026-10-15",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations"
+        ],
+        "summary": "逐课复读并逐结论核对原文、归纳与本站建议；练习量、诊断条件和来源定位已修订。范围见逐结论账，真人逐帧标定另记。",
+        "fingerprint": "3c37b93e20e9484ba8d3cbdb480a23fa917e9bce7f8df4f3c9b4649f9d18470d",
+        "reviewer": "inventory",
+        "evidence": [
+          "docs/source-claim-audit.json#s-duck-low-linked",
+          "docs/continuation-review.md"
+        ]
+      }
     },
     {
       "id": "s-short-expert-map",
@@ -2279,6 +2349,96 @@
         "docs/level4-short-official-standards.md",
         "docs/level4-short-curriculum.md",
         "docs/level4-short-video-observation.md"
+      ]
+    },
+    {
+      "id": "s-carve-expert-arc",
+      "fingerprint": "7a77121210a9ccfe3018672cf1545ff6e4c49a139283cb5d1f35fdaf9c45c28e",
+      "date": "2026-10-15",
+      "reviewer": "inventory（当前全文及边界阅读）",
+      "parts": [
+        "prerequisites",
+        "mechanics",
+        "execution",
+        "checks",
+        "mistakes",
+        "drill",
+        "citations",
+        "relatedLessons",
+        "assessmentProtocol"
+      ],
+      "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "s-carve-expert-pressure",
+      "fingerprint": "f13d7c43e78a35f3d4526a4d76200588503e1a13d25e9489e5078041db1de0d0",
+      "date": "2026-10-15",
+      "reviewer": "inventory（当前全文及边界阅读）",
+      "parts": [
+        "prerequisites",
+        "mechanics",
+        "execution",
+        "checks",
+        "mistakes",
+        "drill",
+        "citations",
+        "relatedLessons",
+        "assessmentProtocol"
+      ],
+      "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "s-carve-expert-variation",
+      "fingerprint": "bcab4f7268536ee08c396b7ec0edc9ebd93bb406ac6a89bee8d2027316df28c0",
+      "date": "2026-10-15",
+      "reviewer": "inventory（当前全文及边界阅读）",
+      "parts": [
+        "prerequisites",
+        "mechanics",
+        "execution",
+        "checks",
+        "mistakes",
+        "drill",
+        "citations",
+        "relatedLessons",
+        "assessmentProtocol"
+      ],
+      "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "s-carve-expert-review",
+      "fingerprint": "bcb9f2fae58fc541d6b8279ea5d20d90be075e1d25591e52d0bd4e1ea70499e5",
+      "date": "2026-10-15",
+      "reviewer": "inventory（当前全文及边界阅读）",
+      "parts": [
+        "prerequisites",
+        "mechanics",
+        "execution",
+        "checks",
+        "mistakes",
+        "drill",
+        "citations",
+        "relatedLessons",
+        "assessmentProtocol",
+        "videoStudy"
+      ],
+      "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-carving-video-observation.md"
       ]
     }
   ],
@@ -3248,6 +3408,98 @@
           "docs/level4-release-review.md",
           ".validation/level4/release-observations.json",
           ".validation/level4/browser-pages-final.json"
+        ]
+      }
+    },
+    {
+      "id": "L4C-P1-PROTOCOL-ISOLATION",
+      "severity": "P1",
+      "entryIds": [
+        "feature:assessment",
+        "assessment-protocol:casi-l4-carving",
+        "assessment-protocol:casi-l4-short"
+      ],
+      "problem": "多协议复用时，带其他protocolId的record可能被归一化进当前协议；仅按id编辑/替换可覆盖另一协议的同ID记录。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "proposal": "显式不同protocolId清空当前草稿输入；编辑和替换按id+protocolId，保留无protocolId旧输入兼容。",
+      "sources": [
+        "assessment.js",
+        "tests/assessment.test.ts"
+      ],
+      "status": "closed-scoped-fix",
+      "modification": "closed-scoped-fix",
+      "validation": "normalize、编辑和保存的协议隔离已有针对性回归；浏览器来回切换两协议，原小回转两记录与草稿保留，刻滑记录与草稿独立恢复。只关闭此具体串用路径。",
+      "closure": {
+        "date": "2026-10-15",
+        "scope": "normalize、编辑和保存的协议隔离已有针对性回归；浏览器来回切换两协议，原小回转两记录与草稿保留，刻滑记录与草稿独立恢复。只关闭此具体串用路径。",
+        "evidence": [
+          "docs/level4-carving-release-review.md",
+          ".validation/level4-carving/release-observations.json"
+        ]
+      }
+    },
+    {
+      "id": "L4C-P2-PROTOCOL-HINT",
+      "severity": "P2",
+      "entryIds": [
+        "feature:assessment",
+        "assessment-protocol:casi-l4-carving"
+      ],
+      "problem": "共用通道提示硬编码2–3米，刻滑协议会读到小回转的任务条件。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "proposal": "默认提示中性，允许protocol.fieldHints覆盖且转义；小回转和刻滑协议分别配置其官方任务范围。",
+      "sources": [
+        "assessment.js",
+        "tests/assessment.test.ts"
+      ],
+      "status": "closed-scoped-fix",
+      "modification": "closed-scoped-fix",
+      "validation": "两协议实际显示2–3米和7–15米走廊提示；转义、空值、未知字段和非字符串回退已有回归。未将作者练习量或低位条件归为官方要求。",
+      "closure": {
+        "date": "2026-10-15",
+        "scope": "两协议实际显示2–3米和7–15米走廊提示；转义、空值、未知字段和非字符串回退已有回归。未将作者练习量或低位条件归为官方要求。",
+        "evidence": [
+          "docs/level4-carving-release-review.md",
+          ".validation/level4-carving/release-observations.json"
+        ]
+      }
+    },
+    {
+      "id": "L4C-P2-ROUTE-CONTEXT",
+      "severity": "P2",
+      "entryIds": [
+        "feature:progress",
+        "page:progression",
+        "skill:expert-carve-variation",
+        "lesson:s-duck-low-linked",
+        "lesson:s-carve-expert-arc"
+      ],
+      "problem": "低位基础课误归专家变化节点造成专家前置；多归属课程可把本课直接建立的能力重复显示为前置；首页刻滑卡仍停在旧基础终点。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "proposal": "去除错误的直接课程归属但保留可选supports；课内前置仅排除同课直接节点，保留完整图依赖；更新专家任务与独立低位分支说明。",
+      "sources": [
+        "content.json",
+        "progression.js",
+        "tests/progression.test.ts"
+      ],
+      "status": "closed-scoped-fix",
+      "modification": "closed-scoped-fix",
+      "validation": "最终重建后实际确认基础低位不带专家前置，arc前置不重复reference而图依赖仍在；5新节点逐点和新版首页说明可见。只关闭本轮路线上下文问题。",
+      "closure": {
+        "date": "2026-10-15",
+        "scope": "最终重建后实际确认基础低位不带专家前置，arc前置不重复reference而图依赖仍在；5新节点逐点和新版首页说明可见。只关闭本轮路线上下文问题。",
+        "evidence": [
+          "docs/level4-carving-release-review.md",
+          ".validation/level4-carving/release-observations.json"
         ]
       }
     }
@@ -8296,13 +8548,15 @@
     {
       "id": "lesson:v-toe-touch-criterion",
       "dimension": "pageAccessible",
-      "fingerprint": "fe7788712e14b5bcc1b84b8169f7a504c447567e33c64fde41200a88ffbf3ac3",
       "status": "passed",
+      "fingerprint": "556e055eeb1918eba35a6a4c23254fd4b76923cb85291262bee1003ed8b664bd",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据转录）",
-      "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "revision17最终正文的当前课程入口和DOM实际打开；本轮仅7课。后续仅路线上下文过滤改变，arc课及首页节点另经最终重建回归。未从课程打开推定每项练习/诊断都已逐项展开或教学通过。",
+      "checks": [],
       "evidence": [
-        ".validation/level4/browser-pages-final.json#lessonPages/v-toe-touch-criterion"
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
       ],
       "previousObservation": {
         "id": "lesson:v-toe-touch-criterion",
@@ -8313,25 +8567,37 @@
         "reviewer": "root（实际CUA）；inventory（证据转录）",
         "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
         "evidence": [
-          ".validation/level4/browser-pages.json#lessonPages/v-toe-touch-criterion"
+          ".validation/level4/browser-pages-final.json#lessonPages/v-toe-touch-criterion"
         ],
         "previousObservation": {
           "id": "lesson:v-toe-touch-criterion",
           "dimension": "pageAccessible",
-          "fingerprint": "a59c2883b78932fecf3de8f19143e3b6aa166210b7ec2327e0b932b595810d20",
+          "fingerprint": "fe7788712e14b5bcc1b84b8169f7a504c447567e33c64fde41200a88ffbf3ac3",
           "status": "passed",
           "date": "2026-10-15",
-          "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+          "reviewer": "root（实际CUA）；inventory（证据转录）",
+          "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
           "evidence": [
-            "docs/continuation-review.md",
-            ".validation/continuation/pages-results.json",
-            ".validation/continuation/core-flow-results.json"
+            ".validation/level4/browser-pages.json#lessonPages/v-toe-touch-criterion"
           ],
-          "previousEvidence": [
-            ".validation/goal-audit/page-access.json#v-toe-touch-criterion",
-            "log/goal-browser-final.log",
-            "docs/goal-upgrade-review.md"
-          ]
+          "previousObservation": {
+            "id": "lesson:v-toe-touch-criterion",
+            "dimension": "pageAccessible",
+            "fingerprint": "a59c2883b78932fecf3de8f19143e3b6aa166210b7ec2327e0b932b595810d20",
+            "status": "passed",
+            "date": "2026-10-15",
+            "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+            "evidence": [
+              "docs/continuation-review.md",
+              ".validation/continuation/pages-results.json",
+              ".validation/continuation/core-flow-results.json"
+            ],
+            "previousEvidence": [
+              ".validation/goal-audit/page-access.json#v-toe-touch-criterion",
+              "log/goal-browser-final.log",
+              "docs/goal-upgrade-review.md"
+            ]
+          }
         }
       }
     },
@@ -8632,13 +8898,15 @@
     {
       "id": "lesson:v20-path",
       "dimension": "pageAccessible",
-      "fingerprint": "2b09691e6327e2a3af985cec75ba21e4ccac77b97e3428ba224b2a3a780159d8",
       "status": "passed",
+      "fingerprint": "8af17ad0b05458bd1da00af658d76a58922d0540dc0cff0af1836844f6ac8d7f",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据转录）",
-      "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "revision17最终正文的当前课程入口和DOM实际打开；本轮仅7课。后续仅路线上下文过滤改变，arc课及首页节点另经最终重建回归。未从课程打开推定每项练习/诊断都已逐项展开或教学通过。",
+      "checks": [],
       "evidence": [
-        ".validation/level4/browser-pages-final.json#lessonPages/v20-path"
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
       ],
       "previousObservation": {
         "id": "lesson:v20-path",
@@ -8649,25 +8917,37 @@
         "reviewer": "root（实际CUA）；inventory（证据转录）",
         "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
         "evidence": [
-          ".validation/level4/browser-pages.json#lessonPages/v20-path"
+          ".validation/level4/browser-pages-final.json#lessonPages/v20-path"
         ],
         "previousObservation": {
           "id": "lesson:v20-path",
           "dimension": "pageAccessible",
-          "fingerprint": "be5e90e382c3880041de359768682c477d3bfe201f0cdf755ed0e9dd9b3489b2",
+          "fingerprint": "2b09691e6327e2a3af985cec75ba21e4ccac77b97e3428ba224b2a3a780159d8",
           "status": "passed",
           "date": "2026-10-15",
-          "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+          "reviewer": "root（实际CUA）；inventory（证据转录）",
+          "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
           "evidence": [
-            "docs/continuation-review.md",
-            ".validation/continuation/pages-results.json",
-            ".validation/continuation/core-flow-results.json"
+            ".validation/level4/browser-pages.json#lessonPages/v20-path"
           ],
-          "previousEvidence": [
-            ".validation/goal-audit/page-access.json#v20-path",
-            "log/goal-browser-final.log",
-            "docs/goal-upgrade-review.md"
-          ]
+          "previousObservation": {
+            "id": "lesson:v20-path",
+            "dimension": "pageAccessible",
+            "fingerprint": "be5e90e382c3880041de359768682c477d3bfe201f0cdf755ed0e9dd9b3489b2",
+            "status": "passed",
+            "date": "2026-10-15",
+            "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+            "evidence": [
+              "docs/continuation-review.md",
+              ".validation/continuation/pages-results.json",
+              ".validation/continuation/core-flow-results.json"
+            ],
+            "previousEvidence": [
+              ".validation/goal-audit/page-access.json#v20-path",
+              "log/goal-browser-final.log",
+              "docs/goal-upgrade-review.md"
+            ]
+          }
         }
       }
     },
@@ -11824,13 +12104,15 @@
     {
       "id": "lesson:s-duck-low-linked",
       "dimension": "pageAccessible",
-      "fingerprint": "beaf758cb13e88c7d11131f775eeb7593782b784f7c93068d2e38c8b92a9f095",
       "status": "passed",
+      "fingerprint": "af4ef1df290437c419f2ea615aeafad2a14eff8a62a60dec5db5ae1886f1e1db",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据转录）",
-      "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "revision17最终正文的当前课程入口和DOM实际打开；本轮仅7课。后续仅路线上下文过滤改变，arc课及首页节点另经最终重建回归。未从课程打开推定每项练习/诊断都已逐项展开或教学通过。",
+      "checks": [],
       "evidence": [
-        ".validation/level4/browser-pages-final.json#lessonPages/s-duck-low-linked"
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
       ],
       "previousObservation": {
         "id": "lesson:s-duck-low-linked",
@@ -11841,25 +12123,37 @@
         "reviewer": "root（实际CUA）；inventory（证据转录）",
         "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
         "evidence": [
-          ".validation/level4/browser-pages.json#lessonPages/s-duck-low-linked"
+          ".validation/level4/browser-pages-final.json#lessonPages/s-duck-low-linked"
         ],
         "previousObservation": {
           "id": "lesson:s-duck-low-linked",
           "dimension": "pageAccessible",
-          "fingerprint": "8675ba803843810a68bb720b591271c764fa78413cf8783f44707055c7073d39",
+          "fingerprint": "beaf758cb13e88c7d11131f775eeb7593782b784f7c93068d2e38c8b92a9f095",
           "status": "passed",
           "date": "2026-10-15",
-          "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+          "reviewer": "root（实际CUA）；inventory（证据转录）",
+          "scope": "当前构建逐课实际导航，.detail-head h1与清单逐字匹配。范围为课程DOM入口，不代表正文逐结论重审。",
           "evidence": [
-            "docs/continuation-review.md",
-            ".validation/continuation/pages-results.json",
-            ".validation/continuation/core-flow-results.json"
+            ".validation/level4/browser-pages.json#lessonPages/s-duck-low-linked"
           ],
-          "previousEvidence": [
-            ".validation/goal-audit/page-access.json#s-duck-low-linked",
-            "log/goal-browser-final.log",
-            "docs/goal-upgrade-review.md"
-          ]
+          "previousObservation": {
+            "id": "lesson:s-duck-low-linked",
+            "dimension": "pageAccessible",
+            "fingerprint": "8675ba803843810a68bb720b591271c764fa78413cf8783f44707055c7073d39",
+            "status": "passed",
+            "date": "2026-10-15",
+            "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+            "evidence": [
+              "docs/continuation-review.md",
+              ".validation/continuation/pages-results.json",
+              ".validation/continuation/core-flow-results.json"
+            ],
+            "previousEvidence": [
+              ".validation/goal-audit/page-access.json#s-duck-low-linked",
+              "log/goal-browser-final.log",
+              "docs/goal-upgrade-review.md"
+            ]
+          }
         }
       }
     },
@@ -11944,35 +12238,49 @@
       "id": "page:progression",
       "dimension": "pageAccessible",
       "status": "passed",
-      "scope": "首页能力图已实际打开，新专家节点前置和目标切换可用；这里只登记页面入口及所述交互。",
-      "checks": [
-        "专家前置提示",
-        "目标切换"
-      ],
-      "fingerprint": "ae080c8cacb95a2d437b8dcd5219375392cd9a212bfc6a30184196c37c1db984",
+      "fingerprint": "44630e4ce3721ad3541332f33ea9fcf42f47c6b2ea316542f61898314ba062c8",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "实际打开首页能力图，新刻滑路线卡及goalNote显示专家任务和独立低位分支；五个新增节点逐点打开。只覆盖这些入口和新版说明，不重新验证全32节点。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#page:progression/pageAccessible"
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
       ],
       "previousObservation": {
         "id": "page:progression",
         "dimension": "pageAccessible",
-        "fingerprint": "456f7d8c4f5cb146ddd92b2b2758d8855c759795fb72cb37eb3e8feb95d24f1d",
         "status": "passed",
-        "date": "2026-10-15",
-        "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
-        "evidence": [
-          "docs/continuation-review.md",
-          ".validation/continuation/pages-results.json",
-          ".validation/continuation/core-flow-results.json"
+        "scope": "首页能力图已实际打开，新专家节点前置和目标切换可用；这里只登记页面入口及所述交互。",
+        "checks": [
+          "专家前置提示",
+          "目标切换"
         ],
-        "previousEvidence": [
-          ".validation/goal-audit/core-flow-results.json",
-          "log/goal-core-flow-final.log",
-          "docs/goal-upgrade-review.md"
-        ]
+        "fingerprint": "ae080c8cacb95a2d437b8dcd5219375392cd9a212bfc6a30184196c37c1db984",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#page:progression/pageAccessible"
+        ],
+        "previousObservation": {
+          "id": "page:progression",
+          "dimension": "pageAccessible",
+          "fingerprint": "456f7d8c4f5cb146ddd92b2b2758d8855c759795fb72cb37eb3e8feb95d24f1d",
+          "status": "passed",
+          "date": "2026-10-15",
+          "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+          "evidence": [
+            "docs/continuation-review.md",
+            ".validation/continuation/pages-results.json",
+            ".validation/continuation/core-flow-results.json"
+          ],
+          "previousEvidence": [
+            ".validation/goal-audit/core-flow-results.json",
+            "log/goal-core-flow-final.log",
+            "docs/goal-upgrade-review.md"
+          ]
+        }
       }
     },
     {
@@ -11996,42 +12304,20 @@
     {
       "id": "feature:search",
       "dimension": "pageAccessible",
-      "fingerprint": "fe574c18286fe9a94ea2420af7acd188aa77d41fd52f97f1d4af9dc6d97ba6b6",
       "status": "passed",
+      "fingerprint": "df569fc68423d8e2637283e50b4c7af0d126ff808e052ed7ca46f99c511d03b1",
       "date": "2026-10-15",
-      "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "实际输入专家刻滑、低姿态、duck，分别得到6、21、11条结果；只覆盖所述查询，没有推断全部过滤组合。",
+      "checks": [],
       "evidence": [
-        "docs/continuation-review.md",
-        ".validation/continuation/pages-results.json",
-        ".validation/continuation/core-flow-results.json"
-      ],
-      "previousEvidence": [
-        ".validation/goal-audit/core-flow-results.json",
-        "log/goal-core-flow-final.log",
-        "docs/goal-upgrade-review.md"
-      ]
-    },
-    {
-      "id": "feature:progress",
-      "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "实际检查专家前置与目标切换；旧数据迁移保留dual-edge-control已通过自查，专家节点仍受前置约束。未逐项重新执行全27节点自查。",
-      "checks": [
-        "专家前置",
-        "目标切换",
-        "旧能力进度保留"
-      ],
-      "fingerprint": "13ab7c16b9d33eb664cf75ee3daa7ee4fa7e667af11fe7749ad705ed95aa0113",
-      "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
-      "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#feature:progress/pageAccessible"
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
       ],
       "previousObservation": {
-        "id": "feature:progress",
+        "id": "feature:search",
         "dimension": "pageAccessible",
-        "fingerprint": "3a8bed07a3995cfa1a5b0c4987fcddc8bed4b5b0f2e78dedb74bbcb49091808f",
+        "fingerprint": "fe574c18286fe9a94ea2420af7acd188aa77d41fd52f97f1d4af9dc6d97ba6b6",
         "status": "passed",
         "date": "2026-10-15",
         "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
@@ -12045,6 +12331,56 @@
           "log/goal-core-flow-final.log",
           "docs/goal-upgrade-review.md"
         ]
+      }
+    },
+    {
+      "id": "feature:progress",
+      "dimension": "pageAccessible",
+      "status": "partial",
+      "fingerprint": "7b5d5e2f8b78570e0a37ac5f77717f9498dd543f0df4193a0d101117be12c5e9",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "实际逐点打开五个专家刻滑节点；修复后arc课前置不再重复本课建立的reference，图中reference→arc依赖仍保留；低位基础课不被专家前置误拦。未操作能力勾选或重测全部32节点。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "feature:progress",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "实际检查专家前置与目标切换；旧数据迁移保留dual-edge-control已通过自查，专家节点仍受前置约束。未逐项重新执行全27节点自查。",
+        "checks": [
+          "专家前置",
+          "目标切换",
+          "旧能力进度保留"
+        ],
+        "fingerprint": "13ab7c16b9d33eb664cf75ee3daa7ee4fa7e667af11fe7749ad705ed95aa0113",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#feature:progress/pageAccessible"
+        ],
+        "previousObservation": {
+          "id": "feature:progress",
+          "dimension": "pageAccessible",
+          "fingerprint": "3a8bed07a3995cfa1a5b0c4987fcddc8bed4b5b0f2e78dedb74bbcb49091808f",
+          "status": "passed",
+          "date": "2026-10-15",
+          "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+          "evidence": [
+            "docs/continuation-review.md",
+            ".validation/continuation/pages-results.json",
+            ".validation/continuation/core-flow-results.json"
+          ],
+          "previousEvidence": [
+            ".validation/goal-audit/core-flow-results.json",
+            "log/goal-core-flow-final.log",
+            "docs/goal-upgrade-review.md"
+          ]
+        }
       }
     },
     {
@@ -12083,7 +12419,18 @@
           "log/goal-core-flow-final.log",
           "docs/goal-upgrade-review.md"
         ]
-      }
+      },
+      "supplementaryObservations": [
+        {
+          "date": "2026-10-15",
+          "reviewer": "root（实际CUA）",
+          "scope": "revision17初始化前仅拒绝canvas WebGL context，s-duck-low-linked显示三维不可用提示、同源骨架、路线、阶段与控件。该检查不是实际3D渲染或全站降级通过。",
+          "evidence": [
+            "docs/level4-carving-release-review.md",
+            ".validation/level4-carving/release-observations.json"
+          ]
+        }
+      ]
     },
     {
       "id": "animation:v-base-stance/1",
@@ -20583,24 +20930,45 @@
     {
       "id": "animation:s-duck-low-linked/1",
       "dimension": "teachingVerified",
-      "fingerprint": "00955061c2ff11c4486053dd24ab232aabacd502b835ac983219e473c2eb1857",
+      "fingerprint": "3c51b7222fae1e17780acc2f478675f031bbd1b0cc293539b96cf2924db4208e",
       "status": "partial",
       "date": "2026-10-15",
-      "scope": "阶段边界、中点、两向与首末有限图审；93配置正常速度运行另记。未据此授予每帧人工观察、全表面接触或真人标定。",
+      "reviewer": "root（CUA实际样本）；inventory（范围与依赖核对）",
+      "scope": "原109课构建有限图审：Regular25% normal/low/reach，Regular75% low/normal；Goofy75%低位骨架，阶段5/6/9/2前后平衡骨架及92%靴近景。正常速度完整循环实际运行后暂停92.2%；由stage9完整循环实见3.2/5.8/8.5%新前刃。当前动作依赖与引用配置未变；不是新课最终构建验收、人工连续全帧审阅或真人标定。",
       "evidence": [
-        "docs/continuation-review.md",
-        "docs/animation-cycle-review-00-29.md",
-        "docs/animation-cycle-review-30-59.md",
-        "docs/animation-cycle-review-60-65-72-77.md",
-        "docs/animation-cycle-review-66-71.md",
-        "docs/animation-cycle-review-78-92.md"
+        ".validation/level4-carving/duck-observation-before-content.json",
+        "docs/level4-carving-animation-review.md"
       ],
-      "previousEvidence": [
-        ".validation/goal-audit/visual-review-78-92.json",
-        ".validation/goal-audit/core-duck-visual-review.json",
-        "docs/goal-upgrade-review.md",
-        "docs/goal-animation-review.md"
-      ]
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-duck-low-linked",
+          "scope": "既有姿态/转换的来源边界未改；本轮仅按已观察画面与数值审计登记",
+          "realFootageCalibration": "not-performed"
+        }
+      ],
+      "previousObservation": {
+        "id": "animation:s-duck-low-linked/1",
+        "dimension": "teachingVerified",
+        "fingerprint": "00955061c2ff11c4486053dd24ab232aabacd502b835ac983219e473c2eb1857",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "阶段边界、中点、两向与首末有限图审；93配置正常速度运行另记。未据此授予每帧人工观察、全表面接触或真人标定。",
+        "evidence": [
+          "docs/continuation-review.md",
+          "docs/animation-cycle-review-00-29.md",
+          "docs/animation-cycle-review-30-59.md",
+          "docs/animation-cycle-review-60-65-72-77.md",
+          "docs/animation-cycle-review-66-71.md",
+          "docs/animation-cycle-review-78-92.md"
+        ],
+        "previousEvidence": [
+          ".validation/goal-audit/visual-review-78-92.json",
+          ".validation/goal-audit/core-duck-visual-review.json",
+          "docs/goal-upgrade-review.md",
+          "docs/goal-animation-review.md"
+        ]
+      }
     },
     {
       "id": "lesson:s-short-integrated",
@@ -20950,48 +21318,94 @@
     {
       "id": "lesson:v-toe-touch-criterion",
       "dimension": "teachingVerified",
-      "fingerprint": "a59c2883b78932fecf3de8f19143e3b6aa166210b7ec2327e0b932b595810d20",
+      "fingerprint": "556e055eeb1918eba35a6a4c23254fd4b76923cb85291262bee1003ed8b664bd",
       "status": "partial",
       "date": "2026-10-15",
-      "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+      "scope": "保留原摸雪纠错的历史正文/来源；本轮仅复读mechanics[2]专家任务区别、新S38引用和相关入口，S38 p.7支持任务条件。未重授全部旧诊断或动画通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
       "evidence": [
-        "docs/source-claim-audit.json#v-toe-touch-criterion",
-        "docs/continuation-review.md"
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
       ],
       "sourceChecks": [
         {
           "ledger": "docs/source-claim-audit.json",
           "lessonId": "v-toe-touch-criterion",
-          "status": "reviewed"
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-diff-with-original-preserved",
+          "realFootageCalibration": "not_performed"
         }
       ],
-      "previousEvidence": [
-        "docs/goal-duck-route-review.md",
-        "docs/goal-upgrade-review.md"
-      ]
+      "previousObservation": {
+        "id": "lesson:v-toe-touch-criterion",
+        "dimension": "teachingVerified",
+        "fingerprint": "a59c2883b78932fecf3de8f19143e3b6aa166210b7ec2327e0b932b595810d20",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+        "evidence": [
+          "docs/source-claim-audit.json#v-toe-touch-criterion",
+          "docs/continuation-review.md"
+        ],
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "v-toe-touch-criterion",
+            "status": "reviewed"
+          }
+        ],
+        "previousEvidence": [
+          "docs/goal-duck-route-review.md",
+          "docs/goal-upgrade-review.md"
+        ]
+      }
     },
     {
       "id": "lesson:v20-path",
       "dimension": "teachingVerified",
-      "fingerprint": "be5e90e382c3880041de359768682c477d3bfe201f0cdf755ed0e9dd9b3489b2",
+      "fingerprint": "8af17ad0b05458bd1da00af658d76a58922d0540dc0cff0af1836844f6ac8d7f",
       "status": "partial",
       "date": "2026-10-15",
-      "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+      "scope": "保留原基础课来源与全文记录，本轮复读新增专家任务范围、机制、步骤、自查、练习进阶、引用和协议导航；新字段按来源专项报告归类。旧基线和本轮新增支持分开，不声称旧动作重新实看。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
       "evidence": [
-        "docs/source-claim-audit.json#v20-path",
-        "docs/continuation-review.md"
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
       ],
       "sourceChecks": [
         {
           "ledger": "docs/source-claim-audit.json",
           "lessonId": "v20-path",
-          "status": "reviewed"
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-diff-with-original-preserved",
+          "realFootageCalibration": "not_performed"
         }
       ],
-      "previousEvidence": [
-        "docs/goal-duck-route-review.md",
-        "docs/goal-upgrade-review.md"
-      ]
+      "previousObservation": {
+        "id": "lesson:v20-path",
+        "dimension": "teachingVerified",
+        "fingerprint": "be5e90e382c3880041de359768682c477d3bfe201f0cdf755ed0e9dd9b3489b2",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+        "evidence": [
+          "docs/source-claim-audit.json#v20-path",
+          "docs/continuation-review.md"
+        ],
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "v20-path",
+            "status": "reviewed"
+          }
+        ],
+        "previousEvidence": [
+          "docs/goal-duck-route-review.md",
+          "docs/goal-upgrade-review.md"
+        ]
+      }
     },
     {
       "id": "lesson:v24-skid-track",
@@ -21042,25 +21456,48 @@
     {
       "id": "lesson:s-duck-low-linked",
       "dimension": "teachingVerified",
-      "fingerprint": "8675ba803843810a68bb720b591271c764fa78413cf8783f44707055c7073d39",
+      "fingerprint": "af4ef1df290437c419f2ea615aeafad2a14eff8a62a60dec5db5ae1886f1e1db",
       "status": "partial",
       "date": "2026-10-15",
-      "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+      "scope": "保留原低位课程来源与全文记录；本轮仅复读drill.progression及relatedLessons的专家分流建议，依据S38 p.7而非低位官方单项。原S36有限观察与未标定状态不变。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
       "evidence": [
-        "docs/source-claim-audit.json#s-duck-low-linked",
-        "docs/continuation-review.md"
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
       ],
       "sourceChecks": [
         {
           "ledger": "docs/source-claim-audit.json",
           "lessonId": "s-duck-low-linked",
-          "status": "reviewed"
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-diff-with-original-preserved",
+          "realFootageCalibration": "not_performed"
         }
       ],
-      "previousEvidence": [
-        "docs/goal-duck-route-review.md",
-        "docs/goal-upgrade-review.md"
-      ]
+      "previousObservation": {
+        "id": "lesson:s-duck-low-linked",
+        "dimension": "teachingVerified",
+        "fingerprint": "8675ba803843810a68bb720b591271c764fa78413cf8783f44707055c7073d39",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+        "evidence": [
+          "docs/source-claim-audit.json#s-duck-low-linked",
+          "docs/continuation-review.md"
+        ],
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "s-duck-low-linked",
+            "status": "reviewed"
+          }
+        ],
+        "previousEvidence": [
+          "docs/goal-duck-route-review.md",
+          "docs/goal-upgrade-review.md"
+        ]
+      }
     },
     {
       "id": "page:curriculum",
@@ -33522,21 +33959,44 @@
     {
       "id": "drill:v20-path",
       "dimension": "teachingVerified",
-      "fingerprint": "47ff64b3c9c2fa53e52186f02bd95f7c076a22bfdfa959671986e98dd9f5512b",
+      "fingerprint": "3650e412424461f0477dca18d64cd95f9293b017a9cedc42a24e38985b5afcd3",
       "status": "partial",
       "date": "2026-10-15",
-      "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+      "scope": "既有练习记录保留；本轮复读新增任务基线步骤和专家进阶分流，均为有出处原理支持的本站练习建议。没有雪上试教通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
       "evidence": [
-        "docs/source-claim-audit.json#v20-path",
-        "docs/continuation-review.md"
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
       ],
       "sourceChecks": [
         {
           "ledger": "docs/source-claim-audit.json",
           "lessonId": "v20-path",
-          "status": "reviewed"
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-diff-with-original-preserved",
+          "realFootageCalibration": "not_performed"
         }
-      ]
+      ],
+      "previousObservation": {
+        "id": "drill:v20-path",
+        "dimension": "teachingVerified",
+        "fingerprint": "47ff64b3c9c2fa53e52186f02bd95f7c076a22bfdfa959671986e98dd9f5512b",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+        "evidence": [
+          "docs/source-claim-audit.json#v20-path",
+          "docs/continuation-review.md"
+        ],
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "v20-path",
+            "status": "reviewed"
+          }
+        ]
+      }
     },
     {
       "id": "mistake:v20-path:6cf9d5faff",
@@ -41576,21 +42036,44 @@
     {
       "id": "drill:s-duck-low-linked",
       "dimension": "teachingVerified",
-      "fingerprint": "f68710d3c6bd086c7db0d785b2889957e0cd813b4263580064c37f2225e65bfb",
+      "fingerprint": "0b755c452fdb0e5eb836b2f1663f148af569841b217022018822cb4d090d339c",
       "status": "partial",
       "date": "2026-10-15",
-      "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+      "scope": "仅新增drill.progression的专家分流由S38 p.7支持的课程建议；原剂量、正常高度先行和恢复步骤保留。没有把路线修改写成动作重新标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
       "evidence": [
-        "docs/source-claim-audit.json#s-duck-low-linked",
-        "docs/continuation-review.md"
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
       ],
       "sourceChecks": [
         {
           "ledger": "docs/source-claim-audit.json",
           "lessonId": "s-duck-low-linked",
-          "status": "reviewed"
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-diff-with-original-preserved",
+          "realFootageCalibration": "not_performed"
         }
-      ]
+      ],
+      "previousObservation": {
+        "id": "drill:s-duck-low-linked",
+        "dimension": "teachingVerified",
+        "fingerprint": "f68710d3c6bd086c7db0d785b2889957e0cd813b4263580064c37f2225e65bfb",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "文字逐结论来源与本站建议已复核；已核对练习量、适用条件及可能原因。该状态保留整课雪上试教/实拍标定未执行的边界。",
+        "evidence": [
+          "docs/source-claim-audit.json#s-duck-low-linked",
+          "docs/continuation-review.md"
+        ],
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "s-duck-low-linked",
+            "status": "reviewed"
+          }
+        ]
+      }
     },
     {
       "id": "mistake:s-duck-low-linked:1a9658b45d",
@@ -43301,14 +43784,28 @@
     {
       "id": "feature:comments",
       "dimension": "pageAccessible",
-      "fingerprint": "d8415efedb3dea20b6ce22cfa065ce265b376a549fd75d79b64a3fcd73e2305d",
       "status": "partial",
+      "fingerprint": "62f098628436be2a46c454b00a280441f176562866daa5bd0749bb7c5eccd805",
       "date": "2026-10-15",
-      "scope": "课程绑定、未登录入口、重试和替代链接可达；18秒等待未完成外部iframe握手，正文读取超时。未登录未发送，不判定服务长期故障。",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "刻滑复核课已实际看到未登录Utterances表单；没有登录或发送内容，仅确认本课评论入口和外部iframe加载。",
+      "checks": [],
       "evidence": [
-        "docs/remaining-ui-review.md",
-        ".validation/continuation/remaining-ui-results.json"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "feature:comments",
+        "dimension": "pageAccessible",
+        "fingerprint": "d8415efedb3dea20b6ce22cfa065ce265b376a549fd75d79b64a3fcd73e2305d",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "课程绑定、未登录入口、重试和替代链接可达；18秒等待未完成外部iframe握手，正文读取超时。未登录未发送，不判定服务长期故障。",
+        "evidence": [
+          "docs/remaining-ui-review.md",
+          ".validation/continuation/remaining-ui-results.json"
+        ]
+      }
     },
     {
       "id": "lesson:s-short-expert-map",
@@ -43910,24 +44407,49 @@
     {
       "id": "assessment-protocol:casi-l4-short",
       "dimension": "teachingVerified",
-      "fingerprint": "0ed1a9c90f1f190280d9c39134876fd6472b4a112b746919c54906da30cbf590",
+      "fingerprint": "4d622dcb8e22ddd4f262b3d61877d4ff8597fcb31d60aa30889ceb1be555b591",
       "status": "partial",
       "date": "2026-10-15",
-      "scope": "十一项观察文字与官方任务/技术依据逐项核对；状态、记录字段和训练组织属于本站建议。尚未以雪上学员使用验证可靠性，不构成官方评分或认证。",
-      "reviewer": "inventory（全文）；duck_route（逐结论来源）",
+      "scope": "原十一维度及其来源核查记录保留；本轮实际对读仅新增fieldHints.corridor，S38 p.6支持2–3米最终任务条件而非初练强制值。表单仍为本站三态训练组织，不计算官方分数。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
       "evidence": [
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
       ],
       "sourceChecks": [
         {
           "ledger": "docs/source-claim-audit.json",
           "protocolId": "casi-l4-short",
-          "status": "reviewed-with-scope",
-          "realFootageCalibration": "not-performed"
+          "fields": [
+            "fieldHints.corridor"
+          ],
+          "status": "reviewed-diff-with-original-preserved",
+          "realFootageCalibration": "not_performed"
         }
-      ]
+      ],
+      "previousObservation": {
+        "id": "assessment-protocol:casi-l4-short",
+        "dimension": "teachingVerified",
+        "fingerprint": "0ed1a9c90f1f190280d9c39134876fd6472b4a112b746919c54906da30cbf590",
+        "status": "partial",
+        "date": "2026-10-15",
+        "scope": "十一项观察文字与官方任务/技术依据逐项核对；状态、记录字段和训练组织属于本站建议。尚未以雪上学员使用验证可靠性，不构成官方评分或认证。",
+        "reviewer": "inventory（全文）；duck_route（逐结论来源）",
+        "evidence": [
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ],
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "protocolId": "casi-l4-short",
+            "status": "reviewed-with-scope",
+            "realFootageCalibration": "not-performed"
+          }
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:task_conditions",
@@ -44943,245 +45465,441 @@
       "id": "feature:assessment",
       "dimension": "pageAccessible",
       "status": "passed",
-      "scope": "根代理在隔离origin实测六课共用的训练记录：证据门槛、保存、刷新恢复、编辑、第二趟、跨课、取消放弃草稿后刷新保留。记录不自动认证能力。未穷举全部异常存储组合。",
-      "checks": [
-        "无证据阻止已观察状态保存",
-        "有证据保存",
-        "刷新恢复",
-        "编辑保存",
-        "第二趟保存",
-        "跨课读取",
-        "取消放弃后刷新草稿保留",
-        "旧收藏与能力进度兼容"
-      ],
-      "fingerprint": "b361aa7f08fc7526f5575b4be777d20076181177738276bece258340991164fa",
+      "fingerprint": "a71d65764b03808d3abd38761a6f2df07680c08c10c77948b38c0a15d71bc8f5",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "隔离origin实际验证两协议独立记录/草稿；刻滑需发展无证据被拦，保存后刷新及跨课共享，另趟草稿刷新恢复；原小回转2条测试记录及草稿未覆盖。390px iframe表单35字段可读且无横溢出，不动真实生产数据。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#feature:assessment/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "feature:assessment",
+        "dimension": "pageAccessible",
+        "status": "passed",
+        "scope": "根代理在隔离origin实测六课共用的训练记录：证据门槛、保存、刷新恢复、编辑、第二趟、跨课、取消放弃草稿后刷新保留。记录不自动认证能力。未穷举全部异常存储组合。",
+        "checks": [
+          "无证据阻止已观察状态保存",
+          "有证据保存",
+          "刷新恢复",
+          "编辑保存",
+          "第二趟保存",
+          "跨课读取",
+          "取消放弃后刷新草稿保留",
+          "旧收藏与能力进度兼容"
+        ],
+        "fingerprint": "b361aa7f08fc7526f5575b4be777d20076181177738276bece258340991164fa",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#feature:assessment/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-protocol:casi-l4-short",
       "dimension": "pageAccessible",
       "status": "passed",
-      "scope": "实际展开并使用共用记录表单，完成保存、编辑、多趟和跨课检查；390px iframe内表单可读且无横溢出。未从表单存在推断十一维度逐项教学验证。",
-      "checks": [
-        "实际表单交互",
-        "390px iframe，clientWidth与scrollWidth均375px"
-      ],
-      "fingerprint": "0ed1a9c90f1f190280d9c39134876fd6472b4a112b746919c54906da30cbf590",
+      "fingerprint": "4d622dcb8e22ddd4f262b3d61877d4ff8597fcb31d60aa30889ceb1be555b591",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "实际确认11项小回转表单、2–3米提示、原有两条记录与草稿在切换刻滑前后保留；不从隔离成功推断全部异常存储组合通过。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-protocol:casi-l4-short/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-protocol:casi-l4-short",
+        "dimension": "pageAccessible",
+        "status": "passed",
+        "scope": "实际展开并使用共用记录表单，完成保存、编辑、多趟和跨课检查；390px iframe内表单可读且无横溢出。未从表单存在推断十一维度逐项教学验证。",
+        "checks": [
+          "实际表单交互",
+          "390px iframe，clientWidth与scrollWidth均375px"
+        ],
+        "fingerprint": "0ed1a9c90f1f190280d9c39134876fd6472b4a112b746919c54906da30cbf590",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-protocol:casi-l4-short/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:task_conditions",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "459731a1e334e059c4d0e91bb53758c085ac819a2d638c3c7b9e499ed04bdc91",
+      "status": "passed",
+      "fingerprint": "7b9e5335bb8c5ad2a659dcd7c00c4f1d5cbbb0087a3c2d90a1c993c45f9d4d30",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:task_conditions/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:task_conditions",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "459731a1e334e059c4d0e91bb53758c085ac819a2d638c3c7b9e499ed04bdc91",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:task_conditions/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:centred_mobile",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "da14fbff1ccce4c73f20b3ec9d6f469723385a1e631e09f5bd737f9696ebf71b",
+      "status": "passed",
+      "fingerprint": "779e2471a3fb6ccf38226f99cd00c0f52c5c5da72edecd6e8a9bf19c41260ad5",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:centred_mobile/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:centred_mobile",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "da14fbff1ccce4c73f20b3ec9d6f469723385a1e631e09f5bd737f9696ebf71b",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:centred_mobile/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:lower_body_turning",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "907ca43552d1d06944883f3c50dcec4d4a2b564f189496e4dde4a2e3b8a9b2b2",
+      "status": "passed",
+      "fingerprint": "562cebff477793c31b7975281d6b6f8e647dbfe3bc7c569911135930e6fc09b6",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:lower_body_turning/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:lower_body_turning",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "907ca43552d1d06944883f3c50dcec4d4a2b564f189496e4dde4a2e3b8a9b2b2",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:lower_body_turning/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:working_edge_balance",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "d04bcec9d23baeb259b6d8c4f42be48922b628105188aeefa4b2f5ce45e44e52",
+      "status": "passed",
+      "fingerprint": "0c53617a3ec2030c8433b0aeea73326fee0ba094864d0906f81ec564acc137b7",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:working_edge_balance/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:working_edge_balance",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "d04bcec9d23baeb259b6d8c4f42be48922b628105188aeefa4b2f5ce45e44e52",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:working_edge_balance/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:strength_flow",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "5390e12957e90f6f4b717f1e075db1e0264817b11c1c2f75ea718d8fea8c38ca",
+      "status": "passed",
+      "fingerprint": "b229286cdb0b9ff12eef569e11dc8e11ee33e34e9a3eb1368ac100576ba5921f",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:strength_flow/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:strength_flow",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "5390e12957e90f6f4b717f1e075db1e0264817b11c1c2f75ea718d8fea8c38ca",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:strength_flow/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:arc_to_arc",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "7c2404059ba4d8fd341ff810b99f8824e78d5f6265102f7a961e8736106f2d1b",
+      "status": "passed",
+      "fingerprint": "e76fd16ec9e520d6d031062b39d1bc3841b2649b1ee88e3bddf3241ba669d76a",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:arc_to_arc/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:arc_to_arc",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "7c2404059ba4d8fd341ff810b99f8824e78d5f6265102f7a961e8736106f2d1b",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:arc_to_arc/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:loading_deflection",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "2f459dd3e69a106f9ba5d5ed32ae1073770a47406be7031ca457f8a0e749258f",
+      "status": "passed",
+      "fingerprint": "2465c6db794dccd0766a56686ec302f4f6cbfc08502c06f795363519c49fd60f",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:loading_deflection/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:loading_deflection",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "2f459dd3e69a106f9ba5d5ed32ae1073770a47406be7031ca457f8a0e749258f",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:loading_deflection/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:steering_versatility",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "6ed25edb2d6c1d2868d79229d679f053c7c22461e213a66b78abca57de2ae7a4",
+      "status": "passed",
+      "fingerprint": "323d3af083cfbd1bc0459b5a878925c9a05938605b0f6bfc0ed479a609470c11",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:steering_versatility/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:steering_versatility",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "6ed25edb2d6c1d2868d79229d679f053c7c22461e213a66b78abca57de2ae7a4",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:steering_versatility/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:shape_speed_control",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "5fa59f27fa094eeeee9ec4fd90e5d05bc032b4686acede15e44080fcf3df5220",
+      "status": "passed",
+      "fingerprint": "fbc85062b17bcac841f6657dd0dfa637f08c92edea1aa8f37de301081ca168de",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:shape_speed_control/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:shape_speed_control",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "5fa59f27fa094eeeee9ec4fd90e5d05bc032b4686acede15e44080fcf3df5220",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:shape_speed_control/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:run_consistency",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "9225f6ed0b684a6d4c9f730f472a7149fd26cb2858ccd8ca8daa1fd71489ac7b",
+      "status": "passed",
+      "fingerprint": "b427c55c27cbd6043c82e37918ae033eda3c0e699477951c9fe24d1146897a40",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:run_consistency/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:run_consistency",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "9225f6ed0b684a6d4c9f730f472a7149fd26cb2858ccd8ca8daa1fd71489ac7b",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:run_consistency/pageAccessible"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:variation_transfer",
       "dimension": "pageAccessible",
-      "status": "partial",
-      "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
-      "checks": [
-        "协议表单已使用",
-        "无逐维度标题匹配记录"
-      ],
-      "fingerprint": "48c8e9cca2850bcf9cf8362cf93fd60619032ed7040f93f94ab8a73b4eddd77d",
+      "status": "passed",
+      "fingerprint": "9549210ef962720d8d16d2ab98f67d0ac717ffa774f73e762303dc55597fb037",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:variation_transfer/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "assessment-criterion:casi-l4-short:variation_transfer",
+        "dimension": "pageAccessible",
+        "status": "partial",
+        "scope": "十一项协议的表单已实际展开、编辑及保存；本次没有交付此维度标题逐字比对的独立记录，仅登记共用表单覆盖。",
+        "checks": [
+          "协议表单已使用",
+          "无逐维度标题匹配记录"
+        ],
+        "fingerprint": "48c8e9cca2850bcf9cf8362cf93fd60619032ed7040f93f94ab8a73b4eddd77d",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#assessment-criterion:casi-l4-short:variation_transfer/pageAccessible"
+        ]
+      }
     },
     {
       "id": "feature:video-study",
       "dimension": "pageAccessible",
       "status": "passed",
-      "scope": "复核课真人分析窗口实际可达，两条原片时间链接正确。该状态不表示重新观看完整原片。",
-      "checks": [
-        "两个原片时间链接",
-        "复核课可读"
-      ],
-      "fingerprint": "d47c897b131dccc72ca68ccc86e391a9888ecdad675e32151c46d6a6a7b41896",
+      "fingerprint": "c1224d3b1b21f2a457cc00b15cf002fbd4d52c1768d3f81ecb1c767740b1659a",
       "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "刻滑真人分析卡两个片段与带时间原片链接实际可见；S38依据按钮展开8张引用卡并定位官方PDF。视频实际有限13帧观察独立记录。",
+      "checks": [],
       "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#feature:video-study/pageAccessible"
-      ]
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ],
+      "previousObservation": {
+        "id": "feature:video-study",
+        "dimension": "pageAccessible",
+        "status": "passed",
+        "scope": "复核课真人分析窗口实际可达，两条原片时间链接正确。该状态不表示重新观看完整原片。",
+        "checks": [
+          "两个原片时间链接",
+          "复核课可读"
+        ],
+        "fingerprint": "d47c897b131dccc72ca68ccc86e391a9888ecdad675e32151c46d6a6a7b41896",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#feature:video-study/pageAccessible"
+        ]
+      }
     },
     {
       "id": "video-study:s-short-expert-review",
@@ -45465,6 +46183,1505 @@
       "evidence": [
         "docs/level4-release-review.md",
         ".validation/level4/release-observations.json#animation:s-short-expert-flow/2/teachingVerified"
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-arc",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "2c6fba605558aded4d0e9bd1e09b3fb019a3997a5045ad71f2836f3f1b417947",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "revision17最终正文的当前课程入口和DOM实际打开；本轮仅7课。后续仅路线上下文过滤改变，arc课及首页节点另经最终重建回归。未从课程打开推定每项练习/诊断都已逐项展开或教学通过。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-pressure",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "f1cd3a7f4370dcb696d07c247568c924eda30960a1310604dba6419be7551a5d",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "revision17最终正文的当前课程入口和DOM实际打开；本轮仅7课。后续仅路线上下文过滤改变，arc课及首页节点另经最终重建回归。未从课程打开推定每项练习/诊断都已逐项展开或教学通过。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-variation",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "0efaae21a68c79c89c0aa1c15c4a4da3caf6cdbc006f6bc25eadda81803c3719",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "revision17最终正文的当前课程入口和DOM实际打开；本轮仅7课。后续仅路线上下文过滤改变，arc课及首页节点另经最终重建回归。未从课程打开推定每项练习/诊断都已逐项展开或教学通过。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-review",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "d9ce97045c8a3caec03885eda804bf034b9637a21f86dd7ab684378983b92170",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "revision17最终正文的当前课程入口和DOM实际打开；本轮仅7课。后续仅路线上下文过滤改变，arc课及首页节点另经最终重建回归。未从课程打开推定每项练习/诊断都已逐项展开或教学通过。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-protocol:casi-l4-carving",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "a31fb3000490e3bf03903823033939af04e690fd80359df25783855264be5618",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "实际展开12项刻滑表单，7–15米提示、无证据保存拦截、记录保存/刷新/跨课、另趟草稿刷新及协议隔离已观察；390px iframe实际内容375px无横溢出。只登记记录功能，不评分或认证。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:task_conditions",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "1cdb8b322483bfb6f1c99c05b3445ffbb191bed3760faffaf244c102b79d5ff3",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:centred_mobile",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "e1043df663501dc3b2f8154de023055520db9ed42f8401433971f563c8f515a2",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:lower_body_guidance",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "e7e97132f6ad2f2e01f93cf93a07dc2678d5d554046bb64473143f3b88d430f3",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:working_edge_balance",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "5d231c477b6ba81be6499a991745fe74e01da7bb0e0ad8648e80f2fb197dd007",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:arc_to_arc",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "f6d2fdcbc9727f111d3af41a99b48394fcc58516ca5076a946a6ca433e362501",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:carved_path",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "b661a3dd9b228a0bfaf8d059210536f336f19d6d5795c0a76df4034760275058",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:strength_flow",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "848bb18a7b13cad4daa5cee9a544558bdf24128e84f01d43b496beed08a0c56d",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:loading_deflection",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "5cc44eb5f17196f962344e20c19e2653639335ba85d7b3b8b77e2e27d1436565",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:exit_momentum",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "1152a570deae2db4086a2d931eee7844dadabfcf11fa22b8bede51ef45b3d3a7",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:steering_versatility",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "bcb6826974833bdfca5ff0393cccf0f75624bdb7ac6617372a4a0db61f1318b8",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:variation_transfer",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "c20cbb3d210ea60dbe48423954be77b68a4e1562a1432fcfbe44fd5b9285ecef",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:duck_low_recovery",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "5b6d097f6467f6c361c48db6237d5f3cfa955f68b81dfddf96b03ab15c54b0b4",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "对应协议的select和字段name已实际逐项列出；刻滑12项展开后全AX可见，小回转11项DOM计数及名称确认。只登记这条观察维度的页面可达，不证明判断可靠性。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "video-study:s-carve-expert-review",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "86cc24f8c60de07e11ee2763ec79c9062a9e305963e68f9731a85fa1cdcb01de",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "刻滑复核课实际渲染两个片段、可见关系与边界，原片链接分别带t=168与t=171；影片13关键帧观察另记，不把链接可达当观影。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "video-segment:s-carve-expert-review:168.293-170.793",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "c82936b01cbfd9ddd25ed9361afd57b527f9c351d868f1abe8e4f86d2d9bde16",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "刻滑复核课实际渲染两个片段、可见关系与边界，原片链接分别带t=168与t=171；影片13关键帧观察另记，不把链接可达当观影。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "video-segment:s-carve-expert-review:171.293-174.293",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "ea86195605db76321b160bc0c4dee301850502c69668ad019ab37101dcbe52dd",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "刻滑复核课实际渲染两个片段、可见关系与边界，原片链接分别带t=168与t=171；影片13关键帧观察另记，不把链接可达当观影。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-reference",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "547d49f5b6b7aa548c9b6913cbf084dd4306add610a286d3daccdf3170e356ca",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "本轮逐点打开并读取.skill-details的标题、标准、练习、前置/后续/辅助和课程按钮；与最终content对应，未勾选能力，也未推断雪上达标。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-arc",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "28297ff44203d00a922c7ccac792eb4bce072105717c106dc5e56b6e990b26ce",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "本轮逐点打开并读取.skill-details的标题、标准、练习、前置/后续/辅助和课程按钮；与最终content对应，未勾选能力，也未推断雪上达标。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-pressure",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "6ba7dda0d84f9bf4eaee1496d61b8d0b67d5dfbdce9e3d24cb51bb67b8e9ccc3",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "本轮逐点打开并读取.skill-details的标题、标准、练习、前置/后续/辅助和课程按钮；与最终content对应，未勾选能力，也未推断雪上达标。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-variation",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "51204b513f2ae56a120a36f950942cf110f9d38a0efcb1da21984b2d62484adc",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "本轮逐点打开并读取.skill-details的标题、标准、练习、前置/后续/辅助和课程按钮；与最终content对应，未勾选能力，也未推断雪上达标。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-review",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "fingerprint": "e0fe43b8314da5cf51bca452a52d171a770bebb88e9cfcc85152e8bfdb720c15",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（范围与最终差分核对）",
+      "scope": "本轮逐点打开并读取.skill-details的标题、标准、练习、前置/后续/辅助和课程按钮；与最终content对应，未勾选能力，也未推断雪上达标。",
+      "checks": [],
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json"
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-arc",
+      "dimension": "pageAccessible",
+      "fingerprint": "65da753f9927dce4fae669c1459003e2d45faba40a0cf8c1281863565e264142",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-practice全部innerText；场地、准备、步骤、剂量、成功、停止、进阶完整，无undefined或剂量差异。这里只登记当前练习页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-arc:63e0fdc957",
+      "dimension": "pageAccessible",
+      "fingerprint": "848ebdd264ab3c7e05aab9e4c6e8b94f04967bf4ac5c23eb65be628a6ca8d603",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-arc:45d30e1532",
+      "dimension": "pageAccessible",
+      "fingerprint": "c02417adb523f1c4ccf92a1ed13c7ba25bf3211fea2f16f539c3dd05f5c778bc",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-pressure",
+      "dimension": "pageAccessible",
+      "fingerprint": "59a30b5f3c622ea35f053db0ada3ef3ad58e7074c786acfab583cc388d2d9b00",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-practice全部innerText；场地、准备、步骤、剂量、成功、停止、进阶完整，无undefined或剂量差异。这里只登记当前练习页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-pressure:815aba4c06",
+      "dimension": "pageAccessible",
+      "fingerprint": "d9b47fea6a83fc9ce534134d9be4fa5f501560f30830636051798341e5e4a1d3",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-pressure:26facf7fd8",
+      "dimension": "pageAccessible",
+      "fingerprint": "a801f38059e0de26359ed1eb3b78e77f3418d32fba48f03eeb7d322f822b3f2d",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-variation",
+      "dimension": "pageAccessible",
+      "fingerprint": "f375ddd7e22f70e9d618733d2a038d768e33a8ad546ad450b162dfe9b8bef65a",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-practice全部innerText；场地、准备、步骤、剂量、成功、停止、进阶完整，无undefined或剂量差异。这里只登记当前练习页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-variation:59476ddf1f",
+      "dimension": "pageAccessible",
+      "fingerprint": "4ab8d9bd9226e0f10823ffac85b2f2aa644f3ad999b6ac3006cd98721926dd8b",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-variation:5282e2cfe1",
+      "dimension": "pageAccessible",
+      "fingerprint": "946ac1bfffc0ed9822ca40d6329367f03a3dcce28dba3121a779ced56b10cd30",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-review",
+      "dimension": "pageAccessible",
+      "fingerprint": "83f1c09b2bee378c1067d2125b5f39ff11515ee8e982ea21bec9b8181666874b",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-practice全部innerText；场地、准备、步骤、剂量、成功、停止、进阶完整，无undefined或剂量差异。这里只登记当前练习页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-review:9634211c4e",
+      "dimension": "pageAccessible",
+      "fingerprint": "6f29aec447ded15edc14889b04371d31196c151985eb06de273ea7c61a095055",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-review:eee5313501",
+      "dimension": "pageAccessible",
+      "fingerprint": "b45d0606b9c6da1d97ec0b557f23fb0bddd45635d00b78e4ca3680d4a2ac1221",
+      "status": "passed",
+      "date": "2026-10-15",
+      "reviewer": "root（CUA实际逐项读取）；inventory（转录）",
+      "scope": "四新课逐课实际读取#learn-errors全部innerText；共8项诊断的原因、区分、修正和再查显示完整，无漏字或undefined。这里只登记当前诊断页面呈现。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json#newLessonDrillsAndDiagnosesDom"
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-arc",
+      "dimension": "teachingVerified",
+      "fingerprint": "2c6fba605558aded4d0e9bd1e09b3fb019a3997a5045ad71f2836f3f1b417947",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读全部正文、任务条件及引用，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-arc",
+          "entryKind": "lesson",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-arc",
+      "dimension": "teachingVerified",
+      "fingerprint": "65da753f9927dce4fae669c1459003e2d45faba40a0cf8c1281863565e264142",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读练习所有步骤、剂量、成功/停止与恢复建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-arc",
+          "entryKind": "drill",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-arc:63e0fdc957",
+      "dimension": "teachingVerified",
+      "fingerprint": "848ebdd264ab3c7e05aab9e4c6e8b94f04967bf4ac5c23eb65be628a6ca8d603",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-arc",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-arc:45d30e1532",
+      "dimension": "teachingVerified",
+      "fingerprint": "c02417adb523f1c4ccf92a1ed13c7ba25bf3211fea2f16f539c3dd05f5c778bc",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-arc",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-pressure",
+      "dimension": "teachingVerified",
+      "fingerprint": "f1cd3a7f4370dcb696d07c247568c924eda30960a1310604dba6419be7551a5d",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读全部正文、任务条件及引用，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-pressure",
+          "entryKind": "lesson",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-pressure",
+      "dimension": "teachingVerified",
+      "fingerprint": "59a30b5f3c622ea35f053db0ada3ef3ad58e7074c786acfab583cc388d2d9b00",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读练习所有步骤、剂量、成功/停止与恢复建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-pressure",
+          "entryKind": "drill",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-pressure:815aba4c06",
+      "dimension": "teachingVerified",
+      "fingerprint": "d9b47fea6a83fc9ce534134d9be4fa5f501560f30830636051798341e5e4a1d3",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-pressure",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-pressure:26facf7fd8",
+      "dimension": "teachingVerified",
+      "fingerprint": "a801f38059e0de26359ed1eb3b78e77f3418d32fba48f03eeb7d322f822b3f2d",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-pressure",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-variation",
+      "dimension": "teachingVerified",
+      "fingerprint": "0efaae21a68c79c89c0aa1c15c4a4da3caf6cdbc006f6bc25eadda81803c3719",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读全部正文、任务条件及引用，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-variation",
+          "entryKind": "lesson",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-variation",
+      "dimension": "teachingVerified",
+      "fingerprint": "f375ddd7e22f70e9d618733d2a038d768e33a8ad546ad450b162dfe9b8bef65a",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读练习所有步骤、剂量、成功/停止与恢复建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-variation",
+          "entryKind": "drill",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-variation:59476ddf1f",
+      "dimension": "teachingVerified",
+      "fingerprint": "4ab8d9bd9226e0f10823ffac85b2f2aa644f3ad999b6ac3006cd98721926dd8b",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-variation",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-variation:5282e2cfe1",
+      "dimension": "teachingVerified",
+      "fingerprint": "946ac1bfffc0ed9822ca40d6329367f03a3dcce28dba3121a779ced56b10cd30",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-variation",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "lesson:s-carve-expert-review",
+      "dimension": "teachingVerified",
+      "fingerprint": "d9ce97045c8a3caec03885eda804bf034b9637a21f86dd7ab684378983b92170",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读全部正文、任务条件及引用，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-review",
+          "entryKind": "lesson",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "drill:s-carve-expert-review",
+      "dimension": "teachingVerified",
+      "fingerprint": "83f1c09b2bee378c1067d2125b5f39ff11515ee8e982ea21bec9b8181666874b",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读练习所有步骤、剂量、成功/停止与恢复建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-review",
+          "entryKind": "drill",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-review:9634211c4e",
+      "dimension": "teachingVerified",
+      "fingerprint": "6f29aec447ded15edc14889b04371d31196c151985eb06de273ea7c61a095055",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-review",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "mistake:s-carve-expert-review:eee5313501",
+      "dimension": "teachingVerified",
+      "fingerprint": "b45d0606b9c6da1d97ec0b557f23fb0bddd45635d00b78e4ca3680d4a2ac1221",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮实际审读当前诊断现象、可能原因、区分方法和纠正建议，逐字段来源见专项报告和来源账；direct / synthesis / suggestion分开，未把本站剂量或可检验诊断假设写成官方处方。这里只核对文字与证据边界；没有雪上试教、个体适用验证或真人标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-review",
+          "entryKind": "diagnosis",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-protocol:casi-l4-carving",
+      "dimension": "teachingVerified",
+      "fingerprint": "a31fb3000490e3bf03903823033939af04e690fd80359df25783855264be5618",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": null,
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:task_conditions",
+      "dimension": "teachingVerified",
+      "fingerprint": "1cdb8b322483bfb6f1c99c05b3445ffbb191bed3760faffaf244c102b79d5ff3",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "task_conditions",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:centred_mobile",
+      "dimension": "teachingVerified",
+      "fingerprint": "e1043df663501dc3b2f8154de023055520db9ed42f8401433971f563c8f515a2",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "centred_mobile",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:lower_body_guidance",
+      "dimension": "teachingVerified",
+      "fingerprint": "e7e97132f6ad2f2e01f93cf93a07dc2678d5d554046bb64473143f3b88d430f3",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "lower_body_guidance",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:working_edge_balance",
+      "dimension": "teachingVerified",
+      "fingerprint": "5d231c477b6ba81be6499a991745fe74e01da7bb0e0ad8648e80f2fb197dd007",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "working_edge_balance",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:arc_to_arc",
+      "dimension": "teachingVerified",
+      "fingerprint": "f6d2fdcbc9727f111d3af41a99b48394fcc58516ca5076a946a6ca433e362501",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "arc_to_arc",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:carved_path",
+      "dimension": "teachingVerified",
+      "fingerprint": "b661a3dd9b228a0bfaf8d059210536f336f19d6d5795c0a76df4034760275058",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "carved_path",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:strength_flow",
+      "dimension": "teachingVerified",
+      "fingerprint": "848bb18a7b13cad4daa5cee9a544558bdf24128e84f01d43b496beed08a0c56d",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "strength_flow",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:loading_deflection",
+      "dimension": "teachingVerified",
+      "fingerprint": "5cc44eb5f17196f962344e20c19e2653639335ba85d7b3b8b77e2e27d1436565",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "loading_deflection",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:exit_momentum",
+      "dimension": "teachingVerified",
+      "fingerprint": "1152a570deae2db4086a2d931eee7844dadabfcf11fa22b8bede51ef45b3d3a7",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "exit_momentum",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:steering_versatility",
+      "dimension": "teachingVerified",
+      "fingerprint": "bcb6826974833bdfca5ff0393cccf0f75624bdb7ac6617372a4a0db61f1318b8",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "steering_versatility",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:variation_transfer",
+      "dimension": "teachingVerified",
+      "fingerprint": "c20cbb3d210ea60dbe48423954be77b68a4e1562a1432fcfbe44fd5b9285ecef",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "variation_transfer",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:duck_low_recovery",
+      "dimension": "teachingVerified",
+      "fingerprint": "5b6d097f6467f6c361c48db6237d5f3cfa955f68b81dfddf96b03ab15c54b0b4",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮逐项读刻滑协议及原理定位，官方7–15米走廊、任务结果、变化训练与可选duck低位应用分开。十二项三态与字段是本站记录设计，不是官方评分表；没有雪上使用可靠性或认证通过。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "protocolId": "casi-l4-carving",
+          "criterionId": "duck_low_recovery",
+          "followup": "followupReviews.level4Carving",
+          "status": "reviewed-with-scope",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "video-study:s-carve-expert-review",
+      "dimension": "teachingVerified",
+      "fingerprint": "86cc24f8c60de07e11ee2763ec79c9062a9e305963e68f9731a85fa1cdcb01de",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "root实际观察官方2024影片：168.293–170.793秒6帧和171.293–174.293秒7帧；inventory对读可见关系、推导和限制。两段之间有剪切，后段有裁切，未确认脚角/走廊/速度/压力；limited_keyframes，不是连续全帧、官方duck范本或真人模型标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-video-observation.md"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-review",
+          "sourceId": "S39",
+          "status": "limited_keyframes",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "video-segment:s-carve-expert-review:168.293-170.793",
+      "dimension": "teachingVerified",
+      "fingerprint": "c82936b01cbfd9ddd25ed9361afd57b527f9c351d868f1abe8e4f86d2d9bde16",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "root实际观察官方2024影片：168.293–170.793秒6帧和171.293–174.293秒7帧；inventory对读可见关系、推导和限制。两段之间有剪切，后段有裁切，未确认脚角/走廊/速度/压力；limited_keyframes，不是连续全帧、官方duck范本或真人模型标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-video-observation.md"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-review",
+          "sourceId": "S39",
+          "status": "limited_keyframes",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "video-segment:s-carve-expert-review:171.293-174.293",
+      "dimension": "teachingVerified",
+      "fingerprint": "ea86195605db76321b160bc0c4dee301850502c69668ad019ab37101dcbe52dd",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "root实际观察官方2024影片：168.293–170.793秒6帧和171.293–174.293秒7帧；inventory对读可见关系、推导和限制。两段之间有剪切，后段有裁切，未确认脚角/走廊/速度/压力；limited_keyframes，不是连续全帧、官方duck范本或真人模型标定。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-video-observation.md"
+      ],
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-review",
+          "sourceId": "S39",
+          "status": "limited_keyframes",
+          "realFootageCalibration": "not_performed"
+        }
+      ]
+    },
+    {
+      "id": "module:carving",
+      "dimension": "teachingVerified",
+      "fingerprint": "5a2010c8a2d4ff8ee02a2668aba1d3a3c5cb1c158d703443c819317c92262cf7",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "curriculum:235a1451d8",
+      "dimension": "teachingVerified",
+      "fingerprint": "d2674fb4e3b43f7d96aaf8571650f305fb6ad21150f891247571cab60e665931",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "curriculum:31ebde06a4",
+      "dimension": "teachingVerified",
+      "fingerprint": "d61c04474c8d94aba06b6eb6867f631bfad544e5ca83a5612ca8938a3b1c1494",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "curriculum:d29000d1eb",
+      "dimension": "teachingVerified",
+      "fingerprint": "207f72e61a371aef33d86b04064f89c51f84492d52d666902722f351e46651f2",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "skill:expert-carve-reference",
+      "dimension": "teachingVerified",
+      "fingerprint": "547d49f5b6b7aa548c9b6913cbf084dd4306add610a286d3daccdf3170e356ca",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "skill:expert-carve-arc",
+      "dimension": "teachingVerified",
+      "fingerprint": "28297ff44203d00a922c7ccac792eb4bce072105717c106dc5e56b6e990b26ce",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "skill:expert-carve-pressure",
+      "dimension": "teachingVerified",
+      "fingerprint": "6ba7dda0d84f9bf4eaee1496d61b8d0b67d5dfbdce9e3d24cb51bb67b8e9ccc3",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "skill:expert-carve-variation",
+      "dimension": "teachingVerified",
+      "fingerprint": "51204b513f2ae56a120a36f950942cf110f9d38a0efcb1da21984b2d62484adc",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "skill:expert-carve-review",
+      "dimension": "teachingVerified",
+      "fingerprint": "e0fe43b8314da5cf51bca452a52d171a770bebb88e9cfcc85152e8bfdb720c15",
+      "status": "partial",
+      "date": "2026-10-15",
+      "scope": "本轮审读新增专家刻滑路线/节点及官方任务与低位分支关系，对照官方研究与课程设计；前置和练习组织属于本站建议。普通专家刻滑不要求先通过duck低位。这里只核对已改路线文字，未做雪上教学有效性或全部旧路线复核。",
+      "reviewer": "inventory（当前全文/差分及报告对读）；duck_route（原始来源逐字段复核）",
+      "evidence": [
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "sourceChecks": [
+        {
+          "document": "docs/level4-carving-curriculum.md",
+          "sourceIds": [
+            "S38",
+            "S16"
+          ],
+          "status": "curriculum-suggestion-reviewed"
+        }
       ]
     }
   ],
@@ -47385,7 +49602,7 @@
     },
     {
       "id": "assessment-protocol:casi-l4-short",
-      "fingerprint": "de1229c12dbf99bd24b1e91428843d36f7ef572d9753c9b9a37acd55b0076183",
+      "fingerprint": "48a91e0965fa281465b5f6f4fa63e4802f55dcb86cb2285f5935c712a3ab984e",
       "date": "2026-10-15",
       "reviewer": "inventory",
       "parts": [
@@ -47393,13 +49610,29 @@
         "references",
         "scope"
       ],
-      "summary": "已逐项读协议及十一维度，并核对逐结论来源报告；它是本站训练记录，不是官方评分网格，不生成分数、资格或能力通过。",
+      "summary": "原十一维度与协议文本保留；本轮实际复读新增fieldHints.corridor，只在小回转协议保留2–3米最终条件，并明确不是初练强制值。",
       "evidence": [
-        "docs/level4-short-curriculum.md",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "previousReview": {
+        "id": "assessment-protocol:casi-l4-short",
+        "fingerprint": "de1229c12dbf99bd24b1e91428843d36f7ef572d9753c9b9a37acd55b0076183",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已逐项读协议及十一维度，并核对逐结论来源报告；它是本站训练记录，不是官方评分网格，不生成分数、资格或能力通过。",
+        "evidence": [
+          "docs/level4-short-curriculum.md",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      }
     },
     {
       "id": "assessment-criterion:casi-l4-short:task_conditions",
@@ -47763,7 +49996,7 @@
     },
     {
       "id": "source:S38",
-      "fingerprint": "c835fbe126fa48f0e8aff2e1017a1a902fc0b4523045ed13e799d9b130f53cba",
+      "fingerprint": "bbbbf4e570e1846f27ffe5d59563716cc978a86b311e969bb0c05a7c57fed0ab",
       "date": "2026-10-15",
       "reviewer": "inventory",
       "parts": [
@@ -47771,13 +50004,29 @@
         "references",
         "scope"
       ],
-      "summary": "已读当前来源元数据及本地官方Riding指南全文，重点p.5–8；逐结论应用另见duck_route复核。",
+      "summary": "复读拓宽后的来源标题、摘要及p.6–8定位，对照本轮官方原文研究报告；未将本代理报告阅读冒充再次联网原文读取。",
       "evidence": [
-        "docs/level4-short-curriculum.md",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "previousReview": {
+        "id": "source:S38",
+        "fingerprint": "c835fbe126fa48f0e8aff2e1017a1a902fc0b4523045ed13e799d9b130f53cba",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已读当前来源元数据及本地官方Riding指南全文，重点p.5–8；逐结论应用另见duck_route复核。",
+        "evidence": [
+          "docs/level4-short-curriculum.md",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      }
     },
     {
       "id": "source:S40",
@@ -47817,7 +50066,7 @@
     },
     {
       "id": "source:S39",
-      "fingerprint": "e44a7e22a97b8a3f1eb0e703453d9f927f051ede66d39bdf6c907f3fa0f314b2",
+      "fingerprint": "050d67f5698ccd7dbe1f2591c39977e8477b0acbe661a24a37407e368923f7f1",
       "date": "2026-10-15",
       "reviewer": "inventory",
       "parts": [
@@ -47825,14 +50074,31 @@
         "references",
         "scope"
       ],
-      "summary": "已读取片段文字、观察时间、应用与限制，并与根代理15帧实际观察报告核对；inventory未声称自己重新观看原片，未登记速度、压力、几何或完整考试表现标定。",
+      "summary": "本轮读取root实际刻滑13帧观察报告，并核对两个片段的可见关系、推导和不可判断项；inventory未声称自己重看原片。小回转15帧原记录独立保留。",
       "evidence": [
-        "docs/level4-short-curriculum.md",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md",
-        "docs/level4-short-video-observation.md"
-      ]
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-carving-video-observation.md"
+      ],
+      "previousReview": {
+        "id": "source:S39",
+        "fingerprint": "e44a7e22a97b8a3f1eb0e703453d9f927f051ede66d39bdf6c907f3fa0f314b2",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已读取片段文字、观察时间、应用与限制，并与根代理15帧实际观察报告核对；inventory未声称自己重新观看原片，未登记速度、压力、几何或完整考试表现标定。",
+        "evidence": [
+          "docs/level4-short-curriculum.md",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md",
+          "docs/level4-short-video-observation.md"
+        ]
+      }
     },
     {
       "id": "animation-type:expert-short-turns",
@@ -47890,109 +50156,555 @@
         "docs/source-claim-audit.json",
         "docs/level4-short-official-standards.md"
       ]
+    },
+    {
+      "id": "module:carving",
+      "fingerprint": "660e8f3a52ec94ffbcda4230a134a408c2be877149ad362b2d077a3717d2ed6e",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "video-study:s-carve-expert-review",
+      "fingerprint": "54fc787f4c7e8106f3f0de4c5b4d623cf02eaaea0b0f63ac57033365bb38994c",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮读取root实际刻滑13帧观察报告，并核对两个片段的可见关系、推导和不可判断项；inventory未声称自己重看原片。小回转15帧原记录独立保留。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-carving-video-observation.md"
+      ]
+    },
+    {
+      "id": "video-segment:s-carve-expert-review:168.293-170.793",
+      "fingerprint": "63e5bbf4f1ec732d995782b9434148fb72804c3bb2a363fed1e786c58ae83be5",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮读取root实际刻滑13帧观察报告，并核对两个片段的可见关系、推导和不可判断项；inventory未声称自己重看原片。小回转15帧原记录独立保留。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-carving-video-observation.md"
+      ]
+    },
+    {
+      "id": "video-segment:s-carve-expert-review:171.293-174.293",
+      "fingerprint": "d677fd51e4b9a5878458d04c339d052b527002fd110b67c8ef654ba25a7e2140",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮读取root实际刻滑13帧观察报告，并核对两个片段的可见关系、推导和不可判断项；inventory未声称自己重看原片。小回转15帧原记录独立保留。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-carving-video-observation.md"
+      ]
+    },
+    {
+      "id": "assessment-protocol:casi-l4-carving",
+      "fingerprint": "137efa3f1f85c8d69db61e3a2bf3f97ee78556afdd4d83f4880c2a4e0a9f9249",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:task_conditions",
+      "fingerprint": "f125e84cee2acef6f4bf5bdfe51beac90aa3118f4820f5f90d6e096ec7b77d88",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:centred_mobile",
+      "fingerprint": "75b8a628e859b71e4d942202275ffaecb407eb6757b2983c6b3687bc932b153d",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:lower_body_guidance",
+      "fingerprint": "4685a45a825dccec38bdc65ead77e605134280d94d41240f9ee04e000596b8f6",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:working_edge_balance",
+      "fingerprint": "c29ae00a59ad339340fbbd33511f6a66839a912caf01ad0c619b5eaf096b7660",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:arc_to_arc",
+      "fingerprint": "1b0611f27ddac91be2abdfc5f86191483e929fd34afff23feeb9c5c483ef34d6",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:carved_path",
+      "fingerprint": "3330704362a704ecf807cb4cd4677e5f2297a6f8467480a1cfa03456c330c216",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:strength_flow",
+      "fingerprint": "d93dfa03961429bc17df128ac4e85ad8408217d9364ab6d12698d52b03bc6174",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:loading_deflection",
+      "fingerprint": "198b56eaffb884c64a3809ed8c64b4172008ac9a25a800fcbcb9c1bd346edb3d",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:exit_momentum",
+      "fingerprint": "88bfd37717f2b16baf6c246921e427d6a8003e2da59c7e71558b5eab3b83cba1",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:steering_versatility",
+      "fingerprint": "4ba52e2c32d03051380f6555e567773523fbf312ae7898396fea852311c7b70d",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:variation_transfer",
+      "fingerprint": "50e05082caad4022baf6004f8d35455686dc83be596a0dd1ebaa2735bf30d453",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "assessment-criterion:casi-l4-carving:duck_low_recovery",
+      "fingerprint": "5c67fdd1bc0006f6b5d8bba142418851072f44e20d8df4858c8aa7ffd20b73fc",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读十二维度、说明与三个fieldHints；官方条件、训练与duck低位恢复分开。记录三态不换算成绩，协议源码执行另测。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "curriculum:235a1451d8",
+      "fingerprint": "96a8bafc2e8f2917d0bd860d74981c457a27b225fd6509c516e3b1f3a31ec65a",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "curriculum:31ebde06a4",
+      "fingerprint": "2b625f7051ec9d6bd8368c7972e46f80d4d027737dd0e663948652d19728476e",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "curriculum:d29000d1eb",
+      "fingerprint": "67742b115df646e175aeecfb564be916c6fc95b94b41919b11d6737be5cccbd8",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-reference",
+      "fingerprint": "f025d5cf407ddb4a1875360aa4ca9591eb69af8aef97e152815df5ab07ed89b2",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-arc",
+      "fingerprint": "e83c5db6f30a3c53dd9369c0f60589c813cfe70d1d40fd09f14df7d919d90416",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-pressure",
+      "fingerprint": "34322cd78324045918de768cbb49943f76d011789b7f0f1f5853fb46b1fddfe9",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
+    },
+    {
+      "id": "skill:expert-carve-variation",
+      "fingerprint": "2ce02cde40745fe4e200e39be5845f28329e578860ef8798d7cff5bcbd150708",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮复读完整节点；删除lessons中的低位基础课，保留supports作为可选辅助和该分支额外前置，避免基础课被误显示专家前置。普通专家任务仍不强制低位。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ],
+      "previousReview": {
+        "id": "skill:expert-carve-variation",
+        "fingerprint": "c77f0ffb5ed3534fcf42f803eb2bd0ed804662b5e8cb6d544d54d4b6f8ab2ca0",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+        "evidence": [
+          "docs/level4-carving-official-standards.md",
+          "docs/level4-carving-curriculum.md"
+        ]
+      }
+    },
+    {
+      "id": "skill:expert-carve-review",
+      "fingerprint": "c5101cda53e57db1b4d47db6d8e4530933142641440ae70deb3736e71a905c18",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮逐项读当前文字、关联和适用边界；不从文本存在推断页面可达或教学通过。",
+      "evidence": [
+        "docs/level4-carving-official-standards.md",
+        "docs/level4-carving-curriculum.md"
+      ]
     }
   ],
   "evidenceSummary": {
     "date": "2026-10-15",
-    "phase": "level4-differential-review",
-    "objectCount": 844,
-    "persistentSummary": "docs/level4-release-review.md",
+    "phase": "level4-carving-differential-review",
+    "objectCount": 884,
+    "persistentSummary": "docs/level4-carving-release-review.md",
     "textReview": {
-      "totalLessons": 109,
-      "historicalLessonsRetained": 103,
-      "newLessonsRead": 6,
+      "totalLessons": 113,
+      "historicalLessonsRetained": 109,
+      "newLessonsRead": 4,
       "previousLessonsDiffRead": 3,
-      "newDrills": 6,
-      "newDiagnoses": 12,
+      "newDrills": 4,
+      "newDiagnoses": 8,
       "newAssessmentProtocols": 1,
-      "newAssessmentCriteria": 11,
+      "newAssessmentCriteria": 12,
+      "existingProtocolHintDiffRead": 1,
       "newVideoStudies": 1,
       "newVideoSegments": 2
     },
     "sourceClaimReview": {
-      "lessons": 109,
-      "claims": 2149,
-      "levels": {
-        "direct": 349,
-        "synthesis": 618,
-        "suggestion": 1125,
+      "status": "current-scoped-review-completed",
+      "counts": {
+        "direct": 362,
+        "synthesis": 655,
+        "suggestion": 1280,
         "unverified": 57
       },
-      "unverifiedCategories": {
-        "text_source_access": 0,
-        "legacy_video_timestamp": 24,
-        "real_footage_calibration": 33
-      },
+      "scope": "四新课、三旧课差分、十二项刻滑协议、旧小回转提示与S38/S39扩展；旧57项未核验原样保留。",
       "evidence": [
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
+        "docs/level4-carving-source-claim-review.md",
+        "docs/level4-carving-official-standards.md",
+        "docs/source-claim-audit.json"
+      ],
+      "lessons": 113,
+      "citations": 455,
+      "totalClaims": 2354,
+      "effectiveSources": 38,
+      "assessmentProtocols": 2
     },
     "runtime": {
-      "status": "current-scoped-browser-verification",
-      "origin": "http://127.0.0.1:8766",
-      "lessonPages": 109,
-      "practiceRegions": 109,
-      "diagnosisCountOnly": 226,
-      "animationReferences": 139,
-      "consoleErrors": 0,
-      "evidence": [
-        ".validation/level4/browser-pages-final.json",
-        ".validation/level4/release-observations.json",
-        "docs/level4-release-review.md"
+      "status": "scoped-current-browser-review-completed",
+      "lessonDom": [
+        "s-carve-expert-arc",
+        "s-carve-expert-pressure",
+        "s-carve-expert-variation",
+        "s-carve-expert-review",
+        "v20-path",
+        "s-duck-low-linked",
+        "v-toe-touch-criterion"
       ],
-      "historicalEvidence": "historicalEvidenceSummaries[0]",
-      "rule": "只回填根实际检查到的维度；旧教学画面、独立入口和未实际重测功能仍保留旧指纹。",
-      "finalBuildRerun": {
-        "lessonPages": 109,
-        "animationReferences": 139,
-        "consoleErrors": 0,
-        "evidence": ".validation/level4/browser-pages-final.json",
-        "changedRuntimeSincePriorBatch": [
-          "lesson-player/playback.ts"
-        ]
+      "routeNodesOpened": [
+        "expert-carve-reference",
+        "expert-carve-arc",
+        "expert-carve-pressure",
+        "expert-carve-variation",
+        "expert-carve-review"
+      ],
+      "assessmentProtocols": 2,
+      "assessmentCriteria": 23,
+      "videoStudies": 1,
+      "videoSegments": 2,
+      "consoleErrors": 0,
+      "responsive": {
+        "fixtureWidth": 390,
+        "documentClientWidth": 375,
+        "documentScrollWidth": 375,
+        "fields": 35,
+        "overflowFields": 0,
+        "screenshotActuallyViewed": true,
+        "physicalPhone": "excluded_by_user"
       },
-      "expertAnimation": {
-        "references": 4,
-        "tasks": 2,
-        "variants": 4,
-        "stageButtonClicks": 84,
-        "geometryReview": "limited-samples",
-        "finalLoopRetestedVariants": 4,
-        "teachingStatus": "partial"
-      },
-      "assessment": "核心保存、刷新、多趟、跨课及取消放弃草稿已实际复测",
-      "videoStudyLinks": 2,
-      "prototypeModesMounted": 3,
-      "compactViewport": {
-        "iframeWidth": 390,
-        "clientWidth": 375,
-        "scrollWidth": 375,
-        "physicalPhone": "excluded-by-user",
-        "expertReviewNodeOpened": true
-      },
-      "noWebGL": "压力课同源骨架；canvas为0，进度可达末态",
-      "fileDirectOpen": "browser-security-blocked-not-verified"
+      "unchangedAnimationRuntime": "动作与lessonruntime未修改；原139引用和3原型模式/1原型页渲染记录由原指纹保留，不记为本轮139重新渲染。",
+      "duckTeaching": "原109课构建有限图审与正常速度循环运行，partial；当前动画依赖与配置未变。",
+      "evidence": [
+        "docs/level4-carving-release-review.md",
+        ".validation/level4-carving/release-observations.json",
+        ".validation/level4-carving/duck-observation-before-content.json"
+      ],
+      "unverifiedScope": "未本轮重跑其他106课、其余27节点、旧课练习/诊断DOM、完整动画人工逐帧或全部异常存储；实体手机排除。",
+      "newDrillDom": 4,
+      "newDiagnosisDom": 8,
+      "pageObservationRecordsThisRound": 58
     },
     "excludedByUser": [
-      "实体手机验收（2026-10-15明确忽略）"
+      "实体手机验收"
     ],
     "limits": [
-      "新课文字核验不构成滑行能力认证；所有课程仍无雪上试教或真人模型标定通过。",
-      "根代理官方视频15帧为有限定性观察，不是完整考试片段或压力、几何测量。",
-      "历史图审和正常播放证据保留原范围；共享运行时变化后不自动继承为当前版本通过。",
-      "历史57项视频时间线／真人标定缺口保留。"
+      "官方大弯任务与本站duck低位应用分别判断，不互相授予通过。",
+      "真人刻滑13帧为有限定性观察，未确认脚角、通道米数、专家速度、压力或关节标定。",
+      "旧其他课程和动画的观察保持原指纹；共享UI变化引起的stale不通过换hash消除。",
+      "没有雪上试教、官方评定或真人模型标定通过。"
     ],
-    "engineering": {
-      "automatedTests": {
-        "passed": 123,
-        "total": 123
-      },
-      "evidence": [
-        "docs/level4-release-review.md"
-      ],
-      "meaning": "工程回归，不构成教学通过"
+    "countsSnapshot": {
+      "discovered": 884,
+      "textReviewed": 585,
+      "reviewStale": 0,
+      "modifiedSinceOriginalAuditBaseline": 638,
+      "dimensions": {
+        "pageAccessible": {
+          "applicable": 782,
+          "passed": 199,
+          "partial": 3,
+          "failed": 0,
+          "blocked": 0,
+          "stale": 570,
+          "not-verified": 10,
+          "not-applicable": 102
+        },
+        "animationRendered": {
+          "applicable": 143,
+          "passed": 143,
+          "partial": 0,
+          "failed": 0,
+          "blocked": 0,
+          "stale": 0,
+          "not-verified": 0,
+          "not-applicable": 741
+        },
+        "teachingVerified": {
+          "applicable": 836,
+          "passed": 0,
+          "partial": 52,
+          "failed": 0,
+          "blocked": 0,
+          "stale": 591,
+          "not-verified": 193,
+          "not-applicable": 48
+        }
+      }
     }
   },
   "historicalEvidenceSummaries": [
@@ -48050,6 +50762,109 @@
         "未测真实动力学、压力、肌肉或个人角度；未完成全表面碰撞求解与雪上试教。",
         "旧本地视频时间线24条及逐课实拍标定33条保留未核验。"
       ]
+    },
+    {
+      "date": "2026-10-15",
+      "phase": "level4-differential-review",
+      "objectCount": 844,
+      "persistentSummary": "docs/level4-release-review.md",
+      "textReview": {
+        "totalLessons": 109,
+        "historicalLessonsRetained": 103,
+        "newLessonsRead": 6,
+        "previousLessonsDiffRead": 3,
+        "newDrills": 6,
+        "newDiagnoses": 12,
+        "newAssessmentProtocols": 1,
+        "newAssessmentCriteria": 11,
+        "newVideoStudies": 1,
+        "newVideoSegments": 2
+      },
+      "sourceClaimReview": {
+        "lessons": 109,
+        "claims": 2149,
+        "levels": {
+          "direct": 349,
+          "synthesis": 618,
+          "suggestion": 1125,
+          "unverified": 57
+        },
+        "unverifiedCategories": {
+          "text_source_access": 0,
+          "legacy_video_timestamp": 24,
+          "real_footage_calibration": 33
+        },
+        "evidence": [
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      },
+      "runtime": {
+        "status": "current-scoped-browser-verification",
+        "origin": "http://127.0.0.1:8766",
+        "lessonPages": 109,
+        "practiceRegions": 109,
+        "diagnosisCountOnly": 226,
+        "animationReferences": 139,
+        "consoleErrors": 0,
+        "evidence": [
+          ".validation/level4/browser-pages-final.json",
+          ".validation/level4/release-observations.json",
+          "docs/level4-release-review.md"
+        ],
+        "historicalEvidence": "historicalEvidenceSummaries[0]",
+        "rule": "只回填根实际检查到的维度；旧教学画面、独立入口和未实际重测功能仍保留旧指纹。",
+        "finalBuildRerun": {
+          "lessonPages": 109,
+          "animationReferences": 139,
+          "consoleErrors": 0,
+          "evidence": ".validation/level4/browser-pages-final.json",
+          "changedRuntimeSincePriorBatch": [
+            "lesson-player/playback.ts"
+          ]
+        },
+        "expertAnimation": {
+          "references": 4,
+          "tasks": 2,
+          "variants": 4,
+          "stageButtonClicks": 84,
+          "geometryReview": "limited-samples",
+          "finalLoopRetestedVariants": 4,
+          "teachingStatus": "partial"
+        },
+        "assessment": "核心保存、刷新、多趟、跨课及取消放弃草稿已实际复测",
+        "videoStudyLinks": 2,
+        "prototypeModesMounted": 3,
+        "compactViewport": {
+          "iframeWidth": 390,
+          "clientWidth": 375,
+          "scrollWidth": 375,
+          "physicalPhone": "excluded-by-user",
+          "expertReviewNodeOpened": true
+        },
+        "noWebGL": "压力课同源骨架；canvas为0，进度可达末态",
+        "fileDirectOpen": "browser-security-blocked-not-verified"
+      },
+      "excludedByUser": [
+        "实体手机验收（2026-10-15明确忽略）"
+      ],
+      "limits": [
+        "新课文字核验不构成滑行能力认证；所有课程仍无雪上试教或真人模型标定通过。",
+        "根代理官方视频15帧为有限定性观察，不是完整考试片段或压力、几何测量。",
+        "历史图审和正常播放证据保留原范围；共享运行时变化后不自动继承为当前版本通过。",
+        "历史57项视频时间线／真人标定缺口保留。"
+      ],
+      "engineering": {
+        "automatedTests": {
+          "passed": 123,
+          "total": 123
+        },
+        "evidence": [
+          "docs/level4-release-review.md"
+        ],
+        "meaning": "工程回归，不构成教学通过"
+      }
     }
   ]
 }

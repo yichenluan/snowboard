@@ -1,22 +1,24 @@
 # 逐结论来源审计的读取与维护
 
-公开记录在 [source-claim-audit.json](source-claim-audit.json)。当前覆盖 109 课、423 张引用卡、2,149 条按课程与字段定位的结论记录，使用 38 个来源，另有 1 份独立审查的顶层训练记录协议。结论数包含各课对同一原则的使用，不表示 2,149 个独立研究或实验。
+公开记录在 [source-claim-audit.json](source-claim-audit.json)。当前覆盖 113 课、455 张引用卡、2,354 条按课程与字段定位的结论记录，使用 38 个来源，另有 2 份独立审查的顶层训练记录协议。结论数包含各课对同一原则的使用，不表示 2,354 个独立研究或实验。
 
 三份原人工账完整保存在 `rawLedgers`，包括原文定位、阅读方法、适用边界、修改前内容和未核验记录。统一的 `lessons[].claims` 提供 `lessonId`、`path`、`assessment`、`sources` 与指回原账的 `provenance`。基础课旧账的 98 组原引用映射展开为最终 252 张引用卡；只按已读证据册的精确内容匹配，未按“同课有这个来源”自动填入支持。最后 24 课、51 字段的[编辑复核](source-editorial-followup.md)保存于 `followupReviews.editorial`，对应结论的 `editorialFollowup` 逐条关联补丁序号；原始三账保持不变。
 
 Expert Short Radius 扩展增加六课，并审读三课的路线衔接。其[逐项人工复核](level4-source-claim-review.md)、[官方标准原文记录](level4-short-official-standards.md)和[真人有限画面记录](level4-short-video-observation.md)登记于 `evidenceDocuments`；正文变化摘要与旧结论保存在 `followupReviews.level4`。这次没有重写旧原账，也没有因来源增加而升级旧未核验项。
+
+Expert Large Radius Turns (Carving) 扩展实际审读四节新增课、三节旧课的差分、十二维刻滑协议，以及旧小回转协议新增的最终走廊与初练条件区分。其[逐字段复核](level4-carving-source-claim-review.md)、[官方标准研究](level4-carving-official-standards.md)和[root 的13帧观察](level4-carving-video-observation.md)分别登记于 `evidenceDocuments.level4CarvingReview`、`level4CarvingStandards`、`level4CarvingVideo`；本轮增加205条结论，新增和修改字段逐项绑定，修改前结论、协议与 S38/S39 来源对象保存在 `followupReviews.level4Carving`。三份原始账和原57项未核验逐对象保持不变；没有将低姿态或 duck 写成官方独立任务。
 
 `direct` 只表示所列有限命题被原文或实际观察直接支持；`synthesis` 是情境归纳或待检验的原因解释；`suggestion` 是本站练习、操作、剂量或验收设计；`unverified` 保留具体缺口。练习量全部标为本站建议，没有转写成教材规定或统一处方。
 
 审查状态分开记录：
 
 - `textReview`：文字与来源关系已审查；有原文缺口时记 `reviewed_with_source_gap`，不因动画尚未实拍标定而把全部文字留在 partial。
-- `officialVideoComparison`：三条课程获得 `limited_keyframes`，通过 `observationIds` 关联独立的 `officialVideoObservations`。原两条核心课对应[官方实拍关键帧记录](official-video-comparison.md)；新专家复核课对应[四级视频的两个窗口、15 帧](level4-short-video-observation.md)。引用同一视频不会自动获得对照状态；这项不覆盖整片、其他课或全部动画参数。
+- `officialVideoComparison`：四条课程获得 `limited_keyframes`，通过 `observationIds` 关联独立的 `officialVideoObservations`。原两条核心课对应[官方实拍关键帧记录](official-video-comparison.md)；专家小回转复核课对应[四级视频的两个窗口、15 帧](level4-short-video-observation.md)，专家刻滑复核课对应[两个刻滑窗口、13 帧](level4-carving-video-observation.md)。这些观察均由 root 实际执行；来源账审阅者只对读独立记录，不冒称自己观看。引用同一视频不会自动获得对照状态；这项不覆盖整片、其他课或全部动画参数。
 - `realFootageCalibration`：本轮全部为 `not_performed`。不把真人关键帧对照等同于逐帧几何、受力或人体参数标定。
 
 最终文字原文获取缺口为 0。基础课原 NSAA 获取失败的两张引用卡，经 [安全规范补核](source-safety-followup.md) 改用实际可读的 CWSAA 第 4 条；统一记录保留 `originalAssessment: unverified` 和补核文档，原账未覆盖。`v20-traffic` 原先只读到 NSAA 官方域搜索规则段，也改用实际读取的 CWSAA 第 1–4 条，并保留方法澄清。S18 只留历史，不计当前有效来源。剩余 57 条未核验记录分为 24 条旧本地视频时间线、33 条逐课动画与实拍标定；它们与文字审查完成分别计数。其余课程未增加相同的未核验占位条目，但仍由逐课 `realFootageCalibration` 明确说明未作标定。
 
-当前分层合计为 `direct` 349、`synthesis` 618、`suggestion` 1,125、`unverified` 57。十一项观察维度组成的训练记录协议整体属于本站建议，独立保存对象哈希、来源定位与人工文档；它不包含在上述课程结论计数中。
+当前分层合计为 `direct` 362、`synthesis` 655、`suggestion` 1,280、`unverified` 57。小回转十一维、刻滑十二维训练记录协议整体均属于本站建议，分别保存对象哈希、来源定位与人工文档；它们不包含在上述课程结论计数中。旧小回转协议仅补核新走廊提示，原十一维未变，不因此重新授予通过。
 
 运行 `npm run check:source-claims` 检查覆盖、引用可达、原证据对应、剂量、重复结论、正文和来源哈希，以及补核文档哈希。原证据必须是合法原始账记录或已登记文档，不能指回当前结论自证；引用、原理、步骤和剂量必须绑定自身字段。`videoStudy` 整体与每个片段必须各自绑定，实际观察时刻还须对应本课同来源的独立观察记录。顶层 `assessmentProtocols` 另作整体绑定，并核对课程引用的观察维度。CI 在构建发布文件前执行同一检查。脚本通过只表示人工记录与当前内容一致，不是教学认证。
 
