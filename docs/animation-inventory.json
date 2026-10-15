@@ -1,35 +1,35 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "01d8cea09dab6c99c79fe78f0dccb9556a265d8ca28cae95b1d61aac0a7a9176",
+    "content.json": "24e22c495187941da94114d508acac6df6d3fb292e0e360628e38d7f60f01197",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "d18e3a836e9477a77573c8b3a2835e060028c15d2b7da7ad357e1f68f638a2a3",
-    "lesson-player/registry.json": "c49e9298431debfe4865fa2e4835b2e1fbf8be318c4783474a2afc7709c62c92"
+    "app.js": "05d58c9ea1a08ae27d7ff9b2c1b27176a61ba16b7bd8f68b851a242d9b9cb9fe",
+    "lesson-player/registry.json": "2e653f0e1bb2f88a862ffe42d46766b15e44db2e9ab36d76fae49e81d567f8ff"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
   "counts": {
-    "lessons": 103,
+    "lessons": 109,
     "modules": 13,
-    "lessonsWithDemos": 89,
+    "lessonsWithDemos": 92,
     "lessonsWithIllustrations": 2,
-    "lessonsWithoutVisuals": 12,
-    "legacyDemoReferences": 135,
+    "lessonsWithoutVisuals": 15,
+    "legacyDemoReferences": 139,
     "illustrationReferences": 2,
-    "siteDisplayedDemonstrations": 137,
+    "siteDisplayedDemonstrations": 141,
     "reviewedIllustrations": 2,
-    "registeredTypes": 38,
-    "referencedTypes": 36,
-    "applicationVariantKeys": 71,
-    "presentationConfigurations": 93,
+    "registeredTypes": 39,
+    "referencedTypes": 37,
+    "applicationVariantKeys": 73,
+    "presentationConfigurations": 95,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 36,
-    "fullyImplemented3DTypes": 33,
+    "implemented3DTypes": 37,
+    "fullyImplemented3DTypes": 34,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 135,
+    "implemented3DReferences": 139,
     "remainingLegacyReferences": 0,
-    "replacedLegacyReferences": 135
+    "replacedLegacyReferences": 139
   },
   "modules": [
     {
@@ -98,11 +98,11 @@
     },
     {
       "id": "short-turns",
-      "title": "搓雪小回转专项",
-      "lessons": 7,
-      "demoReferences": 31,
+      "title": "小回转 · 基础到Expert Short Radius",
+      "lessons": 13,
+      "demoReferences": 35,
       "illustrationReferences": 0,
-      "withoutVisuals": 0
+      "withoutVisuals": 3
     },
     {
       "id": "off-snow",
@@ -818,6 +818,24 @@
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
       "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
+    },
+    {
+      "type": "expert-short-turns",
+      "title": "expert-short-turns",
+      "model": "native-3d",
+      "references": [
+        "s-short-expert-steering/1",
+        "s-short-expert-pressure/1",
+        "s-short-expert-flow/1",
+        "s-short-expert-flow/2"
+      ],
+      "usedKeys": [
+        "expert-short-turns:progressive",
+        "expert-short-turns:continuous"
+      ],
+      "declaredShortVariants": [],
+      "sharedKeyframesWith": [],
+      "destination": "4/4 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     }
   ],
   "variants": [
@@ -2175,6 +2193,43 @@
           "task": "linked-duck-carve",
           "trackDiagnostics": true,
           "type": "duck-carve"
+        }
+      ],
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+    },
+    {
+      "key": "expert-short-turns:progressive",
+      "references": [
+        "s-short-expert-steering/1",
+        "s-short-expert-flow/1"
+      ],
+      "configurations": [
+        {
+          "jointLabels": true,
+          "task": "expert-corridor-steering",
+          "trackDiagnostics": true,
+          "type": "expert-short-turns",
+          "variant": "progressive",
+          "view": "width"
+        }
+      ],
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+    },
+    {
+      "key": "expert-short-turns:continuous",
+      "references": [
+        "s-short-expert-pressure/1",
+        "s-short-expert-flow/2"
+      ],
+      "configurations": [
+        {
+          "jointLabels": true,
+          "legLengthDiagram": true,
+          "task": "expert-load-release",
+          "trackDiagnostics": true,
+          "type": "expert-short-turns",
+          "variant": "continuous",
+          "view": "width"
         }
       ],
       "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
@@ -5574,6 +5629,104 @@
         "focus": "先看正常高度，再比较降低姿态后的释放与余量；前后刃不是镜像。",
         "autoplay": false,
         "duration": 14000
+      },
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-short-expert-steering/1",
+      "lesson": "s-short-expert-steering",
+      "index": 0,
+      "locator": "lessons[104].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-steering",
+      "key": "expert-short-turns:progressive",
+      "model": "native-3d",
+      "config": {
+        "type": "expert-short-turns",
+        "task": "expert-corridor-steering",
+        "variant": "progressive",
+        "trackDiagnostics": true,
+        "title": "专家目标观察 · 连续引导与弧线接续",
+        "focus": "在同一可见走廊任务下观察转向分配与完整弧线；作者运动示意不代表L4实测速度、真实抓地或评分。",
+        "autoplay": false,
+        "duration": 16000,
+        "jointLabels": true,
+        "view": "width"
+      },
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-short-expert-pressure/1",
+      "lesson": "s-short-expert-pressure",
+      "index": 0,
+      "locator": "lessons[105].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-pressure",
+      "key": "expert-short-turns:continuous",
+      "model": "native-3d",
+      "config": {
+        "type": "expert-short-turns",
+        "task": "expert-load-release",
+        "variant": "continuous",
+        "trackDiagnostics": true,
+        "legLengthDiagram": true,
+        "title": "动作组织 · 连续调节腿长与释放准备",
+        "focus": "同线路、同板姿态下只比较身体与腿长组织；这不是雪板真实压力、弹性能、反弹或加速度仿真。",
+        "autoplay": false,
+        "duration": 16000,
+        "jointLabels": true,
+        "view": "width"
+      },
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-short-expert-flow/1",
+      "lesson": "s-short-expert-flow",
+      "index": 0,
+      "locator": "lessons[106].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
+      "key": "expert-short-turns:progressive",
+      "model": "native-3d",
+      "config": {
+        "type": "expert-short-turns",
+        "task": "expert-corridor-steering",
+        "variant": "progressive",
+        "trackDiagnostics": true,
+        "title": "专家目标观察 · 连续引导与弧线接续",
+        "focus": "在同一可见走廊任务下观察转向分配与完整弧线；作者运动示意不代表L4实测速度、真实抓地或评分。",
+        "autoplay": false,
+        "duration": 16000,
+        "jointLabels": true,
+        "view": "width"
+      },
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-short-expert-flow/2",
+      "lesson": "s-short-expert-flow",
+      "index": 1,
+      "locator": "lessons[106].demos[1]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
+      "key": "expert-short-turns:continuous",
+      "model": "native-3d",
+      "config": {
+        "type": "expert-short-turns",
+        "task": "expert-load-release",
+        "variant": "continuous",
+        "trackDiagnostics": true,
+        "legLengthDiagram": true,
+        "title": "动作组织 · 连续调节腿长与释放准备",
+        "focus": "同线路、同板姿态下只比较身体与腿长组织；这不是雪板真实压力、弹性能、反弹或加速度仿真。",
+        "autoplay": false,
+        "duration": 16000,
+        "jointLabels": true,
+        "view": "width"
       },
       "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
       "renderer": "lesson-3d",
@@ -10609,6 +10762,346 @@
       "references": [
         "s-duck-low-linked/1"
       ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-map",
+      "title": "Expert Short Radius：先对齐终点与当前能力",
+      "module": "short-turns",
+      "goal": "说清专家任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-map",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.3、5：Am I Ready / Marking System",
+          "claim": "官方强烈建议向现任L4教练或考官获得反馈；完整L4认证含多个组成部分。考试每任务有两次计分机会，由两名考官评分取平均，最终每任务需至少6/10；原文未在此明确两次滑行的成绩如何合并，本站不自创算法。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S40",
+          "locator": "现行Level 4 Instructor课程页：Riding与准备要求",
+          "claim": "课程页强调专家水平的一致性和适应性，并强烈建议L4教练或考官反馈；本路线是一个专项的训练支持。",
+          "evidence": "direct",
+          "canonicalSource": "S40",
+          "title": "Level 4 Instructor：现行官方课程与准备要求",
+          "url": "https://casi-acms.com/courses/level-4-instructor/"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S41",
+          "locator": "2026-09-08：Maintaining Our Framework；Technical Project – New Assessment Grids，并对照S38 p.15及S40现行课程页",
+          "claim": "新评估网格仍在开发测试，公告说明不改变既有课程判据；结合公开Riding指南和当前课程页，本站采用2025年9月版作为本轮可获取的标准基线，而非声称已取得2026新版评分表。",
+          "evidence": "synthesis",
+          "canonicalSource": "S41",
+          "title": "2026–27更新：课程框架与评估网格状态",
+          "url": "https://casi-acms.com/casi-blog/whats-new-for-the-2026-2027-season/"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-steering",
+      "title": "专家短弯转向：走廊内建立完整而可选的弧线",
+      "module": "short-turns",
+      "goal": "在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米专家任务。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-steering",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
+          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-short-expert-steering/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-pressure",
+      "title": "专家短弯调压：管理加载、释放与板的响应",
+      "module": "short-turns",
+      "goal": "在既有可控弧线中识别加载和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-pressure",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51–54：Pressure / Up and Down Un-weighting / Terrain",
+          "claim": "教材区分屈伸加速与收住阶段，压力受转弯和地形影响；本课不由姿态或动画输出个体压力。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-short-expert-pressure/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-flow",
+      "title": "专家短弯连续性：把每一弧接成完整滑段",
+      "module": "short-turns",
+      "goal": "在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
+          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-short-expert-flow/1",
+        "s-short-expert-flow/2"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-transfer",
+      "title": "专家短弯迁移：换一个条件，重新建立结果",
+      "module": "short-turns",
+      "goal": "能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-transfer",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
+          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6–7：Expert Short Radius / Free Run in Expert Bumpy or Un-groomed Terrain",
+          "claim": "专家短弯规定压雪地形；雪包或非压雪自由滑行是独立考核任务，不能混为同一达标条件。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-review",
+      "title": "Expert Short Radius专项复核：完整证据与下一步训练",
+      "module": "short-turns",
+      "goal": "形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、仍需发展和当前条件下可重复的表现。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-review",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.3、5：反馈建议与Technical Evaluation",
+          "claim": "官方强烈建议现任L4教练或考官反馈；考试每任务两次计分机会、两位考官评分取平均、最终每任务至少6/10。本站不推断原文未说明的两次滑行成绩合并方式，也不据此生成自测分数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S39",
+          "locator": "Short turns段约0:38–0:55；本站实际观察0:40.073–0:41.073及0:46.073–0:50.073的有限关键帧",
+          "claim": "官方真人片段中可见板与下肢持续改向、上身适量顺应、两向跨中立与膝髋调节；这里只支持有限可见关系，不测压力、精确速度、2–3米走廊或官方分数。",
+          "evidence": "direct",
+          "canonicalSource": "S39",
+          "title": "Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范",
+          "url": "https://www.youtube.com/watch?v=XFbVBdSRGgE"
+        },
+        {
+          "source": "S40",
+          "locator": "现行Level 4 Instructor课程页：准备与反馈",
+          "claim": "以专家水平一致性和适应性准备，并强烈建议现任L4教练或考官反馈；网页阅读和本机进度不能替代真实表现。",
+          "evidence": "direct",
+          "canonicalSource": "S40",
+          "title": "Level 4 Instructor：现行官方课程与准备要求",
+          "url": "https://casi-acms.com/courses/level-4-instructor/"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [],
       "illustration": null
     }
   ],

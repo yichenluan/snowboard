@@ -35,7 +35,7 @@
 .skill-legend .review i,.skill-legend .review b{background:#b57856}
 .skill-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;min-width:0}
 .skill-graph-scroll{min-width:0;max-width:100%;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#9cb19b #e7eee1;border:1px solid #d6e0d3;border-radius:8px;background:#fffefa80}
-.skill-graph{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:26px;min-width:1040px;width:100%;padding:42px 12px 12px;align-items:stretch}
+.skill-graph{position:relative;isolation:isolate;display:grid;grid-template-columns:repeat(var(--skill-cols,6),minmax(130px,1fr));gap:26px;min-width:max(1040px,calc(var(--skill-cols,6) * 156px + 24px));width:100%;padding:42px 12px 12px;align-items:stretch}
 .skill-column{position:relative;z-index:1;display:flex;flex-direction:column;gap:10px;justify-content:center;min-width:0;padding-top:32px}
 .skill-support-strip{grid-column:1/-1;position:relative;z-index:1;border-top:1px dashed #ccd7c6;padding-top:12px}
 .skill-support-strip>h3{font-size:11px;color:#718169;font-weight:500;margin-bottom:8px}

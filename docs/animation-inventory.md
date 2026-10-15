@@ -2,26 +2,26 @@
 
 由 `node scripts/inventory-animations.mjs` 生成。不要直接编辑此文件；迁移分类与人工验收说明维护在脚本，课程用途、配置和资料维护在原有源码。`node scripts/inventory-animations.mjs --check` 可检查清单是否与源码同步。完整配置、逐课资料定位和 claim 见 [JSON 清单](animation-inventory.json)。
 
-**当前课程动画接入：135/135。** 当前引用均由课内三维播放器接管，旧播放器引用为 0。另有 2 项装备交互保留二维。下文的旧模型与共享关键帧是来源盘点，不代表当前渲染。接入数量不代表教学认证或发布完成；实际观察与边界见 [课程播放器审阅](lesson-player-review.md)。
+**当前课程动画接入：139/139。** 当前引用均由课内三维播放器接管，旧播放器引用为 0。另有 2 项装备交互保留二维。下文的旧模型与共享关键帧是来源盘点，不代表当前渲染。接入数量不代表教学认证或发布完成；实际观察与边界见 [课程播放器审阅](lesson-player-review.md)。
 
 ## 数量与口径
 
 | 项目 | 数量 | 含义 |
 | --- | --- | --- |
-| 课程 / 模块 | 103 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
-| 含动画的课程 | 89 | 按 app.js：非空 demos 优先，否则 demo |
-| 迁移范围内的动画引用 | 135 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
+| 课程 / 模块 | 109 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
+| 含动画的课程 | 92 | 按 app.js：非空 demos 优先，否则 demo |
+| 迁移范围内的动画引用 | 139 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
 | 装备交互图 | 2 | app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画 |
 | 已独立审阅的装备图 | 2 | 保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md |
-| 主站显示的示意总数 | 137 | 课程动画引用 + 装备图；不额外把独立 3D 链接计入 |
-| 无动作/装备图课程 | 12 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
-| 注册 / 当前有引用的类型 | 38 / 36 | 按旧预设与课内注册表并集盘点；不等于当前三维模块数 |
-| 应用变体键 | 71 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 93 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 主站显示的示意总数 | 141 | 课程动画引用 + 装备图；不额外把独立 3D 链接计入 |
+| 无动作/装备图课程 | 15 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
+| 注册 / 当前有引用的类型 | 39 / 37 | 按旧预设与课内注册表并集盘点；不等于当前三维模块数 |
+| 应用变体键 | 73 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
+| 展示配置组合 | 95 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 旧小回转声明变体 | 16 | animations.js 中 3 个类型共享 shortState；当前实现按独立任务和过渡方式接入，不以旧声明推定支持组合 |
 | 3D 模式 / 课程入口 | 3 / 3 | 首页已移除独立入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 36 / 135 | 按注册表已切换默认渲染；不代表教学认证 |
-| 类型注册 / 变体白名单接入类型 | 33 / 3 | 3 个 partial 类型仅支持列明变体；其当前课程引用均已接入，未引用的其他变体不支持；类型注册也仍受 task 门控 |
+| 课内三维类型 / 引用 | 37 / 139 | 按注册表已切换默认渲染；不代表教学认证 |
+| 类型注册 / 变体白名单接入类型 | 34 / 3 | 3 个 partial 类型仅支持列明变体；其当前课程引用均已接入，未引用的其他变体不支持；类型注册也仍受 task 门控 |
 | 当前使用旧播放器的引用 | 0 | 按逐引用 renderer 统计；保留旧源码不等于仍有旧播放器引用 |
 
 ## 旧实现来源的共享关系与当前接入
@@ -34,7 +34,7 @@
 | 小回转共享时序/轨迹 + 双腿 IK | 3 / 34 | 旧 shortRaw / shortState → skeleton；当前小回转由独立任务编排，不能用旧共享关系推定动作相同 |
 | 离雪站立关节模型 | 4 / 12 | 旧 skeleton + sceneBody；当前离雪任务使用独立普通鞋模型和任务接触约束 |
 | 离雪侧面专用模型 | 4 / 8 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
-| 原生三维独立任务（无旧预设） | 1 / 1 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
+| 原生三维独立任务（无旧预设） | 2 / 5 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
 | 压力阶段图 | 4 | 旧来源为 scenePressure；当前保留必要二维时间图，不能解释成实测压力 |
 | 装备交互 | 2 | app.js mountIllustration；保留 2D 几何表达与型号限制 |
 
@@ -93,7 +93,7 @@
 | 换刃与下肢引导 | 10 | 14 | 0 | 0 |
 | 旋转协调与反脚 | 13 | 17 | 0 | 0 |
 | 刻滑、滑移与控速 | 7 | 7 | 0 | 2 |
-| 搓雪小回转专项 | 7 | 31 | 0 | 0 |
+| 小回转 · 基础到Expert Short Radius | 13 | 35 | 0 | 3 |
 | 热身与体能 | 13 | 20 | 0 | 0 |
 | 装备与舒适站姿 | 6 | 1 | 2 | 3 |
 | 滑行问题诊断 | 6 | 6 | 0 | 0 |
@@ -141,6 +141,7 @@
 | `short-turn-progression` | 侧滑接单个换刃弯 | 小回转共享时序/轨迹 + 双腿 IK | 9 / 6 | 9/9 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 | `short-turn-balance` | 双脚居中引导：板头板尾都在转 | 小回转共享时序/轨迹 + 双腿 IK | 5 / 3 | 5/5 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 | `duck-carve` | duck-carve | 原生三维独立任务（无旧预设） | 1 / 1 | 1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
+| `expert-short-turns` | expert-short-turns | 原生三维独立任务（无旧预设） | 4 / 2 | 4/4 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 
 ## 变体键与全部实际配置
 
@@ -219,6 +220,8 @@
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-extend:timing-study` | v21-linear/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `duck-carve` | s-duck-low-linked/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `expert-short-turns:progressive` | s-short-expert-steering/1、s-short-expert-flow/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `expert-short-turns:continuous` | s-short-expert-pressure/1、s-short-expert-flow/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 
 ## 逐课用途、资料与替换入口
 
@@ -329,6 +332,12 @@
 | [v21-linear](https://jinke.me/snowboard/#lesson=v21-linear) | 动作时机：什么时候开始，什么时候停：能调整一段屈伸的时机与速度，同时保持圆弯。 | 1. `pressure-extend:timing-study` | [S16](#source-s16)、[T01](#source-t01)、[S26](#source-s26) |
 | [v3-index](https://jinke.me/snowboard/#lesson=v3-index) | 进阶怎么选课：两条主线与并行能力：根据当前问题和前置能力，选一项值得练的内容。 | 正文保留，无动作图 | [S16](#source-s16)、[T01](#source-t01)、[T02](#source-t02)、[T03](#source-t03)、[S26](#source-s26) |
 | [s-duck-low-linked](https://jinke.me/snowboard/#lesson=s-duck-low-linked) | 低姿态八字刻滑：保持窄痕，完成两侧转换：降低姿态后，两侧仍能连续窄痕、控制出口和速度，并保留随时调刃、屈伸和主动退出的能力。 | 1. `duck-carve` | [S19](#source-s19)、[S16](#source-s16)、[S10](#source-s10)、[D01](#source-d01)、[S17](#source-s17)、[T02](#source-t02)、[S36](#source-s36) |
+| [s-short-expert-map](https://jinke.me/snowboard/#lesson=s-short-expert-map) | Expert Short Radius：先对齐终点与当前能力：说清专家任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S41](#source-s41) |
+| [s-short-expert-steering](https://jinke.me/snowboard/#lesson=s-short-expert-steering) | 专家短弯转向：走廊内建立完整而可选的弧线：在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米专家任务。 | 1. `expert-short-turns:progressive` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-pressure](https://jinke.me/snowboard/#lesson=s-short-expert-pressure) | 专家短弯调压：管理加载、释放与板的响应：在既有可控弧线中识别加载和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。 | 1. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-flow](https://jinke.me/snowboard/#lesson=s-short-expert-flow) | 专家短弯连续性：把每一弧接成完整滑段：在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。 | 1. `expert-short-turns:progressive`<br>2. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-transfer](https://jinke.me/snowboard/#lesson=s-short-expert-transfer) | 专家短弯迁移：换一个条件，重新建立结果：能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-review](https://jinke.me/snowboard/#lesson=s-short-expert-review) | Expert Short Radius专项复核：完整证据与下一步训练：形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、仍需发展和当前条件下可重复的表现。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S39](#source-s39)、[S40](#source-s40) |
 
 ## 现有资料索引
 
@@ -478,13 +487,29 @@
 
 - **S37** [Alpine Responsibility Code](https://cwsaa.org/safety-risk-awareness/alpine-responsibility-code/)（Canada West Ski Areas Association（CWSAA））。Alpine Responsibility Code 第1–4条；页面内旧2010视频不作为现行文本依据
 
+<a id="source-s38"></a>
+
+- **S38** [Level 4 Riding Module Course Guide：四级滑行模块与专家小回转标准](https://members.casi-acms.com/documents/Riding_LV4_EN.pdf)（CASI）。印刷p.5评分，p.6 Expert Short Radius Turns及总体要求，p.8技能变化，p.15版本；PDF页序相同
+
+<a id="source-s40"></a>
+
+- **S40** [Level 4 Instructor：现行官方课程与准备要求](https://casi-acms.com/courses/level-4-instructor/)（CASI）。Duration；AM I READY? → RIDING MODULE；FAQ → How should I prepare for Level 4?
+
+<a id="source-s41"></a>
+
+- **S41** [2026–27更新：课程框架与评估网格状态](https://casi-acms.com/casi-blog/whats-new-for-the-2026-2027-season/)（CASI）。Maintaining Our Framework；Technical Project – New Assessment Grids
+
+<a id="source-s39"></a>
+
+- **S39** [Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范](https://www.youtube.com/watch?v=XFbVBdSRGgE)（CASIACMS）。0:40.073–0:41.073，0:46.073–0:50.073；非速度、压力或关节标定
+
 
 ## 输入指纹
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 01d8cea09dab6c99c79fe78f0dccb9556a265d8ca28cae95b1d61aac0a7a9176 |
+| content.json | 24e22c495187941da94114d508acac6df6d3fb292e0e360628e38d7f60f01197 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
-| app.js | d18e3a836e9477a77573c8b3a2835e060028c15d2b7da7ad357e1f68f638a2a3 |
-| lesson-player/registry.json | c49e9298431debfe4865fa2e4835b2e1fbf8be318c4783474a2afc7709c62c92 |
+| app.js | 05d58c9ea1a08ae27d7ff9b2c1b27176a61ba16b7bd8f68b851a242d9b9cb9fe |
+| lesson-player/registry.json | 2e653f0e1bb2f88a862ffe42d46766b15e44db2e9ab36d76fae49e81d567f8ff |
 

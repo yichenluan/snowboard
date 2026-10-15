@@ -19,7 +19,7 @@ const check = args.includes('--check');
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 const hash = value => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(stable(value))).digest('hex');
 const read = name => readFile(resolve(root, name), 'utf8');
-const names = ['content.json', 'app.js', 'progression.js', 'styles.css', 'progression.css', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
+const names = ['content.json', 'app.js', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
   ...(await readdir(resolve(root, 'lesson-player'))).filter(name => /\.(ts|tsx|js|css)$/.test(name)).map(name => `lesson-player/${name}`),
   ...(await readdir(resolve(root, 'prototype'))).filter(name => /\.(ts|tsx|css)$/.test(name)).map(name => `prototype/${name}`)];
 const input = Object.fromEntries(await Promise.all(names.map(async name => [name, await read(name)])));
@@ -36,7 +36,7 @@ const sourceIds = lesson => [...new Set((lesson.citations || []).map(c => source
 const ref = id => `https://jinke.me/snowboard/#lesson=${encodeURIComponent(id)}`;
 const demos = lesson => lesson.demos?.length ? lesson.demos : lesson.demo ? [lesson.demo] : [];
 const entries = [], errors = [], warnings = [];
-const uiFiles = ['app.js', 'progression.js', 'styles.css', 'progression.css', 'shell.html'];
+const uiFiles = ['app.js', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html'];
 const animationFiles = names.filter(name => name.startsWith('lesson-player/') || name.startsWith('prototype/'));
 const observedKeys = ['pageAccessible', 'animationRendered', 'teachingVerified'];
 const observations = new Map();
@@ -76,7 +76,7 @@ function add({ id, kind, title, location, goal, payload, files = [], lessonId, s
     teachingVerified: observationFor(entry, 'teachingVerified', !['source', 'feature'].includes(kind)),
   };
   entry.modification = { status: 'not-recorded', evidence: [] };
-  if (manual.baseline?.entryPayloadHashes && ['lesson','drill','diagnosis','animation','illustration','skill','curriculum','term','source','module'].includes(kind)) {
+  if (manual.baseline?.entryPayloadHashes && ['lesson','drill','diagnosis','animation','illustration','skill','curriculum','term','source','module','assessment-protocol','assessment-criterion','video-study','video-segment'].includes(kind)) {
     const original=manual.baseline.entryPayloadHashes[id];
     entry.modification={status:original===entry.contentFingerprint?'unchanged':original?'modified':'added',evidence:[`审查起点 ${manual.baseline.commit}；按条目内容指纹比较，不表示教学通过。`],baselineFingerprint:original||null,currentFingerprint:entry.contentFingerprint};
   }
@@ -107,8 +107,10 @@ const features = [
   ['personal-additions','个人补充和回收站','本机保存待核实反馈，可编辑和恢复','app.js#renderAdditions'],
   ['comments','课程公开讨论','以稳定课程 ID 关联 GitHub 公开评论','comments.js'],
   ['lesson-player','课内动作播放器','显示当前动作阶段、视角、慢放、观察辅助和降级','lesson-player/main.tsx'],
+  ['assessment','雪上练习证据记录','保存跨课草稿、多趟条件与观察证据，不自动评分或授予能力','assessment.js'],
+  ['video-study','真人示范分析卡','区分已观察画面、教学应用和不可推断范围，按时间返回官方原片','app.js#videoStudyMarkup'],
 ];
-for (const [id,title,goal,location] of features) add({id:`feature:${id}`,kind:'feature',title,goal,location,payload:{id,title},files:id==='lesson-player'?animationFiles:['app.js','progression.js','comments.js'],details:{verification:'功能执行及用户数据恢复必须单独实测。'}});
+for (const [id,title,goal,location] of features) add({id:`feature:${id}`,kind:'feature',title,goal,location,payload:{id,title},files:id==='lesson-player'?animationFiles:['app.js','progression.js','comments.js',...(['assessment','video-study'].includes(id)?['assessment.js','assessment.css','build.py','shell.html']:[])],details:{verification:'功能执行及用户数据恢复必须单独实测。'}});
 for (const [index,module] of data.modules.entries()) add({id:`module:${module.id}`,kind:'module',title:module.title,goal:module.intro,location:`content.json#/modules/${index}`,payload:module,files:uiFiles,details:{lessons:data.lessons.filter(l=>l.module===module.id).map(l=>l.id)}});
 
 const registered = new Set([...registry.types, ...(registry.drylandTypes || [])]);
@@ -118,6 +120,7 @@ const legacyLibrary=legacySandbox.window.SnowDemo;
 const allTypes=[...new Set([...(legacyLibrary?.types||[]),...registered,...Object.keys(registry.partialVariants||{})])];
 const implemented = demo => registered.has(demo.type) && (!registry.requiredTasks?.[demo.type] || registry.requiredTasks[demo.type].includes(demo.task)) || Boolean(registry.partialVariants?.[demo.type]?.includes(demo.variant || ''));
 const moduleFor = demo => registry.drylandTypes?.includes(demo.type) ? 'lesson-player/dryland.ts' :
+  demo.type === 'expert-short-turns' ? 'lesson-player/expert-short-turns.ts' :
   demo.type === 'duck-carve' ? 'lesson-player/carving.ts' :
   demo.type === 'switch' ? 'lesson-player/switch.ts' : demo.type === 'twist' ? 'lesson-player/twist.ts' :
   demo.type.startsWith('short-turn') ? 'lesson-player/short-turns.ts' :
@@ -135,6 +138,11 @@ for (const [index,lesson] of data.lessons.entries()) {
   const required = ['goal','prerequisites','mechanics','execution','checks','drill','citations'];
   entry.structuralFindings = required.filter(field => !lesson[field] || Array.isArray(lesson[field]) && !lesson[field].length).map(field=>`缺少 ${field}`);
   for (const link of lesson.relatedLessons || []) if (!lessons.has(link)) errors.push(`${lesson.id} 的 relatedLessons 引用不存在：${link}`);
+  if(lesson.assessmentProtocol){
+    const protocol=(data.assessmentProtocols||[]).find(p=>p.id===lesson.assessmentProtocol);
+    if(!protocol)errors.push(`${lesson.id} 的评估协议不存在：${lesson.assessmentProtocol}`);
+    for(const criterion of lesson.assessmentCriteriaIds||[])if(!protocol?.criteria?.some(c=>c.id===criterion))errors.push(`${lesson.id} 的评估维度不存在：${criterion}`);
+  }
   for (const citation of lesson.citations || []) if (!sourceMap.has(citation.source) && !citation.url) errors.push(`${lesson.id} 引用来源不存在：${citation.source}`);
   for(const field of ['mechanics','execution'])for(const [i,item]of (lesson[field]||[]).entries())for(const source of item.sources||[]){
     if(!sourceMap.has(source))errors.push(`${lesson.id}.${field}[${i}] 的结论来源不存在：${source}`);
@@ -156,6 +164,29 @@ for (const [index,lesson] of data.lessons.entries()) {
     if (!implemented(demo)) errors.push(`${e.id} 未被当前三维注册门控支持`);
   }
   if (lesson.illustration) add({id:`illustration:${lesson.id}`,kind:'illustration',title:lesson.title,goal:lesson.goal,location:`${location}/illustration`,payload:lesson.illustration,files:['app.js'],lessonId:lesson.id,sources:citations,details:lesson.illustration});
+  if(lesson.videoStudy){
+    const study=lesson.videoStudy;
+    add({id:`video-study:${lesson.id}`,kind:'video-study',title:study.title,goal:study.scope,location:`${location}/videoStudy`,payload:study,files:uiFiles,lessonId:lesson.id,sources:[study.source].filter(Boolean),reviewPart:'videoStudy',details:{...study,verification:'登记文字与实际观察报告的绑定；observedTimes字段存在不证明已经看过原片。'}});
+    if(!sourceMap.has(study.source))errors.push(`${lesson.id}.videoStudy 来源不存在：${study.source}`);
+    if(!/^https?:\/\//.test(study.url||''))errors.push(`${lesson.id}.videoStudy 缺少可打开的原片链接`);
+    for(const [i,segment]of (study.segments||[]).entries()){
+      const key=segment.id||`${segment.start}-${segment.end}`;
+      add({id:`video-segment:${lesson.id}:${key}`,kind:'video-segment',title:segment.label,goal:segment.meaning,location:`${location}/videoStudy/segments/${i}`,payload:{source:study.source,url:study.url,...segment},files:uiFiles,lessonId:lesson.id,sources:[study.source].filter(Boolean),reviewPart:'videoStudy',details:{...segment,realFootageCalibration:'not-performed-unless-separately-evidenced'}});
+      if(!Number.isFinite(segment.start)||!Number.isFinite(segment.end)||segment.start<0||segment.end<=segment.start)errors.push(`${lesson.id}.videoStudy.segments[${i}] 时间范围无效`);
+      for(const t of segment.observedTimes||[])if(!Number.isFinite(Number(t))||Number(t)<segment.start||Number(t)>segment.end)errors.push(`${lesson.id}.videoStudy.segments[${i}] 观察时间超出范围：${t}`);
+      for(const field of ['label','visible','meaning','limits'])if(!segment[field])errors.push(`${lesson.id}.videoStudy.segments[${i}] 缺少 ${field}`);
+    }
+  }
+}
+for(const [index,protocol] of (data.assessmentProtocols||[]).entries()){
+  const lessonUses=data.lessons.filter(l=>l.assessmentProtocol===protocol.id),sources=[...new Set(lessonUses.flatMap(sourceIds))];
+  add({id:`assessment-protocol:${protocol.id}`,kind:'assessment-protocol',title:protocol.title,goal:protocol.intro,location:`content.json#/assessmentProtocols/${index}`,payload:protocol,files:uiFiles,sources,details:{...protocol,lessons:lessonUses.map(l=>l.id),boundary:'本站观察组织，不是官方评分网格；代码存在、保存成功、个人选择可重复均不构成认证。'}});
+  if(!protocol.id||!Array.isArray(protocol.criteria)||!protocol.criteria.length)errors.push(`评估协议 ${protocol.id||index} 缺少稳定ID或维度`);
+  for(const [i,criterion]of (protocol.criteria||[]).entries()){
+    add({id:`assessment-criterion:${protocol.id}:${criterion.id}`,kind:'assessment-criterion',title:criterion.title,goal:criterion.observe||criterion.description,location:`content.json#/assessmentProtocols/${index}/criteria/${i}`,payload:{protocolId:protocol.id,...criterion},files:uiFiles,sources,lessonId:criterion.lessonId,details:{...criterion,protocolId:protocol.id,renderedIn:lessonUses.map(l=>l.id)}});
+    if(!criterion.id||!criterion.title||!(criterion.observe||criterion.description))errors.push(`评估协议 ${protocol.id} 的第${i+1}项缺少ID/标题/观察方法`);
+    if(criterion.lessonId&&!lessons.has(criterion.lessonId))errors.push(`评估维度 ${protocol.id}/${criterion.id} 的课程不存在：${criterion.lessonId}`);
+  }
 }
 for (const [index,stage] of (data.curriculum || []).entries()) {
   add({id:`curriculum:${stage.id||hash(stage.title).slice(0,10)}`,kind:'curriculum',title:stage.title,goal:stage.goal,location:`content.json#/curriculum/${index}`,payload:stage,files:uiFiles,details:stage});
@@ -211,16 +242,20 @@ for (const entry of entries) {
   if(entry.structuralFindings?.length)warnings.push(`${entry.id}：${entry.structuralFindings.join('、')}`);
 }
 const kinds=[...new Set(entries.map(e=>e.kind))];
-const aggregate=items=>({discovered:items.length,sourcePresent:items.filter(e=>e.states.codePresent.status==='present').length,textReviewed:items.filter(e=>e.review.status==='text-reviewed').length,reviewStale:items.filter(e=>e.review.status==='needs-recheck').length,modified:items.filter(e=>['modified','added'].includes(e.modification.status)).length,pageAccessible:items.filter(e=>e.states.pageAccessible.status==='passed').length,animationRendered:items.filter(e=>e.states.animationRendered.status==='passed').length,teachingVerified:items.filter(e=>e.states.teachingVerified.status==='passed').length});
-const report={schemaVersion:1,auditDate:manual.auditDate,scope:'全站登记与本轮证据账本；机器结构检查、全文审读、来源核验和实际渲染观察分别报告。未审阅不等于发现错误，未记录修改不等于未修改。',inputs:digests,counts:aggregate(entries),byKind:Object.fromEntries(kinds.map(kind=>[kind,aggregate(entries.filter(e=>e.kind===kind))])),issues,structural:{status:errors.length?'failed':'passed',errors,warnings,limits:'仅检查登记、字段、引用、注册门控和能力图；不判断技术正确、页面可见或动画渲染。'},entries};
+const dimensions=items=>Object.fromEntries(observedKeys.map(key=>[key,{applicable:items.filter(e=>e.states[key].status!=='not-applicable').length,...Object.fromEntries(['passed','partial','failed','blocked','stale','not-verified','not-applicable'].map(status=>[status,items.filter(e=>e.states[key].status===status).length]))}]));
+const aggregate=items=>({discovered:items.length,sourcePresent:items.filter(e=>e.states.codePresent.status==='present').length,textReviewed:items.filter(e=>e.review.status==='text-reviewed').length,reviewStale:items.filter(e=>e.review.status==='needs-recheck').length,modified:items.filter(e=>['modified','added'].includes(e.modification.status)).length,pageAccessible:items.filter(e=>e.states.pageAccessible.status==='passed').length,animationRendered:items.filter(e=>e.states.animationRendered.status==='passed').length,teachingVerified:items.filter(e=>e.states.teachingVerified.status==='passed').length,dimensions:dimensions(items)});
+const revalidation=entries.flatMap(entry=>observedKeys.filter(d=>entry.states[d].status==='stale').map(dimension=>({id:entry.id,kind:entry.kind,dimension,previousStatus:entry.states[dimension].previousStatus,previousScope:entry.states[dimension].scope||null,evidence:entry.states[dimension].evidence,reason:entry.states[dimension].reason})));
+const report={schemaVersion:1,auditDate:manual.auditDate,scope:manual.scope||'全站登记与本轮证据账本；机器结构检查、全文审读、来源核验和实际渲染观察分别报告。',inputs:digests,counts:aggregate(entries),byKind:Object.fromEntries(kinds.map(kind=>[kind,aggregate(entries.filter(e=>e.kind===kind))])),evidenceSummary:manual.evidenceSummary||{},revalidation,issues,structural:{status:errors.length?'failed':'passed',errors,warnings,limits:'仅检查登记、字段、引用、注册门控和能力图；不判断技术正确、页面可见或动画渲染。'},entries};
 const md=v=>String(v??'—').replace(/\|/g,'\\|').replace(/\r?\n/g,' ');
 const table=(headers,rows)=>[`| ${headers.join(' | ')} |`,`| ${headers.map(()=>'---').join(' | ')} |`,...rows.map(row=>`| ${row.map(md).join(' | ')} |`)].join('\n');
 const status={present:'存在',missing:'缺失','not-verified':'未核验','not-applicable':'不适用',passed:'通过',failed:'失败',partial:'部分',blocked:'阻塞',stale:'证据已过期','text-reviewed':'全文已读','not-reviewed':'未审读','needs-recheck':'内容已变待复查'};
 const lines=['# 全站教学审查登记','',
   '由 `node scripts/inventory-teaching.mjs` 生成；`--check` 检查同步。人工审查维护在 [teaching-audit-review.json](teaching-audit-review.json)，完整动作规格、字段位置和证据见 [JSON 清单](teaching-audit.json)。',
-  '',`审查日期：${manual.auditDate}。登记包含页面、模块、每课正文、每课练习、每项错误诊断、每个动画引用、装备图、路线、能力节点、术语和来源。相同动作被不同课程引用时分别登记。`,
-  '', '**口径：**“全文已读”只表明本轮阅读了相应文字并记录问题；“教学已核验”必须另有逐结论来源检查与明确范围。代码存在、页面访问、动画渲染、教学核验互不继承，历史迁移/发布记录不会自动填成通过。修改统计按审查起点的条目内容指纹比较（含新增），不是 Git 行数；页面和功能代码变更须另记，不扩大到全部课程。',
+  '',`审查日期：${manual.auditDate}。登记包含页面、模块、每课正文、每课练习、每项错误诊断、每个动画引用、装备图、路线、能力节点、术语、来源、训练记录协议及维度、真人分析卡及片段。相同动作被不同课程引用时分别登记。`,
+  '', '**口径：**“全文已读”只表明相应文字有有效人工审读记录；可能是本轮全文阅读，也可能保留历史全文并复读本轮差分，具体范围以记录为准。“教学已核验”必须另有逐结论来源检查与明确范围。代码存在、页面访问、动画渲染、教学核验互不继承，历史迁移/发布记录不会自动填成通过。修改统计按审查起点的条目内容指纹比较（含新增），不是 Git 行数；页面和功能代码变更须另记，不扩大到全部课程。',
   '', '## 覆盖率与证据边界','',table(['条目类型','已登记','代码存在','正文已读','内容已变待复查','有修改登记','页面实际可访问','动画实际渲染','教学已核验'],kinds.map(kind=>{const c=report.byKind[kind];return[kind,c.discovered,c.sourcePresent,c.textReviewed,c.reviewStale,c.modified,c.pageAccessible,c.animationRendered,c.teachingVerified];})),
+  '',table(['独立观察维度','适用分母','通过','部分','失败','阻塞','历史证据过期','未核验'],observedKeys.map(key=>{const c=report.counts.dimensions[key];return[key,c.applicable,c.passed,c.partial,c.failed,c.blocked,c.stale,c['not-verified']];})),
+  '',`共享源码或条目改变后，${revalidation.length} 条历史观察当前标为 stale，原证据和范围仍保留在 JSON 的 revalidation；这不是本轮发现${revalidation.length}个教学错误，也不是重新观察通过。当前范围记录见人工账 evidenceSummary。`,
   '',`机器结构检查：${report.structural.status}；${errors.length} 项错误、${warnings.length} 项提醒。通过只说明引用、必要字段、注册门控与能力图结构自洽。`,
   '', '## 问题与处理','',table(['问题 ID','严重度','现有问题','问题证据','修改方案','关联来源','修改状态','验证结果'],issues.map(i=>[i.id,i.severity,i.problem,i.evidence.join('；'),i.proposal,i.sources.join('、'),i.modification,i.validation])),
   '', '## 更新和回填方法','',

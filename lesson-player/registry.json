@@ -35,9 +35,14 @@
     "short-turn-balance",
     "switch",
     "twist",
-    "duck-carve"
+    "duck-carve",
+    "expert-short-turns"
   ],
   "requiredTasks": {
+    "expert-short-turns": [
+      "expert-corridor-steering",
+      "expert-load-release"
+    ],
     "switch": [
       "switch-linked-skid"
     ],
