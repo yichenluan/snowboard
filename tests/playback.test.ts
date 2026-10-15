@@ -2,6 +2,14 @@ import assert from 'node:assert/strict';
 import {test} from 'node:test';
 import {advancePlayback,phaseRange} from '../lesson-player/playback.ts';
 
+test('an authored terminal replay includes the complete final arc instead of a near-flat sliver',()=>{
+  const stages=[{at:0,title:'进入'},{at:.997,title:'近平板'},{at:1,title:'结束',replay:{from:5/6,label:'末弧完整衔接'}}];
+  assert.deepEqual(phaseRange(stages,2),{start:5/6,end:1,label:'末弧完整衔接'});
+  assert.deepEqual(phaseRange(stages,1),{start:.997,end:1,label:'近平板'});
+  const next=advancePlayback(1,.01,phaseRange(stages,2));
+  assert.ok(next.time>5/6&&next.time<.86);
+});
+
 test('terminal pose replays the preceding nonzero phase with its actual label',()=>{
   const stages=[
     {at:0,title:'准备'},

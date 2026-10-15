@@ -36,7 +36,9 @@
     "switch",
     "twist",
     "duck-carve",
-    "expert-short-turns"
+    "expert-short-turns",
+    "expert-short-sequence",
+    "expert-carving"
   ],
   "requiredTasks": {
     "expert-short-turns": [
@@ -99,6 +101,15 @@
     ],
     "duck-carve": [
       "linked-duck-carve"
+    ],
+    "expert-short-sequence": [
+      "expert-run-recovery",
+      "expert-steering-range"
+    ],
+    "expert-carving": [
+      "expert-carve-arc",
+      "expert-carve-release",
+      "expert-carve-adaptation"
     ]
   },
   "partialVariants": {

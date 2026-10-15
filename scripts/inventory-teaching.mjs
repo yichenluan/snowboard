@@ -120,6 +120,8 @@ const legacyLibrary=legacySandbox.window.SnowDemo;
 const allTypes=[...new Set([...(legacyLibrary?.types||[]),...registered,...Object.keys(registry.partialVariants||{})])];
 const implemented = demo => registered.has(demo.type) && (!registry.requiredTasks?.[demo.type] || registry.requiredTasks[demo.type].includes(demo.task)) || Boolean(registry.partialVariants?.[demo.type]?.includes(demo.variant || ''));
 const moduleFor = demo => registry.drylandTypes?.includes(demo.type) ? 'lesson-player/dryland.ts' :
+  demo.type === 'expert-short-sequence' ? 'lesson-player/expert-short-sequence.ts' :
+  demo.type === 'expert-carving' ? 'lesson-player/expert-carving.ts' :
   demo.type === 'expert-short-turns' ? 'lesson-player/expert-short-turns.ts' :
   demo.type === 'duck-carve' ? 'lesson-player/carving.ts' :
   demo.type === 'switch' ? 'lesson-player/switch.ts' : demo.type === 'twist' ? 'lesson-player/twist.ts' :
@@ -129,6 +131,10 @@ const moduleFor = demo => registry.drylandTypes?.includes(demo.type) ? 'lesson-p
   ['steering','garland','j-turn','gaze-control','rail-track'].includes(demo.type) ? 'lesson-player/turns.ts' :
   ['pressure-flex','pressure-extend','edge-change-down'].includes(demo.type) ? 'lesson-player/pressure-advanced.ts / lesson-player/pressure.ts' :
   demo.type === 'edge-change-up' ? 'lesson-player/pressure.ts' : 'lesson-player/motion.ts';
+const specificationsFor = demo => demo.type === 'expert-short-sequence'
+  ? ['docs/level4-short-animation-coverage.md', 'docs/level4-animation-coverage-review.md', 'docs/level4-animation-source-claim-review.md']
+  : demo.type === 'expert-carving'
+    ? ['docs/level4-carving-animation-spec.md', 'docs/level4-animation-coverage-review.md', 'docs/level4-animation-source-claim-review.md'] : [];
 const lessonIds = new Set();
 for (const [index,lesson] of data.lessons.entries()) {
   if (lessonIds.has(lesson.id)) errors.push(`重复课程 ID：${lesson.id}`);
@@ -160,7 +166,7 @@ for (const [index,lesson] of data.lessons.entries()) {
     if (mistake.lesson && !lessons.has(mistake.lesson)) errors.push(`${lesson.id} 的纠错课程不存在：${mistake.lesson}`);
   }
   for (const [i,demo] of demos(lesson).entries()) {
-    const e=add({id:`animation:${lesson.id}/${i+1}`,kind:'animation',title:demo.title||`${lesson.title} · ${demo.type}`,goal:demo.focus||lesson.animationGuide||lesson.goal,location:`${location}/${lesson.demos?.length?`demos/${i}`:'demo'}`,payload:{demo,lessonGoal:lesson.goal,citations:lesson.citations,execution:lesson.execution},files:animationFiles,lessonId:lesson.id,sources:citations,animated:true,details:{config:demo,renderer:implemented(demo)?'lesson-3d':'unsupported-or-legacy',dataSource:moduleFor(demo),sharedContract:'prototype/motion.ts / prototype/scene.tsx（离雪使用独立普通鞋模型）',spec:{technicalId:lesson.id,context:lesson.drill?.terrain||null,phases:demo.steps||[],phaseSource:moduleFor(demo),frontRearLegTasks:lesson.execution,boardPath:demo.path||demo.task||'由运行时任务生成；请沿 dataSource 追踪',edgePressure:'刃角为几何输出；压力仅在明确图例和简化条件下示意，无实测压力或肌肉模型',annotations:demo.focus||lesson.animationGuide||null,errorComparison:(lesson.mistakes||[]).filter(m=>m.demoKey).map(m=>({error:m.error,demoKey:m.demoKey})),simplification:'程序化运动学示意；配置存在、共享骨架和数值测试不构成逐配置教学校准',unverified:['当前引用的完整过渡和循环接缝','两种前脚方向及实体多视角','与来源条件对应的真实示范比对']}}});
+    const e=add({id:`animation:${lesson.id}/${i+1}`,kind:'animation',title:demo.title||`${lesson.title} · ${demo.type}`,goal:demo.focus||lesson.animationGuide||lesson.goal,location:`${location}/${lesson.demos?.length?`demos/${i}`:'demo'}`,payload:{demo,lessonGoal:lesson.goal,citations:lesson.citations,execution:lesson.execution},files:animationFiles,lessonId:lesson.id,sources:citations,animated:true,details:{config:demo,renderer:implemented(demo)?'lesson-3d':'unsupported-or-legacy',dataSource:moduleFor(demo),sharedContract:'prototype/motion.ts / prototype/scene.tsx（离雪使用独立普通鞋模型）',spec:{technicalId:lesson.id,reviewDocuments:specificationsFor(demo),context:lesson.drill?.terrain||null,phases:demo.steps||[],phaseSource:moduleFor(demo),frontRearLegTasks:lesson.execution,boardPath:demo.path||demo.task||'由运行时任务生成；请沿 dataSource 追踪',edgePressure:'刃角为几何输出；压力仅在明确图例和简化条件下示意，无实测压力或肌肉模型',annotations:demo.focus||lesson.animationGuide||null,errorComparison:(lesson.mistakes||[]).filter(m=>m.demoKey).map(m=>({error:m.error,demoKey:m.demoKey})),simplification:'程序化运动学示意；配置存在、共享骨架和数值测试不构成逐配置教学校准',unverified:['当前引用的完整过渡和循环接缝','两种前脚方向及实体多视角','与来源条件对应的真实示范比对']}}});
     if (!implemented(demo)) errors.push(`${e.id} 未被当前三维注册门控支持`);
   }
   if (lesson.illustration) add({id:`illustration:${lesson.id}`,kind:'illustration',title:lesson.title,goal:lesson.goal,location:`${location}/illustration`,payload:lesson.illustration,files:['app.js'],lessonId:lesson.id,sources:citations,details:lesson.illustration});

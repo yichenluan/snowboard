@@ -6,7 +6,12 @@ export function advancePlayback(time: number, delta: number, range?: PlaybackRan
   }
   return {time:Math.min(1,time+Math.max(0,delta)),ended:time+delta>=1};
 }
-export function phaseRange(stages: {at:number;title:string}[], index: number): PlaybackRange {
+export function phaseRange(stages: {at:number;title:string;replay?:{from:number;label:string}}[], index: number): PlaybackRange {
+  const selected=stages[Math.min(index,stages.length-1)];
+  // A finite task can name a meaningful final arc/recovery interval instead
+  // of repeating only its few frames near flat at the terminal marker.
+  if(selected?.at===1&&selected.replay&&selected.replay.from>=0&&selected.replay.from<1)
+    return {start:selected.replay.from,end:1,label:selected.replay.label};
   // A terminal marker at 1 describes a pose, not a replayable interval.
   // Use the preceding nonzero phase and its label instead of looping [1, 1].
   for (let phase=Math.min(index,stages.length-1);phase>=0;phase--) {

@@ -853,6 +853,7 @@ export function TeachingScene({
   fallback,
   supportRail,
   corridor,
+  corridorSections,
 }: {
   state: MotionState;
   trail: Vec3[];
@@ -869,6 +870,7 @@ export function TeachingScene({
   fallback?: ReactNode;
   supportRail?: [Vec3, Vec3];
   corridor?: {width:number;start:number;end:number};
+  corridorSections?: {width:number;start:number;end:number;label:string}[];
 }) {
   return (
     <SceneBoundary fallback={fallback}>
@@ -895,6 +897,7 @@ export function TeachingScene({
         <directionalLight position={[-3, 7, 4]} intensity={2.3} />
         <Snow trail={trail} time={time} mode={mode} />
         {corridor&&[-1,1].map(side=><Segment key={side} a={[side*corridor.width/2,.012,corridor.start]} b={[side*corridor.width/2,.012,corridor.end]} r={.018} color="#7c817a"/>)}
+        {corridorSections?.map((section,i)=><group key={i}>{[-1,1].map(side=><Segment key={side} a={[side*section.width/2,.012,section.start]} b={[side*section.width/2,.012,section.end]} r={.018} color="#7c817a"/>)}</group>)}
         {supportRail&&<group><Segment a={supportRail[0]} b={supportRail[1]} r={0.024} color="#7c817a"/>{supportRail.map((p,i)=><Segment key={i} a={[p[0],0,p[2]]} b={p} r={0.024} color="#7c817a"/>)}</group>}
         <mesh
           position={[state.board.position[0], 0.001, state.board.position[2]]}

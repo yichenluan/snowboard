@@ -1,35 +1,35 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "c016d424d92389755e9aa8d9be89abead55b02eefa1cd7e2fdb47e1ff9690f0f",
+    "content.json": "eac45c2329ab9e5121d0a97b99d20fac49a01a4afa510863398192cb85624127",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
     "app.js": "05d58c9ea1a08ae27d7ff9b2c1b27176a61ba16b7bd8f68b851a242d9b9cb9fe",
-    "lesson-player/registry.json": "2e653f0e1bb2f88a862ffe42d46766b15e44db2e9ab36d76fae49e81d567f8ff"
+    "lesson-player/registry.json": "903d8535b6ac24926a8d7cd53c064408a42bd9385b65812921372ceb4f625da9"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
   "counts": {
     "lessons": 113,
     "modules": 13,
-    "lessonsWithDemos": 92,
+    "lessonsWithDemos": 96,
     "lessonsWithIllustrations": 2,
-    "lessonsWithoutVisuals": 19,
-    "legacyDemoReferences": 139,
+    "lessonsWithoutVisuals": 15,
+    "legacyDemoReferences": 142,
     "illustrationReferences": 2,
-    "siteDisplayedDemonstrations": 141,
+    "siteDisplayedDemonstrations": 144,
     "reviewedIllustrations": 2,
-    "registeredTypes": 39,
-    "referencedTypes": 37,
-    "applicationVariantKeys": 73,
-    "presentationConfigurations": 95,
+    "registeredTypes": 41,
+    "referencedTypes": 39,
+    "applicationVariantKeys": 78,
+    "presentationConfigurations": 100,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 37,
-    "fullyImplemented3DTypes": 34,
+    "implemented3DTypes": 39,
+    "fullyImplemented3DTypes": 36,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 139,
+    "implemented3DReferences": 142,
     "remainingLegacyReferences": 0,
-    "replacedLegacyReferences": 139
+    "replacedLegacyReferences": 142
   },
   "modules": [
     {
@@ -92,9 +92,9 @@
       "id": "carving",
       "title": "刻滑 · 基础、低姿态与专家任务",
       "lessons": 11,
-      "demoReferences": 7,
+      "demoReferences": 10,
       "illustrationReferences": 0,
-      "withoutVisuals": 6
+      "withoutVisuals": 3
     },
     {
       "id": "short-turns",
@@ -102,7 +102,7 @@
       "lessons": 13,
       "demoReferences": 35,
       "illustrationReferences": 0,
-      "withoutVisuals": 3
+      "withoutVisuals": 2
     },
     {
       "id": "off-snow",
@@ -825,9 +825,7 @@
       "model": "native-3d",
       "references": [
         "s-short-expert-steering/1",
-        "s-short-expert-pressure/1",
-        "s-short-expert-flow/1",
-        "s-short-expert-flow/2"
+        "s-short-expert-pressure/1"
       ],
       "usedKeys": [
         "expert-short-turns:progressive",
@@ -835,7 +833,41 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "4/4 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
+    },
+    {
+      "type": "expert-short-sequence",
+      "title": "expert-short-sequence",
+      "model": "native-3d",
+      "references": [
+        "s-short-expert-flow/1",
+        "s-short-expert-transfer/1"
+      ],
+      "usedKeys": [
+        "expert-short-sequence:planned-recovery",
+        "expert-short-sequence:guided-slide"
+      ],
+      "declaredShortVariants": [],
+      "sharedKeyframesWith": [],
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
+    },
+    {
+      "type": "expert-carving",
+      "title": "expert-carving",
+      "model": "native-3d",
+      "references": [
+        "s-carve-expert-arc/1",
+        "s-carve-expert-pressure/1",
+        "s-carve-expert-variation/1"
+      ],
+      "usedKeys": [
+        "expert-carving:linked",
+        "expert-carving:coordinated",
+        "expert-carving:lower-recover"
+      ],
+      "declaredShortVariants": [],
+      "sharedKeyframesWith": [],
+      "destination": "3/3 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     }
   ],
   "variants": [
@@ -2200,8 +2232,7 @@
     {
       "key": "expert-short-turns:progressive",
       "references": [
-        "s-short-expert-steering/1",
-        "s-short-expert-flow/1"
+        "s-short-expert-steering/1"
       ],
       "configurations": [
         {
@@ -2218,8 +2249,7 @@
     {
       "key": "expert-short-turns:continuous",
       "references": [
-        "s-short-expert-pressure/1",
-        "s-short-expert-flow/2"
+        "s-short-expert-pressure/1"
       ],
       "configurations": [
         {
@@ -2233,6 +2263,93 @@
         }
       ],
       "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+    },
+    {
+      "key": "expert-short-sequence:planned-recovery",
+      "references": [
+        "s-short-expert-flow/1"
+      ],
+      "configurations": [
+        {
+          "jointLabels": true,
+          "task": "expert-run-recovery",
+          "trackDiagnostics": true,
+          "type": "expert-short-sequence",
+          "variant": "planned-recovery",
+          "view": "width"
+        }
+      ],
+      "destination": "D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过"
+    },
+    {
+      "key": "expert-short-sequence:guided-slide",
+      "references": [
+        "s-short-expert-transfer/1"
+      ],
+      "configurations": [
+        {
+          "jointLabels": true,
+          "task": "expert-steering-range",
+          "trackDiagnostics": true,
+          "type": "expert-short-sequence",
+          "variant": "guided-slide",
+          "view": "width"
+        }
+      ],
+      "destination": "D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过"
+    },
+    {
+      "key": "expert-carving:linked",
+      "references": [
+        "s-carve-expert-arc/1"
+      ],
+      "configurations": [
+        {
+          "jointLabels": true,
+          "task": "expert-carve-arc",
+          "trackDiagnostics": true,
+          "type": "expert-carving",
+          "variant": "linked",
+          "view": "width"
+        }
+      ],
+      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过"
+    },
+    {
+      "key": "expert-carving:coordinated",
+      "references": [
+        "s-carve-expert-pressure/1"
+      ],
+      "configurations": [
+        {
+          "jointLabels": true,
+          "legLengthDiagram": true,
+          "task": "expert-carve-release",
+          "trackDiagnostics": true,
+          "type": "expert-carving",
+          "variant": "coordinated",
+          "view": "width"
+        }
+      ],
+      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过"
+    },
+    {
+      "key": "expert-carving:lower-recover",
+      "references": [
+        "s-carve-expert-variation/1"
+      ],
+      "configurations": [
+        {
+          "jointLabels": true,
+          "legLengthDiagram": true,
+          "task": "expert-carve-adaptation",
+          "trackDiagnostics": true,
+          "type": "expert-carving",
+          "variant": "lower-recover",
+          "view": "width"
+        }
+      ],
+      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过"
     }
   ],
   "references": [
@@ -5689,46 +5806,119 @@
       "index": 0,
       "locator": "lessons[106].demos[0]",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
-      "key": "expert-short-turns:progressive",
+      "key": "expert-short-sequence:planned-recovery",
       "model": "native-3d",
       "config": {
-        "type": "expert-short-turns",
-        "task": "expert-corridor-steering",
-        "variant": "progressive",
+        "type": "expert-short-sequence",
+        "task": "expert-run-recovery",
+        "variant": "planned-recovery",
+        "title": "完整滑段：入段、连续短弯与主动回宽恢复",
+        "focus": "观察稳定目标通道前后的完整组织；恢复段仍在滑行，重播只是重看有限滑段，不代表停车或滑行无缝循环。",
+        "duration": 24000,
         "trackDiagnostics": true,
-        "title": "专家目标观察 · 连续引导与弧线接续",
-        "focus": "在同一可见走廊任务下观察转向分配与完整弧线；作者运动示意不代表L4实测速度、真实抓地或评分。",
         "autoplay": false,
-        "duration": 16000,
         "jointLabels": true,
         "view": "width"
       },
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "destination": "D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
     },
     {
-      "id": "s-short-expert-flow/2",
-      "lesson": "s-short-expert-flow",
-      "index": 1,
-      "locator": "lessons[106].demos[1]",
-      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
-      "key": "expert-short-turns:continuous",
+      "id": "s-short-expert-transfer/1",
+      "lesson": "s-short-expert-transfer",
+      "index": 0,
+      "locator": "lessons[107].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-transfer",
+      "key": "expert-short-sequence:guided-slide",
       "model": "native-3d",
       "config": {
-        "type": "expert-short-turns",
-        "task": "expert-load-release",
-        "variant": "continuous",
+        "type": "expert-short-sequence",
+        "task": "expert-steering-range",
+        "variant": "guided-slide",
+        "title": "同一路线：改变引导策略后重新建立连续短弯",
+        "focus": "切换两种可用策略，比较同一路线上板轴与移动方向、刃角和身体组织的差异；不把其中一种认定为所有雪况下的正确答案。",
+        "duration": 28000,
         "trackDiagnostics": true,
-        "legLengthDiagram": true,
-        "title": "动作组织 · 连续调节腿长与释放准备",
-        "focus": "同线路、同板姿态下只比较身体与腿长组织；这不是雪板真实压力、弹性能、反弹或加速度仿真。",
         "autoplay": false,
-        "duration": 16000,
         "jointLabels": true,
         "view": "width"
       },
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "destination": "D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-carve-expert-arc/1",
+      "lesson": "s-carve-expert-arc",
+      "index": 0,
+      "locator": "lessons[109].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-arc",
+      "key": "expert-carving:linked",
+      "model": "native-3d",
+      "config": {
+        "type": "expert-carving",
+        "task": "expert-carve-arc",
+        "variant": "linked",
+        "title": "专家刻滑弧线：落线前建刃、完整出口与连续接续",
+        "focus": "10米示意通道内观察六弧接续。7–15米是官方通道宽度，不是转弯半径；本模型未模拟专家滑速或真实抓地。",
+        "duration": 24000,
+        "trackDiagnostics": true,
+        "autoplay": false,
+        "jointLabels": true,
+        "view": "width"
+      },
+      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-carve-expert-pressure/1",
+      "lesson": "s-carve-expert-pressure",
+      "index": 0,
+      "locator": "lessons[110].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-pressure",
+      "key": "expert-carving:coordinated",
+      "model": "native-3d",
+      "config": {
+        "type": "expert-carving",
+        "task": "expert-carve-release",
+        "variant": "coordinated",
+        "title": "屈腿调节时机：同板路线、同放刃时刻的身体对照",
+        "focus": "对照协调调节与屈腿偏晚；腿长曲线来自实际骨架，不是压力、雪板储能或回弹曲线，也不表示实际旧刃释放推迟。",
+        "duration": 24000,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true,
+        "autoplay": false,
+        "jointLabels": true,
+        "view": "width"
+      },
+      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-carve-expert-variation/1",
+      "lesson": "s-carve-expert-variation",
+      "index": 0,
+      "locator": "lessons[111].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-variation",
+      "key": "expert-carving:lower-recover",
+      "model": "native-3d",
+      "config": {
+        "type": "expert-carving",
+        "task": "expert-carve-adaptation",
+        "variant": "lower-recover",
+        "title": "连续弧中的姿态余量：正常高度、稍低、恢复",
+        "focus": "先稳定正常高度，再稍低两弧并恢复；两种姿态共用板路线与板角。低姿态和八字站姿属于风格选择，不是四级刻滑达标条件。",
+        "duration": 24000,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true,
+        "autoplay": false,
+        "jointLabels": true,
+        "view": "width"
+      },
+      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
     }
@@ -11003,8 +11193,7 @@
       ],
       "prototypeMode": null,
       "references": [
-        "s-short-expert-flow/1",
-        "s-short-expert-flow/2"
+        "s-short-expert-flow/1"
       ],
       "illustration": null
     },
@@ -11062,7 +11251,9 @@
         }
       ],
       "prototypeMode": null,
-      "references": [],
+      "references": [
+        "s-short-expert-transfer/1"
+      ],
       "illustration": null
     },
     {
@@ -11185,7 +11376,9 @@
         }
       ],
       "prototypeMode": null,
-      "references": [],
+      "references": [
+        "s-carve-expert-arc/1"
+      ],
       "illustration": null
     },
     {
@@ -11260,7 +11453,9 @@
         }
       ],
       "prototypeMode": null,
-      "references": [],
+      "references": [
+        "s-carve-expert-pressure/1"
+      ],
       "illustration": null
     },
     {
@@ -11353,7 +11548,9 @@
         }
       ],
       "prototypeMode": null,
-      "references": [],
+      "references": [
+        "s-carve-expert-variation/1"
+      ],
       "illustration": null
     },
     {

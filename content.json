@@ -11,7 +11,7 @@
     "method": "先说清动作与雪板怎样配合，再给出具体练习、观察方法和下一步。技术依据以CASI、AASI、SBINZ教练教材为主，装备和非雪训练另列一手资料。",
     "coverage": "围绕搓雪小回转和低姿态八字（duck stance）刻滑两条路线组织；共通基础复用，反脚并行。保留课程ID、收藏、个人补充和能力记录，新能力需自行雪上复测。",
     "limitations": "运动感受是教学提示，不等于测量。原创动画是定性运动学示意，没有真实测力、精确个人角度或诊断。专项主题先说明任务与前提，具体个人动作调整需结合现场观察。视频时间只作为来源定位，章节首次课件采样约有±10秒误差。",
-    "contentRevision": 17
+    "contentRevision": 18
   },
   "modules": [
     {
@@ -16758,27 +16758,14 @@
       ],
       "demos": [
         {
-          "type": "expert-short-turns",
-          "task": "expert-corridor-steering",
-          "variant": "progressive",
+          "type": "expert-short-sequence",
+          "task": "expert-run-recovery",
+          "variant": "planned-recovery",
+          "title": "完整滑段：入段、连续短弯与主动回宽恢复",
+          "focus": "观察稳定目标通道前后的完整组织；恢复段仍在滑行，重播只是重看有限滑段，不代表停车或滑行无缝循环。",
+          "duration": 24000,
           "trackDiagnostics": true,
-          "title": "专家目标观察 · 连续引导与弧线接续",
-          "focus": "在同一可见走廊任务下观察转向分配与完整弧线；作者运动示意不代表L4实测速度、真实抓地或评分。",
           "autoplay": false,
-          "duration": 16000,
-          "jointLabels": true,
-          "view": "width"
-        },
-        {
-          "type": "expert-short-turns",
-          "task": "expert-load-release",
-          "variant": "continuous",
-          "trackDiagnostics": true,
-          "legLengthDiagram": true,
-          "title": "动作组织 · 连续调节腿长与释放准备",
-          "focus": "同线路、同板姿态下只比较身体与腿长组织；这不是雪板真实压力、弹性能、反弹或加速度仿真。",
-          "autoplay": false,
-          "duration": 16000,
           "jointLabels": true,
           "view": "width"
         }
@@ -16963,6 +16950,20 @@
         "shape_speed_control",
         "run_consistency",
         "variation_transfer"
+      ],
+      "demos": [
+        {
+          "type": "expert-short-sequence",
+          "task": "expert-steering-range",
+          "variant": "guided-slide",
+          "title": "同一路线：改变引导策略后重新建立连续短弯",
+          "focus": "切换两种可用策略，比较同一路线上板轴与移动方向、刃角和身体组织的差异；不把其中一种认定为所有雪况下的正确答案。",
+          "duration": 28000,
+          "trackDiagnostics": true,
+          "autoplay": false,
+          "jointLabels": true,
+          "view": "width"
+        }
       ]
     },
     {
@@ -17393,6 +17394,20 @@
         "steering_versatility",
         "variation_transfer",
         "duck_low_recovery"
+      ],
+      "demos": [
+        {
+          "type": "expert-carving",
+          "task": "expert-carve-arc",
+          "variant": "linked",
+          "title": "专家刻滑弧线：落线前建刃、完整出口与连续接续",
+          "focus": "10米示意通道内观察六弧接续。7–15米是官方通道宽度，不是转弯半径；本模型未模拟专家滑速或真实抓地。",
+          "duration": 24000,
+          "trackDiagnostics": true,
+          "autoplay": false,
+          "jointLabels": true,
+          "view": "width"
+        }
       ]
     },
     {
@@ -17598,6 +17613,21 @@
         "steering_versatility",
         "variation_transfer",
         "duck_low_recovery"
+      ],
+      "demos": [
+        {
+          "type": "expert-carving",
+          "task": "expert-carve-release",
+          "variant": "coordinated",
+          "title": "屈腿调节时机：同板路线、同放刃时刻的身体对照",
+          "focus": "对照协调调节与屈腿偏晚；腿长曲线来自实际骨架，不是压力、雪板储能或回弹曲线，也不表示实际旧刃释放推迟。",
+          "duration": 24000,
+          "legLengthDiagram": true,
+          "trackDiagnostics": true,
+          "autoplay": false,
+          "jointLabels": true,
+          "view": "width"
+        }
       ]
     },
     {
@@ -17824,6 +17854,21 @@
         "steering_versatility",
         "variation_transfer",
         "duck_low_recovery"
+      ],
+      "demos": [
+        {
+          "type": "expert-carving",
+          "task": "expert-carve-adaptation",
+          "variant": "lower-recover",
+          "title": "连续弧中的姿态余量：正常高度、稍低、恢复",
+          "focus": "先稳定正常高度，再稍低两弧并恢复；两种姿态共用板路线与板角。低姿态和八字站姿属于风格选择，不是四级刻滑达标条件。",
+          "duration": 24000,
+          "legLengthDiagram": true,
+          "trackDiagnostics": true,
+          "autoplay": false,
+          "jointLabels": true,
+          "view": "width"
+        }
       ]
     },
     {

@@ -2279,9 +2279,9 @@
     },
     {
       "id": "s-short-expert-flow",
-      "fingerprint": "20e7ecdc677e750fe0e103535ecfdf620dc880a755c2a29d245969f1c5a02d07",
+      "fingerprint": "318aaf8cb28c89851dad61e6eb9e4cc20258fc600c169c65dd6adf17ffaf1b09",
       "date": "2026-10-15",
-      "reviewer": "inventory（全文与设计边界）；duck_route（逐结论来源）",
+      "reviewer": "inventory（本轮demo差分；既有正文审读保留）",
       "parts": [
         "prerequisites",
         "mechanics",
@@ -2291,21 +2291,48 @@
         "drill",
         "citations",
         "relatedLessons",
-        "assessmentProtocol"
+        "assessmentProtocol",
+        "demos"
       ],
-      "summary": "本轮已完整阅读当前正文、练习、诊断、剂量与关联配置，并对照官方标准研究和逐结论复核。S38任务要求、S16技术关系、本站训练建议分别记录；未把示意动画、记录状态或有限真人帧当作认证或实拍标定。",
+      "summary": "保留既有全文审读，本轮实际复读新增/替换demo、模型与规格，逐字段确认课程其余正文、练习、诊断和引用未变。来源原则与作者程序分别记录；不授予浏览器画面或实拍标定。",
       "evidence": [
         "docs/level4-source-claim-review.md",
         "docs/source-claim-audit.json",
         "docs/level4-short-official-standards.md",
-        "docs/level4-short-curriculum.md"
-      ]
+        "docs/level4-short-curriculum.md",
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "s-short-expert-flow",
+        "fingerprint": "20e7ecdc677e750fe0e103535ecfdf620dc880a755c2a29d245969f1c5a02d07",
+        "date": "2026-10-15",
+        "reviewer": "inventory（全文与设计边界）；duck_route（逐结论来源）",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations",
+          "relatedLessons",
+          "assessmentProtocol"
+        ],
+        "summary": "本轮已完整阅读当前正文、练习、诊断、剂量与关联配置，并对照官方标准研究和逐结论复核。S38任务要求、S16技术关系、本站训练建议分别记录；未把示意动画、记录状态或有限真人帧当作认证或实拍标定。",
+        "evidence": [
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md",
+          "docs/level4-short-curriculum.md"
+        ]
+      }
     },
     {
       "id": "s-short-expert-transfer",
-      "fingerprint": "32e8898373cc31951f750bbf7e3c7abe3af793eef631286c753b01c5c502686b",
+      "fingerprint": "8ec903debcbe3bd73b310a9730c9ca752bbe1d54bcae4ae2659c4703b90477f2",
       "date": "2026-10-15",
-      "reviewer": "inventory（全文与设计边界）；duck_route（逐结论来源）",
+      "reviewer": "inventory（本轮demo差分；既有正文审读保留）",
       "parts": [
         "prerequisites",
         "mechanics",
@@ -2315,15 +2342,42 @@
         "drill",
         "citations",
         "relatedLessons",
-        "assessmentProtocol"
+        "assessmentProtocol",
+        "demos"
       ],
-      "summary": "本轮已完整阅读当前正文、练习、诊断、剂量与关联配置，并对照官方标准研究和逐结论复核。S38任务要求、S16技术关系、本站训练建议分别记录；未把示意动画、记录状态或有限真人帧当作认证或实拍标定。",
+      "summary": "保留既有全文审读，本轮实际复读新增/替换demo、模型与规格，逐字段确认课程其余正文、练习、诊断和引用未变。来源原则与作者程序分别记录；不授予浏览器画面或实拍标定。",
       "evidence": [
         "docs/level4-source-claim-review.md",
         "docs/source-claim-audit.json",
         "docs/level4-short-official-standards.md",
-        "docs/level4-short-curriculum.md"
-      ]
+        "docs/level4-short-curriculum.md",
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "s-short-expert-transfer",
+        "fingerprint": "32e8898373cc31951f750bbf7e3c7abe3af793eef631286c753b01c5c502686b",
+        "date": "2026-10-15",
+        "reviewer": "inventory（全文与设计边界）；duck_route（逐结论来源）",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations",
+          "relatedLessons",
+          "assessmentProtocol"
+        ],
+        "summary": "本轮已完整阅读当前正文、练习、诊断、剂量与关联配置，并对照官方标准研究和逐结论复核。S38任务要求、S16技术关系、本站训练建议分别记录；未把示意动画、记录状态或有限真人帧当作认证或实拍标定。",
+        "evidence": [
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md",
+          "docs/level4-short-curriculum.md"
+        ]
+      }
     },
     {
       "id": "s-short-expert-review",
@@ -2353,9 +2407,9 @@
     },
     {
       "id": "s-carve-expert-arc",
-      "fingerprint": "7a77121210a9ccfe3018672cf1545ff6e4c49a139283cb5d1f35fdaf9c45c28e",
+      "fingerprint": "e284378561a47c918ccbea463dbe6f09923ddf209d7d8261d9d52c9ef1432927",
       "date": "2026-10-15",
-      "reviewer": "inventory（当前全文及边界阅读）",
+      "reviewer": "inventory（本轮demo差分；既有正文审读保留）",
       "parts": [
         "prerequisites",
         "mechanics",
@@ -2365,19 +2419,44 @@
         "drill",
         "citations",
         "relatedLessons",
-        "assessmentProtocol"
+        "assessmentProtocol",
+        "demos"
       ],
-      "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+      "summary": "保留既有全文审读，本轮实际复读新增/替换demo、模型与规格，逐字段确认课程其余正文、练习、诊断和引用未变。来源原则与作者程序分别记录；不授予浏览器画面或实拍标定。",
       "evidence": [
         "docs/level4-carving-official-standards.md",
-        "docs/level4-carving-curriculum.md"
-      ]
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "s-carve-expert-arc",
+        "fingerprint": "7a77121210a9ccfe3018672cf1545ff6e4c49a139283cb5d1f35fdaf9c45c28e",
+        "date": "2026-10-15",
+        "reviewer": "inventory（当前全文及边界阅读）",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations",
+          "relatedLessons",
+          "assessmentProtocol"
+        ],
+        "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+        "evidence": [
+          "docs/level4-carving-official-standards.md",
+          "docs/level4-carving-curriculum.md"
+        ]
+      }
     },
     {
       "id": "s-carve-expert-pressure",
-      "fingerprint": "f13d7c43e78a35f3d4526a4d76200588503e1a13d25e9489e5078041db1de0d0",
+      "fingerprint": "f4e409fda119cc21cc1eb680fe8bd5a348517101c648dc4a93f02818e63ab61d",
       "date": "2026-10-15",
-      "reviewer": "inventory（当前全文及边界阅读）",
+      "reviewer": "inventory（本轮demo差分；既有正文审读保留）",
       "parts": [
         "prerequisites",
         "mechanics",
@@ -2387,19 +2466,44 @@
         "drill",
         "citations",
         "relatedLessons",
-        "assessmentProtocol"
+        "assessmentProtocol",
+        "demos"
       ],
-      "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+      "summary": "保留既有全文审读，本轮实际复读新增/替换demo、模型与规格，逐字段确认课程其余正文、练习、诊断和引用未变。来源原则与作者程序分别记录；不授予浏览器画面或实拍标定。",
       "evidence": [
         "docs/level4-carving-official-standards.md",
-        "docs/level4-carving-curriculum.md"
-      ]
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "s-carve-expert-pressure",
+        "fingerprint": "f13d7c43e78a35f3d4526a4d76200588503e1a13d25e9489e5078041db1de0d0",
+        "date": "2026-10-15",
+        "reviewer": "inventory（当前全文及边界阅读）",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations",
+          "relatedLessons",
+          "assessmentProtocol"
+        ],
+        "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+        "evidence": [
+          "docs/level4-carving-official-standards.md",
+          "docs/level4-carving-curriculum.md"
+        ]
+      }
     },
     {
       "id": "s-carve-expert-variation",
-      "fingerprint": "bcab4f7268536ee08c396b7ec0edc9ebd93bb406ac6a89bee8d2027316df28c0",
+      "fingerprint": "0b4831eb1f978646a265ca60f3c518b38e00fef1872917672c447ac58b1b21cc",
       "date": "2026-10-15",
-      "reviewer": "inventory（当前全文及边界阅读）",
+      "reviewer": "inventory（本轮demo差分；既有正文审读保留）",
       "parts": [
         "prerequisites",
         "mechanics",
@@ -2409,13 +2513,38 @@
         "drill",
         "citations",
         "relatedLessons",
-        "assessmentProtocol"
+        "assessmentProtocol",
+        "demos"
       ],
-      "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+      "summary": "保留既有全文审读，本轮实际复读新增/替换demo、模型与规格，逐字段确认课程其余正文、练习、诊断和引用未变。来源原则与作者程序分别记录；不授予浏览器画面或实拍标定。",
       "evidence": [
         "docs/level4-carving-official-standards.md",
-        "docs/level4-carving-curriculum.md"
-      ]
+        "docs/level4-carving-curriculum.md",
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "s-carve-expert-variation",
+        "fingerprint": "bcab4f7268536ee08c396b7ec0edc9ebd93bb406ac6a89bee8d2027316df28c0",
+        "date": "2026-10-15",
+        "reviewer": "inventory（当前全文及边界阅读）",
+        "parts": [
+          "prerequisites",
+          "mechanics",
+          "execution",
+          "checks",
+          "mistakes",
+          "drill",
+          "citations",
+          "relatedLessons",
+          "assessmentProtocol"
+        ],
+        "summary": "本轮完整读当前全部教学字段、练习量、诊断及引用；官方大弯任务、本站低位应用与模型能力边界分别核对。这里只登记全文阅读，逐结论来源和实际页面另记。",
+        "evidence": [
+          "docs/level4-carving-official-standards.md",
+          "docs/level4-carving-curriculum.md"
+        ]
+      }
     },
     {
       "id": "s-carve-expert-review",
@@ -3387,29 +3516,81 @@
         "animation:s-short-expert-steering/1",
         "animation:s-short-expert-pressure/1",
         "animation:s-short-expert-flow/1",
-        "animation:s-short-expert-flow/2"
+        "animation:s-short-expert-transfer/1",
+        "animation:s-carve-expert-arc/1",
+        "animation:s-carve-expert-pressure/1",
+        "animation:s-carve-expert-variation/1"
       ],
-      "problem": "末态阶段t=1形成[1,1]零长度循环，点击重新播放停在100%。",
+      "problem": "原末态t=1曾形成[1,1]零区间；旧修复回退非零阶段后，本轮新长任务的末段仅几十毫秒近平板，当前段循环仍近似静止。",
       "evidence": [
-        "docs/level4-release-review.md"
+        "docs/level4-release-review.md",
+        "docs/level4-animation-release-review.md",
+        "docs/level4-short-sequence-visual-review.md"
       ],
-      "proposal": "末态回到前一个非零阶段，循环标签与实际区间一致。",
+      "proposal": "保留普通阶段真实区间；末态允许任务指定有意义的replay起点，刻滑重看末弧5/6–1，短弯重看完整恢复6/8–1，标签对应实际区间。",
       "sources": [
         "lesson-player/playback.ts",
         "tests/playback.test.ts"
       ],
       "status": "closed-scoped-fix",
       "modification": "closed-scoped-fix",
-      "validation": "新增3项回归；最终构建四变体从末态循环后进度980/989/986/979，按钮显示暂停且可暂停；最终109页/139引用挂载亦重跑通过。几何未修改，不推断完整教学通过。",
+      "validation": "原零区间修复历史保留。本轮新增末态replay回归；root实际刻滑末态回约84%且继续，short实际flow回77%推进82%、transfer回76.5%推进93%，Home可退出循环。实际范围是末态功能复验与有限画面，不授予全周期教学或真人标定。",
       "closure": {
         "date": "2026-10-15",
-        "scope": "四专家变体末态循环的具体阻断关闭；旧任务其他控件组合未由此自动通过。",
+        "scope": "本轮五新引用的末态重播范围修复，实际刻滑与两短弯入口复验；保留旧闭环记录，不扩大为所有配置完整人工观察。",
         "evidence": [
-          "docs/level4-release-review.md",
-          ".validation/level4/release-observations.json",
-          ".validation/level4/browser-pages-final.json"
+          "docs/level4-animation-release-review.md",
+          "docs/level4-short-sequence-visual-review.md"
         ]
-      }
+      },
+      "retiredEntryIds": [
+        "animation:s-short-expert-flow/2"
+      ],
+      "followupReviews": [
+        {
+          "phase": "level4-animation",
+          "date": "2026-10-15",
+          "reason": "非零但过短的最后阶段仍不足以有意义重播；本轮按任务定义显式末段。",
+          "previousIssue": {
+            "id": "L4-P1-FINAL-STAGE-LOOP",
+            "severity": "P1",
+            "entryIds": [
+              "animation:s-short-expert-steering/1",
+              "animation:s-short-expert-pressure/1",
+              "animation:s-short-expert-flow/1"
+            ],
+            "problem": "末态阶段t=1形成[1,1]零长度循环，点击重新播放停在100%。",
+            "evidence": [
+              "docs/level4-release-review.md"
+            ],
+            "proposal": "末态回到前一个非零阶段，循环标签与实际区间一致。",
+            "sources": [
+              "lesson-player/playback.ts",
+              "tests/playback.test.ts"
+            ],
+            "status": "closed-scoped-fix",
+            "modification": "closed-scoped-fix",
+            "validation": "新增3项回归；最终构建四变体从末态循环后进度980/989/986/979，按钮显示暂停且可暂停；最终109页/139引用挂载亦重跑通过。几何未修改，不推断完整教学通过。",
+            "closure": {
+              "date": "2026-10-15",
+              "scope": "四专家变体末态循环的具体阻断关闭；旧任务其他控件组合未由此自动通过。",
+              "evidence": [
+                "docs/level4-release-review.md",
+                ".validation/level4/release-observations.json",
+                ".validation/level4/browser-pages-final.json"
+              ]
+            },
+            "retiredEntryIds": [
+              "animation:s-short-expert-flow/2"
+            ]
+          },
+          "evidence": [
+            "docs/level4-animation-release-review.md",
+            "docs/level4-short-sequence-visual-review.md",
+            "tests/playback.test.ts"
+          ]
+        }
+      ]
     },
     {
       "id": "L4C-P1-PROTOCOL-ISOLATION",
@@ -3501,6 +3682,62 @@
           "docs/level4-carving-release-review.md",
           ".validation/level4-carving/release-observations.json"
         ]
+      }
+    },
+    {
+      "id": "L4A-P2-ROUTE-WINDOW",
+      "problem": "新增完整六弧/八转换的路线全段缩小后，当前板轴、弧线和通道关系难以读取。",
+      "proposal": "同源提供当前及相邻弧段的局部世界z窗口，仍保留可展开完整滑段；不改变动作或把局部看作整段证据。",
+      "validation": "root实际看刻滑路线，short实际看恢复阶段与跨区段局部路线；全段与局部共享采样。有限画面通过不授予全站旧路线新通过。",
+      "sources": [
+        "lesson-player/main.tsx",
+        "lesson-player/motion.ts"
+      ],
+      "severity": "P2",
+      "entryIds": [
+        "animation:s-short-expert-flow/1",
+        "animation:s-short-expert-transfer/1",
+        "animation:s-carve-expert-arc/1",
+        "animation:s-carve-expert-pressure/1",
+        "animation:s-carve-expert-variation/1"
+      ],
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        "docs/level4-short-sequence-visual-review.md"
+      ],
+      "status": "closed-scoped-fix",
+      "modification": "closed-scoped-fix",
+      "closure": {
+        "date": "2026-10-15",
+        "scope": "root实际看刻滑路线，short实际看恢复阶段与跨区段局部路线；全段与局部共享采样。有限画面通过不授予全站旧路线新通过。"
+      }
+    },
+    {
+      "id": "L4A-P2-PHASE-LAYOUT",
+      "problem": "新任务25/37个阶段将当前说明及腿长对照推离当前画面，影响解释和同帧比较。",
+      "proposal": "专家任务固定当前说明，阶段列表与其他内容独立滚动并限制阶段高度，将腿长图置前。",
+      "validation": "root实际刻滑腿长当前点与窄iframe可读；short实际同进度两策略及旧pressure腿长曲线回归。该范围是布局可读性，不是逐帧教学核验。",
+      "sources": [
+        "lesson-player/main.tsx",
+        "lesson-player/styles.css"
+      ],
+      "severity": "P2",
+      "entryIds": [
+        "animation:s-short-expert-flow/1",
+        "animation:s-short-expert-transfer/1",
+        "animation:s-carve-expert-arc/1",
+        "animation:s-carve-expert-pressure/1",
+        "animation:s-carve-expert-variation/1"
+      ],
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        "docs/level4-short-sequence-visual-review.md"
+      ],
+      "status": "closed-scoped-fix",
+      "modification": "closed-scoped-fix",
+      "closure": {
+        "date": "2026-10-15",
+        "scope": "root实际刻滑腿长当前点与窄iframe可读；short实际同进度两策略及旧pressure腿长曲线回归。该范围是布局可读性，不是逐帧教学核验。"
       }
     }
   ],
@@ -45368,97 +45605,155 @@
     {
       "id": "animation:s-short-expert-flow/1",
       "dimension": "pageAccessible",
-      "fingerprint": "f4cbfc14d14cf7101597a846cff94425f68fff9d1fc18f9509fb456482fd6549",
       "status": "passed",
-      "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据转录）",
-      "scope": "当前构建逐引用实际点击data-demo进入播放器。",
+      "scope": "short_route实际从本课程新引用打开播放器，操作前脚/刃/视角/播放等公开控件；不是由同任务的另一引用外推。",
       "evidence": [
-        ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/1"
+        "docs/level4-short-sequence-visual-review.md",
+        ".validation/level4-motion/short-visual-review.json",
+        ".validation/level4-animation/release-observations.json#animation:s-short-expert-flow/1/pageAccessible"
       ],
+      "fingerprint": "379e6c491b5615900da54b727f31b8ffe69d28a97e638c2b86161fb16016a4a1",
+      "date": "2026-10-15",
+      "reviewer": "short_route（实际Chrome/CUA）；inventory（记录对读与范围转录）",
+      "observationSnapshotSha256": "66467e179210593bc462c7669f9e51ec69db6a7734dab4949ec8768b8f907a74",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+        "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+          "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
       "previousObservation": {
         "id": "animation:s-short-expert-flow/1",
         "dimension": "pageAccessible",
-        "fingerprint": "5cf7f7cfbc7082ffacfad01d5f0394ee1b279fc986c4aa93f8a15391d8ba4a62",
+        "fingerprint": "f4cbfc14d14cf7101597a846cff94425f68fff9d1fc18f9509fb456482fd6549",
         "status": "passed",
         "date": "2026-10-15",
         "reviewer": "root（实际CUA）；inventory（证据转录）",
         "scope": "当前构建逐引用实际点击data-demo进入播放器。",
         "evidence": [
-          ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/1"
-        ]
+          ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/1"
+        ],
+        "previousObservation": {
+          "id": "animation:s-short-expert-flow/1",
+          "dimension": "pageAccessible",
+          "fingerprint": "5cf7f7cfbc7082ffacfad01d5f0394ee1b279fc986c4aa93f8a15391d8ba4a62",
+          "status": "passed",
+          "date": "2026-10-15",
+          "reviewer": "root（实际CUA）；inventory（证据转录）",
+          "scope": "当前构建逐引用实际点击data-demo进入播放器。",
+          "evidence": [
+            ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/1"
+          ]
+        }
       }
     },
     {
       "id": "animation:s-short-expert-flow/1",
       "dimension": "animationRendered",
-      "fingerprint": "f4cbfc14d14cf7101597a846cff94425f68fff9d1fc18f9509fb456482fd6549",
       "status": "passed",
-      "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据转录）",
-      "scope": "当前引用打开后canvas>0且range输入存在；仅确认实际播放器挂载，不宣称运动连续性、帧画面正确或所有variant已观察。",
+      "scope": "实际Chrome/CUA截图看到WebGL三维、实体及关节和同源路线；无WebGL独立降级不包含在本记录。",
       "evidence": [
-        ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/1"
+        "docs/level4-short-sequence-visual-review.md",
+        ".validation/level4-motion/short-visual-review.json",
+        ".validation/level4-animation/release-observations.json#animation:s-short-expert-flow/1/animationRendered"
       ],
+      "fingerprint": "379e6c491b5615900da54b727f31b8ffe69d28a97e638c2b86161fb16016a4a1",
+      "date": "2026-10-15",
+      "reviewer": "short_route（实际Chrome/CUA）；inventory（记录对读与范围转录）",
+      "observationSnapshotSha256": "28178e80b1be0244972d919860343f2cc4cf205f0224801e526b99000852e63f",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+        "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+          "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
       "previousObservation": {
         "id": "animation:s-short-expert-flow/1",
         "dimension": "animationRendered",
-        "fingerprint": "5cf7f7cfbc7082ffacfad01d5f0394ee1b279fc986c4aa93f8a15391d8ba4a62",
+        "fingerprint": "f4cbfc14d14cf7101597a846cff94425f68fff9d1fc18f9509fb456482fd6549",
         "status": "passed",
         "date": "2026-10-15",
         "reviewer": "root（实际CUA）；inventory（证据转录）",
         "scope": "当前引用打开后canvas>0且range输入存在；仅确认实际播放器挂载，不宣称运动连续性、帧画面正确或所有variant已观察。",
         "evidence": [
-          ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/1"
-        ]
-      }
-    },
-    {
-      "id": "animation:s-short-expert-flow/2",
-      "dimension": "pageAccessible",
-      "fingerprint": "4c074a2b0fc200471c0b871a425b9e647b0f63f56eb10c322fbacb6d91ab46a1",
-      "status": "passed",
-      "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据转录）",
-      "scope": "当前构建逐引用实际点击data-demo进入播放器。",
-      "evidence": [
-        ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/2"
-      ],
-      "previousObservation": {
-        "id": "animation:s-short-expert-flow/2",
-        "dimension": "pageAccessible",
-        "fingerprint": "8df9891ab7ddd29a5c03584c6945909ffcca984fcc89aa00cbeef297bf9749ef",
-        "status": "passed",
-        "date": "2026-10-15",
-        "reviewer": "root（实际CUA）；inventory（证据转录）",
-        "scope": "当前构建逐引用实际点击data-demo进入播放器。",
-        "evidence": [
-          ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/2"
-        ]
-      }
-    },
-    {
-      "id": "animation:s-short-expert-flow/2",
-      "dimension": "animationRendered",
-      "fingerprint": "4c074a2b0fc200471c0b871a425b9e647b0f63f56eb10c322fbacb6d91ab46a1",
-      "status": "passed",
-      "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据转录）",
-      "scope": "当前引用打开后canvas>0且range输入存在；仅确认实际播放器挂载，不宣称运动连续性、帧画面正确或所有variant已观察。",
-      "evidence": [
-        ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/2"
-      ],
-      "previousObservation": {
-        "id": "animation:s-short-expert-flow/2",
-        "dimension": "animationRendered",
-        "fingerprint": "8df9891ab7ddd29a5c03584c6945909ffcca984fcc89aa00cbeef297bf9749ef",
-        "status": "passed",
-        "date": "2026-10-15",
-        "reviewer": "root（实际CUA）；inventory（证据转录）",
-        "scope": "当前引用打开后canvas>0且range输入存在；仅确认实际播放器挂载，不宣称运动连续性、帧画面正确或所有variant已观察。",
-        "evidence": [
-          ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/2"
-        ]
+          ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/1"
+        ],
+        "previousObservation": {
+          "id": "animation:s-short-expert-flow/1",
+          "dimension": "animationRendered",
+          "fingerprint": "5cf7f7cfbc7082ffacfad01d5f0394ee1b279fc986c4aa93f8a15391d8ba4a62",
+          "status": "passed",
+          "date": "2026-10-15",
+          "reviewer": "root（实际CUA）；inventory（证据转录）",
+          "scope": "当前引用打开后canvas>0且range输入存在；仅确认实际播放器挂载，不宣称运动连续性、帧画面正确或所有variant已观察。",
+          "evidence": [
+            ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/1"
+          ]
+        }
       }
     },
     {
@@ -46133,57 +46428,92 @@
       "id": "animation:s-short-expert-flow/1",
       "dimension": "teachingVerified",
       "status": "partial",
-      "scope": "根代理有限图审：持续引导Regular t=0/.125/.25/.375/.5/1；Goofy沿板长t=0/.125/.25/.375；较晚集中Regular .125/.165/.25及Goofy雪靴近景.375。未见明显断脚、异常关节或固定器分离。两变体实际1倍速、阶段与末态循环检查另记；不是全帧教学验收或真人标定。 本引用复用已观察的相同任务配置；flow两引用不另计为四个新动作。",
-      "checks": [
-        "root实际离散画面",
-        "同任务配置复用",
-        "16秒为作者观察时长",
-        "2.5米为作者参考通道",
-        "source支持任务而非实测模型参数"
+      "scope": "planned-recovery：regular/heel正常0→100，有限截图0/1/50/77/100；goofy/toe慢放约25–43%、阶段7/8/11/12和恢复19–24，实体/骨架、斜视/前后/两刃/靴近景。最终2417226版本100%当前段重播回77%并推进82%，Home退出循环；有限帧与实际运行分别记录，非全12配置逐帧审阅或真人校准。",
+      "evidence": [
+        "docs/level4-short-sequence-visual-review.md",
+        ".validation/level4-motion/short-visual-review.json",
+        ".validation/level4-animation/release-observations.json#animation:s-short-expert-flow/1/teachingVerified"
       ],
+      "fingerprint": "379e6c491b5615900da54b727f31b8ffe69d28a97e638c2b86161fb16016a4a1",
+      "date": "2026-10-15",
+      "reviewer": "short_route（实际Chrome/CUA）；inventory（记录对读与范围转录）",
+      "observationSnapshotSha256": "8ac8c1d2de690fb9c835a090e2121e6610f890ef5cb86f81c487bc0ec076c1df",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+        "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+          "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
       "sourceChecks": [
         {
           "ledger": "docs/source-claim-audit.json",
           "lessonId": "s-short-expert-flow",
-          "status": "reviewed-with-scope",
+          "claimPath": "demos[0]",
+          "status": "suggestion-with-source-boundary",
+          "evidence": "docs/level4-animation-source-claim-review.md",
           "realFootageCalibration": "not-performed"
         }
       ],
-      "fingerprint": "f4cbfc14d14cf7101597a846cff94425f68fff9d1fc18f9509fb456482fd6549",
-      "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
-      "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#animation:s-short-expert-flow/1/teachingVerified"
-      ]
-    },
-    {
-      "id": "animation:s-short-expert-flow/2",
-      "dimension": "teachingVerified",
-      "status": "partial",
-      "scope": "根代理有限图审：连续调节Regular前后平衡视角t=0/.125/.165/.25；准备偏晚Regular .125/.165，Goofy教学强调.415及前刃起始Goofy沿板长.165。实际检查同源腿长实/虚线、进度和同帧读数；这不是压力曲线，板与放刃时刻相同。不是全帧教学验收或真人标定。 本引用复用已观察的相同任务配置；flow两引用不另计为四个新动作。",
-      "checks": [
-        "root实际离散画面",
-        "同任务配置复用",
-        "16秒为作者观察时长",
-        "2.5米为作者参考通道",
-        "source支持任务而非实测模型参数"
-      ],
-      "sourceChecks": [
-        {
-          "ledger": "docs/source-claim-audit.json",
-          "lessonId": "s-short-expert-flow",
-          "status": "reviewed-with-scope",
-          "realFootageCalibration": "not-performed"
-        }
-      ],
-      "fingerprint": "4c074a2b0fc200471c0b871a425b9e647b0f63f56eb10c322fbacb6d91ab46a1",
-      "date": "2026-10-15",
-      "reviewer": "root（实际CUA）；inventory（证据范围核对）",
-      "evidence": [
-        "docs/level4-release-review.md",
-        ".validation/level4/release-observations.json#animation:s-short-expert-flow/2/teachingVerified"
-      ]
+      "previousObservation": {
+        "id": "animation:s-short-expert-flow/1",
+        "dimension": "teachingVerified",
+        "status": "partial",
+        "scope": "根代理有限图审：持续引导Regular t=0/.125/.25/.375/.5/1；Goofy沿板长t=0/.125/.25/.375；较晚集中Regular .125/.165/.25及Goofy雪靴近景.375。未见明显断脚、异常关节或固定器分离。两变体实际1倍速、阶段与末态循环检查另记；不是全帧教学验收或真人标定。 本引用复用已观察的相同任务配置；flow两引用不另计为四个新动作。",
+        "checks": [
+          "root实际离散画面",
+          "同任务配置复用",
+          "16秒为作者观察时长",
+          "2.5米为作者参考通道",
+          "source支持任务而非实测模型参数"
+        ],
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "s-short-expert-flow",
+            "status": "reviewed-with-scope",
+            "realFootageCalibration": "not-performed"
+          }
+        ],
+        "fingerprint": "f4cbfc14d14cf7101597a846cff94425f68fff9d1fc18f9509fb456482fd6549",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "evidence": [
+          "docs/level4-release-review.md",
+          ".validation/level4/release-observations.json#animation:s-short-expert-flow/1/teachingVerified"
+        ]
+      }
     },
     {
       "id": "lesson:s-carve-expert-arc",
@@ -47681,6 +48011,817 @@
             "S16"
           ],
           "status": "curriculum-suggestion-reviewed"
+        }
+      ]
+    },
+    {
+      "id": "animation:s-carve-expert-arc/1",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "scope": "当前新课动画入口与放大播放器通过实际Chrome访问；详见审阅文档。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-arc/1/pageAccessible"
+      ],
+      "fingerprint": "f72b40e4f497e0dea2ed82c30a8196784d60c26be8f842362fdca912ca6a4701",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "820c7a91e5380558257d2064058bc62c317ae3ff886ebc8a6ac4eeff9870c810",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "previousObservation": {
+        "id": "animation:s-carve-expert-arc/1",
+        "dimension": "pageAccessible",
+        "status": "passed",
+        "scope": "当前新课动画入口与放大播放器通过实际Chrome访问；详见审阅文档。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-arc/1/pageAccessible"
+        ],
+        "fingerprint": "f72b40e4f497e0dea2ed82c30a8196784d60c26be8f842362fdca912ca6a4701",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "820c7a91e5380558257d2064058bc62c317ae3ff886ebc8a6ac4eeff9870c810"
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-arc/1",
+      "dimension": "animationRendered",
+      "status": "passed",
+      "scope": "当前新引用实际WebGL渲染，三任务五变体代表帧；左脚后刃起与右脚前刃起，两刃/近平板/两向转换覆盖范围见文档。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-arc/1/animationRendered"
+      ],
+      "fingerprint": "f72b40e4f497e0dea2ed82c30a8196784d60c26be8f842362fdca912ca6a4701",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "2a67ba0d4a9a9e947dfddc3ca2c8c70a6c2a35a8b4a02e35df35ce0201bfc796",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "previousObservation": {
+        "id": "animation:s-carve-expert-arc/1",
+        "dimension": "animationRendered",
+        "status": "passed",
+        "scope": "当前新引用实际WebGL渲染，三任务五变体代表帧；左脚后刃起与右脚前刃起，两刃/近平板/两向转换覆盖范围见文档。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-arc/1/animationRendered"
+        ],
+        "fingerprint": "f72b40e4f497e0dea2ed82c30a8196784d60c26be8f842362fdca912ca6a4701",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "2a67ba0d4a9a9e947dfddc3ca2c8c70a6c2a35a8b4a02e35df35ce0201bfc796"
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-arc/1",
+      "dimension": "teachingVerified",
+      "status": "partial",
+      "scope": "root有限实际观察：regular先接后刃的两刃落线帧；goofy先接前刃的前刃、近平板与后刃；两刃视角及靴近景，正常运行后暂停。观察显示双侧组织、平板过渡、靴板连接及同源路线；未逐帧审全部20组合，也未测真实抓地、速度或真人标定。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        "docs/level4-carving-animation-spec.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-arc/1/teachingVerified"
+      ],
+      "fingerprint": "f72b40e4f497e0dea2ed82c30a8196784d60c26be8f842362fdca912ca6a4701",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "a1157cc93f31dc362ca0185bf44e3a70e268fa78f0da3229db1baab380ef4a8e",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-arc",
+          "claimPath": "demos[0]",
+          "status": "suggestion-with-source-boundary",
+          "evidence": "docs/level4-animation-source-claim-review.md",
+          "realFootageCalibration": "not-performed"
+        }
+      ],
+      "previousObservation": {
+        "id": "animation:s-carve-expert-arc/1",
+        "dimension": "teachingVerified",
+        "status": "partial",
+        "scope": "官方任务与作者运动学边界、实际代表帧/正常慢放运行核对；无真人逐帧标定、真实压力或专家速度验证。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          "docs/level4-carving-animation-spec.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-arc/1/teachingVerified"
+        ],
+        "fingerprint": "f72b40e4f497e0dea2ed82c30a8196784d60c26be8f842362fdca912ca6a4701",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "8532f0983644b3d3ef1ad8ffa8c924e4c5ce3064ecaae18dba5526ea8ee13690",
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "s-carve-expert-arc",
+            "claimPath": "demos[0]",
+            "status": "suggestion-with-source-boundary",
+            "evidence": "docs/level4-animation-source-claim-review.md",
+            "realFootageCalibration": "not-performed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-pressure/1",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "scope": "当前新课动画入口与放大播放器通过实际Chrome访问；详见审阅文档。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-pressure/1/pageAccessible"
+      ],
+      "fingerprint": "59ffc9fe03776561a52675af1ec29aba74efa60c98a316fe26980cbc3300e698",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "820c7a91e5380558257d2064058bc62c317ae3ff886ebc8a6ac4eeff9870c810",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "previousObservation": {
+        "id": "animation:s-carve-expert-pressure/1",
+        "dimension": "pageAccessible",
+        "status": "passed",
+        "scope": "当前新课动画入口与放大播放器通过实际Chrome访问；详见审阅文档。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-pressure/1/pageAccessible"
+        ],
+        "fingerprint": "59ffc9fe03776561a52675af1ec29aba74efa60c98a316fe26980cbc3300e698",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "820c7a91e5380558257d2064058bc62c317ae3ff886ebc8a6ac4eeff9870c810"
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-pressure/1",
+      "dimension": "animationRendered",
+      "status": "passed",
+      "scope": "当前新引用实际WebGL渲染，三任务五变体代表帧；左脚后刃起与右脚前刃起，两刃/近平板/两向转换覆盖范围见文档。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-pressure/1/animationRendered"
+      ],
+      "fingerprint": "59ffc9fe03776561a52675af1ec29aba74efa60c98a316fe26980cbc3300e698",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "2a67ba0d4a9a9e947dfddc3ca2c8c70a6c2a35a8b4a02e35df35ce0201bfc796",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "previousObservation": {
+        "id": "animation:s-carve-expert-pressure/1",
+        "dimension": "animationRendered",
+        "status": "passed",
+        "scope": "当前新引用实际WebGL渲染，三任务五变体代表帧；左脚后刃起与右脚前刃起，两刃/近平板/两向转换覆盖范围见文档。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-pressure/1/animationRendered"
+        ],
+        "fingerprint": "59ffc9fe03776561a52675af1ec29aba74efa60c98a316fe26980cbc3300e698",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "2a67ba0d4a9a9e947dfddc3ca2c8c70a6c2a35a8b4a02e35df35ce0201bfc796"
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-pressure/1",
+      "dimension": "teachingVerified",
+      "status": "partial",
+      "scope": "root有限实际观察：两个变体同进度切换，regular先接后刃阶段3与goofy先接前刃阶段10，侧面/两刃/教学强调；实际腿长曲线和当前点可比，例4%为参考0.783m、偏晚0.804m。板路径与刃事件保持一致；这是作者几何，不是实际压力、回弹或旧刃释放延迟；无逐帧/真人标定。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        "docs/level4-carving-animation-spec.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-pressure/1/teachingVerified"
+      ],
+      "fingerprint": "59ffc9fe03776561a52675af1ec29aba74efa60c98a316fe26980cbc3300e698",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "f1a2c4dbe84ff8abef53d32baf0bd015d8512ea9b421bbf1a748d9e317540845",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-pressure",
+          "claimPath": "demos[0]",
+          "status": "suggestion-with-source-boundary",
+          "evidence": "docs/level4-animation-source-claim-review.md",
+          "realFootageCalibration": "not-performed"
+        }
+      ],
+      "previousObservation": {
+        "id": "animation:s-carve-expert-pressure/1",
+        "dimension": "teachingVerified",
+        "status": "partial",
+        "scope": "官方任务与作者运动学边界、实际代表帧/正常慢放运行核对；无真人逐帧标定、真实压力或专家速度验证。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          "docs/level4-carving-animation-spec.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-pressure/1/teachingVerified"
+        ],
+        "fingerprint": "59ffc9fe03776561a52675af1ec29aba74efa60c98a316fe26980cbc3300e698",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "8532f0983644b3d3ef1ad8ffa8c924e4c5ce3064ecaae18dba5526ea8ee13690",
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "s-carve-expert-pressure",
+            "claimPath": "demos[0]",
+            "status": "suggestion-with-source-boundary",
+            "evidence": "docs/level4-animation-source-claim-review.md",
+            "realFootageCalibration": "not-performed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-variation/1",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "scope": "当前新课动画入口与放大播放器通过实际Chrome访问；详见审阅文档。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-variation/1/pageAccessible"
+      ],
+      "fingerprint": "d92087ebd4085506beb7cdc8a057c0ffa900874d0f7570f05646dd7d75e7a3a8",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "820c7a91e5380558257d2064058bc62c317ae3ff886ebc8a6ac4eeff9870c810",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "previousObservation": {
+        "id": "animation:s-carve-expert-variation/1",
+        "dimension": "pageAccessible",
+        "status": "passed",
+        "scope": "当前新课动画入口与放大播放器通过实际Chrome访问；详见审阅文档。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-variation/1/pageAccessible"
+        ],
+        "fingerprint": "d92087ebd4085506beb7cdc8a057c0ffa900874d0f7570f05646dd7d75e7a3a8",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "820c7a91e5380558257d2064058bc62c317ae3ff886ebc8a6ac4eeff9870c810"
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-variation/1",
+      "dimension": "animationRendered",
+      "status": "passed",
+      "scope": "当前新引用实际WebGL渲染，三任务五变体代表帧；左脚后刃起与右脚前刃起，两刃/近平板/两向转换覆盖范围见文档。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-variation/1/animationRendered"
+      ],
+      "fingerprint": "d92087ebd4085506beb7cdc8a057c0ffa900874d0f7570f05646dd7d75e7a3a8",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "2a67ba0d4a9a9e947dfddc3ca2c8c70a6c2a35a8b4a02e35df35ce0201bfc796",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "previousObservation": {
+        "id": "animation:s-carve-expert-variation/1",
+        "dimension": "animationRendered",
+        "status": "passed",
+        "scope": "当前新引用实际WebGL渲染，三任务五变体代表帧；左脚后刃起与右脚前刃起，两刃/近平板/两向转换覆盖范围见文档。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-variation/1/animationRendered"
+        ],
+        "fingerprint": "d92087ebd4085506beb7cdc8a057c0ffa900874d0f7570f05646dd7d75e7a3a8",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "2a67ba0d4a9a9e947dfddc3ca2c8c70a6c2a35a8b4a02e35df35ce0201bfc796"
+      }
+    },
+    {
+      "id": "animation:s-carve-expert-variation/1",
+      "dimension": "teachingVerified",
+      "status": "partial",
+      "scope": "root有限实际观察：正常/稍低后恢复两变体，regular先接后刃阶段16与前刃阶段22；goofy先接前刃的较低后刃阶段22、恢复前刃阶段28，基准/教学强调。中两侧实际降低后段恢复可见。末态当前段重播回约84%并推进、慢放完整重播；禁WebGL实际0 canvas/1 SVG并从58%到100%，390 iframe实际375宽无横溢出。不是全20组合逐帧、真实同速平衡或真人标定。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        "docs/level4-carving-animation-spec.md",
+        ".validation/level4-animation/release-observations.json#animation:s-carve-expert-variation/1/teachingVerified"
+      ],
+      "fingerprint": "d92087ebd4085506beb7cdc8a057c0ffa900874d0f7570f05646dd7d75e7a3a8",
+      "date": "2026-10-15",
+      "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+      "observationSnapshotSha256": "03bde171a2d082453cd49d8c8839237ee37758a6d7cb8b3997e3afd9c970e8bd",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "note": "root三刻滑实际观察与末态复验；随后仅分区通道配色修改按独立范围补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-carve-expert-variation",
+          "claimPath": "demos[0]",
+          "status": "suggestion-with-source-boundary",
+          "evidence": "docs/level4-animation-source-claim-review.md",
+          "realFootageCalibration": "not-performed"
+        }
+      ],
+      "previousObservation": {
+        "id": "animation:s-carve-expert-variation/1",
+        "dimension": "teachingVerified",
+        "status": "partial",
+        "scope": "官方任务与作者运动学边界、实际代表帧/正常慢放运行核对；无真人逐帧标定、真实压力或专家速度验证。",
+        "evidence": [
+          "docs/level4-animation-release-review.md",
+          "docs/level4-carving-animation-spec.md",
+          ".validation/level4-animation/release-observations.json#animation:s-carve-expert-variation/1/teachingVerified"
+        ],
+        "fingerprint": "d92087ebd4085506beb7cdc8a057c0ffa900874d0f7570f05646dd7d75e7a3a8",
+        "date": "2026-10-15",
+        "reviewer": "root（实际CUA）；inventory（独立记录对读与范围转录）",
+        "observationSnapshotSha256": "8532f0983644b3d3ef1ad8ffa8c924e4c5ce3064ecaae18dba5526ea8ee13690",
+        "sourceChecks": [
+          {
+            "ledger": "docs/source-claim-audit.json",
+            "lessonId": "s-carve-expert-variation",
+            "claimPath": "demos[0]",
+            "status": "suggestion-with-source-boundary",
+            "evidence": "docs/level4-animation-source-claim-review.md",
+            "realFootageCalibration": "not-performed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "animation:s-short-expert-transfer/1",
+      "dimension": "pageAccessible",
+      "status": "passed",
+      "scope": "short_route实际从本课程新引用打开播放器，操作前脚/刃/视角/播放等公开控件；不是由同任务的另一引用外推。",
+      "evidence": [
+        "docs/level4-short-sequence-visual-review.md",
+        ".validation/level4-motion/short-visual-review.json",
+        ".validation/level4-animation/release-observations.json#animation:s-short-expert-transfer/1/pageAccessible"
+      ],
+      "fingerprint": "146d2617fd3883d83c664181c7ed18bae72df9921e5cd68efa74e4836737520a",
+      "date": "2026-10-15",
+      "reviewer": "short_route（实际Chrome/CUA）；inventory（记录对读与范围转录）",
+      "observationSnapshotSha256": "66467e179210593bc462c7669f9e51ec69db6a7734dab4949ec8768b8f907a74",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+        "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+          "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      }
+    },
+    {
+      "id": "animation:s-short-expert-transfer/1",
+      "dimension": "animationRendered",
+      "status": "passed",
+      "scope": "实际Chrome/CUA截图看到WebGL三维、实体及关节和同源路线；无WebGL独立降级不包含在本记录。",
+      "evidence": [
+        "docs/level4-short-sequence-visual-review.md",
+        ".validation/level4-motion/short-visual-review.json",
+        ".validation/level4-animation/release-observations.json#animation:s-short-expert-transfer/1/animationRendered"
+      ],
+      "fingerprint": "146d2617fd3883d83c664181c7ed18bae72df9921e5cd68efa74e4836737520a",
+      "date": "2026-10-15",
+      "reviewer": "short_route（实际Chrome/CUA）；inventory（记录对读与范围转录）",
+      "observationSnapshotSha256": "28178e80b1be0244972d919860343f2cc4cf205f0224801e526b99000852e63f",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+        "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+          "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      }
+    },
+    {
+      "id": "animation:s-short-expert-transfer/1",
+      "dimension": "teachingVerified",
+      "status": "partial",
+      "scope": "guided-slide regular/heel正常0→100，有限截图1/32/51/91/100%；37.5%同进度两策略对照。edge-guided goofy/toe正常0→100，截图1/61/99/100%，慢放32–47%、阶段8/9/11/12、靴与前后视角；guided-slide goofy/toe实体慢31–50%。最终2417226版本100%重播回76.5%并推进93%，显示完整恢复标签。无全12配置逐帧审阅、压力/速度或真人标定。",
+      "evidence": [
+        "docs/level4-short-sequence-visual-review.md",
+        ".validation/level4-motion/short-visual-review.json",
+        ".validation/level4-animation/release-observations.json#animation:s-short-expert-transfer/1/teachingVerified"
+      ],
+      "fingerprint": "146d2617fd3883d83c664181c7ed18bae72df9921e5cd68efa74e4836737520a",
+      "date": "2026-10-15",
+      "reviewer": "short_route（实际Chrome/CUA）；inventory（记录对读与范围转录）",
+      "observationSnapshotSha256": "d335aa2f700e24eef04e4d49300b3cd49ad1d7d312f5a992a5d35861e4c2e6d8",
+      "observedBuild": {
+        "finalReplayIndexBytes": 2417226,
+        "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+        "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+      },
+      "versionBridge": {
+        "kind": "explicit-scoped-renderer-regression",
+        "priorObservation": {
+          "finalReplayIndexBytes": 2417226,
+          "finalRuntimeSha256": "5ad3686b6b8274b7d65047bfce233069bf3f606e2ee5a3ad9d20dc53afa48392",
+          "note": "多轮布局与末态复验的准确版本范围详见原报告；随后仅通道配色修改需单独补验。"
+        },
+        "finalIndexBytes": 2417198,
+        "changedFiles": [
+          "lesson-player/main.tsx",
+          "prototype/scene.tsx"
+        ],
+        "reason": "root最终修正两处通道配色为统一灰色，避免局部过滤index变色；动作模型、播放逻辑、样式和诊断源未改。保留前述实际捕获版本，只用本次真实补验覆盖该可视差分；不写成五引用重新全看。",
+        "actualRegression": {
+          "date": "2026-10-15",
+          "reviewer": "root（实际Chrome/CUA）",
+          "browserTabId": "679505820",
+          "origin": "http://127.0.0.1:8766/",
+          "lessonId": "s-short-expert-flow",
+          "variant": "planned-recovery",
+          "stance": "regular",
+          "fromEdge": "heel",
+          "stage": 7,
+          "progressPercent": 25,
+          "finalIndexBytes": 2417198,
+          "scope": "实际reload最终构建并放大；3D入口与稳定段边界、当前局部2D均灰；展开完整滑段后全部分区边界统一灰，局部/全段一致。仅两处配色差分补验，不重新授予五引用全部图审。",
+          "evidence": [
+            "root当前任务CUA实际截图与观察消息",
+            "docs/level4-animation-release-review.md"
+          ]
+        },
+        "sourceComparison": ".validation/level4-animation/post-observation-input-diff.json"
+      },
+      "sourceChecks": [
+        {
+          "ledger": "docs/source-claim-audit.json",
+          "lessonId": "s-short-expert-transfer",
+          "claimPath": "demos[0]",
+          "status": "suggestion-with-source-boundary",
+          "evidence": "docs/level4-animation-source-claim-review.md",
+          "realFootageCalibration": "not-performed"
         }
       ]
     }
@@ -49506,44 +50647,6 @@
       ]
     },
     {
-      "id": "animation:s-short-expert-flow/1",
-      "fingerprint": "d2f0d5fd25fb949aee06d5d8af9cd3d6e46dc36ff3cc91c90ae098cc83d72061",
-      "date": "2026-10-15",
-      "reviewer": "inventory",
-      "parts": [
-        "text",
-        "references",
-        "scope"
-      ],
-      "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
-      "evidence": [
-        "docs/lesson-expert-short-turns-spec.md",
-        "lesson-player/expert-short-turns.ts",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
-    },
-    {
-      "id": "animation:s-short-expert-flow/2",
-      "fingerprint": "f9a19c56281a8d59815a4bbf1d4c6bab7b53c786407a34cfb801b67509515a87",
-      "date": "2026-10-15",
-      "reviewer": "inventory",
-      "parts": [
-        "text",
-        "references",
-        "scope"
-      ],
-      "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
-      "evidence": [
-        "docs/lesson-expert-short-turns-spec.md",
-        "lesson-player/expert-short-turns.ts",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
-    },
-    {
       "id": "video-study:s-short-expert-review",
       "fingerprint": "f279b8ed329302afd97e44f8d3eb4a258119eef33f90bcaecc87c5414fa37947",
       "date": "2026-10-15",
@@ -50101,63 +51204,6 @@
       }
     },
     {
-      "id": "animation-type:expert-short-turns",
-      "fingerprint": "7608d86c72e34a13dbbfd1686a092e761831ad75fa0681705c27dc288c3c894a",
-      "date": "2026-10-15",
-      "reviewer": "inventory",
-      "parts": [
-        "text",
-        "references",
-        "scope"
-      ],
-      "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
-      "evidence": [
-        "docs/lesson-expert-short-turns-spec.md",
-        "lesson-player/expert-short-turns.ts",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
-    },
-    {
-      "id": "animation-task:expert-corridor-steering",
-      "fingerprint": "a363e5272197fe96233c09738e7cccd0d8deb555022070ee8de6f54e153ee0a9",
-      "date": "2026-10-15",
-      "reviewer": "inventory",
-      "parts": [
-        "text",
-        "references",
-        "scope"
-      ],
-      "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
-      "evidence": [
-        "docs/lesson-expert-short-turns-spec.md",
-        "lesson-player/expert-short-turns.ts",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
-    },
-    {
-      "id": "animation-task:expert-load-release",
-      "fingerprint": "a280733742ae2c457145fac431ba68066e65b7291942a0cdb8634dfca2597cc4",
-      "date": "2026-10-15",
-      "reviewer": "inventory",
-      "parts": [
-        "text",
-        "references",
-        "scope"
-      ],
-      "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
-      "evidence": [
-        "docs/lesson-expert-short-turns-spec.md",
-        "lesson-player/expert-short-turns.ts",
-        "docs/level4-source-claim-review.md",
-        "docs/source-claim-audit.json",
-        "docs/level4-short-official-standards.md"
-      ]
-    },
-    {
       "id": "module:carving",
       "fingerprint": "660e8f3a52ec94ffbcda4230a134a408c2be877149ad362b2d077a3717d2ed6e",
       "date": "2026-10-15",
@@ -50575,136 +51621,407 @@
         "docs/level4-carving-official-standards.md",
         "docs/level4-carving-curriculum.md"
       ]
+    },
+    {
+      "id": "animation:s-short-expert-flow/1",
+      "fingerprint": "c398460c79586dbc05582c846ec4dc3019276d01fcd5bb7a2bd19f4a16b2acb5",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-short-animation-coverage.md"
+      ],
+      "previousReview": {
+        "id": "animation:s-short-expert-flow/1",
+        "fingerprint": "d2f0d5fd25fb949aee06d5d8af9cd3d6e46dc36ff3cc91c90ae098cc83d72061",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
+        "evidence": [
+          "docs/lesson-expert-short-turns-spec.md",
+          "lesson-player/expert-short-turns.ts",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      }
+    },
+    {
+      "id": "animation:s-short-expert-transfer/1",
+      "fingerprint": "116d1c46ac3305a1bb588c5b918b5b3f1b80fb129f689ea84db8ae9f3a35706e",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-short-animation-coverage.md"
+      ]
+    },
+    {
+      "id": "animation:s-carve-expert-arc/1",
+      "fingerprint": "22727c6ed5145a21e5c441ccaed5c384c3c371855aa0d044d206e7ba01c2d5bc",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-carving-animation-spec.md"
+      ]
+    },
+    {
+      "id": "animation:s-carve-expert-pressure/1",
+      "fingerprint": "4994931f86f11a3e66dc5c74dddb759ef4a4108da403a5cf7c83178978b82be6",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-carving-animation-spec.md"
+      ]
+    },
+    {
+      "id": "animation:s-carve-expert-variation/1",
+      "fingerprint": "461e9ec180716125a492f2dc515faad1127acb72b8ab5b8dd2c975b30426580b",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-carving-animation-spec.md"
+      ]
+    },
+    {
+      "id": "animation-type:expert-short-turns",
+      "fingerprint": "a99f4c145892971bfcca203b62124c7d1008619ede6007145ae914ce4bb054e4",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际核对引用清单：flow的两项复用已移出，此类型/任务仍由原steering/pressure课程引用。旧任务源码未变，原审读保留；这里只复读引用索引变化，不授予新的画面状态。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "animation-type:expert-short-turns",
+        "fingerprint": "7608d86c72e34a13dbbfd1686a092e761831ad75fa0681705c27dc288c3c894a",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
+        "evidence": [
+          "docs/lesson-expert-short-turns-spec.md",
+          "lesson-player/expert-short-turns.ts",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      }
+    },
+    {
+      "id": "animation-type:expert-short-sequence",
+      "fingerprint": "dd8f86d4538de0d86c98d95db35e8207a16d48000a9645cc9371870b3f3efb50",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-short-animation-coverage.md"
+      ]
+    },
+    {
+      "id": "animation-type:expert-carving",
+      "fingerprint": "c838fe09a7d494cdfe51dc678f420dc994035ee4a4a2b15b67374a579984e3aa",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-carving-animation-spec.md"
+      ]
+    },
+    {
+      "id": "animation-task:expert-corridor-steering",
+      "fingerprint": "a84c3c017be631a1a62f25104fd60196e44c7178faad4b9b9fe4b51fcad90dfb",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际核对引用清单：flow的两项复用已移出，此类型/任务仍由原steering/pressure课程引用。旧任务源码未变，原审读保留；这里只复读引用索引变化，不授予新的画面状态。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "animation-task:expert-corridor-steering",
+        "fingerprint": "a363e5272197fe96233c09738e7cccd0d8deb555022070ee8de6f54e153ee0a9",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
+        "evidence": [
+          "docs/lesson-expert-short-turns-spec.md",
+          "lesson-player/expert-short-turns.ts",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      }
+    },
+    {
+      "id": "animation-task:expert-load-release",
+      "fingerprint": "cc56a0b02def996b9325a8492676226e2fbfbe3707263a03b2adb00160125e2a",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际核对引用清单：flow的两项复用已移出，此类型/任务仍由原steering/pressure课程引用。旧任务源码未变，原审读保留；这里只复读引用索引变化，不授予新的画面状态。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md"
+      ],
+      "previousReview": {
+        "id": "animation-task:expert-load-release",
+        "fingerprint": "a280733742ae2c457145fac431ba68066e65b7291942a0cdb8634dfca2597cc4",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
+        "evidence": [
+          "docs/lesson-expert-short-turns-spec.md",
+          "lesson-player/expert-short-turns.ts",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      }
+    },
+    {
+      "id": "animation-task:expert-run-recovery",
+      "fingerprint": "9dd57e9b29fe9f99663d6a910aa3555ff28491edcdb4b824334d08ddc1e2ef5c",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-short-animation-coverage.md"
+      ]
+    },
+    {
+      "id": "animation-task:expert-steering-range",
+      "fingerprint": "48e916b3c8e9f7c2fbdf3fee7b253b89851357ff1e7a730f9608d24e51b4338c",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-short-animation-coverage.md"
+      ]
+    },
+    {
+      "id": "animation-task:expert-carve-arc",
+      "fingerprint": "5bd9d685000c2367d8cb55e59b20ac5a1859a42ed02a04371dc36ce0ecf55da6",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-carving-animation-spec.md"
+      ]
+    },
+    {
+      "id": "animation-task:expert-carve-release",
+      "fingerprint": "ed4cc1e7130b361dc9cf022ff7446b21188e80efd8c6fe6be887d0d92864fcac",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-carving-animation-spec.md"
+      ]
+    },
+    {
+      "id": "animation-task:expert-carve-adaptation",
+      "fingerprint": "67c19f8521e7ec4b033d82d7c96b552d590fd034a3770ae35ffeecda8023bfdc",
+      "date": "2026-10-15",
+      "reviewer": "inventory",
+      "parts": [
+        "text",
+        "references",
+        "scope"
+      ],
+      "summary": "本轮实际审读当前demo/类型/任务、独立动作源码及规格，核对来源原则与作者参数边界；有限短弯滑段和六弧刻滑的末态语义分别记录。不将源码/阶段或可采样性当作实际渲染、教学通过或实拍标定。",
+      "evidence": [
+        "docs/level4-animation-source-claim-review.md",
+        "docs/level4-animation-coverage-review.md",
+        "docs/level4-carving-animation-spec.md"
+      ]
     }
   ],
   "evidenceSummary": {
+    "phase": "level4-animation-differential-review",
     "date": "2026-10-15",
-    "phase": "level4-carving-differential-review",
-    "objectCount": 884,
-    "persistentSummary": "docs/level4-carving-release-review.md",
-    "textReview": {
-      "totalLessons": 113,
-      "historicalLessonsRetained": 109,
-      "newLessonsRead": 4,
-      "previousLessonsDiffRead": 3,
-      "newDrills": 4,
-      "newDiagnoses": 8,
-      "newAssessmentProtocols": 1,
-      "newAssessmentCriteria": 12,
-      "existingProtocolHintDiffRead": 1,
-      "newVideoStudies": 1,
-      "newVideoSegments": 2
-    },
-    "sourceClaimReview": {
-      "status": "current-scoped-review-completed",
-      "counts": {
-        "direct": 362,
-        "synthesis": 655,
-        "suggestion": 1280,
-        "unverified": 57
-      },
-      "scope": "四新课、三旧课差分、十二项刻滑协议、旧小回转提示与S38/S39扩展；旧57项未核验原样保留。",
-      "evidence": [
-        "docs/level4-carving-source-claim-review.md",
-        "docs/level4-carving-official-standards.md",
-        "docs/source-claim-audit.json"
-      ],
+    "baselineCommit": "307a2253277b7837f3daaab204b93d025c9c1bd8",
+    "scope": "两路线五课demo差分；来源和文字已复读，实际浏览器验收待根代理独立证据。",
+    "content": {
       "lessons": 113,
-      "citations": 455,
-      "totalClaims": 2354,
-      "effectiveSources": 38,
-      "assessmentProtocols": 2
-    },
-    "runtime": {
-      "status": "scoped-current-browser-review-completed",
-      "lessonDom": [
+      "animationReferences": 142,
+      "changedLessonIds": [
+        "s-short-expert-flow",
+        "s-short-expert-transfer",
         "s-carve-expert-arc",
         "s-carve-expert-pressure",
-        "s-carve-expert-variation",
-        "s-carve-expert-review",
-        "v20-path",
-        "s-duck-low-linked",
-        "v-toe-touch-criterion"
+        "s-carve-expert-variation"
       ],
-      "routeNodesOpened": [
-        "expert-carve-reference",
+      "newTaskTypes": [
+        "expert-short-sequence",
+        "expert-carving"
+      ],
+      "newTasks": [
+        "expert-run-recovery",
+        "expert-steering-range",
         "expert-carve-arc",
-        "expert-carve-pressure",
-        "expert-carve-variation",
-        "expert-carve-review"
-      ],
-      "assessmentProtocols": 2,
-      "assessmentCriteria": 23,
-      "videoStudies": 1,
-      "videoSegments": 2,
-      "consoleErrors": 0,
-      "responsive": {
-        "fixtureWidth": 390,
-        "documentClientWidth": 375,
-        "documentScrollWidth": 375,
-        "fields": 35,
-        "overflowFields": 0,
-        "screenshotActuallyViewed": true,
-        "physicalPhone": "excluded_by_user"
-      },
-      "unchangedAnimationRuntime": "动作与lessonruntime未修改；原139引用和3原型模式/1原型页渲染记录由原指纹保留，不记为本轮139重新渲染。",
-      "duckTeaching": "原109课构建有限图审与正常速度循环运行，partial；当前动画依赖与配置未变。",
-      "evidence": [
-        "docs/level4-carving-release-review.md",
-        ".validation/level4-carving/release-observations.json",
-        ".validation/level4-carving/duck-observation-before-content.json"
-      ],
-      "unverifiedScope": "未本轮重跑其他106课、其余27节点、旧课练习/诊断DOM、完整动画人工逐帧或全部异常存储；实体手机排除。",
-      "newDrillDom": 4,
-      "newDiagnosisDom": 8,
-      "pageObservationRecordsThisRound": 58
+        "expert-carve-release",
+        "expert-carve-adaptation"
+      ]
     },
-    "excludedByUser": [
-      "实体手机验收"
-    ],
-    "limits": [
-      "官方大弯任务与本站duck低位应用分别判断，不互相授予通过。",
-      "真人刻滑13帧为有限定性观察，未确认脚角、通道米数、专家速度、压力或关节标定。",
-      "旧其他课程和动画的观察保持原指纹；共享UI变化引起的stale不通过换hash消除。",
-      "没有雪上试教、官方评定或真人模型标定通过。"
-    ],
-    "countsSnapshot": {
-      "discovered": 884,
-      "textReviewed": 585,
-      "reviewStale": 0,
-      "modifiedSinceOriginalAuditBaseline": 638,
-      "dimensions": {
-        "pageAccessible": {
-          "applicable": 782,
-          "passed": 199,
-          "partial": 3,
-          "failed": 0,
-          "blocked": 0,
-          "stale": 570,
-          "not-verified": 10,
-          "not-applicable": 102
-        },
-        "animationRendered": {
-          "applicable": 143,
-          "passed": 143,
-          "partial": 0,
-          "failed": 0,
-          "blocked": 0,
-          "stale": 0,
-          "not-verified": 0,
-          "not-applicable": 741
-        },
-        "teachingVerified": {
-          "applicable": 836,
-          "passed": 0,
-          "partial": 52,
-          "failed": 0,
-          "blocked": 0,
-          "stale": 591,
-          "not-verified": 193,
-          "not-applicable": 48
-        }
-      }
+    "sourceClaims": {
+      "lessons": 113,
+      "citations": 455,
+      "claims": 2357,
+      "effectiveSources": 38,
+      "assessmentProtocols": 2,
+      "direct": 362,
+      "synthesis": 655,
+      "suggestion": 1283,
+      "unverified": 57,
+      "evidence": "docs/level4-animation-source-claim-review.md"
+    },
+    "browser": {
+      "status": "reviewed-with-explicit-limits",
+      "animationReferences": [
+        "animation:s-carve-expert-arc/1",
+        "animation:s-carve-expert-pressure/1",
+        "animation:s-carve-expert-variation/1",
+        "animation:s-short-expert-flow/1",
+        "animation:s-short-expert-transfer/1"
+      ],
+      "coverage": {
+        "pageAccessible": 5,
+        "animationRendered": 5,
+        "teachingPartial": 5
+      },
+      "scope": "仅将独立实际浏览器记录的五个新增/替换引用按维度绑定；有限帧、播放、控件与降级各自范围见记录。旧duck等代表回归不刷新整个旧引用历史。无全站重新图审、实拍标定或教学认证。",
+      "evidence": [
+        "docs/level4-animation-release-review.md",
+        ".validation/level4-animation/release-observations.json"
+      ]
+    },
+    "preservedHistory": {
+      "retiredEntryId": "animation:s-short-expert-flow/2",
+      "remainingHistoricalObservations": "保留原fingerprint与证据；当前状态由生成器判定",
+      "realFootageCalibration": "not-performed"
+    },
+    "textRead": {
+      "lessonDeltas": 5,
+      "newOrChangedAnimationReferences": 5,
+      "newTypes": 2,
+      "newTasks": 5,
+      "changedExistingIndexes": 3,
+      "scope": "仅复读本轮demo和引用索引变化，既有正文审读保留；不更新历史观察指纹。"
     }
   },
   "historicalEvidenceSummaries": [
@@ -50865,6 +52182,241 @@
         ],
         "meaning": "工程回归，不构成教学通过"
       }
+    },
+    {
+      "date": "2026-10-15",
+      "phase": "level4-carving-differential-review",
+      "objectCount": 884,
+      "persistentSummary": "docs/level4-carving-release-review.md",
+      "textReview": {
+        "totalLessons": 113,
+        "historicalLessonsRetained": 109,
+        "newLessonsRead": 4,
+        "previousLessonsDiffRead": 3,
+        "newDrills": 4,
+        "newDiagnoses": 8,
+        "newAssessmentProtocols": 1,
+        "newAssessmentCriteria": 12,
+        "existingProtocolHintDiffRead": 1,
+        "newVideoStudies": 1,
+        "newVideoSegments": 2
+      },
+      "sourceClaimReview": {
+        "status": "current-scoped-review-completed",
+        "counts": {
+          "direct": 362,
+          "synthesis": 655,
+          "suggestion": 1280,
+          "unverified": 57
+        },
+        "scope": "四新课、三旧课差分、十二项刻滑协议、旧小回转提示与S38/S39扩展；旧57项未核验原样保留。",
+        "evidence": [
+          "docs/level4-carving-source-claim-review.md",
+          "docs/level4-carving-official-standards.md",
+          "docs/source-claim-audit.json"
+        ],
+        "lessons": 113,
+        "citations": 455,
+        "totalClaims": 2354,
+        "effectiveSources": 38,
+        "assessmentProtocols": 2
+      },
+      "runtime": {
+        "status": "scoped-current-browser-review-completed",
+        "lessonDom": [
+          "s-carve-expert-arc",
+          "s-carve-expert-pressure",
+          "s-carve-expert-variation",
+          "s-carve-expert-review",
+          "v20-path",
+          "s-duck-low-linked",
+          "v-toe-touch-criterion"
+        ],
+        "routeNodesOpened": [
+          "expert-carve-reference",
+          "expert-carve-arc",
+          "expert-carve-pressure",
+          "expert-carve-variation",
+          "expert-carve-review"
+        ],
+        "assessmentProtocols": 2,
+        "assessmentCriteria": 23,
+        "videoStudies": 1,
+        "videoSegments": 2,
+        "consoleErrors": 0,
+        "responsive": {
+          "fixtureWidth": 390,
+          "documentClientWidth": 375,
+          "documentScrollWidth": 375,
+          "fields": 35,
+          "overflowFields": 0,
+          "screenshotActuallyViewed": true,
+          "physicalPhone": "excluded_by_user"
+        },
+        "unchangedAnimationRuntime": "动作与lessonruntime未修改；原139引用和3原型模式/1原型页渲染记录由原指纹保留，不记为本轮139重新渲染。",
+        "duckTeaching": "原109课构建有限图审与正常速度循环运行，partial；当前动画依赖与配置未变。",
+        "evidence": [
+          "docs/level4-carving-release-review.md",
+          ".validation/level4-carving/release-observations.json",
+          ".validation/level4-carving/duck-observation-before-content.json"
+        ],
+        "unverifiedScope": "未本轮重跑其他106课、其余27节点、旧课练习/诊断DOM、完整动画人工逐帧或全部异常存储；实体手机排除。",
+        "newDrillDom": 4,
+        "newDiagnosisDom": 8,
+        "pageObservationRecordsThisRound": 58
+      },
+      "excludedByUser": [
+        "实体手机验收"
+      ],
+      "limits": [
+        "官方大弯任务与本站duck低位应用分别判断，不互相授予通过。",
+        "真人刻滑13帧为有限定性观察，未确认脚角、通道米数、专家速度、压力或关节标定。",
+        "旧其他课程和动画的观察保持原指纹；共享UI变化引起的stale不通过换hash消除。",
+        "没有雪上试教、官方评定或真人模型标定通过。"
+      ],
+      "countsSnapshot": {
+        "discovered": 884,
+        "textReviewed": 585,
+        "reviewStale": 0,
+        "modifiedSinceOriginalAuditBaseline": 638,
+        "dimensions": {
+          "pageAccessible": {
+            "applicable": 782,
+            "passed": 199,
+            "partial": 3,
+            "failed": 0,
+            "blocked": 0,
+            "stale": 570,
+            "not-verified": 10,
+            "not-applicable": 102
+          },
+          "animationRendered": {
+            "applicable": 143,
+            "passed": 143,
+            "partial": 0,
+            "failed": 0,
+            "blocked": 0,
+            "stale": 0,
+            "not-verified": 0,
+            "not-applicable": 741
+          },
+          "teachingVerified": {
+            "applicable": 836,
+            "passed": 0,
+            "partial": 52,
+            "failed": 0,
+            "blocked": 0,
+            "stale": 591,
+            "not-verified": 193,
+            "not-applicable": 48
+          }
+        }
+      }
+    }
+  ],
+  "retiredEntries": [
+    {
+      "id": "animation:s-short-expert-flow/2",
+      "date": "2026-10-15",
+      "baselineCommit": "307a2253277b7837f3daaab204b93d025c9c1bd8",
+      "reason": "revision18 flow两项复用演示改为一个独立有限滑段；旧编号不再存在，保留历史审读与原观察，不转授给新任务。",
+      "reviewedEntry": {
+        "id": "animation:s-short-expert-flow/2",
+        "fingerprint": "f9a19c56281a8d59815a4bbf1d4c6bab7b53c786407a34cfb801b67509515a87",
+        "date": "2026-10-15",
+        "reviewer": "inventory",
+        "parts": [
+          "text",
+          "references",
+          "scope"
+        ],
+        "summary": "已读当前任务配置、动作源码与规格；两个task共四variant，held-release仅改变腿长调节时机，不能推断真实旧刃滞留或压力。本条只登记技术文字阅读，实际画面另记。",
+        "evidence": [
+          "docs/lesson-expert-short-turns-spec.md",
+          "lesson-player/expert-short-turns.ts",
+          "docs/level4-source-claim-review.md",
+          "docs/source-claim-audit.json",
+          "docs/level4-short-official-standards.md"
+        ]
+      },
+      "observations": [
+        {
+          "id": "animation:s-short-expert-flow/2",
+          "dimension": "pageAccessible",
+          "fingerprint": "4c074a2b0fc200471c0b871a425b9e647b0f63f56eb10c322fbacb6d91ab46a1",
+          "status": "passed",
+          "date": "2026-10-15",
+          "reviewer": "root（实际CUA）；inventory（证据转录）",
+          "scope": "当前构建逐引用实际点击data-demo进入播放器。",
+          "evidence": [
+            ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/2"
+          ],
+          "previousObservation": {
+            "id": "animation:s-short-expert-flow/2",
+            "dimension": "pageAccessible",
+            "fingerprint": "8df9891ab7ddd29a5c03584c6945909ffcca984fcc89aa00cbeef297bf9749ef",
+            "status": "passed",
+            "date": "2026-10-15",
+            "reviewer": "root（实际CUA）；inventory（证据转录）",
+            "scope": "当前构建逐引用实际点击data-demo进入播放器。",
+            "evidence": [
+              ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/2"
+            ]
+          }
+        },
+        {
+          "id": "animation:s-short-expert-flow/2",
+          "dimension": "animationRendered",
+          "fingerprint": "4c074a2b0fc200471c0b871a425b9e647b0f63f56eb10c322fbacb6d91ab46a1",
+          "status": "passed",
+          "date": "2026-10-15",
+          "reviewer": "root（实际CUA）；inventory（证据转录）",
+          "scope": "当前引用打开后canvas>0且range输入存在；仅确认实际播放器挂载，不宣称运动连续性、帧画面正确或所有variant已观察。",
+          "evidence": [
+            ".validation/level4/browser-pages-final.json#animationReferences/animation:s-short-expert-flow/2"
+          ],
+          "previousObservation": {
+            "id": "animation:s-short-expert-flow/2",
+            "dimension": "animationRendered",
+            "fingerprint": "8df9891ab7ddd29a5c03584c6945909ffcca984fcc89aa00cbeef297bf9749ef",
+            "status": "passed",
+            "date": "2026-10-15",
+            "reviewer": "root（实际CUA）；inventory（证据转录）",
+            "scope": "当前引用打开后canvas>0且range输入存在；仅确认实际播放器挂载，不宣称运动连续性、帧画面正确或所有variant已观察。",
+            "evidence": [
+              ".validation/level4/browser-pages.json#animationReferences/animation:s-short-expert-flow/2"
+            ]
+          }
+        },
+        {
+          "id": "animation:s-short-expert-flow/2",
+          "dimension": "teachingVerified",
+          "status": "partial",
+          "scope": "根代理有限图审：连续调节Regular前后平衡视角t=0/.125/.165/.25；准备偏晚Regular .125/.165，Goofy教学强调.415及前刃起始Goofy沿板长.165。实际检查同源腿长实/虚线、进度和同帧读数；这不是压力曲线，板与放刃时刻相同。不是全帧教学验收或真人标定。 本引用复用已观察的相同任务配置；flow两引用不另计为四个新动作。",
+          "checks": [
+            "root实际离散画面",
+            "同任务配置复用",
+            "16秒为作者观察时长",
+            "2.5米为作者参考通道",
+            "source支持任务而非实测模型参数"
+          ],
+          "sourceChecks": [
+            {
+              "ledger": "docs/source-claim-audit.json",
+              "lessonId": "s-short-expert-flow",
+              "status": "reviewed-with-scope",
+              "realFootageCalibration": "not-performed"
+            }
+          ],
+          "fingerprint": "4c074a2b0fc200471c0b871a425b9e647b0f63f56eb10c322fbacb6d91ab46a1",
+          "date": "2026-10-15",
+          "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+          "evidence": [
+            "docs/level4-release-review.md",
+            ".validation/level4/release-observations.json#animation:s-short-expert-flow/2/teachingVerified"
+          ]
+        }
+      ]
     }
   ]
 }

@@ -2,26 +2,26 @@
 
 由 `node scripts/inventory-animations.mjs` 生成。不要直接编辑此文件；迁移分类与人工验收说明维护在脚本，课程用途、配置和资料维护在原有源码。`node scripts/inventory-animations.mjs --check` 可检查清单是否与源码同步。完整配置、逐课资料定位和 claim 见 [JSON 清单](animation-inventory.json)。
 
-**当前课程动画接入：139/139。** 当前引用均由课内三维播放器接管，旧播放器引用为 0。另有 2 项装备交互保留二维。下文的旧模型与共享关键帧是来源盘点，不代表当前渲染。接入数量不代表教学认证或发布完成；实际观察与边界见 [课程播放器审阅](lesson-player-review.md)。
+**当前课程动画接入：142/142。** 当前引用均由课内三维播放器接管，旧播放器引用为 0。另有 2 项装备交互保留二维。下文的旧模型与共享关键帧是来源盘点，不代表当前渲染。接入数量不代表教学认证或发布完成；实际观察与边界见 [课程播放器审阅](lesson-player-review.md)。
 
 ## 数量与口径
 
 | 项目 | 数量 | 含义 |
 | --- | --- | --- |
 | 课程 / 模块 | 113 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
-| 含动画的课程 | 92 | 按 app.js：非空 demos 优先，否则 demo |
-| 迁移范围内的动画引用 | 139 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
+| 含动画的课程 | 96 | 按 app.js：非空 demos 优先，否则 demo |
+| 迁移范围内的动画引用 | 142 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
 | 装备交互图 | 2 | app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画 |
 | 已独立审阅的装备图 | 2 | 保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md |
-| 主站显示的示意总数 | 141 | 课程动画引用 + 装备图；不额外把独立 3D 链接计入 |
-| 无动作/装备图课程 | 19 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
-| 注册 / 当前有引用的类型 | 39 / 37 | 按旧预设与课内注册表并集盘点；不等于当前三维模块数 |
-| 应用变体键 | 73 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 95 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 主站显示的示意总数 | 144 | 课程动画引用 + 装备图；不额外把独立 3D 链接计入 |
+| 无动作/装备图课程 | 15 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
+| 注册 / 当前有引用的类型 | 41 / 39 | 按旧预设与课内注册表并集盘点；不等于当前三维模块数 |
+| 应用变体键 | 78 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
+| 展示配置组合 | 100 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 旧小回转声明变体 | 16 | animations.js 中 3 个类型共享 shortState；当前实现按独立任务和过渡方式接入，不以旧声明推定支持组合 |
 | 3D 模式 / 课程入口 | 3 / 3 | 首页已移除独立入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 37 / 139 | 按注册表已切换默认渲染；不代表教学认证 |
-| 类型注册 / 变体白名单接入类型 | 34 / 3 | 3 个 partial 类型仅支持列明变体；其当前课程引用均已接入，未引用的其他变体不支持；类型注册也仍受 task 门控 |
+| 课内三维类型 / 引用 | 39 / 142 | 按注册表已切换默认渲染；不代表教学认证 |
+| 类型注册 / 变体白名单接入类型 | 36 / 3 | 3 个 partial 类型仅支持列明变体；其当前课程引用均已接入，未引用的其他变体不支持；类型注册也仍受 task 门控 |
 | 当前使用旧播放器的引用 | 0 | 按逐引用 renderer 统计；保留旧源码不等于仍有旧播放器引用 |
 
 ## 旧实现来源的共享关系与当前接入
@@ -34,7 +34,7 @@
 | 小回转共享时序/轨迹 + 双腿 IK | 3 / 34 | 旧 shortRaw / shortState → skeleton；当前小回转由独立任务编排，不能用旧共享关系推定动作相同 |
 | 离雪站立关节模型 | 4 / 12 | 旧 skeleton + sceneBody；当前离雪任务使用独立普通鞋模型和任务接触约束 |
 | 离雪侧面专用模型 | 4 / 8 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
-| 原生三维独立任务（无旧预设） | 2 / 5 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
+| 原生三维独立任务（无旧预设） | 4 / 8 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
 | 压力阶段图 | 4 | 旧来源为 scenePressure；当前保留必要二维时间图，不能解释成实测压力 |
 | 装备交互 | 2 | app.js mountIllustration；保留 2D 几何表达与型号限制 |
 
@@ -92,8 +92,8 @@
 | 压力与屈伸时序 | 10 | 12 | 0 | 0 |
 | 换刃与下肢引导 | 10 | 14 | 0 | 0 |
 | 旋转协调与反脚 | 13 | 17 | 0 | 0 |
-| 刻滑 · 基础、低姿态与专家任务 | 11 | 7 | 0 | 6 |
-| 小回转 · 基础到Expert Short Radius | 13 | 35 | 0 | 3 |
+| 刻滑 · 基础、低姿态与专家任务 | 11 | 10 | 0 | 3 |
+| 小回转 · 基础到Expert Short Radius | 13 | 35 | 0 | 2 |
 | 热身与体能 | 13 | 20 | 0 | 0 |
 | 装备与舒适站姿 | 6 | 1 | 2 | 3 |
 | 滑行问题诊断 | 6 | 6 | 0 | 0 |
@@ -141,7 +141,9 @@
 | `short-turn-progression` | 侧滑接单个换刃弯 | 小回转共享时序/轨迹 + 双腿 IK | 9 / 6 | 9/9 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 | `short-turn-balance` | 双脚居中引导：板头板尾都在转 | 小回转共享时序/轨迹 + 双腿 IK | 5 / 3 | 5/5 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 | `duck-carve` | duck-carve | 原生三维独立任务（无旧预设） | 1 / 1 | 1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
-| `expert-short-turns` | expert-short-turns | 原生三维独立任务（无旧预设） | 4 / 2 | 4/4 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
+| `expert-short-turns` | expert-short-turns | 原生三维独立任务（无旧预设） | 2 / 2 | 2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
+| `expert-short-sequence` | expert-short-sequence | 原生三维独立任务（无旧预设） | 2 / 2 | 2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
+| `expert-carving` | expert-carving | 原生三维独立任务（无旧预设） | 3 / 3 | 3/3 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 
 ## 变体键与全部实际配置
 
@@ -220,8 +222,13 @@
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-extend:timing-study` | v21-linear/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `duck-carve` | s-duck-low-linked/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `expert-short-turns:progressive` | s-short-expert-steering/1、s-short-expert-flow/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `expert-short-turns:continuous` | s-short-expert-pressure/1、s-short-expert-flow/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `expert-short-turns:progressive` | s-short-expert-steering/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `expert-short-turns:continuous` | s-short-expert-pressure/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `expert-short-sequence:planned-recovery` | s-short-expert-flow/1 | 1 | D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过 |
+| `expert-short-sequence:guided-slide` | s-short-expert-transfer/1 | 1 | D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过 |
+| `expert-carving:linked` | s-carve-expert-arc/1 | 1 | D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过 |
+| `expert-carving:coordinated` | s-carve-expert-pressure/1 | 1 | D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过 |
+| `expert-carving:lower-recover` | s-carve-expert-variation/1 | 1 | D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过 |
 
 ## 逐课用途、资料与替换入口
 
@@ -335,12 +342,12 @@
 | [s-short-expert-map](https://jinke.me/snowboard/#lesson=s-short-expert-map) | Expert Short Radius：先对齐终点与当前能力：说清专家任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S41](#source-s41) |
 | [s-short-expert-steering](https://jinke.me/snowboard/#lesson=s-short-expert-steering) | 专家短弯转向：走廊内建立完整而可选的弧线：在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米专家任务。 | 1. `expert-short-turns:progressive` | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-pressure](https://jinke.me/snowboard/#lesson=s-short-expert-pressure) | 专家短弯调压：管理加载、释放与板的响应：在既有可控弧线中识别加载和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。 | 1. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-short-expert-flow](https://jinke.me/snowboard/#lesson=s-short-expert-flow) | 专家短弯连续性：把每一弧接成完整滑段：在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。 | 1. `expert-short-turns:progressive`<br>2. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-short-expert-transfer](https://jinke.me/snowboard/#lesson=s-short-expert-transfer) | 专家短弯迁移：换一个条件，重新建立结果：能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-flow](https://jinke.me/snowboard/#lesson=s-short-expert-flow) | 专家短弯连续性：把每一弧接成完整滑段：在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。 | 1. `expert-short-sequence:planned-recovery` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-short-expert-transfer](https://jinke.me/snowboard/#lesson=s-short-expert-transfer) | 专家短弯迁移：换一个条件，重新建立结果：能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。 | 1. `expert-short-sequence:guided-slide` | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-review](https://jinke.me/snowboard/#lesson=s-short-expert-review) | Expert Short Radius专项复核：完整证据与下一步训练：形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、仍需发展和当前条件下可重复的表现。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S39](#source-s39)、[S40](#source-s40) |
-| [s-carve-expert-arc](https://jinke.me/snowboard/#lesson=s-carve-expert-arc) | 专家刻滑弧线：落线前建立，控制出弯并接续：两侧新弧在落线前建立可用支撑，以立刃和调压维持刻滑路径，再用可控出口把动量带入下一弧。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16) |
-| [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 专家刻滑调压：加载、释放与两侧连续支撑：两侧加载与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[D01](#source-d01) |
-| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 专家刻滑变化：先重建控制，再应用低姿态八字：在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S19](#source-s19)、[D01](#source-d01) |
+| [s-carve-expert-arc](https://jinke.me/snowboard/#lesson=s-carve-expert-arc) | 专家刻滑弧线：落线前建立，控制出弯并接续：两侧新弧在落线前建立可用支撑，以立刃和调压维持刻滑路径，再用可控出口把动量带入下一弧。 | 1. `expert-carving:linked` | [S38](#source-s38)、[S16](#source-s16) |
+| [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 专家刻滑调压：加载、释放与两侧连续支撑：两侧加载与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。 | 1. `expert-carving:coordinated` | [S38](#source-s38)、[S16](#source-s16)、[D01](#source-d01) |
+| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 专家刻滑变化：先重建控制，再应用低姿态八字：在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。 | 1. `expert-carving:lower-recover` | [S38](#source-s38)、[S16](#source-s16)、[S19](#source-s19)、[D01](#source-d01) |
 | [s-carve-expert-review](https://jinke.me/snowboard/#lesson=s-carve-expert-review) | 专家刻滑专项复核：官方任务与低姿态证据分别判断：能够对照官方任务与十二项观察提出有证据的判断，保留未知，并把一个真实差距转成下一次练习。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S39](#source-s39) |
 
 ## 现有资料索引
@@ -512,8 +519,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | c016d424d92389755e9aa8d9be89abead55b02eefa1cd7e2fdb47e1ff9690f0f |
+| content.json | eac45c2329ab9e5121d0a97b99d20fac49a01a4afa510863398192cb85624127 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
 | app.js | 05d58c9ea1a08ae27d7ff9b2c1b27176a61ba16b7bd8f68b851a242d9b9cb9fe |
-| lesson-player/registry.json | 2e653f0e1bb2f88a862ffe42d46766b15e44db2e9ab36d76fae49e81d567f8ff |
+| lesson-player/registry.json | 903d8535b6ac24926a8d7cd53c064408a42bd9385b65812921372ceb4f625da9 |
 

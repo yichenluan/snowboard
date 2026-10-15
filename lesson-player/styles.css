@@ -13,3 +13,7 @@
 @media(max-width:799px){.sl3-dialog{width:96vw;max-height:96dvh}.sl3-expanded .sl3-scene{height:38dvh;min-height:220px}.sl3-expanded .sl3-cue{min-height:0}.sl3-expanded .sl3-heading{padding:8px 12px;position:sticky;top:0;z-index:5;background:#fafbf6}.sl3-expanded .sl3-heading h3{font-size:16px}.sl3-expanded .sl3-heading p,.sl3-expanded .sl3-input-help{display:none}}
 
 .sl3-comparison{display:flex;flex-wrap:wrap;background:#f1f4ed;gap:8px;padding:8px}.sl3-comparison figure{flex:1 1 190px;min-width:0;margin:0}.sl3-comparison figcaption{font-size:12px;text-align:center}.sl3-comparison svg{display:block;width:100%;max-height:260px}
+
+/* Long expert sequences keep the current teaching cue visible above their stage list. */
+.sl3-expert .sl3-stages{max-height:240px;overflow:auto;overscroll-behavior:contain}.sl3-expert .sl3-cue{min-height:0}
+@media(min-width:800px){.sl3-expanded.sl3-expert .sl3-explain{display:flex;flex-direction:column;overflow:hidden;min-height:0}.sl3-expanded.sl3-expert .sl3-cue{flex:none}.sl3-expanded.sl3-expert .sl3-explain-body{min-height:0;overflow:auto}}

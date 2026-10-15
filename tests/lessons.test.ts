@@ -13,7 +13,7 @@ const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
 const subtract=(a:Vec3,b:Vec3):Vec3=>a.map((v,i)=>v-b[i]) as Vec3;
 
 test("every migrated course preserves feet, both legs and finite equipment movement throughout its own task",()=>{
-  assert.equal(refs.length,119,"115 existing + 4 explicitly reviewed expert-short references");
+  assert.equal(refs.length,122,"115 existing + 2 expert-short + 2 finite sequences + 3 expert-carving references");
   for(const config of refs) for(const stance of ["regular","goofy"] as const) {
     let before:ReturnType<typeof sampleLesson>|undefined;
     // The short-turn route can turn continuously faster than foundation drills.

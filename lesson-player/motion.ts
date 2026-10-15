@@ -4,6 +4,8 @@ import { supportsCarvingLesson, sampleCarvingLesson, type CarvePosture } from ".
 import { isRotationLesson, rotationLessonTask, sampleRotationLesson } from "./rotation";
 import { supportsShortTurnLesson, shortTurnTask, sampleShortTurnLesson } from "./short-turns";
 import { supportsExpertShortLesson, sampleExpertShortLesson } from "./expert-short-turns";
+import { supportsExpertShortSequenceLesson, sampleExpertShortSequenceLesson } from "./expert-short-sequence";
+import { supportsExpertCarvingLesson, sampleExpertCarvingLesson } from "./expert-carving";
 import { supportsSwitchLesson, sampleSwitchLesson } from "./switch";
 import { supportsTwistLesson, twistTask, sampleTwistLesson } from "./twist";
 import { isTurningLesson, sampleTurningLesson } from "./turns";
@@ -15,7 +17,7 @@ const partialVariants:Record<string,string[]>=registry.partialVariants;
 export const LESSON_TYPES: readonly string[] = [...registry.types,...Object.keys(partialVariants)];
 const requiredTasks:Record<string,string[]>=registry.requiredTasks;
 export const canRenderLesson=(config:LessonConfig)=>requiredTasks[config.type]
-  ?requiredTasks[config.type].includes(config.task??"")&&(supportsCarvingLesson(config)||supportsCoordinationLesson(config)||isRotationLesson(config)||supportsShortTurnLesson(config)||supportsExpertShortLesson(config)||supportsSwitchLesson(config)||supportsTwistLesson(config))
+  ?requiredTasks[config.type].includes(config.task??"")&&(supportsCarvingLesson(config)||supportsCoordinationLesson(config)||isRotationLesson(config)||supportsShortTurnLesson(config)||supportsExpertShortLesson(config)||supportsExpertShortSequenceLesson(config)||supportsExpertCarvingLesson(config)||supportsSwitchLesson(config)||supportsTwistLesson(config))
   :registry.types.includes(config.type)||Boolean(partialVariants[config.type]?.includes(config.variant??""));
 export interface LessonConfig {
   type: string;
@@ -44,7 +46,7 @@ export interface LessonConfig {
   legLengthDiagram?: boolean;
   transitionReference?: string;
 }
-export interface Stage { at: number; title: string; detail: string }
+export interface Stage { at: number; title: string; detail: string; replay?: {from:number;label:string} }
 export interface LessonFrame {
   state: MotionState;
   stage: number;
@@ -53,6 +55,8 @@ export interface LessonFrame {
   moving: boolean;
   supportRail?: [Vec3, Vec3];
   corridor?: {width:number;start:number;end:number};
+  routeWindow?: {start:number;end:number};
+  corridorSections?: {width:number;start:number;end:number;label:string}[];
   segmentEdges?: {front:"toe"|"heel"|"flat";rear:"toe"|"heel"|"flat"};
   twistTiming?: "near-synchronous" | "front-earlier";
 }
@@ -69,6 +73,7 @@ const range = (t: number) => {
   return lerp([0,1,0,-1][i], [1,0,-1,0][i], smooth(t*4-i));
 };
 export function lessonTask(c: LessonConfig): string {
+  if(supportsExpertShortSequenceLesson(c)||supportsExpertCarvingLesson(c))return c.task!;
   if(supportsExpertShortLesson(c))return c.task!;
   if(supportsCarvingLesson(c))return "linked-duck-carve";
   if(supportsSwitchLesson(c))return "switch-linked-skid";
@@ -129,6 +134,8 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
 
 export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "regular"): LessonFrame {
   if(!canRenderLesson(c)) throw new Error(`尚未实现的三维动作：${c.type}/${c.variant??"default"}`);
+  if(supportsExpertShortSequenceLesson(c))return sampleExpertShortSequenceLesson(time,c,stance);
+  if(supportsExpertCarvingLesson(c))return sampleExpertCarvingLesson(time,c,stance);
   if(supportsExpertShortLesson(c))return sampleExpertShortLesson(time,c,stance);
   if(supportsCarvingLesson(c))return sampleCarvingLesson(time,c,stance);
   if(supportsSwitchLesson(c))return sampleSwitchLesson(time,c,stance);
