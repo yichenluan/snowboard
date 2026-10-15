@@ -64,6 +64,7 @@ jobs:
 
       - name: Build self-contained HTML
         run: |
+          npm run check:source-claims
           node scripts/inventory-animations.mjs --check
           node scripts/inventory-teaching.mjs --check
           if ! python3 build.py > build.log 2>&1; then

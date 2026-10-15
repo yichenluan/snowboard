@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "4fe25911738ed85d45b4a8b8a64cf0d192a657f131a9ef30fc90aae19a7a2cb5",
+    "content.json": "01d8cea09dab6c99c79fe78f0dccb9556a265d8ca28cae95b1d61aac0a7a9176",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "f97ca2d6faf29b3d2171361ccb18a60756a96a0aaed4cf367ca38722db7d919a",
+    "app.js": "d18e3a836e9477a77573c8b3a2835e060028c15d2b7da7ad357e1f68f638a2a3",
     "lesson-player/registry.json": "c49e9298431debfe4865fa2e4835b2e1fbf8be318c4783474a2afc7709c62c92"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
@@ -5608,16 +5608,18 @@
       "citations": [
         {
           "source": "S03",
-          "locator": "Level 1 pp.3、6–9",
-          "claim": "学习要以适合能力的地形、控制和可观察的表现判断。",
+          "locator": "印刷/PDF p.6–9：Assessment Criteria、Technical Outcomes",
+          "claim": "按能力选地形，观察圆弯、控速、窄刻滑轨迹及动作一致性；本站短组对照流程为编辑建议。",
+          "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
           "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf"
         },
         {
           "source": "S15",
-          "locator": "认证标准 pp.3–5",
-          "claim": "任务依能力和条件变化，认证需要滑行、教学与互动能力。",
+          "locator": "印刷/PDF p.3–5：Introduction、Assessment Activities、Learning Outcomes",
+          "claim": "认证包含人际、教学和滑行能力；任务依条件变化，示例活动不是统一必做清单。",
+          "evidence": "direct",
           "canonicalSource": "S15",
           "title": "AASI Snowboard National Standards",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/10/AASI_Snowboard_Standards0224_updated_100325_v3.pdf"
@@ -5636,8 +5638,9 @@
       "citations": [
         {
           "source": "S01",
-          "locator": "六项单板基本原则",
-          "claim": "涵盖板长、板宽、压力大小、倾斜、枢转与扭转。",
+          "locator": "六项 Snowboarding Fundamentals，正文六条列表",
+          "claim": "区分沿板长/板宽的承重、压力大小、倾斜立刃、枢转和扭转；不是只按身体外形评分。",
+          "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
           "url": "https://thesnowpros.org/2021/01/8840/"
@@ -5646,6 +5649,7 @@
           "source": "S02",
           "locator": "PDF p.8",
           "claim": "inclination 与 angulation 共同控制倾斜立刃。",
+          "evidence": "direct",
           "canonicalSource": "S02",
           "title": "Learning Connection 与各项目基本原则",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/PSIA-AASI_LearningConnection_and_Discipline-Specific_Fundamentals_2023-compressed-2.pdf"
@@ -5664,16 +5668,18 @@
       "citations": [
         {
           "source": "S09",
-          "locator": "能力表 Level 1–6",
-          "claim": "从侧滑、garlands、C 弯到连弯、变弯形与刻滑递进。",
+          "locator": "PDF p.1–2：Snowboard level one–six core skills",
+          "claim": "儿童教学能力表依次列侧滑、garlands、C弯、连弯、弯形变化与刻滑；本站成人两条主线是借鉴后的编排，不是该表原版认证等级。",
+          "evidence": "synthesis",
           "canonicalSource": "S09",
           "title": "Detailed Instructor Info：Snowboard Fundamentals",
           "url": "https://www.nzsia.org/wp-content/uploads/2018/05/Detailed-instructor-info-Fundamentals-Snowboard-Levels.pdf"
         },
         {
           "source": "S11",
-          "locator": "Ride Module",
-          "claim": "高级任务要求适应多种换刃、雪况与转弯。",
+          "locator": "Ride Module – Exam：Freeriding、Carving、Versatility Riding",
+          "claim": "当前高级教练评估强调多种地形、雪况与任务中的控制、流畅和适应；本页未据此规定普通雪友必须掌握某一种换刃。",
+          "evidence": "direct",
           "canonicalSource": "S11",
           "title": "Snowboard Level Three",
           "url": "https://www.nzsia.org/snowboard/snowboard-level-three-new/"
@@ -5692,16 +5698,18 @@
       "citations": [
         {
           "source": "S15",
-          "locator": "Teaching Skills pp.12–15",
-          "claim": "教学应组织递进体验、反思并适应学员需要。",
+          "locator": "印刷/PDF p.12–15：Teaching Skills",
+          "claim": "计划、实施、反思并按学习者需要调整体验；三组对照与撤提示复测为本站应用。",
+          "evidence": "synthesis",
           "canonicalSource": "S15",
           "title": "AASI Snowboard National Standards",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/10/AASI_Snowboard_Standards0224_updated_100325_v3.pdf"
         },
         {
           "source": "S03",
-          "locator": "Level 1 pp.6–9",
-          "claim": "使用清晰递进、示范和与结果相关的反馈。",
+          "locator": "印刷/PDF p.6、8：Teaching Assessment、Communication、Analysis & Improvement",
+          "claim": "递进结构、有效示范和与目标相关的清楚反馈。",
+          "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
           "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf"
@@ -5720,24 +5728,54 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI p.43",
-          "claim": "中立姿势包括踝膝髋屈曲、均衡负载、前脚角度与目光。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S03",
-          "locator": "Level 1 pp.7–8",
-          "claim": "居中灵活与协调对齐是基础表现。",
+          "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
           "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf"
         },
         {
+          "source": "S01",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
+          "canonicalSource": "S01",
+          "title": "单板六项基本原则",
+          "url": "https://thesnowpros.org/2021/01/8840/"
+        },
+        {
           "source": "S16",
-          "locator": "印刷页43–44，Position & Balance / Neutral Position",
-          "claim": "中立姿态应居中并保持可动，用来适应不同任务与地形。",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.157–158，仅个体差异说明与knee-tracking教学段",
+          "claim": "教材提示身体个体差异，并讨论膝轨迹与脚位及髋活动的关系。 适用边界：不使用其中性别概括、Q角阈值、伤病率或固定角度作为个人处方；膝轨迹指导属于适配归纳。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -5758,19 +5796,39 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.43、48",
-          "claim": "手臂自然，旋转关系需要协调。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.47–48，Pivot / Upper & Lower Body Rotational Movements",
+          "claim": "上身旋转可以传到雪板，下肢旋转更接近雪板；过量旋转可能妨碍位置和平衡。 适用边界：不能由单帧断定某人的原因；头部独立观察及手臂参考法是本站编排。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S03",
-          "locator": "Level 1 pp.7–8",
-          "claim": "基础以居中灵活及下肢引导为目标。",
+          "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
           "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf"
+        },
+        {
+          "source": "S37",
+          "locator": "Alpine Responsibility Code 第4条（2026-10-15 正文读取）",
+          "claim": "起滑或进入雪道前向上坡观察并避让；直接支持该安全原则。向上坡转前的观察、短暂扫描训练及次数是本站建议，不是该条规定。",
+          "evidence": "direct",
+          "canonicalSource": "S37",
+          "title": "Alpine Responsibility Code",
+          "url": "https://cwsaa.org/safety-risk-awareness/alpine-responsibility-code/"
         }
       ],
       "prototypeMode": null,
@@ -5788,19 +5846,57 @@
       "citations": [
         {
           "source": "S01",
-          "locator": "板长压力原则",
-          "claim": "重心与支撑面关系决定沿板长压力。",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
           "url": "https://thesnowpros.org/2021/01/8840/"
         },
         {
           "source": "S10",
-          "locator": "Performance Guide pp.14–15",
-          "claim": "可通过两腿独立屈伸调前后压力，过量前后偏移会损害表现。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.14，Level II / Skidded Turn，F1–F6",
+          "claim": "二级搓雪任务可用多种屈伸组合调压，并通过两腿独立动作和转向控制滑移、弯形与上下身关系。 适用边界：前到后的特定评估要求不推广为所有人的固定摆动轨迹。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.173，Riding Fore, Aft & Centred",
+          "claim": "教材用连弯中偏前、偏后与居中对照帮助感知前后平衡和舒适位置。 适用边界：本站先短斜滑、每次回中、少量重复是收窄后的教学编排，不是原书规定剂量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -5818,19 +5914,75 @@
       "citations": [
         {
           "source": "S10",
-          "locator": "Performance Guide pp.5、15、25",
-          "claim": "过于后压妨碍早入刃，过于前压可使板尾释放。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.5，Level I / Carved Turn，F1/F3/F5",
+          "claim": "该刻滑任务列出过后可影响早入刃、过前可释放尾部，弯尾压力堆积可跳动，过量内倾可滑移或失稳。 适用边界：这些是任务观察项，不能以一个症状确定唯一原因；不等于每种刻滑必须同一屈伸。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.25，Level III / Carved Turn，F1/F3/F5",
+          "claim": "该高级刻滑任务用屈曲进入、控制及完成阶段伸展，并要求管理压力；尾部失刃、晚入刃或跳刃是对应不足项。 适用边界：级别任务有情境，不是唯一高级风格；不能从静态高度证明压力。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S16",
-          "locator": "CASI pp.51–53",
-          "claim": "前后压力是适应任务、地形与雪况的手段。",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -5848,8 +6000,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI p.173 Fore, Aft & Centred",
-          "claim": "练习比较前脚、后脚和均衡负载以寻找舒适稳定位置。",
+          "locator": "©2021，印刷/PDF p.173，Riding Fore, Aft & Centred",
+          "claim": "教材用连弯中偏前、偏后与居中对照帮助感知前后平衡和舒适位置。 适用边界：本站先短斜滑、每次回中、少量重复是收窄后的教学编排，不是原书规定剂量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -5870,16 +6032,54 @@
       "citations": [
         {
           "source": "S03",
-          "locator": "Level 1 pp.7–8",
-          "claim": "协调屈曲与可移动性是基础要求。",
+          "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
           "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf"
         },
         {
           "source": "S16",
-          "locator": "CASI pp.44–45、51–52",
-          "claim": "高度、活动性和压力时机需分开。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -5900,35 +6100,48 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 pp.49–50",
-          "claim": "倾斜与成角共同调刃角、压力分布和工作刃平衡。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "F01",
-          "locator": "Our Reflections：platform angle examples",
-          "claim": "踝部动作可在重心相近位置改变刃角，区别于整体倾斜。",
+          "locator": "2019-03-19，Our Reflections，platform-angle两例",
+          "claim": "文中用后刃放脚趾及主动背屈举例：踝调节可在COM位置相近时改变刃角。 适用边界：例子本身是后刃，不直接证明前刃靴舌传力；前刃应用另参考S06，并标为归纳。",
+          "evidence": "direct",
           "canonicalSource": "F01",
           "title": "Customised Snowboard Technique from Sweden",
           "url": "https://interski.nzsia.org/2019/03/19/customised-snowboard-technique-from-sweden/"
         },
         {
-          "source": "S16",
-          "locator": "印刷页49–50，Edging / Inclination / Angulation",
-          "claim": "刃角与速度、坡度、弯形和雪况有关；整体内倾与关节成角应组合调节。",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
           "source": "S01",
-          "locator": "六项基本技能第4项",
-          "claim": "用内倾和成角的组合控制板的倾斜。",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
           "url": "https://thesnowpros.org/2021/01/8840/"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.5，Level I / Carved Turn，F1/F3/F5",
+          "claim": "该刻滑任务列出过后可影响早入刃、过前可释放尾部，弯尾压力堆积可跳动，过量内倾可滑移或失稳。 适用边界：这些是任务观察项，不能以一个症状确定唯一原因；不等于每种刻滑必须同一屈伸。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -5947,16 +6160,45 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "刻滑练习先静止，再选适合能力的宽阔整备雪道。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "S16",
-          "locator": "CASI pp.43、49–50",
-          "claim": "均衡负载与精细下肢成角。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.78，Sideslipping feedback / Ballerina–Cowboy analogy",
+          "claim": "前刃侧滑中踝绷直踮脚不利于调角；教材建议放松踝、在脚掌球部上方获得可调支撑。 适用边界：来自入门侧滑，不给高级刻滑全部踝动作规定恒定背屈；不规定靴内压力比例。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.86，Garland Exercise / J-Turns",
+          "claim": "花环从同刃横切接近落线，再反向引导并增加原刃角回横坡；可用更早递进练习退阶。 适用边界：不是整段换刃；本文次数与单次观察规则是本站建议。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -5977,24 +6219,63 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21：Lateral & Vertical",
-          "claim": "前刃成角以踝膝为主，保持背屈并配合少量髋屈。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
-          "source": "S05",
-          "locator": "印刷 p.78：Ballerina / Cowboy",
-          "claim": "脚掌球部支持和可调踝姿势比绷踝踮脚更利于侧滑刃角控制。",
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.78，Sideslipping feedback / Ballerina–Cowboy analogy",
+          "claim": "前刃侧滑中踝绷直踮脚不利于调角；教材建议放松踝、在脚掌球部上方获得可调支撑。 适用边界：来自入门侧滑，不给高级刻滑全部踝动作规定恒定背屈；不规定靴内压力比例。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷页49–50（成角），76（前后刃侧滑），84（初级转弯）",
-          "claim": "踝、膝、髋共同调节刃角；前刃姿态应避免像芭蕾踮脚，后刃也需要可调整的下肢。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.157–158，仅个体差异说明与knee-tracking教学段",
+          "claim": "教材提示身体个体差异，并讨论膝轨迹与脚位及髋活动的关系。 适用边界：不使用其中性别概括、Q角阈值、伤病率或固定角度作为个人处方；膝轨迹指导属于适配归纳。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.86，Garland Exercise / J-Turns",
+          "claim": "花环从同刃横切接近落线，再反向引导并增加原刃角回横坡；可用更早递进练习退阶。 适用边界：不是整段换刃；本文次数与单次观察规则是本站建议。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6016,24 +6297,63 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "前刃明确要求维持踝背屈。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "S16",
-          "locator": "CASI pp.50、182",
-          "claim": "立刃需要精细关节调节；装备过度前倾导致锁踝会降低移动能力。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 pp.157–158：Anatomy and Snowboarding",
-          "claim": "身体比例与关节活动有个体差异，膝轨迹需与脚及髋关系一起判断。",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.157–158，仅个体差异说明与knee-tracking教学段",
+          "claim": "教材提示身体个体差异，并讨论膝轨迹与脚位及髋活动的关系。 适用边界：不使用其中性别概括、Q角阈值、伤病率或固定角度作为个人处方；膝轨迹指导属于适配归纳。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.86，Garland Exercise / J-Turns",
+          "claim": "花环从同刃横切接近落线，再反向引导并增加原刃角回横坡；可用更早递进练习退阶。 适用边界：不是整段换刃；本文次数与单次观察规则是本站建议。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6054,16 +6374,72 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "后刃成角主要通过膝髋，踝背屈辅助。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 pp.50、98、155、182",
-          "claim": "关节成角、柔和膝调整、高背板响应与后刃姿势的关系。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.98，Analysis & Improvement: Intro to Carved Turns",
+          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢成角与柔和膝活动练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.86，Garland Exercise / J-Turns",
+          "claim": "花环从同刃横切接近落线，再反向引导并增加原刃角回横坡；可用更早递进练习退阶。 适用边界：不是整段换刃；本文次数与单次观察规则是本站建议。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6084,11 +6460,39 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "后刃以膝髋成角、踝辅助。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.86，Garland Exercise / J-Turns",
+          "claim": "花环从同刃横切接近落线，再反向引导并增加原刃角回横坡；可用更早递进练习退阶。 适用边界：不是整段换刃；本文次数与单次观察规则是本站建议。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6106,19 +6510,57 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.49–50",
-          "claim": "成角让刃角与整体倾斜可独立调节。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "前刃踝膝主导，髋保留少量屈曲。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.5，Level I / Carved Turn，F1/F3/F5",
+          "claim": "该刻滑任务列出过后可影响早入刃、过前可释放尾部，弯尾压力堆积可跳动，过量内倾可滑移或失稳。 适用边界：这些是任务观察项，不能以一个症状确定唯一原因；不等于每种刻滑必须同一屈伸。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -6136,24 +6578,62 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "后刃成角以膝髋为主，踝参与。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "S16",
-          "locator": "CASI pp.43–45、50",
-          "claim": "兼顾动态平衡、成角和移动能力。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.51–52、155，Pressure / Toeside vs. Heelside",
-          "claim": "后刃全身配合不同于前刃；屈伸的启动、收住和保持具有不同含义。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6175,16 +6655,54 @@
       "citations": [
         {
           "source": "S03",
-          "locator": "Level 1 pp.7–8",
-          "claim": "基础使用下肢引导并协调对齐。",
+          "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
           "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf"
         },
         {
           "source": "S16",
-          "locator": "CASI pp.47–50",
-          "claim": "不同部位的旋转和倾斜各有作用及代价。",
+          "locator": "©2021，印刷/PDF p.47–48，Pivot / Upper & Lower Body Rotational Movements",
+          "claim": "上身旋转可以传到雪板，下肢旋转更接近雪板；过量旋转可能妨碍位置和平衡。 适用边界：不能由单帧断定某人的原因；头部独立观察及手臂参考法是本站编排。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6205,11 +6723,57 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "后刃成角以膝髋为主，地形符合能力。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.98，Analysis & Improvement: Intro to Carved Turns",
+          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢成角与柔和膝活动练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.86，Garland Exercise / J-Turns",
+          "claim": "花环从同刃横切接近落线，再反向引导并增加原刃角回横坡；可用更早递进练习退阶。 适用边界：不是整段换刃；本文次数与单次观察规则是本站建议。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6227,8 +6791,45 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.43–45、50、182",
-          "claim": "活动性与高背板响应要兼顾。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.11–13，Movement Analysis / Prescribe a Specific Change",
+          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站三反馈对照、机位与复拍次数是教学建议，不是教材实验规程。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6247,27 +6848,57 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 pp.50、181–182",
-          "claim": "踝膝髋成角；软靴可用活动和高背板设置影响响应。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S06",
-          "locator": "Chapter 16 E/21",
-          "claim": "前刃成角明确保留踝背屈。",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "F01",
-          "locator": "Platform angle：踝部调刃示例",
-          "claim": "小关节可在重心位置相近时调节刃角。",
+          "locator": "2019-03-19，Our Reflections，platform-angle两例",
+          "claim": "文中用后刃放脚趾及主动背屈举例：踝调节可在COM位置相近时改变刃角。 适用边界：例子本身是后刃，不直接证明前刃靴舌传力；前刃应用另参考S06，并标为归纳。",
+          "evidence": "direct",
           "canonicalSource": "F01",
           "title": "Customised Snowboard Technique from Sweden",
           "url": "https://interski.nzsia.org/2019/03/19/customised-snowboard-technique-from-sweden/"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6285,28 +6916,84 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.43–45、49–50",
-          "claim": "稳定与活动性共同重要，倾斜需匹配条件。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
-          "source": "S08",
-          "locator": "Chapter 18 F/08",
-          "claim": "地形变化需要屈腿或伸腿保持接触和管理压力。",
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.229 / 印刷F/08，Terrain Unweighted Turns",
+          "claim": "地形上升或落下均可用于减重，腿可能屈或伸来追随雪面，不能由腿伸长认定一定增压。 适用边界：本课只用已掌握的平整坡或小起伏，不移植教材雪包/公园练习。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "S10",
-          "locator": "v2.0（2022-11-07），印刷 p.3，Snowboarding Fundamentals F3 / F5",
-          "claim": "分别列出板雪压力大小和由内倾、关节成角共同控制的板倾；不把身体高度或板角直接作为压力值。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.3，Snowboarding Fundamentals F1–F6",
+          "claim": "沿板长、跨板宽、压力大小、枢转、倾斜与扭转分别列为可管理板控关系。 适用边界：分类不含固定关节姿态或承重百分比。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "A01",
+          "locator": "University Physics Vol.1 §6.1，Example 6.3 / Figure 6.5，Fs−w=ma及匀速分支",
+          "claim": "竖直电梯模型中支撑力由重力与加速度共同决定；匀速或静止时加速度项为零。 适用边界：仅用作平地屈伸的简化类比；不把Fs=mg+ma直接当坡面转弯测力公式。",
+          "evidence": "direct",
+          "canonicalSource": "A01",
+          "title": "University Physics Volume 1：Newton’s Laws，电梯秤示例",
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -6325,19 +7012,39 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 pp.49–50",
-          "claim": "倾斜与成角配合条件，避免仅整体倾斜限制调整。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S17",
-          "locator": "The Critical Link：transition 与 COM/BOS",
-          "claim": "过渡归中后受控进入新弯，保留调整选择。",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
           "canonicalSource": "S17",
           "title": "The Critical Link",
           "url": "https://casi-acms.com/casi-blog/the-critical-link/"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
+          "canonicalSource": "S06",
+          "title": "Snowboard Instructor Manual",
+          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6355,19 +7062,57 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.43–45、50",
-          "claim": "高度、活动性和倾斜须匹配条件。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S11",
-          "locator": "Carving / Versatility",
-          "claim": "高级表现要求可变策略。",
+          "locator": "2026-10-15读取，Ride Module / Carving及Freeriding评估要点",
+          "claim": "现行三级网页要求压力调节、有效刃角与侧切、战术选择和对雪况适应。 适用边界：当前页面未列明屈曲/伸展两种换刃；不从课程级别推导统一高低姿态。",
+          "evidence": "direct",
           "canonicalSource": "S11",
           "title": "Snowboard Level Three",
           "url": "https://www.nzsia.org/snowboard/snowboard-level-three-new/"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -6385,16 +7130,36 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.50–52",
-          "claim": "成角和屈伸共同调刃角及压力。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "Performance Guide p.25",
-          "claim": "高级刻滑也需管理压力，积聚可造成跳刃。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.25，Level III / Carved Turn，F1/F3/F5",
+          "claim": "该高级刻滑任务用屈曲进入、控制及完成阶段伸展，并要求管理压力；尾部失刃、晚入刃或跳刃是对应不足项。 适用边界：级别任务有情境，不是唯一高级风格；不能从静态高度证明压力。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
@@ -6415,19 +7180,66 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.43、49–50",
-          "claim": "自然手臂与成角配合整体倾斜。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "Performance Guide p.5",
-          "claim": "过量倾斜可导致滑移或失稳。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.5，Level I / Carved Turn，F1/F3/F5",
+          "claim": "该刻滑任务列出过后可影响早入刃、过前可释放尾部，弯尾压力堆积可跳动，过量内倾可滑移或失稳。 适用边界：这些是任务观察项，不能以一个症状确定唯一原因；不等于每种刻滑必须同一屈伸。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.47–48，Pivot / Upper & Lower Body Rotational Movements",
+          "claim": "上身旋转可以传到雪板，下肢旋转更接近雪板；过量旋转可能妨碍位置和平衡。 适用边界：不能由单帧断定某人的原因；头部独立观察及手臂参考法是本站编排。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.98，Analysis & Improvement: Intro to Carved Turns",
+          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢成角与柔和膝活动练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -6445,35 +7257,48 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.51–52",
-          "claim": "屈伸不同阶段会先后增压或减压。",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S01",
-          "locator": "压力基本原则",
-          "claim": "需要调节板雪相互作用产生的压力大小。",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
           "url": "https://thesnowpros.org/2021/01/8840/"
         },
         {
-          "source": "S16",
-          "locator": "印刷页51–52，Up / Down Un-weighting",
-          "claim": "伸展启动可增压、减速停止可减压；屈曲启动可减压、减速收住可增压。",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
           "source": "A01",
-          "locator": "Example：Bathroom Scale in an Elevator，Figure 6.5 / F_s=ma+mg",
-          "claim": "法向支撑与加速度有关；匀速或保持位置本身不产生额外加速度项。",
+          "locator": "University Physics Vol.1 §6.1，Example 6.3 / Figure 6.5，Fs−w=ma及匀速分支",
+          "claim": "竖直电梯模型中支撑力由重力与加速度共同决定；匀速或静止时加速度项为零。 适用边界：仅用作平地屈伸的简化类比；不把Fs=mg+ma直接当坡面转弯测力公式。",
+          "evidence": "direct",
           "canonicalSource": "A01",
           "title": "University Physics Volume 1：Newton’s Laws，电梯秤示例",
           "url": "https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6492,19 +7317,57 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "CASI pp.51–52",
-          "claim": "屈伸启动和停止阶段对压力的作用不同。",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "Performance Guide p.5",
-          "claim": "积聚压力未管理会导致跳刃。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.5，Level I / Carved Turn，F1/F3/F5",
+          "claim": "该刻滑任务列出过后可影响早入刃、过前可释放尾部，弯尾压力堆积可跳动，过量内倾可滑移或失稳。 适用边界：这些是任务观察项，不能以一个症状确定唯一原因；不等于每种刻滑必须同一屈伸。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
+          "canonicalSource": "S06",
+          "title": "Snowboard Instructor Manual",
+          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6522,19 +7385,57 @@
       "citations": [
         {
           "source": "S01",
-          "locator": "板长压力与扭转原则",
-          "claim": "重心关系与独立关节运动调板。",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
           "url": "https://thesnowpros.org/2021/01/8840/"
         },
         {
           "source": "S10",
-          "locator": "Performance Guide p.15",
-          "claim": "独立屈伸调前后负载，过量偏移有代价。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -6545,26 +7446,64 @@
     },
     {
       "id": "v-toe-front-participation",
-      "title": "前刃入弯：前脚带入，后脚接上",
+      "title": "前刃入弯：试前脚引导，保持双脚接续",
       "module": "pressure",
       "goal": "入弯更顺，弯中仍由两脚配合，不一直压在前脚。",
       "entry": "https://jinke.me/snowboard/#lesson=v-toe-front-participation",
       "citations": [
         {
           "source": "S10",
-          "locator": "Performance Guide p.15",
-          "claim": "前后压力按阶段变化，过量偏前会释放板尾。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S03",
-          "locator": "Level 1 pp.7–8",
-          "claim": "基础圆弯通过下肢引导、协调对齐。",
+          "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
           "url": "https://members.casi-acms.com/documents/LEVEL%201%20COURSE%20GUIDE_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
+          "canonicalSource": "S06",
+          "title": "Snowboard Instructor Manual",
+          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6582,24 +7521,81 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 pp.51–54：Pressure",
-          "claim": "屈曲启动与停止影响压力，主动和反应性调压需结合条件。",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "PDF pp.4–5、14–15：F3",
-          "claim": "不同转弯任务通过屈伸控制压力，压力积聚可导致跳刃。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.5，Level I / Carved Turn，F1/F3/F5",
+          "claim": "该刻滑任务列出过后可影响早入刃、过前可释放尾部，弯尾压力堆积可跳动，过量内倾可滑移或失稳。 适用边界：这些是任务观察项，不能以一个症状确定唯一原因；不等于每种刻滑必须同一屈伸。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.14，Level II / Skidded Turn，F1–F6",
+          "claim": "二级搓雪任务可用多种屈伸组合调压，并通过两腿独立动作和转向控制滑移、弯形与上下身关系。 适用边界：前到后的特定评估要求不推广为所有人的固定摆动轨迹。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "A01",
+          "locator": "University Physics Vol.1 §6.1，Example 6.3 / Figure 6.5，Fs−w=ma及匀速分支",
+          "claim": "竖直电梯模型中支撑力由重力与加速度共同决定；匀速或静止时加速度项为零。 适用边界：仅用作平地屈伸的简化类比；不把Fs=mg+ma直接当坡面转弯测力公式。",
+          "evidence": "direct",
+          "canonicalSource": "A01",
+          "title": "University Physics Volume 1：Newton’s Laws，电梯秤示例",
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws"
+        },
+        {
           "source": "S16",
-          "locator": "印刷页52，Down Un-weighting",
-          "claim": "下沉加速与停止下沉的减速过程有不同的暂时负荷贡献。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6620,24 +7616,63 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 pp.51–54：Up Un-weighting / Pressure",
-          "claim": "伸展启动、末端和主动调压关系需按条件使用。",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "PDF pp.4–5、14–15：F3",
-          "claim": "屈伸可按转弯任务调整压力，避免负荷积聚。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.4，Level I / Skidded Turn，任务说明与F3",
+          "claim": "该一级搓雪示范任务采用过渡较伸、控制较屈的时序，需配合圆弯及滑移。 适用边界：该页F3“static throughout”与任务说明措辞有张力；采用任务说明与不足栏一致部分，不引为所有弯的统一规则。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.5，Level I / Carved Turn，F1/F3/F5",
+          "claim": "该刻滑任务列出过后可影响早入刃、过前可释放尾部，弯尾压力堆积可跳动，过量内倾可滑移或失稳。 适用边界：这些是任务观察项，不能以一个症状确定唯一原因；不等于每种刻滑必须同一屈伸。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.14，Level II / Skidded Turn，F1–F6",
+          "claim": "二级搓雪任务可用多种屈伸组合调压，并通过两腿独立动作和转向控制滑移、弯形与上下身关系。 适用边界：前到后的特定评估要求不推广为所有人的固定摆动轨迹。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "A01",
+          "locator": "University Physics Vol.1 §6.1，Example 6.3 / Figure 6.5，Fs−w=ma及匀速分支",
+          "claim": "竖直电梯模型中支撑力由重力与加速度共同决定；匀速或静止时加速度项为零。 适用边界：仅用作平地屈伸的简化类比；不把Fs=mg+ma直接当坡面转弯测力公式。",
+          "evidence": "direct",
+          "canonicalSource": "A01",
+          "title": "University Physics Volume 1：Newton’s Laws，电梯秤示例",
+          "url": "https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws"
+        },
+        {
           "source": "S16",
-          "locator": "印刷页51，Up Un-weighting",
-          "claim": "向上加速暂时增加接触负荷，伸展停止过程可带来暂时减压。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6658,19 +7693,57 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 pp.43、49–50、155–158：Neutral Position / Edging / Anatomy",
-          "claim": "站姿需适应固定器角度；成角与倾斜依靠多关节关系，个体膝轨迹存在差异。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.157–158，仅个体差异说明与knee-tracking教学段",
+          "claim": "教材提示身体个体差异，并讨论膝轨迹与脚位及髋活动的关系。 适用边界：不使用其中性别概括、Q角阈值、伤病率或固定角度作为个人处方；膝轨迹指导属于适配归纳。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S01",
-          "locator": "Snowboard Fundamentals：沿板长与跨板宽压力两项原则",
-          "claim": "沿板长分配与跨板宽支持是分别管理的关系。",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
           "url": "https://thesnowpros.org/2021/01/8840/"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -6688,16 +7761,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 pp.53–54：Resultant Forces / Reactive and Proactive Pressure",
-          "claim": "速度、弯径、坡度与地形影响负荷；主动和反应性压力调节需按条件组织。",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
-          "source": "S08",
-          "locator": "Chapter 18，F/08：Terrain Unweighted Turns",
-          "claim": "地形变化要求屈伸追随雪面并管理支持。",
+          "source": "S06",
+          "locator": "2017，PDF p.229 / 印刷F/08，Terrain Unweighted Turns",
+          "claim": "地形上升或落下均可用于减重，腿可能屈或伸来追随雪面，不能由腿伸长认定一定增压。 适用边界：本课只用已掌握的平整坡或小起伏，不移植教材雪包/公园练习。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
@@ -6718,24 +7793,54 @@
       "citations": [
         {
           "source": "S10",
-          "locator": "PDF pp.4–5、14–15：F3，Basic / Intermediate Turns",
-          "claim": "屈伸时序可按转弯任务管理压力；基础和中级任务提供伸展过渡的可用条件。",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.4，Level I / Skidded Turn，任务说明与F3",
+          "claim": "该一级搓雪示范任务采用过渡较伸、控制较屈的时序，需配合圆弯及滑移。 适用边界：该页F3“static throughout”与任务说明措辞有张力；采用任务说明与不足栏一致部分，不引为所有弯的统一规则。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.14，Level II / Skidded Turn，F1–F6",
+          "claim": "二级搓雪任务可用多种屈伸组合调压，并通过两腿独立动作和转向控制滑移、弯形与上下身关系。 适用边界：前到后的特定评估要求不推广为所有人的固定摆动轨迹。",
+          "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 pp.51–52：Up Un-weighting",
-          "claim": "伸展启动与结束对压力的作用不同，伸展可用于减重过渡。",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷页51，Up Un-weighting",
-          "claim": "伸展的启动与末端是不同压力阶段。",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "evidence": "direct",
+          "canonicalSource": "S06",
+          "title": "Snowboard Instructor Manual",
+          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6755,33 +7860,64 @@
       "entry": "https://jinke.me/snowboard/#lesson=v13-down-drill",
       "citations": [
         {
-          "source": "S07",
-          "locator": "完整 PDF p.81 / 印刷 B/06：Down Unweighted Turns / Retraction Turns；Chapter 18，F/05–F/07",
-          "claim": "区分重心靠近板与板回收到重心，并给出屈曲过渡、恢复腿长的 progression。",
+          "source": "S06",
+          "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "evidence": "direct",
+          "canonicalSource": "S06",
+          "title": "Snowboard Instructor Manual",
+          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.226–228 / 印刷F/05–F/07，Chapter 18 / Retraction Turns",
+          "claim": "回收在转换附近使板靠近身体，控制段调节伸展；两向难度、后刃髋留旧侧及伸展时后腿枢转需分别观察。 适用边界：教材此处练习为开放走刃，本站搓雪回收是结合T01与CASI的编排；不照搬加速或低顶棚极限。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 pp.52、54：Down Un-weighting / Pressure",
-          "claim": "屈曲可帮助减重，压力变化需结合时序和动作目的。",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
-          "source": "S06",
-          "locator": "完整342页PDF第81页，印刷B/06，Chapter 6 / The Snowboard Turn，Down Unweighted Turns与Retraction Turns段",
-          "claim": "屈曲减重使COM向雪板降低；回收式过渡把雪板和腿拉向较稳定的COM。两种机制可在真实滑行中混合。",
-          "canonicalSource": "S06",
-          "title": "Snowboard Instructor Manual",
-          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷页52，Down Un-weighting",
-          "claim": "屈曲启动与屈曲停止的阶段可贡献不同暂时接触负荷。",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "T01",
+          "locator": "官方本轮25页版，印刷/PDF p.13，Sample Lesson #1 — Freeride Flow",
+          "claim": "下减重为高级地形中的特定技术而非默认风格；示例在转换收腿、弯中伸腿维持接触，包含整备坡搓雪过渡。 适用边界：本课短弯剂量和进入门槛是本站编排，不照搬越野/雪包场景。",
+          "evidence": "direct",
+          "canonicalSource": "T01",
+          "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
+          "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6803,43 +7939,75 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.60–61；Turn Types",
-          "claim": "不同阶段的换刃时机与转弯类型有关，释放到平板再建立新刃是可观察的过渡关系。",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.84–85，Toeside Turn / Edge Change Sequence",
+          "claim": "初学连弯经过旧刃、平板、新刃，双腿与髋配合引导，并用侧滑按需要降速。 适用边界：不移植该入门课60%前脚比率；不是所有级别必须在落线才换刃。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S17",
-          "locator": "正文第3–5段；re-centering at transition",
-          "claim": "在过渡处恢复居中后受控进入新刃，保留对刃角、枢转与屈伸的调节余地。",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
           "canonicalSource": "S17",
           "title": "The Critical Link",
           "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         },
         {
           "source": "S16",
-          "locator": "印刷页51–52（屈伸策略），85（Starting Edge → Flat Base → Finishing Edge）",
-          "claim": "屈伸可改变压力与过渡策略；初级换刃应经过旧刃、近平板、新刃三个关系。",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
-          "source": "S17",
-          "locator": "主体第2–4段",
-          "claim": "过渡时归中，避免过早过量把重心投向新弯内。",
-          "canonicalSource": "S17",
-          "title": "The Critical Link",
-          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S06",
-          "locator": "完整342页PDF第81页，印刷B/06，Chapter 6 / The Snowboard Turn，Down Unweighted Turns与Retraction Turns段",
-          "claim": "屈曲减重使COM向雪板降低；回收式过渡把雪板和腿拉向较稳定的COM。两种机制可在真实滑行中混合。",
+          "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6859,27 +8027,84 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.47–54、59–61；Pivot / Pressure / Turn Types",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "©2021，印刷/PDF p.47–48，Pivot / Upper & Lower Body Rotational Movements",
+          "claim": "上身旋转可以传到雪板，下肢旋转更接近雪板；过量旋转可能妨碍位置和平衡。 适用边界：不能由单帧断定某人的原因；头部独立观察及手臂参考法是本站编排。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷页86，Garland Exercise",
-          "claim": "从同刃斜滑开始，接近落线后反向引导并增加原刃角，使板转回横坡。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.86，Garland Exercise / J-Turns",
+          "claim": "花环从同刃横切接近落线，再反向引导并增加原刃角回横坡；可用更早递进练习退阶。 适用边界：不是整段换刃；本文次数与单次观察规则是本站建议。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "A02",
-          "locator": "Rider Improvement Presentation，第12页，Turning with the Lower Body",
-          "claim": "Garland 可训练脚和膝参与的下肢引导。",
+          "locator": "官方本轮21页版，印刷/PDF p.12，Turning With The Lower Body / Garland Exercise",
+          "claim": "二级教学表将膝脚引导的花环用于增加下肢参与，静态调刃用于踝膝髋屈曲。 适用边界：不把表内每个任务都当本课必做或同剂量。",
+          "evidence": "direct",
           "canonicalSource": "A02",
           "title": "Level 2 Course Guide：Rider Improvement",
           "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.14，Level II / Skidded Turn，F1–F6",
+          "claim": "二级搓雪任务可用多种屈伸组合调压，并通过两腿独立动作和转向控制滑移、弯形与上下身关系。 适用边界：前到后的特定评估要求不推广为所有人的固定摆动轨迹。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6899,19 +8124,39 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.59；Pedalling",
-          "claim": "两脚踝相异屈伸可产生板体扭转，并改变前后段的刃接触与板表现。",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S01",
-          "locator": "Twist fundamental",
-          "claim": "板体扭转与整体枢转分别构成可管理的板响应。",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
           "url": "https://thesnowpros.org/2021/01/8840/"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6929,16 +8174,36 @@
       "citations": [
         {
           "source": "S17",
-          "locator": "正文 re-centering / COM and BOS / 9 o’clock to 3 o’clock",
-          "claim": "在换弯处居中并受控建立新刃，可避免身体与板路径分离过大。",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
           "canonicalSource": "S17",
           "title": "The Critical Link",
           "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.49–54、61；Edging / Advanced Turns",
-          "claim": "倾斜、成角和屈伸按转弯阶段组合。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -6959,19 +8224,39 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48；Position / Upper Body Rotation",
-          "claim": "头肩旋转可以影响板响应，需要区分观察动作与转向输入。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
-          "source": "S18",
-          "locator": "Your Responsibility Code；starting / merging / uphill movement",
-          "claim": "起滑、并入或朝上坡移动前观察上方，同时保持前方避让能力。",
-          "canonicalSource": "S18",
-          "title": "Your Responsibility Code",
-          "url": "https://www.nsaa.org/nsaa/safety/"
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.47–48，Pivot / Upper & Lower Body Rotational Movements",
+          "claim": "上身旋转可以传到雪板，下肢旋转更接近雪板；过量旋转可能妨碍位置和平衡。 适用边界：不能由单帧断定某人的原因；头部独立观察及手臂参考法是本站编排。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S37",
+          "locator": "Alpine Responsibility Code 第4条（2026-10-15 正文读取）",
+          "claim": "起滑或进入雪道前向上坡观察并避让；直接支持该安全原则。向上坡转前的观察、短暂扫描训练及次数是本站建议，不是该条规定。",
+          "evidence": "direct",
+          "canonicalSource": "S37",
+          "title": "Alpine Responsibility Code",
+          "url": "https://cwsaa.org/safety-risk-awareness/alpine-responsibility-code/"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.11–13，Movement Analysis / Prescribe a Specific Change",
+          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站三反馈对照、机位与复拍次数是教学建议，不是教材实验规程。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         }
       ],
       "prototypeMode": null,
@@ -6989,11 +8274,66 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.47–54、59–61；Pivot / Pressure / Turn Types",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S01",
+          "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "evidence": "direct",
+          "canonicalSource": "S01",
+          "title": "单板六项基本原则",
+          "url": "https://thesnowpros.org/2021/01/8840/"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S17",
+          "locator": "2015-03-15，正文第1–5段，re-centering / COM and BOS / 9 o’clock to 3 o’clock",
+          "claim": "作者建议过渡恢复居中后受控进入新刃，避免身体过早过量投进新弯而等板追上。 适用边界：是教练技术文章，不是动力学实验或所有高速转弯必须竖直站立。",
+          "evidence": "direct",
+          "canonicalSource": "S17",
+          "title": "The Critical Link",
+          "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         }
       ],
       "prototypeMode": null,
@@ -7011,11 +8351,57 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.47–54、59–61；Pivot / Pressure / Turn Types",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.190 / 印刷E/21，Chapter 16 Exploring Carving / Lateral & Vertical / Terrain",
+          "claim": "该入门刻滑任务中，后刃侧重膝髋并用踝辅助，前刃侧重踝膝、保留背屈和适量髋屈；先静态再适合能力的宽整备坡。 适用边界：限定该任务和软靴教学情境，不推为所有高级姿态的固定关节角或恒定踝角。",
+          "evidence": "direct",
+          "canonicalSource": "S06",
+          "title": "Snowboard Instructor Manual",
+          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "v2.0 2022-11-07，印刷/PDF p.11–13，Movement Analysis / Prescribe a Specific Change",
+          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站三反馈对照、机位与复拍次数是教学建议，不是教材实验规程。",
+          "evidence": "direct",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         }
       ],
       "prototypeMode": null,
@@ -7033,16 +8419,81 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.47–54、59–61；Pivot / Pressure / Turn Types",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "©2021，印刷/PDF p.47–48，Pivot / Upper & Lower Body Rotational Movements",
+          "claim": "上身旋转可以传到雪板，下肢旋转更接近雪板；过量旋转可能妨碍位置和平衡。 适用边界：不能由单帧断定某人的原因；头部独立观察及手臂参考法是本站编排。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 pp.155–158；Anatomy / Lower Body",
-          "claim": "下肢运动由髋内股骨旋转、膝屈伸和踝活动构成；各膝轨迹需匹配脚向与个体活动范围。",
+          "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
+          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.153–156，Types of Movement / Hip, Knee & Ankle / Balanced Bending / Femur Rotation",
+          "claim": "关节屈伸、踝背屈与髋内股骨旋转不同；协调弯曲与中立脊柱不等于背部始终竖直，前后刃关节组合不同。 适用边界：不照搬教材个别解剖方向笔误和照片角度，不从文中推出个体膝病诊断。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.157–158，仅个体差异说明与knee-tracking教学段",
+          "claim": "教材提示身体个体差异，并讨论膝轨迹与脚位及髋活动的关系。 适用边界：不使用其中性别概括、Q角阈值、伤病率或固定角度作为个人处方；膝轨迹指导属于适配归纳。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+          "claim": "中立参考位保持踝膝髋可动；平衡随滑行持续调整，固定器角度与站距影响活动空间。 适用边界：均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51，Pressure / Up Un-weighting",
+          "claim": "向上加速时可暂时增加板雪负荷，伸展停止阶段可减轻；前后位置、腿长、刃角与转向共同影响压力。 适用边界：只是时序关系；不能从腿长或头部高度读出真实转弯压力。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.52，Down Un-weighting / Combining Up & Down Un-weighting",
+          "claim": "向下加速的屈曲可暂时减轻负荷，收住屈曲可增加；可按目标组合上下减重。 适用边界：不等于所有屈曲全程减压，也不要求普通学习者腾空或混合所有策略。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7063,16 +8514,45 @@
       "citations": [
         {
           "source": "T01",
-          "locator": "印刷 p.13；Sample Lesson #1 - Freeride Flow",
-          "claim": "回收可在转换时释放负荷，新弯中伸展维持接触；它是任务工具而非默认风格。",
+          "locator": "官方本轮25页版，印刷/PDF p.13，Sample Lesson #1 — Freeride Flow",
+          "claim": "下减重为高级地形中的特定技术而非默认风格；示例在转换收腿、弯中伸腿维持接触，包含整备坡搓雪过渡。 适用边界：本课短弯剂量和进入门槛是本站编排，不照搬越野/雪包场景。",
+          "evidence": "direct",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
           "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.53–54、61；Pressure / Advanced Turns",
-          "claim": "屈伸调压与滑移、刻滑目标共同决定动作时机。",
+          "locator": "©2021，印刷/PDF p.53–54，Resultant Forces / Terrain / Reactive & Proactive Pressure",
+          "claim": "弯径、速度、坡度和地形影响负荷，屈伸可用于主动调压或应对雪面变化。 适用边界：不支持仅凭感觉确定牛顿值或规定唯一节奏；教材示意不是本站模型动力学验证。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.60–61，Turn Types / Intermediate & Advanced Turns",
+          "claim": "搓雪含板尾较宽路径，刻滑尾随头；换刃时机与屈伸策略随技能、地形和目标变化。 适用边界：不同级别是渐进快照；不把某一级示例定为全体滑手唯一动作。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S06",
+          "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "evidence": "direct",
+          "canonicalSource": "S06",
+          "title": "Snowboard Instructor Manual",
+          "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7093,8 +8573,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.59；Pedalling",
-          "claim": "前后踝可以分别屈伸，利用板体扭转改变前后段刃接触；本课的小时序差对照是练习编排，不是教材规定的统一角度或时差。",
+          "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "evidence": "direct",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.181–182，Boots & Bindings / Forward Lean / Stance Angles",
+          "claim": "软靴兼顾支撑与踝活动；前倾改变后刃响应和屈曲位置，过量可限制踝活动，设定应结合舒适和用途。 适用边界：不支持依据靴舌/高背感觉测量压力，也不替代品牌安装说明或个体靴适配。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7115,8 +8605,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43、45、47–48、59；Position & Balance / Pivot / Separation",
+          "locator": "印刷 / PDF p.43、45、47–48、59：自然位、旋转方式与分离",
           "claim": "自然站姿保持可调整；同向、反向和上下身分离需观察连续运动，不能只凭静态夹角判断。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7139,8 +8630,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43、45；Position & Balance / Stance & Binding Set Up",
+          "locator": "印刷 / PDF p.43、45、155、181–182：自然位、站姿设置与前后刃非对称",
           "claim": "自然站姿强调舒适、活动能力及固定器设置的影响，不以单一肩角替代动态平衡。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7161,16 +8653,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.48、59；Counter Rotation / Separation / Steering",
+          "locator": "印刷 / PDF p.48、59：反向旋转、分离",
           "claim": "反向旋转是专项转向手段，需恢复可调整的姿态；上下身分离与后续自然转向要按任务协调。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "T01",
-          "locator": "印刷 p.15；Using Counter-Rotation",
+          "locator": "印刷 / PDF p.15：Using Counter-Rotation，高级速度检查",
           "claim": "专项反向任务之后要抓地并释放，应用以目标和能力调整。",
+          "evidence": "synthesis",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
           "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
@@ -7191,8 +8685,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷 / PDF p.43、45、47–52、59、155、181–182：活动余量、枢转、压力、非对称与装备",
+          "claim": "自然位、脚角/站距、旋转、压力时序与两刃差异提供排查维度；开放后究竟改变哪一项，需同条件对照。p.157–158 不作为本课开肩承重的直接依据。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7213,8 +8708,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43、45、47–50、51–57；Position / Pivot / Edging / Pressure / Timing",
+          "locator": "印刷 / PDF p.43、45、47–52、55–57：姿态、调刃、压力时序与任务结果",
           "claim": "朝向、成角和屈伸时机都应随任务协调；分组单变量对照是本课编排，画面高度与板角不等于真实压力或抓地。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7235,16 +8731,17 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43、45、47–48、59；Position & Balance / Pivot / Separation",
+          "locator": "印刷 / PDF p.43、45、47–48、59、88：活动余量、旋转、分离与弯形控速",
           "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "D01",
-          "locator": "正文第 4–7 段，高级滑手的两向转换与弯形比较",
-          "claim": "前换后过早旋转和后换前肩先倾入是不同的常见诊断线索；须先比较弯形和最早偏差。",
+          "locator": "高级滑手段（Asymmetry affects advanced riders 起）及末段 Comparing symmetry",
+          "claim": "官方技术文章列出两向不同的常见代偿：前换后过早旋转与偏前、后换前肩先倾入而髋膝配合不足；只是观察线索，不是所有滑手的必然模式。",
           "evidence": "direct",
           "canonicalSource": "D01",
           "title": "Asymmetry in Snowboarding",
@@ -7267,8 +8764,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43、45、48、59；Position & Balance / Lower Body Rotation / Steering",
+          "locator": "印刷 / PDF p.43、45、48、59：自然位、下肢旋转与分阶段引导",
           "claim": "自然站姿与固定器设置影响活动能力；下肢共同转向，进阶引导可区分前脚入弯与后脚完成的阶段。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7289,8 +8787,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43、47–48；Neutral Position / Rotational Movements",
+          "locator": "印刷 / PDF p.43、47–48：自然手臂、过量上身旋转与下肢引导",
           "claim": "手臂自然、身体可调整；过量上身旋转可能影响平衡及雪板响应。架臂与放臂复测是本课据此编排的观察练习。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7311,8 +8810,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.47–48、59；Pivot / Steering",
+          "locator": "印刷 / PDF p.47–48、59–61：枢转、下肢引导、搓雪与刻滑",
           "claim": "下肢关节共同引导雪板，上下身需要协调；转向应结合刃角、枢转及所需弯形观察。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7333,8 +8833,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43、45；Position & Balance / Stance & Binding Set Up",
+          "locator": "印刷 / PDF p.43、45、59、181–182：舒适活动、分离与装备设置",
           "claim": "自然站姿强调舒适、活动能力及固定器设置的影响，不以单一肩角替代动态平衡。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7355,16 +8856,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.48；Counter Rotational Movements",
+          "locator": "印刷 / PDF p.47–48：较小刃角与枢转；同时反向运动",
           "claim": "上下身同时相反方向旋转可快速枢转，但影响平衡，需要回到可用姿态。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "T01",
-          "locator": "印刷 p.15；Sample Lesson #3 - Using Counter-Rotation",
+          "locator": "印刷 / PDF p.15：Using Counter-Rotation，高级速度检查",
           "claim": "高级速度检查通过肩髋相反方向运动改变板朝向，感知抓雪后释放；本教材采用已有低速检查中的有限幅对照，不将其当作新手入门技法。",
+          "evidence": "synthesis",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
           "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
@@ -7385,8 +8888,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.101–102；Introducing Switch Riding / Basic Switch Riding",
+          "locator": "印刷 / PDF p.101–102：Introducing Switch Riding / Basic Switch Riding",
           "claim": "反脚相对惯用方向反向行进，教材建议以居中、可活动姿态和分步练习发展停止、单弯与搓雪连弯，并留意过量前脚受重或上身旋转。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7407,19 +8911,30 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.59；Separation",
+          "locator": "印刷 / PDF p.47–48、59：刃角与枢转、上下身分离",
           "claim": "上下身可以协调不同动作，上身与下肢的相对关系用于更高性能任务。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "T01",
-          "locator": "印刷 p.13、15；Freeride Flow / Counter-Rotation",
-          "claim": "回收和转向分离按地形目标组合，同时保留身体可活动性。",
+          "locator": "印刷 / PDF p.13、15：Down-unweighting 与 Counter-Rotation 的高级专项条件",
+          "claim": "p.13 明说 down-unweighting 是特定技术而非默认；p.15 是高级反向速度检查。它们支持策略有情境，不直接证明普通小弯必须回收或反拧。",
+          "evidence": "synthesis",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
           "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
+        },
+        {
+          "source": "S10",
+          "locator": "印刷 / PDF p.14：Level II Skidded Turn，F4、F5 及上下身路径",
+          "claim": "普通搓雪任务允许上下身路径不同，屈伸与旋转配合引导雪板；分离不等于锁住上身，也不强制回收。",
+          "evidence": "synthesis",
+          "canonicalSource": "S10",
+          "title": "Snowboard Performance Guide",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         }
       ],
       "prototypeMode": null,
@@ -7438,17 +8953,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.61、97–98；Introducing Carving / Analysis & Improvement",
+          "locator": "印刷 / PDF p.61、97–98：刻滑窄痕、独立弧与触雪折腰问题",
           "claim": "以窄痕、两侧控制和可调整姿态审查刻滑；p.98 明确讨论为触雪折腰的错误，p.99 不作为本课刻滑定位。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S15",
-          "locator": "Snowboard Riding assessment；adaptable performance",
-          "claim": "进阶表现需在目标条件下可重复、可适应，不由单一姿势定义。",
+          "locator": "印刷 / PDF p.18：Level 2 Technical Skills，按目标表现与条件判断",
+          "claim": "p.18 要求按目标的弯形、大小、刻/搓、战术与装备分析表现；它不制定触雪深度或本站复测次数，重复控制优先是本站验收设计。",
+          "evidence": "synthesis",
           "canonicalSource": "S15",
           "title": "AASI Snowboard National Standards",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/10/AASI_Snowboard_Standards0224_updated_100325_v3.pdf"
@@ -7467,8 +8983,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.86、97–98；J-turn / Introducing Carving / isolated traverses or arcs",
-          "claim": "先在缓坡用单弧和横切建立纯刃平衡，减少板尾枢转，再发展连续弧线。",
+          "locator": "印刷 / PDF p.61、97–98：缓坡刻滑、isolated traverses or arcs；不同于 p.74 单脚 J 弯",
+          "claim": "p.97–98 支持缓坡、双脚可调的刻滑与独立横切/弧线；本课双脚固定的短 J 形单弧与正常高度优先是本站编排，不照搬 p.74 单脚拖靴 J 弯。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7489,32 +9006,36 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.47、60–61；Steering Angle / Sliding and Carved Turns",
+          "locator": "印刷 / PDF p.47、60–61、97：steering angle、两类转弯与刻滑入门",
           "claim": "纯刻滑板尾沿板头轨迹，滑移弯有转向夹角；高级骑手按需要融合两种类型。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "Riding Performance，Carved Turn（Level I）",
+          "locator": "印刷 / PDF p.5：Level I Carved Turn，板尾跟随判据、F4、F5",
           "claim": "刻滑的判据是板尾在各阶段跟随板头同一轨迹。",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷页47，Pivot / Steering Angle",
+          "locator": "印刷 / PDF p.47、60–61、97：steering angle、两类转弯与刻滑入门",
           "claim": "搓雪转弯存在板轴与运动方向之间的引导夹角；纯刻滑没有这种横向滑移，板尾跟随板头路径。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷页97，Introducing Carving",
+          "locator": "印刷 / PDF p.47、60–61、97：steering angle、两类转弯与刻滑入门",
           "claim": "从能控制搓雪转弯的能力出发，减少破坏窄刃痕的枢转并渐进立刃。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7536,24 +9057,27 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.60–61、95–99；Turn Types / Intermediate Sliding Turns",
+          "locator": "印刷 / PDF p.60–61、88、95–98：转弯类型、弯形控速与滑移选择",
           "claim": "不同弯形、刃角、枢转与压力共同实现方向和速度控制。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
-          "source": "S18",
-          "locator": "Your Responsibility Code；control / people downhill / starting uphill",
-          "claim": "路线必须保留停止避让、下方优先和朝上坡移动前的观察。",
-          "canonicalSource": "S18",
-          "title": "Your Responsibility Code",
-          "url": "https://www.nsaa.org/nsaa/safety/"
+          "source": "S37",
+          "locator": "Alpine Responsibility Code 第1–4条（2026-10-15 正文读取）",
+          "claim": "第 1–4 条直接要求可停止避让、前方/下方优先、在可见且不挡道处停车、起滑或进入雪道前向上坡观察。转向上坡前再观察是本站路线安排。",
+          "evidence": "direct",
+          "canonicalSource": "S37",
+          "title": "Alpine Responsibility Code",
+          "url": "https://cwsaa.org/safety-risk-awareness/alpine-responsibility-code/"
         },
         {
           "source": "S16",
-          "locator": "印刷页88，Speed Control / Speed = Shape + Size + Slope",
+          "locator": "印刷 / PDF p.60–61、88、95–98：转弯类型、弯形控速与滑移选择",
           "claim": "弯形、大小和坡度共同影响速度；更圆、更闭合的弯可帮助控制较陡坡的速度。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7575,7 +9099,7 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.61、97–98、155、181–182",
+          "locator": "印刷 / PDF p.61、97–98、155、181–182：刻滑基础、两刃差异与装备",
           "claim": "正常刻滑的板表现、身体非对称关系与装备条件为分支提供依据；正常高度到低姿态的具体学习顺序属于本站教学设计。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
@@ -7585,14 +9109,15 @@
         {
           "source": "T02",
           "locator": "Course Overview / Am I Ready / FAQ",
-          "claim": "高性能刻滑需要已有刃滑经验、适配装备、定向练习和现场反馈。",
+          "claim": "官方专项面向已有刻滑经验者，强调装备、定向练习与反馈；不规定本站正常高度到低姿态的课序或练习组数。",
+          "evidence": "direct",
           "canonicalSource": "T02",
           "title": "Carving Instructor：刻滑专项路径",
           "url": "https://casi-acms.com/courses/carving-instructor/"
         },
         {
           "source": "S19",
-          "locator": "3 Common Snowboard Binding Angle Combinations；Snowboard Stance Angles for Different Types of Snowboards",
+          "locator": "3 Common Snowboard Binding Angle Combinations / Positive/Negative；用途与舒适性段",
           "claim": "duck stance 为前正后负，具体脚角需匹配个人与用途；用于明确本课低姿态分支的站姿范围。",
           "evidence": "direct",
           "canonicalSource": "S19",
@@ -7601,7 +9126,7 @@
         },
         {
           "source": "S10",
-          "locator": "v2.0（2022-11-07），印刷 p.5、15、25，Carved Turn",
+          "locator": "印刷 / PDF p.5、15、25：Carved Turn，判据与不同任务的屈伸要求",
           "claim": "刻滑按板尾跟随板头的轨迹与各阶段控制判断，屈伸方法随任务变化；先正常高度、后小幅降低的课序是本站教学归纳。",
           "evidence": "synthesis",
           "canonicalSource": "S10",
@@ -7622,8 +9147,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.61、97–98；gentle open arcs / Introducing Carving",
+          "locator": "印刷 / PDF p.61、88、97–98：gentle open arcs、弯形与坡度控速、纯刃平衡",
           "claim": "缓坡开放浅弧适合发展纯刃平衡，减少枢转并以轨迹检验。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7644,25 +9170,25 @@
       "citations": [
         {
           "source": "A02",
-          "locator": "印刷 p.7–9，Technical (Riding) Assessment / Short Radius Sliding Turns；官方英文21页版",
+          "locator": "印刷 / PDF p.7–9：Technical (Riding) Assessment / Short Radius Sliding Turns",
           "claim": "直接支持短搓雪弯以居中、下肢引导、圆润对称、节奏、控速和调刃调压观察；3–5米是该考核任务的条件，本站不采用统一宽度门槛。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "A02",
           "title": "Level 2 Course Guide：Rider Improvement",
           "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
         },
         {
           "source": "S10",
-          "locator": "v2.0（2022-11-07），印刷 / PDF p.14，Level II — Skidded Turn，F1–F6",
+          "locator": "印刷 / PDF p.3、14：Fundamentals / Level II Skidded Turn F1–F6",
           "claim": "直接支持下肢转向、可控滑移、上下身不同路线，以及不同屈伸策略；不把该任务的前后移动时序升级为全体滑手的唯一规则。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S16",
-          "locator": "©2021，印刷 / PDF pp.50–52、59、155：Angulation / Pressure / Pedalling / Toeside vs. Heelside",
+          "locator": "印刷 / PDF p.47–52、55–59、155、178：转向、压力、阶段、非对称、短弯练习",
           "claim": "支持关节配合、板体扭转、不同屈伸压力阶段与前后刃身体关系；本课两向阶段文字是对这些关系的教学归纳，非实测动作轨迹。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
@@ -7671,8 +9197,8 @@
         },
         {
           "source": "D01",
-          "locator": "2022-10-13，正文高级滑手段至结尾（以 Asymmetry affects advanced riders 开始）",
-          "claim": "提供前换后过早肩髋转动、偏前失尾与后换前肩先扑入等常见线索；它们不是每个人的必然模式。",
+          "locator": "高级滑手两向误差段及比较弯形段",
+          "claim": "官方技术文章列出两向不同的常见代偿：前换后过早旋转与偏前、后换前肩先倾入而髋膝配合不足；只是观察线索，不是所有滑手的必然模式。",
           "evidence": "direct",
           "canonicalSource": "D01",
           "title": "Asymmetry in Snowboarding",
@@ -7680,12 +9206,21 @@
         },
         {
           "source": "S16",
-          "locator": "印刷 / PDF p.178，Side Slipping to Short Radius Turns / Tornado Turns",
+          "locator": "印刷 / PDF p.47–52、55–59、155、178：转向、压力、阶段、非对称、短弯练习",
           "claim": "本站据侧滑缩短与逐级缩弯设计入口分流；4至6弯、2至3组、录像帧点、两趟复测和退出检查均为本站教学建议。",
           "evidence": "suggestion",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S35",
+          "locator": "1:50.617–1:54.117，小回转片段的有限关键帧",
+          "claim": "实看有限关键帧：弧内屈曲、弯间相对伸长、再次进入下一弧，并有滑移雪带。可对照温和伸展示例；不能推出所有小回转都须伸腿，未测压力或角度。",
+          "evidence": "direct",
+          "canonicalSource": "S35",
+          "title": "Level 2 Instructor: Riding Standards (2023)",
+          "url": "https://www.youtube.com/watch?v=VSNG8OeHkjo"
         }
       ],
       "prototypeMode": "correct",
@@ -7705,16 +9240,16 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.178，Side Slipping to Short Radius Turns",
+          "locator": "印刷 / PDF p.47–50、56、178：换刃与 Side Slipping to Short Radius Turns",
           "claim": "直接依据该练习的侧滑—单弯—缩短侧滑顺序；具体地形和距离按学习者已有能力调整。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S16",
-          "locator": "印刷 / PDF p.178，同上",
+          "locator": "印刷 / PDF p.47–50、56、178：换刃与 Side Slipping to Short Radius Turns",
           "claim": "双侧各2次、4至6弯、停止和普通圆弯复测是本站对练习的组织建议；原教材示例距离与坡度不作为本课固定处方。",
           "evidence": "suggestion",
           "canonicalSource": "S16",
@@ -7739,7 +9274,7 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.178，Tornado Turns",
+          "locator": "印刷 / PDF p.55、88、178：时机、控速、Tornado Turns",
           "claim": "采用逐步改变转弯大小的练习思路；本站加入回到中弯和撤提示复测。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
@@ -7748,7 +9283,7 @@
         },
         {
           "source": "A02",
-          "locator": "印刷 p.7–9，Short Radius Sliding Turns",
+          "locator": "印刷 / PDF p.7–9：Short Radius Sliding Turns，圆润、对称、节奏与控速",
           "claim": "圆润、对称、控速用于观察缩弯结果；本站保留变回中弯与撤提示复测，不以考核走廊数字替代学习者控制范围。",
           "evidence": "synthesis",
           "canonicalSource": "A02",
@@ -7773,16 +9308,16 @@
       "citations": [
         {
           "source": "A02",
-          "locator": "官方英文21页版，印刷 / PDF pp.7–9，Technical (Riding) Assessment",
+          "locator": "印刷 / PDF p.7–9：Centred and Mobile / Lower Body Turning / Short Radius",
           "claim": "直接支持居中且可活动、膝脚引导、短弯居中转向与圆润对称。修正旧引用误将英文 p.7–8 标到中英对照版 A03 的来源错配。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "A02",
           "title": "Level 2 Course Guide：Rider Improvement",
           "url": "https://members.casi-acms.com/documents/LEVEL%202%20COURSE%20GUIDE-EN.pdf"
         },
         {
           "source": "S10",
-          "locator": "印刷 p.14，F1 / F4",
+          "locator": "印刷 / PDF p.14：Level II Skidded Turn，F1、F4",
           "claim": "前后调节与双腿屈伸、转向应结合滑行目标；不是固定重量分配。",
           "evidence": "synthesis",
           "canonicalSource": "S10",
@@ -7807,16 +9342,16 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.178，Counting, Singing, Gates, Pylons",
+          "locator": "印刷 / PDF p.55、178：时机与 Counting, Singing, Gates, Pylons",
           "claim": "计数可帮助观察前后刃节奏的对称；本站用自然节奏起步并增加撤提示复测。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "A02",
-          "locator": "印刷 / PDF pp.7–9，Short Radius Sliding Turns",
+          "locator": "印刷 / PDF p.7–9：Short Radius Sliding Turns",
           "claim": "本站把完整工作刃弧作为计时边界，并将地形需要的不对称与无意偏差分开，是便于复盘的教学归纳。",
           "evidence": "synthesis",
           "canonicalSource": "A02",
@@ -7840,7 +9375,7 @@
       "citations": [
         {
           "source": "S10",
-          "locator": "印刷 p.14，Successful / Unsuccessful Performance Contributors",
+          "locator": "印刷 / PDF p.4、11–14：搓雪表现、观察—因果—处方及 Level II Skidded Turn",
           "claim": "以滑移、立刃、下肢转向与身体路线分析表现。下方现象与练习配对为本站教学归纳，不是唯一诊断。",
           "evidence": "synthesis",
           "canonicalSource": "S10",
@@ -7849,8 +9384,8 @@
         },
         {
           "source": "S16",
-          "locator": "印刷 pp.174–178，Tactics Glossary",
-          "claim": "用单项练习检查技术，再回完整滑行观察效果。",
+          "locator": "印刷 / PDF p.30–34、47–52、96、98、178：分析方法、压力、常见问题、专项练习",
+          "claim": "p.30–34 支持先板后人、分清原因与结果、单项反馈再复查；p.96、98 提供具体表现线索，p.178 提供短弯练习。本课错误卡配对为教学推导。",
           "evidence": "suggestion",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7858,9 +9393,9 @@
         },
         {
           "source": "D01",
-          "locator": "正文高级滑手段与结尾，比较两侧半径和完成程度",
-          "claim": "前后刃常见代偿可作为录像假设；本站的逐项区分试验与退阶配对是教学归纳，不能代替现场诊断。",
-          "evidence": "synthesis",
+          "locator": "高级滑手两向代偿及末段弯形比较",
+          "claim": "官方技术文章列出两向不同的常见代偿：前换后过早旋转与偏前、后换前肩先倾入而髋膝配合不足；只是观察线索，不是所有滑手的必然模式。",
+          "evidence": "direct",
           "canonicalSource": "D01",
           "title": "Asymmetry in Snowboarding",
           "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
@@ -7890,7 +9425,7 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.178，Tornado Turns",
+          "locator": "印刷 / PDF p.51–52、55、178：可选屈伸、时机与 Tornado Turns",
           "claim": "以改变弯大小发展动作时机；本站用可逆变化和主动结束检验迁移。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
@@ -7899,7 +9434,7 @@
         },
         {
           "source": "S10",
-          "locator": "印刷 p.7，Timing, Intensity and Duration",
+          "locator": "印刷 / PDF p.7：Timing, Intensity and Duration，弯形/大小/线路变化",
           "claim": "按需要改变弯形、大小和线路，保持控速。",
           "evidence": "synthesis",
           "canonicalSource": "S10",
@@ -7908,7 +9443,7 @@
         },
         {
           "source": "A02",
-          "locator": "印刷 / PDF pp.7–9，Technical (Riding) Assessment",
+          "locator": "印刷 / PDF p.7–9：Short Radius Sliding Turns，考核条件与结果",
           "claim": "本站把保持、单项变化、主动结束和另一趟复测组合为学习者自检，不等同于该教练考核或证明可直接进入陌生陡坡。",
           "evidence": "suggestion",
           "canonicalSource": "A02",
@@ -7939,14 +9474,16 @@
           "source": "S21",
           "locator": "Intermediate 与训练总览",
           "claim": "力量、平衡与耐力组合；深蹲为功能性起点。",
+          "evidence": "direct",
           "canonicalSource": "S21",
           "title": "10 Tips from the Snow Pros to Get in Shape",
           "url": "https://thesnowpros.org/2017/10/10-tips-from-the-snow-pros-to-get-in-shape/"
         },
         {
           "source": "S22",
-          "locator": "AASI National Team off-season training",
-          "claim": "滑行者以力量及多种运动支持全天滑行。",
+          "locator": "Cross Training Tips — Lyndsey Stevens；Whitewater Kayaking — Matt Larson；CrossFit/Gymnastics — Cori Lambert",
+          "claim": "国家队成员介绍力量、活动度与多种夏季运动的个人经验；不是证明某套处方提高滑行表现的试验。",
+          "evidence": "direct",
           "canonicalSource": "S22",
           "title": "National Team Off-season Training",
           "url": "https://thesnowpros.org/2025/06/psia-aasi-national-team-offseason-sports-workouts/"
@@ -7969,24 +9506,27 @@
       "citations": [
         {
           "source": "S06",
-          "locator": "Chapter 16，E/21",
-          "claim": "前刃控制保留踝背屈、膝移动和髋配合。",
+          "locator": "Chapter 16 E/21（PDF p.190）：Lateral & Vertical",
+          "claim": "雪上前刃成角强调踝背屈、膝前移和少量屈髋；普通鞋扶墙往返是本站动作辨认练习，不能照搬雪上受力。",
+          "evidence": "synthesis",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
         },
         {
           "source": "S25",
-          "locator": "Steps 3–5",
-          "claim": "足部稳定、膝方向与受控深度。",
+          "locator": "Steps 3–5：Downward Phase、Lowered Position",
+          "claim": "只借鉴深蹲中的脚跟接地、膝沿脚方向和受控范围；ACE此页没有给出扶墙屈踝流程或剂量。",
+          "evidence": "synthesis",
           "canonicalSource": "S25",
           "title": "Bodyweight Squat",
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
         },
         {
           "source": "S24",
-          "locator": "安全伸展范围",
-          "claim": "不强迫关节进入压迫或疼痛。",
+          "locator": "Safe muscle stretching",
+          "claim": "拉伸不应造成关节拉扯、压迫或疼痛。",
+          "evidence": "direct",
           "canonicalSource": "S24",
           "title": "How to Increase Flexibility Safely",
           "url": "https://www.hss.edu/health-library/move-better/how-to-increase-flexibility"
@@ -8007,8 +9547,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.155–158；Balanced bending",
-          "claim": "后刃与平衡屈曲由多个关节共同组织。",
+          "locator": "印刷/PDF p.155：Balanced Bending；Toeside vs. Heelside",
+          "claim": "多关节协调维持地面平衡；雪上后刃姿态还依赖运动中的外力。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8017,6 +9558,7 @@
           "source": "S25",
           "locator": "Steps 3–6",
           "claim": "髋膝协调下降、足底支撑与受控起身。",
+          "evidence": "direct",
           "canonicalSource": "S25",
           "title": "Bodyweight Squat",
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
@@ -8039,6 +9581,7 @@
           "source": "S24",
           "locator": "Dynamic before activity；Static after activity；Target your stretches；Safe muscle stretching",
           "claim": "动态热身与静态伸展时机、目标肌群和舒适范围。",
+          "evidence": "direct",
           "canonicalSource": "S24",
           "title": "How to Increase Flexibility Safely",
           "url": "https://www.hss.edu/health-library/move-better/how-to-increase-flexibility"
@@ -8047,6 +9590,7 @@
           "source": "S29",
           "locator": "3 Stretches for Knee Flexibility",
           "claim": "不弹震、不强迫末端；动作按舒适控制。",
+          "evidence": "direct",
           "canonicalSource": "S29",
           "title": "Stretches and Exercises to Strengthen Your Knees",
           "url": "https://www.hss.edu/health-library/move-better/exercises-strengthen-knees"
@@ -8070,15 +9614,17 @@
         {
           "source": "S25",
           "locator": "Steps 3–6",
-          "claim": "采用深蹲的足底支撑、膝方向与受控范围原则。",
+          "claim": "从动态深蹲借鉴足底、膝方向和受控起身；浅蹲停留是本站变式，原文不规定本课保持量。",
+          "evidence": "synthesis",
           "canonicalSource": "S25",
           "title": "Bodyweight Squat",
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
         },
         {
           "source": "S21",
-          "locator": "Intermediate体能建议",
-          "claim": "体能训练支持滑行；本条为按协调屈曲原则设计的停留变式，不作为疗效或雪上技术证明。",
+          "locator": "Intermediate – Learning to Turn It Up",
+          "claim": "仅支持深蹲可作为离雪力量与活动能力训练；不证明静态保持能改善刻滑。",
+          "evidence": "direct",
           "canonicalSource": "S21",
           "title": "10 Tips from the Snow Pros to Get in Shape",
           "url": "https://thesnowpros.org/2017/10/10-tips-from-the-snow-pros-to-get-in-shape/"
@@ -8099,8 +9645,9 @@
       "citations": [
         {
           "source": "S28",
-          "locator": "Calf Raises与进阶条件",
-          "claim": "双脚提踵、短停和下降，可轻扶稳定支撑；先掌握基础。",
+          "locator": "Four Moves；Calf Raises",
+          "claim": "双脚提踵可扶稳物，顶端停2秒再落跟；10–20次是文中示例，训练需恢复。",
+          "evidence": "direct",
           "canonicalSource": "S28",
           "title": "Ankle Stretches and Exercises for Strength",
           "url": "https://www.hss.edu/health-library/move-better/ankle-stretches-exercises"
@@ -8109,6 +9656,7 @@
           "source": "S16",
           "locator": "印刷 p.78，前刃平衡提示",
           "claim": "雪上前刃不以芭蕾式踮脚为站姿基线。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8131,14 +9679,16 @@
           "source": "S25",
           "locator": "Steps 1–6",
           "claim": "自重深蹲的准备、协调下降、脚掌/膝控制和上升。",
+          "evidence": "direct",
           "canonicalSource": "S25",
           "title": "Bodyweight Squat",
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
         },
         {
           "source": "S29",
-          "locator": "Squats与knee movement注释",
-          "claim": "舒适条件下允许膝自然沿脚方向前移，不普遍限制在脚尖后。",
+          "locator": "Squats：Instructions 与 Note",
+          "claim": "在舒适条件下膝可自然前移；不把“膝不能过脚尖”作为普遍规则。原文为膝部健康教育，不把其治疗人群剂量照搬为雪友处方。",
+          "evidence": "direct",
           "canonicalSource": "S29",
           "title": "Stretches and Exercises to Strengthen Your Knees",
           "url": "https://www.hss.edu/health-library/move-better/exercises-strengthen-knees"
@@ -8147,6 +9697,7 @@
           "source": "S21",
           "locator": "Intermediate",
           "claim": "深蹲作为腿部力量与活动能力训练。",
+          "evidence": "direct",
           "canonicalSource": "S21",
           "title": "10 Tips from the Snow Pros to Get in Shape",
           "url": "https://thesnowpros.org/2017/10/10-tips-from-the-snow-pros-to-get-in-shape/"
@@ -8167,16 +9718,18 @@
       "citations": [
         {
           "source": "S27",
-          "locator": "Steps 1–3",
-          "claim": "肘肩位置、躯干与腿的组织、自然呼吸和避免塌腰抬髋。",
+          "locator": "Steps 1–3；文末低背痛停止提示",
+          "claim": "肘在肩下、躯干腿部有控制、自然呼吸并避免塌腰抬髋；腰痛立即停止。",
+          "evidence": "direct",
           "canonicalSource": "S27",
           "title": "Front Plank",
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/32/front-plank/"
         },
         {
           "source": "S34",
-          "locator": "Plank on knees / Plank",
-          "claim": "前臂膝支撑及平板姿态；本课连接两姿态的连续过渡为作者编排。",
+          "locator": "Patient information；Plank on knees；Plank",
+          "claim": "该资料面向癌症预康复患者；这里只参考膝支撑和平板两种形态，不采用5组×5次或高用力处方。从膝支撑进入再回垫是本站编排。",
+          "evidence": "direct",
           "canonicalSource": "S34",
           "title": "Optimise cancer prehabilitation：Plank on knees / Plank",
           "url": "https://www.nth.nhs.uk/resources/optimise-cancer-prehabilitation/"
@@ -8197,8 +9750,9 @@
       "citations": [
         {
           "source": "S29",
-          "locator": "Dynamic Hamstring Floor Stretch",
-          "claim": "托大腿、缓慢伸屈膝，舒适范围和示例次数。",
+          "locator": "Dynamic Hamstring Floor Stretch：Instructions",
+          "claim": "手托大腿、缓慢伸屈膝并避免强压末端；每侧10–15次是文章示例，本课采用更短起始建议。",
+          "evidence": "direct",
           "canonicalSource": "S29",
           "title": "Stretches and Exercises to Strengthen Your Knees",
           "url": "https://www.hss.edu/health-library/move-better/exercises-strengthen-knees"
@@ -8219,8 +9773,9 @@
       "citations": [
         {
           "source": "S29",
-          "locator": "Half-Kneeling Hip Flexor Stretch",
-          "claim": "半跪、骨盆轻后倾、臀参与与小幅前移。",
+          "locator": "Half-Kneeling Hip Flexor Stretch：Instructions",
+          "claim": "半跪垫膝、轻收骨盆和臀部参与后小幅前移；只引用动作，不把膝痛文章的整套剂量用作普适处方。",
+          "evidence": "direct",
           "canonicalSource": "S29",
           "title": "Stretches and Exercises to Strengthen Your Knees",
           "url": "https://www.hss.edu/health-library/move-better/exercises-strengthen-knees"
@@ -8229,6 +9784,7 @@
           "source": "S24",
           "locator": "安全肌肉伸展",
           "claim": "目标肌肉伸展而不强迫关节。",
+          "evidence": "direct",
           "canonicalSource": "S24",
           "title": "How to Increase Flexibility Safely",
           "url": "https://www.hss.edu/health-library/move-better/how-to-increase-flexibility"
@@ -8249,8 +9805,9 @@
       "citations": [
         {
           "source": "S28",
-          "locator": "Runner Calf Stretch",
-          "claim": "扶墙分腿、前腿屈曲和示例保持量。",
+          "locator": "Runner Calf Stretch：Instructions",
+          "claim": "扶墙分腿、前腿微屈及20–30秒、2–3次的原文示例；本站可从更短量开始。",
+          "evidence": "direct",
           "canonicalSource": "S28",
           "title": "Ankle Stretches and Exercises for Strength",
           "url": "https://www.hss.edu/health-library/move-better/ankle-stretches-exercises"
@@ -8259,6 +9816,7 @@
           "source": "S24",
           "locator": "Target stretches与安全范围",
           "claim": "聚焦实际受限肌肉，不强迫关节末端。",
+          "evidence": "direct",
           "canonicalSource": "S24",
           "title": "How to Increase Flexibility Safely",
           "url": "https://www.hss.edu/health-library/move-better/how-to-increase-flexibility"
@@ -8280,7 +9838,8 @@
         {
           "source": "S33",
           "locator": "Shoulder rolls",
-          "claim": "肩前后绕、手臂自然放松和示例次数。",
+          "claim": "向前5次、向后5次，手臂自然放松；栏目建议2组10次，按舒适程度减少。",
+          "evidence": "direct",
           "canonicalSource": "S33",
           "title": "How to Warm Up Before Exercising",
           "url": "https://www.nhs.uk/live-well/exercise/how-to-warm-up-before-exercising/"
@@ -8301,8 +9860,9 @@
       "citations": [
         {
           "source": "S33",
-          "locator": "一般热身：march、shoulder rolls、knee bends",
-          "claim": "整体活动与小幅关节热身。",
+          "locator": "March on the spot；Shoulder rolls；Knee bends；适用范围与停止提示",
+          "claim": "一般热身建议至少6分钟，踏步约3分钟，配合肩绕环和浅屈膝；这是一般运动资料，并非滑雪专项处方。",
+          "evidence": "direct",
           "canonicalSource": "S33",
           "title": "How to Warm Up Before Exercising",
           "url": "https://www.nhs.uk/live-well/exercise/how-to-warm-up-before-exercising/"
@@ -8311,14 +9871,16 @@
           "source": "S24",
           "locator": "Dynamic before activity",
           "claim": "活动前使用舒适动态范围，不强迫末端。",
+          "evidence": "direct",
           "canonicalSource": "S24",
           "title": "How to Increase Flexibility Safely",
           "url": "https://www.hss.edu/health-library/move-better/how-to-increase-flexibility"
         },
         {
           "source": "S09",
-          "locator": "分级能力表",
-          "claim": "把容易的板控任务作为递进基础。",
+          "locator": "PDF p.1：Level 1–2 的两刃侧滑、C弯和连弯",
+          "claim": "能力表提供基础控板任务；将它们组织成首趟检查是本站热身安排，不是原表规定的热身顺序。",
+          "evidence": "synthesis",
           "canonicalSource": "S09",
           "title": "Detailed Instructor Info：Snowboard Fundamentals",
           "url": "https://www.nzsia.org/wp-content/uploads/2018/05/Detailed-instructor-info-Fundamentals-Snowboard-Levels.pdf"
@@ -8344,22 +9906,25 @@
           "source": "S20",
           "locator": "Additional Support；Forward Lean",
           "claim": "前倾与响应、逐步测试。",
+          "evidence": "direct",
           "canonicalSource": "S20",
           "title": "How to Adjust Snowboard Bindings",
           "url": "https://www.burton.com/en-au/blogs/the-burton-blog/how-to-adjust-snowboard-bindings"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.181–182",
-          "claim": "背板设置对活动与板控的作用。",
+          "locator": "印刷/PDF p.182：Forward Lean",
+          "claim": "前倾可使后刃响应更直接；过多会限制踝活动，应在舒适与响应间试调。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S06",
-          "locator": "Chapter 22，G/08",
-          "claim": "过大前倾限制垂直范围并加快疲劳。",
+          "locator": "Chapter 22 G/08（PDF p.321）：Highback Forward Lean",
+          "claim": "过大前倾可减少垂直活动范围并加快腿部疲劳。",
+          "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
           "url": "https://www.nzsia.org/wp-content/uploads/2017/06/SBINZ_Manual_2017.pdf"
@@ -8380,14 +9945,16 @@
           "source": "S20",
           "locator": "Fine-Tuning：Boot Centering、Hiback Rotation、Forward Lean、Straps",
           "claim": "不同调整的目标及按型号执行。",
+          "evidence": "direct",
           "canonicalSource": "S20",
           "title": "How to Adjust Snowboard Bindings",
           "url": "https://www.burton.com/en-au/blogs/the-burton-blog/how-to-adjust-snowboard-bindings"
         },
         {
           "source": "S32",
-          "locator": "安装步骤与完成检查",
-          "claim": "尺寸、固定、绑带配合与五金复查。",
+          "locator": "How to Mount Disc / EST Format Snowboard Bindings",
+          "claim": "使用兼容安装件，绑带居中、检查脚床与位置，并在首次滑行后复查紧固；靴内明显抬跟还需按实际靴型另查。",
+          "evidence": "direct",
           "canonicalSource": "S32",
           "title": "How to Mount Snowboard Bindings",
           "url": "https://www.burton.com/en-us/blogs/the-burton-blog/how-to-mount-snowboard-bindings"
@@ -8408,6 +9975,7 @@
           "source": "S20",
           "locator": "Width & Centering",
           "claim": "参考站姿、小幅测试、宽度与整体位置。",
+          "evidence": "direct",
           "canonicalSource": "S20",
           "title": "How to Adjust Snowboard Bindings",
           "url": "https://www.burton.com/en-au/blogs/the-burton-blog/how-to-adjust-snowboard-bindings"
@@ -8416,14 +9984,16 @@
           "source": "S31",
           "locator": "Stance width / setback",
           "claim": "站距和后移是不同变量。",
+          "evidence": "direct",
           "canonicalSource": "S31",
           "title": "Goofy vs. Regular: Stance Guide",
           "url": "https://www.burton.com/en-us/blogs/the-burton-blog/goofy-vs-regular"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.180–182，equipment",
-          "claim": "装备配置与活动、任务匹配。",
+          "locator": "印刷/PDF p.181：Stance Width；p.182：Position on the Board",
+          "claim": "参考站距、小幅试调与舒适度；扩大站距和整体沿板后移是不同设置。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8451,8 +10021,9 @@
         },
         {
           "source": "S32",
-          "locator": "Stance angles安装步骤",
-          "claim": "角度选择后需完成匹配安装与复查。",
+          "locator": "How to Mount Disc / EST Format：Set your binding angles、Confirm your stance、Retighten after your first run",
+          "claim": "角度确定后还要复查居中、紧固，并在首次滑行后检查；具体数字是厂家起点示例，不是人人相同。",
+          "evidence": "direct",
           "canonicalSource": "S32",
           "title": "How to Mount Snowboard Bindings",
           "url": "https://www.burton.com/en-us/blogs/the-burton-blog/how-to-mount-snowboard-bindings"
@@ -8483,8 +10054,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.156–158",
-          "claim": "髋、膝、踝与人体差异的关系。",
+          "locator": "印刷/PDF p.156：Femur rotation；p.157–158：个体差异、knees track over feet",
+          "claim": "髋转动可改变膝和足部关系；尊重个体差异并检查膝随脚屈伸。本课不采用该附录按性别概括的设置或统一角度。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8493,6 +10065,7 @@
           "source": "S25",
           "locator": "Steps 4–6",
           "claim": "膝方向、足踝稳定与受控动作。",
+          "evidence": "direct",
           "canonicalSource": "S25",
           "title": "Bodyweight Squat",
           "url": "https://www.acefitness.org/resources/everyone/exercise-library/135/bodyweight-squat/"
@@ -8501,6 +10074,7 @@
           "source": "S29",
           "locator": "When to Seek Help；Squats",
           "claim": "舒适膝轨迹及伤痛、肿胀、不稳评估边界。",
+          "evidence": "direct",
           "canonicalSource": "S29",
           "title": "Stretches and Exercises to Strengthen Your Knees",
           "url": "https://www.hss.edu/health-library/move-better/exercises-strengthen-knees"
@@ -8523,6 +10097,7 @@
           "source": "S20",
           "locator": "Heel Drag or Toe Drag；Boot Centering；Gas Pedal",
           "claim": "靴触雪、横向居中与脚床配合的检查原则。",
+          "evidence": "direct",
           "canonicalSource": "S20",
           "title": "How to Adjust Snowboard Bindings",
           "url": "https://www.burton.com/en-au/blogs/the-burton-blog/how-to-adjust-snowboard-bindings"
@@ -8531,6 +10106,7 @@
           "source": "S32",
           "locator": "安装与靴配合步骤",
           "claim": "以实际兼容装备完成安装及复查。",
+          "evidence": "direct",
           "canonicalSource": "S32",
           "title": "How to Mount Snowboard Bindings",
           "url": "https://www.burton.com/en-us/blogs/the-burton-blog/how-to-mount-snowboard-bindings"
@@ -8552,24 +10128,27 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.96、98；Analysis Guides：chattering / board sliding out",
+          "locator": "印刷 / PDF p.30–34、49–52、96、98：分析、刃角/压力及颤振/滑出",
           "claim": "颤振、滑出等现象有不同动作贡献，应从观察到的板响应选择调整。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "Movement Analysis；observe board performance through turn phases",
+          "locator": "印刷 / PDF p.4–5、11–13：滑行表现与 Movement Analysis",
           "claim": "按动作阶段建立原因假设，并用一个明确变化验证。",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S26",
-          "locator": "The Power of Observation and Positive Reinforcement",
-          "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "locator": "The Power of Observation and Positive Reinforcement，观察段及 one manageable cue 段",
+          "claim": "公开节选明确提出观察关节顺序、装备抓/滑与雪痕，并一次给一个可管理提示；支持观察方法，不直接证明本课每一种失稳原因。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8590,16 +10169,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.30–36、96、98；Analysis & Improvement",
+          "locator": "印刷 / PDF p.30–34、43、45、47–48、59、96、98：分析、活动、枢转、扭板与板尾滑移",
           "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S26",
-          "locator": "The Power of Observation and Positive Reinforcement",
-          "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "locator": "The Power of Observation and Positive Reinforcement，观察段及 one manageable cue 段",
+          "claim": "公开节选明确提出观察关节顺序、装备抓/滑与雪痕，并一次给一个可管理提示；支持观察方法，不直接证明本课每一种失稳原因。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8620,24 +10201,27 @@
       "citations": [
         {
           "source": "S17",
-          "locator": "re-centering in transition",
+          "locator": "transition / re-centering / COM and BOS 正文段",
           "claim": "在过渡处恢复居中能保留新弯选择，不急投身体等待板追上。",
+          "evidence": "direct",
           "canonicalSource": "S17",
           "title": "The Critical Link",
           "url": "https://casi-acms.com/casi-blog/the-critical-link/"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.96；dead spot between turns",
+          "locator": "印刷 / PDF p.43、47–52、56、59、86、96：释放、过渡、花环及 dead spot",
           "claim": "连弯断点要观察启动、完成和时机，以可执行练习改善。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S26",
-          "locator": "The Power of Observation and Positive Reinforcement",
-          "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "locator": "The Power of Observation and Positive Reinforcement，观察段及 one manageable cue 段",
+          "claim": "公开节选明确提出观察关节顺序、装备抓/滑与雪痕，并一次给一个可管理提示；支持观察方法，不直接证明本课每一种失稳原因。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8658,24 +10242,27 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.96、98；sliding out / chattering observation",
+          "locator": "印刷 / PDF p.49–52、96、98、155：倾斜/成角、压力、触雪折腰与两刃关系",
           "claim": "失抓地与颤振须从刃角、枢转和压力调节分阶段排查。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "Movement Analysis；pressure, edging and reference alignments",
+          "locator": "印刷 / PDF p.5、11–13：Carved Turn F3–F5 与 Movement Analysis",
           "claim": "描述现象后建立与任务相关的原因，再用具体动作检验。",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S26",
-          "locator": "The Power of Observation and Positive Reinforcement",
-          "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "locator": "The Power of Observation and Positive Reinforcement，观察段及 one manageable cue 段",
+          "claim": "公开节选明确提出观察关节顺序、装备抓/滑与雪痕，并一次给一个可管理提示；支持观察方法，不直接证明本课每一种失稳原因。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8696,16 +10283,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.30–36、96、98；Analysis & Improvement",
+          "locator": "印刷 / PDF p.30–34、43、45、59、181–182：分析、活动范围、双腿引导与装备",
           "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S26",
-          "locator": "The Power of Observation and Positive Reinforcement",
-          "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "locator": "The Power of Observation and Positive Reinforcement，观察段及 one manageable cue 段",
+          "claim": "公开节选明确提出观察关节顺序、装备抓/滑与雪痕，并一次给一个可管理提示；支持观察方法，不直接证明本课每一种失稳原因。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8726,32 +10315,35 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.98；Analysis & Improvement：Intro to Carved Turns",
+          "locator": "印刷 / PDF p.30–34、47–52、60–61、98：分析、枢转/压力与刻滑诊断",
           "claim": "滑出可与不足立刃、多余枢转和前后位置有关，先用单弧与均衡支撑验证。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "Carving task / Movement Analysis",
+          "locator": "印刷 / PDF p.5、11–15：Carved Turn、Movement Analysis 与 Level II 任务",
           "claim": "刻滑目标由板尾轨迹识别，改动须与实际板表现对应。",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "S26",
-          "locator": "The Power of Observation and Positive Reinforcement",
-          "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "locator": "The Power of Observation and Positive Reinforcement，观察段及 one manageable cue 段",
+          "claim": "公开节选明确提出观察关节顺序、装备抓/滑与雪痕，并一次给一个可管理提示；支持观察方法，不直接证明本课每一种失稳原因。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
         },
         {
           "source": "D01",
-          "locator": "正文第 4–6 段，advanced riders / front shoulder / hip and knee",
-          "claim": "后换前肩先倾入、髋未有效换侧是常见线索之一；不能仅由前刃滑出就断定原因。",
+          "locator": "高级滑手后换前段（front shoulder / hip and knee）",
+          "claim": "官方技术文章列出两向不同的常见代偿：前换后过早旋转与偏前、后换前肩先倾入而髋膝配合不足；只是观察线索，不是所有滑手的必然模式。",
           "evidence": "direct",
           "canonicalSource": "D01",
           "title": "Asymmetry in Snowboarding",
@@ -8761,7 +10353,7 @@
           "source": "S20",
           "locator": "Heel Drag or Toe Drag；Fine-Tuning Your Individual Binding Fit / Boot Centering",
           "claim": "鞋头或鞋跟接雪可能妨碍立刃，需检查实际外伸、横向居中与匹配；不能仅凭滑出就诊断为拖靴。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "S20",
           "title": "How to Adjust Snowboard Bindings",
           "url": "https://www.burton.com/en-au/blogs/the-burton-blog/how-to-adjust-snowboard-bindings"
@@ -8782,8 +10374,9 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.30–36；Analysis & Improvement",
-          "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
+          "locator": "印刷/PDF p.30–35：Analysis & Improvement、TT-PP-EE、Evaluate",
+          "claim": "从板表现与雪痕观察、考虑装备和环境等因素，并评估反馈；本站重复、撤提示、换条件流程是据此设计的验收建议。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8792,6 +10385,7 @@
           "source": "S26",
           "locator": "The Power of Observation and Positive Reinforcement",
           "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8810,24 +10404,18 @@
       "citations": [
         {
           "source": "T01",
-          "locator": "印刷 p.10–12；Lesson Planning Tool / Analysis & Improvement",
-          "claim": "任务目标、动作时机、观察指标和练习迁移需要明确；反馈应可执行。",
+          "locator": "印刷/PDF p.10–12：Lesson Planning Tool、Analysis & Improvement",
+          "claim": "明确目标、地形、动作时机和观察结果；可选Whole-Part-Whole方法。本站固定三组与休息量是编辑建议。",
+          "evidence": "synthesis",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
           "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
         },
         {
           "source": "S26",
-          "locator": "observation / one manageable cue",
-          "claim": "从动作与板响应观察，给予一个可管理提示并复查结果。",
-          "canonicalSource": "S26",
-          "title": "Movement Analysis: Connection and Confidence",
-          "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
-        },
-        {
-          "source": "S26",
           "locator": "The Power of Observation and Positive Reinforcement",
-          "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "claim": "观察动作顺序、板响应与轨迹，肯定具体成功并给一个可管理提示。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8848,16 +10436,18 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.51–54、55–57；Pressure / Timing & Coordination",
-          "claim": "屈伸阶段与动作持续时间、强度和协调共同改变载荷与板响应。",
+          "locator": "印刷/PDF p.51–55：Pressure、Timing & Coordination；p.56–57：转弯阶段与核心能力",
+          "claim": "伸屈的加速、减速阶段影响压力；启动、停止、持续时间与任务条件有关，不能只凭姿态高低判断载荷。",
+          "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "T01",
-          "locator": "印刷 p.13；down-unweighting progression",
-          "claim": "回收与新弯伸展应放在对应任务阶段，不作全程固定姿态。",
+          "locator": "印刷/PDF p.13：Sample Lesson #1 — Freeride flow",
+          "claim": "该高级起伏地形范例在换刃前回收、弯中伸展；原文明说这是特定技术，不是默认滑法。",
+          "evidence": "direct",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
           "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
@@ -8866,6 +10456,7 @@
           "source": "S26",
           "locator": "The Power of Observation and Positive Reinforcement",
           "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
@@ -8886,32 +10477,36 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–61、97–102、119–120、155–158",
-          "claim": "技术能力按平衡、转向、立刃、压力和协调融合，并以不同任务递进。",
+          "locator": "印刷/PDF p.43–45、47–57、59、61、97–98、119–120、155",
+          "claim": "平衡、转向、立刃、压力、协调及刻滑阶段；本站按当前短板组织阅读路线，不把这些页组合冒称官方统一教学次序。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "T01",
-          "locator": "印刷 p.10–15；planning and sample lessons",
-          "claim": "进阶课题以目标、进入条件、动作时机和可观察结果设计。",
+          "locator": "印刷/PDF p.10–15：Lesson Planning Tool、Sample Lessons",
+          "claim": "目标、进入条件、动作时机和可观察结果的教学设计；示范课包含不同任务，不能作为所有转弯的统一动作。",
+          "evidence": "direct",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
           "url": "https://members.casi-acms.com/documents/TeachingModule_LEVEL%203%20COURSE%20GUIDE-EN.pdf"
         },
         {
           "source": "T02",
-          "locator": "Course Overview / Am I Ready",
-          "claim": "刻滑专项需要已有能力、装备适配和具体反馈。",
+          "locator": "Course Overview；Pre Req；Am I Ready",
+          "claim": "这里是刻滑教练认证：要求CASI Level 2、已有滑行能力、适用装备和反馈。它支持专项需准备，不表示普通雪友须持教练证才能学刻滑。",
+          "evidence": "direct",
           "canonicalSource": "T02",
           "title": "Carving Instructor：刻滑专项路径",
           "url": "https://casi-acms.com/courses/carving-instructor/"
         },
         {
           "source": "T03",
-          "locator": "Course Overview / Pre Req / FAQ",
-          "claim": "公园及花式采用独立地形与教学递进，起点为基本专项能力。",
+          "locator": "Course Overview；Pre Req；FAQ",
+          "claim": "这里是Park 1教练认证，要求CASI Level 1和基础公园能力；支持公园应有独立地形与递进教学，不把认证门槛当普通学员门槛。",
+          "evidence": "direct",
           "canonicalSource": "T03",
           "title": "Park 1 Instructor：公园与花式递进路径",
           "url": "https://casi-acms.com/courses/park-1-instructor/"
@@ -8920,14 +10515,16 @@
           "source": "S26",
           "locator": "The Power of Observation and Positive Reinforcement",
           "claim": "同时观察动作时序、雪板抓地或滑移和轨迹，一次给出一个可管理的提示。",
+          "evidence": "direct",
           "canonicalSource": "S26",
           "title": "Movement Analysis: Connection and Confidence",
           "url": "https://thesnowpros.org/2026/05/movement-analysis-a-tool-for-connection-and-confidence/"
         },
         {
           "source": "S16",
-          "locator": "印刷 p.178；Side Slipping to Short Radius Turns / Tornado Turns",
-          "claim": "教材提供由侧滑逐渐连接为小回转，以及由大到中再到适当小弯的练习；本站两条重点路线为编辑组织，并非所有单板技术的完整分类。",
+          "locator": "印刷/PDF p.178：Side Slipping to Short Radius Turns、Tornado Turns",
+          "claim": "原文含侧滑渐接短弯、由大到中再到合适小弯的练习；本站两主线为编辑组织。",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8946,7 +10543,7 @@
       "citations": [
         {
           "source": "S19",
-          "locator": "3 Common Snowboard Binding Angle Combinations",
+          "locator": "3 Common Snowboard Binding Angle Combinations / Positive/Negative",
           "claim": "直接支持 duck stance 为前正后负；对称角度是常见选择而非定义要求。",
           "evidence": "direct",
           "canonicalSource": "S19",
@@ -8955,26 +10552,26 @@
         },
         {
           "source": "S16",
-          "locator": "印刷 p.50–52、97–98、155、181–182",
+          "locator": "印刷 / PDF p.50–52、59、97–98、155、181–182：成角、压力时序、两腿引导、非对称、装备",
           "claim": "支持成角与内倾、屈伸时序、刻滑入门判据、两刃非对称和装备条件；不提供本站低姿态动作数值。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
           "source": "S10",
-          "locator": "v2.0（2022-11-07），印刷 p.3、5、15、25，Fundamentals / Carved Turn",
+          "locator": "印刷 / PDF p.3、5、15、25：六项基本功与各级 Carved Turn",
           "claim": "直接支持刻滑板尾跟随判据、受力与动作量的区分，以及按任务采用不同屈伸；不把某级考核动作当唯一规则。",
-          "evidence": "direct",
+          "evidence": "synthesis",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
           "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
         },
         {
           "source": "D01",
-          "locator": "2022-10-13，正文第 4–7 段（advanced riders 至 comparing turns）",
-          "claim": "支持两向常见误差不同：前换后过早旋转、后换前前肩先倾；都是排查线索。",
+          "locator": "高级滑手段（Asymmetry affects advanced riders 起）至末段",
+          "claim": "官方技术文章列出两向不同的常见代偿：前换后过早旋转与偏前、后换前肩先倾入而髋膝配合不足；只是观察线索，不是所有滑手的必然模式。",
           "evidence": "direct",
           "canonicalSource": "D01",
           "title": "Asymmetry in Snowboarding",
@@ -8982,7 +10579,7 @@
         },
         {
           "source": "S17",
-          "locator": "2015-03-15，正文第 2–5 段，transition / COM and BOS",
+          "locator": "transition / COM and BOS / re-centering 正文段",
           "claim": "支持过渡重新组织身体与板的关系，避免过早过量投入新弯。",
           "evidence": "direct",
           "canonicalSource": "S17",
@@ -8991,12 +10588,21 @@
         },
         {
           "source": "T02",
-          "locator": "Course Overview / Am I Ready",
-          "claim": "正常高度基线、单弧对照和短组验收是本站教学归纳；官方专项强调已有刻滑经验、适配装备及反馈，未规定本课练习次数。",
+          "locator": "Course Overview / Am I Ready；不规定低姿态课程顺序或组数",
+          "claim": "官方专项面向已有刻滑经验者，强调装备、定向练习与反馈；不规定本站正常高度到低姿态的课序或练习组数。",
           "evidence": "suggestion",
           "canonicalSource": "T02",
           "title": "Carving Instructor：刻滑专项路径",
           "url": "https://casi-acms.com/courses/carving-instructor/"
+        },
+        {
+          "source": "S36",
+          "locator": "0:28.848–0:30.848，低位弧与转换关键帧",
+          "claim": "实看低位后刃、较高转换、低位前刃及下一转换；手触雪后可离雪继续弧。只比较软靴刻滑的可见过程，未确认该滑手采用duck角度，不作为必须摸雪或精确姿态标准。",
+          "evidence": "direct",
+          "canonicalSource": "S36",
+          "title": "Carving Instructor: Riding Standards (2025)",
+          "url": "https://www.youtube.com/watch?v=zaQubyopOy8"
         }
       ],
       "prototypeMode": null,

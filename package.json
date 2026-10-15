@@ -12,7 +12,8 @@
     "build:lessons": "vite build --config vite.lessons.config.ts",
     "preview:prototype": "vite preview",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts"
+    "test": "tsx --test tests/*.test.ts",
+    "check:source-claims": "node scripts/check-source-claims.mjs"
   },
   "dependencies": {
     "@react-three/fiber": "9.8.1",
