@@ -27,7 +27,7 @@
 
 上述四条 A 记录和 `www` CNAME 保持不变；`www.jinke.me` 作为个人博客的兼容入口跳转到根域。等待用户站的 GitHub DNS 检查和证书签发成功后启用 **Enforce HTTPS**。正式发布需分别验证根域博客、`/snowboard/` 手册、HTTPS、课程锚点和原型资源；配置依据见 [GitHub 自定义域名说明](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)。
 
-仓库从 `snowboard-guide` 重命名为 `snowboard` 后，旧 GitHub 仓库 URL 会自动重定向，仍应将本地 `origin` 更新为 `https://github.com/yichenluan/snowboard.git`。GitHub Pages 的旧项目网址不享有同样保证；`https://yichenluan.github.io/snowboard-guide/` 可能失效，发布后应实际检查，不承诺自动跳转。对外分享使用新的正式网址。
+仓库从 `snowboard-guide` 重命名为 `snowboard` 后，旧 GitHub 仓库 URL 会自动重定向，仍应将本地 `origin` 更新为 `https://github.com/yichenluan/snowboard.git`。GitHub 的仓库重命名不自动重定向旧 Pages 项目网址；本次由个人博客提供兼容跳转页：`/snowboard-guide/`、`/snowboard-guide/3d/` 和 `/snowboard-guide/snowboard-guide.html` 分别转到 `/snowboard/` 下对应入口，并通过 JavaScript 保留查询参数和课程锚点，禁用 JavaScript 时可点击页面链接继续。根域旧 `/3d/`、`/snowboard-guide.html` 也提供兼容页；首页只有出现 `#lesson=` 时才转到滑雪课程，普通根路径仍显示博客。2026-10-15 已实测旧课程与原型地址能保留参数转到新项目。旧项目首页的历史301可能仍被边缘或浏览器缓存为根域，此时可用博客导航中的 Snowboard 入口；不把缓存过期时间当作确定承诺。对外分享使用新的正式网址。
 
 ## 日常更新
 

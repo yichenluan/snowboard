@@ -34,7 +34,13 @@
 
 本次本地类型检查、85/85测试、两项 Vite 构建、单文件构建与清单检查通过。主站与离线副本 SHA-256 均为 `a862ea129a1d9fdc333d99ae60e6b8e72aa53fb5a72c054f53cf7df36bbc012f`。只改变部署路径和链接，不改变课程、模型及个人数据键。
 
-从 `https://jinke.me/` 移到同域 `/snowboard/` 不改变 origin，已有笔记、收藏、学习进度和方向仍可读取；原 `github.io` 域的个人记录仍需导入备份。线上发布结果在完成后追加，不把本地通过当作线上验收。
+从 `https://jinke.me/` 移到同域 `/snowboard/` 不改变 origin，已有笔记、收藏、学习进度和方向仍可读取；原 `github.io` 域的个人记录仍需导入备份。
+
+发布实现提交 `319d0ae`，对应 [Actions 38678518501](https://github.com/yichenluan/snowboard/actions/runs/38678518501) 的 build / deploy 均成功。Pages API 确认滑雪项目 `cname=null`、正式地址为 `https://jinke.me/snowboard/`；个人博客 `cname=jinke.me`。两站均启用强制 HTTPS，证书批准。
+
+线上核验：`/snowboard` 自动补末尾斜杠；主站、副本、原型及其 JS / CSS 返回200并与本地逐字节一致（主站2,037,111 bytes）；HTTP、www及新GitHub项目地址都能到达正式HTTPS入口。浏览器实测课程与独立原型连续播放、相互跳转正常，未捕获控制台error；原有 `short` 学习方向仍保持。证据在本地 `.validation/subpath-migration/` 与 `log/subpath-*`，不公开提交。
+
+个人博客保留原内容，配置 URL 改为 HTTPS，并提供旧项目目录及首次根路径部署的兼容页。博客最终提交 `ff85f86`，对应 [Actions 38678814809](https://github.com/yichenluan/yichenluan.github.io/actions/runs/38678814809) 构建和部署成功；已实际点击博客 Snowboard 导航到达新站。已实测旧课程链接、旧原型链接保留 query / hash 到达新入口。旧项目首页的历史301仍可能被缓存为根域；根域只在 `#lesson=` 时跳转到课程，其余正常显示博客，可从新增的 Snowboard 导航进入手册。
 
 ## 2026-10-15 自定义域名迁移（首次根路径部署的历史记录）
 
