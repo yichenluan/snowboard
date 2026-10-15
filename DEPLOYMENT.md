@@ -2,6 +2,8 @@
 
 本项目采用 GitHub Actions 构建和发布。`main` 分支每次推送都会运行 `.github/workflows/pages.yml`，也可以在 Actions 页手动运行。
 
+全站动画替换已发布。已核验的功能发布基线、线上抽查及未验证边界统一维护在[当前状态与新会话入口](docs/project-status.md)；本文说明后续构建和发布流程。
+
 ## 首次启用
 
 在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。工作流中的 `configure-pages` 负责读取站点配置；它不尝试用默认令牌自动开通 Pages。
@@ -12,14 +14,14 @@
 
 1. 修改 `content.json` 中的知识点、练习或来源；课内动作维护在 `lesson-player/`，共用人体、装备与独立小回转原型维护在 `prototype/`。`animations.js` 保留旧预设来源和兼容接口，当前课程引用均由新播放器接管。
 2. 使用 Node.js 22；依赖缺失或锁文件变化时运行 `npm ci`。运行 `npm run typecheck`、`npm test`、`npm run build:prototype`、`npm run build:lessons`，再执行 `python3 build.py`；用本地 HTTP 服务预览主站与 `/3d/`。
-3. 将源码提交并推送到 `main`，等待 Actions 中的 `Deploy snowboard guide` 完成。
-4. 在站点上刷新对应条目，检查新正文及动画。
+3. 核对差异并只提交本次相关源码，推送到 `main`，确认该提交对应的 `Deploy snowboard guide` 构建和部署均成功。
+4. 在站点上刷新对应条目，实际检查新正文、动画和控制台；不能仅凭推送成功宣称发布完成。
 
-`build.py` 只依赖 Python 标准库。工作流用 Node.js 22 与 `npm ci` 安装锁定依赖，完成原型类型检查、动作测试和 Vite 构建，再生成主教材 HTML。主教材采用内联资源，三维原型使用相对路径资源；两者均适用于 GitHub Pages 的项目子目录。
+`build.py` 只依赖 Python 标准库。工作流用 Node.js 22 与 `npm ci` 安装锁定依赖，完成共享类型检查、自动测试及原型和课内程序两项 Vite 构建，再检查清单并生成主教材 HTML。主教材采用内联资源，三维原型使用相对路径资源；两者均适用于 GitHub Pages 的项目子目录。
 
 ## 用命令行更新
 
-首次需要登录 GitHub CLI，并让 Git 使用该认证。登录时使用仓库所属账户，不将密码或令牌写进源码、日志或聊天。
+仅在首次配置或现有认证失效时登录 GitHub CLI，并让 Git 使用该认证；已有有效认证时直接复用。登录时使用仓库所属账户，不将密码或令牌写进源码、日志或聊天。
 
 ```sh
 gh auth login --hostname github.com --git-protocol https --web
@@ -36,7 +38,10 @@ npm run build:prototype > log/prototype-build.log 2>&1
 npm run build:lessons > log/lessons-build.log 2>&1
 python3 build.py > log/build.log 2>&1
 node scripts/inventory-animations.mjs --check
-git add content.json app.js animations.js styles.css progression.js progression.css shell.html build.py README.md DEPLOYMENT.md prototype lesson-player scripts docs tests package.json package-lock.json tsconfig.json vite.config.ts vite.lessons.config.ts .github/workflows/pages.yml .gitignore
+git diff --check
+git status --short
+# 用 git add <本次修改的文件> 逐项暂存，随后核对暂存范围
+git diff --cached --stat
 git commit -m "improvement(guide): update teaching content"
 git push origin main
 ```
@@ -54,9 +59,9 @@ Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，�
 
 公开仓库应只提交可维护手册源码、README、部署配置和经过检查的展示图片。不要提交研究用原视频、音频、逐字字幕、原始课件、个人备份或笔记、日志、依赖目录以及测试中间文件。
 
-建议将这些本地输出加入 `.gitignore`：`_site/`、`3d/`、`build.log`、`log/`、`research/`、`node_modules/`、`__pycache__/`、`*.pyc`。生成的 `index.html` 和 `snowboard-guide.html` 也可忽略，由工作流生成。
+`.gitignore` 已忽略本地构建、研究及验证输出，包括 `_site/`、`3d/`、`log/`、`.validation/`、`research/`、`node_modules/`、`index.html` 和 `snowboard-guide.html`。生成网页由工作流重建，不手改、不提交。
 
-离线教材仍是单个 HTML：课内三维使用内联 IIFE、内联样式与程序生成模型，不请求 CDN、外部字体或模型；无 WebGL 时降级为同一状态的可播放骨架。`build.py` 缺少三维构建时会明确失败。独立 `/3d/` 原型在 `file:` 教材中的入口仍指向线上，不加入单文件导出。具体离线与浏览器验收边界见 `docs/lesson-player-review.md`。
+离线教材仍是单个 HTML：课内三维使用内联 IIFE、内联样式与程序生成模型，不请求 CDN、外部字体或模型；无 WebGL 时降级为同一状态的可播放骨架。`build.py` 缺少课内三维构建时会明确失败。独立 `/3d/` 原型在 `file:` 教材中的入口仍指向线上，不加入单文件导出。实际导出内容已核对，`file:` 直接重开和断网运行仍未实测；具体范围见[播放器审阅](docs/lesson-player-review.md)。
 
 笔记、收藏和个人补充仍只保存在访问者自己的浏览器中，推送源码不会上传浏览器记录。发布时使用原始源码构建，不要把“保存网页”导出的个人版本放进仓库。更换域名或清理浏览器前先导出备份。
 

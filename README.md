@@ -1,6 +1,6 @@
 # 单板滑雪 · 进阶动作手册
 
-[在线阅读](https://yichenluan.github.io/snowboard-guide/) · [部署与更新](DEPLOYMENT.md)
+[在线阅读](https://yichenluan.github.io/snowboard-guide/) · [当前状态与新会话入口](docs/project-status.md) · [部署与更新](DEPLOYMENT.md)
 
 面向已经能用两刃停止、受控连弯并避让来人的软靴单板滑雪者。主要覆盖压雪雪道的基础巩固与进阶，资料更新至 2026-10-14。
 
@@ -8,9 +8,11 @@
 
 用浏览器打开 `snowboard-guide.html`。正文、课内三维、阶段图和交互图都打包在一个文件中；课内动作无外部模型或脚本请求。无 WebGL 时保留同源可播放骨架。独立小回转原型和资料链接需要联网；保存的 HTML 保留这些在线入口。
 
-## 搓雪小回转三维原型
+## 课内三维与独立原型
 
-[打开三维动作实验室](https://yichenluan.github.io/snowboard-guide/3d/)：包含正确示范、错误对照和侧滑接单弯练习。全站 134 个动画引用已完成替换与本地分阶段审阅（114个雪上、20个离雪），包括反脚与局部扭板；剩余旧动画引用为 0。两项装备交互图保留二维并独立审阅。具体范围见[播放器审阅记录](docs/lesson-player-review.md)，清单含32个全量类型与3个按变体接入的类型，已覆盖全部现有引用。主站首页及小回转对应三课仍有独立原型入口。线上版本以[Pages部署记录](https://github.com/yichenluan/snowboard-guide/actions/workflows/pages.yml)及页面实际内容为准。
+全站 134 个动画引用已完成替换、分阶段审阅与发布（114个雪上、20个离雪），包括反脚与局部扭板；剩余旧动画引用为 0。两项装备交互图保留二维并独立审阅。部分类型仍按变体门控，限制的是未被当前课程引用的配置，不代表现有引用尚未迁移。覆盖统计、已核验功能发布基线和未验证边界统一见[当前状态](docs/project-status.md)，逐批实际检查见[播放器审阅记录](docs/lesson-player-review.md)。
+
+[打开三维动作实验室](https://yichenluan.github.io/snowboard-guide/3d/)：独立小回转原型包含正确示范、错误对照和侧滑接单弯练习。主站首页及小回转对应三课保留此入口；原型的三个模式不代表全部课内任务。
 
 原型采用 Three.js 与 React Three Fiber，人体和场景在代码中生成，不请求外部模型、字体或 CDN 脚本。需要浏览器支持图形渲染；加载的三维动作是教学用定性示意，不给出个人肌肉力值或压力百分比。它是独立网页，不打包进单文件离线教材。
 
@@ -65,18 +67,18 @@ python3 build.py
 | 文件 | 用途 |
 | --- | --- |
 | `content.json` | 教材、模块、来源、练习路线与示意配置 |
-| `animations.js` | 关节骨架、轨迹、压力阶段图和播放控件 |
+| `animations.js` | 旧 SVG 动作实现、预设来源与兼容接口；当前课程动画由课内播放器接管 |
 | `app.js` | 检索、阅读层次、多示意切换、装备图、笔记与迁移 |
 | `styles.css` | 桌面、手机、打印布局 |
 | `shell.html` | 页面模板 |
 | `build.py` | 生成单文件 HTML |
-| `prototype/` | 三维原型的页面、动作模型与交互 |
+| `prototype/` | 独立原型页面，以及课内复用的人体、装备约束与场景 |
 | `lesson-player/` | 课内三维任务、播放器、同源降级和旧接口桥接 |
-| `tests/` | 原型动作与教学约束的检查 |
-| `vite.config.ts` / `tsconfig.json` | 三维原型构建与类型检查 |
+| `tests/` | 原型、课内任务与装备图的几何、时序和表达约束检查 |
+| `vite.config.ts` / `vite.lessons.config.ts` / `tsconfig.json` | 独立原型、课内程序构建与共享类型检查 |
 | `package.json` / `package-lock.json` | 固定前端依赖与命令 |
 
-维护三维原型需要 Node.js 22（22.12 或更高的 22.x 版本）：
+维护三维原型或课内播放器需要 Node.js 22（22.12 或更高的 22.x 版本）；原型开发预览使用：
 
 ```sh
 npm ci
@@ -93,9 +95,10 @@ npm run build:prototype > log/prototype-build.log 2>&1
 npm run build:lessons > log/lessons-build.log 2>&1
 python3 build.py > log/build.log 2>&1
 node scripts/inventory-animations.mjs --check
+git diff --check
 ```
 
-Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相对路径，可部署在 GitHub Pages 项目子目录。预览完整站点可运行 `python3 -m http.server 8000`，再打开 `http://localhost:8000/`；三维页面为 `http://localhost:8000/3d/`。生成的 `3d/` 不提交，由 Actions 从锁定依赖重新构建。
+`build:prototype` 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相对路径；`build:lessons` 生成供 `build.py` 内联的课内程序与样式，必须在单文件构建前完成。两种入口均可部署在 GitHub Pages 项目子目录。预览完整站点可运行 `python3 -m http.server 8000`，再打开 `http://localhost:8000/`；独立原型为 `http://localhost:8000/3d/`。生成的 `3d/`、`index.html` 和 `snowboard-guide.html` 不手改、不提交，由 Actions 从锁定依赖重新构建。
 
 新增条目使用稳定 `id`，明确 `module`、`kind` 与 `level`。正文字段为 `summary`、`goal`、`prerequisites`、`mechanics`、`execution`、`checks`、`drill`、`mistakes` 和 `citations`；不再使用视频评价字段。
 
@@ -119,17 +122,17 @@ Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相�
 
 可维护数据为 `content.json.progressionMap`：`requires` 引用建议先具备的任务能力，必须保持无环；`supports` 引用按问题选练的技术，不能作为通关锁。`role: support` 不计进度。`lessons` 是直接对应课程，`moduleLinks` 仅在条目没有直接对应节点时提供模块辅助入口。新增节点后核对 ID、目标分支、来源和可观察的通过标准。交互与连线在 `progression.js`，布局在 `progression.css`，由 `build.py` 内联生成单文件 HTML。
 
-## 搓雪小回转专项与本轮复核
+## 2026-10-14 专项内容复核记录
 
-新增 7 个专项条目：完整连弯、侧滑接单弯、中弯逐步缩小、双脚引导与前后平衡、两侧节奏、9 类常见问题排查、保持与变化验收。练习既包括缩小，也包括放大回来、撤去提示与主动结束。
+该轮新增 7 个专项条目：完整连弯、侧滑接单弯、中弯逐步缩小、双脚引导与前后平衡、两侧节奏、9 类常见问题排查、保持与变化验收。练习既包括缩小，也包括放大回来、撤去提示与主动结束。
 
 “刻滑”描述雪板沿刃滑行的方式，“小回转”描述弯的大小。它们是本站两个重点学习目标，不是穷尽单板运动的两个终点；搓雪也能做大弯，小弯也可能刻滑。普通搓雪小回转无需先会回收或纯刻滑。
 
 原 95 个条目逐项复核了中文、练习和验收标准，均有完整练习卡：地形、准备、步骤、通过、退回和下一步。概念与装备课使用观察或对照练习，非雪训练不宣称自动转化为雪上技能。新练习的组数与自查是教学安排，原教材考核的坡度、固定走廊数字不直接成为普适门槛。
 
-新动画提供板轴与实际移动方向、身体路线、刃侧和双腿屈伸的同步示意；正确动作与错误示意明确区分。轨迹按匀速播放只为比较，不计算真实受力和滑速。
+当前课内动画提供板轴与实际移动方向、身体路线、刃侧和双腿屈伸的同步示意；正确动作与错误示意明确区分。路线与时序为作者编排，不计算真实受力和滑速。
 
-新增课程可用 `relatedLessons` 连接下一步。错误卡可用 `lesson` 指向对应练习，`demoKey`（类型:变体:可选换刃方式）打开同课动作对照。新增短弯动画变体须属于 `SnowDemo.shortVariants`；导入时会校验，避免错误配置覆盖个人知识库。
+新增课程可用 `relatedLessons` 连接下一步。错误卡可用 `lesson` 指向对应练习，`demoKey`（类型:变体:可选换刃方式）打开同课动作对照。短弯变体的导入校验仍使用 `SnowDemo.shortVariants`；新增配置还须满足课内注册表与任务门控，不能将通过旧接口校验视为新任务已实现。
 
 ## 后刃与换刃复核资料
 
