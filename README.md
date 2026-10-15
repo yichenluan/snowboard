@@ -12,7 +12,7 @@
 
 ## 课内三维与独立原型
 
-当前工作区为109课、139个课内三维引用（119个雪上、20个离雪）、95展示配置、63显式任务，`contentRevision=16`；旧播放器引用为0。最新增加 CASI Expert Short Radius 专项，最终循环回归已通过，发布状态见下方项目记录，不能由接入数推导教学全部通过或线上已更新。两项装备交互图保留二维并独立审阅。部分类型仍按变体门控，限制的是未被当前课程引用的配置，不代表现有引用尚未迁移。当前数量、历史发布及证据边界统一见[当前状态](docs/project-status.md)，逐批历史检查见[播放器审阅记录](docs/lesson-player-review.md)。
+当前已发布109课、139个课内三维引用（119个雪上、20个离雪）、95展示配置、63显式任务，`contentRevision=16`；旧播放器引用为0。最新增加 CASI Expert Short Radius 专项，最终循环回归与发布已完成，不能由接入数推导教学全部通过。两项装备交互图保留二维并独立审阅。部分类型仍按变体门控，限制的是未被当前课程引用的配置，不代表现有引用尚未迁移。当前数量、历史发布及证据边界统一见[当前状态](docs/project-status.md)，逐批历史检查见[播放器审阅记录](docs/lesson-player-review.md)。
 
 [打开独立三维原型](https://jinke.me/snowboard/3d/)：早期用于验证小回转动作，目前保留正确示范、错误对照和侧滑接单弯三个审阅模式。首页直接展示能力路线；小回转对应三课仍提供独立场景入口。原型的三个模式不代表全部课内任务。
 
@@ -33,7 +33,7 @@
 
 ## Expert Short Radius 专项
 
-保留原七课可控搓雪基础，再增加目标与基线、转向、加载释放、整段连续性、单条件迁移、专项复核六课。当前构建的入口为 `s-short-expert-map` 与 `s-short-expert-review`；发布后的正式入口为[目标与基线](https://jinke.me/snowboard/#lesson=s-short-expert-map)和[专项复核](https://jinke.me/snowboard/#lesson=s-short-expert-review)。完整递进见[课程架构](docs/level4-short-curriculum.md)，最终测试与发布状态见[当前状态](docs/project-status.md)。
+保留原七课可控搓雪基础，再增加目标与基线、转向、加载释放、整段连续性、单条件迁移、专项复核六课。正式入口为[目标与基线](https://jinke.me/snowboard/#lesson=s-short-expert-map)和[专项复核](https://jinke.me/snowboard/#lesson=s-short-expert-review)。完整递进见[课程架构](docs/level4-short-curriculum.md)，最终测试与发布状态见[当前状态](docs/project-status.md)。
 
 官方本项要求2–3米走廊、专家压雪地形、高级／专家速度，管理回弹及反应、保持全程技术能力，并通过弯形与转向控速；未规定本站可代替现场判断的固定速度数值、坡角或弯数。十一项雪上复盘保存条件、完整时段、证据和外部反馈，不自动计算 CASI 分数或授予四级资格。普通缓坡小回转结果不能自动外推到专家任务。
 

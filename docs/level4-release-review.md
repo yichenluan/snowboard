@@ -46,4 +46,6 @@
 
 ## 发布
 
-待提交、GitHub Pages部署成功及正式站文件一致性/浏览器冒烟后补记。
+实现提交 `06c04ed0497603fc1bafb8eae8f68c6f211d5494`，[Actions 38705806734](https://github.com/yichenluan/snowboard/actions/runs/38705806734)的build与deploy均成功。正式主站与单文件副本均为2,338,988 bytes，SHA-256 `d488a54a1731a79f447479ffc28e60197fa9ccb655564f916bc1e1b6a27a1bb3`，与本地构建逐字节一致；独立原型HTML、JS、CSS也一致。
+
+线上Chrome已检查专家基线正文、调压模型及准备偏晚选项、100%末态循环（运行到990，按钮显示暂停）、11项记录表与两条真人时间链接，未捕获console error。没有向正式站写入测试记录或公开评论。本地文件核验证据为`.validation/level4/published-verification.json`。另实际打开390px子视口首页的专项复核节点，27节点存在，文档clientWidth与scrollWidth均375px。
