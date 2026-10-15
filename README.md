@@ -133,6 +133,6 @@ Vite 从 `prototype/` 生成 `3d/index.html` 和 `3d/assets/`，资源使用相�
 
 ## 后刃与换刃复核资料
 
-全站迁移范围为134个动画引用及2个装备交互图，不能把102课当成102套独立动画。97个引用已在源码切换为课内三维，验收与局限见 [课程播放器审阅](docs/lesson-player-review.md)、[基础研究](docs/lesson-foundations-research.md)、[转向研究](docs/lesson-turning-research.md)、[压力与换刃](docs/lesson-pressure-migration-spec.md)、[进阶研究](docs/lesson-advanced-research.md)、[髋膝协调](docs/lesson-coordination-research.md)、[离雪研究](docs/lesson-dryland-research.md)、[旋转研究](docs/lesson-rotation-migration-spec.md)、[装备图审阅](docs/lesson-equipment-review.md)及 [全站清单](docs/animation-inventory.md)。原型的历史证据和验收仍分别保存在原有文档。
+全站迁移范围为134个动画引用及2个装备交互图，不能把102课当成102套独立动画。134个引用均已切换为课内三维，验收与局限见 [课程播放器审阅](docs/lesson-player-review.md)、[基础研究](docs/lesson-foundations-research.md)、[转向研究](docs/lesson-turning-research.md)、[压力与换刃](docs/lesson-pressure-migration-spec.md)、[进阶研究](docs/lesson-advanced-research.md)、[髋膝协调](docs/lesson-coordination-research.md)、[离雪研究](docs/lesson-dryland-research.md)、[旋转研究](docs/lesson-rotation-migration-spec.md)、[小回转研究](docs/lesson-short-turns-migration-spec.md)、[反脚与扭板研究](docs/lesson-switch-twist-research.md)、[装备图审阅](docs/lesson-equipment-review.md)及 [全站清单](docs/animation-inventory.md)。原型的历史证据和验收仍分别保存在原有文档。
 
 清单可复现：`node scripts/inventory-animations.mjs`；仅检查：`node scripts/inventory-animations.mjs --check`。原型更新仍须完成实际多视角与连续阶段审阅，不能仅凭测试通过判定教学正确。

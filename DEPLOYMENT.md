@@ -10,7 +10,7 @@
 
 ## 日常更新
 
-1. 修改 `content.json` 中的知识点、练习或来源；原有动作示意维护在 `animations.js`，三维小回转原型维护在 `prototype/`。
+1. 修改 `content.json` 中的知识点、练习或来源；课内动作维护在 `lesson-player/`，共用人体、装备与独立小回转原型维护在 `prototype/`。`animations.js` 保留旧预设来源和兼容接口，当前课程引用均由新播放器接管。
 2. 使用 Node.js 22；依赖缺失或锁文件变化时运行 `npm ci`。运行 `npm run typecheck`、`npm test`、`npm run build:prototype`、`npm run build:lessons`，再执行 `python3 build.py`；用本地 HTTP 服务预览主站与 `/3d/`。
 3. 将源码提交并推送到 `main`，等待 Actions 中的 `Deploy snowboard guide` 完成。
 4. 在站点上刷新对应条目，检查新正文及动画。
@@ -36,7 +36,7 @@ npm run build:prototype > log/prototype-build.log 2>&1
 npm run build:lessons > log/lessons-build.log 2>&1
 python3 build.py > log/build.log 2>&1
 node scripts/inventory-animations.mjs --check
-git add content.json app.js animations.js styles.css progression.js progression.css shell.html build.py README.md DEPLOYMENT.md prototype tests package.json package-lock.json tsconfig.json vite.config.ts .github/workflows/pages.yml .gitignore
+git add content.json app.js animations.js styles.css progression.js progression.css shell.html build.py README.md DEPLOYMENT.md prototype lesson-player scripts docs tests package.json package-lock.json tsconfig.json vite.config.ts vite.lessons.config.ts .github/workflows/pages.yml .gitignore
 git commit -m "improvement(guide): update teaching content"
 git push origin main
 ```
