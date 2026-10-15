@@ -53,8 +53,8 @@ function phaseStudy(t:number,c:LessonConfig,stance:Stance):LessonFrame {
   const extending=c.type==="pressure-extend",end=extending?.32:.38;
   const stages:Stage[]=[
     {at:0,title:extending?"开始上升":"开始下降",detail:extending?"平地平板示意：踝膝髋协调伸展，向上加速的阶段可暂时增加支撑力；不锁膝。":"平地平板示意：踝膝髋协调屈曲，向下加速的阶段可暂时减轻支撑力；不只折腰。"},
-    {at:studySpeedPeak(extending),title:extending?"减速收住上升":"减速收住下降",detail:extending?"上升仍在继续，但速度逐渐降低；这一阶段的垂向加速度贡献趋向减压。":"下降仍在继续，但速度逐渐降低；这一阶段的垂向加速度贡献趋向增压。"},
-    {at:end,title:extending?"高位保持":"低位保持",detail:"保持高度不再产生该项垂向加速度。高度曲线是分段估计质心的位置，不是压力曲线；真实雪上还受弯形、坡度与地形影响。"},
+    {at:studySpeedPeak(extending),title:extending?"减速收住上升":"减速收住下降",detail:extending?"上升仍在继续，但速度逐渐降低；仅看这个上下动作，它会暂时减轻脚下的支撑力。":"下降仍在继续，但速度逐渐降低；仅看这个上下动作，它会暂时增加脚下的支撑力。"},
+    {at:end,title:extending?"高位保持":"低位保持",detail:"高度保持不变后，就没有这次上下加速带来的压力变化。曲线按身体各部分的位置估算整体重心（质心）的高度，不是压力曲线；真实雪上还受弯形、坡度与地形影响。"},
     {at:.65,title:"平顺恢复起始位置",detail:"受控恢复到起始的舒适屈曲关系，仍保留活动余量；本段不解释恢复过程的压力变化。"},
   ];
   const stage=stages.reduce((last,s,i)=>t>=s.at?i:last,0);
@@ -82,9 +82,9 @@ function edgeEvents(from:WorkingEdge) {
 function singleTransition(t:number,c:LessonConfig,stance:Stance):LessonFrame {
   const from:WorkingEdge=c.fromEdge??"heel",to:WorkingEdge=from==="toe"?"heel":"toe",events=edgeEvents(from);
   const stages:Stage[]=[
-    {at:0,title:`释放${nameOf(from)}、适量伸展`,detail:"从旧弯的可控支撑开始，适量伸膝并减小旧刃角；同时调整髋与胸廓关系，伸展启动不等于立即减压。本段只选用温和伸展过渡。"},
+    {at:0,title:`释放${nameOf(from)}、适量伸展`,detail:"从旧弯的可控支撑开始，适量伸膝并减小旧刃角；同时调整髋与胸部关系，伸展启动不等于立即减压。本段只选用温和伸展过渡。"},
     {at:events.enter,title:"经过近平板位置",detail:"板角已经很小并连续经过平板；身体与板重新接近可调整的关系，不停顿，也不代表零压力。"},
-    {at:events.leave,title:`新${nameOf(to)}逐渐建立`,detail:to==="toe"?"膝与髋共同进入脚尖侧，胸廓相对下肢更直立；不把前肩先扑进弯内。":"膝髋共同折叠，骨盆进入脚跟侧，胸廓相对回板；不靠大幅折踝完成后刃。"},
+    {at:events.leave,title:`新${nameOf(to)}逐渐建立`,detail:to==="toe"?"膝与髋共同进入脚尖侧，胸部相对下肢更直立；不把前肩先扑进弯内。":"膝髋共同折叠，骨盆进入脚跟侧，胸部相对骨盆更靠近雪板上方；不靠大幅折踝完成后刃。"},
     {at:.8,title:`接续${nameOf(to)}弧线`,detail:"在新弯继续柔和屈腿并保持调整余量。这是滑行片段的结束，不是停车；仍按计划继续或另行结束。"},
   ];
   const stage=stages.reduce((last,s,i)=>t>=s.at?i:last,0),state=transitionState(t,from,stance);

@@ -17,7 +17,7 @@ test('多归属课程不把自身建立的能力列为课程前置，能力图�
   ],targets:[]};
   const original = structuredClone(map);
   const html = lessonContext(map,{id:'shared-lesson',module:'carving'},['foundation']);
-  const before = html.match(/<small>前置能力<\/small>(.*?)<\/div><\/div>/)?.[1];
+  const before = html.match(/<small>先掌握的基础<\/small>(.*?)<\/div><\/div>/)?.[1];
   assert.ok(before,'外部前置仍展示');
   assert.match(before,/data-show-skill="foundation"/);
   assert.doesNotMatch(before,/data-show-skill="(?:reference|arc)"/);

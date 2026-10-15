@@ -670,8 +670,8 @@ function JointLabels({
     const host = gl.domElement.parentElement!;
     labels.current = (
       layer === "force"
-        ? ["重力", "法向作用方向", "侧向作用方向"]
-        : state.rideDirection===-1?["骨盆","原前膝","原后膝","胸廓"]:["骨盆", "前膝", "后膝", "胸廓"]
+        ? ["重力", "垂直雪面的作用", "侧向作用"]
+        : state.rideDirection===-1?["骨盆","原前膝","原后膝","胸部"]:["骨盆", "前膝", "后膝", "胸部"]
     ).map((name, i) => {
       const label = document.createElement("span");
       label.textContent = name;
@@ -830,7 +830,7 @@ export class SceneBoundary extends Component<
       <div className="scene-fallback">
         <strong>当前设备未能打开三维画面</strong>
         <p>仍可使用轨迹、阶段说明与下方练习。</p>
-        <a href="../#lesson=s-short-integrated">打开原有示意 →</a>
+        <a href="../#lesson=s-short-integrated">打开课内示意 →</a>
       </div>
     )) : (
       this.props.children
@@ -1100,10 +1100,10 @@ export function TopMap({
         蓝：移动方向
       </text>
       <text x="116" y="211" fontSize="11" fill="#a46e32">
-        {state.rideDirection===-1?"黄：硬件板鼻":"黄：板头朝向"}
+        {state.rideDirection===-1?"黄：原板头":"黄：板头朝向"}
       </text>
       <text x="221" y="211" fontSize="11" fill="#168c76">
-        {b.segmentRolls?"绿：局部低侧":"绿：工作刃"}
+        {b.segmentRolls?"绿：各段较低板刃":"绿：工作刃"}
       </text>
     </svg>
   );

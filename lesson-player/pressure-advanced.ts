@@ -158,9 +158,9 @@ function absorptionSpeedPeak(){
 function stagesFor(task:Task,c:LessonConfig):Stage[]{
   if(task==="same-edge-extension")return [
     {at:0,title:"保持后刃弧线",detail:"从已建立的后刃进入，膝髋保留活动余量；先看板沿完整弧线转向。"},
-    {at:.18,title:"弯中渐进伸腿",detail:"两腿只增加少量长度，骨盆与胸廓共同调整；伸腿启动不等于立即减压，图中不显示真实压力。"},
+    {at:.18,title:"弯中渐进伸腿",detail:"双腿只伸展少量，骨盆与胸部共同调整；伸腿启动不等于立即减压，图中不显示真实压力。"},
     {at:.48,title:"控制伸展末端",detail:"保留膝髋活动余量，不锁腿、不用后脚横踢板尾。"},
-    {at:.58,title:"柔和收腿",detail:"在同一后刃上收回腿长，随后逐渐减小刃角；本次选择完成单弯并停止。"},
+    {at:.58,title:"柔和屈腿",detail:"在同一后刃上逐渐屈腿，随后逐渐减小刃角；本次选择完成单弯并停止。"},
     {at:.8,title:"横坡渐停，保留后刃",detail:"保持后刃和完整出口，位移逐渐停止；不是自动放平接下一弯。"},
   ];
   if(task==="same-edge-absorption")return [
@@ -172,24 +172,24 @@ function stagesFor(task:Task,c:LessonConfig):Stage[]{
   ];
   const from=c.fromEdge??"heel",to:Edge=from==="toe"?"heel":"toe",e=edgeEvents(task,c);
   if(task==="timing-study"){
-    const start=timingStart(c),label={early:"提前",baseline:"基准",late:"稍后"}[c.timing??"baseline"],coincides=Math.abs(start+.18-.5)<1e-9;
+    const start=timingStart(c),label={early:"提前",baseline:"参考",late:"稍后"}[c.timing??"baseline"],coincides=Math.abs(start+.18-.5)<1e-9;
     return [
-      {at:0,title:"固定路线，比较启动时机",detail:"三档使用完全相同的板路径、刃角、行进方向和时间线；只平移同一腿长变化曲线。"},
+      {at:0,title:"固定路线，比较启动时机",detail:"三档使用完全相同的板路径、刃角、行进方向和时间线；只改变同一屈伸动作的开始时间。"},
       {at:start,title:label+"开始伸展",detail:"本次只改变启动时刻，两腿髋踝平均距离的变化幅度、持续时间和曲线形状不变；提前或稍后本身不代表更好。"},
       ...(coincides?[]:[{at:start+.18,title:"控制伸展末端",detail:"伸展停止在仍可继续屈曲的位置；此处不是由高度推算压力。"}]),
       {at:.5,title:coincides?"伸展末端与换刃重合":"固定的换刃位置",detail:"板在所有时机档都于同一位置过平板；比较此时双腿处于哪一阶段。"},
-      {at:start+.26,title:"平顺屈回",detail:"按同一恢复时长收回腿长；既定板路径和刃角没有随动作时机移动。"},
-      {at:start+.46,title:"恢复原来腿长",detail:"继续原来的新弧线；这段示意结束不表示已经停车。"},
+      {at:start+.26,title:"平顺屈回",detail:"按同一恢复时长逐渐屈腿；既定板路径和刃角没有随动作时机移动。"},
+      {at:start+.46,title:"恢复原来的屈腿程度",detail:"继续原来的新弧线；这段示意结束不表示已经停车。"},
     ].sort((a,b)=>a.at-b.at);
   }
   const retract=task==="retraction-transition";
   return [
-    {at:0,title:"旧"+name(from)+"支撑",detail:"双腿保留可收短的长度，旧弧线仍连续；这是一种可选过渡方式。"},
-    {at:.1,title:retract?"协调回收，板向身下靠近":"受控降低，身体向板靠近",detail:retract?"双腿缩短并减旧刃，板的横向路径比身体更明显；身体高度允许自然小幅变化，不把胸廓锁死。":"双腿协调屈曲，估计质心相对雪面明显降低，同时减小旧刃角；不是只折腰。"},
-    {at:e.enter,title:retract?"收短通过近平板":"低位通过近平板",detail:"板持续贴雪、连续通过，双脚不离开固定器；低位或近平板都不等于零压力。"},
-    {at:e.leave,title:"逐渐建立"+name(to),detail:"新刃开始建立，仍保持收短后的可活动关系，不向新弯猛踢后脚。"},
-    {at:.53,title:"新弯中渐进伸腿",detail:retract?"板通过身体下方后继续向另一侧运行，双腿逐渐恢复长度，躯干路线较平顺。":"新刃逐渐建立后恢复腿长，继续完成新弧线；身体高度由整体关节关系共同决定，不要求伸腿开始就立即抬髋。"},
-    {at:.94,title:"接续新弧线",detail:"已经恢复适合新刃的较舒展腿长，保持调整余量；这段结束仍在滑行，不是停车。"},
+    {at:0,title:"旧"+name(from)+"支撑",detail:"双腿保留继续屈曲的余量，旧弧线仍连续；这是一种可选过渡方式。"},
+    {at:.1,title:retract?"协调回收，板向身下靠近":"受控降低，身体向板靠近",detail:retract?"双腿屈曲，同时逐渐放开旧刃，板的横向路径比身体更明显；身体高度允许自然小幅变化，不把胸部锁死。":"双腿协调屈曲，估计质心相对雪面明显降低，同时减小旧刃角；不是只折腰。"},
+    {at:e.enter,title:retract?"屈腿通过近平板":"低位通过近平板",detail:"板持续贴雪、连续通过，双脚不离开固定器；低位或近平板都不等于零压力。"},
+    {at:e.leave,title:"逐渐建立"+name(to),detail:"新刃开始建立，双腿保持屈曲，仍能继续调整，不向新弯猛踢后脚。"},
+    {at:.53,title:"新弯中渐进伸腿",detail:retract?"板通过身体下方后继续向另一侧运行，双腿逐渐伸展，躯干路线较平顺。":"新刃逐渐建立后开始伸腿，继续完成新弧线；身体高度由整体关节关系共同决定，不要求伸腿开始就立即抬髋。"},
+    {at:.94,title:"接续新弧线",detail:"已经恢复适合新弯的舒展姿态，保持调整余量；这段结束仍在滑行，不是停车。"},
   ].sort((a,b)=>a.at-b.at);
 }
 export function sampleAdvancedPressureLesson(time:number,c:LessonConfig,stance:Stance="regular"):LessonFrame{

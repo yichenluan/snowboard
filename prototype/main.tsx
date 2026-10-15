@@ -14,8 +14,8 @@ import "./styles.css";
 
 const views: { id: View; label: string }[] = [
   { id: "follow", label: "整体" },
-  { id: "side", label: "看前后重心" },
-  { id: "front", label: "看髋与反弓" },
+  { id: "side", label: "看前后平衡" },
+  { id: "front", label: "看髋与两刃姿态" },
   { id: "boots", label: "看雪靴与高背" },
 ];
 const edgeName = {
@@ -171,7 +171,7 @@ function App() {
           <a className="lab-back" href="../#lesson=s-short-integrated">
             返回完整教学 ↗
           </a>
-          <span className="lab-status">三维教学原型 · 后刃与换刃复核版</span>
+          <span className="lab-status">三维动作示意 · 后刃与换刃</span>
         </div>
       </header>
       <nav className="mode-tabs" aria-label="选择教学模式">
@@ -322,7 +322,7 @@ function App() {
                   </span>
                   <span className="legend-item">
                     <i style={{ background: "#349583" }} />
-                    雪面法向支持
+                    垂直雪面的支撑
                   </span>
                   <span className="legend-item">
                     <i style={{ background: "#8a6db1" }} />
@@ -389,7 +389,7 @@ function App() {
           </div>
           {layer === "force" && (
             <p className="force-note">
-              图中分开画作用方向，箭头长度不代表大小，也没有计算合力。缓坡坐标下，重力含沿坡分量；雪面作用箭头画在板中央便于阅读，起点只是排版锚点，不是接触点或压力中心。身体如何配合，见同步的阶段说明。
+              图中分别画出作用方向，箭头长度不表示力的大小，也没有计算合力。重力有沿坡向下的分量；雪面作用箭头画在板中央便于阅读，这个起点不代表实际接触点或压力中心。身体如何配合，见当前阶段的说明。
             </p>
           )}
           <section className="lab-timeline" aria-label="逐阶段观察">
@@ -469,10 +469,10 @@ function App() {
               className="transition-inspector"
               aria-label="两种换刃的关键帧"
             >
-              <strong>逐帧核对换刃</strong>
+              <strong>逐帧看清换刃</strong>
               <p>
-                先减旧刃 → 低刃角过渡 →
-                接入新刃。此例适量伸展过渡，屈曲换刃是另一种策略。身体移动提示不是发力箭头。
+                先逐渐放开旧刃 → 雪板接近放平 →
+                接入新刃。此例通过适量伸腿来过渡；屈腿换刃是另一种做法。身体移动提示不是发力箭头。
               </p>
               {checkpoints.map(({ half, crossing, offset }) => {
                 return (
@@ -627,13 +627,13 @@ function App() {
         </ul>
         <p className="prototype-note">{BOUNDARY}</p>
         <p className="prototype-note">
-          正常示范选用轻微伸展过渡；伸展是否减压取决于动作时序，不能仅凭站高或蹲低判断。本例靴筒相对鞋底的前倾约为
-          12–18°，只是这套示意装备的编排范围，不是雪靴通用上限，也不是临床踝角。人体质心由身体分段位置粗略估计，不测量肌肉激活、足底压力或关节负荷。
+          正常示范选用轻微伸展过渡；伸展是否减压取决于动作先后与快慢，不能仅凭站高或蹲低判断。本例靴筒相对垂直鞋底方向的前倾约为
+          12–18°，只是这套示意装备的设置范围，不是雪靴通用上限，也不是临床踝角。人体质心由身体分段位置粗略估计，不测量肌肉激活、足底压力或关节负荷。
         </p>
       </details>
       <footer className="lab-footer">
         <span>雪上笔记 · 动作实验室 01</span>
-        <a href="../">返回技术全景与 102 课 →</a>
+        <a href="../">返回全部课程与技术全景 →</a>
         <span>Three.js + React Three Fiber · 2026.10</span>
       </footer>
     </main>

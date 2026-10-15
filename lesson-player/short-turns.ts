@@ -252,16 +252,16 @@ const exampleStagesCache=new Map<string,Stage[]>();
 function exampleStages(c:Config,task:ShortTask):Stage[]{
   const key=[c.type,c.variant,c.transition,task,c.fromEdge].join(":"),saved=exampleStagesCache.get(key);if(saved)return saved;
   const descriptions:Partial<Record<ShortTask,{title:string;detail:string}>>={
-    "size-ladder":{title:c.variant==="medium-to-short"?"两维逐渐缩小":c.variant==="short-to-medium"?"两维逐渐放大":"保持连续小弯",detail:c.variant==="short-steady"?"本组连续小弯保持同一横向与沿坡尺度，也保持相同的单弯用时。具体空间与用时是作者编排，不是训练处方。":"同时观察横向与沿坡的弯形尺度；本示例较短的弯用时也较短。具体空间与用时是作者编排，不是训练处方。"},
-    "tail-brake-study":{title:"识别前段较直、后段集中转向",detail:"前段路线较直，随后板轴和路线集中改变；看整弯的分配，不把所有滑移都当错误。这里只展示运动，不计算真实减速度。"},
+    "size-ladder":{title:c.variant==="medium-to-short"?"弯的宽度和下降距离一起缩小":c.variant==="short-to-medium"?"弯的宽度和下降距离一起放大":"保持连续小弯",detail:c.variant==="short-steady"?"本组连续小弯保持同一弯的宽度与下降距离，也保持相同的单弯用时。具体宽度、下降距离和用时是示意设置，无需照着动画规定自己的练习。":"同时观察弯的宽度与下降距离；本示例较短的弯用时也较短。具体宽度、下降距离和用时是示意设置，无需照着动画规定自己的练习。"},
+    "tail-brake-study":{title:"识别前段较直、后段集中转向",detail:"前段路线较直，随后雪板朝向和路线集中改变；看整弯的分配，不把所有滑移都当错误。这里只展示运动，不计算真实减速度。"},
     "asymmetric-rhythm-study":{title:"比较两侧用时与弯形",detail:"一侧沿坡更长、用时更久，另一侧更短更急；同一表现可能有不同原因，不能仅凭动画判定肩部是原因。"},
-    "shoulder-led-study":{title:"肩部先动，髋与板稍后追转",detail:"先比较肩线的世界角度，再看髋轴和板轴何时开始转动；识别先后关系，不照着反例练习。"},
-    "late-edge-release-study":{title:"旧刃保留较久，随后集中释放",detail:"旧侧弯段延长后才释放；实际工作刃仍与滑移方向相容，不靠抢翻迎雪刃夸张反例。"},
-    "low-flexion-study":{title:"持续较屈，腿长变化很小",detail:"观察髋踝实际距离持续较短，转换活动较少；与回收策略的先缩短、再恢复区分，不由低姿态推断压力。"},
-    "inclination-comparison":{title:"比较更多整体内倾的姿态",detail:"同一路线和板角下，胸廓更多随身体移向工作刃一侧；模型没有接触动力学，不能据此声称已经模拟滑出或必然失控。"},
+    "shoulder-led-study":{title:"肩部先动，髋与板稍后追转",detail:"先看两肩连线相对雪道怎样转动，再看髋与雪板什么时候跟着转；识别先后关系，不照着反例练习。"},
+    "late-edge-release-study":{title:"旧刃保留较久，随后集中释放",detail:"旧侧弯段延长后才释放；图中使用的板刃仍适合当时的滑移方向，没有用强行翻到迎雪一侧板刃来夸大错误。"},
+    "low-flexion-study":{title:"一直屈腿，几乎没有屈伸",detail:"观察髋到脚踝的距离持续较短，转换活动较少；与回收策略的先缩短、再恢复区分，不由低姿态推断压力。"},
+    "inclination-comparison":{title:"比较更多整体内倾的姿态",detail:"同一路线和板角下，胸部更多随身体移向工作刃一侧；图中没有计算雪板与雪面的实际受力，不能据此声称已经模拟滑出或必然失控。"},
     "centered-pivot-study":{title:"板头板尾都持续移动",detail:"双脚仍固定，板头板尾随路线共同转向；居中是可调整的位置关系，不是固定雪上转轴或50/50压力。"},
-    "nose-pivot-study":{title:"板头滑动较少，板尾集中扫动",detail:"本段直接约束板头路径：板头仍沿坡滑动，局部位移比板尾扫幅小。身体略偏前只是同现姿态，不证明真实压力比例或因果。"},
-    "back-seat-study":{title:"身体沿板长偏后、转向稍后出现",detail:"骨盆和胸廓实际向后脚侧偏移，双脚仍固定；动画将这一姿态与迟转配对，不把前脚受力下降当作测量结果。"},
+    "nose-pivot-study":{title:"板头滑动较少，板尾集中扫动",detail:"本段直接约束板头路径：板头仍沿坡滑动，局部位移比板尾扫幅小。图中同时出现身体略偏前与板尾扫动，不能据此认定前脚压力有多大，或一定是身体偏前造成了板尾扫动。"},
+    "back-seat-study":{title:"身体偏向后脚，转向开始较晚",detail:"骨盆和胸部实际向后脚侧偏移，双脚仍固定；动画将这一姿态与迟转配对，图中没有测量前脚受力是否减少。"},
   };
   const description=descriptions[task]!;
   const count=task==="size-ladder"?6:4,initial=c.fromEdge??"heel",stages:Stage[]=[];
@@ -286,8 +286,8 @@ function exampleStages(c:Config,task:ShortTask):Stage[]{
       {at:at(0),title:edgeName(from)+"控制段",detail:description.detail},
       {at:at(Math.min(.08,enter/2)),title:description.title,detail:description.detail},
       {at:at(enter),title:"实际进入近平板",detail:"此标签来自实际板角；持续经过转换，不把低刃角称为无压力。"},
-      {at:at(leave),title:"逐渐接上"+edgeName(to),detail:"新工作刃与当前移动方向相容；双脚仍固定，继续比较板轴、路线与身体怎样配合。"},
-      {at:at(leave+(1-leave)*.72),title:edgeName(to)+"控制段继续滑行",detail:task==="size-ladder"?(c.variant==="short-steady"?"继续完成本侧弧线；本组小弯保持同一尺度，末态仍在滑行。":"继续完成本侧弧线；尺度渐变序列末态仍在滑行，重播是重看整组，不代表首尾弯宽相同。") :"本段仍在滑行，结束进度不表示已经停车。"},
+      {at:at(leave),title:"逐渐接上"+edgeName(to),detail:"新刃的选择仍配合当前移动方向；双脚仍固定，继续比较雪板朝向、路线与身体怎样配合。"},
+      {at:at(leave+(1-leave)*.72),title:edgeName(to)+"控制段继续滑行",detail:task==="size-ladder"?(c.variant==="short-steady"?"继续完成本侧弧线；本组小弯保持相同大小，结束时仍在滑行。":"继续完成本侧弧线；逐渐改变弯形大小后，结束时仍在滑行，重播是重看整组，不代表首尾弯宽相同。") :"本段仍在滑行，结束进度不表示已经停车。"},
     );
   }
   exampleStagesCache.set(key,stages);return stages;
@@ -300,10 +300,10 @@ function stagesFor(c:Config,task:ShortTask):Stage[]{
     const at=(v:number)=>(i*timing.halfMs+timing.waitMs+v*timing.turnMs)/timing.totalMs;
     return [
       ...(timing.waitMs?[{at:i*timing.halfMs/timing.totalMs,title:"稳住"+edgeName(from)+"侧滑",detail:"横板沿坡下侧滑；此段是等待，不是停车。三档侧滑速度与单次换侧用时保持一致。"}]:[]),
-      {at:at(0),title:"释放"+edgeName(from)+"，开始完整换侧",detail:"本次换侧固定为4秒的示意时间；旧刃逐渐减角，腿长温和增加，不能抢翻迎雪刃。"},
-      {at:at(e.enter),title:"连续通过近平板",detail:"按实际板轴与移动方向释放旧刃；保持接触，不在这里停住等待。"},
+      {at:at(0),title:"释放"+edgeName(from)+"，开始完整换侧",detail:"本次换侧固定为4秒的示意时间；逐渐减小旧刃的刃角，腿长温和增加，不能抢翻迎雪刃。"},
+      {at:at(e.enter),title:"连续通过近平板",detail:"按实际雪板朝向与移动方向释放旧刃；保持接触，不在这里停住等待。"},
       {at:at(e.leave),title:"渐进接上"+edgeName(to),detail:"新侧仍为适合当前滑移方向的工作刃；膝髋协调调整，不猛踢板尾。"},
-      {at:at(.88),title:"完成换侧，恢复"+edgeName(to)+"侧滑",detail:timing.waitMs?"完成同一个转弯后再进入等待；少等多久只影响等待段，不压缩单弯。":"不增加等待，下一次换侧连续接上；仍保留这组侧滑接弯的几何，不冒充另一组普通圆弯。"},
+      {at:at(.88),title:"完成换侧，恢复"+edgeName(to)+"侧滑",detail:timing.waitMs?"完成同一个转弯后再进入等待；少等多久只影响等待段，不压缩单弯。":"不增加等待，下一次换侧连续接上；仍保留侧滑接单弯的路线，区别于另一组普通连续圆弯。"},
     ];
   });
   const mode=c.transition??"extend";
@@ -311,10 +311,10 @@ function stagesFor(c:Config,task:ShortTask):Stage[]{
     const from=i%2===0?initial:opposite(initial),to=opposite(from),e=edgeEvents(c,task,from);
     const at=(u:number)=>(i+u)/4;
     return [
-      {at:at(0),title:edgeName(from)+"控制段",detail:task==="easy-linked-check"?"使用较宽、较长的容易圆弯作首趟检查；本段不替代此前的两刃停止检查。":"保留完整弯形和可控滑移；双腿继续有活动余量，上身平顺但不锁住。"},
-      {at:at(.12),title:mode==="extend"?"减旧刃，温和伸腿":mode==="flex"?"减旧刃，协调屈腿":"减旧刃，协调回收",detail:mode==="extend"?"实际髋踝距离逐渐增加；屈伸与调刃共同衔接，伸腿不等于即时卸压。":mode==="flex"?"实际髋踝距离逐渐缩短，身体向板降低；板路线与伸展示例保持一致。":"实际髋踝距离缩短，雪板相对身体横向运行更明显；不锁世界肩线，不把身体高度强行固定。"},
-      {at:at(e.enter),title:"连续经过近平板",detail:"板的低刃角阶段与实际几何一致；不是没有压力，也不是停在平板等下一弯。"},
-      {at:at(e.leave),title:"逐渐建立"+edgeName(to),detail:mode==="extend"?"温和恢复屈腿，按新弯调节膝髋与胸廓；不锁腿或横踢后脚。":"逐渐恢复腿长，允许上身自然随路线调整；不把恢复腿长做成踢板。"},
+      {at:at(0),title:edgeName(from)+"控制段",detail:task==="easy-linked-check"?"使用较宽、下降距离较长的圆弯作首趟检查；本段不替代此前的两刃停止检查。":"保留完整弯形和可控滑移；双腿继续有活动余量，上身平顺但不锁住。"},
+      {at:at(.12),title:mode==="extend"?"减旧刃，温和伸腿":mode==="flex"?"减旧刃，协调屈腿":"减旧刃，协调回收",detail:mode==="extend"?"髋到脚踝的距离逐渐增加；屈伸与调刃共同衔接，伸腿不等于即时卸压。":mode==="flex"?"髋到脚踝的距离逐渐缩短，身体向板降低；板路线与伸展示例保持一致。":"髋到脚踝的距离缩短，雪板相对身体横向运行更明显；不把肩膀强行固定朝向雪道的某一个方向，不把身体高度强行固定。"},
+      {at:at(e.enter),title:"连续经过近平板",detail:"这里雪板的刃角已经很小；不是没有压力，也不是停在平板等下一弯。"},
+      {at:at(e.leave),title:"逐渐建立"+edgeName(to),detail:mode==="extend"?"温和恢复屈腿，按新弯调节膝髋与胸部；不锁腿或横踢后脚。":"逐渐恢复腿长，允许上身自然随路线调整；不把恢复腿长做成踢板。"},
       {at:at(.88),title:"进入"+edgeName(to)+"控制段",detail:"板头和板尾持续移动，仍在滑行；这组结束不表示已经停车。"},
     ];
   });

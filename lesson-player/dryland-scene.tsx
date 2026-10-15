@@ -107,7 +107,7 @@ function Labels({frame,enabled}:{frame:DrylandFrame;enabled:boolean}) {
   const {camera,gl,size}=useThree(),labels=useRef<HTMLSpanElement[]>([]);
   useEffect(()=>{
     if(!enabled)return;
-    labels.current=["左膝","右膝","骨盆","胸廓"].map((name,i)=>{
+    labels.current=["左膝","右膝","骨盆","胸部"].map((name,i)=>{
       const el=document.createElement("span");el.textContent=name;
       Object.assign(el.style,{position:"absolute",left:"0",top:"0",pointerEvents:"none",fontSize:"11px",lineHeight:"20px",padding:"1px 6px",borderRadius:"4px",background:"#fffefae8",color:i<2?color[sides[i]]:"#3e6256",border:"1px solid #c6d5ca",whiteSpace:"nowrap"});
       gl.domElement.parentElement!.appendChild(el);return el;
@@ -165,7 +165,7 @@ export function DrylandPlanar({frame,view}:{frame:DrylandFrame;view:DryView}) {
   };
   const j=frame.joints;
   const direction=side?"侧面":["forearm-plank","supine-hamstring"].includes(frame.task)?"头尾方向":"正面";
-  return <svg viewBox="0 0 360 300" role="img" aria-label={`普通鞋${direction}同源骨架与支撑`}>
+  return <svg viewBox="0 0 360 300" role="img" aria-label={`普通鞋${direction}的同步骨架与支撑`}>
     <text x="12" y="20">普通鞋 · {direction} · 同一动作状态</text>
     {frame.props.map(propShape)}
     <polyline points={path(j.left.hip,j.right.hip)} stroke={color.body} strokeWidth="7"/>

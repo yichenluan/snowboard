@@ -100,12 +100,12 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
     {at:0,title:"同刃中低位",detail:"同一工作刃、同一条示意路线；先观察膝髋的舒适屈曲。"},
     {at:.12,title:"适量伸展",detail:"膝髋关系平顺变化，升高骨盆，仍保留再伸与再屈的余量。"},
     {at:.4,title:"较高但不锁腿",detail:"板刃保持，双脚仍固定。不能由站得高低推算真实压力。"},
-    {at:.65,title:"回到中低位",detail:"重新屈腿，胸廓配合平衡；不把头肩扑向弯内。"},
+    {at:.65,title:"回到中低位",detail:"重新屈腿，胸部配合平衡；不把头肩扑向弯内。"},
   ];
   if (c.type === "fore-aft") {
     if(c.variant === "rear-heel" || c.variant === "front-return-toe") return [
       {at:0,title:"两脚之间",detail:"先在当前工作刃上保持两腿可活动；这里展示位置关系，不显示压力比例。"},
-      {at:.15,title:c.variant === "rear-heel"?"小幅向后脚侧":"小幅向前脚侧",detail:"两腿分别配合，骨盆和胸廓沿板长适量移动；双脚不离开固定器。"},
+      {at:.15,title:c.variant === "rear-heel"?"小幅向后脚侧":"小幅向前脚侧",detail:"两腿分别配合，骨盆和胸部沿板长适量移动；双脚不离开固定器。"},
       {at:.45,title:"观察双腿配合",detail:"观察前后膝和髋的变化，不靠前伸手臂或探头制造重心移动。"},
       {at:.68,title:"回到两脚之间",detail:"恢复可向两侧调整的位置；这不是每一弯都必须做的前后摆动。"},
     ];
@@ -117,7 +117,7 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
     ];
   }
   const edge = side(c)>0?"前刃":"后刃";
-  const relation = side(c)>0?"膝与骨盆共同移向脚尖侧，胸廓相对下肢更直立；脚跟留在靴内。":"膝髋共同折叠，骨盆向脚跟侧，胸廓相对回板；看小腿与高背支持关系。";
+  const relation = side(c)>0?"膝与骨盆共同移向脚尖侧，胸部相对下肢更直立；脚跟留在靴内。":"膝髋共同折叠，骨盆向脚跟侧，胸部相对骨盆更靠近雪板上方；看固定器高背如何承托靴后部和小腿。";
   if(task === "single-turn-stop") return [
     {at:0,title:"受控进入",detail:"示意短入口接一个完整单弯；实际先确认坡面、速度和可见停止空间。"},
     {at:.16,title:`渐建${edge}`,detail:relation},
@@ -125,10 +125,10 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
     {at:.8,title:"转向横坡、渐停",detail:`继续转向横坡并逐渐停止，保留${edge}。单弯结束不自动放平，也不自动接下一弯。`},
   ];
   return [
-    {at:0,title:task === "static-edge"?"扶稳，小幅感知":"进入前的参考",detail:task === "static-edge"?"双手扶稳护栏，在平缓处小幅感知关节与板的关系；手部支撑参与平衡，不是无辅助站立示范。":"本段只分解一次建刃与释放，具体速度和幅度需匹配雪况与弯形。"},
+    {at:0,title:task === "static-edge"?"扶稳，小幅感知":"进入前的参考",detail:task === "static-edge"?"双手扶稳护栏，在平缓处小幅感知关节与板的关系；手部支撑参与平衡，不是无辅助站立示范。":"本段只分解一次立刃与放刃，具体速度和幅度需匹配雪况与弯形。"},
     {at:.16,title:`逐渐建立${edge}`,detail:relation},
-    {at:.35,title:c.type === "inclination"?"比较内倾与成角":"短保持并观察",detail:c.variant === "inclination-focused"?"肩髋更多同向移入；对照相同板角下身体各段的位置。动态内倾需要相应弯形和速度支持。":c.variant === "angulation-focused"?"下肢与躯干形成更多角度；对照相同板角下胸廓相对骨盆的位置。成角不等于腰椎过伸。":relation},
-    {at:.68,title:"逐渐减刃并恢复",detail:"板角连续减少，髋与胸廓回到可调整的关系；没有切换到另一刃。"},
+    {at:.35,title:c.type === "inclination"?"比较整体内倾与反弓":"短保持并观察",detail:c.variant === "inclination-focused"?"肩与髋更多一起倒向弯内；对照相同刃角下腿和上身的位置。滑行中能否保持这种内倾，要看速度和弯形是否匹配。":c.variant === "angulation-focused"?"腿与上身的倾斜幅度不同，形成反弓；对照相同刃角下胸部与骨盆的位置。反弓靠关节协调，不是把腰向后挺。":relation},
+    {at:.68,title:"逐渐放刃并恢复",detail:"板角连续减少，髋与胸部回到可调整的关系；没有切换到另一刃。"},
   ];
 }
 

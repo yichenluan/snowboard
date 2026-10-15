@@ -40,10 +40,10 @@ function stagesFor(c:TwistConfig,timing:TwistTiming):Stage[] {
   const from=c.fromEdge==="toe"?"前刃":"后刃",to=c.fromEdge==="toe"?"后刃":"前刃";
   return [
     {at:0,title:"旧弯稳定支撑",detail:"本段是滑行换刃，原地分脚感知另见正文。前后段同为"+from+"，固定器与双脚位置不变。"},
-    {at:timing==="front-earlier"?.175:.20,title:timing==="front-earlier"?"前段稍先减小旧刃角":"两段近同步减刃",detail:timing==="front-earlier"?"只给小幅时序差；膝跟随脚位，后段及时释放，不把动作做成夹膝或横甩。":"作为对照，两段用同一调刃时间线；路线与提前版本一致，不据动画推断哪一种一定更好。"},
-    {at:timing==="front-earlier"?eventAt(.475):.5,title:timing==="front-earlier"?"前段经过近平板":"两段经过平板",detail:"观察原前脚与原后脚处各自的板面和鞋底法向；板体枢转与前后段刃角差是不同变化。"},
-    {at:timing==="front-earlier"?eventAt(.525):.55,title:timing==="front-earlier"?"后段接续经过近平板":"两段继续接续",detail:timing==="front-earlier"?"两段短暂不同刃角，不长时间保持相互冲突；显示的是几何低侧，未计算局部压力或真实整刃接触。":"两段近同步建立新刃；本几何对照不推断压力大小或某种时机必然改善滑行。"},
-    {at:.825,title:"两段恢复同一"+to,detail:"时序差已经结束，前后段对同一新工作刃协调。末态仍在滑行，不固定保持扭转，也不代表停止。"},
+    {at:timing==="front-earlier"?.175:.20,title:timing==="front-earlier"?"前段稍先减小旧刃角":"前后段基本同时减小刃角",detail:timing==="front-earlier"?"只给小幅动作先后差；膝跟随脚位，后段及时释放，不把动作做成夹膝或横甩。":"作为对照，前后段在同一时刻减小或增加刃角；路线与提前版本一致，不据动画推断哪一种一定更好。"},
+    {at:timing==="front-earlier"?eventAt(.475):.5,title:timing==="front-earlier"?"前段经过近平板":"两段经过平板",detail:"观察原前脚与原后脚处各自的板面和垂直鞋底的方向线；整块雪板转向与前后段刃角差是不同变化。"},
+    {at:timing==="front-earlier"?eventAt(.525):.55,title:timing==="front-earlier"?"后段接续经过近平板":"两段继续接续",detail:timing==="front-earlier"?"两段短暂不同刃角，不长时间保持相互冲突；绿线只显示每一段较低的一侧板刃，未计算局部压力或真实整刃接触。":"前后段基本同时立起新刃；这里只比较动作，不能推算压力大小，也不能证明某种先后顺序必然让滑行更好。"},
+    {at:.825,title:"两段恢复同一"+to,detail:"前后段都已换到同一侧新刃。动画结束时仍在滑行，不固定保持扭转，也不代表停止。"},
   ];
 }
 /** Requires the optional board-surface extension in buildPose; fail closed until

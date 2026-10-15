@@ -152,13 +152,13 @@ function phasesFor(task:StandingTask):DryPhase[] {
   ];
   if(task==="shoulder-rolls")return [
     phase(0,"站定放松","本段只拆解肩部；完整热身还可配合踏步。"),
-    phase(.12,"向前绕肩","肩带作小圈，手臂自然轻动，不抡整条手臂。"),
+    phase(.12,"向前绕肩","肩膀小幅绕圈，手臂自然轻动，不抡整条手臂。"),
     phase(.49,"向后绕肩","反向小幅绕动，躯干和头颈基本安定。"),
     phase(.86,"恢复放松","回到起点，保持呼吸；不是雪上转弯动作。"),
   ];
   const hold=task==="shallow-hold",supported=task==="supported-shallow-squat";
   return [
-    phase(0,task==="shoe-knee-baseline"?"普通鞋地面基线":"普通鞋站稳",task==="shoe-knee-baseline"?"只展示普通鞋小幅屈伸；穿靴扣板复查需要另一任务。":supported?"双手轻扶稳椅，脚掌踩稳。":"舒适站距，全脚掌接地。"),
+    phase(0,task==="shoe-knee-baseline"?"穿普通鞋观察屈伸":"普通鞋站稳",task==="shoe-knee-baseline"?"只展示普通鞋小幅屈伸；穿雪靴并扣好固定器后的动作，需要另做相应练习检查。":supported?"双手轻扶稳椅，脚掌踩稳。":"舒适站距，全脚掌接地。"),
     phase(.15,hold?"浅幅下降":"受控下降","髋后下移，膝沿脚向、踝配合；不把膝锁在脚尖后。"),
     phase(hold?.32:.42,hold?"浅蹲保持":"舒适位置短停","膝髋仍有余量，保持呼吸；作者幅度不是统一训练标准。"),
     phase(hold?.75:.62,"平稳返回","髋与躯干共同升高，脚跟留地；本段未模拟雪上负荷。"),
@@ -268,7 +268,7 @@ function sampleCalfStretch(t:number,c:DrylandConfig):DrylandFrame {
     phase(0,"扶墙分腿站稳","本次目标腿在后；两脚向前，全掌留地。"),
     phase(.15,"前膝弯，身体小幅前移","后膝接近伸直但不锁死，后跟不抬；不强推到末端。"),
     phase(.42,"舒适范围短停","后侧小腿保持温和拉伸感；动画不判断实际柔韧性。"),
-    phase(.65,"退回并卸掉拉伸","回到分腿准备位；另一侧应单独练习。"),
+    phase(.65,"退回起点，放松小腿","回到分腿准备位；另一侧应单独练习。"),
   ]);
 }
 function sampleHipStretch(t:number,c:DrylandConfig):DrylandFrame {
@@ -324,7 +324,7 @@ function sampleHamstring(t:number,c:DrylandConfig):DrylandFrame {
   return additionalFrame(t,c,"supine-hamstring",{joints:{pelvis,chest,neck,head,left:limbs.left,right:limbs.right},feet,hands,contacts,props:matProps(),cameraTarget:[0,.35,.1],pelvisRadius:.13},[
     phase(0,"仰卧，双手托住大腿后侧","本次只示范一腿；头与背有垫面支撑，另一腿舒适放下。"),
     phase(.15,"固定大腿，缓慢伸膝","手不拉小腿、不压膝；只在舒适范围主动伸直。"),
-    phase(.45,"舒适末端短停","保留膝部余量；作者角度不是柔韧性达标值。"),
+    phase(.45,"在舒适伸直范围短停","保留膝部余量；作者角度不是柔韧性达标值。"),
     phase(.60,"主动屈膝回位","双手继续托住大腿，受控返回；另一侧单独进行。"),
   ]);
 }
@@ -355,7 +355,7 @@ function samplePlank(t:number,c:DrylandConfig):DrylandFrame {
     if(q<1e-10){const point=sub(knee,mul(UP,.055));contacts.push({id:side+".knee",surface:"mat",point,target:[point[0],MAT,point[2]],normal:UP});}
   }
   return additionalFrame(t,c,"forearm-plank",{joints:{...base,left:limbs.left,right:limbs.right},feet,hands,contacts,props:matProps(.85,2.1),cameraTarget:[0,.35,.85]},[
-    phase(0,"前臂与膝先支稳","前臂、手指边缘和脚趾留在垫上，先安排支点与躯干。"),
+    phase(0,"前臂与膝先支稳","前臂、手指边缘和脚趾留在垫上，先让前臂和膝盖支稳，调整好躯干。"),
     phase(.15,"受控抬膝并伸腿","前臂和脚趾位置不变，膝离垫；不以抬臀或塌腰代替。"),
     phase(.42,"保持前臂平板","肩、髋、踝形成近似直线，持续呼吸；不是最大憋气时长测试。"),
     phase(.70,"膝受控回垫","保留前臂支撑，缓慢回到准备位；本段不演示整身俯卧放下。"),

@@ -4,16 +4,16 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
   const statuses = {unseen:'未观察', develop:'还需练习', repeat:'本条件可重复', not_applicable:'本次不适用'};
   const fields = [
-    ['date','日期','date'], ['terrain','坡面与地点','text','例如：熟悉整备坡，具体滑段与坡度变化'],
+    ['date','日期','date'], ['terrain','坡面与地点','text','例如：熟悉的压雪坡，记录具体路段与坡度变化'],
     ['snow','雪况与能见度','text','例如：平整压雪、局部硬雪、可见距离'],
     ['speed','速度与控速','text','描述全段是否加速、可否按计划退出；没有测量就不填速度数值'],
-    ['corridor','通道宽度与判断方法','text','记录约宽度、参照物和可用空间；目标条件以本次专项为准'],
+    ['corridor','滑行走廊宽度与判断方法','text','记录约宽度、参照物和可用空间；目标条件以本次专项为准'],
     ['equipment','装备与固定器设置','text','记录与上次不同之处；不确定可写未记录'],
     ['stance','站姿与滑行方向','text','Regular / Goofy，正脚 / 反脚'],
     ['change','这次只改变什么','text','例如：保持坡面、速度和弯形，只调整释放时机'],
-    ['evidenceRef','录像或板痕证据索引','text','本地文件名、链接、拍摄角度及时间点；这里只保存文字'],
+    ['evidenceRef','录像或板痕记录的位置','text','本地文件名、链接、拍摄角度及时间点；这里只保存文字'],
     ['feedback','外部观察与反馈','textarea','观察者身份、是否现任 CASI 四级教练或考官、日期、原话；没有就写尚无'],
-    ['nextPractice','下一趟只练什么','textarea','具体问题 → 对应练习 → 保持哪些条件 → 如何复测']
+    ['nextPractice','下一趟只练什么','textarea','具体问题 → 对应练习 → 保持哪些条件 → 再滑一趟检查什么']
   ];
   const conditionKeys = new Set(['date','terrain','snow']);
 
@@ -117,7 +117,7 @@
       const form = root.querySelector('form');
       const announce = message => {root.querySelector('[data-assessment-status]').textContent = message;};
       const saveDraft = () => {
-        if (onDraft(current) === false) announce('浏览器保存失败，当前草稿尚未持久保存。');
+        if (onDraft(current) === false) announce('浏览器保存失败，当前草稿尚未保存成功。');
       };
       form.oninput = () => {current = readForm(); saveDraft();};
       form.onsubmit = event => {

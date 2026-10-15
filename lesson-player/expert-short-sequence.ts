@@ -23,8 +23,8 @@ export function expertShortSequenceDurationMs(c:LessonConfig):number {
 export function expertShortSequenceVariants(c:LessonConfig) {
   if(!supportsExpertShortSequenceLesson(c))throw new Error("尚未实现的专家短弯完整滑段组合");
   return c.task==="expert-run-recovery"
-    ?[{value:"planned-recovery",label:"宽弧入段—短弯—主动恢复"}]
-    :[{value:"guided-slide",label:"策略：较多可控滑移"},{value:"edge-guided",label:"策略：较多刃引导"}];
+    ?[{value:"planned-recovery",label:"较宽弯入段—小回转—放大弯恢复"}]
+    :[{value:"guided-slide",label:"策略：较多可控滑移"},{value:"edge-guided",label:"策略：更多利用立刃转弯"}];
 }
 
 // Finite route authored in turn phase p. These values are demonstration
@@ -54,9 +54,9 @@ function routeProfile(p:number) {
   };
 }
 const sections:CorridorSection[]=[
-  {width:4.8,start:0,end:routeProfile(2).z,label:"较宽入段 · 作者练习区段"},
-  {width:2.5,start:routeProfile(2).z,end:routeProfile(6).z,label:"短弯稳定段 · 2.5米示意通道"},
-  {width:5.2,start:routeProfile(6).z,end:routeProfile(count).z,label:"主动回宽恢复 · 作者练习区段"},
+  {width:4.8,start:0,end:routeProfile(2).z,label:"较宽弯入段 · 作者练习区段"},
+  {width:2.5,start:routeProfile(2).z,end:routeProfile(6).z,label:"短弯稳定段 · 2.5米示意走廊"},
+  {width:5.2,start:routeProfile(6).z,end:routeProfile(count).z,label:"主动放大弯恢复 · 作者练习区段"},
 ];
 const wave=(w:number)=>w*w*w*(1+.12*.12)/(w*w+.12*.12);
 function geometry(t:number,c:LessonConfig) {
@@ -119,15 +119,15 @@ function stagesFor(c:LessonConfig):Stage[] {
     lo=zero;hi=1;
     for(let n=0;n<45;n++){const m=(lo+hi)/2;if(Math.abs(geometry(at(m),c).r.roll)<.008)lo=m;else hi=m;}
     const leave=hi+1e-8;
-    const region=i<2?"较宽入段":i<6?"短弯稳定段":"主动回宽恢复";
-    const strategy=c.task==="expert-run-recovery"?"比较入口、中段与恢复，身体仍可调；不是把同一两弯机械重复当作完整任务。":c.variant==="guided-slide"?"本策略保留较多板轴与移动方向夹角，配合较缓的立刃和腿长组织；可控滑移不是错误。":"本策略减小板轴与移动方向夹角，配合更多立刃与另一种腿长组织；它不是对所有雪面更优的模板。";
+    const region=i<2?"较宽弯入段":i<6?"短弯稳定段":"主动放大弯恢复";
+    const strategy=c.task==="expert-run-recovery"?"比较入口、中段与恢复，身体仍可调；不是把同一两弯机械重复当作完整任务。":c.variant==="guided-slide"?"本策略雪板朝向与移动方向的夹角较大，配合较缓的立刃和双腿屈伸；可控滑移不是错误。":"本策略减小雪板朝向与移动方向夹角，配合更多立刃与另一种双腿屈伸；它不是对所有雪面更优的模板。";
     stages.push(
-      {at:at(0),title:i===0?"较宽弧线入段 · 已在滑行":i===2?"建立短弯稳定段":i===6?"主动放宽，恢复出口选择":`${region} · ${edgeName(from)}继续引导`,detail:strategy+" 灰线为固定世界区段参照；中段2.5米取自官方范围，入口和恢复宽度是作者编排。"},
-      {at:at(enter),title:`${region} · ${edgeName(from)}进入近平板`,detail:"按实际曲线路向和板角标出释放；改变弧线尺度时事件会相应移动。低刃角不等于零压力，也不在这里停住。"},
-      {at:at(leave),title:`${region} · 接上${edgeName(to)}`,detail:i>=6?"新弧实际比稳定段更宽，腿髋继续组织两侧转换；这是主动恢复路线，不是假定疲劳或雪况已被模拟。":"两腿与骨盆跨侧，前后刃分别组织胸廓；板轴、移动方向与实际路线同时观察，不以更少滑移判优劣。"},
+      {at:at(0),title:i===0?"较宽弧线入段 · 已在滑行":i===2?"建立短弯稳定段":i===6?"主动放大弯，重新选择出弯方向":`${region} · ${edgeName(from)}继续引导`,detail:strategy+" 灰线固定在雪道上，标出各段转弯的横向范围；中段2.5米取自官方范围，入口和恢复宽度是作者编排。"},
+      {at:at(enter),title:`${region} · ${edgeName(from)}进入近平板`,detail:"按图中实际路线与刃角标出放刃时刻；弯的大小变化时，放刃位置也随之变化。低刃角不等于零压力，也不在这里停住。"},
+      {at:at(leave),title:`${region} · 接上${edgeName(to)}`,detail:i>=6?"新弧实际比稳定段更宽，双腿与髋部继续配合换刃；这是主动恢复路线，不是假定疲劳或雪况已被模拟。":"两腿与骨盆从旧刃一侧移向新刃一侧，胸部根据前后刃的姿态分别配合；雪板朝向、移动方向与实际路线同时观察，不以更少滑移判优劣。"},
     );
   }
-  stages.push({at:1,replay:{from:6/8,label:"主动回宽恢复完整段"},title:"已回宽，仍在滑行 · 本次示意结束",detail:"末态保留较宽弧和继续选择出口的能力，没有演示停车。播放循环是重新观看这一有限滑段，不是末态无缝接回入口；雪上仍须在预留区域用已掌握方式结束。"});
+  stages.push({at:1,replay:{from:6/8,label:"主动放大弯恢复完整段"},title:"已经放大弯，仍在滑行 · 本次示意结束",detail:"结束时仍沿较宽弧线滑行，可以继续选择出弯方向，没有演示停车。播放循环是重新观看这一有限滑段，结束位置不会直接接到入段起点；雪上仍须在预留区域用已掌握方式结束。"});
   stageCache.set(key,stages);return stages;
 }
 export function sampleExpertShortSequenceLesson(time:number,c:LessonConfig,stance:Stance="regular"):SequenceFrame {

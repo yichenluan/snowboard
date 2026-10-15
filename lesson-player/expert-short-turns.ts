@@ -25,7 +25,7 @@ export const expertShortDurationMs = (c:LessonConfig) => Math.max(8000, c.durati
 export function expertShortVariants(c:LessonConfig) {
   if (!supportsExpertShortLesson(c)) throw new Error("尚未实现的专家短弯任务或对照组合");
   return c.task === "expert-corridor-steering"
-    ? [{value:"progressive",label:"持续引导参考"},{value:"late-steer",label:"对照：改向较晚集中"}]
+    ? [{value:"progressive",label:"全弯持续转向"},{value:"late-steer",label:"对照：转向集中在弯后段"}]
     : [{value:"continuous",label:"连续调节参考"},{value:"held-release",label:"对照：屈腿准备偏晚"}];
 }
 const rollWave = (w:number) => w*w*w*(1+.12*.12)/(w*w+.12*.12);
@@ -95,14 +95,14 @@ function stagesFor(c:LessonConfig):Stage[] {
     for(let n=0;n<45;n++){const m=(lo+hi)/2;if(Math.abs(geometry(at(m),c).r.roll)<.008)lo=m;else hi=m;}
     const leave=hi+1e-8;
     stages.push(
-      {at:at(0),title:`${edgeName(from)}弧内继续引导`,detail:steering?"比较同一2.5米示意通道内的完整弯形、板轴和路线切向；通道宽度取自官方2–3米任务范围，播放时长不代表实测滑速。":"观察实际髋踝距离、胸廓与骨盆的协调。压力管理是雪上任务目标；本图只显示动作线索，没有板材储能或真实回弹。"},
-      {at:at(.18),title:steering?(late?"改向暂集中在后续弯段":"持续分配方向变化"):(held?"屈腿准备相对偏晚":"连续缩短腿长准备转换"),detail:steering?(late?"本对照改变引导在弯内的分布，路线曲率也随之改变；不是同线路单变量，更不证明已算出减速度。":"方向变化分布在当前弯段，肩髋仍自然顺应；不用锁住上身或踢尾制造短弯外观。"):(held?"与参考保持同一板路径、板角和释放时刻，只把腿长调节包络后移。不能称作实际旧刃滞留，也不能从画面读出压力。":"髋踝距离连续变化，胸廓随下肢组织；这是一种可观察策略，不把回收定为每个专家短弯的唯一方法。")},
-      {at:at(enter),title:"实际进入近平板",detail:"按实际板角标出旧刃减至近平板；滑行仍连续，低刃角不是零压力。完整画面中同时观察板下肢换向与上身顺应。"},
-      {at:at(leave),title:`连续接上${edgeName(to)}`,detail:held?"新刃建立时刻与参考完全相同；比较腿长最低点较晚出现的可见时序，不冒充延迟放刃或失控模拟。":"在连续换侧中建立新工作刃，腿长仍可调；两个工作刃分别组织膝髋和胸廓，不作姿态简单翻转。"},
-      {at:at(leave+(1-leave)*.72),title:`${edgeName(to)}弧内恢复活动余量`,detail:"继续观察完整弧线与下一次释放准备。几何同源路线用于对照，不证明真实板雪接触、反作用力或高级滑速。"},
+      {at:at(0),title:`${edgeName(from)}弧内继续引导`,detail:steering?"比较同一2.5米示意走廊内的完整弯形、雪板朝向和实际移动方向；滑行走廊宽度取自官方2–3米任务范围，播放时长不代表实测滑速。":"观察髋到脚踝的距离、胸部与骨盆的协调。压力管理是雪上任务目标；本图只显示动作线索，没有板材储能或真实回弹。"},
+      {at:at(.18),title:steering?(late?"较多转向留到弯后段":"整个弯都在持续转向"):(held?"屈腿准备相对偏晚":"逐渐屈腿，准备换刃"),detail:steering?(late?"本对照把较多转向留到弯后段，弯的形状也会变化；路线没有保持相同，也没有计算真实减速度。":"这一段一直在转向，肩髋仍自然顺应；不用锁住上身或踢尾制造短弯外观。"):(held?"与参考保持同一板路径、板角和释放时刻，只把屈伸动作整体延后，髋到脚踝的距离变化幅度和周期不变。不能称作实际旧刃滞留，也不能从画面读出压力。":"髋到脚踝的距离连续变化，胸部随双腿的屈伸自然调整；这是一种可观察策略，不把回收定为每个专家短弯的唯一方法。")},
+      {at:at(enter),title:"实际进入近平板",detail:"按实际板角标出旧刃减至近平板；滑行仍连续，低刃角不是零压力。完整画面中同时观察雪板和双腿怎样换侧、上身怎样跟随。"},
+      {at:at(leave),title:`连续接上${edgeName(to)}`,detail:held?"新刃建立时刻与参考完全相同；比较双腿屈得最多的时刻怎样延后，不冒充延迟放刃或失控模拟。":"在连续换侧中建立新工作刃，腿长仍可调；前刃和后刃各有不同的膝髋与胸部配合，不能把一侧姿态直接翻过来。"},
+      {at:at(leave+(1-leave)*.72),title:`${edgeName(to)}弧内恢复活动余量`,detail:"继续观察完整弧线与下一次释放准备。路线与人物动作同步，供观察对照，不证明真实板雪接触、反作用力或高级滑速。"},
     );
   }
-  stages.push({at:1,title:"仍在滑行，接续下一弯",detail:"末态与下一周期连续接续，重播不是雪上停车。雪上退出需先放宽节奏，按已掌握的受控搓雪弯转向横坡并停稳；本动画没有模拟该独立停止任务。"});
+  stages.push({at:1,title:"仍在滑行，接续下一弯",detail:"动画结束后可继续接下一组连弯，重播不是雪上停车。雪上退出需先放宽节奏，按已掌握的受控搓雪弯转向横坡并停稳；本动画没有模拟该独立停止任务。"});
   stageCache.set(key,stages);return stages;
 }
 export function sampleExpertShortLesson(time:number,c:LessonConfig,stance:Stance="regular"):LessonFrame {

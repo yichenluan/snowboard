@@ -116,10 +116,10 @@ function edgeEvents(task:CoordinationTask,from:Edge){
   const result={flatEnter,flatLeave:hi};events.set(key,result);return result;
 }
 function staticStages(task:CoordinationTask):Stage[]{
-  const prefix=task==="board-coordinate-study"?"保持自然开放朝向，按雪板坐标区分板长和板宽。":"髋是注意点，踝膝仍一起调整。";
+  const prefix=task==="board-coordinate-study"?"上身可以自然略朝板头，先分清沿板头板尾的方向与沿脚尖脚跟的方向。":"重点观察髋部，脚踝与膝盖仍要一起配合。";
   return [
-    {at:0,title:"平板内调整支撑",detail:prefix+"此段原地练习；先在平板支撑范围内调整，再立小刃。"},
-    {at:.11,title:"逐渐建立小幅前刃",detail:"双脚固定，小腿、膝与髋协调；估计质心投影保持在当前工作刃，不能只把上身扑向前方。"},
+    {at:0,title:"放平雪板，先调整身体位置",detail:prefix+"此段原地练习；先在平板支撑范围内调整，再立小刃。"},
+    {at:.11,title:"逐渐建立小幅前刃",detail:"双脚固定，小腿、膝与髋协调；图中估算的整体重心落在当前支撑刃上方，不能只把上身扑向前方。"},
     {at:.29,title:"先落回平板，再回中",detail:"先把远侧板刃受控放回地面，再恢复两脚间可调位置，不从一侧直接弹到另一侧。"},
     {at:.5,title:"平板内向另一侧调整",detail:"分清脚跟侧与板尾；沿板长位置仍可控，不锁膝或用腰硬顶。"},
     {at:.61,title:"逐渐建立小幅后刃",detail:"膝髋协调屈曲、靴内脚位保持，高背关系可见；这不是滑行中的大角度后刃。"},
@@ -129,11 +129,11 @@ function staticStages(task:CoordinationTask):Stage[]{
 function oneTransitionStages(task:CoordinationTask,from:Edge):Stage[]{
   const to=opposite(from),e=edgeEvents(task,from),hip=task==="hip-transition",linked=task==="linked-retraction-skid";
   return [
-    {at:0,title:"旧"+edgeName(from)+"仍可控",detail:hip?"观察髋在板宽方向的位置；踝膝保持活动，不把髋当作独立发动机。":"旧弯保留可收短的腿长，先完成原弧线，不靠甩肩抢换侧。"},
-    {at:.1,title:hip?"减旧刃、髋随两腿回中":linked?"换刃前协调回收":"膝踝髋共同释放",detail:hip?"本例用温和伸展帮助调整；伸腿不是压力归零，髋不沿板长坐向板尾。":linked?"实际髋到踝距离缩短；板沿路线向身下靠近，躯干允许自然运动，不锁死胸廓。":"用自然膝轨迹观察屈腿与减刃的配合；膝不作为独立扭板轴，也不夹膝。"},
+    {at:0,title:"旧"+edgeName(from)+"仍可控",detail:hip?"观察髋部在脚尖、脚跟两侧的位置；踝膝保持活动，不把髋当作独立发动机。":"旧弯中双腿仍能继续屈曲，先完成原弧线，不靠甩肩抢换侧。"},
+    {at:.1,title:hip?"减旧刃、髋随两腿回中":linked?"换刃前协调回收":"膝踝髋共同释放",detail:hip?"本例用温和伸展帮助调整；伸腿不是压力归零，不要向后脚方向坐到板尾。":linked?"实际髋到踝距离缩短；板沿路线向身下靠近，躯干允许自然运动，不锁死胸部。":"用自然膝轨迹观察屈腿与减刃的配合；不要只扭膝盖带动雪板，也不夹膝。"},
     {at:e.flatEnter,title:"连续经过近平板",detail:"双脚留在固定器内；低刃角阶段仍贴雪、仍可能有板雪作用，不停住等换刃。"},
-    {at:e.flatLeave,title:"渐进建立"+edgeName(to),detail:to==="toe"?"膝与髋共同进入脚尖侧，胸廓不抢先扑入，前后腿继续有序带板。":"骨盆进入脚跟侧，膝髋共同折叠，胸廓适量回板；不靠大幅折踝完成后刃。"},
-    {at:.53,title:hip?"新弯继续屈腿引导":"新弯渐进恢复腿长",detail:hip?"新弧线仍有可控滑移，髋膝与上身保持能继续调整的关系。":"双腿逐渐伸长，继续引导弧线和滑移；不是踢后脚，也不是全程最低位。"},
+    {at:e.flatLeave,title:"渐进建立"+edgeName(to),detail:to==="toe"?"膝与髋共同进入脚尖侧，胸部不抢先扑入，前后腿继续有序带板。":"骨盆进入脚跟侧，膝髋共同折叠，胸部适量移回雪板上方；不靠大幅折踝完成后刃。"},
+    {at:.53,title:hip?"新弯继续屈腿引导":"进入新弯，逐渐伸腿",detail:hip?"新弧线仍有可控滑移，髋膝与上身保持能继续调整的关系。":"双腿逐渐伸展，继续引导弧线和滑移；不是踢后脚，也不是全程最低位。"},
     {at:.94,title:"接续"+edgeName(to)+"弧线",detail:"本段结束仍在滑行，保留下一次调整余量；不表示已经停止。"},
   ];
 }

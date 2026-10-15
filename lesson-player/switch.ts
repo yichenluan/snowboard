@@ -29,13 +29,13 @@ function stateAt(t:number):MotionState {
   return state;
 }
 const stages:Stage[]=[
-  {at:0,title:"从首帧就是反脚",detail:"原后脚在行进前方，原板尾领行；原前脚、固定器角度和硬件鼻尾名称都不交换。旧后刃仍是脚跟侧。"},
-  {at:.10,title:"先完成旧后刃弧线",detail:"身体位于两脚之间，按新路线组织视线；不把全身重量猛压到新的行进前脚。"},
+  {at:0,title:"从首帧就是反脚",detail:"原后脚在行进前方，原板尾朝前滑行；原前后脚的位置、固定器角度和雪板原有的板头板尾名称都不变。旧后刃仍是脚跟侧。"},
+  {at:.10,title:"先完成旧后刃弧线",detail:"身体位于两脚之间，看向计划滑行的方向；不把全身重量猛压到新的行进前脚。"},
   {at:.25,title:"释放后刃，经过平板",detail:"双脚保持原固定位置，踝膝髋共同过渡。反脚不是播放过程中转身或脚在固定器内旋转。"},
   {at:.37,title:"前刃继续搓雪圆弯",detail:"脚趾侧仍叫前刃，两腿协同带动原板尾领先的路线；允许可控滑移，不强求立即纯刻滑。"},
   {at:.60,title:"完成前刃，再准备另一侧",detail:"不用惯用一侧急刹代替另一侧完整弧线；上身允许自然调整，不把原前肩强扭到视野末端。"},
   {at:.75,title:"释放前刃，经过平板",detail:"原后脚仍在行进前方；两侧转换分别可观察，没有交换脚的身份。"},
-  {at:.87,title:"后刃接续，保持可调",detail:"膝髋共同折叠、胸廓配合，完成第二侧搓雪弧线。本段末态仍在滑行，独立停止是正文的前置练习，未在此示范。"},
+  {at:.87,title:"后刃接续，保持可调",detail:"膝髋共同折叠、胸部配合，完成第二侧搓雪弧线。动画结束时仍在滑行，独立停止是正文的前置练习，未在此示范。"},
 ];
 export function sampleSwitchLesson(time:number,c:LessonConfig,stance:Stance="regular"):SwitchFrame {
   if(!supportsSwitchLesson(c))throw new Error("Unsupported switch task");

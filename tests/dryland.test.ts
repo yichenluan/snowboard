@@ -60,7 +60,7 @@ test("squat purposes have distinct ranges, support and hold timing",()=>{
   assert.ok(f("supported-shallow-squat").props.some(p=>p.id==="chair.top"));
   assert.deepEqual(f("shallow-hold",.4).joints,f("shallow-hold",.7).joints);
   assert.ok(f("warmup-shallow",.7).joints.pelvis[1]>f("warmup-shallow",.5).joints.pelvis[1]);
-  assert.match(f("shoe-knee-baseline",0).phases[0].detail,/穿靴扣板.*另一任务/);
+  assert.match(f("shoe-knee-baseline",0).phases[0].detail,/只展示普通鞋.*穿雪靴并扣好固定器.*另做相应练习/);
 });
 test("wall rocking keeps full soles and fixed palms while knees advance",()=>{
   const c={type:"dry-wall-edge"},first=sampleDryland(0,c),peak=sampleDryland(.5,c);

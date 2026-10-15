@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "3b38fcc5c3b77d80126ee18f8b4a2811676e87e842bc599bf058a2797235af14",
-    "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "54dbd14a8bb964ef6062fbf4ff687f534d9276e0adfa6bf3b3356b1e4c0870dd",
+    "content.json": "405934392ad6882b74e972da961bde64c3a9edfe3534efb2ab68b29f226b0cc2",
+    "animations.js": "7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575",
+    "app.js": "5499d7f2e1ea2e121ae449c2ba21f2301466c8291ea66aea0a4905454a44bb47",
     "lesson-player/registry.json": "903d8535b6ac24926a8d7cd53c064408a42bd9385b65812921372ceb4f625da9"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
@@ -50,7 +50,7 @@
     },
     {
       "id": "edging",
-      "title": "立刃与关节",
+      "title": "立刃与放刃",
       "lessons": 12,
       "demoReferences": 13,
       "illustrationReferences": 0,
@@ -58,7 +58,7 @@
     },
     {
       "id": "inclination",
-      "title": "倾斜与关节成角",
+      "title": "内倾与反弓",
       "lessons": 5,
       "demoReferences": 6,
       "illustrationReferences": 0,
@@ -66,7 +66,7 @@
     },
     {
       "id": "pressure",
-      "title": "压力与屈伸时序",
+      "title": "控压与屈伸时机",
       "lessons": 10,
       "demoReferences": 12,
       "illustrationReferences": 0,
@@ -243,7 +243,7 @@
     },
     {
       "type": "pressure-extend",
-      "title": "伸展调压：有节奏地改变腿长",
+      "title": "伸展调压：有节奏地屈伸双腿",
       "model": "snow-keyframes-ik",
       "references": [
         "v-heel-incline-extension/1",
@@ -279,7 +279,7 @@
     },
     {
       "type": "inclination",
-      "title": "内倾与关节折角的组合",
+      "title": "内倾与反弓的配合",
       "model": "snow-keyframes-ik",
       "references": [
         "v-active-passive-edge/1",
@@ -627,7 +627,7 @@
     },
     {
       "type": "hip-mobility",
-      "title": "半跪髋屈肌伸展：骨盆控制、躯干直立",
+      "title": "半跪拉伸髋前侧：骨盆控制、躯干直立",
       "model": "dry-planar",
       "references": [
         "v22-flexibility/2",
@@ -642,7 +642,7 @@
     },
     {
       "type": "dry-hamstring",
-      "title": "仰卧动态腘绳肌活动：托腿、慢伸膝",
+      "title": "仰卧活动大腿后侧（腘绳肌）：托腿、慢伸膝",
       "model": "dry-planar",
       "references": [
         "v22-flexibility/3",
@@ -2366,7 +2366,7 @@
         "variant": "neutral",
         "view": "body",
         "jointLabels": true,
-        "title": "中立参考：小幅屈伸，始终能调整",
+        "title": "基本站姿：小幅屈伸，随时能调整",
         "focus": "看踝膝髋仍有活动余量；基础参考位不演示深蹲",
         "steps": [
           {
@@ -2524,7 +2524,7 @@
         "steps": [
           {
             "label": "中低位",
-            "detail": "三个关节保留屈曲和伸展余量。"
+            "detail": "脚踝、膝盖和髋部都还能继续弯曲或伸展。"
           },
           {
             "label": "较高位",
@@ -2575,7 +2575,7 @@
           {
             "at": 0.35,
             "label": "观察平衡状态",
-            "detail": "看近似质心标记、髋与肩，体会整体倾入和关节折角的差别。"
+            "detail": "看估计重心标记、髋和肩的位置，区分“整个人一起倾斜”与“腿和上身倾斜程度不同”。"
           },
           {
             "at": 0.82,
@@ -2601,8 +2601,8 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "inclination",
-        "title": "同样刃角：更多关节成角",
-        "focus": "比较下肢调整与上身相对支撑位置；与内倾组合使用",
+        "title": "同样刃角：腿与上身采用不同倾斜",
+        "focus": "看下肢怎样立刃、上身怎样配合平衡；反弓与身体内倾一起使用。",
         "variant": "angulation-focused",
         "edgeSide": "toe",
         "view": "width",
@@ -2621,7 +2621,7 @@
           {
             "at": 0.35,
             "label": "观察平衡状态",
-            "detail": "看近似质心标记、髋与肩，体会整体倾入和关节折角的差别。"
+            "detail": "看估计重心标记、髋和肩的位置，区分“整个人一起倾斜”与“腿和上身倾斜程度不同”。"
           },
           {
             "at": 0.82,
@@ -2655,7 +2655,7 @@
           },
           {
             "label": "感知",
-            "detail": "胫骨接触靴舌，膝向脚趾边移动。"
+            "detail": "小腿前侧轻贴靴舌，膝盖向脚尖侧移动。"
           },
           {
             "label": "重复",
@@ -2737,12 +2737,12 @@
           },
           {
             "label": "释放",
-            "detail": "渐进减旧刃角，保留下一动作的关节余量。"
+            "detail": "逐渐减小旧刃角度，保留下一动作的关节余量。"
           }
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃调角：膝髋渐进移动，脚踝能调 · 动作示意",
+        "title": "前刃角度怎么调：膝髋配合，脚踝别锁死 · 动作示意",
         "task": "edge-release-study"
       },
       "destination": "D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
@@ -2767,7 +2767,7 @@
           },
           {
             "label": "建立后刃",
-            "detail": "髋膝协调成角，小腿感受高背板支撑。"
+            "detail": "膝髋配合弯曲、髋向脚跟侧移动，小腿感受高背板支撑。"
           },
           {
             "label": "调整释放",
@@ -2834,8 +2834,8 @@
             "detail": "踝膝自然参与，整体倾斜小。"
           },
           {
-            "label": "增加成角",
-            "detail": "膝髋向前刃侧调整，上身适度补偿。"
+            "label": "稍加立刃",
+            "detail": "膝髋向脚尖侧移动，上身相对腿部更直立，不塌腰后仰。"
           },
           {
             "label": "连续调整",
@@ -2844,7 +2844,7 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃成角：腿调角，上身保持平衡 · 动作示意",
+        "title": "前刃反弓：膝髋向脚尖侧，上身不扑向雪面 · 动作示意",
         "task": "edge-release-study"
       },
       "destination": "D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
@@ -2861,7 +2861,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "heel-edge",
-        "focus": "后刃成角中的骨盆位置、上身平衡与屈伸余量",
+        "focus": "看后刃时髋向脚跟侧、胸口相对臀部更靠近雪板上方的配合，以及双腿是否还能继续屈伸。",
         "steps": [
           {
             "label": "建立刃",
@@ -2869,7 +2869,7 @@
           },
           {
             "label": "协调",
-            "detail": "髋略向后刃侧，上身适度平衡。"
+            "detail": "髋略向脚跟侧移动，胸口相对臀部更靠近雪板上方。"
           },
           {
             "label": "恢复调整",
@@ -2878,7 +2878,7 @@
         ],
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃成角：髋向脚跟侧，上身配合平衡 · 动作示意",
+        "title": "后刃反弓：屈膝屈髋，平衡上身与臀部的位置 · 动作示意",
         "task": "edge-release-study"
       },
       "destination": "D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
@@ -2921,11 +2921,11 @@
         "steps": [
           {
             "label": "建立",
-            "detail": "髋膝成角，背板支撑。"
+            "detail": "屈膝屈髋配合立后刃，小腿轻靠高背板。"
           },
           {
             "label": "保持",
-            "detail": "短停留，膝不锁死。"
+            "detail": "沿弧线稳住一小段，膝盖仍能微调。"
           },
           {
             "label": "结束",
@@ -3023,7 +3023,7 @@
           },
           {
             "label": "倾入",
-            "detail": "整体倾入弯内，下肢同时成角。"
+            "detail": "身体适量向弯内倾斜，膝髋继续配合立刃，上身保持平衡。"
           },
           {
             "label": "完成并准备结束",
@@ -3086,7 +3086,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "pressure-extend",
-        "focus": "同一后刃弧线中小幅伸腿、柔和收回并渐停；观察实际腿长与板角，不显示真实压力。",
+        "focus": "同一后刃弧线中小幅伸腿、柔和收回并渐停；观察实际腿长与刃角，不显示真实压力。",
         "variant": "heel",
         "autoplay": false,
         "duration": 10000,
@@ -3116,7 +3116,7 @@
           },
           {
             "label": "倾入",
-            "detail": "下肢成角，全身适量倾入，手臂自然。"
+            "detail": "膝髋配合立刃，身体适量向弯内倾斜，手臂自然放松。"
           },
           {
             "label": "恢复",
@@ -3231,7 +3231,7 @@
         "variant": "rear-heel",
         "autoplay": false,
         "duration": 10000,
-        "title": "开放后刃：让后脚也能稳稳控刃 · 动作示意",
+        "title": "开放站姿滑后刃：后脚也要能控刃 · 动作示意",
         "task": "single-arc"
       },
       "destination": "D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
@@ -3380,7 +3380,7 @@
       "config": {
         "type": "edge-change-up",
         "title": "伸展式过渡：身体跨过板",
-        "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
+        "focus": "以雪面上的固定位置作参照，看板中心、髋部和胸部各自的路线；本段采用小幅伸腿的换刃方式。",
         "view": "width",
         "path": "transition",
         "transitionReference": "snow",
@@ -3405,7 +3405,7 @@
         "type": "edge-change-down",
         "variant": "lower-com",
         "title": "屈曲减重：重心向雪板降低",
-        "focus": "固定雪面中观察身体降低与腿长缩短；本例的路线和幅度用于机制拆解。",
+        "focus": "以固定雪面作参照，观察身体降低、双腿收短的过程；路线和幅度用于帮助理解这一方式。",
         "transitionReference": "snow",
         "autoplay": false,
         "duration": 10000,
@@ -3430,7 +3430,7 @@
         "type": "edge-change-down",
         "variant": "retraction-study",
         "title": "回收过渡：雪板回到身体下方",
-        "focus": "固定雪面中观察板通过身下、腿长收短后恢复；不锁死胸廓，允许身体自然起伏。",
+        "focus": "以固定雪面作参照，看雪板从身下通过、双腿收短后再次伸长；上身不锁死，允许自然起伏。",
         "transitionReference": "snow",
         "autoplay": false,
         "duration": 10000,
@@ -3454,7 +3454,7 @@
       "config": {
         "type": "edge-change-up",
         "title": "伸展式过渡：身体跨过板",
-        "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
+        "focus": "以雪面上的固定位置作参照，看板中心、髋部和胸部各自的路线；本段采用小幅伸腿的换刃方式。",
         "view": "width",
         "path": "transition",
         "transitionReference": "snow",
@@ -3478,7 +3478,7 @@
       "config": {
         "type": "edge-change-down",
         "title": "回收式过渡：板从身下通过",
-        "focus": "固定雪面中观察板通过身下、腿长收短后恢复；不锁死胸廓，允许身体自然起伏。",
+        "focus": "以固定雪面作参照，看雪板从身下通过、双腿收短后再次伸长；上身不锁死，允许自然起伏。",
         "view": "width",
         "path": "transition",
         "transitionReference": "snow",
@@ -3548,7 +3548,7 @@
       "config": {
         "type": "garland",
         "title": "后刃花环：单独练另一侧",
-        "focus": "路线与工作刃一同反向；保持同一后刃，控制下降量",
+        "focus": "单独观察后刃：保持同一后刃，让板头接近坡下方向后转回横坡，控制向下滑的距离。",
         "view": "track",
         "variant": "heel",
         "autoplay": false,
@@ -3616,7 +3616,7 @@
       "config": {
         "type": "edge-change-up",
         "transitionReference": "snow",
-        "focus": "固定雪面参考：观察板中心、骨盆和胸廓的相对路径；本段采用温和伸展过渡。",
+        "focus": "以雪面上的固定位置作参照，看板中心、髋部和胸部各自的路线；本段采用小幅伸腿的换刃方式。",
         "title": "身体怎样跨过雪板进入下一弯 · 动作示意",
         "autoplay": false,
         "duration": 10000,
@@ -3656,7 +3656,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "hip-edge-change",
-        "focus": "本例用温和伸展过渡观察髋跨板宽换侧；踝膝与胸廓共同配合，末态仍滑行。",
+        "focus": "本例用小幅伸腿换刃，观察髋从一侧板刃移向另一侧；脚踝、膝盖和胸部一起配合，动画结束时仍在滑行。",
         "autoplay": false,
         "duration": 10000,
         "title": "髋参与换刃：向板刃移动，不向板尾坐 · 动作示意",
@@ -3701,7 +3701,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "knee-edge-change",
-        "focus": "一次协调屈曲转换：以膝为观察点，看踝膝髋共同放旧刃、过近平板和接新侧。",
+        "focus": "一次收腿换刃：以膝盖为观察点，看脚踝、膝盖和髋部怎样一起放开旧刃、经过接近平板的位置，再接上新刃。",
         "autoplay": false,
         "duration": 10000,
         "title": "从膝的移动看踝膝髋怎样换刃 · 动作示意",
@@ -3749,10 +3749,10 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "twist",
-        "focus": "保持同一平面路线与板轴转向，用选择器在相同进度比较两段近同步和前段稍先。起点是旧弯稳定支撑；本段不是原地踏动，也不证明某种时差一定更好。",
+        "focus": "保持同一条路线和雪板朝向，用选择器在同一进度比较“前后脚几乎同时”与“前脚稍早一点”。起点是旧弯中的稳定支撑；本段不是原地踏动，也不证明前脚先动就一定更好。",
         "autoplay": false,
         "duration": 10000,
-        "title": "同路线比较：近同步与小幅先后",
+        "title": "同路线比较：两脚几乎同时与前脚稍先",
         "task": "twist-timing-compare",
         "fromEdge": "heel",
         "twistTiming": "near-synchronous",
@@ -3773,7 +3773,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rotation",
-        "focus": "连续看板轴、髋线和肩线的世界朝向：主要弯段总体同向，幅度和时机可以不同；换向极值附近允许自然相位差，片段末态仍在滑行。",
+        "focus": "连续观察雪板、髋部和肩膀各朝哪里：弯中总体向同侧转动，幅度和先后可以不同；在开始转回另一侧时，不必同时回正。片段结束时仍在滑行。",
         "autoplay": false,
         "duration": 10000,
         "title": "同向协调：观察板、髋与肩的连续朝向",
@@ -3797,7 +3797,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "counter-rotation",
-        "focus": "从已有后刃斜行进入，小幅减刃后板髋与肩同时反向，再恢复同后刃和原来的自然朝向。全程不换刃、不腾空；最后仍在斜行，未计算真实压力或制动力。",
+        "focus": "从后刃斜滑开始，稍微放刃，让雪板和髋部向一侧转、肩膀向相反侧转，再恢复原来的后刃角度和自然朝向。全程保持后刃，不换刃、不跳起；结尾仍在斜滑，动画不显示真实压力或刹车力。",
         "autoplay": false,
         "duration": 10000,
         "title": "后刃专项调速：一次小幅反向后恢复自然",
@@ -3848,8 +3848,8 @@
       "config": {
         "type": "shoulder-coordination",
         "variant": "neutral",
-        "title": "自然朝向：两侧弧线与可调整的转换",
-        "focus": "用自然朝向连续完成前后刃弧线，观察两腿活动与转换。肩髋可随路线调整；示意角度不是统一标准，片段末态仍在滑行。",
+        "title": "自然朝向：前后刃弧线与平顺换刃",
+        "focus": "用自然朝向连续完成前后刃弧线，观察两腿活动与转换。肩髋可随路线调整；示意角度不是统一标准，片段结束时仍在滑行。",
         "autoplay": false,
         "duration": 10000,
         "task": "neutral-linked",
@@ -3872,7 +3872,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "mixed-rotation",
-        "focus": "先做一次后刃反向调速，在同后刃上解除分离，再释放后刃接自然前刃、后刃圆弧。后续不重复专项反向动作；片段末态仍在滑行，完整练习随后自行结束。",
+        "focus": "先做一次后刃反向调速，在同后刃上解除分离，再释放后刃接自然前刃、后刃圆弧。后续不重复专项反向动作；片段结束时仍在滑行，完整练习随后自行结束。",
         "autoplay": false,
         "duration": 18000,
         "title": "后刃调速后恢复自然连弯",
@@ -3896,7 +3896,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "fore-aft",
-        "focus": "观察后刃弧线中的前后位置与回中；实际承重和板尾响应另在练习中验证",
+        "focus": "观察后刃弧线中的前后位置与回中；实际受力和板尾反应另在练习中验证",
         "steps": [
           {
             "label": "观察",
@@ -3914,7 +3914,7 @@
         "variant": "rear-heel",
         "autoplay": false,
         "duration": 10000,
-        "title": "开放后刃：让后脚也能稳稳控刃 · 动作示意",
+        "title": "后刃开肩时：让后脚也能稳稳控刃 · 动作示意",
         "task": "single-arc"
       },
       "destination": "D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
@@ -3931,7 +3931,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "五组依次为自然基线、只改朝向、只改屈伸时机、只改身体倾斜、回自然基线；每组从同一基准比较。路线与板角固定，不据此判断真实压力或抓地优劣。",
+        "focus": "五组依次为自然姿态、只改肩髋朝向、只改屈伸时机、只改身体倾斜、恢复自然姿态；各组都与第一组比较。路线与刃角相同，只看身体怎样配合，不能据此判断真实压力或抓雪力哪组更好。",
         "variant": "open-heel",
         "autoplay": false,
         "duration": 40000,
@@ -3958,7 +3958,7 @@
         "type": "short-turns",
         "variant": "asymmetric",
         "title": "对照：一侧较长，一侧较短急",
-        "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
+        "focus": "比较两侧每弯向坡下滑的距离、用时和弯形；同一不对称表现可能有多种原因。",
         "view": "width",
         "trackDiagnostics": true,
         "transition": "extend",
@@ -4008,11 +4008,11 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "切换自然朝向与略多开放，在同进度比较髋肩和两腿。两档脚位、路线、板角与时长相同，完成前刃单弯并停止；不模拟两脚压力或局部板扭转，也不证明某个肩角更好。",
+        "focus": "切换自然朝向与稍多开肩（胸口更多朝板头），在同一进度比较髋、肩和两腿。两档固定器脚位、路线、刃角与时长相同，都完成前刃单弯并停住；不模拟两脚压力或扭板，也不证明某个开肩角度更好。",
         "variant": "closed-toe",
         "autoplay": false,
         "duration": 10000,
-        "title": "前刃单弯：自然朝向与略多开放对照",
+        "title": "前刃单弯：自然朝向与稍多开肩对照",
         "task": "toe-orientation-stop",
         "view": "follow",
         "jointLabels": true,
@@ -4034,7 +4034,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "先轻架双臂完成一组两侧圆弯，再放下手臂重复同样弯形。手臂只作肩线参考；这里展示可控基线，没有故意制造抢肩反例。",
+        "focus": "先轻架双臂完成一组两侧圆弯，再放下手臂重复同样弯形。手臂只作肩线参考；这里展示受控参考动作，没有故意制造抢肩反例。",
         "variant": "arms-feedback",
         "autoplay": false,
         "duration": 18000,
@@ -4059,7 +4059,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rotation",
-        "focus": "连续看板轴、髋线和肩线的世界朝向：主要弯段总体同向，幅度和时机可以不同；换向极值附近允许自然相位差，片段末态仍在滑行。",
+        "focus": "连续观察雪板、髋部和肩膀各朝哪里：弯中总体向同侧转动，幅度和先后可以不同；在开始转回另一侧时，不必同时回正。片段结束时仍在滑行。",
         "autoplay": false,
         "duration": 10000,
         "title": "同向协调：观察板、髋与肩的连续朝向",
@@ -4084,8 +4084,8 @@
       "config": {
         "type": "shoulder-coordination",
         "variant": "neutral",
-        "title": "自然朝向：两侧弧线与可调整的转换",
-        "focus": "用自然朝向连续完成前后刃弧线，观察两腿活动与转换。肩髋可随路线调整；示意角度不是统一标准，片段末态仍在滑行。",
+        "title": "自然朝向：前后刃弧线与平顺换刃",
+        "focus": "用自然朝向连续完成前后刃弧线，观察两腿活动与转换。肩髋可随路线调整；示意角度不是统一标准，片段结束时仍在滑行。",
         "autoplay": false,
         "duration": 10000,
         "task": "neutral-linked",
@@ -4108,7 +4108,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "counter-rotation",
-        "focus": "从已有后刃斜行进入，小幅减刃后板髋与肩同时反向，再恢复同后刃和原来的自然朝向。全程不换刃、不腾空；最后仍在斜行，未计算真实压力或制动力。",
+        "focus": "从后刃斜滑开始，稍微放刃，让雪板和髋部向一侧转、肩膀向相反侧转，再恢复原来的后刃角度和自然朝向。全程保持后刃，不换刃、不跳起；结尾仍在斜滑，动画不显示真实压力或刹车力。",
         "autoplay": false,
         "duration": 10000,
         "title": "后刃专项调速：一次小幅反向后恢复自然",
@@ -4182,7 +4182,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "retraction-turns",
-        "focus": "选修回收对照：板横向通过与肩部转动来自同一状态；上身较平顺，但不固定胸廓。",
+        "focus": "选修回收换刃：看雪板从身体下方横向通过时，肩膀怎样配合转动。上身移动较平顺，但胸部没有被刻意固定。",
         "autoplay": false,
         "duration": 10000,
         "title": "选修对照：回收小回转的上下身配合",
@@ -4227,8 +4227,8 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "steering",
-        "title": "可控搓雪：板轴与移动方向可错开",
-        "focus": "在同一条路线比较板轴与移动方向的偏差；受控滑移是一种控制工具，不等于失控",
+        "title": "可控搓雪：雪板朝向与移动方向可错开",
+        "focus": "在同一条路线比较雪板朝向与移动方向的偏差；受控滑移是一种控制工具，不等于失控",
         "view": "track",
         "path": "rail",
         "trackDiagnostics": true,
@@ -4250,8 +4250,8 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "title": "减少枢转：板轴顺着示意路线变化",
-        "focus": "观察板轴沿路线渐变，板尾不主动横扫，行进方向线只表示行进方向",
+        "title": "减少主动转板：雪板朝向顺着示意路线变化",
+        "focus": "观察雪板朝向沿路线渐变，板尾不主动横扫，行进方向线只表示行进方向",
         "view": "track",
         "path": "rail",
         "trackDiagnostics": true,
@@ -4273,7 +4273,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "steering",
-        "title": "开放弯：末段仍较朝落线",
+        "title": "开放弯：出弯仍偏向坡下",
         "focus": "看弯形较浅时行进方向；动画不表示真实速度",
         "view": "track",
         "turnShape": "open",
@@ -4319,7 +4319,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "focus": "先用减少枢转的浅弧连接两刃，再渐进搓雪转向横坡并停止；端点路径为刚体几何示意。",
+        "focus": "先用不主动横向拧板的浅刻滑弧连接前后刃，再逐渐改为搓雪、转向横坡并停住。板头板尾的路线按不弯曲的雪板简化绘制。",
         "autoplay": false,
         "duration": 14000,
         "title": "浅刻滑：连接两侧窄痕，按计划结束 · 动作观察",
@@ -4369,7 +4369,7 @@
         "type": "short-turns",
         "variant": "round",
         "title": "完整小回转 · 屈曲式过渡",
-        "focus": "同一条板路线下比较腿长：转换时髋踝距离缩短，再渐进恢复；不是只改变骨盆高度。",
+        "focus": "保持同一条雪板路线，比较收腿和伸腿：换刃时髋部到脚踝的距离缩短，进入新弯后再逐渐伸出。观察整条腿的变化，不只看臀部高低。",
         "autoplay": false,
         "duration": 14000,
         "transition": "flex",
@@ -4496,7 +4496,7 @@
         "type": "short-turn-progression",
         "variant": "medium-to-short",
         "title": "练习 · 中弯逐渐缩小",
-        "focus": "横向与沿坡尺度同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
+        "focus": "横向弯宽与向坡下滑的距离同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
         "autoplay": false,
         "duration": 14000,
         "task": "size-ladder",
@@ -4521,7 +4521,7 @@
         "type": "short-turn-progression",
         "variant": "short-steady",
         "title": "复测 · 稳定小弯",
-        "focus": "连续三组双侧小弯，在相同走廊内保持弯形与自然节奏。",
+        "focus": "连续三组双侧小弯，在相同滑行宽度内保持弯形与自然节奏。",
         "autoplay": false,
         "duration": 14000,
         "task": "size-ladder",
@@ -4546,7 +4546,7 @@
         "type": "short-turn-progression",
         "variant": "short-to-medium",
         "title": "反向复测：小弯放回中弯",
-        "focus": "横向与沿坡尺度逐渐放大，单弯用时随之增加；末态仍在滑行。",
+        "focus": "横向弯宽与向坡下滑的距离逐渐放大，单弯用时随之增加；片段结束时仍在滑行。",
         "autoplay": false,
         "duration": 14000,
         "task": "size-ladder",
@@ -4596,7 +4596,7 @@
         "type": "short-turn-balance",
         "variant": "nose-pivot",
         "title": "识别：板头滑动较少，板尾集中扫动",
-        "focus": "看真实板头与板尾路径：板头仍滑动，局部位移较小，板尾扫幅更大。",
+        "focus": "看动画中的板头和板尾路线：板头也在滑动，只是这一段移动较少，板尾横扫的幅度更大。",
         "autoplay": false,
         "duration": 14000,
         "task": "nose-pivot-study",
@@ -4621,7 +4621,7 @@
         "type": "short-turn-balance",
         "variant": "back-seat",
         "title": "识别：身体偏后、转向较迟",
-        "focus": "骨盆与胸廓实际沿板长偏后，并配对稍后转向；不显示前后脚压力比例。",
+        "focus": "臀部和胸部都偏向后脚，转向也比参考动作更晚；看的是身体位置和动作时机，不显示前后脚真实受力比例。",
         "autoplay": false,
         "duration": 14000,
         "task": "back-seat-study",
@@ -4671,7 +4671,7 @@
         "type": "short-turns",
         "variant": "asymmetric",
         "title": "识别反例 · 一侧急、一侧拖",
-        "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
+        "focus": "比较两侧每弯向坡下滑的距离、用时和弯形；同一不对称表现可能有多种原因。",
         "autoplay": false,
         "duration": 14000,
         "task": "asymmetric-rhythm-study",
@@ -4746,7 +4746,7 @@
         "type": "short-turns",
         "variant": "shoulder-led",
         "title": "识别 · 肩膀抢转",
-        "focus": "先看世界肩线开始变化，再看髋轴与板轴何时追转；反例用于识别先后。",
+        "focus": "先看肩膀何时开始转动，再看髋部和雪板何时跟上；这是用来识别“肩膀抢转”的反例，不是练习目标。",
         "autoplay": false,
         "duration": 14000,
         "task": "shoulder-led-study",
@@ -4771,7 +4771,7 @@
         "type": "short-turns",
         "variant": "edge-locked",
         "title": "识别：旧刃释放较迟",
-        "focus": "旧刃保持较久，随后集中释放和换侧；工作刃仍与实际移动方向相容。",
+        "focus": "旧刃保持较久，随后集中释放和换侧；抓雪的板刃仍配合实际滑行方向。",
         "autoplay": false,
         "duration": 14000,
         "task": "late-edge-release-study",
@@ -4796,7 +4796,7 @@
         "type": "short-turns",
         "variant": "asymmetric",
         "title": "识别 · 两侧不对称",
-        "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
+        "focus": "比较两侧每弯向坡下滑的距离、用时和弯形；同一不对称表现可能有多种原因。",
         "autoplay": false,
         "duration": 14000,
         "task": "asymmetric-rhythm-study",
@@ -4820,8 +4820,8 @@
       "config": {
         "type": "short-turns",
         "variant": "low-stuck",
-        "title": "识别：持续较屈，腿长变化小",
-        "focus": "髋踝距离持续较短、变化很小；与回收换刃的缩短—恢复区分。",
+        "title": "识别：一直蹲着，收腿伸腿变化很少",
+        "focus": "髋部到脚踝的距离一直较短，腿持续弯着、很少伸展；这与回收换刃时先收腿、再伸腿不同。",
         "autoplay": false,
         "duration": 14000,
         "task": "low-flexion-study",
@@ -4847,7 +4847,7 @@
         "type": "short-turns",
         "variant": "round",
         "title": "可选策略 · 回收换刃",
-        "focus": "转换时缩短实际腿长，随后恢复；板横向运动大于估计质心，上身保持自然变化。",
+        "focus": "换刃时收腿，让雪板从身体下方通过，再逐渐伸腿。雪板横向移动比估计重心更明显，上身仍自然配合。",
         "autoplay": false,
         "duration": 14000,
         "transition": "retract",
@@ -4874,7 +4874,7 @@
         "type": "short-turn-balance",
         "variant": "nose-pivot",
         "title": "识别：板头滑动较少，板尾集中扫动",
-        "focus": "看真实板头与板尾路径：板头仍滑动，局部位移较小，板尾扫幅更大。",
+        "focus": "看动画中的板头和板尾路线：板头也在滑动，只是这一段移动较少，板尾横扫的幅度更大。",
         "autoplay": false,
         "duration": 14000,
         "task": "nose-pivot-study",
@@ -4899,7 +4899,7 @@
         "type": "short-turn-balance",
         "variant": "back-seat",
         "title": "识别：身体偏后、转向较迟",
-        "focus": "骨盆与胸廓实际沿板长偏后，并配对稍后转向；不显示前后脚压力比例。",
+        "focus": "臀部和胸部都偏向后脚，转向也比参考动作更晚；看的是身体位置和动作时机，不显示前后脚真实受力比例。",
         "autoplay": false,
         "duration": 14000,
         "task": "back-seat-study",
@@ -4924,7 +4924,7 @@
         "type": "short-turns",
         "variant": "over-inclined",
         "title": "姿态对照：更多整体内倾",
-        "focus": "同一路线和板角下比较胸廓更多移向工作刃一侧；本段不模拟真实滑出。",
+        "focus": "保持相同路线和刃角，比较上身更多倒向弯内时，胸部与髋、雪板的位置关系；这里只比较姿态，不模拟真实打滑摔倒。",
         "autoplay": false,
         "duration": 14000,
         "task": "inclination-comparison",
@@ -4949,7 +4949,7 @@
         "type": "short-turn-progression",
         "variant": "short-steady",
         "title": "保持 · 连续小弯",
-        "focus": "连续三组双侧小弯，在相同走廊内保持弯形与自然节奏。",
+        "focus": "连续三组双侧小弯，在相同滑行宽度内保持弯形与自然节奏。",
         "autoplay": false,
         "duration": 14000,
         "task": "size-ladder",
@@ -4974,7 +4974,7 @@
         "type": "short-turn-progression",
         "variant": "medium-to-short",
         "title": "改变 · 中弯缩到小弯",
-        "focus": "横向与沿坡尺度同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
+        "focus": "横向弯宽与向坡下滑的距离同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
         "autoplay": false,
         "duration": 14000,
         "task": "size-ladder",
@@ -4999,7 +4999,7 @@
         "type": "short-turns",
         "variant": "round",
         "title": "选修 · 回收式小弯",
-        "focus": "转换时缩短实际腿长，随后恢复；板横向运动大于估计质心，上身保持自然变化。",
+        "focus": "换刃时收腿，让雪板从身体下方通过，再逐渐伸腿。雪板横向移动比估计重心更明显，上身仍自然配合。",
         "autoplay": false,
         "duration": 14000,
         "transition": "retract",
@@ -5026,7 +5026,7 @@
         "type": "short-turn-progression",
         "variant": "short-to-medium",
         "title": "改变：小弯放回中弯",
-        "focus": "横向与沿坡尺度逐渐放大，单弯用时随之增加；末态仍在滑行。",
+        "focus": "横向弯宽与向坡下滑的距离逐渐放大，单弯用时随之增加；片段结束时仍在滑行。",
         "autoplay": false,
         "duration": 14000,
         "task": "size-ladder",
@@ -5049,7 +5049,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "steering",
-        "title": "改变出口：略开",
+        "title": "改变出弯方向：更偏向坡下",
         "focus": "看弯形较浅时行进方向；动画不表示真实速度",
         "view": "track",
         "turnShape": "open",
@@ -5072,7 +5072,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "steering",
-        "title": "改变出口：更收",
+        "title": "改变出弯方向：更多转向横坡",
         "focus": "看走廊和末段方向；先保留可控搓雪，用圆弧完成控速",
         "view": "track",
         "turnShape": "closed",
@@ -5243,10 +5243,10 @@
       "model": "dry-planar",
       "config": {
         "type": "hip-mobility",
-        "focus": "所选练习腿在后：先轻收骨盆，再小幅前移，保持前脚与后膝支撑；左右侧分别观察。",
+        "focus": "所选练习腿在后，后膝跪垫、前脚踩稳。先轻收腹、让骨盆稍向后转，减少塌腰，再小幅向前移动；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "半跪髋前侧拉伸：轻收骨盆，再小幅前移 · 动作示意",
+        "title": "半跪髋前侧拉伸：收腹避免塌腰，再小幅前移 · 动作示意",
         "task": "half-kneel-hip-flexor",
         "view": "side",
         "jointLabels": true,
@@ -5289,7 +5289,7 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-squat",
-        "focus": "练习在低幅负荷下维持位置与呼吸，识别姿态开始失控的信号。",
+        "focus": "练习在较小强度下维持位置与呼吸，识别姿态开始失控的信号。",
         "variant": "hold",
         "autoplay": false,
         "duration": 10000,
@@ -5395,10 +5395,10 @@
       "model": "dry-planar",
       "config": {
         "type": "hip-mobility",
-        "focus": "所选练习腿在后：先轻收骨盆，再小幅前移，保持前脚与后膝支撑；左右侧分别观察。",
+        "focus": "所选练习腿在后，后膝跪垫、前脚踩稳。先轻收腹、让骨盆稍向后转，减少塌腰，再小幅向前移动；左右侧分别观察。",
         "autoplay": false,
         "duration": 10000,
-        "title": "半跪髋前侧拉伸：轻收骨盆，再小幅前移 · 动作示意",
+        "title": "半跪髋前侧拉伸：收腹避免塌腰，再小幅前移 · 动作示意",
         "task": "half-kneel-hip-flexor",
         "view": "side",
         "jointLabels": true,
@@ -5547,10 +5547,10 @@
       "model": "dry-standing-ik",
       "config": {
         "type": "dry-squat",
-        "focus": "只展示本课的普通鞋基线；穿靴及扣板复查留在后续实际练习，不能由此画面替代。",
+        "focus": "只展示本课的普通鞋参考动作；穿靴及扣板复查留在后续实际练习，不能由此画面替代。",
         "autoplay": false,
         "duration": 10000,
-        "title": "普通鞋基线：膝沿脚向小幅屈伸",
+        "title": "普通鞋参考动作：膝沿脚向小幅屈伸",
         "task": "shoe-knee-baseline"
       },
       "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md",
@@ -5567,7 +5567,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "heel-edge",
-        "focus": "可控动作基线，用于与实际视频比较；本段不复现绊刃、滑出或颤振。",
+        "focus": "可控参考动作，用于与实际视频比较；本段不复现绊刃、滑出或颤振。",
         "autoplay": false,
         "duration": 10000,
         "title": "后刃摔倒怎么查：被绊住，还是板滑走 · 动作示意",
@@ -5587,10 +5587,10 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "观察自然朝向下的后刃单弯可控基线，完成出口并停止保刃。此图未复现甩尾的全部病因，不用静态姿态推断后脚压力。",
+        "focus": "观察自然朝向下的后刃单弯受控参考动作，完成出口并停止保刃。此图未复现甩尾的全部病因，不用静态姿态推断后脚压力。",
         "autoplay": false,
         "duration": 10000,
-        "title": "后刃单弯可控基线：对照轨迹与身体配合",
+        "title": "后刃单弯受控参考动作：对照轨迹与身体配合",
         "task": "heel-baseline-stop",
         "view": "follow",
         "jointLabels": true,
@@ -5611,7 +5611,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "edge-change-up",
-        "focus": "后刃释放到新前刃的可控基线，用于和实际录像比较；本段不复现所有换刃延迟原因。",
+        "focus": "后刃释放到新前刃的受控参考动作，用于和实际录像比较；本段不复现所有换刃延迟原因。",
         "autoplay": false,
         "duration": 10000,
         "title": "后刃换前刃总是慢：先看旧刃放开没有 · 动作示意",
@@ -5633,7 +5633,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "toe-edge",
-        "focus": "可控动作基线，用于与实际视频比较；本段不复现绊刃、滑出或颤振。",
+        "focus": "可控参考动作，用于与实际视频比较；本段不复现绊刃、滑出或颤振。",
         "autoplay": false,
         "duration": 10000,
         "title": "前刃站不稳：别只顾往前趴 · 动作示意",
@@ -5673,7 +5673,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "focus": "减少枢转的动作基线，用于与实际视频和雪痕比较；不复现不同扫尾原因。",
+        "focus": "减少主动转板的参考动作，用于与实际视频和雪痕比较；不复现不同扫尾原因。",
         "autoplay": false,
         "duration": 10000,
         "title": "想刻滑却扫尾：先找轨迹从哪里变宽 · 动作示意",
@@ -5694,7 +5694,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "rail-track",
-        "focus": "以浅弧动作作为对照样例；实际练习先建立基线、只改一项，再回自然滑行验证。",
+        "focus": "以浅弧动作作为对照样例；实际练习先记录原来的滑行、只改一项，再回自然滑行验证。",
         "autoplay": false,
         "duration": 10000,
         "title": "怎么安排练习：先滑一遍，拆一项，再自然滑 · 动作示意",
@@ -5764,8 +5764,8 @@
         "task": "expert-corridor-steering",
         "variant": "progressive",
         "trackDiagnostics": true,
-        "title": "进阶目标观察 · 连续引导与弧线接续",
-        "focus": "在同一可见走廊任务下观察转向分配与完整弧线；作者运动示意不代表L4实测速度、真实抓地或评分。",
+        "title": "进阶目标观察 · 连续转向与弧线衔接",
+        "focus": "在同一滑行走廊范围下观察转向分配与完整弧线；作者运动示意不代表L4实测速度、真实抓地或评分。",
         "autoplay": false,
         "duration": 16000,
         "jointLabels": true,
@@ -5789,7 +5789,7 @@
         "variant": "continuous",
         "trackDiagnostics": true,
         "legLengthDiagram": true,
-        "title": "动作配合 · 连续调节腿长与释放准备",
+        "title": "动作配合：连续屈伸，为放刃做准备",
         "focus": "同线路、同板姿态下只比较身体与屈伸；这不是雪板真实压力、弹性能、反弹或加速度仿真。",
         "autoplay": false,
         "duration": 16000,
@@ -5813,7 +5813,7 @@
         "task": "expert-run-recovery",
         "variant": "planned-recovery",
         "title": "完整滑段：入段、连续短弯与主动回宽恢复",
-        "focus": "观察稳定目标通道前后的完整过程；恢复段仍在滑行，重播只是重看有限滑段，不代表停车或滑行无缝循环。",
+        "focus": "观察进入目标滑行宽度、连续小弯、再主动放大弯的完整过程。恢复段仍在滑行；重播是从头再看这一段，不表示结尾已经停车或能原地接成循环。",
         "duration": 24000,
         "trackDiagnostics": true,
         "autoplay": false,
@@ -5837,7 +5837,7 @@
         "task": "expert-steering-range",
         "variant": "guided-slide",
         "title": "同一路线：改变引导策略后重新建立连续短弯",
-        "focus": "切换两种可用策略，比较同一路线上板轴与移动方向、刃角和身体配合的差异；不把其中一种认定为所有雪况下的正确答案。",
+        "focus": "切换两种可用策略，比较同一路线上雪板朝向与移动方向、刃角和身体配合有何不同；不把其中一种认定为所有雪况下的正确答案。",
         "duration": 28000,
         "trackDiagnostics": true,
         "autoplay": false,
@@ -5860,8 +5860,8 @@
         "type": "expert-carving",
         "task": "expert-carve-arc",
         "variant": "linked",
-        "title": "进阶刻滑弧线：落线前建刃、完整出口与连续接续",
-        "focus": "10米示意通道内观察六弧接续。7–15米是官方通道宽度，不是转弯半径；本模型未模拟官方要求的滑行速度或真实抓地。",
+        "title": "进阶刻滑弧线：朝向坡下前立刃，顺畅出弯接下一弯",
+        "focus": "在10米宽的示意滑行走廊里观察六个弯怎样衔接。7–15米是官方要求的整组转弯宽度，不是单弯半径；动画不表示官方要求的速度或真实抓雪力。",
         "duration": 24000,
         "trackDiagnostics": true,
         "autoplay": false,
@@ -5885,7 +5885,7 @@
         "task": "expert-carve-release",
         "variant": "coordinated",
         "title": "屈腿调节时机：同板路线、同放刃时刻的身体对照",
-        "focus": "对照协调调节与屈腿偏晚；腿长曲线来自实际骨架，不是压力、雪板储能或回弹曲线，也不表示实际旧刃释放推迟。",
+        "focus": "比较协调屈伸与收腿稍晚的动作。曲线表示动画里髋部到脚踝的距离，用来观察腿的收伸程度；不是压力、雪板储能或回弹曲线。两种对照的放刃时刻相同。",
         "duration": 24000,
         "legLengthDiagram": true,
         "trackDiagnostics": true,
@@ -5910,7 +5910,7 @@
         "task": "expert-carve-adaptation",
         "variant": "lower-recover",
         "title": "连续弧中的姿态余量：正常高度、稍低、恢复",
-        "focus": "先稳定正常高度，再稍低两弧并恢复；两种姿态共用板路线与板角。低姿态和八字站姿属于风格选择，不是四级刻滑达标条件。",
+        "focus": "先稳定正常高度，再稍低两弧并恢复；两种姿态共用板路线与刃角。低姿态和八字站姿属于风格选择，不是四级刻滑达标条件。",
         "duration": 24000,
         "legLengthDiagram": true,
         "trackDiagnostics": true,
@@ -5952,7 +5952,7 @@
         {
           "source": "S03",
           "locator": "印刷/PDF p.6–9：Assessment Criteria、Technical Outcomes",
-          "claim": "按能力选地形，观察圆弯、控速、窄刻滑轨迹及动作一致性；本站短组对照流程为编辑建议。",
+          "claim": "按能力选地形，观察圆弯、控速、窄刻滑轨迹及动作一致性；本站短段滑行的对照练习流程为编辑建议。",
           "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
@@ -5982,7 +5982,7 @@
         {
           "source": "S01",
           "locator": "六项 Snowboarding Fundamentals，正文六条列表",
-          "claim": "区分沿板长/板宽的承重、压力大小、倾斜立刃、枢转和扭转；不是只按身体外形评分。",
+          "claim": "区分沿板长/板宽的承重、压力大小、倾斜立刃、主动转板和板体扭转；不是只按身体外形评分。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -5991,7 +5991,7 @@
         {
           "source": "S02",
           "locator": "PDF p.8",
-          "claim": "inclination 与 angulation 共同控制倾斜立刃。",
+          "claim": "身体整体向弯内倾斜（inclination），以及通过关节屈伸调整腿与上身的相对倾斜（angulation），共同控制立刃。",
           "evidence": "direct",
           "canonicalSource": "S02",
           "title": "Learning Connection 与各项目基本原则",
@@ -6042,7 +6042,7 @@
         {
           "source": "S15",
           "locator": "印刷/PDF p.12–15：Teaching Skills",
-          "claim": "计划、实施、反思并按学习者需要调整体验；三组对照与撤提示复测为本站应用。",
+          "claim": "计划、实施、反思并按学习者需要调整体验；三组对照与取消动作提示后复测为本站应用。",
           "evidence": "synthesis",
           "canonicalSource": "S15",
           "title": "AASI Snowboard National Standards",
@@ -6066,7 +6066,7 @@
       "id": "v-base-stance",
       "title": "基本站姿：站在两脚之间，关节能动",
       "module": "stance",
-      "goal": "无需先大幅救平衡，就能调刃、屈伸和进入下一弯。",
+      "goal": "不用先大幅摆臂或扑身找平衡，就能调节立刃、屈伸和进入下一弯。",
       "entry": "https://jinke.me/snowboard/#lesson=v-base-stance",
       "citations": [
         {
@@ -6081,7 +6081,7 @@
         {
           "source": "S03",
           "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
-          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、滑行走廊或升级门槛。",
           "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
@@ -6090,7 +6090,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -6158,7 +6158,7 @@
         {
           "source": "S03",
           "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
-          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、滑行走廊或升级门槛。",
           "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
@@ -6190,7 +6190,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -6208,7 +6208,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
-          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和身体内倾与腿、上身配合立刃；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -6267,7 +6267,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
-          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和身体内倾与腿、上身配合立刃；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -6303,7 +6303,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6376,7 +6376,7 @@
         {
           "source": "S03",
           "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
-          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、滑行走廊或升级门槛。",
           "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
@@ -6421,7 +6421,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6436,7 +6436,7 @@
     },
     {
       "id": "v-active-passive-edge",
-      "title": "立刃的两种配合：身体内倾与关节成角",
+      "title": "立刃怎样配合：身体内倾与反弓",
       "module": "edging",
       "goal": "能用小动作立刃，并知道加大内倾时要看路线和抓地。",
       "entry": "https://jinke.me/snowboard/#lesson=v-active-passive-edge",
@@ -6444,7 +6444,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6453,7 +6453,7 @@
         {
           "source": "F01",
           "locator": "2019-03-19，Our Reflections，platform-angle两例",
-          "claim": "文中用后刃放脚趾及主动背屈举例：踝调节可在COM位置相近时改变刃角。 适用边界：例子本身是后刃，不直接证明前刃靴舌传力；前刃应用另参考S06，并标为归纳。",
+          "claim": "文中用后刃放脚趾及主动背屈举例：踝调节可在重心位置相近时改变刃角。 适用边界：例子本身是后刃，不直接证明前刃靴舌传力；前刃应用另参考S06，并标为归纳。",
           "evidence": "direct",
           "canonicalSource": "F01",
           "title": "Customised Snowboard Technique from Sweden",
@@ -6462,7 +6462,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -6522,7 +6522,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6531,7 +6531,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.78，Sideslipping feedback / Ballerina–Cowboy analogy",
-          "claim": "前刃侧滑中踝绷直踮脚不利于调角；教材建议放松踝、在脚掌球部上方获得可调支撑。 适用边界：来自入门侧滑，不给高级刻滑全部踝动作规定恒定背屈；不规定靴内压力比例。",
+          "claim": "前刃侧滑中踝绷直踮脚不利于微调立刃角度；教材建议放松踝、在脚掌球部上方获得可调支撑。 适用边界：来自入门侧滑，不给高级刻滑全部踝动作规定恒定背屈；不规定靴内压力比例。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6572,7 +6572,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.78，Sideslipping feedback / Ballerina–Cowboy analogy",
-          "claim": "前刃侧滑中踝绷直踮脚不利于调角；教材建议放松踝、在脚掌球部上方获得可调支撑。 适用边界：来自入门侧滑，不给高级刻滑全部踝动作规定恒定背屈；不规定靴内压力比例。",
+          "claim": "前刃侧滑中踝绷直踮脚不利于微调立刃角度；教材建议放松踝、在脚掌球部上方获得可调支撑。 适用边界：来自入门侧滑，不给高级刻滑全部踝动作规定恒定背屈；不规定靴内压力比例。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6581,7 +6581,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6633,7 +6633,7 @@
     },
     {
       "id": "v-toe-lock-ankle",
-      "title": "前刃调角：膝髋渐进移动，脚踝能调",
+      "title": "前刃角度怎么调：膝髋向脚尖侧，脚踝别锁死",
       "module": "edging",
       "goal": "刃角稍大后仍能控制路线，并能顺畅进入下一步。",
       "entry": "https://jinke.me/snowboard/#lesson=v-toe-lock-ankle",
@@ -6650,7 +6650,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6727,7 +6727,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6736,7 +6736,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.98，Analysis & Improvement: Intro to Carved Turns",
-          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢成角与柔和膝活动练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
+          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢配合立刃、上身保持平衡及柔和屈膝的练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6846,7 +6846,7 @@
     },
     {
       "id": "v-toe-counterbalance",
-      "title": "前刃成角：腿调角，上身保持平衡",
+      "title": "前刃反弓：膝髋向脚尖侧，上身不扑向雪面",
       "module": "edging",
       "goal": "增加一点前刃角度后，仍能稳住路线并进入下一弯。",
       "entry": "https://jinke.me/snowboard/#lesson=v-toe-counterbalance",
@@ -6854,7 +6854,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6914,7 +6914,7 @@
     },
     {
       "id": "v-heel-counterbalance",
-      "title": "后刃成角：髋向脚跟侧，上身配合平衡",
+      "title": "后刃反弓：屈膝屈髋，平衡上身与臀部的位置",
       "module": "edging",
       "goal": "后刃脚下变重时还能调整，不整个人向弯内躺倒。",
       "entry": "https://jinke.me/snowboard/#lesson=v-heel-counterbalance",
@@ -6940,7 +6940,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -6999,7 +6999,7 @@
         {
           "source": "S03",
           "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
-          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、滑行走廊或升级门槛。",
           "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
@@ -7017,7 +7017,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7026,7 +7026,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7076,7 +7076,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7085,7 +7085,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.98，Analysis & Improvement: Intro to Carved Turns",
-          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢成角与柔和膝活动练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
+          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢配合立刃、上身保持平衡及柔和屈膝的练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7144,7 +7144,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7162,7 +7162,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.11–13，Movement Analysis / Prescribe a Specific Change",
-          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站三反馈对照、机位与复拍次数是教学建议，不是教材实验规程。",
+          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站体感、身体动作和板的轨迹对照、机位与复拍次数是教学建议，不是教材实验规程。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -7192,7 +7192,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7219,7 +7219,7 @@
         {
           "source": "F01",
           "locator": "2019-03-19，Our Reflections，platform-angle两例",
-          "claim": "文中用后刃放脚趾及主动背屈举例：踝调节可在COM位置相近时改变刃角。 适用边界：例子本身是后刃，不直接证明前刃靴舌传力；前刃应用另参考S06，并标为归纳。",
+          "claim": "文中用后刃放脚趾及主动背屈举例：踝调节可在重心位置相近时改变刃角。 适用边界：例子本身是后刃，不直接证明前刃靴舌传力；前刃应用另参考S06，并标为归纳。",
           "evidence": "direct",
           "canonicalSource": "F01",
           "title": "Customised Snowboard Technique from Sweden",
@@ -7269,7 +7269,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7287,7 +7287,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.3，Snowboarding Fundamentals F1–F6",
-          "claim": "沿板长、跨板宽、压力大小、枢转、倾斜与扭转分别列为可管理板控关系。 适用边界：分类不含固定关节姿态或承重百分比。",
+          "claim": "沿板长、跨板宽、压力大小、主动转板、倾斜与扭转分别列为可管理板控关系。 适用边界：分类不含固定关节姿态或承重百分比。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -7356,7 +7356,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7415,7 +7415,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7474,7 +7474,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7533,7 +7533,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7560,7 +7560,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.98，Analysis & Improvement: Intro to Carved Turns",
-          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢成角与柔和膝活动练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
+          "claim": "入门刻滑中，锁膝可与后刃跳动相关；为摸雪折腰可破坏中立位，教材给出下肢配合立刃、上身保持平衡及柔和屈膝的练习。 适用边界：是分析假设和练习，不是看到跳动或摸雪即可唯一诊断。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7619,7 +7619,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -7688,7 +7688,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7721,7 +7721,7 @@
     },
     {
       "id": "v-heel-open-rear-foot",
-      "title": "开放后刃：让后脚也能稳稳控刃",
+      "title": "开放站姿滑后刃：后脚也要能控刃",
       "module": "pressure",
       "goal": "后刃板尾能按计划转弯，下一弯也不被后坐拖住。",
       "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-rear-foot",
@@ -7729,7 +7729,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -7738,7 +7738,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
-          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和身体内倾与腿、上身配合立刃；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -7747,7 +7747,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7789,7 +7789,7 @@
     },
     {
       "id": "v-toe-front-participation",
-      "title": "前刃入弯：试前脚引导，保持双脚接续",
+      "title": "前刃入弯：前脚稍先引导，后脚及时跟上",
       "module": "pressure",
       "goal": "入弯更顺，弯中仍由两脚配合，不一直压在前脚。",
       "entry": "https://jinke.me/snowboard/#lesson=v-toe-front-participation",
@@ -7797,7 +7797,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
-          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和身体内倾与腿、上身配合立刃；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -7806,7 +7806,7 @@
         {
           "source": "S03",
           "locator": "官方本轮19页版，印刷/PDF p.7–8，Specific Technical Outcomes / Riding Skills",
-          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、走廊或升级门槛。",
+          "claim": "一级任务要求居中可移动、协调对齐与下肢引导，并以相应地形中的圆弯和工作刃平衡观察。 适用边界：考核任务不等于普通学员统一坡度、滑行走廊或升级门槛。",
           "evidence": "direct",
           "canonicalSource": "S03",
           "title": "Level 1 Course Guide",
@@ -7824,7 +7824,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7910,7 +7910,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.15，Level II / Carved Turn，F1/F3/F5",
-          "claim": "二级刻滑任务讨论前后负载、屈曲释放和倾斜成角；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
+          "claim": "二级刻滑任务讨论前后负载、屈曲释放和身体内倾与腿、上身配合立刃；过量前后移动或弯尾压力堆积可能损害板控。 适用边界：该任务更具体地强调屈曲释放；不能用它支持所有过渡一律伸展，也不否认其他任务使用伸展。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -7928,7 +7928,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8046,7 +8046,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8073,7 +8073,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -8173,7 +8173,7 @@
         {
           "source": "S06",
           "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
-          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向重心向雪板降低，回收偏向腿板收向重心。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
           "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
@@ -8205,7 +8205,7 @@
         {
           "source": "S06",
           "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
-          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向重心向雪板降低，回收偏向腿板收向重心。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
           "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
@@ -8214,7 +8214,7 @@
         {
           "source": "S06",
           "locator": "2017，PDF p.226–228 / 印刷F/05–F/07，Chapter 18 / Retraction Turns",
-          "claim": "回收在转换附近使板靠近身体，控制段调节伸展；两向难度、后刃髋留旧侧及伸展时后腿枢转需分别观察。 适用边界：教材此处练习为开放走刃，本站搓雪回收是结合T01与CASI的编排；不照搬加速或低顶棚极限。",
+          "claim": "回收在转换附近使板靠近身体，控制段调节伸展；两向难度、后刃髋留旧侧及伸展时后腿带板转向需分别观察。 适用边界：教材此处练习为开放走刃，本站搓雪回收是结合T01与CASI的编排；不照搬加速或低顶棚极限。",
           "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
@@ -8328,7 +8328,7 @@
         {
           "source": "S06",
           "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
-          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向重心向雪板降低，回收偏向腿板收向重心。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
           "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
@@ -8337,7 +8337,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8346,7 +8346,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8380,7 +8380,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8389,7 +8389,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8468,7 +8468,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8477,7 +8477,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -8486,7 +8486,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8527,7 +8527,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8562,7 +8562,7 @@
       "id": "v15-gaze-drill",
       "title": "转头观察时，保持原来的路线",
       "module": "transition",
-      "goal": "观察后仍能保持当前速度、走廊和板刃控制。",
+      "goal": "观察后仍能保持当前速度、滑行走廊和板刃控制。",
       "entry": "https://jinke.me/snowboard/#lesson=v15-gaze-drill",
       "citations": [
         {
@@ -8595,7 +8595,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.11–13，Movement Analysis / Prescribe a Specific Change",
-          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站三反馈对照、机位与复拍次数是教学建议，不是教材实验规程。",
+          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站体感、身体动作和板的轨迹对照、机位与复拍次数是教学建议，不是教材实验规程。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -8627,7 +8627,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8636,7 +8636,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8654,7 +8654,7 @@
         {
           "source": "S01",
           "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
-          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、枢转与扭转。 适用边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。",
+          "claim": "分别管理板长/板宽方向压力、压力大小、倾斜、主动转板与板体扭转。 适用边界：“control the relationship”不应译成单凭重心位置决定全部受力；不是精确测力模型。",
           "evidence": "direct",
           "canonicalSource": "S01",
           "title": "单板六项基本原则",
@@ -8704,7 +8704,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8713,7 +8713,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8740,7 +8740,7 @@
         {
           "source": "S10",
           "locator": "v2.0 2022-11-07，印刷/PDF p.11–13，Movement Analysis / Prescribe a Specific Change",
-          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站三反馈对照、机位与复拍次数是教学建议，不是教材实验规程。",
+          "claim": "动作分析要连接身体运动、板表现与目标阶段，再针对相关基本技能给出具体改动。 适用边界：本站体感、身体动作和板的轨迹对照、机位与复拍次数是教学建议，不是教材实验规程。",
           "evidence": "direct",
           "canonicalSource": "S10",
           "title": "Snowboard Performance Guide",
@@ -8772,7 +8772,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.49–50，Edging / Inclination / Angulation",
-          "claim": "踝膝髋成角与整体内倾共同调刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
+          "claim": "踝膝髋配合屈伸形成腿与上身的倾斜差异，与整体内倾共同调节立刃，组合应随速度、坡度、弯径及雪况调整。 适用边界：不支持统一最大刃角、静态大内倾或把重心投影当动态平衡认证。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8781,7 +8781,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8885,7 +8885,7 @@
         {
           "source": "S06",
           "locator": "2017，PDF p.81 / 印刷B/06，Chapter 6 / Up, Down, Retraction & Terrain Unweighted Turns",
-          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向COM向板降低，回收偏向腿板拉向COM。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
+          "claim": "伸展与屈曲是不同过渡组织；屈曲减重偏向重心向雪板降低，回收偏向腿板收向重心。 适用边界：运动可混合是本站结合CASI的归纳；本课贴雪限制是教学任务，回收本身不以绝不离雪定义。",
           "evidence": "direct",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
@@ -8894,7 +8894,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -8911,13 +8911,13 @@
       "id": "s14-twist-drill",
       "title": "前后脚踏动：练小幅先后调刃",
       "module": "transition",
-      "goal": "分得清两脚调刃，又能及时合回完整动作。",
+      "goal": "能分别微调前脚和后脚处的立刃角度，也能让两脚及时一起进入新弯。",
       "entry": "https://jinke.me/snowboard/#lesson=s14-twist-drill",
       "citations": [
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
-          "claim": "转向由枢转、调刃、调压组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "claim": "转向由主动转板、调节立刃和压力组合；两踝可异向活动造成板体扭转，前后脚引导可按任务分配。 适用边界：前脚先行是进阶例子，不是每次换刃硬规则；没有统一的动作时间差或板的变形幅度。",
           "evidence": "direct",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9023,7 +9023,7 @@
       "id": "v-heel-open-loading",
       "title": "开肩后的后刃：检查前后脚是否都能控制",
       "module": "rotation",
-      "goal": "在舒适开肩范围内，两脚仍能调刃，板尾不突然扫出。",
+      "goal": "在舒适开肩范围内，两脚仍能调整刃角，板尾不突然扫出。",
       "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-loading",
       "citations": [
         {
@@ -9052,7 +9052,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.43、45、47–52、55–57：姿态、调刃、压力时序与任务结果",
-          "claim": "朝向、成角和屈伸时机都应随任务协调；分组单变量对照是本课编排，画面高度与板角不等于真实压力或抓地。",
+          "claim": "朝向、反弓配合和屈伸时机都应随任务协调；分组单变量对照是本课编排，画面高度与刃角不等于真实压力或抓地。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9154,7 +9154,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.47–48、59–61：枢转、下肢引导、搓雪与刻滑",
-          "claim": "下肢关节共同引导雪板，上下身需要协调；转向应结合刃角、枢转及所需弯形观察。",
+          "claim": "下肢关节共同引导雪板，上下身需要协调；转向应结合刃角、主动转板（轴转）及所需弯形观察。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9200,7 +9200,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.47–48：较小刃角与枢转；同时反向运动",
-          "claim": "上下身同时相反方向旋转可快速枢转，但影响平衡，需要回到可用姿态。",
+          "claim": "上下身同时相反方向旋转可快速主动转板（轴转），但影响平衡，之后仍要回到方便继续调节的姿态。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9209,7 +9209,7 @@
         {
           "source": "T01",
           "locator": "印刷 / PDF p.15：Using Counter-Rotation，高级速度检查",
-          "claim": "高级速度检查通过肩髋相反方向运动改变板朝向，感知抓雪后释放；本教材采用已有低速检查中的有限幅对照，不将其当作新手入门技法。",
+          "claim": "高级搓雪调速通过肩髋相反方向运动改变板朝向，感知抓雪后释放；本教材采用已掌握的低速调速动作中的有限幅对照，不将其当作新手入门技法。",
           "evidence": "synthesis",
           "canonicalSource": "T01",
           "title": "Level 3 Teaching Module：进阶任务、回收与反向旋转",
@@ -9315,7 +9315,7 @@
         {
           "source": "S38",
           "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，落线前在刃上平衡发起方向改变，控制出弯携带动量，弯形由立刃与调压形成而不采用枢转。7–15米是走廊宽度，不是弯半径。",
+          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
           "evidence": "direct",
           "canonicalSource": "S38",
           "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
@@ -9386,7 +9386,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.47、60–61、97：steering angle、两类转弯与刻滑入门",
-          "claim": "从能控制搓雪转弯的能力出发，减少破坏窄刃痕的枢转并渐进立刃。",
+          "claim": "从能控制搓雪转弯的能力出发，减少破坏窄刃痕的主动转板（轴转）并渐进立刃。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9402,15 +9402,15 @@
     },
     {
       "id": "v20-traffic",
-      "title": "弯形控速：弯尾朝哪里，速度就怎样变化",
+      "title": "弯形控速：用出弯方向和搓雪量控制速度",
       "module": "carving",
-      "goal": "在选定走廊内用完整圆弧控速，减少弯尾突然横刹。",
+      "goal": "在选定滑行走廊内用完整圆弧控速，减少弯尾突然横刹。",
       "entry": "https://jinke.me/snowboard/#lesson=v20-traffic",
       "citations": [
         {
           "source": "S16",
           "locator": "印刷 / PDF p.60–61、88、95–98：转弯类型、弯形控速与滑移选择",
-          "claim": "不同弯形、刃角、枢转与压力共同实现方向和速度控制。",
+          "claim": "不同弯形、刃角、主动转板（轴转）与压力共同实现方向和速度控制。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9446,7 +9446,7 @@
       "id": "v20-path",
       "title": "刻滑怎么练：基础、进阶与低姿态选修",
       "module": "carving",
-      "goal": "按当前板表现选出一项练习，分清基础、低姿态应用与官方高阶任务的条件和证据。",
+      "goal": "按当前雪板表现选出一项练习，分清基础、低姿态应用与官方高阶任务的条件和证据。",
       "entry": "https://jinke.me/snowboard/#lesson=v20-path",
       "citations": [
         {
@@ -9488,7 +9488,7 @@
         {
           "source": "S38",
           "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，落线前在刃上平衡发起方向改变，控制出弯携带动量，弯形由立刃与调压形成而不采用枢转。7–15米是走廊宽度，不是弯半径。",
+          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
           "evidence": "direct",
           "canonicalSource": "S38",
           "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
@@ -9497,7 +9497,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过建刃、加载与引导的配合及动作量、持续时间变化发展弯形和适应性；p.120的身体旋转探索不推翻正式任务无枢转的板表现要求。本站对照量与退阶另为建议。",
+          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9518,7 +9518,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.61、88、97–98：gentle open arcs、弯形与坡度控速、纯刃平衡",
-          "claim": "缓坡开放浅弧适合发展纯刃平衡，减少枢转并以轨迹检验。",
+          "claim": "缓坡开放浅弧适合发展纯刃平衡，减少主动转板（轴转）并以轨迹检验。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9535,7 +9535,7 @@
       "id": "s-short-integrated",
       "title": "连续小回转：圆弯不断，速度可控",
       "module": "short-turns",
-      "goal": "在自选走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。",
+      "goal": "在自选滑行走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-integrated",
       "citations": [
         {
@@ -9722,7 +9722,7 @@
         {
           "source": "A02",
           "locator": "印刷 / PDF p.7–9：Short Radius Sliding Turns",
-          "claim": "本站把完整工作刃弧作为计时边界，并将地形需要的不对称与无意偏差分开，是便于复盘的教学归纳。",
+          "claim": "本站把同一侧的完整弯作为计时边界，并将地形需要的不对称与无意偏差分开，是便于复盘的教学归纳。",
           "evidence": "synthesis",
           "canonicalSource": "A02",
           "title": "Level 2 Course Guide：Rider Improvement",
@@ -9877,7 +9877,7 @@
         {
           "source": "S06",
           "locator": "Chapter 16 E/21（PDF p.190）：Lateral & Vertical",
-          "claim": "雪上前刃成角强调踝背屈、膝前移和少量屈髋；普通鞋扶墙往返是本站动作辨认练习，不能照搬雪上受力。",
+          "claim": "雪上前刃的关节配合强调小腿向脚背靠近（踝背屈）、膝前移和少量屈髋；普通鞋扶墙往返是本站动作辨认练习，不能照搬雪上受力。",
           "evidence": "synthesis",
           "canonicalSource": "S06",
           "title": "Snowboard Instructor Manual",
@@ -10419,7 +10419,7 @@
       "id": "v23-knees",
       "title": "膝盖怎么走：顺着脚的自然方向屈伸",
       "module": "equipment",
-      "goal": "在穿靴、扣板后仍能舒适屈伸和调刃。",
+      "goal": "在穿靴、扣板后仍能舒适屈伸和调整刃角。",
       "entry": "https://jinke.me/snowboard/#lesson=v23-knees",
       "citations": [
         {
@@ -10613,7 +10613,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.49–52、96、98、155：倾斜/成角、压力、触雪折腰与两刃关系",
-          "claim": "失抓地与颤振须从刃角、枢转和压力调节分阶段排查。",
+          "claim": "失抓地与颤振须从刃角、主动转板（轴转）和压力调节分阶段排查。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -10686,7 +10686,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.30–34、47–52、60–61、98：分析、枢转/压力与刻滑诊断",
-          "claim": "滑出可与不足立刃、多余枢转和前后位置有关，先用单弧与均衡支撑验证。",
+          "claim": "滑出可与不足立刃、多余主动转板（轴转）和前后位置有关，先用单弧与均衡支撑验证。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -10908,7 +10908,7 @@
       "id": "s-duck-low-linked",
       "title": "低姿态八字刻滑：保持窄痕，完成两侧转换",
       "module": "carving",
-      "goal": "降低姿态后，两侧仍能连续窄痕、控制出口和速度，并保留随时调刃、屈伸和主动退出的能力。",
+      "goal": "降低姿态后，两侧仍能连续窄痕、控制出口和速度，并保留随时调整刃角、屈伸和主动退出的能力。",
       "entry": "https://jinke.me/snowboard/#lesson=s-duck-low-linked",
       "citations": [
         {
@@ -10923,7 +10923,7 @@
         {
           "source": "S16",
           "locator": "印刷 / PDF p.50–52、59、97–98、155、181–182：成角、压力时序、两腿引导、非对称、装备",
-          "claim": "支持成角与内倾、屈伸时序、刻滑入门判据、两刃非对称和装备条件；不提供本站低姿态动作数值。",
+          "claim": "支持反弓与内倾、屈伸时序、刻滑入门判据、两刃非对称和装备条件；不提供本站低姿态动作数值。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11049,9 +11049,9 @@
     },
     {
       "id": "s-short-expert-steering",
-      "title": "进阶小回转：在窄走廊里保持完整弯形",
+      "title": "进阶小回转：在较窄的滑行走廊里保持完整弯形",
       "module": "short-turns",
-      "goal": "在已能管理速度的条件下维持计划走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。",
+      "goal": "在已能管理速度的条件下维持计划滑行走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-steering",
       "citations": [
         {
@@ -11101,7 +11101,7 @@
       "id": "s-short-expert-pressure",
       "title": "进阶小回转：屈伸与换刃时机",
       "module": "short-turns",
-      "goal": "在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与板响应，并持续接入下一弧。",
+      "goal": "在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与雪板反应，并持续接入下一弧。",
       "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-pressure",
       "citations": [
         {
@@ -11326,13 +11326,13 @@
       "id": "s-carve-expert-arc",
       "title": "进阶刻滑：落线前立刃，顺畅完成出弯",
       "module": "carving",
-      "goal": "两侧新弧在落线前建立可用支撑，以立刃和控压维持刻滑路径，再用可控出口把动量带入下一弧。",
+      "goal": "两侧都在雪板转到落线前建立新刃支撑，用立刃和压力调节保持刻滑弧线，并让出弯的速度与方向顺畅接入下一弯。",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-arc",
       "citations": [
         {
           "source": "S38",
           "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，落线前在刃上平衡发起方向改变，控制出弯携带动量，弯形由立刃与调压形成而不采用枢转。7–15米是走廊宽度，不是弯半径。",
+          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
           "evidence": "direct",
           "canonicalSource": "S38",
           "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
@@ -11341,7 +11341,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线接续、加载释放及技能配比；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的枢转，不等于下肢、髋和躯干必须冻结。",
+          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11368,7 +11368,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过建刃、加载与引导的配合及动作量、持续时间变化发展弯形和适应性；p.120的身体旋转探索不推翻正式任务无枢转的板表现要求。本站对照量与退阶另为建议。",
+          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11391,7 +11391,7 @@
         {
           "source": "S38",
           "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，落线前在刃上平衡发起方向改变，控制出弯携带动量，弯形由立刃与调压形成而不采用枢转。7–15米是走廊宽度，不是弯半径。",
+          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
           "evidence": "direct",
           "canonicalSource": "S38",
           "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
@@ -11400,7 +11400,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线接续、加载释放及技能配比；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的枢转，不等于下肢、髋和躯干必须冻结。",
+          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11436,7 +11436,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过建刃、加载与引导的配合及动作量、持续时间变化发展弯形和适应性；p.120的身体旋转探索不推翻正式任务无枢转的板表现要求。本站对照量与退阶另为建议。",
+          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11468,7 +11468,7 @@
         {
           "source": "S38",
           "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，落线前在刃上平衡发起方向改变，控制出弯携带动量，弯形由立刃与调压形成而不采用枢转。7–15米是走廊宽度，不是弯半径。",
+          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
           "evidence": "direct",
           "canonicalSource": "S38",
           "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
@@ -11477,7 +11477,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线接续、加载释放及技能配比；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的枢转，不等于下肢、髋和躯干必须冻结。",
+          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11522,7 +11522,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过建刃、加载与引导的配合及动作量、持续时间变化发展弯形和适应性；p.120的身体旋转探索不推翻正式任务无枢转的板表现要求。本站对照量与退阶另为建议。",
+          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11563,7 +11563,7 @@
         {
           "source": "S38",
           "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，落线前在刃上平衡发起方向改变，控制出弯携带动量，弯形由立刃与调压形成而不采用枢转。7–15米是走廊宽度，不是弯半径。",
+          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
           "evidence": "direct",
           "canonicalSource": "S38",
           "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
@@ -11572,7 +11572,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线接续、加载释放及技能配比；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的枢转，不等于下肢、髋和躯干必须冻结。",
+          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -11617,7 +11617,7 @@
         {
           "source": "S16",
           "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过建刃、加载与引导的配合及动作量、持续时间变化发展弯形和适应性；p.120的身体旋转探索不推翻正式任务无枢转的板表现要求。本站对照量与退阶另为建议。",
+          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
