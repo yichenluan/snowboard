@@ -178,7 +178,7 @@ const report = {
   inputs: Object.fromEntries(inputNames.map(name => [name, createHash('sha256').update(inputs[name]).digest('hex')])),
   scope: '静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成',
   counts, modules, types, variants, references, illustrations, lessons, issues,
-  prototype: { entries: prototypeModes, homeEntry: 'https://jinke.me/snowboard/3d/', scope: '独立原型入口；本对象不表示课内引用接入状态，后者见 counts 与 references', status: 'review-in-progress', replacementCompleted: false },
+  prototype: { entries: prototypeModes, homeEntry: null, scope: '独立原型保留对应课程入口，首页不再单独展示；本对象不表示课内引用接入状态，后者见 counts 与 references', status: 'review-in-progress', replacementCompleted: false },
 };
 
 const md = value => String(value ?? '—').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
@@ -206,7 +206,7 @@ const lines = [
     ['应用变体键', counts.applicationVariantKeys, 'type:variant:transition；与错误卡 demoKey 的匹配口径一致'],
     ['展示配置组合', counts.presentationConfigurations, '去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作'],
     ['旧小回转声明变体', counts.declaredShortVariants, 'animations.js 中 3 个类型共享 shortState；当前实现按独立任务和过渡方式接入，不以旧声明推定支持组合'],
-    ['3D 模式 / 课程入口', `${counts.prototypeModes} / ${counts.prototypeLessonEntries}`, '另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景'],
+    ['3D 模式 / 课程入口', `${counts.prototypeModes} / ${counts.prototypeLessonEntries}`, '首页已移除独立入口；三种模式共享 motion.ts 状态与 scene.tsx 场景'],
     ['课内三维类型 / 引用', `${counts.implemented3DTypes} / ${counts.implemented3DReferences}`, '按注册表已切换默认渲染；不代表教学认证'],
     ['类型注册 / 变体白名单接入类型', `${counts.fullyImplemented3DTypes} / ${counts.partiallyImplemented3DTypes}`, `${counts.partiallyImplemented3DTypes} 个 partial 类型仅支持列明变体；${counts.remainingLegacyReferences ? '当前引用是否已接入按逐项配置统计' : '其当前课程引用均已接入，未引用的其他变体不支持'}；类型注册也仍受 task 门控`],
     ['当前使用旧播放器的引用', counts.remainingLegacyReferences, '按逐引用 renderer 统计；保留旧源码不等于仍有旧播放器引用'],

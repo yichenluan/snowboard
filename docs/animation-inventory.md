@@ -19,7 +19,7 @@
 | 应用变体键 | 70 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
 | 展示配置组合 | 92 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 旧小回转声明变体 | 16 | animations.js 中 3 个类型共享 shortState；当前实现按独立任务和过渡方式接入，不以旧声明推定支持组合 |
-| 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
+| 3D 模式 / 课程入口 | 3 / 3 | 首页已移除独立入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
 | 课内三维类型 / 引用 | 35 / 134 | 按注册表已切换默认渲染；不代表教学认证 |
 | 类型注册 / 变体白名单接入类型 | 32 / 3 | 3 个 partial 类型仅支持列明变体；其当前课程引用均已接入，未引用的其他变体不支持；类型注册也仍受 task 门控 |
 | 当前使用旧播放器的引用 | 0 | 按逐引用 renderer 统计；保留旧源码不等于仍有旧播放器引用 |
@@ -465,6 +465,6 @@
 | --- | --- |
 | content.json | d3b136f869061c73926ba2fd617283bcbb5e6b53f5152c1048d3f31a9e939381 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
-| app.js | f7d4f5c16afc2e56a9eaa56026aac6ade8eef29b97ab2b8586719f167c6aa653 |
+| app.js | 95c7f01265012513c1b06f1f97fa41f0a400db7efb2fa8cb72a3e7070d75886a |
 | lesson-player/registry.json | 5c657d9aa412aa6667ab79782b00e35202e5ed72cee07e1d2943c8a212682bae |
 

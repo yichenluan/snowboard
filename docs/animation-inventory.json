@@ -3,7 +3,7 @@
   "inputs": {
     "content.json": "d3b136f869061c73926ba2fd617283bcbb5e6b53f5152c1048d3f31a9e939381",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "f7d4f5c16afc2e56a9eaa56026aac6ade8eef29b97ab2b8586719f167c6aa653",
+    "app.js": "95c7f01265012513c1b06f1f97fa41f0a400db7efb2fa8cb72a3e7070d75886a",
     "lesson-player/registry.json": "5c657d9aa412aa6667ab79782b00e35202e5ed72cee07e1d2943c8a212682bae"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
@@ -8755,8 +8755,8 @@
       "s-short-diagnosis": "error",
       "s-short-sideslip": "drill"
     },
-    "homeEntry": "https://jinke.me/snowboard/3d/",
-    "scope": "独立原型入口；本对象不表示课内引用接入状态，后者见 counts 与 references",
+    "homeEntry": null,
+    "scope": "独立原型保留对应课程入口，首页不再单独展示；本对象不表示课内引用接入状态，后者见 counts 与 references",
     "status": "review-in-progress",
     "replacementCompleted": false
   }
