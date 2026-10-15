@@ -64,3 +64,7 @@
 实体手机按用户明确指令排除。已有390px桌面视口结果保留，不能改称手机通过。上述科学测量/现场教学边界独立于本轮网站内容、来源、页面和运行交付；后续只有可定位的新差异才据证修动作。
 
 原始数据在忽略目录 `.validation/continuation/` 与 `log/continuation-*`；公开文档和账本保存可追溯结论，不公开第三方完整教材、视频或个人记录。
+
+## 发布核验
+
+实现提交 `0ce64417c3f0a9bd5396dca76f5d331f34d69b2b`，[Actions 38695117737](https://github.com/yichenluan/snowboard/actions/runs/38695117737) 的build与deploy均成功。正式主站与离线副本均为2,248,892 bytes，SHA-256 `fb03e07ced28d7958879e99d0f6f690201d5e893eb72b337eda36d0af053367f`，与本地构建逐字节相同；独立原型HTML、JS和CSS也一致。线上浏览器核对四课最终练习量、S37安全引用、新能力节点、术语、duck三维同帧对照、小回转配置门控、键盘末段、390px视口和独立原型均通过，0页面错误、0站内资源失败。证据为`.validation/continuation/published-verification.json`、`published-smoke.json`和`published-duck-scene.jpg`。此发布核验不增加真人标定或完整教学认证数。

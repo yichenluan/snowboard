@@ -23,7 +23,9 @@
 
 93配置已人工审阅2,532帧单元，并按原时长1倍速运行完整循环；暂停、末段停止和重播通过，0页面运行错误。独立原型3模式×2前脚方向另看78帧。103课、214诊断、135动画引用、13模块和2装备图实际浏览器检查；核心交互、390px桌面视口、禁WebGL降级和隔离个人记录恢复通过；断网`file:`小回转/duck/深蹲模型与收藏恢复均实测通过。21能力节点、10路线、30术语、36站内来源卡及技术地图逐项可达，隔离补充新建/编辑/回收/恢复通过；评论入口可达，但本轮外部iframe等待超时，未完成表单加载，保留partial。实体手机由用户明确排除。
 
-[本次交付](continuation-review.md)、[逐结论账与维护](source-claim-audit.md)、[视频关键帧对照](official-video-comparison.md)、[全站审查表](teaching-audit.md)保存可核查范围。未执行真人精确标定、全表面碰撞证明、全部组合逐帧连续人工观察或雪上试教，不将其写成通过。最终104/104测试、类型检查、两项Vite构建、单文件构建及来源一致性检查通过；新增4项来源关联回归。发布结果完成后补记于本节。
+[本次交付](continuation-review.md)、[逐结论账与维护](source-claim-audit.md)、[视频关键帧对照](official-video-comparison.md)、[全站审查表](teaching-audit.md)保存可核查范围。未执行真人精确标定、全表面碰撞证明、全部组合逐帧连续人工观察或雪上试教，不将其写成通过。最终104/104测试、类型检查、两项Vite构建、单文件构建及来源一致性检查通过；新增4项来源关联回归。
+
+实现提交 `0ce64417c3f0a9bd5396dca76f5d331f34d69b2b`，[Actions 38695117737](https://github.com/yichenluan/snowboard/actions/runs/38695117737) 的build与deploy均成功。正式主站与离线副本均为2,248,892 bytes，SHA-256 `fb03e07ced28d7958879e99d0f6f690201d5e893eb72b337eda36d0af053367f`，与本地构建逐字节相同；独立原型HTML、JS和CSS也一致。线上浏览器核对四课最终练习量、S37安全引用、新能力节点、术语、duck三维同帧对照、小回转配置门控、键盘末段、390px视口和独立原型均通过，0页面错误、0站内资源失败。证据为`.validation/continuation/published-verification.json`、`published-smoke.json`和`published-duck-scene.jpg`。此发布核验不增加真人标定或完整教学认证数。
 
 ## 2026-10-15 系统审查与双主线升级（前轮记录）
 
