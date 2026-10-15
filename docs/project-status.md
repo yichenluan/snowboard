@@ -1,6 +1,6 @@
 # 当前项目状态与新会话入口
 
-更新日期：2026-10-15。本轮按用户要求完整复核中文教学表达，113课、术语与播放器说明已审读，本地验证完成，发布核验待补记。此前三维、来源与真人观察证据保留在历史各节。
+更新日期：2026-10-15。本轮按用户要求完整复核中文教学表达，113课、术语与播放器说明已审读，本地验证、推送、Pages部署和线上核验均完成。此前三维、来源与真人观察证据保留在历史各节。
 
 ## 当前已发布范围
 
@@ -27,7 +27,9 @@
 
 158/158测试、类型检查、两项构建、单文件生成、来源检查通过。实际浏览器检查旧术语搜索、前后刃课程、单弯收尾、专家长阶段和390像素桌面视口；没有新增真人标定或全站动作教学通过。
 
-[中文教学表达复核](plain-chinese-content-review.md) · [播放器文案复核](plain-chinese-player-review.md) · [验证与发布记录](plain-chinese-release-review.md)。发布版本及线上字节校验将在部署后补记。
+[中文教学表达复核](plain-chinese-content-review.md) · [播放器文案复核](plain-chinese-player-review.md) · [验证与发布记录](plain-chinese-release-review.md)。实现提交`dfa8dd5bba7b5516352d938f1d855cbdb053ae8d`已推送main；[Actions 38730127025](https://github.com/yichenluan/snowboard/actions/runs/38730127025)构建与部署成功。正式主站／副本均2,449,630 bytes，SHA-256 `e4546ea63bf3ee451cd2580b0a630208ef401d7bb37719681b745d6de05155ad`；主站、副本、原型HTML/JS/CSS全部200且逐字节等于本地。线上浏览器核对前刃反弓标题、原理、步骤与阶段新文案，0console error。
+
+教学账900对象、788有效文字审读、0文字审读过期；1,567旧观察原样保留，未刷成全站动作通过。37项内容不变量检查全部通过。发布证据为`.validation/terminology-v2/published-verification.json`和`published-copy.png`；后续仅补记交付状态，不改变功能构建。
 
 ## 2026-10-15 撤回样板，保留通俗表达与独立修复（前轮已发布）
 

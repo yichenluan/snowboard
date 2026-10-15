@@ -29,4 +29,10 @@
 
 ## 发布
 
-本地检查完成；实现推送和正式站核验结果在发布完成后补记于本节及[项目状态](project-status.md)。
+实现提交`dfa8dd5bba7b5516352d938f1d855cbdb053ae8d`已推送main，[Actions 38730127025](https://github.com/yichenluan/snowboard/actions/runs/38730127025)的build与deploy均成功。
+
+正式主站和离线副本均为2,449,630 bytes，SHA-256 `e4546ea63bf3ee451cd2580b0a630208ef401d7bb37719681b745d6de05155ad`。主站、副本、独立原型HTML及其JS/CSS全部HTTP 200，并与本地构建逐字节一致。浏览器实际打开正式前刃反弓课，核对标题、原理、步骤、刃角表述与新阶段说明，0console error。截图及资源核验保存于`.validation/terminology-v2/published-copy.png`、`published-verification.json`。
+
+发布期间另在本地独立原型检查新说明与阶段切换，页脚“全部课程”和同步讲解正确，0console error。独立内容不变量检查37项全部通过：课程、引用、协议、路线ID与顺序、数值条件、142项动画参数和视频窗口保持；所有原始来源记录完整保留。
+
+后续仅补记交付与项目状态，属于纯文档更新，不改变上述网站构建。
