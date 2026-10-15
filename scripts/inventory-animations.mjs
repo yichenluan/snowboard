@@ -92,7 +92,7 @@ const illustrations = [];
 const reviewedIllustrations = new Set(["v23-angles:binding-stance", "s23-boot-centering:boot-clearance"]);
 const lessonIds = new Set();
 const moduleIds = new Set(data.modules.map(m => m.id));
-const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'legLengthDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task', 'fromEdge', 'timing', 'side', 'rotationComparison']);
+const acceptedFields = new Set(['type', 'variant', 'view', 'jointLabels', 'title', 'focus', 'steps', 'autoplay', 'duration', 'edgeSide', 'trackDiagnostics', 'path', 'pressureDiagram', 'legLengthDiagram', 'transitionReference', 'skid', 'transition', 'turnShape', 'keyframes', 'stance', 'loop', 'task', 'fromEdge', 'timing', 'side', 'rotationComparison', 'twistTiming']);
 for (const [lessonIndex, lesson] of data.lessons.entries()) {
   if (lessonIds.has(lesson.id)) issue('error', 'duplicate-lesson', lesson.id);
   lessonIds.add(lesson.id);
@@ -131,7 +131,11 @@ for (const [id, mode] of Object.entries(prototypeModes)) {
 const types = library.types.map(type => {
   const refs = references.filter(ref => ref.config.type === type);
   const aliases = library.types.filter(other => other !== type && library.presets[other].keyframes === library.presets[type].keyframes);
-  return { type, title: library.presets[type].title, model: modelFor(type), references: refs.map(r => r.id), usedKeys: unique(refs.map(r => r.key)), declaredShortVariants: library.shortVariants[type] || [], sharedKeyframesWith: aliases, destination: destinationFor({ type }) };
+  const connected = refs.filter(ref => ref.renderer === 'lesson-3d').length;
+  const destination = refs.length
+    ? `${connected}/${refs.length} 个当前课程引用已接入课内 3D；${partialVariants[type] ? `仅支持列明变体 ${partialVariants[type].join('、')}，未引用的其他变体不在接入范围` : '实际支持范围仍按 task／变体门控'}；逐引用去向见下表`
+    : '旧预设保留作来源盘点；当前没有课程引用，不计入已接入引用';
+  return { type, title: library.presets[type].title, model: modelFor(type), references: refs.map(r => r.id), usedKeys: unique(refs.map(r => r.key)), declaredShortVariants: library.shortVariants[type] || [], sharedKeyframesWith: aliases, destination };
 });
 const variants = unique(references.map(r => r.key)).map(variantKey => {
   const refs = references.filter(r => r.key === variantKey);
@@ -172,9 +176,9 @@ const modules = data.modules.map(module => {
 const report = {
   schemaVersion: 1,
   inputs: Object.fromEntries(inputNames.map(name => [name, createHash('sha256').update(inputs[name]).digest('hex')])),
-  scope: '静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确',
+  scope: '静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成',
   counts, modules, types, variants, references, illustrations, lessons, issues,
-  prototype: { entries: prototypeModes, homeEntry: 'https://yichenluan.github.io/snowboard-guide/3d/', status: 'review-in-progress', replacementCompleted: false },
+  prototype: { entries: prototypeModes, homeEntry: 'https://yichenluan.github.io/snowboard-guide/3d/', scope: '独立原型入口；本对象不表示课内引用接入状态，后者见 counts 与 references', status: 'review-in-progress', replacementCompleted: false },
 };
 
 const md = value => String(value ?? '—').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
@@ -186,7 +190,7 @@ const lines = [
   '',
   '由 `node scripts/inventory-animations.mjs` 生成。不要直接编辑此文件；迁移分类与人工验收说明维护在脚本，课程用途、配置和资料维护在原有源码。`node scripts/inventory-animations.mjs --check` 可检查清单是否与源码同步。完整配置、逐课资料定位和 claim 见 [JSON 清单](animation-inventory.json)。',
   '',
-  '**全站逐批迁移中。** 课内三维按注册表接管默认播放器，其余引用仍用旧示意。此清单核验代码覆盖，不把源码、自动测试或资料链接当作教学正确的证明。实际观察与未完成项见 [课程播放器审阅](lesson-player-review.md)。',
+  `**当前课程动画接入：${counts.implemented3DReferences}/${counts.legacyDemoReferences}。** ${counts.remainingLegacyReferences ? `仍有 ${counts.remainingLegacyReferences} 个引用使用旧播放器。` : '当前引用均由课内三维播放器接管，旧播放器引用为 0。'}另有 ${counts.illustrationReferences} 项装备交互保留二维。下文的旧模型与共享关键帧是来源盘点，不代表当前渲染。接入数量不代表教学认证或发布完成；实际观察与边界见 [课程播放器审阅](lesson-player-review.md)。`,
   '',
   '## 数量与口径',
   '',
@@ -196,50 +200,50 @@ const lines = [
     ['迁移范围内的动画引用', counts.legacyDemoReferences, '每个课程内每个可选示意各计 1 次，可重复引用同一模型'],
     ['装备交互图', counts.illustrationReferences, 'app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画'],
     ['已独立审阅的装备图', counts.reviewedIllustrations, '保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md'],
-    ['主站显示的示意总数', counts.siteDisplayedDemonstrations, '旧动画引用 + 装备图；不额外把 3D 链接计入'],
+    ['主站显示的示意总数', counts.siteDisplayedDemonstrations, '课程动画引用 + 装备图；不额外把独立 3D 链接计入'],
     ['无动作/装备图课程', counts.lessonsWithoutVisuals, '原理与方法仍有正文，不应为凑全 3D 强制补动画'],
-    ['已注册 / 有引用的类型', `${counts.registeredTypes} / ${counts.referencedTypes}`, 'SnowDemo.types；类型不是互不共享的独立实现'],
+    ['旧预设注册 / 当前有引用的类型', `${counts.registeredTypes} / ${counts.referencedTypes}`, '按 animations.js 的 SnowDemo.types 盘点来源；不等于当前三维模块数'],
     ['应用变体键', counts.applicationVariantKeys, 'type:variant:transition；与错误卡 demoKey 的匹配口径一致'],
     ['展示配置组合', counts.presentationConfigurations, '去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作'],
-    ['小回转声明变体', counts.declaredShortVariants, '3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量'],
+    ['旧小回转声明变体', counts.declaredShortVariants, 'animations.js 中 3 个类型共享 shortState；当前实现按独立任务和过渡方式接入，不以旧声明推定支持组合'],
     ['3D 模式 / 课程入口', `${counts.prototypeModes} / ${counts.prototypeLessonEntries}`, '另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景'],
     ['课内三维类型 / 引用', `${counts.implemented3DTypes} / ${counts.implemented3DReferences}`, '按注册表已切换默认渲染；不代表教学认证'],
-    ['全量 / 部分接入类型', `${counts.fullyImplemented3DTypes} / ${counts.partiallyImplemented3DTypes}`, '部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成'],
-    ['剩余旧动画引用', counts.remainingLegacyReferences, '继续逐项迁移，未缩减范围'],
+    ['类型注册 / 变体白名单接入类型', `${counts.fullyImplemented3DTypes} / ${counts.partiallyImplemented3DTypes}`, `${counts.partiallyImplemented3DTypes} 个 partial 类型仅支持列明变体；${counts.remainingLegacyReferences ? '当前引用是否已接入按逐项配置统计' : '其当前课程引用均已接入，未引用的其他变体不支持'}；类型注册也仍受 task 门控`],
+    ['当前使用旧播放器的引用', counts.remainingLegacyReferences, '按逐引用 renderer 统计；保留旧源码不等于仍有旧播放器引用'],
   ]),
   '',
-  '## 当前实现的共享关系与迁移去向',
+  '## 旧实现来源的共享关系与当前接入',
   '',
-  '独立教学任务必须按用途验收，不能用“类型数”或“变体数”直接报工期。机械去重只帮助定位共享风险；同一动作在不同课程的文案、阶段提示与前提仍须逐条保留。当前识别出以下 4 条动作生成/绘制路径，压力图和装备图另列：',
+  '以下 4 条路径由 animations.js 旧生成器提取，用于追溯迁移来源；不是当前课内三维的实现架构。引用数表示这些旧预设在课程配置中的对应数量。当前接入以 renderer／task 和逐引用去向为准，同一动作在不同课程的文案、阶段提示与前提仍须逐条核对。',
   '',
-  table(['模型', '注册类型 / 引用数', '实现与复用边界'], [
-    ...Object.entries(modelNames).filter(([id]) => id !== 'unknown').map(([id, label]) => [label, `${types.filter(t => t.model === id).length} / ${references.filter(r => r.model === id).length}`, id === 'snow-short-procedural' ? 'shortRaw / shortState → skeleton；16 个小回转变体共用，必须逐变体审阅' : id === 'snow-keyframes-ik' ? 'sample / skeleton / sceneBody；sceneTrack 另行画俯视关节，迁移后应改为同一世界坐标状态' : id === 'dry-standing-ik' ? 'skeleton + sceneBody；深蹲/提踵/扶墙/绕肩不得直接套雪靴动作约束' : 'sceneDry；平板/小腿/髋/腘绳肌是独立地面任务']),
-    ['压力阶段图', references.filter(r => r.config.pressureDiagram).length, 'scenePressure 叠加于屈伸示意；保留 2D 时间图，不能解释成实测压力'],
+  table(['旧来源模型／辅助图', '旧注册类型 / 当前引用数', '旧来源与当前实现的边界'], [
+    ...Object.entries(modelNames).filter(([id]) => id !== 'unknown').map(([id, label]) => [label, `${types.filter(t => t.model === id).length} / ${references.filter(r => r.model === id).length}`, id === 'snow-short-procedural' ? '旧 shortRaw / shortState → skeleton；当前小回转由独立任务编排，不能用旧共享关系推定动作相同' : id === 'snow-keyframes-ik' ? '旧 sample / skeleton / sceneBody 与另画的 sceneTrack；当前三维与平面骨架从同一动作状态投影' : id === 'dry-standing-ik' ? '旧 skeleton + sceneBody；当前离雪任务使用独立普通鞋模型和任务接触约束' : '旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义']),
+    ['压力阶段图', references.filter(r => r.config.pressureDiagram).length, '旧来源为 scenePressure；当前保留必要二维时间图，不能解释成实测压力'],
     ['装备交互', illustrations.length, 'app.js mountIllustration；保留 2D 几何表达与型号限制'],
   ]),
   '',
-  '`pedalling` 与 `twist` 引用同一组 keyframes / steps；只是换了标题，不是第二套独立动作。其他类型之间可能表达同一能力，但本盘点不凭名称强行合并。',
+  '旧 animations.js 的 `pedalling` 与 `twist` 共享 keyframes / steps。当前 `pedalling` 没有课程引用，`twist` 的两个引用使用局部板面扭转任务，不能再把旧共享关键帧当作当前实现。其他类型也不凭名称强行合并。',
   '',
   '分批去向：D1 中立/屈伸/前后平衡；D2 两刃非对称站姿和成角；D3 转向/滑移/旋转；D4 压力与换刃；D5 连弯及各纠错变体；D6 离雪专项；D7 装备与概念图。共用装备和骨长约束，姿态、时序、路线与末态按任务独立审阅。',
   '',
   '## 入口、发布与离线约束',
   '',
-  '- 课程入口：`/#lesson=<稳定 ID>`；同课多示意由 `data-demo` 按索引切换，`showDemo` 先 destroy 再 mount，当前只挂载 1 个旧动画。下方逐项 ID 的 `/N` 表示同课第 N 个按钮，并非额外 URL 路由。',
-  '- 纠错按钮按 `type:variant:transition` 匹配；`path`、`turnShape`、`edgeSide` 等不在键中。后续迁移应保留所有实际配置，不能只按 demoKey 合并。',
+  '- 课程入口：`/#lesson=<稳定 ID>`；同课多示意由 `data-demo` 按索引切换，`showDemo` 先 destroy 再 mount，每次只挂载当前选中的播放器。下方逐项 ID 的 `/N` 表示同课第 N 个按钮，并非额外 URL 路由。',
+  '- 纠错按钮按 `type:variant:transition` 匹配；`path`、`turnShape`、`edgeSide` 等不在键中。必须保留所有实际配置，不能只按 demoKey 合并。',
   '- `build.py` 把 content.json、animations.js、app.js、progression.js 和样式内联到两个相同的 HTML；课程 ID、笔记、收藏、skillProgress / skillTarget、导入导出与保存网页都应保留。',
   '- 课内三维 IIFE、样式与课程数据直接内联进单文件，无运行时外部模型、字体或 CDN；无 WebGL 时显示同源可播放骨架。独立 `/3d/` 原型及外部资料仍需联网。导出重开验证与浏览器限制见审阅记录。',
   '- 首页技术全景、能力 DAG 与 shell.html 的装饰人物没有动作时间线，不计入上述动作/装备示意数量；它们的入口和能力前置关系仍属于回归范围。',
   '',
-  table(['3D 来源课程', '模式', '当前状态'], Object.entries(prototypeModes).map(([id, mode]) => [`[${id}](https://yichenluan.github.io/snowboard-guide/#lesson=${id})`, `[${mode}](https://yichenluan.github.io/snowboard-guide/3d/?mode=${mode})`, '并行原型 / 教学复核中；旧示意仍保留'])),
+  table(['独立 3D 原型的来源课程', '原型模式', '与课内入口的关系'], Object.entries(prototypeModes).map(([id, mode]) => [`[${id}](https://yichenluan.github.io/snowboard-guide/#lesson=${id})`, `[${mode}](https://yichenluan.github.io/snowboard-guide/3d/?mode=${mode})`, '并行研究原型；不替代当前课内独立任务，也不额外计入引用覆盖'])),
   '',
   '## 异常和需人工审阅的差异',
   '',
   table(['级别', '类型', '详情'], issues.map(i => [i.level, i.code, i.detail])),
   '',
   '- **共享姿态风险：** 旧小回转 `shortState` 默认使用 `hipY = edge × .64`、`shoulderY = edge × .35`，两刃为同号系数镜像；这不是可靠的前后刃非对称姿态依据，不直接拷入新原型或其他课。',
-  '- **多视图不是同一关节数据：** `sceneBody` 使用 IK，`sceneTrack` 按比例独立构造膝/髋/肩。旧视图看似一致也不能证明解剖关系一致；迁移时从同一个动作状态投影。',
-  '- **课程标题/范围与共享动画不总相同：** `s22-warmup` 的“小幅屈伸”和 `v22-squat` 使用同一默认深蹲 keyframes；`v23-knees` 的穿靴/扣板目标却引用离雪深蹲；`v-toe-static-five` 的静态目标默认路径为 single-arc。它们是待审阅的表达差异，不在本轮擅自重写。',
-  '- **诊断不是病因证明：** 多个 diagnosis 课程复用正确动作；小回转 error 3D 模式目前只覆盖急甩尾横刹，不能据此宣称覆盖旧排错课全部反例。',
+  '- **旧多视图风险：** 旧 `sceneBody` 使用 IK，`sceneTrack` 按比例另构膝/髋/肩；旧视图看似一致不能证明解剖关系一致。当前课内三维与平面骨架使用同一动作状态，具体画面审阅另记。',
+  '- **旧任务复用风险：** 旧生成器曾将热身屈伸、深蹲、穿靴扣板准备及静态调刃套入共享预设。当前课程配置已按任务区分；旧预设名称与关键帧只作来源索引，不能替代当前正文和 task 的对应检查。',
+  '- **诊断不是病因证明：** 独立 `/3d/` 原型的 error 模式只覆盖其自身反例；课内小回转排错有独立任务，不能用一个原型模式推定全部反例已审阅，也不能把姿态对照当成真实病因证明。',
   '- **资料粒度：** 现有 citations 挂在课程上；动画注释还有通用资料，但没有每个关节参数/时间点的实拍标定。下表来源是现有声明的索引，不表示已重新读取或认可所有姿态。',
   '',
   '## 迁移验收卡（每个教学任务与变体分别填写）',
@@ -250,17 +254,17 @@ const lines = [
   '2. **两刃与两向过渡：** 每种前脚方向检查后刃保持、后→前释放/放平/新刃建立、前刃保持、前→后全过程；分别检验踝相对靴底、靴筒、高背接触、膝朝脚向、髋空间、躯干相对骨盆关系。不能把雪板整体滚转算成靴内踝活动，也不能只取峰值一帧。',
   '3. **板表现与时序：** 板轴、实际移动方向、工作刃、滑移、路线与阶段文案同步；侧滑先解除会造成抓刃的关系再换侧；腿长变化不等于压力大小。动作提示、身体位移箭头、外力箭头分别标清。',
   '4. **多视角审阅：** 实体和骨架并看；沿板宽、沿板长、斜前/斜后、俯视检查暂停关键帧及完整慢放。检查穿插、固定脚位、骨段长度、循环/100% 末态、模式同进度切换，保留可追溯截图/录像与具体缺陷记录。',
-  '5. **错误对照边界：** 每个反例只故意改变要观察的变量；不能为突出错误制造不可达关节。旧变体全部有去向；尚未实现者继续保留并标识，不能用一个 error 模式吞掉全部反例。',
+  '5. **错误对照边界：** 每个反例只故意改变要观察的变量；不能为突出错误制造不可达关节。按当前引用逐项保留任务语义；未引用、未支持的预设不算已接入，不能用一个 error 模式吞掉全部反例。',
   '6. **交互、离线与数据：** 旋转/缩放、预设复位、播放后保留观察角、拖进度、速度、模式、regular/goofy、触控滚动/旋转、键盘与窄屏、WebGL 不可用的正文降级；进出课释放画布；旧备份导入及保存 HTML 重开后仍保留个人数据。',
   '7. **替换与发布：** 按本清单的引用 ID 对勾，说明旧用途与新入口映射；小批量独立提交且可 revert；对应提交 Pages 部署成功后在线复看。报告实际看过的模式/阶段和未解决项，不把测试数量当教学准确率。',
   '',
   '## 模块覆盖',
   '',
-  table(['模块', '课程', '旧动画引用', '装备图', '无图课程'], modules.map(m => [m.title, m.lessons, m.demoReferences, m.illustrationReferences, m.withoutVisuals])),
+  table(['模块', '课程', '当前动画引用', '装备图', '无图课程'], modules.map(m => [m.title, m.lessons, m.demoReferences, m.illustrationReferences, m.withoutVisuals])),
   '',
-  '## 注册动画类型（包含未引用预设）',
+  '## 旧注册类型来源与当前引用接入（包含未引用预设）',
   '',
-  table(['类型', '预设教学用途', '共享模型', '引用 / 键数', '去向'], types.map(t => [`\`${t.type}\`${t.sharedKeyframesWith.length ? `（同帧：${t.sharedKeyframesWith.join('、')}）` : ''}`, t.title, modelNames[t.model], `${t.references.length} / ${t.usedKeys.length}`, t.destination])),
+  table(['类型', '旧预设名称', '旧共享模型', '当前引用 / 键数', '当前接入'], types.map(t => [`\`${t.type}\`${t.sharedKeyframesWith.length ? `（旧同帧：${t.sharedKeyframesWith.join('、')}）` : ''}`, t.title, modelNames[t.model], `${t.references.length} / ${t.usedKeys.length}`, t.destination])),
   '',
   '## 变体键与全部实际配置',
   '',
@@ -270,7 +274,7 @@ const lines = [
   '',
   '## 逐课用途、资料与替换入口',
   '',
-  '每个引用的 renderer/status 保存在 JSON：lesson-3d 表示默认播放器已接入；legacy-svg 表示待迁移。状态不代替教学验收。未配动画的课保留正文；不视作漏迁。课程链接打开后，按清单 `/N` 查看第 N 个示意。',
+  `每个引用的 renderer/status 保存在 JSON：lesson-3d 表示默认播放器已接入；legacy-svg 表示仍使用旧播放器，当前数量为 ${counts.remainingLegacyReferences}。status 不自动追踪人工审阅或线上发布，不能代替教学验收。未配动画的课保留正文，不视作漏迁。课程链接打开后，按清单 /N 查看第 N 个示意。`,
   '',
   table(['课程入口', '教学用途（原 goal）', '全部示意键（按按钮次序）', '现有资料'], lessons.map(l => [courseLink(l), `${l.title}：${l.goal}`, l.references.length ? l.references.map(id => { const r = references.find(r => r.id === id); return `${r.index + 1}. \`${r.key}\``; }).join('<br>') : l.illustration ? `交互：\`${l.illustration.type}\` → D7` : '正文保留，无动作图', sourceLabels(l)])),
   '',

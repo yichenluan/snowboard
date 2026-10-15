@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "de962074ed35dcee8668fe77f0ae4d545a3c2c2f913e6012094053572063d058",
+    "content.json": "d3b136f869061c73926ba2fd617283bcbb5e6b53f5152c1048d3f31a9e939381",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
     "app.js": "31f5250b112d3008c527e572589a3d58e24f004b55c8288c50014755fd020ca5",
-    "lesson-player/registry.json": "9df069ab6be7f6261d940a8f276b22961278a2915a512cad09f52902d26464d2"
+    "lesson-player/registry.json": "5c657d9aa412aa6667ab79782b00e35202e5ed72cee07e1d2943c8a212682bae"
   },
-  "scope": "静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确",
+  "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
   "counts": {
     "lessons": 102,
     "modules": 13,
@@ -20,16 +20,16 @@
     "registeredTypes": 37,
     "referencedTypes": 35,
     "applicationVariantKeys": 70,
-    "presentationConfigurations": 91,
+    "presentationConfigurations": 92,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 33,
-    "fullyImplemented3DTypes": 30,
+    "implemented3DTypes": 35,
+    "fullyImplemented3DTypes": 32,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 131,
-    "remainingLegacyReferences": 3,
-    "replacedLegacyReferences": 131
+    "implemented3DReferences": 134,
+    "remainingLegacyReferences": 0,
+    "replacedLegacyReferences": 134
   },
   "modules": [
     {
@@ -150,7 +150,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "center-high",
@@ -168,7 +168,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "4/4 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "fore-aft",
@@ -191,7 +191,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "7/7 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "toe-edge",
@@ -210,7 +210,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "6/6 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "heel-edge",
@@ -229,7 +229,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "6/6 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "absorption",
@@ -239,7 +239,7 @@
       "usedKeys": [],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "旧预设保留作来源盘点；当前没有课程引用，不计入已接入引用"
     },
     {
       "type": "pressure-extend",
@@ -258,7 +258,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：仅phase-study、heel、timing-study已接入；其他任务仍待独立迁移"
+      "destination": "4/4 个当前课程引用已接入课内 3D；仅支持列明变体 phase-study、heel、timing-study，未引用的其他变体不在接入范围；逐引用去向见下表"
     },
     {
       "type": "pressure-flex",
@@ -275,7 +275,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：仅phase-study、toe已接入；其他任务仍待独立迁移"
+      "destination": "3/3 个当前课程引用已接入课内 3D；仅支持列明变体 phase-study、toe，未引用的其他变体不在接入范围；逐引用去向见下表"
     },
     {
       "type": "inclination",
@@ -295,7 +295,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D2：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "4/4 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "edge-change-up",
@@ -313,7 +313,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "5/5 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "edge-change-down",
@@ -330,7 +330,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：仅lower-com、retraction-study已接入；其他任务仍待独立迁移"
+      "destination": "3/3 个当前课程引用已接入课内 3D；仅支持列明变体 lower-com、retraction-study，未引用的其他变体不在接入范围；逐引用去向见下表"
     },
     {
       "type": "steering",
@@ -350,7 +350,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "7/7 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "shoulder-coordination",
@@ -374,7 +374,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "7/7 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "garland",
@@ -390,7 +390,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "j-turn",
@@ -405,7 +405,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "rail-track",
@@ -422,7 +422,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "4/4 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "gaze-control",
@@ -436,7 +436,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "hip-edge-change",
@@ -453,7 +453,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "3/3 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "knee-edge-change",
@@ -467,7 +467,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "retraction-turns",
@@ -482,7 +482,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D4：屈伸/换刃 3D + 必要二维时间图；待独立迁移"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "twist",
@@ -499,7 +499,7 @@
       "sharedKeyframesWith": [
         "pedalling"
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "rotation",
@@ -514,7 +514,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "counter-rotation",
@@ -529,7 +529,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "switch",
@@ -543,7 +543,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "dry-squat",
@@ -563,7 +563,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "6/6 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "dry-plank",
@@ -578,7 +578,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "dry-calf-raise",
@@ -593,7 +593,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "dry-wall-edge",
@@ -608,7 +608,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "ankle-mobility",
@@ -623,7 +623,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "hip-mobility",
@@ -638,7 +638,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "dry-hamstring",
@@ -653,7 +653,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "mixed-rotation",
@@ -667,7 +667,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "dry-shoulder-rolls",
@@ -682,7 +682,7 @@
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md"
+      "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "pedalling",
@@ -694,7 +694,7 @@
       "sharedKeyframesWith": [
         "twist"
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "旧预设保留作来源盘点；当前没有课程引用，不计入已接入引用"
     },
     {
       "type": "short-turns",
@@ -745,7 +745,7 @@
         "over-inclined"
       ],
       "sharedKeyframesWith": [],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "20/20 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "short-turn-progression",
@@ -779,7 +779,7 @@
         "short-steady"
       ],
       "sharedKeyframesWith": [],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "9/9 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
       "type": "short-turn-balance",
@@ -803,7 +803,7 @@
         "back-seat"
       ],
       "sharedKeyframesWith": [],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "5/5 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     }
   ],
   "variants": [
@@ -1327,10 +1327,23 @@
       ],
       "configurations": [
         {
-          "type": "twist"
+          "fromEdge": "heel",
+          "jointLabels": true,
+          "task": "progressive-twist",
+          "twistTiming": "front-earlier",
+          "type": "twist",
+          "view": "width"
+        },
+        {
+          "fromEdge": "heel",
+          "jointLabels": true,
+          "task": "twist-timing-compare",
+          "twistTiming": "near-synchronous",
+          "type": "twist",
+          "view": "width"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "gaze-control",
@@ -1571,10 +1584,15 @@
       ],
       "configurations": [
         {
-          "type": "switch"
+          "jointLabels": true,
+          "skid": true,
+          "task": "switch-linked-skid",
+          "trackDiagnostics": true,
+          "type": "switch",
+          "view": "width"
         }
       ],
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "j-turn",
@@ -3372,32 +3390,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "twist",
-        "focus": "看前后段刃角差，不把它当板体平面甩转",
-        "steps": [
-          {
-            "label": "两脚协调支撑",
-            "detail": "从已有工作刃开始。"
-          },
-          {
-            "label": "前脚先调整",
-            "detail": "前段刃角先改变，后段仍管理旧弯。"
-          },
-          {
-            "label": "后脚跟随",
-            "detail": "两脚时序衔接，让新刃渐进建立。"
-          },
-          {
-            "label": "回到均衡关系",
-            "detail": "扭转是可调工具，不固定保持大扭转。"
-          }
-        ],
+        "focus": "本段只演示滑行转换：前后固定器和雪靴分别跟随局部板面，随后恢复同一刃。原地分脚感知见正文；可切换另一转换方向。",
         "autoplay": false,
         "duration": 10000,
-        "title": "板体扭转：前后脚调刃可以有先后 · 动作示意"
+        "title": "滑行扭板：前段稍先，后段接续",
+        "task": "progressive-twist",
+        "fromEdge": "heel",
+        "twistTiming": "front-earlier",
+        "view": "width",
+        "jointLabels": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v15-incline-change/1",
@@ -3543,32 +3548,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "twist",
-        "focus": "小幅前后脚时序差",
-        "steps": [
-          {
-            "label": "稳定站姿",
-            "detail": "先辨认前脚与后脚。"
-          },
-          {
-            "label": "前脚调整",
-            "detail": "保持膝自然轨迹，小幅调踝。"
-          },
-          {
-            "label": "后脚衔接",
-            "detail": "观察后段刃角的跟随。"
-          },
-          {
-            "label": "回到居中位置",
-            "detail": "恢复协调支撑，不持续大扭转。"
-          }
-        ],
+        "focus": "保持同一平面路线与板轴转向，用选择器在相同进度比较两段近同步和前段稍先。起点是旧弯稳定支撑；本段不是原地踏动，也不证明某种时差一定更好。",
         "autoplay": false,
         "duration": 10000,
-        "title": "前后脚踏动：练小幅先后调刃 · 动作示意"
+        "title": "同路线比较：近同步与小幅先后",
+        "task": "twist-timing-compare",
+        "fromEdge": "heel",
+        "twistTiming": "near-synchronous",
+        "view": "width",
+        "jointLabels": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-shoulder-rhythm-map/1",
@@ -3939,32 +3931,19 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "switch",
-        "focus": "固定器不动，新的行进前脚改变",
-        "steps": [
-          {
-            "label": "辨认原前脚",
-            "detail": "本示范从开始就是反脚，固定器与双脚位置不改变。"
-          },
-          {
-            "label": "反向行进",
-            "detail": "原后脚成为行进前脚，原板尾通常成为行进前端；硬件鼻尾名称与脚的位置不变。"
-          },
-          {
-            "label": "重新匹配动作",
-            "detail": "按新行进方向看路线、调压力。"
-          },
-          {
-            "label": "保持可控",
-            "detail": "两刃都能结束转弯，不强行反拧。"
-          }
-        ],
+        "focus": "脚位、固定器角度和硬件鼻尾不交换；原后脚始终在行进前方，前后刃仍指脚趾侧和脚跟侧。本段演示两刃连弯，独立停止与单弯是正文前置练习。",
         "autoplay": false,
-        "duration": 10000,
-        "title": "反脚滑行：让新的前脚带路 · 动作观察"
+        "duration": 14000,
+        "title": "反脚搓雪连弯：原后脚从首帧领先",
+        "task": "switch-linked-skid",
+        "view": "width",
+        "jointLabels": true,
+        "trackDiagnostics": true,
+        "skid": true
       },
-      "destination": "D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v19-stable-upper/1",
@@ -7045,8 +7024,8 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.59、61、120；Pedalling / Advanced Turns",
-          "claim": "前后脚独立动作可参与扭转与高级板表现，实际效果由时序和任务决定。",
+          "locator": "印刷 p.59；Pedalling",
+          "claim": "前后踝可以分别屈伸，利用板体扭转改变前后段刃接触；本课的小时序差对照是练习编排，不是教材规定的统一角度或时差。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -7329,7 +7308,7 @@
         {
           "source": "S16",
           "locator": "印刷 p.101–102；Introducing Switch Riding / Basic Switch Riding",
-          "claim": "反脚由非惯常行进方向组织，依次发展停止、单弯和连弯，核心为居中平衡与渐进转向。",
+          "claim": "反脚相对惯用方向反向行进，教材建议以居中、可活动姿态和分步练习发展停止、单弯与搓雪连弯，并留意过量前脚受重或上身旋转。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
@@ -8777,6 +8756,7 @@
       "s-short-sideslip": "drill"
     },
     "homeEntry": "https://yichenluan.github.io/snowboard-guide/3d/",
+    "scope": "独立原型入口；本对象不表示课内引用接入状态，后者见 counts 与 references",
     "status": "review-in-progress",
     "replacementCompleted": false
   }

@@ -1,6 +1,7 @@
 import { Component, useEffect, useMemo, useRef, type ReactNode } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import {surfaceHalfWidthAt,surfaceMeshData,surfaceRollAt} from "./board-surface";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import {
   boardToWorld,
@@ -160,6 +161,32 @@ const boardGeometry = new THREE.ExtrudeGeometry(shape, {
 });
 boardGeometry.rotateX(Math.PI / 2);
 boardGeometry.translate(0, 0.0125, 0);
+// Keep decals above the extruded top, including its 3 mm bevel.
+const rigidDeckMarkHeight = 0.025 / 2 + 0.003 + 0.001;
+
+/** A continuous optional torsion skin. Bindings still use rigid local frames. */
+function TwistedDeck({board}:{board:MotionState["board"]}) {
+  const front=board.segmentRolls!.front,rear=board.segmentRolls!.rear;
+  const geometry=useMemo(()=>{
+    const data=surfaceMeshData(board),g=new THREE.BufferGeometry();
+    g.setAttribute("position",new THREE.Float32BufferAttribute(data.positions,3));g.setIndex(data.indices);g.computeVertexNormals();return g;
+  },[front,rear,board.length,board.width,board.thickness]);
+  useEffect(()=>()=>geometry.dispose(),[geometry]);
+  const stripe=Array.from({length:41},(_,i)=>boardToWorld([-.62+1.24*i/40,board.thickness/2+.002,0],board));
+  const nose=[[.70,0],[.60,-.035],[.60,.035],[.70,0]].map(([x,z])=>boardToWorld([x,board.thickness/2+.003,z],board));
+  return <>
+    <group position={board.position} rotation={[0,board.yaw,0]}><mesh geometry={geometry}><meshStandardMaterial color="#e7bc78" roughness={.8}/></mesh></group>
+    <Polyline points={stripe} color="#2f5459"/><Polyline points={nose} color="#365d61"/>
+    {(["front","rear"] as const).map(which=>{
+      const roll=board.segmentRolls![which];if(Math.abs(roll)<.008)return null;
+      const points=Array.from({length:21},(_,i)=>{
+        const x=which==="front"?.16+.57*i/20:-.73+.57*i/20;
+        return boardToWorld([x,board.thickness/2+.002,Math.sign(roll)*surfaceHalfWidthAt(x,board)],board);
+      });
+      return <Polyline key={which} points={points} color="#009b83"/>;
+    })}
+  </>;
+}
 
 function Rider({
   state,
@@ -227,7 +254,7 @@ function Rider({
     );
   });
   const bootQuat = (which: "front" | "rear") => {
-    const up = new THREE.Vector3(0, 1, 0).applyQuaternion(q);
+    const up = V(state.boots[which].up).normalize();
     const forward = V(state.boots[which].toeDirection).normalize();
     const right = new THREE.Vector3().crossVectors(up, forward).normalize();
     return new THREE.Quaternion().setFromRotationMatrix(
@@ -236,26 +263,26 @@ function Rider({
   };
   return (
     <>
-      <group position={b.position} quaternion={q}>
+      {b.segmentRolls?<TwistedDeck board={b}/>:<group position={b.position} quaternion={q}>
         <mesh
           geometry={boardGeometry}
           scale={[b.length / 1.58, 1, b.width / 0.31]}
         >
           <meshStandardMaterial color="#e7bc78" roughness={0.8} />
         </mesh>
-        <mesh position={[0, 0.008, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <mesh position={[0, rigidDeckMarkHeight, 0]} rotation={[-Math.PI / 2, 0, 0]}>
           <planeGeometry args={[1.24, 0.032]} />
           <meshStandardMaterial color="#2f5459" />
         </mesh>
         <mesh
-          position={[0.64, 0.011, 0]}
+          position={[0.64, rigidDeckMarkHeight, 0]}
           rotation={[-Math.PI / 2, 0, -Math.PI / 2]}
         >
           <circleGeometry args={[0.055, 3]} />
           <meshBasicMaterial color="#365d61" side={THREE.DoubleSide} />
         </mesh>
-      </group>
-      {edgeSide !== 0 && <Polyline points={edgePoints} color={edgeColor} />}
+      </group>}
+      {!b.segmentRolls&&edgeSide !== 0 && <Polyline points={edgePoints} color={edgeColor} />}
       {(["front", "rear"] as const).map((which) => {
         const ankle = which === "front" ? j.frontAnkle : j.rearAnkle,
           quaternion = bootQuat(which);
@@ -644,7 +671,7 @@ function JointLabels({
     labels.current = (
       layer === "force"
         ? ["重力", "法向作用方向", "侧向作用方向"]
-        : ["骨盆", "前膝", "后膝", "胸廓"]
+        : state.rideDirection===-1?["骨盆","原前膝","原后膝","胸廓"]:["骨盆", "前膝", "后膝", "胸廓"]
     ).map((name, i) => {
       const label = document.createElement("span");
       label.textContent = name;
@@ -676,7 +703,7 @@ function JointLabels({
       labels.current.forEach((e) => e.remove());
       labels.current = [];
     };
-  }, [gl, enabled, layer]);
+  }, [gl, enabled, layer,state.rideDirection]);
   useFrame(() => {
     const lateral: Vec3 = [
         Math.sin(state.board.yaw),
@@ -1001,7 +1028,7 @@ export function TopMap({
         stroke="#98662f"
         strokeWidth="1"
       />
-      {state.edge !== "flat" && (
+      {!b.segmentRolls&&state.edge !== "flat" && (
         <path
           d={path([
             boardToWorld([-0.69, 0, edgeSign * 0.14], b),
@@ -1011,6 +1038,11 @@ export function TopMap({
           strokeWidth="3"
         />
       )}
+      {b.segmentRolls&&(["front","rear"] as const).map(which=>{
+        const roll=b.segmentRolls![which];if(Math.abs(roll)<.008)return null;
+        const xs=which==="front"?[.16,.69]:[-.69,-.16];
+        return <path key={which} d={path(xs.map(x=>boardToWorld([x,0,Math.sign(roll)*surfaceHalfWidthAt(x,b)],b)))} stroke="#009b83" strokeWidth="3"/>;
+      })}
       <path
         d={path([
           j.frontAnkle,
@@ -1062,10 +1094,10 @@ export function TopMap({
         蓝：移动方向
       </text>
       <text x="116" y="211" fontSize="11" fill="#a46e32">
-        黄：板头朝向
+        {state.rideDirection===-1?"黄：硬件板鼻":"黄：板头朝向"}
       </text>
       <text x="221" y="211" fontSize="11" fill="#168c76">
-        绿：工作刃
+        {b.segmentRolls?"绿：局部低侧":"绿：工作刃"}
       </text>
     </svg>
   );

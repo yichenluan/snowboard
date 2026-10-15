@@ -1,19 +1,25 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 import { TeachingScene, type View } from "../prototype/scene";
-import { boardToWorld, type MotionState, type Stance, type Vec3 } from "../prototype/motion";
+import { BODY, boardToWorld, type MotionState, type Stance, type Vec3 } from "../prototype/motion";
+import { surfaceHalfWidthAt } from "../prototype/board-surface";
 import { LESSON_TYPES, canRenderLesson, lessonTrail, sampleLesson, type LessonConfig } from "./motion";
 import { LessonDiagnostics } from "./diagnostics";
 import { usePlayback, PlaybackControls, type PlayerApi } from "./player-controls";
 import { DrylandPlayer, canRenderDryland } from "./dryland-player";
 import { isRotationLesson } from "./rotation";
 import { supportsShortTurnLesson, shortTurnDurationMs, shortTurnTiming } from "./short-turns";
+import { supportsSwitchLesson } from "./switch";
+import { supportsTwistLesson, type TwistTiming } from "./twist";
+import { TwistSectionDiagram } from "./twist-diagram";
 import registry from "./registry.json";
 
 declare global { interface Window { SnowLesson3D: { types: readonly string[]; canRender(config:LessonConfig):boolean; mount(container: HTMLElement|string, config: LessonConfig):PlayerApi } } }
 const edges={toe:"前刃 · 脚尖侧",heel:"后刃 · 脚跟侧",flat:"接近平板"};
 const views: [View,string][]=[["follow","斜视"],["side","看前后平衡"],["front","看两刃成角"],["boots","雪靴近景"]];
 function evidenceFor(c:LessonConfig):string {
+  if(supportsSwitchLesson(c))return "依据 CASI Reference Guide 第101–102页的反脚入门与基本搓雪连弯设计。原后脚从首帧领行，硬件鼻尾、固定器角度和脚的身份不交换；左右惯用脚只是镜像选择。本段不替代此前的独立停止与单弯练习。";
+  if(supportsTwistLesson(c))return "依据 CASI Reference Guide 第59页的前后脚协调与板体扭转设计。前后段刃角与固定器局部姿态同源，时序差为作者示例；此处没有板材刚度、局部压力或真实雪面接触求解，不据此判定哪种时差更好。";
   if(supportsShortTurnLesson(c))return "依据 CASI Reference Guide 第49–50页的调刃与成角、第59页的上下身协调、第155–156页的两刃差异、第178页的侧滑接单弯，Level 2 第7、9页、Level 3 第13页与 AASI Performance Guide 第14页设计。普通圆弯、回收策略、侧滑衔接及各反例按不同任务编排；滑移并非全是错误。真实板头板尾路径、腿长与肩髋方向用于观察关系，不证明真实压力、减速度或某一原因。";
   if(isRotationLesson(c))return "依据 CASI Reference Guide 第47–48页的旋转与反向旋转、第59页的转向与上下身分离，以及第43–50页的站姿/调刃，以及第155页的两刃差异设计。肩、髋、板的实际朝向分别生成；架臂只是反馈，反向调速是有限专项工具。路线、角度与速度为作者编排，同路线的姿态对照不证明抓地或压力改善。";
   if(c.type==="retraction-turns")return "依据 CASI Level 3 Guide 第13页、SBINZ 手册 B/06 的回收过渡，以及 CASI Reference Guide 第59页的上下身配合设计。转换先收短实际髋踝距离，再在新弯逐渐恢复；上身允许自然运动。回收是可选策略，不是所有搓雪小回转的必要条件。";
@@ -39,17 +45,19 @@ function PlanarDiagram({state,plane="width",supportRail}:{state:MotionState;plan
   const direction=plane==="width"?[Math.sin(b.yaw),0,Math.cos(b.yaw)]:[Math.cos(b.yaw),0,-Math.sin(b.yaw)];
   const point=(v:Vec3)=>[180+125*((v[0]-b.position[0])*direction[0]+(v[2]-b.position[2])*direction[2]),266-125*(v[1]-b.position[1])];
   const coords=(v:Vec3)=>point(v).join(",");
-  const a=plane==="width"?[0,0,-b.width/2]:[-b.length/2,0,0];
-  const z=plane==="width"?[0,0,b.width/2]:[b.length/2,0,0];
+  const paths=plane==="width"
+    ?(b.segmentRolls?[1,-1]:[0]).map((sign,i)=>({color:b.segmentRolls?(i===0?"#ba7149":"#477c95"):"#b68143",points:[-1,1].map(side=>boardToWorld([sign*BODY.stanceWidth/2,-b.thickness/2,side*b.width/2],b))}))
+    :[-1,1].map(side=>({color:"#b68143",points:Array.from({length:61},(_,i)=>{const x=-b.length/2+b.length*i/60;return boardToWorld([x,-b.thickness/2,side*surfaceHalfWidthAt(x,b)],b);})}));
+  const snowY=point([b.position[0],0,b.position[2]])[1];
   return <svg viewBox="0 0 360 300" role="img" aria-label={plane==="width"?"沿板头看同一动作骨架":"沿板长看同一动作骨架"}>
-    <path d="M10 269H350" stroke="#cedbd3"/>
+    <path d={`M10 ${snowY}H350`} stroke="#cedbd3"/>
     {supportRail&&<g stroke="#7c817a" strokeWidth="5"><polyline points={supportRail.map(coords).join(" ")}/>{supportRail.map((p,i)=><polyline key={i} points={[p,[p[0],0,p[2]] as Vec3].map(coords).join(" ")}/>)}</g>}
-    <polyline points={[boardToWorld(a as Vec3,b),boardToWorld(z as Vec3,b)].map(coords).join(" ")} stroke="#b68143" strokeWidth="7"/>
+    {paths.map((path,i)=><polyline key={i} points={path.points.map(coords).join(" ")} fill="none" stroke={path.color} strokeWidth="3"/>)}
     {bones.map(([a,b],i)=><polyline key={i} points={[state.joints[a],state.joints[b]].map(coords).join(" ")} fill="none" stroke={a.startsWith("front")?"#ba7149":a.startsWith("rear")?"#477c95":"#285e58"} strokeWidth="6" strokeLinecap="round"/>)}
     {(["frontAnkle","rearAnkle","frontKnee","rearKnee","pelvis","chest"] as const).map((key,i)=>{const [x,y]=point(state.joints[key]);return <g key={key}><circle cx={x} cy={y} r="5" fill="#fffdf6" stroke="#285e58" strokeWidth="2"/>{i>3&&<text x={x+12} y={y+3}>{i===4?"骨盆":"胸廓"}</text>}</g>;})}
     <circle cx={point(state.joints.head)[0]} cy={point(state.joints.head)[1]} r="13" fill="#285e58"/>
     <text x="15" y="22">{plane==="width"?"沿板头看 · 板宽方向":"沿板长看 · 前后位置"}</text>
-    <text x="15" y="291">橙：原前脚侧　蓝：原后脚侧</text>
+    <text x="15" y="291">{b.segmentRolls&&plane==="width"?"板线：橙为原前脚截面，蓝为原后脚截面":"橙：原前脚侧　蓝：原后脚侧"}</text>
   </svg>;
 }
 function RouteDiagram({state,trail,time,config,stance}:{state:MotionState;trail:Vec3[];time:number;config:LessonConfig;stance:Stance}) {
@@ -74,20 +82,21 @@ function RouteDiagram({state,trail,time,config,stance}:{state:MotionState;trail:
     {Math.hypot(...state.travel)>.01&&<polyline points={path([b.position,end])} stroke="#477c95" strokeWidth="2"/>}
     {config.type==="gaze-control"&&<polyline points={path([b.position,gazeEnd])} stroke="#ac7132" strokeWidth="3"/>}
     <text x="12" y="19">俯视：板轴、移动方向、路线同源</text><text x="12" y="195">坡下 ↓　棕色：板轴　蓝色：移动方向</text>
-  </svg>{traces&&<><p className="sl3-hint">橙线：板头；紫线：板尾。两条线是刚体端点路径，不是两脚各留一道雪痕，也不是板雪接触计算。</p><DirectionComparison state={state}/></>}{config.type==="gaze-control"&&<p className="sl3-hint">金色线：实际头部朝向；短暂扫描后回前方，板路线不变。</p>}{config.turnShape&&<p className="sl3-hint">开放／闭合使用相同图幅和最小弯径；播放时长随路线长度变化，不计算真实滑速。</p>}</>;
+  </svg>{traces&&<><p className="sl3-hint">橙线：板头；紫线：板尾。两条线是雪板端点的几何路径，不是两脚各留一道雪痕，也不是板雪接触计算。</p><DirectionComparison state={state}/></>}{config.type==="gaze-control"&&<p className="sl3-hint">金色线：实际头部朝向；短暂扫描后回前方，板路线不变。</p>}{config.turnShape&&<p className="sl3-hint">开放／闭合使用相同图幅和最小弯径；播放时长随路线长度变化，不计算真实滑速。</p>}</>;
 }
 function DirectionComparison({state}:{state:MotionState}) {
   if(Math.hypot(...state.travel)<.01)return null;
-  const b=state.board,nose=boardToWorld([b.length/2,0,0],b).map((v,i)=>v-b.position[i]);
+  const b=state.board,direction=state.rideDirection??1,nose=boardToWorld([direction*b.length/2,0,0],b).map((v,i)=>v-b.position[i]);
   const norm=Math.hypot(nose[0],nose[2]),right=[state.travel[2],0,-state.travel[0]];
   const x=(nose[0]*right[0]+nose[2]*right[2])/norm,y=(nose[0]*state.travel[0]+nose[2]*state.travel[2])/norm;
-  return <svg className="sl3-direction" viewBox="0 0 360 158" role="img" aria-label="同一时刻的板轴和行进方向局部放大对照">
+  return <svg className="sl3-direction" viewBox="0 0 360 180" role="img" aria-label="同一时刻的板轴和行进方向局部放大对照">
     <text x="12" y="19">方向放大：板轴与行进方向</text>
     <polyline points={`${180-53*x},${91+53*y} ${180+53*x},${91-53*y}`} stroke="#b68143" strokeWidth="7" strokeLinecap="round"/>
     <circle cx={180+53*x} cy={91-53*y} r="5" fill="#533b22"/>
     <path d="M180 91V31m-5 9 5-9 5 9" fill="none" stroke="#477c95" strokeWidth="2"/>
     <text x="200" y="43">行进方向</text><text x="200" y="100">夹角 {state.metrics.skidAngle.toFixed(1)}°</text>
-    <text x="12" y="153">方向随同一状态更新；角度不是练习目标值</text>
+    {direction===-1&&<text x="12" y="156">圆点：行进前端（原板尾）</text>}
+    <text x="12" y="174">方向随同一状态更新；角度不是练习目标值</text>
   </svg>;
 }
 function BoardDirections({state}:{state:MotionState}) {
@@ -121,14 +130,16 @@ function RotationDirections({state}:{state:MotionState}) {
 function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi>}}) {
   const root=useRef<HTMLDivElement>(null);
   const short=supportsShortTurnLesson(config),shortTiming=shortTurnTiming(config);
+  const twist=supportsTwistLesson(config),switchRide=supportsSwitchLesson(config);
   const duration=short?shortTurnDurationMs(config):Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
   const clock=usePlayback(duration,root,api),{time,setPlaying,seek}=clock;
   const [stance,setStance]=useState<Stance>(config.stance??"regular");
   const [fromEdge,setFromEdge]=useState<"toe"|"heel">(config.fromEdge??"heel");
   const [timing,setTiming]=useState<"early"|"baseline"|"late">(config.timing??"baseline");
   const [rotationComparison,setRotationComparison]=useState<"natural"|"slightly-open">(config.rotationComparison??"natural");
+  const [twistTiming,setTwistTiming]=useState<TwistTiming>(config.twistTiming??(config.task==="twist-timing-compare"?"near-synchronous":"front-earlier"));
   const [edgeSide,setEdgeSide]=useState(config.edgeSide??"toe");
-  const sampledConfig=useMemo(()=>({...config,fromEdge,timing,rotationComparison,...(config.task==="arms-traverse-stop"?{edgeSide}:{})}),[config,fromEdge,timing,rotationComparison,edgeSide]);
+  const sampledConfig=useMemo(()=>({...config,fromEdge,timing,rotationComparison,...(twist?{twistTiming}:{}),...(config.task==="arms-traverse-stop"?{edgeSide}:{})}),[config,fromEdge,timing,rotationComparison,edgeSide,twist,twistTiming]);
   const [view,setView]=useState<View>(toView(config.view)),[reset,setReset]=useState(0);
   const [skeleton,setSkeleton]=useState(Boolean(config.jointLabels)),[touchRotate,setTouchRotate]=useState(false),[flat,setFlat]=useState(false);
   const [expanded,setExpanded]=useState(false);
@@ -146,10 +157,12 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     <div className="sl3-observe">
     <div className="sl3-views" role="group" aria-label="观察视角">{views.map(([v,label])=><button key={v} onClick={()=>{setView(v);setFlat(false);setReset(n=>n+1);}} aria-pressed={!flat&&view===v}>{label}</button>)}<button aria-pressed={flat} onClick={()=>setFlat(v=>!v)}>平面骨架</button></div>
     <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail}/>}</div>
-    <div className="sl3-status"><strong>{edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
+    <div className="sl3-status"><strong>{frame.segmentEdges?`原前脚处：${edges[frame.segmentEdges.front]}；原后脚处：${edges[frame.segmentEdges.rear]}`:edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
     <PlaybackControls clock={clock}/>
-    <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>前脚 <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
-    {(short||["single-transition","lower-transition","retraction-transition","timing-study","hip-transition","coordinated-knee-transition","linked-retraction-skid"].includes(frame.task))&&!config.fromEdge&&<div className="sl3-options"><label>{(short||frame.task==="linked-retraction-skid")?"起始工作刃":"转换方向"} <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">{(short||frame.task==="linked-retraction-skid")?"后刃开始":"后刃 → 前刃"}</option><option value="toe">{(short||frame.task==="linked-retraction-skid")?"前刃开始":"前刃 → 后刃"}</option></select></label></div>}
+    <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>{switchRide?"惯用前脚":"前脚"} <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
+    {switchRide&&<p className="sl3-hint">当前行进前脚：原后脚；原板尾领行，硬件鼻尾与两脚颜色保持身份。</p>}
+    {(twist||(short||["single-transition","lower-transition","retraction-transition","timing-study","hip-transition","coordinated-knee-transition","linked-retraction-skid"].includes(frame.task))&&!config.fromEdge)&&<div className="sl3-options"><label>{(short||frame.task==="linked-retraction-skid")?"起始工作刃":"转换方向"} <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">{(short||frame.task==="linked-retraction-skid")?"后刃开始":"后刃 → 前刃"}</option><option value="toe">{(short||frame.task==="linked-retraction-skid")?"前刃开始":"前刃 → 后刃"}</option></select></label></div>}
+    {frame.task==="twist-timing-compare"&&<div className="sl3-options"><label>前后段时序 <select value={twistTiming} onChange={e=>{setPlaying(false);setTwistTiming(e.target.value as TwistTiming);}}><option value="near-synchronous">近同步</option><option value="front-earlier">前段稍先</option></select></label><span className="sl3-hint">同进度、同平面路线比较；时差不是优劣排名</span></div>}
     {frame.task==="timing-study"&&<div className="sl3-options"><label>屈伸启动时机 <select value={timing} onChange={e=>{setPlaying(false);setTiming(e.target.value as "early"|"baseline"|"late");}}><option value="early">提前</option><option value="baseline">基准</option><option value="late">稍后</option></select></label><span className="sl3-hint">保持当前进度比较；只改启动时刻</span></div>}
     {frame.task==="toe-orientation-stop"&&<div className="sl3-options"><label>肩髋朝向对照 <select value={rotationComparison} onChange={e=>{setPlaying(false);setRotationComparison(e.target.value as "natural"|"slightly-open");}}><option value="natural">自然朝向</option><option value="slightly-open">略多开放</option></select></label><span className="sl3-hint">保留当前进度；同路线、脚位与板角比较</span></div>}
     {frame.task==="arms-traverse-stop"&&<div className="sl3-options"><label>斜行工作刃 <select value={edgeSide} onChange={e=>{setPlaying(false);setEdgeSide(e.target.value);}}><option value="toe">前刃</option><option value="heel">后刃</option></select></label></div>}
@@ -162,6 +175,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     {["board-coordinate-study","stationary-hip-rock"].includes(frame.task)&&<><BoardDirections state={frame.state}/><p className="sl3-hint">仅演示平地原地感知，板角小不等于身体完全不移动；先回平板再回中，滑行效果需另行验证。</p></>}
     {frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/>}
     {(isRotationLesson(config)||short)&&<RotationDirections state={frame.state}/>}
+    {twist&&<><TwistSectionDiagram state={frame.state} stance={stance}/><p className="sl3-hint">绿色线与圆点仅标几何低侧；局部可短暂离雪约9.2毫米，未计算整刃接触、板材刚度或真实压力。两段角差按实际值显示。</p></>}
     {shortTiming&&<p className="sl3-hint">每次换侧 {(shortTiming.turnMs/1000).toFixed(1)} 秒；每侧侧滑等待 {(shortTiming.waitMs/1000).toFixed(1)} 秒。缩短等待时，换侧自身的路线和用时不变；等待阶段仍在侧滑。</p>}
     {(config.pressureDiagram||config.legLengthDiagram||config.transitionReference==="snow")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}
     {config.type==="edge-change-down"&&<p className="sl3-hint">两种示例分别编排路线和幅度，用于辨认运动机制；不能据此比较相同条件下哪种更高效。</p>}

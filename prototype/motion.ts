@@ -7,6 +7,7 @@
  * Regular toes point mostly +z; goofy is a world-x reflection, keeping +x the nose.
  * Rotation is Ry(yaw) * Rx(roll), matching THREE.Euler(roll, yaw, 0, 'YXZ').
  */
+import {surfacePointToWorld,surfaceSnowHeight,surfaceVectorToWorld,type SegmentRolls} from "./board-surface";
 export type Vec3 = [number, number, number];
 export type Mode = "correct" | "error" | "drill";
 export type Stance = "regular" | "goofy";
@@ -19,6 +20,8 @@ export interface BoardState {
   length: number;
   width: number;
   thickness: number;
+  /** Optional authored local rolls; absent retains the original rigid board. */
+  segmentRolls?: SegmentRolls;
 }
 
 export interface BootState {
@@ -33,6 +36,8 @@ export interface BootState {
 
 export interface MotionState {
   board: BoardState;
+  /** Original tail leads when -1. Foot identities and hardware axes stay fixed. */
+  rideDirection?: 1 | -1;
   joints: {
     pelvis: Vec3;
     chest: Vec3;
@@ -71,7 +76,7 @@ export interface MotionState {
     /** Anatomical knee flexion in degrees, 0 = straight. */
     frontKnee: number;
     rearKnee: number;
-    /** Absolute board-axis versus travel angle, in degrees. */
+    /** Riding-front axis versus travel angle, in degrees; defaults to the nose. */
     skidAngle: number;
   };
   /** Geometric low edge only. Never use as an inferred centre of pressure. */
@@ -147,7 +152,13 @@ export function boardVectorToWorld(
 }
 
 export function boardToWorld(local: Vec3, board: BoardState): Vec3 {
+  if(board.segmentRolls)return surfacePointToWorld(local,board);
   return add(board.position, boardVectorToWorld(local, board));
+}
+
+/** Orientation of a local board cross-section, especially a fixed binding. */
+export function boardVectorToWorldAt(local:Vec3,board:Pick<BoardState,"yaw"|"roll"|"segmentRolls">,x=0):Vec3 {
+  return surfaceVectorToWorld(local,board,x);
 }
 
 /**
@@ -348,6 +359,8 @@ function routeAt(time: number, mode: Mode, requestedHold: number): Route {
 
 /** Each lesson authors posture independently; the equipment/bone solver is shared. */
 export interface PoseOptions {
+  segmentRolls?: SegmentRolls;
+  rideDirection?: 1 | -1;
   cuffPitch?: number;
   rearCuffPitch?: number;
   shinSide?: number;
@@ -370,9 +383,10 @@ export function buildPose(route: Route, mode: Mode = "correct", pose: PoseOption
     length: 1.58,
     width: 0.265,
     thickness: 0.026,
+    ...(pose.segmentRolls?{segmentRolls:{...pose.segmentRolls}}:{}),
   };
   // The active lower edge lies on the snow plane; the far edge rises above it.
-  board.position[1] =
+  board.position[1] = board.segmentRolls?surfaceSnowHeight(board):
     (board.thickness / 2) * Math.cos(board.roll) +
     (board.width / 2) * Math.abs(Math.sin(board.roll));
   const normal = boardVectorToWorld([0, 1, 0], board);
@@ -380,13 +394,13 @@ export function buildPose(route: Route, mode: Mode = "correct", pose: PoseOption
   const rearBootToe: Vec3 = [Math.sin(-9 / DEG), 0, Math.cos(-9 / DEG)];
   const makeBoot = (x: number, toe: Vec3): BootState => {
     const localPosition: Vec3 = [x, 0.073, 0];
-    const toeDirection = unit(boardVectorToWorld(toe, board));
+    const toeDirection = unit(boardVectorToWorldAt(toe, board, x));
     return {
       position: boardToWorld(localPosition, board),
       localPosition,
       yaw: Math.atan2(-toeDirection[2], toeDirection[0]),
       toeDirection,
-      up: normal,
+      up: boardVectorToWorldAt([0,1,0],board,x),
       cuffPitch: BOOT_SETUP.neutralCuff,
     };
   };
@@ -415,12 +429,13 @@ export function buildPose(route: Route, mode: Mode = "correct", pose: PoseOption
     // A small boot-relative lateral lean is an authored equipment assumption.
     // It moves the entire shin before solving the pelvis, never detaches a foot.
     const toeLocal = boot.toeDirection;
-    const side: Vec3 = [normal[1]*toeLocal[2]-normal[2]*toeLocal[1], normal[2]*toeLocal[0]-normal[0]*toeLocal[2], normal[0]*toeLocal[1]-normal[1]*toeLocal[0]];
+    const up=boot.up;
+    const side: Vec3 = [up[1]*toeLocal[2]-up[2]*toeLocal[1], up[2]*toeLocal[0]-up[0]*toeLocal[2], up[0]*toeLocal[1]-up[1]*toeLocal[0]];
     return add(
       ankle,
       mul(
         unit(add(add(
-          mul(normal, Math.cos(pitch)),
+          mul(up, Math.cos(pitch)),
           mul(boot.toeDirection, Math.sin(pitch)),
         ), mul(side, Math.tan(pose.shinSide ?? 0)))),
         BODY.shin,
@@ -522,11 +537,16 @@ export function buildPose(route: Route, mode: Mode = "correct", pose: PoseOption
   );
   const edge: Edge =
     Math.abs(board.roll) < 0.008 ? "flat" : board.roll > 0 ? "toe" : "heel";
-  const contact = boardToWorld(
+  let contact = boardToWorld(
     [0, -board.thickness / 2, (Math.sign(board.roll) * board.width) / 2],
     board,
   );
-  const nose = yawAxis(board.yaw);
+  if(board.segmentRolls){
+    const front=boardToWorld([BODY.stanceWidth/2,-board.thickness/2,Math.sign(board.segmentRolls.front)*board.width/2],board);
+    const rear=boardToWorld([-BODY.stanceWidth/2,-board.thickness/2,Math.sign(board.segmentRolls.rear)*board.width/2],board);
+    contact=front[1]<rear[1]?front:rear;
+  }
+  const nose = mul(yawAxis(board.yaw),pose.rideDirection??1);
   // Look toward the route with a finite neck turn, independent of shoulder yaw.
   const lookDirection = pose.lookDirection ?? route.travel;
   const travelFacing = Math.hypot(...lookDirection)>1e-8 ? Math.atan2(lookDirection[0],lookDirection[2]) : shoulderYaw;
@@ -541,6 +561,7 @@ export function buildPose(route: Route, mode: Mode = "correct", pose: PoseOption
   const gaze = yawToe(shoulderYaw + headTurn);
   return {
     board,
+    ...(pose.rideDirection?{rideDirection:pose.rideDirection}:{}),
     joints,
     boots,
     com,
@@ -601,6 +622,7 @@ export function applyStance(state: MotionState, stance: Stance): MotionState {
       position: mirror(state.board.position),
       yaw: -PI - state.board.yaw,
       roll: -state.board.roll,
+      ...(state.board.segmentRolls?{segmentRolls:{front:-state.board.segmentRolls.front,rear:-state.board.segmentRolls.rear}}:{}),
     },
     joints: Object.fromEntries(
       Object.entries(state.joints).map(([name, value]) => [

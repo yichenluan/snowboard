@@ -2,6 +2,8 @@ import { applyStance, buildPose, type MotionState, type PoseOptions, type Route,
 import registry from "./registry.json";
 import { isRotationLesson, rotationLessonTask, sampleRotationLesson } from "./rotation";
 import { supportsShortTurnLesson, shortTurnTask, sampleShortTurnLesson } from "./short-turns";
+import { supportsSwitchLesson, sampleSwitchLesson } from "./switch";
+import { supportsTwistLesson, twistTask, sampleTwistLesson } from "./twist";
 import { isTurningLesson, sampleTurningLesson } from "./turns";
 import { supportsPressureLesson, pressureLessonTask, samplePressureLesson } from "./pressure";
 import { supportsAdvancedPressureLesson, advancedPressureTask, sampleAdvancedPressureLesson } from "./pressure-advanced";
@@ -11,7 +13,7 @@ const partialVariants:Record<string,string[]>=registry.partialVariants;
 export const LESSON_TYPES: readonly string[] = [...registry.types,...Object.keys(partialVariants)];
 const requiredTasks:Record<string,string[]>=registry.requiredTasks;
 export const canRenderLesson=(config:LessonConfig)=>requiredTasks[config.type]
-  ?requiredTasks[config.type].includes(config.task??"")&&(supportsCoordinationLesson(config)||isRotationLesson(config)||supportsShortTurnLesson(config))
+  ?requiredTasks[config.type].includes(config.task??"")&&(supportsCoordinationLesson(config)||isRotationLesson(config)||supportsShortTurnLesson(config)||supportsSwitchLesson(config)||supportsTwistLesson(config))
   :registry.types.includes(config.type)||Boolean(partialVariants[config.type]?.includes(config.variant??""));
 export interface LessonConfig {
   type: string;
@@ -26,6 +28,7 @@ export interface LessonConfig {
   side?: "left" | "right";
   rotationComparison?: "natural" | "slightly-open";
   transition?: "extend" | "flex" | "retract";
+  twistTiming?: "near-synchronous" | "front-earlier";
   duration?: number;
   autoplay?: boolean;
   jointLabels?: boolean;
@@ -46,6 +49,8 @@ export interface LessonFrame {
   task: string;
   moving: boolean;
   supportRail?: [Vec3, Vec3];
+  segmentEdges?: {front:"toe"|"heel"|"flat";rear:"toe"|"heel"|"flat"};
+  twistTiming?: "near-synchronous" | "front-earlier";
 }
 const PI = Math.PI;
 const rad = (n: number) => n * PI / 180;
@@ -60,6 +65,8 @@ const range = (t: number) => {
   return lerp([0,1,0,-1][i], [1,0,-1,0][i], smooth(t*4-i));
 };
 export function lessonTask(c: LessonConfig): string {
+  if(supportsSwitchLesson(c))return "switch-linked-skid";
+  if(supportsTwistLesson(c))return twistTask(c)!;
   if(supportsShortTurnLesson(c))return shortTurnTask(c)!;
   if(isRotationLesson(c))return rotationLessonTask(c);
   if(supportsCoordinationLesson(c))return coordinationTask(c)!;
@@ -116,6 +123,8 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
 
 export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "regular"): LessonFrame {
   if(!canRenderLesson(c)) throw new Error(`尚未实现的三维动作：${c.type}/${c.variant??"default"}`);
+  if(supportsSwitchLesson(c))return sampleSwitchLesson(time,c,stance);
+  if(supportsTwistLesson(c))return sampleTwistLesson(time,c,stance);
   if(supportsShortTurnLesson(c))return sampleShortTurnLesson(time,c,stance);
   if(isRotationLesson(c))return sampleRotationLesson(time,c,stance);
   if(supportsCoordinationLesson(c))return sampleCoordinationLesson(time,c,stance);

@@ -32,9 +32,13 @@
     "mixed-rotation",
     "short-turns",
     "short-turn-progression",
-    "short-turn-balance"
+    "short-turn-balance",
+    "switch",
+    "twist"
   ],
   "requiredTasks": {
+    "switch": ["switch-linked-skid"],
+    "twist": ["progressive-twist", "twist-timing-compare"],
     "hip-edge-change": [
       "board-coordinate-study",
       "stationary-hip-rock",
