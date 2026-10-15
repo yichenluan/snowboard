@@ -99,7 +99,7 @@ for (const [lessonIndex, lesson] of data.lessons.entries()) {
   if (!moduleIds.has(lesson.module)) issue('error', 'unknown-module', `${lesson.id}：${lesson.module}`);
   if (lesson.demo && lesson.demos?.length) issue('warning', 'shadowed-demo', `${lesson.id} 同时有 demo 与 demos；app.js 只显示 demos`);
   const demos = getDemos(lesson), citations = resolveCitations(lesson);
-  const entry = `https://jinke.me/#lesson=${encodeURIComponent(lesson.id)}`;
+  const entry = `https://jinke.me/snowboard/#lesson=${encodeURIComponent(lesson.id)}`;
   const lessonRecord = { id: lesson.id, title: lesson.title, module: lesson.module, goal: lesson.goal, entry, citations, prototypeMode: prototypeModes[lesson.id] || null, references: [], illustration: lesson.illustration || null };
   for (const [index, demo] of demos.entries()) {
     const locator = `lessons[${lessonIndex}].${lesson.demos?.length ? `demos[${index}]` : 'demo'}`;
@@ -178,7 +178,7 @@ const report = {
   inputs: Object.fromEntries(inputNames.map(name => [name, createHash('sha256').update(inputs[name]).digest('hex')])),
   scope: '静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成',
   counts, modules, types, variants, references, illustrations, lessons, issues,
-  prototype: { entries: prototypeModes, homeEntry: 'https://jinke.me/3d/', scope: '独立原型入口；本对象不表示课内引用接入状态，后者见 counts 与 references', status: 'review-in-progress', replacementCompleted: false },
+  prototype: { entries: prototypeModes, homeEntry: 'https://jinke.me/snowboard/3d/', scope: '独立原型入口；本对象不表示课内引用接入状态，后者见 counts 与 references', status: 'review-in-progress', replacementCompleted: false },
 };
 
 const md = value => String(value ?? '—').replace(/\|/g, '\\|').replace(/\r?\n/g, ' ');
@@ -234,7 +234,7 @@ const lines = [
   '- 课内三维 IIFE、样式与课程数据直接内联进单文件，无运行时外部模型、字体或 CDN；无 WebGL 时显示同源可播放骨架。独立 `/3d/` 原型及外部资料仍需联网。导出重开验证与浏览器限制见审阅记录。',
   '- 首页技术全景、能力 DAG 与 shell.html 的装饰人物没有动作时间线，不计入上述动作/装备示意数量；它们的入口和能力前置关系仍属于回归范围。',
   '',
-  table(['独立 3D 原型的来源课程', '原型模式', '与课内入口的关系'], Object.entries(prototypeModes).map(([id, mode]) => [`[${id}](https://jinke.me/#lesson=${id})`, `[${mode}](https://jinke.me/3d/?mode=${mode})`, '并行研究原型；不替代当前课内独立任务，也不额外计入引用覆盖'])),
+  table(['独立 3D 原型的来源课程', '原型模式', '与课内入口的关系'], Object.entries(prototypeModes).map(([id, mode]) => [`[${id}](https://jinke.me/snowboard/#lesson=${id})`, `[${mode}](https://jinke.me/snowboard/3d/?mode=${mode})`, '并行研究原型；不替代当前课内独立任务，也不额外计入引用覆盖'])),
   '',
   '## 异常和需人工审阅的差异',
   '',

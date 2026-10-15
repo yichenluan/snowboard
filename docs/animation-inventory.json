@@ -3,7 +3,7 @@
   "inputs": {
     "content.json": "d3b136f869061c73926ba2fd617283bcbb5e6b53f5152c1048d3f31a9e939381",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "af8fc6c681aa6924825b2964e199faf892c0f34c61fd235889b02a7b547b3481",
+    "app.js": "8dd5f4969e471d95ab8f561ef5ad8de4bc8150a5bb08a7a5996dafed267884d4",
     "lesson-player/registry.json": "5c657d9aa412aa6667ab79782b00e35202e5ed72cee07e1d2943c8a212682bae"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
@@ -2157,7 +2157,7 @@
       "lesson": "v-base-stance",
       "index": 0,
       "locator": "lessons[4].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-base-stance",
+      "entry": "https://jinke.me/snowboard/#lesson=v-base-stance",
       "key": "center-low:neutral",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2197,7 +2197,7 @@
       "lesson": "v-arms-feedback",
       "index": 0,
       "locator": "lessons[5].demo",
-      "entry": "https://jinke.me/#lesson=v-arms-feedback",
+      "entry": "https://jinke.me/snowboard/#lesson=v-arms-feedback",
       "key": "shoulder-coordination:arms-feedback",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2223,7 +2223,7 @@
       "lesson": "v-fore-aft-movement",
       "index": 0,
       "locator": "lessons[6].demo",
-      "entry": "https://jinke.me/#lesson=v-fore-aft-movement",
+      "entry": "https://jinke.me/snowboard/#lesson=v-fore-aft-movement",
       "key": "fore-aft",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2257,7 +2257,7 @@
       "lesson": "v-fore-aft-roles",
       "index": 0,
       "locator": "lessons[7].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-fore-aft-roles",
+      "entry": "https://jinke.me/snowboard/#lesson=v-fore-aft-roles",
       "key": "fore-aft:front-center-back",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2279,7 +2279,7 @@
       "lesson": "v-fore-aft-drill",
       "index": 0,
       "locator": "lessons[8].demo",
-      "entry": "https://jinke.me/#lesson=v-fore-aft-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v-fore-aft-drill",
       "key": "fore-aft:front-center-back",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2314,7 +2314,7 @@
       "lesson": "v-toe-high-low",
       "index": 0,
       "locator": "lessons[9].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-high-low",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-high-low",
       "key": "center-high:toe",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2349,7 +2349,7 @@
       "lesson": "v-active-passive-edge",
       "index": 0,
       "locator": "lessons[10].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-active-passive-edge",
+      "entry": "https://jinke.me/snowboard/#lesson=v-active-passive-edge",
       "key": "inclination:inclination-focused",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2395,7 +2395,7 @@
       "lesson": "v-active-passive-edge",
       "index": 1,
       "locator": "lessons[10].demos[1]",
-      "entry": "https://jinke.me/#lesson=v-active-passive-edge",
+      "entry": "https://jinke.me/snowboard/#lesson=v-active-passive-edge",
       "key": "inclination:angulation-focused",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2441,7 +2441,7 @@
       "lesson": "v-toe-static-five",
       "index": 0,
       "locator": "lessons[11].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-static-five",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-static-five",
       "key": "toe-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2475,7 +2475,7 @@
       "lesson": "v-toe-tongue",
       "index": 0,
       "locator": "lessons[12].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-toe-tongue",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-tongue",
       "key": "toe-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2497,7 +2497,7 @@
       "lesson": "v-toe-tongue",
       "index": 1,
       "locator": "lessons[12].demos[1]",
-      "entry": "https://jinke.me/#lesson=v-toe-tongue",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-tongue",
       "key": "heel-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2519,7 +2519,7 @@
       "lesson": "v-toe-lock-ankle",
       "index": 0,
       "locator": "lessons[13].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-lock-ankle",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-lock-ankle",
       "key": "toe-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2553,7 +2553,7 @@
       "lesson": "v-heel-pull",
       "index": 0,
       "locator": "lessons[14].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-pull",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-pull",
       "key": "heel-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2587,7 +2587,7 @@
       "lesson": "v-heel-static-repetition",
       "index": 0,
       "locator": "lessons[15].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-static-repetition",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-static-repetition",
       "key": "heel-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2621,7 +2621,7 @@
       "lesson": "v-toe-counterbalance",
       "index": 0,
       "locator": "lessons[16].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-counterbalance",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-counterbalance",
       "key": "toe-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2655,7 +2655,7 @@
       "lesson": "v-heel-counterbalance",
       "index": 0,
       "locator": "lessons[17].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-counterbalance",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-counterbalance",
       "key": "heel-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2689,7 +2689,7 @@
       "lesson": "v-lower-body-priority",
       "index": 0,
       "locator": "lessons[18].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-lower-body-priority",
+      "entry": "https://jinke.me/snowboard/#lesson=v-lower-body-priority",
       "key": "steering",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2711,7 +2711,7 @@
       "lesson": "v-heel-brief-hold",
       "index": 0,
       "locator": "lessons[19].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-brief-hold",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-brief-hold",
       "key": "heel-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2745,7 +2745,7 @@
       "lesson": "v-toe-ankle-role",
       "index": 0,
       "locator": "lessons[21].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-toe-ankle-role",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-ankle-role",
       "key": "toe-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2767,7 +2767,7 @@
       "lesson": "v-low-high-principle",
       "index": 0,
       "locator": "lessons[22].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-low-high-principle",
+      "entry": "https://jinke.me/snowboard/#lesson=v-low-high-principle",
       "key": "center-high:toe",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2788,7 +2788,7 @@
       "lesson": "v-low-high-principle",
       "index": 1,
       "locator": "lessons[22].demos[1]",
-      "entry": "https://jinke.me/#lesson=v-low-high-principle",
+      "entry": "https://jinke.me/snowboard/#lesson=v-low-high-principle",
       "key": "center-high:heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2809,7 +2809,7 @@
       "lesson": "v-heel-low-inclination",
       "index": 0,
       "locator": "lessons[23].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-low-inclination",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-low-inclination",
       "key": "inclination:heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2845,7 +2845,7 @@
       "lesson": "v-heel-height-progression",
       "index": 0,
       "locator": "lessons[24].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-height-progression",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-height-progression",
       "key": "center-high:heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2880,7 +2880,7 @@
       "lesson": "v-heel-incline-extension",
       "index": 0,
       "locator": "lessons[25].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-incline-extension",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-incline-extension",
       "key": "pressure-extend:heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2902,7 +2902,7 @@
       "lesson": "v-toe-reach-snow",
       "index": 0,
       "locator": "lessons[26].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-reach-snow",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-reach-snow",
       "key": "inclination:toe",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2937,7 +2937,7 @@
       "lesson": "v-pressure-overview",
       "index": 0,
       "locator": "lessons[27].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-pressure-overview",
+      "entry": "https://jinke.me/snowboard/#lesson=v-pressure-overview",
       "key": "pressure-flex:phase-study",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2961,7 +2961,7 @@
       "lesson": "v-pressure-overview",
       "index": 1,
       "locator": "lessons[27].demos[1]",
-      "entry": "https://jinke.me/#lesson=v-pressure-overview",
+      "entry": "https://jinke.me/snowboard/#lesson=v-pressure-overview",
       "key": "pressure-extend:phase-study",
       "model": "snow-keyframes-ik",
       "config": {
@@ -2985,7 +2985,7 @@
       "lesson": "v-toe-kneel-pressure",
       "index": 0,
       "locator": "lessons[28].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-kneel-pressure",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-kneel-pressure",
       "key": "pressure-flex:toe",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3007,7 +3007,7 @@
       "lesson": "v-heel-open-rear-foot",
       "index": 0,
       "locator": "lessons[29].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-open-rear-foot",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-rear-foot",
       "key": "fore-aft:rear-heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3042,7 +3042,7 @@
       "lesson": "v-toe-front-participation",
       "index": 0,
       "locator": "lessons[30].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-front-participation",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-front-participation",
       "key": "fore-aft:front-return-toe",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3077,7 +3077,7 @@
       "lesson": "v11-flex",
       "index": 0,
       "locator": "lessons[31].demos[0]",
-      "entry": "https://jinke.me/#lesson=v11-flex",
+      "entry": "https://jinke.me/snowboard/#lesson=v11-flex",
       "key": "pressure-flex:phase-study",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3101,7 +3101,7 @@
       "lesson": "v11-extend",
       "index": 0,
       "locator": "lessons[32].demos[0]",
-      "entry": "https://jinke.me/#lesson=v11-extend",
+      "entry": "https://jinke.me/snowboard/#lesson=v11-extend",
       "key": "pressure-extend:phase-study",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3125,7 +3125,7 @@
       "lesson": "v11-lateral",
       "index": 0,
       "locator": "lessons[33].demo",
-      "entry": "https://jinke.me/#lesson=v11-lateral",
+      "entry": "https://jinke.me/snowboard/#lesson=v11-lateral",
       "key": "hip-edge-change:open",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3148,7 +3148,7 @@
       "lesson": "v12-rhythm-why",
       "index": 0,
       "locator": "lessons[34].demos[0]",
-      "entry": "https://jinke.me/#lesson=v12-rhythm-why",
+      "entry": "https://jinke.me/snowboard/#lesson=v12-rhythm-why",
       "key": "short-turns:round",
       "model": "snow-short-procedural",
       "config": {
@@ -3173,7 +3173,7 @@
       "lesson": "v12-up-drill",
       "index": 0,
       "locator": "lessons[35].demos[0]",
-      "entry": "https://jinke.me/#lesson=v12-up-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v12-up-drill",
       "key": "edge-change-up",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3197,7 +3197,7 @@
       "lesson": "v13-down-drill",
       "index": 0,
       "locator": "lessons[36].demos[0]",
-      "entry": "https://jinke.me/#lesson=v13-down-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v13-down-drill",
       "key": "edge-change-down:lower-com",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3222,7 +3222,7 @@
       "lesson": "v13-down-drill",
       "index": 1,
       "locator": "lessons[36].demos[1]",
-      "entry": "https://jinke.me/#lesson=v13-down-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v13-down-drill",
       "key": "edge-change-down:retraction-study",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3247,7 +3247,7 @@
       "lesson": "v-transition-map",
       "index": 0,
       "locator": "lessons[37].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-transition-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-transition-map",
       "key": "edge-change-up",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3271,7 +3271,7 @@
       "lesson": "v-transition-map",
       "index": 1,
       "locator": "lessons[37].demos[1]",
-      "entry": "https://jinke.me/#lesson=v-transition-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-transition-map",
       "key": "edge-change-down:retraction-study",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3296,7 +3296,7 @@
       "lesson": "v-transition-map",
       "index": 2,
       "locator": "lessons[37].demos[2]",
-      "entry": "https://jinke.me/#lesson=v-transition-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-transition-map",
       "key": "edge-change-up",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3319,7 +3319,7 @@
       "lesson": "v14-steering",
       "index": 0,
       "locator": "lessons[38].demos[0]",
-      "entry": "https://jinke.me/#lesson=v14-steering",
+      "entry": "https://jinke.me/snowboard/#lesson=v14-steering",
       "key": "garland:toe",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3341,7 +3341,7 @@
       "lesson": "v14-steering",
       "index": 1,
       "locator": "lessons[38].demos[1]",
-      "entry": "https://jinke.me/#lesson=v14-steering",
+      "entry": "https://jinke.me/snowboard/#lesson=v14-steering",
       "key": "garland:heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3363,7 +3363,7 @@
       "lesson": "v14-steering",
       "index": 2,
       "locator": "lessons[38].demos[2]",
-      "entry": "https://jinke.me/#lesson=v14-steering",
+      "entry": "https://jinke.me/snowboard/#lesson=v14-steering",
       "key": "steering",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3385,7 +3385,7 @@
       "lesson": "v14-twist",
       "index": 0,
       "locator": "lessons[39].demo",
-      "entry": "https://jinke.me/#lesson=v14-twist",
+      "entry": "https://jinke.me/snowboard/#lesson=v14-twist",
       "key": "twist",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3409,7 +3409,7 @@
       "lesson": "v15-incline-change",
       "index": 0,
       "locator": "lessons[40].demo",
-      "entry": "https://jinke.me/#lesson=v15-incline-change",
+      "entry": "https://jinke.me/snowboard/#lesson=v15-incline-change",
       "key": "edge-change-up",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3430,7 +3430,7 @@
       "lesson": "v15-gaze-drill",
       "index": 0,
       "locator": "lessons[41].demo",
-      "entry": "https://jinke.me/#lesson=v15-gaze-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v15-gaze-drill",
       "key": "gaze-control",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3450,7 +3450,7 @@
       "lesson": "v16-hip-change",
       "index": 0,
       "locator": "lessons[42].demo",
-      "entry": "https://jinke.me/#lesson=v16-hip-change",
+      "entry": "https://jinke.me/snowboard/#lesson=v16-hip-change",
       "key": "hip-edge-change",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3473,7 +3473,7 @@
       "lesson": "v16-hip-drill",
       "index": 0,
       "locator": "lessons[43].demo",
-      "entry": "https://jinke.me/#lesson=v16-hip-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v16-hip-drill",
       "key": "hip-edge-change",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3495,7 +3495,7 @@
       "lesson": "v17-knee-change",
       "index": 0,
       "locator": "lessons[44].demo",
-      "entry": "https://jinke.me/#lesson=v17-knee-change",
+      "entry": "https://jinke.me/snowboard/#lesson=v17-knee-change",
       "key": "knee-edge-change",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3518,7 +3518,7 @@
       "lesson": "v17-retract-drill",
       "index": 0,
       "locator": "lessons[45].demo",
-      "entry": "https://jinke.me/#lesson=v17-retract-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v17-retract-drill",
       "key": "retraction-turns",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3543,7 +3543,7 @@
       "lesson": "s14-twist-drill",
       "index": 0,
       "locator": "lessons[46].demo",
-      "entry": "https://jinke.me/#lesson=s14-twist-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=s14-twist-drill",
       "key": "twist",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3567,7 +3567,7 @@
       "lesson": "v-shoulder-rhythm-map",
       "index": 0,
       "locator": "lessons[47].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-shoulder-rhythm-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-shoulder-rhythm-map",
       "key": "rotation",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3591,7 +3591,7 @@
       "lesson": "v-shoulder-rhythm-map",
       "index": 1,
       "locator": "lessons[47].demos[1]",
-      "entry": "https://jinke.me/#lesson=v-shoulder-rhythm-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-shoulder-rhythm-map",
       "key": "counter-rotation",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3615,7 +3615,7 @@
       "lesson": "v-shoulder-rhythm-map",
       "index": 2,
       "locator": "lessons[47].demos[2]",
-      "entry": "https://jinke.me/#lesson=v-shoulder-rhythm-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-shoulder-rhythm-map",
       "key": "short-turns:round:extend",
       "model": "snow-short-procedural",
       "config": {
@@ -3641,7 +3641,7 @@
       "lesson": "v-mid-position-30",
       "index": 0,
       "locator": "lessons[48].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-mid-position-30",
+      "entry": "https://jinke.me/snowboard/#lesson=v-mid-position-30",
       "key": "shoulder-coordination:neutral",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3666,7 +3666,7 @@
       "lesson": "v19-mixed",
       "index": 0,
       "locator": "lessons[49].demo",
-      "entry": "https://jinke.me/#lesson=v19-mixed",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-mixed",
       "key": "mixed-rotation",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3690,7 +3690,7 @@
       "lesson": "v-heel-open-loading",
       "index": 0,
       "locator": "lessons[50].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-heel-open-loading",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-loading",
       "key": "fore-aft:rear-heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3725,7 +3725,7 @@
       "lesson": "v-heel-open-progression",
       "index": 0,
       "locator": "lessons[51].demo",
-      "entry": "https://jinke.me/#lesson=v-heel-open-progression",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-progression",
       "key": "shoulder-coordination:open-heel",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3750,7 +3750,7 @@
       "lesson": "v-toe-open-causal",
       "index": 0,
       "locator": "lessons[52].demos[0]",
-      "entry": "https://jinke.me/#lesson=v-toe-open-causal",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-open-causal",
       "key": "short-turns:asymmetric:extend",
       "model": "snow-short-procedural",
       "config": {
@@ -3776,7 +3776,7 @@
       "lesson": "v-toe-open-causal",
       "index": 1,
       "locator": "lessons[52].demos[1]",
-      "entry": "https://jinke.me/#lesson=v-toe-open-causal",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-open-causal",
       "key": "short-turns:round:extend",
       "model": "snow-short-procedural",
       "config": {
@@ -3802,7 +3802,7 @@
       "lesson": "v-toe-closed-drill",
       "index": 0,
       "locator": "lessons[53].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-closed-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-closed-drill",
       "key": "shoulder-coordination:closed-toe",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3828,7 +3828,7 @@
       "lesson": "v-hand-back-cue",
       "index": 0,
       "locator": "lessons[54].demo",
-      "entry": "https://jinke.me/#lesson=v-hand-back-cue",
+      "entry": "https://jinke.me/snowboard/#lesson=v-hand-back-cue",
       "key": "shoulder-coordination:arms-feedback",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3853,7 +3853,7 @@
       "lesson": "v18-follow",
       "index": 0,
       "locator": "lessons[55].demo",
-      "entry": "https://jinke.me/#lesson=v18-follow",
+      "entry": "https://jinke.me/snowboard/#lesson=v18-follow",
       "key": "rotation",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3877,7 +3877,7 @@
       "lesson": "v18-neutral",
       "index": 0,
       "locator": "lessons[56].demos[0]",
-      "entry": "https://jinke.me/#lesson=v18-neutral",
+      "entry": "https://jinke.me/snowboard/#lesson=v18-neutral",
       "key": "shoulder-coordination:neutral",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3902,7 +3902,7 @@
       "lesson": "v19-counter",
       "index": 0,
       "locator": "lessons[57].demo",
-      "entry": "https://jinke.me/#lesson=v19-counter",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-counter",
       "key": "counter-rotation",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3926,7 +3926,7 @@
       "lesson": "v19-switch",
       "index": 0,
       "locator": "lessons[58].demo",
-      "entry": "https://jinke.me/#lesson=v19-switch",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-switch",
       "key": "switch",
       "model": "snow-keyframes-ik",
       "config": {
@@ -3950,7 +3950,7 @@
       "lesson": "v19-stable-upper",
       "index": 0,
       "locator": "lessons[59].demos[0]",
-      "entry": "https://jinke.me/#lesson=v19-stable-upper",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-stable-upper",
       "key": "short-turns:round:extend",
       "model": "snow-short-procedural",
       "config": {
@@ -3976,7 +3976,7 @@
       "lesson": "v19-stable-upper",
       "index": 1,
       "locator": "lessons[59].demos[1]",
-      "entry": "https://jinke.me/#lesson=v19-stable-upper",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-stable-upper",
       "key": "retraction-turns",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4001,7 +4001,7 @@
       "lesson": "v-toe-low-drill",
       "index": 0,
       "locator": "lessons[61].demo",
-      "entry": "https://jinke.me/#lesson=v-toe-low-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-low-drill",
       "key": "j-turn",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4021,7 +4021,7 @@
       "lesson": "v20-carve",
       "index": 0,
       "locator": "lessons[62].demos[0]",
-      "entry": "https://jinke.me/#lesson=v20-carve",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-carve",
       "key": "steering",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4044,7 +4044,7 @@
       "lesson": "v20-carve",
       "index": 1,
       "locator": "lessons[62].demos[1]",
-      "entry": "https://jinke.me/#lesson=v20-carve",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-carve",
       "key": "rail-track",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4067,7 +4067,7 @@
       "lesson": "v20-traffic",
       "index": 0,
       "locator": "lessons[63].demos[0]",
-      "entry": "https://jinke.me/#lesson=v20-traffic",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-traffic",
       "key": "steering",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4090,7 +4090,7 @@
       "lesson": "v20-traffic",
       "index": 1,
       "locator": "lessons[63].demos[1]",
-      "entry": "https://jinke.me/#lesson=v20-traffic",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-traffic",
       "key": "steering",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4113,7 +4113,7 @@
       "lesson": "s20-rails",
       "index": 0,
       "locator": "lessons[65].demo",
-      "entry": "https://jinke.me/#lesson=s20-rails",
+      "entry": "https://jinke.me/snowboard/#lesson=s20-rails",
       "key": "rail-track",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4135,7 +4135,7 @@
       "lesson": "s-short-integrated",
       "index": 0,
       "locator": "lessons[66].demos[0]",
-      "entry": "https://jinke.me/#lesson=s-short-integrated",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-integrated",
       "key": "short-turns:round:extend",
       "model": "snow-short-procedural",
       "config": {
@@ -4161,7 +4161,7 @@
       "lesson": "s-short-integrated",
       "index": 1,
       "locator": "lessons[66].demos[1]",
-      "entry": "https://jinke.me/#lesson=s-short-integrated",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-integrated",
       "key": "short-turns:round:flex",
       "model": "snow-short-procedural",
       "config": {
@@ -4188,7 +4188,7 @@
       "lesson": "s-short-integrated",
       "index": 2,
       "locator": "lessons[66].demos[2]",
-      "entry": "https://jinke.me/#lesson=s-short-integrated",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-integrated",
       "key": "short-turns:tail-brake",
       "model": "snow-short-procedural",
       "config": {
@@ -4213,7 +4213,7 @@
       "lesson": "s-short-sideslip",
       "index": 0,
       "locator": "lessons[67].demos[0]",
-      "entry": "https://jinke.me/#lesson=s-short-sideslip",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-sideslip",
       "key": "short-turn-progression:side-slip",
       "model": "snow-short-procedural",
       "config": {
@@ -4238,7 +4238,7 @@
       "lesson": "s-short-sideslip",
       "index": 1,
       "locator": "lessons[67].demos[1]",
-      "entry": "https://jinke.me/#lesson=s-short-sideslip",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-sideslip",
       "key": "short-turn-progression:side-slip-shorter",
       "model": "snow-short-procedural",
       "config": {
@@ -4263,7 +4263,7 @@
       "lesson": "s-short-sideslip",
       "index": 2,
       "locator": "lessons[67].demos[2]",
-      "entry": "https://jinke.me/#lesson=s-short-sideslip",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-sideslip",
       "key": "short-turn-progression:linked",
       "model": "snow-short-procedural",
       "config": {
@@ -4288,7 +4288,7 @@
       "lesson": "s-short-size-ladder",
       "index": 0,
       "locator": "lessons[68].demos[0]",
-      "entry": "https://jinke.me/#lesson=s-short-size-ladder",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-size-ladder",
       "key": "short-turn-progression:medium-to-short",
       "model": "snow-short-procedural",
       "config": {
@@ -4313,7 +4313,7 @@
       "lesson": "s-short-size-ladder",
       "index": 1,
       "locator": "lessons[68].demos[1]",
-      "entry": "https://jinke.me/#lesson=s-short-size-ladder",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-size-ladder",
       "key": "short-turn-progression:short-steady",
       "model": "snow-short-procedural",
       "config": {
@@ -4338,7 +4338,7 @@
       "lesson": "s-short-size-ladder",
       "index": 2,
       "locator": "lessons[68].demos[2]",
-      "entry": "https://jinke.me/#lesson=s-short-size-ladder",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-size-ladder",
       "key": "short-turn-progression:short-to-medium",
       "model": "snow-short-procedural",
       "config": {
@@ -4363,7 +4363,7 @@
       "lesson": "s-short-balance",
       "index": 0,
       "locator": "lessons[69].demos[0]",
-      "entry": "https://jinke.me/#lesson=s-short-balance",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-balance",
       "key": "short-turn-balance:centered",
       "model": "snow-short-procedural",
       "config": {
@@ -4388,7 +4388,7 @@
       "lesson": "s-short-balance",
       "index": 1,
       "locator": "lessons[69].demos[1]",
-      "entry": "https://jinke.me/#lesson=s-short-balance",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-balance",
       "key": "short-turn-balance:nose-pivot",
       "model": "snow-short-procedural",
       "config": {
@@ -4413,7 +4413,7 @@
       "lesson": "s-short-balance",
       "index": 2,
       "locator": "lessons[69].demos[2]",
-      "entry": "https://jinke.me/#lesson=s-short-balance",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-balance",
       "key": "short-turn-balance:back-seat",
       "model": "snow-short-procedural",
       "config": {
@@ -4438,7 +4438,7 @@
       "lesson": "s-short-rhythm",
       "index": 0,
       "locator": "lessons[70].demos[0]",
-      "entry": "https://jinke.me/#lesson=s-short-rhythm",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-rhythm",
       "key": "short-turns:round",
       "model": "snow-short-procedural",
       "config": {
@@ -4463,7 +4463,7 @@
       "lesson": "s-short-rhythm",
       "index": 1,
       "locator": "lessons[70].demos[1]",
-      "entry": "https://jinke.me/#lesson=s-short-rhythm",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-rhythm",
       "key": "short-turns:asymmetric",
       "model": "snow-short-procedural",
       "config": {
@@ -4488,7 +4488,7 @@
       "lesson": "s-short-diagnosis",
       "index": 0,
       "locator": "lessons[71].demos[0]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:round",
       "model": "snow-short-procedural",
       "config": {
@@ -4513,7 +4513,7 @@
       "lesson": "s-short-diagnosis",
       "index": 1,
       "locator": "lessons[71].demos[1]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:tail-brake",
       "model": "snow-short-procedural",
       "config": {
@@ -4538,7 +4538,7 @@
       "lesson": "s-short-diagnosis",
       "index": 2,
       "locator": "lessons[71].demos[2]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:shoulder-led",
       "model": "snow-short-procedural",
       "config": {
@@ -4563,7 +4563,7 @@
       "lesson": "s-short-diagnosis",
       "index": 3,
       "locator": "lessons[71].demos[3]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:edge-locked",
       "model": "snow-short-procedural",
       "config": {
@@ -4588,7 +4588,7 @@
       "lesson": "s-short-diagnosis",
       "index": 4,
       "locator": "lessons[71].demos[4]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:asymmetric",
       "model": "snow-short-procedural",
       "config": {
@@ -4613,7 +4613,7 @@
       "lesson": "s-short-diagnosis",
       "index": 5,
       "locator": "lessons[71].demos[5]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:low-stuck",
       "model": "snow-short-procedural",
       "config": {
@@ -4639,7 +4639,7 @@
       "lesson": "s-short-diagnosis",
       "index": 6,
       "locator": "lessons[71].demos[6]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:round:retract",
       "model": "snow-short-procedural",
       "config": {
@@ -4666,7 +4666,7 @@
       "lesson": "s-short-diagnosis",
       "index": 7,
       "locator": "lessons[71].demos[7]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turn-balance:nose-pivot",
       "model": "snow-short-procedural",
       "config": {
@@ -4691,7 +4691,7 @@
       "lesson": "s-short-diagnosis",
       "index": 8,
       "locator": "lessons[71].demos[8]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turn-balance:back-seat",
       "model": "snow-short-procedural",
       "config": {
@@ -4716,7 +4716,7 @@
       "lesson": "s-short-diagnosis",
       "index": 9,
       "locator": "lessons[71].demos[9]",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "key": "short-turns:over-inclined",
       "model": "snow-short-procedural",
       "config": {
@@ -4741,7 +4741,7 @@
       "lesson": "s-short-adapt",
       "index": 0,
       "locator": "lessons[72].demos[0]",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "key": "short-turn-progression:short-steady",
       "model": "snow-short-procedural",
       "config": {
@@ -4766,7 +4766,7 @@
       "lesson": "s-short-adapt",
       "index": 1,
       "locator": "lessons[72].demos[1]",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "key": "short-turn-progression:medium-to-short",
       "model": "snow-short-procedural",
       "config": {
@@ -4791,7 +4791,7 @@
       "lesson": "s-short-adapt",
       "index": 2,
       "locator": "lessons[72].demos[2]",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "key": "short-turns:round:retract",
       "model": "snow-short-procedural",
       "config": {
@@ -4818,7 +4818,7 @@
       "lesson": "s-short-adapt",
       "index": 3,
       "locator": "lessons[72].demos[3]",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "key": "short-turn-progression:short-to-medium",
       "model": "snow-short-procedural",
       "config": {
@@ -4843,7 +4843,7 @@
       "lesson": "s-short-adapt",
       "index": 4,
       "locator": "lessons[72].demos[4]",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "key": "steering",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4866,7 +4866,7 @@
       "lesson": "s-short-adapt",
       "index": 5,
       "locator": "lessons[72].demos[5]",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "key": "steering",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4889,7 +4889,7 @@
       "lesson": "s-short-adapt",
       "index": 6,
       "locator": "lessons[72].demos[6]",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "key": "j-turn",
       "model": "snow-keyframes-ik",
       "config": {
@@ -4912,7 +4912,7 @@
       "lesson": "v22-strength",
       "index": 0,
       "locator": "lessons[73].demos[0]",
-      "entry": "https://jinke.me/#lesson=v22-strength",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-strength",
       "key": "dry-squat",
       "model": "dry-standing-ik",
       "config": {
@@ -4932,7 +4932,7 @@
       "lesson": "v22-strength",
       "index": 1,
       "locator": "lessons[73].demos[1]",
-      "entry": "https://jinke.me/#lesson=v22-strength",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-strength",
       "key": "dry-calf-raise",
       "model": "dry-standing-ik",
       "config": {
@@ -4952,7 +4952,7 @@
       "lesson": "v22-strength",
       "index": 2,
       "locator": "lessons[73].demos[2]",
-      "entry": "https://jinke.me/#lesson=v22-strength",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-strength",
       "key": "dry-plank",
       "model": "dry-planar",
       "config": {
@@ -4974,7 +4974,7 @@
       "lesson": "v22-wall",
       "index": 0,
       "locator": "lessons[74].demo",
-      "entry": "https://jinke.me/#lesson=v22-wall",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-wall",
       "key": "dry-wall-edge",
       "model": "dry-standing-ik",
       "config": {
@@ -4994,7 +4994,7 @@
       "lesson": "v22-heel-rehearsal",
       "index": 0,
       "locator": "lessons[75].demo",
-      "entry": "https://jinke.me/#lesson=v22-heel-rehearsal",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-heel-rehearsal",
       "key": "dry-squat",
       "model": "dry-standing-ik",
       "config": {
@@ -5014,7 +5014,7 @@
       "lesson": "v22-flexibility",
       "index": 0,
       "locator": "lessons[76].demos[0]",
-      "entry": "https://jinke.me/#lesson=v22-flexibility",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-flexibility",
       "key": "ankle-mobility",
       "model": "dry-planar",
       "config": {
@@ -5037,7 +5037,7 @@
       "lesson": "v22-flexibility",
       "index": 1,
       "locator": "lessons[76].demos[1]",
-      "entry": "https://jinke.me/#lesson=v22-flexibility",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-flexibility",
       "key": "hip-mobility",
       "model": "dry-planar",
       "config": {
@@ -5060,7 +5060,7 @@
       "lesson": "v22-flexibility",
       "index": 2,
       "locator": "lessons[76].demos[2]",
-      "entry": "https://jinke.me/#lesson=v22-flexibility",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-flexibility",
       "key": "dry-hamstring",
       "model": "dry-planar",
       "config": {
@@ -5083,7 +5083,7 @@
       "lesson": "v22-hold",
       "index": 0,
       "locator": "lessons[77].demo",
-      "entry": "https://jinke.me/#lesson=v22-hold",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-hold",
       "key": "dry-squat:hold",
       "model": "dry-standing-ik",
       "config": {
@@ -5104,7 +5104,7 @@
       "lesson": "v22-calf",
       "index": 0,
       "locator": "lessons[78].demo",
-      "entry": "https://jinke.me/#lesson=v22-calf",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-calf",
       "key": "dry-calf-raise",
       "model": "dry-standing-ik",
       "config": {
@@ -5124,7 +5124,7 @@
       "lesson": "v22-squat",
       "index": 0,
       "locator": "lessons[79].demo",
-      "entry": "https://jinke.me/#lesson=v22-squat",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-squat",
       "key": "dry-squat",
       "model": "dry-standing-ik",
       "config": {
@@ -5144,7 +5144,7 @@
       "lesson": "v22-plank",
       "index": 0,
       "locator": "lessons[80].demo",
-      "entry": "https://jinke.me/#lesson=v22-plank",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-plank",
       "key": "dry-plank",
       "model": "dry-planar",
       "config": {
@@ -5166,7 +5166,7 @@
       "lesson": "s22-hamstring",
       "index": 0,
       "locator": "lessons[81].demo",
-      "entry": "https://jinke.me/#lesson=s22-hamstring",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-hamstring",
       "key": "dry-hamstring",
       "model": "dry-planar",
       "config": {
@@ -5189,7 +5189,7 @@
       "lesson": "s22-hip-mobility",
       "index": 0,
       "locator": "lessons[82].demo",
-      "entry": "https://jinke.me/#lesson=s22-hip-mobility",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-hip-mobility",
       "key": "hip-mobility",
       "model": "dry-planar",
       "config": {
@@ -5212,7 +5212,7 @@
       "lesson": "s22-ankle-mobility",
       "index": 0,
       "locator": "lessons[83].demo",
-      "entry": "https://jinke.me/#lesson=s22-ankle-mobility",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-ankle-mobility",
       "key": "ankle-mobility",
       "model": "dry-planar",
       "config": {
@@ -5235,7 +5235,7 @@
       "lesson": "s22-shoulder",
       "index": 0,
       "locator": "lessons[84].demo",
-      "entry": "https://jinke.me/#lesson=s22-shoulder",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-shoulder",
       "key": "dry-shoulder-rolls",
       "model": "dry-standing-ik",
       "config": {
@@ -5255,7 +5255,7 @@
       "lesson": "s22-warmup",
       "index": 0,
       "locator": "lessons[85].demos[0]",
-      "entry": "https://jinke.me/#lesson=s22-warmup",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-warmup",
       "key": "dry-shoulder-rolls",
       "model": "dry-standing-ik",
       "config": {
@@ -5275,7 +5275,7 @@
       "lesson": "s22-warmup",
       "index": 1,
       "locator": "lessons[85].demos[1]",
-      "entry": "https://jinke.me/#lesson=s22-warmup",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-warmup",
       "key": "dry-squat",
       "model": "dry-standing-ik",
       "config": {
@@ -5295,7 +5295,7 @@
       "lesson": "s22-warmup",
       "index": 2,
       "locator": "lessons[85].demos[2]",
-      "entry": "https://jinke.me/#lesson=s22-warmup",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-warmup",
       "key": "dry-wall-edge",
       "model": "dry-standing-ik",
       "config": {
@@ -5315,7 +5315,7 @@
       "lesson": "s22-warmup",
       "index": 3,
       "locator": "lessons[85].demos[3]",
-      "entry": "https://jinke.me/#lesson=s22-warmup",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-warmup",
       "key": "short-turns:round:extend",
       "model": "snow-short-procedural",
       "config": {
@@ -5341,7 +5341,7 @@
       "lesson": "v23-knees",
       "index": 0,
       "locator": "lessons[90].demo",
-      "entry": "https://jinke.me/#lesson=v23-knees",
+      "entry": "https://jinke.me/snowboard/#lesson=v23-knees",
       "key": "dry-squat",
       "model": "dry-standing-ik",
       "config": {
@@ -5361,7 +5361,7 @@
       "lesson": "v24-heel-edge",
       "index": 0,
       "locator": "lessons[92].demo",
-      "entry": "https://jinke.me/#lesson=v24-heel-edge",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-heel-edge",
       "key": "heel-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5381,7 +5381,7 @@
       "lesson": "v24-heel-pivot",
       "index": 0,
       "locator": "lessons[93].demo",
-      "entry": "https://jinke.me/#lesson=v24-heel-pivot",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-heel-pivot",
       "key": "shoulder-coordination",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5405,7 +5405,7 @@
       "lesson": "v24-heel-transition",
       "index": 0,
       "locator": "lessons[94].demo",
-      "entry": "https://jinke.me/#lesson=v24-heel-transition",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-heel-transition",
       "key": "edge-change-up",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5427,7 +5427,7 @@
       "lesson": "v24-toe-unstable",
       "index": 0,
       "locator": "lessons[95].demo",
-      "entry": "https://jinke.me/#lesson=v24-toe-unstable",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-toe-unstable",
       "key": "toe-edge",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5447,7 +5447,7 @@
       "lesson": "v24-rear-load",
       "index": 0,
       "locator": "lessons[96].demo",
-      "entry": "https://jinke.me/#lesson=v24-rear-load",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-rear-load",
       "key": "fore-aft",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5467,7 +5467,7 @@
       "lesson": "v24-skid-track",
       "index": 0,
       "locator": "lessons[97].demo",
-      "entry": "https://jinke.me/#lesson=v24-skid-track",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-skid-track",
       "key": "rail-track",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5488,7 +5488,7 @@
       "lesson": "v21-method",
       "index": 0,
       "locator": "lessons[99].demo",
-      "entry": "https://jinke.me/#lesson=v21-method",
+      "entry": "https://jinke.me/snowboard/#lesson=v21-method",
       "key": "rail-track",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5509,7 +5509,7 @@
       "lesson": "v21-linear",
       "index": 0,
       "locator": "lessons[100].demo",
-      "entry": "https://jinke.me/#lesson=v21-linear",
+      "entry": "https://jinke.me/snowboard/#lesson=v21-linear",
       "key": "pressure-extend:timing-study",
       "model": "snow-keyframes-ik",
       "config": {
@@ -5532,7 +5532,7 @@
   "illustrations": [
     {
       "lesson": "v23-angles",
-      "entry": "https://jinke.me/#lesson=v23-angles",
+      "entry": "https://jinke.me/snowboard/#lesson=v23-angles",
       "type": "binding-stance",
       "focus": "俯视脚的朝向；数字为几何示例，不是推荐设置。",
       "destination": "D7：保留二维装备几何交互；来源与实际验收见 lesson-equipment-review.md",
@@ -5540,7 +5540,7 @@
     },
     {
       "lesson": "s23-boot-centering",
-      "entry": "https://jinke.me/#lesson=s23-boot-centering",
+      "entry": "https://jinke.me/snowboard/#lesson=s23-boot-centering",
       "type": "boot-clearance",
       "focus": "横向截面说明外伸与接触关系，不计算个人最大刃角。",
       "destination": "D7：保留二维装备几何交互；来源与实际验收见 lesson-equipment-review.md",
@@ -5553,7 +5553,7 @@
       "title": "进阶滑行：先明确自己要练到什么",
       "module": "overview",
       "goal": "每次上雪只选一个能看见、能复查的进步目标。",
-      "entry": "https://jinke.me/#lesson=v-purpose",
+      "entry": "https://jinke.me/snowboard/#lesson=v-purpose",
       "citations": [
         {
           "source": "S03",
@@ -5581,7 +5581,7 @@
       "title": "看懂雪板：六个基本控制点",
       "module": "overview",
       "goal": "出现失误时，先判断要改哪一项，再选动作。",
-      "entry": "https://jinke.me/#lesson=v-dimensions",
+      "entry": "https://jinke.me/snowboard/#lesson=v-dimensions",
       "citations": [
         {
           "source": "S01",
@@ -5609,7 +5609,7 @@
       "title": "从稳定连弯走向刻滑与搓雪小回转",
       "module": "overview",
       "goal": "依据实际短板选择下一步，不按动作外形盲目升级。",
-      "entry": "https://jinke.me/#lesson=v-progression",
+      "entry": "https://jinke.me/snowboard/#lesson=v-progression",
       "citations": [
         {
           "source": "S09",
@@ -5637,7 +5637,7 @@
       "title": "单项练完，怎样用回正常滑行",
       "module": "overview",
       "goal": "每项练习都能回答：改了什么，是否有效，能不能用回自然滑行。",
-      "entry": "https://jinke.me/#lesson=v-isolate-combine",
+      "entry": "https://jinke.me/snowboard/#lesson=v-isolate-combine",
       "citations": [
         {
           "source": "S15",
@@ -5665,7 +5665,7 @@
       "title": "基本站姿：站在两脚之间，关节能动",
       "module": "stance",
       "goal": "无需先大幅救平衡，就能调刃、屈伸和进入下一弯。",
-      "entry": "https://jinke.me/#lesson=v-base-stance",
+      "entry": "https://jinke.me/snowboard/#lesson=v-base-stance",
       "citations": [
         {
           "source": "S16",
@@ -5703,7 +5703,7 @@
       "title": "双臂作参考：转头观察时别把板带跑",
       "module": "stance",
       "goal": "转头观察后仍能维持原路线，不靠固定双臂滑行。",
-      "entry": "https://jinke.me/#lesson=v-arms-feedback",
+      "entry": "https://jinke.me/snowboard/#lesson=v-arms-feedback",
       "citations": [
         {
           "source": "S16",
@@ -5733,7 +5733,7 @@
       "title": "前后重心：调节两脚承重",
       "module": "stance",
       "goal": "能向板头或板尾略移，并顺畅回到两脚都能工作的状态。",
-      "entry": "https://jinke.me/#lesson=v-fore-aft-movement",
+      "entry": "https://jinke.me/snowboard/#lesson=v-fore-aft-movement",
       "citations": [
         {
           "source": "S01",
@@ -5763,7 +5763,7 @@
       "title": "转弯时，前脚和后脚怎样配合",
       "module": "stance",
       "goal": "找到是哪一段雪板反应不对，不把固定“先压前、再压后”当所有弯的口令。",
-      "entry": "https://jinke.me/#lesson=v-fore-aft-roles",
+      "entry": "https://jinke.me/snowboard/#lesson=v-fore-aft-roles",
       "citations": [
         {
           "source": "S10",
@@ -5793,7 +5793,7 @@
       "title": "前—中—后：感受两脚承重变化",
       "module": "stance",
       "goal": "知道自己的调整影响了什么，并把夸张的感知动作缩回正常滑行。",
-      "entry": "https://jinke.me/#lesson=v-fore-aft-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v-fore-aft-drill",
       "citations": [
         {
           "source": "S16",
@@ -5815,7 +5815,7 @@
       "title": "前刃高低站位：蹲得下，也站得起",
       "module": "stance",
       "goal": "站高一点和蹲低一点都能控刃，不靠锁膝或折腰。",
-      "entry": "https://jinke.me/#lesson=v-toe-high-low",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-high-low",
       "citations": [
         {
           "source": "S03",
@@ -5845,7 +5845,7 @@
       "title": "立刃的两种配合：身体内倾与关节成角",
       "module": "edging",
       "goal": "能用小动作立刃，并知道加大内倾时要看路线和抓地。",
-      "entry": "https://jinke.me/#lesson=v-active-passive-edge",
+      "entry": "https://jinke.me/snowboard/#lesson=v-active-passive-edge",
       "citations": [
         {
           "source": "S16",
@@ -5892,7 +5892,7 @@
       "title": "原地练前刃，再用单弯验证",
       "module": "edging",
       "goal": "每次立刃后都能恢复，并把感觉对应到实际雪痕。",
-      "entry": "https://jinke.me/#lesson=v-toe-static-five",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-static-five",
       "citations": [
         {
           "source": "S06",
@@ -5922,7 +5922,7 @@
       "title": "前刃发力：胫骨贴靴舌，脚跟留在靴内",
       "module": "edging",
       "goal": "前刃能渐进立起、稳住，也能按路线慢慢放开。",
-      "entry": "https://jinke.me/#lesson=v-toe-tongue",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-tongue",
       "citations": [
         {
           "source": "S06",
@@ -5961,7 +5961,7 @@
       "title": "前刃调角：膝髋渐进移动，脚踝能调",
       "module": "edging",
       "goal": "刃角稍大后仍能控制路线，并能顺畅进入下一步。",
-      "entry": "https://jinke.me/#lesson=v-toe-lock-ankle",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-lock-ankle",
       "citations": [
         {
           "source": "S06",
@@ -5999,7 +5999,7 @@
       "title": "后刃发力：脚跟、高背板与膝髋配合",
       "module": "edging",
       "goal": "后刃既能稳住，也能继续屈伸和放开，不靠踢后脚。",
-      "entry": "https://jinke.me/#lesson=v-heel-pull",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-pull",
       "citations": [
         {
           "source": "S06",
@@ -6029,7 +6029,7 @@
       "title": "原地练后刃：立得起，也放得下",
       "module": "edging",
       "goal": "后刃动作能自主完成，不靠他人拉住或大摆臂。",
-      "entry": "https://jinke.me/#lesson=v-heel-static-repetition",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-static-repetition",
       "citations": [
         {
           "source": "S06",
@@ -6051,7 +6051,7 @@
       "title": "前刃成角：腿调角，上身保持平衡",
       "module": "edging",
       "goal": "增加一点前刃角度后，仍能稳住路线并进入下一弯。",
-      "entry": "https://jinke.me/#lesson=v-toe-counterbalance",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-counterbalance",
       "citations": [
         {
           "source": "S16",
@@ -6081,7 +6081,7 @@
       "title": "后刃成角：髋向脚跟侧，上身配合平衡",
       "module": "edging",
       "goal": "后刃脚下变重时还能调整，不整个人向弯内躺倒。",
-      "entry": "https://jinke.me/#lesson=v-heel-counterbalance",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-counterbalance",
       "citations": [
         {
           "source": "S06",
@@ -6111,7 +6111,7 @@
       "title": "下肢带转向，全身配合平衡",
       "module": "edging",
       "goal": "手臂放松时也能转圆弯，不靠抡肩或踢后脚。",
-      "entry": "https://jinke.me/#lesson=v-lower-body-priority",
+      "entry": "https://jinke.me/snowboard/#lesson=v-lower-body-priority",
       "citations": [
         {
           "source": "S03",
@@ -6141,7 +6141,7 @@
       "title": "后刃单弯：稳住一段，再完成并停住",
       "module": "edging",
       "goal": "后刃的建立、保持和结束都能主动控制。",
-      "entry": "https://jinke.me/#lesson=v-heel-brief-hold",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-brief-hold",
       "citations": [
         {
           "source": "S06",
@@ -6163,7 +6163,7 @@
       "title": "检查后刃：感觉、录像和雪痕一起看",
       "module": "edging",
       "goal": "能据实际结果保留或撤回一个调整。",
-      "entry": "https://jinke.me/#lesson=v-heel-feedback",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-feedback",
       "citations": [
         {
           "source": "S16",
@@ -6183,7 +6183,7 @@
       "title": "脚踝怎样借助雪鞋调节前刃",
       "module": "edging",
       "goal": "靴能托住小腿，脚踝仍能微调，而不是锁死或在靴内松动。",
-      "entry": "https://jinke.me/#lesson=v-toe-ankle-role",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-ankle-role",
       "citations": [
         {
           "source": "S16",
@@ -6221,7 +6221,7 @@
       "title": "站多高合适：为下一次屈伸留空间",
       "module": "inclination",
       "goal": "无论高低，都给下一步调刃与屈伸留空间。",
-      "entry": "https://jinke.me/#lesson=v-low-high-principle",
+      "entry": "https://jinke.me/snowboard/#lesson=v-low-high-principle",
       "citations": [
         {
           "source": "S16",
@@ -6252,7 +6252,7 @@
       "title": "后刃内倾练习：先稳住弧线，再加幅度",
       "module": "inclination",
       "goal": "内倾增加时，雪板与身体仍沿可控弧线走。",
-      "entry": "https://jinke.me/#lesson=v-heel-low-inclination",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-low-inclination",
       "citations": [
         {
           "source": "S16",
@@ -6282,7 +6282,7 @@
       "title": "后刃高低对照：站高一点仍能控刃",
       "module": "inclination",
       "goal": "较高站位仍能控速、吸收和换刃，不把站高做成锁膝。",
-      "entry": "https://jinke.me/#lesson=v-heel-height-progression",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-height-progression",
       "citations": [
         {
           "source": "S16",
@@ -6312,7 +6312,7 @@
       "title": "后刃弯里渐进伸腿与收腿",
       "module": "inclination",
       "goal": "伸腿帮助维持路线，不变成猛蹬或后脚横推。",
-      "entry": "https://jinke.me/#lesson=v-heel-incline-extension",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-incline-extension",
       "citations": [
         {
           "source": "S16",
@@ -6342,7 +6342,7 @@
       "title": "前刃内倾：手臂自然，不主动够雪",
       "module": "inclination",
       "goal": "前刃幅度增加后仍看得见出口，也能准备下一弯。",
-      "entry": "https://jinke.me/#lesson=v-toe-reach-snow",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-reach-snow",
       "citations": [
         {
           "source": "S16",
@@ -6372,7 +6372,7 @@
       "title": "脚下压力：分清大小、方向和前后分配",
       "module": "pressure",
       "goal": "先判断要稳住板、吸收变化还是放开旧刃，再选动作。",
-      "entry": "https://jinke.me/#lesson=v-pressure-overview",
+      "entry": "https://jinke.me/snowboard/#lesson=v-pressure-overview",
       "citations": [
         {
           "source": "S16",
@@ -6419,7 +6419,7 @@
       "title": "前刃吸收压力：柔和屈腿，不猛跪",
       "module": "pressure",
       "goal": "吸收压力变化后仍能继续调刃，不猛跪、不蹲到底。",
-      "entry": "https://jinke.me/#lesson=v-toe-kneel-pressure",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-kneel-pressure",
       "citations": [
         {
           "source": "S16",
@@ -6449,7 +6449,7 @@
       "title": "开放后刃：让后脚也能稳稳控刃",
       "module": "pressure",
       "goal": "后刃板尾能按计划转弯，下一弯也不被后坐拖住。",
-      "entry": "https://jinke.me/#lesson=v-heel-open-rear-foot",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-rear-foot",
       "citations": [
         {
           "source": "S01",
@@ -6479,7 +6479,7 @@
       "title": "前刃入弯：前脚带入，后脚接上",
       "module": "pressure",
       "goal": "入弯更顺，弯中仍由两脚配合，不一直压在前脚。",
-      "entry": "https://jinke.me/#lesson=v-toe-front-participation",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-front-participation",
       "citations": [
         {
           "source": "S10",
@@ -6509,7 +6509,7 @@
       "title": "屈腿调压：开始下沉与收住动作不同",
       "module": "pressure",
       "goal": "按需要缩短腿长，同时保住路线和后续活动空间。",
-      "entry": "https://jinke.me/#lesson=v11-flex",
+      "entry": "https://jinke.me/snowboard/#lesson=v11-flex",
       "citations": [
         {
           "source": "S16",
@@ -6547,7 +6547,7 @@
       "title": "伸腿调压：开始站起与停止上升不同",
       "module": "pressure",
       "goal": "渐进伸腿后仍能屈回来，不靠猛蹬制造转弯。",
-      "entry": "https://jinke.me/#lesson=v11-extend",
+      "entry": "https://jinke.me/snowboard/#lesson=v11-extend",
       "citations": [
         {
           "source": "S16",
@@ -6585,7 +6585,7 @@
       "title": "开放站姿：分清板头板尾与两侧板刃",
       "module": "pressure",
       "goal": "分清向前刃/后刃移动，与向板头/板尾偏移。",
-      "entry": "https://jinke.me/#lesson=v11-lateral",
+      "entry": "https://jinke.me/snowboard/#lesson=v11-lateral",
       "citations": [
         {
           "source": "S16",
@@ -6615,7 +6615,7 @@
       "title": "连弯节奏：先完成弯形，再调整快慢",
       "module": "pressure",
       "goal": "连续换刃少停顿，弯尾不堆成一次猛烈急刹。",
-      "entry": "https://jinke.me/#lesson=v12-rhythm-why",
+      "entry": "https://jinke.me/snowboard/#lesson=v12-rhythm-why",
       "citations": [
         {
           "source": "S16",
@@ -6645,7 +6645,7 @@
       "title": "伸展式换刃：起身同时放开旧刃",
       "module": "pressure",
       "goal": "贴雪完成换刃，并给新弯继续屈腿留空间。",
-      "entry": "https://jinke.me/#lesson=v12-up-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v12-up-drill",
       "citations": [
         {
           "source": "S10",
@@ -6683,7 +6683,7 @@
       "title": "屈曲换刃与回收换刃：两种收腿方式",
       "module": "pressure",
       "goal": "分清两种动作路径，放开旧刃后平顺接上新刃。",
-      "entry": "https://jinke.me/#lesson=v13-down-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v13-down-drill",
       "citations": [
         {
           "source": "S07",
@@ -6730,7 +6730,7 @@
       "title": "看清换刃：放旧刃、经过平板、建新刃",
       "module": "transition",
       "goal": "旧刃能放开，新刃能连续建立，中间不僵停也不扑肩。",
-      "entry": "https://jinke.me/#lesson=v-transition-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-transition-map",
       "citations": [
         {
           "source": "S16",
@@ -6786,7 +6786,7 @@
       "title": "下肢引导搓雪弯：连续转向，不甩后脚",
       "module": "transition",
       "goal": "转出连续圆弧，避免前脚钉住、后脚突然把板尾甩过去。",
-      "entry": "https://jinke.me/#lesson=v14-steering",
+      "entry": "https://jinke.me/snowboard/#lesson=v14-steering",
       "citations": [
         {
           "source": "S16",
@@ -6826,7 +6826,7 @@
       "title": "板体扭转：前后脚调刃可以有先后",
       "module": "transition",
       "goal": "辨认两脚独立动作，并让后段及时接上新刃。",
-      "entry": "https://jinke.me/#lesson=v14-twist",
+      "entry": "https://jinke.me/snowboard/#lesson=v14-twist",
       "citations": [
         {
           "source": "S16",
@@ -6856,7 +6856,7 @@
       "title": "身体怎样跨过雪板进入下一弯",
       "module": "transition",
       "goal": "身体跨板顺畅，不把肩先扔进新弯等雪板追上。",
-      "entry": "https://jinke.me/#lesson=v15-incline-change",
+      "entry": "https://jinke.me/snowboard/#lesson=v15-incline-change",
       "citations": [
         {
           "source": "S17",
@@ -6886,7 +6886,7 @@
       "title": "转头观察时，保持原来的路线",
       "module": "transition",
       "goal": "观察后仍能保持当前速度、走廊和板刃控制。",
-      "entry": "https://jinke.me/#lesson=v15-gaze-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v15-gaze-drill",
       "citations": [
         {
           "source": "S16",
@@ -6916,7 +6916,7 @@
       "title": "髋参与换刃：向板刃移动，不向板尾坐",
       "module": "transition",
       "goal": "髋向目标板刃移动时，不无意坐向板尾，也能进入下一弯。",
-      "entry": "https://jinke.me/#lesson=v16-hip-change",
+      "entry": "https://jinke.me/snowboard/#lesson=v16-hip-change",
       "citations": [
         {
           "source": "S16",
@@ -6938,7 +6938,7 @@
       "title": "髋部换侧练习：原地感知，滑行验证",
       "module": "transition",
       "goal": "小幅两侧调节能自主恢复，滑行不因强调髋而更僵。",
-      "entry": "https://jinke.me/#lesson=v16-hip-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v16-hip-drill",
       "citations": [
         {
           "source": "S16",
@@ -6960,7 +6960,7 @@
       "title": "从膝的移动看踝膝髋怎样换刃",
       "module": "transition",
       "goal": "换刃动作更紧凑，但膝不强拧、弧线不变成直冲。",
-      "entry": "https://jinke.me/#lesson=v17-knee-change",
+      "entry": "https://jinke.me/snowboard/#lesson=v17-knee-change",
       "citations": [
         {
           "source": "S16",
@@ -6990,7 +6990,7 @@
       "title": "回收式搓雪小回转：板从身下通过",
       "module": "transition",
       "goal": "以回收改善短弯衔接，不损失圆弧、滑移和控速。",
-      "entry": "https://jinke.me/#lesson=v17-retract-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v17-retract-drill",
       "citations": [
         {
           "source": "T01",
@@ -7020,7 +7020,7 @@
       "title": "前后脚踏动：练小幅先后调刃",
       "module": "transition",
       "goal": "分得清两脚调刃，又能及时合回完整动作。",
-      "entry": "https://jinke.me/#lesson=s14-twist-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=s14-twist-drill",
       "citations": [
         {
           "source": "S16",
@@ -7042,7 +7042,7 @@
       "title": "旋转怎么配合：同向、反向与上身相对稳定",
       "module": "rotation",
       "goal": "能从录像认出三种关系，再选适合当前弯形的动作。",
-      "entry": "https://jinke.me/#lesson=v-shoulder-rhythm-map",
+      "entry": "https://jinke.me/snowboard/#lesson=v-shoulder-rhythm-map",
       "citations": [
         {
           "source": "S16",
@@ -7066,7 +7066,7 @@
       "title": "肩膀朝哪里：找到适合自己的自然朝向",
       "module": "rotation",
       "goal": "用两侧弯形和控速来检查肩髋朝向是否合适。",
-      "entry": "https://jinke.me/#lesson=v-mid-position-30",
+      "entry": "https://jinke.me/snowboard/#lesson=v-mid-position-30",
       "citations": [
         {
           "source": "S16",
@@ -7088,7 +7088,7 @@
       "title": "旋转方式切换：反向调整后接回自然圆弯",
       "module": "rotation",
       "goal": "把已经会的小幅反向调速动作接回自然圆弯。",
-      "entry": "https://jinke.me/#lesson=v19-mixed",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-mixed",
       "citations": [
         {
           "source": "S16",
@@ -7118,7 +7118,7 @@
       "title": "开肩后的后刃：检查前后脚是否都能控制",
       "module": "rotation",
       "goal": "在舒适开肩范围内，两脚仍能调刃，板尾不突然扫出。",
-      "entry": "https://jinke.me/#lesson=v-heel-open-loading",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-loading",
       "citations": [
         {
           "source": "S16",
@@ -7140,7 +7140,7 @@
       "title": "开肩姿态练习：朝向、屈伸、倾斜分开试",
       "module": "rotation",
       "goal": "在舒适朝向下连续转弯，仍能轻松释放旧刃。",
-      "entry": "https://jinke.me/#lesson=v-heel-open-progression",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-open-progression",
       "citations": [
         {
           "source": "S16",
@@ -7162,7 +7162,7 @@
       "title": "两侧弯不一样：先找哪一步开始偏差",
       "module": "rotation",
       "goal": "找出两侧差异最早出现的位置，并只改一处复测。",
-      "entry": "https://jinke.me/#lesson=v-toe-open-causal",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-open-causal",
       "citations": [
         {
           "source": "S16",
@@ -7185,7 +7185,7 @@
       "title": "前刃双脚配合：用自然朝向找回前脚引导",
       "module": "rotation",
       "goal": "让前刃弧线更连续，避免一条腿从头撑到尾。",
-      "entry": "https://jinke.me/#lesson=v-toe-closed-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-closed-drill",
       "citations": [
         {
           "source": "S16",
@@ -7207,7 +7207,7 @@
       "title": "用手臂作参照：发现多余的转肩",
       "module": "rotation",
       "goal": "发现抢肩，并在手臂自然放松时完成同样圆弯。",
-      "entry": "https://jinke.me/#lesson=v-hand-back-cue",
+      "entry": "https://jinke.me/snowboard/#lesson=v-hand-back-cue",
       "citations": [
         {
           "source": "S16",
@@ -7229,7 +7229,7 @@
       "title": "同向旋转：腿带着板转，上身自然跟随",
       "module": "rotation",
       "goal": "连续引导圆弯，减少入弯和弯尾的突然扫尾。",
-      "entry": "https://jinke.me/#lesson=v18-follow",
+      "entry": "https://jinke.me/snowboard/#lesson=v18-follow",
       "citations": [
         {
           "source": "S16",
@@ -7251,7 +7251,7 @@
       "title": "自然站姿：开肩后两条腿仍能活动",
       "module": "rotation",
       "goal": "找到两侧都能顺利换刃的自然朝向。",
-      "entry": "https://jinke.me/#lesson=v18-neutral",
+      "entry": "https://jinke.me/snowboard/#lesson=v18-neutral",
       "citations": [
         {
           "source": "S16",
@@ -7273,7 +7273,7 @@
       "title": "反向旋转：已掌握调速动作后的专项练习",
       "module": "rotation",
       "goal": "小幅增加熟悉后刃调速动作中的上下身反向配合，再恢复原路线。",
-      "entry": "https://jinke.me/#lesson=v19-counter",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-counter",
       "citations": [
         {
           "source": "S16",
@@ -7303,7 +7303,7 @@
       "title": "反脚滑行：让新的前脚带路",
       "module": "rotation",
       "goal": "在反脚方向上两刃都能控速、完成弯和停止。",
-      "entry": "https://jinke.me/#lesson=v19-switch",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-switch",
       "citations": [
         {
           "source": "S16",
@@ -7325,7 +7325,7 @@
       "title": "上下身分离：上身走得稳，双腿继续转弯",
       "module": "rotation",
       "goal": "减少无用的甩肩，同时保留双腿引导和自然平衡。",
-      "entry": "https://jinke.me/#lesson=v19-stable-upper",
+      "entry": "https://jinke.me/snowboard/#lesson=v19-stable-upper",
       "citations": [
         {
           "source": "S16",
@@ -7356,7 +7356,7 @@
       "title": "刻滑是否进步：看轨迹、控速、放刃和适应",
       "module": "carving",
       "goal": "用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。",
-      "entry": "https://jinke.me/#lesson=v-toe-touch-criterion",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-touch-criterion",
       "citations": [
         {
           "source": "S16",
@@ -7384,7 +7384,7 @@
       "title": "前刃 J 弯：让雪板沿一条弧线转向横坡",
       "module": "carving",
       "goal": "完成可控的前刃单弧，知道哪里抓刃、哪里开始扫尾。",
-      "entry": "https://jinke.me/#lesson=v-toe-low-drill",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-low-drill",
       "citations": [
         {
           "source": "S16",
@@ -7406,7 +7406,7 @@
       "title": "刻滑和搓雪：主动选择滑移多少",
       "module": "carving",
       "goal": "能减少或增加滑移，同时把圆弯和速度控制好。",
-      "entry": "https://jinke.me/#lesson=v20-carve",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-carve",
       "citations": [
         {
           "source": "S16",
@@ -7453,7 +7453,7 @@
       "title": "弯形控速：弯尾朝哪里，速度就怎样变化",
       "module": "carving",
       "goal": "在选定走廊内用完整圆弧控速，减少弯尾突然横刹。",
-      "entry": "https://jinke.me/#lesson=v20-traffic",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-traffic",
       "citations": [
         {
           "source": "S16",
@@ -7492,7 +7492,7 @@
       "title": "刻滑进阶路线：单弧、连弧，再调整弯形",
       "module": "carving",
       "goal": "根据当前最弱的一步，选出一项练习和清楚的通过标准。",
-      "entry": "https://jinke.me/#lesson=v20-path",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-path",
       "citations": [
         {
           "source": "S16",
@@ -7520,7 +7520,7 @@
       "title": "浅弧连刃：用小刃角连接连续窄痕",
       "module": "carving",
       "goal": "两侧各留下连续窄痕，并在预定位置主动结束。",
-      "entry": "https://jinke.me/#lesson=s20-rails",
+      "entry": "https://jinke.me/snowboard/#lesson=s20-rails",
       "citations": [
         {
           "source": "S16",
@@ -7542,7 +7542,7 @@
       "title": "搓雪小回转：把释放、转向和控速连成一组",
       "module": "short-turns",
       "goal": "不依赖刻滑或回收换刃，完成一组圆润、对称、速度可控的搓雪小回转。",
-      "entry": "https://jinke.me/#lesson=s-short-integrated",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-integrated",
       "citations": [
         {
           "source": "S10",
@@ -7574,7 +7574,7 @@
       "title": "侧滑接单弯：一步步连成搓雪小回转",
       "module": "short-turns",
       "goal": "把“能用两刃侧滑和单弯停止”接到“连续的小搓雪弯”，补上换侧练习的中间台阶。",
-      "entry": "https://jinke.me/#lesson=s-short-sideslip",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-sideslip",
       "citations": [
         {
           "source": "S16",
@@ -7598,7 +7598,7 @@
       "title": "从中弯到小弯：逐级缩小，再回到中弯",
       "module": "short-turns",
       "goal": "能主动缩小弯，也能随时放大弯，避免只会跟着固定节拍摆板。",
-      "entry": "https://jinke.me/#lesson=s-short-size-ladder",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-size-ladder",
       "citations": [
         {
           "source": "S16",
@@ -7622,7 +7622,7 @@
       "title": "双脚带板与前后平衡：不要围着板头甩尾",
       "module": "short-turns",
       "goal": "缩弯时保留两脚的控制，找到能连续换侧的前后位置。",
-      "entry": "https://jinke.me/#lesson=s-short-balance",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-balance",
       "citations": [
         {
           "source": "A03",
@@ -7654,7 +7654,7 @@
       "title": "小回转节奏：两侧一样完整，再谈快慢",
       "module": "short-turns",
       "goal": "两侧小弯都能从容完成，避免一边赶、一边拖。",
-      "entry": "https://jinke.me/#lesson=s-short-rhythm",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-rhythm",
       "citations": [
         {
           "source": "S16",
@@ -7677,7 +7677,7 @@
       "title": "搓雪小回转排错：先看路线，再找动作原因",
       "module": "short-turns",
       "goal": "把“滑得不顺”变成可验证的问题，一次只改一件事。",
-      "entry": "https://jinke.me/#lesson=s-short-diagnosis",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-diagnosis",
       "citations": [
         {
           "source": "S10",
@@ -7716,7 +7716,7 @@
       "title": "小回转验收：能保持，也能随时改变",
       "module": "short-turns",
       "goal": "让小回转成为可选择的滑行方式，而不是只能在固定节拍下维持的动作。",
-      "entry": "https://jinke.me/#lesson=s-short-adapt",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-adapt",
       "citations": [
         {
           "source": "S16",
@@ -7752,7 +7752,7 @@
       "title": "体能怎么练：力量、耐力和动作质量一起看",
       "module": "off-snow",
       "goal": "找出疲劳是否影响控制，建立能坚持、能恢复的离雪训练。",
-      "entry": "https://jinke.me/#lesson=v22-strength",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-strength",
       "citations": [
         {
           "source": "S21",
@@ -7784,7 +7784,7 @@
       "title": "扶墙屈踝：小腿向前，脚跟留地",
       "module": "off-snow",
       "goal": "能小幅屈踝并主动返回，不靠抬跟或手推墙硬压。",
-      "entry": "https://jinke.me/#lesson=v22-wall",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-wall",
       "citations": [
         {
           "source": "S06",
@@ -7822,7 +7822,7 @@
       "title": "后刃动作预习：屁股后下移，身体保持平衡",
       "module": "off-snow",
       "goal": "下降、停住和起身都能踩稳脚掌。",
-      "entry": "https://jinke.me/#lesson=v22-heel-rehearsal",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-heel-rehearsal",
       "citations": [
         {
           "source": "S16",
@@ -7852,7 +7852,7 @@
       "title": "活动度：既能伸展开，也能自己收回来",
       "module": "off-snow",
       "goal": "找准一个受限动作，用舒适练习改善后重新检查。",
-      "entry": "https://jinke.me/#lesson=v22-flexibility",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-flexibility",
       "citations": [
         {
           "source": "S24",
@@ -7884,7 +7884,7 @@
       "title": "浅半蹲保持：能呼吸，也能随时站起",
       "module": "off-snow",
       "goal": "在停留中维持姿态，并平稳结束动作。",
-      "entry": "https://jinke.me/#lesson=v22-hold",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-hold",
       "citations": [
         {
           "source": "S25",
@@ -7914,7 +7914,7 @@
       "title": "双脚提踵：慢慢抬跟，也慢慢放下",
       "module": "off-snow",
       "goal": "提起、短停和下降都能控制，双脚不向内外翻。",
-      "entry": "https://jinke.me/#lesson=v22-calf",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-calf",
       "citations": [
         {
           "source": "S28",
@@ -7944,7 +7944,7 @@
       "title": "自重深蹲：脚掌踩稳，髋膝踝一起动",
       "module": "off-snow",
       "goal": "完成可控的下降、短停和起身，为离雪力量训练打基础。",
-      "entry": "https://jinke.me/#lesson=v22-squat",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-squat",
       "citations": [
         {
           "source": "S25",
@@ -7982,7 +7982,7 @@
       "title": "前臂平板支撑：身体成线，呼吸不断",
       "module": "off-snow",
       "goal": "在短时前臂支撑中保持躯干形态与呼吸，并让膝受控回垫。",
-      "entry": "https://jinke.me/#lesson=v22-plank",
+      "entry": "https://jinke.me/snowboard/#lesson=v22-plank",
       "citations": [
         {
           "source": "S27",
@@ -8012,7 +8012,7 @@
       "title": "大腿后侧动态拉伸：托住大腿，慢慢伸屈膝",
       "module": "off-snow",
       "goal": "大腿大致不动时，小腿能在舒适范围往返。",
-      "entry": "https://jinke.me/#lesson=s22-hamstring",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-hamstring",
       "citations": [
         {
           "source": "S29",
@@ -8034,7 +8034,7 @@
       "title": "半跪髋前侧拉伸：轻收骨盆，再小幅前移",
       "module": "off-snow",
       "goal": "分清髋前侧拉伸和腰部代偿，能主动退回。",
-      "entry": "https://jinke.me/#lesson=s22-hip-mobility",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-hip-mobility",
       "citations": [
         {
           "source": "S29",
@@ -8064,7 +8064,7 @@
       "title": "扶墙拉伸小腿：后脚跟踩地，慢慢前移",
       "module": "off-snow",
       "goal": "保持脚踝稳定，在舒适范围内拉伸并返回。",
-      "entry": "https://jinke.me/#lesson=s22-ankle-mobility",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-ankle-mobility",
       "citations": [
         {
           "source": "S28",
@@ -8094,7 +8094,7 @@
       "title": "肩绕环热身：肩膀画小圈，手臂放松",
       "module": "off-snow",
       "goal": "轻松活动肩部，分清肩绕环与摆臂。",
-      "entry": "https://jinke.me/#lesson=s22-shoulder",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-shoulder",
       "citations": [
         {
           "source": "S33",
@@ -8116,7 +8116,7 @@
       "title": "上雪前热身：先活动全身，再试两刃控制",
       "module": "off-snow",
       "goal": "让身体逐渐进入状态，确认当天能可靠控速和换刃。",
-      "entry": "https://jinke.me/#lesson=s22-warmup",
+      "entry": "https://jinke.me/snowboard/#lesson=s22-warmup",
       "citations": [
         {
           "source": "S33",
@@ -8157,7 +8157,7 @@
       "title": "高背板前倾：反应更快，也要能屈伸",
       "module": "equipment",
       "goal": "找到后刃容易控制、双腿仍能自然活动的设置。",
-      "entry": "https://jinke.me/#lesson=v-heel-highback-setting",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-highback-setting",
       "citations": [
         {
           "source": "S20",
@@ -8193,7 +8193,7 @@
       "title": "雪靴与高背板：先穿稳、扣好，再调响应",
       "module": "equipment",
       "goal": "减少松动和无效空隙，让脚下动作能及时传到雪板。",
-      "entry": "https://jinke.me/#lesson=v23-highback",
+      "entry": "https://jinke.me/snowboard/#lesson=v23-highback",
       "citations": [
         {
           "source": "S20",
@@ -8221,7 +8221,7 @@
       "title": "站距：先从舒适屈伸开始",
       "module": "equipment",
       "goal": "用舒适度和两刃控制比较站距，保留可恢复的设置。",
-      "entry": "https://jinke.me/#lesson=v23-width",
+      "entry": "https://jinke.me/snowboard/#lesson=v23-width",
       "citations": [
         {
           "source": "S20",
@@ -8257,7 +8257,7 @@
       "title": "固定器角度：鸭式、正零和双正怎么选",
       "module": "equipment",
       "goal": "读懂角度并找到舒适、可控的设置，不照搬他人的数字。",
-      "entry": "https://jinke.me/#lesson=v23-angles",
+      "entry": "https://jinke.me/snowboard/#lesson=v23-angles",
       "citations": [
         {
           "source": "S19",
@@ -8296,7 +8296,7 @@
       "title": "膝盖怎么走：顺着脚的自然方向屈伸",
       "module": "equipment",
       "goal": "在穿靴、扣板后仍能舒适屈伸和调刃。",
-      "entry": "https://jinke.me/#lesson=v23-knees",
+      "entry": "https://jinke.me/snowboard/#lesson=v23-knees",
       "citations": [
         {
           "source": "S16",
@@ -8334,7 +8334,7 @@
       "title": "雪靴居中与拖靴：两边都要留够空间",
       "module": "equipment",
       "goal": "分清靴配合、横向居中和整套后移，找出可能的拖靴限制。",
-      "entry": "https://jinke.me/#lesson=s23-boot-centering",
+      "entry": "https://jinke.me/snowboard/#lesson=s23-boot-centering",
       "citations": [
         {
           "source": "S20",
@@ -8365,7 +8365,7 @@
       "title": "后刃摔倒怎么查：被绊住，还是板滑走",
       "module": "diagnosis",
       "goal": "用低风险的小动作验证原因，不反复重现摔倒。",
-      "entry": "https://jinke.me/#lesson=v24-heel-edge",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-heel-edge",
       "citations": [
         {
           "source": "S16",
@@ -8403,7 +8403,7 @@
       "title": "开肩后板尾乱甩：查刃角、前后平衡和转肩",
       "module": "diagnosis",
       "goal": "找出板尾最早偏转的阶段，再一次只改一个原因。",
-      "entry": "https://jinke.me/#lesson=v24-heel-pivot",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-heel-pivot",
       "citations": [
         {
           "source": "S16",
@@ -8433,7 +8433,7 @@
       "title": "后刃换前刃总是慢：先看旧刃放开没有",
       "module": "diagnosis",
       "goal": "减少换刃中的无效等待，不靠投肩或猛扭身体。",
-      "entry": "https://jinke.me/#lesson=v24-heel-transition",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-heel-transition",
       "citations": [
         {
           "source": "S17",
@@ -8471,7 +8471,7 @@
       "title": "前刃站不稳：别只顾往前趴",
       "module": "diagnosis",
       "goal": "用小幅前刃单弯恢复抓地和放刃，再查失稳来源。",
-      "entry": "https://jinke.me/#lesson=v24-toe-unstable",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-toe-unstable",
       "citations": [
         {
           "source": "S16",
@@ -8509,7 +8509,7 @@
       "title": "前刃后腿特别累：查位置，也查活动是否受限",
       "module": "diagnosis",
       "goal": "减掉单腿硬撑，同时保留板头引导与板尾跟随。",
-      "entry": "https://jinke.me/#lesson=v24-rear-load",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-rear-load",
       "citations": [
         {
           "source": "S16",
@@ -8539,7 +8539,7 @@
       "title": "想刻滑却扫尾：先找轨迹从哪里变宽",
       "module": "diagnosis",
       "goal": "用一个容易的单弧验证原因，再连接两侧。",
-      "entry": "https://jinke.me/#lesson=v24-skid-track",
+      "entry": "https://jinke.me/snowboard/#lesson=v24-skid-track",
       "citations": [
         {
           "source": "S16",
@@ -8577,7 +8577,7 @@
       "title": "什么时候升级：能重复、能结束、自然滑也能用",
       "module": "discussion",
       "goal": "给一个目标写清通过标准，用结果决定是否升级。",
-      "entry": "https://jinke.me/#lesson=v-heel-two-run-claim",
+      "entry": "https://jinke.me/snowboard/#lesson=v-heel-two-run-claim",
       "citations": [
         {
           "source": "S16",
@@ -8605,7 +8605,7 @@
       "title": "怎么安排练习：先滑一遍，拆一项，再自然滑",
       "module": "discussion",
       "goal": "把一个滑行问题写成能执行、能比较的短组练习。",
-      "entry": "https://jinke.me/#lesson=v21-method",
+      "entry": "https://jinke.me/snowboard/#lesson=v21-method",
       "citations": [
         {
           "source": "T01",
@@ -8643,7 +8643,7 @@
       "title": "动作时机：什么时候开始，什么时候停",
       "module": "discussion",
       "goal": "能调整一段屈伸的时机与速度，同时保持圆弯。",
-      "entry": "https://jinke.me/#lesson=v21-linear",
+      "entry": "https://jinke.me/snowboard/#lesson=v21-linear",
       "citations": [
         {
           "source": "S16",
@@ -8681,7 +8681,7 @@
       "title": "进阶怎么选课：两条主线与并行能力",
       "module": "discussion",
       "goal": "根据当前问题和前置能力，选一项值得练的内容。",
-      "entry": "https://jinke.me/#lesson=v3-index",
+      "entry": "https://jinke.me/snowboard/#lesson=v3-index",
       "citations": [
         {
           "source": "S16",
@@ -8755,7 +8755,7 @@
       "s-short-diagnosis": "error",
       "s-short-sideslip": "drill"
     },
-    "homeEntry": "https://jinke.me/3d/",
+    "homeEntry": "https://jinke.me/snowboard/3d/",
     "scope": "独立原型入口；本对象不表示课内引用接入状态，后者见 counts 与 references",
     "status": "review-in-progress",
     "replacementCompleted": false

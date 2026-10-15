@@ -22,11 +22,23 @@
 - 功能实现收尾提交：`5617a6b`；随后文档修订纳入交付基线 `42f2b47d57a26af8824079b974c3dbc36ca1d657`。
 - [Actions 38675176314](https://github.com/yichenluan/snowboard-guide/actions/runs/38675176314) 的build和deploy成功，部署完成于2026-10-15 11:14:43（Asia/Shanghai）。此前凭据失效已解除。
 - 主站HTML与本地验收构建逐字节相同：2,037,129 bytes；SHA-256为 `28fa2506e633306c7df28aa0e75d4c6109fc254918465d65284abfb95952295a`。
-- 本节记录功能验收基线，不把后续纯文档提交伪装成再次动作验收。仓库最新提交用 `git log -1` 核对，最新部署用 [Pages工作流](https://github.com/yichenluan/snowboard-guide/actions/workflows/pages.yml) 核对。
+- 本节记录功能验收基线，不把后续纯文档提交伪装成再次动作验收。仓库最新提交用 `git log -1` 核对，最新部署用 [Pages工作流](https://github.com/yichenluan/snowboard/actions/workflows/pages.yml) 核对。
 
-入口：[主站](https://jinke.me/) · [小回转综合课](https://jinke.me/#lesson=s-short-integrated) · [扭板](https://jinke.me/#lesson=v14-twist) · [反脚](https://jinke.me/#lesson=v19-switch) · [独立原型84%](https://jinke.me/3d/?mode=correct&t=0.84)。
+入口：[主站](https://jinke.me/snowboard/) · [小回转综合课](https://jinke.me/snowboard/#lesson=s-short-integrated) · [扭板](https://jinke.me/snowboard/#lesson=v14-twist) · [反脚](https://jinke.me/snowboard/#lesson=v19-switch) · [独立原型84%](https://jinke.me/snowboard/3d/?mode=correct&t=0.84)。
 
-## 2026-10-15 自定义域名迁移
+## 2026-10-15 子路径更正
+
+用户明确要求 `https://jinke.me/snowboard/` 承载滑雪手册，根域留给已有个人博客，并选择将远端仓库改名为 `yichenluan/snowboard`。本地目录继续使用 `snowboard-guide/`，避免破坏本地入口和工具路径。
+
+部署使用 GitHub Pages 原生项目路径：个人博客仓库 `yichenluan.github.io` 绑定 `jinke.me`，滑雪项目不单独设置 Custom domain，继承用户站域名并按仓库名挂载 `/snowboard/`。工作流的静态产物仍从 `index.html`、`snowboard-guide.html` 和 `3d/` 开始，不再套一层 `snowboard/`。DNS 记录无需变更。离线原型回退链接、在线入口和动画清单已同步更新。
+
+本次本地类型检查、85/85测试、两项 Vite 构建、单文件构建与清单检查通过。主站与离线副本 SHA-256 均为 `a862ea129a1d9fdc333d99ae60e6b8e72aa53fb5a72c054f53cf7df36bbc012f`。只改变部署路径和链接，不改变课程、模型及个人数据键。
+
+从 `https://jinke.me/` 移到同域 `/snowboard/` 不改变 origin，已有笔记、收藏、学习进度和方向仍可读取；原 `github.io` 域的个人记录仍需导入备份。线上发布结果在完成后追加，不把本地通过当作线上验收。
+
+## 2026-10-15 自定义域名迁移（首次根路径部署的历史记录）
+
+以下记录首次根路径部署，当前正式入口已按用户更正调整为 `/snowboard/`，见上一节。
 
 按用户新请求，将正式入口改为 `https://jinke.me/`，仍使用原仓库和 GitHub Actions / Pages 托管。Pages 的自定义域名已配置，阿里云根域四条 A 记录及 `www` CNAME 已写入；具体记录和 HTTPS 检查见[部署说明](../DEPLOYMENT.md)。当前入口、生成清单及离线教材的线上原型回退链接同步更新，课程 ID、个人数据键、内容版本和动作模型未改变。
 
