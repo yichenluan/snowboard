@@ -23,6 +23,8 @@
 
 本次92/92既有测试、类型检查、两项Vite构建、单文件构建、清单同步及差异检查通过。实际浏览器核对宽窄视口的页脚、三个入口移除、首页及课程可打开；本地验证收藏、能力自查和个人补充在刷新后仍可读取，窄屏无页面横向溢出。未改动作或课程内容，不新增教学验收结论。工程日志为 `log/footer-*`，本次证据目录为 `.validation/site-footer/`。
 
+实现提交 `5a6890f`，[Actions 38683244755](https://github.com/yichenluan/snowboard/actions/runs/38683244755) 的 build / deploy 均成功。正式站点已实际打开核对：三个入口不存在、页脚仓库链接正确、微信显示 `Huunnter`。线上 HTML 与本地逐字节一致，2,039,245 bytes，SHA-256 为 `2667a136ef0d893bbe26a3a9e5b4ff63e5871604a6d2cf416e1af45fc5cb6901`。线上截图为 `.validation/site-footer/published-footer.jpg`。
+
 以下各节的导入导出验收及迁移操作属于当时版本的历史记录，不代表当前仍有这些功能。
 
 ## 2026-10-15 GitHub 课程评论
