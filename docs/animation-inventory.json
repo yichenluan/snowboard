@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "3a03871e01c4144847f644a1f38f3542ab0690145e960349b28d5324c278ac1e",
+    "content.json": "de962074ed35dcee8668fe77f0ae4d545a3c2c2f913e6012094053572063d058",
     "animations.js": "baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078",
-    "app.js": "25513cc789103ed8c0a498d038d1979a2107b33fe2840f673d240b2302d8e7e3",
-    "lesson-player/registry.json": "6c20ba5c4736f94dc7dafb961a8d6fb656f02af7a3ac9ce673bac21f1d09fd77"
+    "app.js": "31f5250b112d3008c527e572589a3d58e24f004b55c8288c50014755fd020ca5",
+    "lesson-player/registry.json": "9df069ab6be7f6261d940a8f276b22961278a2915a512cad09f52902d26464d2"
   },
   "scope": "静态源码覆盖盘点；课程资料为现有声明，未在此脚本重新核验；不证明教学正确或生物力学正确",
   "counts": {
@@ -24,12 +24,12 @@
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
-    "implemented3DTypes": 30,
-    "fullyImplemented3DTypes": 27,
+    "implemented3DTypes": 33,
+    "fullyImplemented3DTypes": 30,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 97,
-    "remainingLegacyReferences": 37,
-    "replacedLegacyReferences": 97
+    "implemented3DReferences": 131,
+    "remainingLegacyReferences": 3,
+    "replacedLegacyReferences": 131
   },
   "modules": [
     {
@@ -1202,11 +1202,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "round-linked-skid",
+          "trackDiagnostics": true,
           "type": "short-turns",
-          "variant": "round"
+          "variant": "round",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "edge-change-up",
@@ -1445,19 +1450,27 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "round-linked-skid",
           "trackDiagnostics": true,
           "transition": "extend",
           "type": "short-turns",
           "variant": "round",
-          "view": "track"
+          "view": "width"
         },
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "easy-linked-check",
+          "trackDiagnostics": true,
           "transition": "extend",
           "type": "short-turns",
-          "variant": "round"
+          "variant": "round",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "shoulder-coordination:neutral",
@@ -1520,14 +1533,17 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "asymmetric-rhythm-study",
           "trackDiagnostics": true,
           "transition": "extend",
           "type": "short-turns",
           "variant": "asymmetric",
-          "view": "track"
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "shoulder-coordination:closed-toe",
@@ -1618,12 +1634,18 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "legLengthDiagram": true,
+          "skid": true,
+          "task": "round-linked-skid",
+          "trackDiagnostics": true,
           "transition": "flex",
           "type": "short-turns",
-          "variant": "round"
+          "variant": "round",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:tail-brake",
@@ -1633,11 +1655,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "tail-brake-study",
+          "trackDiagnostics": true,
           "type": "short-turns",
-          "variant": "tail-brake"
+          "variant": "tail-brake",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-progression:side-slip",
@@ -1646,11 +1673,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "side-slip-link",
+          "trackDiagnostics": true,
           "type": "short-turn-progression",
-          "variant": "side-slip"
+          "variant": "side-slip",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-progression:side-slip-shorter",
@@ -1659,11 +1691,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "side-slip-link",
+          "trackDiagnostics": true,
           "type": "short-turn-progression",
-          "variant": "side-slip-shorter"
+          "variant": "side-slip-shorter",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-progression:linked",
@@ -1672,11 +1709,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "side-slip-link",
+          "trackDiagnostics": true,
           "type": "short-turn-progression",
-          "variant": "linked"
+          "variant": "linked",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-progression:medium-to-short",
@@ -1686,11 +1728,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "size-ladder",
+          "trackDiagnostics": true,
           "type": "short-turn-progression",
-          "variant": "medium-to-short"
+          "variant": "medium-to-short",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-progression:short-steady",
@@ -1700,11 +1747,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "size-ladder",
+          "trackDiagnostics": true,
           "type": "short-turn-progression",
-          "variant": "short-steady"
+          "variant": "short-steady",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-progression:short-to-medium",
@@ -1714,11 +1766,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "size-ladder",
+          "trackDiagnostics": true,
           "type": "short-turn-progression",
-          "variant": "short-to-medium"
+          "variant": "short-to-medium",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-balance:centered",
@@ -1727,11 +1784,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "centered-pivot-study",
+          "trackDiagnostics": true,
           "type": "short-turn-balance",
-          "variant": "centered"
+          "variant": "centered",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-balance:nose-pivot",
@@ -1741,11 +1803,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "nose-pivot-study",
+          "trackDiagnostics": true,
           "type": "short-turn-balance",
-          "variant": "nose-pivot"
+          "variant": "nose-pivot",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turn-balance:back-seat",
@@ -1755,11 +1822,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "back-seat-study",
+          "trackDiagnostics": true,
           "type": "short-turn-balance",
-          "variant": "back-seat"
+          "variant": "back-seat",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:asymmetric",
@@ -1769,11 +1841,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "asymmetric-rhythm-study",
+          "trackDiagnostics": true,
           "type": "short-turns",
-          "variant": "asymmetric"
+          "variant": "asymmetric",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:shoulder-led",
@@ -1782,11 +1859,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "shoulder-led-study",
+          "trackDiagnostics": true,
           "type": "short-turns",
-          "variant": "shoulder-led"
+          "variant": "shoulder-led",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:edge-locked",
@@ -1795,11 +1877,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "late-edge-release-study",
+          "trackDiagnostics": true,
           "type": "short-turns",
-          "variant": "edge-locked"
+          "variant": "edge-locked",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:low-stuck",
@@ -1808,11 +1895,17 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "legLengthDiagram": true,
+          "skid": true,
+          "task": "low-flexion-study",
+          "trackDiagnostics": true,
           "type": "short-turns",
-          "variant": "low-stuck"
+          "variant": "low-stuck",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:round:retract",
@@ -1822,12 +1915,18 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "legLengthDiagram": true,
+          "skid": true,
+          "task": "round-linked-skid",
+          "trackDiagnostics": true,
           "transition": "retract",
           "type": "short-turns",
-          "variant": "round"
+          "variant": "round",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "short-turns:over-inclined",
@@ -1836,11 +1935,16 @@
       ],
       "configurations": [
         {
+          "jointLabels": true,
+          "skid": true,
+          "task": "inclination-comparison",
+          "trackDiagnostics": true,
           "type": "short-turns",
-          "variant": "over-inclined"
+          "variant": "over-inclined",
+          "view": "width"
         }
       ],
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
       "key": "dry-squat",
@@ -3033,13 +3137,18 @@
         "type": "short-turns",
         "variant": "round",
         "title": "完整圆弯与两侧节奏",
-        "focus": "节奏随弯形配合；调播放速度仅便于观察，不是练习频率要求",
+        "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
         "autoplay": false,
-        "duration": 10000
+        "duration": 10000,
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v12-up-drill/1",
@@ -3521,16 +3630,19 @@
         "type": "short-turns",
         "variant": "round",
         "title": "上下身分离：上身平顺，板继续转",
-        "focus": "观察连续过程；上身转动幅度较小，但仍可随路线调整。",
-        "view": "track",
+        "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
+        "view": "width",
         "trackDiagnostics": true,
         "transition": "extend",
         "autoplay": false,
-        "duration": 16000
+        "duration": 16000,
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "skid": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-mid-position-30/1",
@@ -3652,17 +3764,20 @@
       "config": {
         "type": "short-turns",
         "variant": "asymmetric",
-        "title": "对照：一侧弯长，一侧急刹",
-        "focus": "先比较两侧出口和弯形，再回查差异从哪个阶段开始；动画不能单独确定原因。",
-        "view": "track",
+        "title": "对照：一侧较长，一侧较短急",
+        "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
+        "view": "width",
         "trackDiagnostics": true,
         "transition": "extend",
         "autoplay": false,
-        "duration": 16000
+        "duration": 16000,
+        "task": "asymmetric-rhythm-study",
+        "jointLabels": true,
+        "skid": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-toe-open-causal/2",
@@ -3676,16 +3791,19 @@
         "type": "short-turns",
         "variant": "round",
         "title": "目标：两侧都走完整",
-        "focus": "两侧各自完成圆弧，不靠一个急短弯追回另一侧的速度。",
-        "view": "track",
+        "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
+        "view": "width",
         "trackDiagnostics": true,
         "transition": "extend",
         "autoplay": false,
-        "duration": 16000
+        "duration": 16000,
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "skid": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v-toe-closed-drill/1",
@@ -3860,16 +3978,19 @@
         "type": "short-turns",
         "variant": "round",
         "title": "普通搓雪小回转：上身与双腿配合",
-        "focus": "使用已经掌握的换刃方式，先完成圆弯；上身平顺不等于僵住肩膀。",
-        "view": "track",
+        "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
+        "view": "width",
         "trackDiagnostics": true,
         "transition": "extend",
         "autoplay": false,
-        "duration": 16000
+        "duration": 16000,
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "skid": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v19-stable-upper/2",
@@ -4042,14 +4163,19 @@
         "type": "short-turns",
         "variant": "round",
         "title": "完整小回转 · 伸展式过渡",
-        "focus": "同步看板轴、移动方向、刃角、腿部动作和上身路线",
+        "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
         "autoplay": false,
         "duration": 14000,
-        "transition": "extend"
+        "transition": "extend",
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-integrated/2",
@@ -4063,14 +4189,20 @@
         "type": "short-turns",
         "variant": "round",
         "title": "完整小回转 · 屈曲式过渡",
-        "focus": "同一滑行目标也能用不同屈伸时机完成",
+        "focus": "同一条板路线下比较腿长：转换时髋踝距离缩短，再渐进恢复；不是只改变骨盆高度。",
         "autoplay": false,
         "duration": 14000,
-        "transition": "flex"
+        "transition": "flex",
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true,
+        "legLengthDiagram": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-integrated/3",
@@ -4083,14 +4215,19 @@
       "config": {
         "type": "short-turns",
         "variant": "tail-brake",
-        "title": "识别反例 · 弯尾才横刹",
-        "focus": "看直冲段与集中刹车；仅用于识别，不照着练",
+        "title": "识别反例：前段较直，后段集中转向",
+        "focus": "比较前段较直与后段集中改向；这段用于识别现象，不计算真实减速度。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "tail-brake-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-sideslip/1",
@@ -4104,13 +4241,18 @@
         "type": "short-turn-progression",
         "variant": "side-slip",
         "title": "第一级 · 侧滑接单弯",
-        "focus": "侧滑稳定后再接一个完整弯",
+        "focus": "稳住一侧侧滑，再完成4秒换侧；每侧等待3秒，等待仍在侧滑。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "side-slip-link",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-sideslip/2",
@@ -4124,13 +4266,18 @@
         "type": "short-turn-progression",
         "variant": "side-slip-shorter",
         "title": "第二级 · 缩短侧滑段",
-        "focus": "减少等待，保留完整换侧",
+        "focus": "把每侧等待缩至1.2秒；保留相同单弯路线、身体动作和4秒换侧用时。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 10400,
+        "task": "side-slip-link",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-sideslip/3",
@@ -4144,13 +4291,18 @@
         "type": "short-turn-progression",
         "variant": "linked",
         "title": "第三级 · 连成短弯",
-        "focus": "侧滑等待逐渐消失，转为连续圆弧",
+        "focus": "取消侧滑等待，保持两次完整换侧连续衔接；每次仍为4秒，不冒充普通圆弯路线。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 8000,
+        "task": "side-slip-link",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-size-ladder/1",
@@ -4164,13 +4316,18 @@
         "type": "short-turn-progression",
         "variant": "medium-to-short",
         "title": "练习 · 中弯逐渐缩小",
-        "focus": "观察路线尺度与动作时机一起变化；时间为示意",
+        "focus": "横向与沿坡尺度同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "size-ladder",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-size-ladder/2",
@@ -4184,13 +4341,18 @@
         "type": "short-turn-progression",
         "variant": "short-steady",
         "title": "复测 · 稳定小弯",
-        "focus": "对照同一走廊里的连续短弯",
+        "focus": "连续三组双侧小弯，在相同走廊内保持弯形与自然节奏。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "size-ladder",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-size-ladder/3",
@@ -4204,13 +4366,18 @@
         "type": "short-turn-progression",
         "variant": "short-to-medium",
         "title": "反向复测：小弯放回中弯",
-        "focus": "放大弯也能由自己决定，不靠突然横刹",
+        "focus": "横向与沿坡尺度逐渐放大，单弯用时随之增加；末态仍在滑行。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "size-ladder",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-balance/1",
@@ -4224,13 +4391,18 @@
         "type": "short-turn-balance",
         "variant": "centered",
         "title": "双脚引导 · 居中可调",
-        "focus": "板头板尾一起改变方向，转动中心不锁死",
+        "focus": "板头与板尾持续共同移动，双腿可调整；不表示固定转轴或真实50/50压力。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "centered-pivot-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-balance/2",
@@ -4243,14 +4415,19 @@
       "config": {
         "type": "short-turn-balance",
         "variant": "nose-pivot",
-        "title": "识别反例 · 固定板头甩尾",
-        "focus": "看前压与板尾扫动，不照着练",
+        "title": "识别：板头滑动较少，板尾集中扫动",
+        "focus": "看真实板头与板尾路径：板头仍滑动，局部位移较小，板尾扫幅更大。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "nose-pivot-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-balance/3",
@@ -4263,14 +4440,19 @@
       "config": {
         "type": "short-turn-balance",
         "variant": "back-seat",
-        "title": "识别反例 · 后坐迟转",
-        "focus": "看前脚控制变弱、转向延迟",
+        "title": "识别：身体偏后、转向较迟",
+        "focus": "骨盆与胸廓实际沿板长偏后，并配对稍后转向；不显示前后脚压力比例。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "back-seat-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-rhythm/1",
@@ -4284,13 +4466,18 @@
         "type": "short-turns",
         "variant": "round",
         "title": "两侧完整 · 自然节奏",
-        "focus": "看两个弯都有连续引导和完整出口",
+        "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-rhythm/2",
@@ -4304,13 +4491,18 @@
         "type": "short-turns",
         "variant": "asymmetric",
         "title": "识别反例 · 一侧急、一侧拖",
-        "focus": "比较两侧弯形、出口和换侧时机",
+        "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "asymmetric-rhythm-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/1",
@@ -4324,13 +4516,18 @@
         "type": "short-turns",
         "variant": "round",
         "title": "对照基准 · 圆润小弯",
-        "focus": "先记住正确的完整循环",
+        "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/2",
@@ -4343,14 +4540,19 @@
       "config": {
         "type": "short-turns",
         "variant": "tail-brake",
-        "title": "识别 · Z形横刹",
-        "focus": "看转向和减速是否挤到弯尾",
+        "title": "识别：转向集中在后段",
+        "focus": "比较前段较直与后段集中改向；这段用于识别现象，不计算真实减速度。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "tail-brake-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/3",
@@ -4364,13 +4566,18 @@
         "type": "short-turns",
         "variant": "shoulder-led",
         "title": "识别 · 肩膀抢转",
-        "focus": "对比肩与板的先后",
+        "focus": "先看世界肩线开始变化，再看髋轴与板轴何时追转；反例用于识别先后。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "shoulder-led-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/4",
@@ -4383,14 +4590,19 @@
       "config": {
         "type": "short-turns",
         "variant": "edge-locked",
-        "title": "识别 · 旧刃卡住",
-        "focus": "看弯尾刃角和释放延迟",
+        "title": "识别：旧刃释放较迟",
+        "focus": "旧刃保持较久，随后集中释放和换侧；工作刃仍与实际移动方向相容。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "late-edge-release-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/5",
@@ -4404,13 +4616,18 @@
         "type": "short-turns",
         "variant": "asymmetric",
         "title": "识别 · 两侧不对称",
-        "focus": "观察两侧弧线与节奏",
+        "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "asymmetric-rhythm-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/6",
@@ -4423,14 +4640,20 @@
       "config": {
         "type": "short-turns",
         "variant": "low-stuck",
-        "title": "识别 · 全程蹲低",
-        "focus": "观察腿部活动余量",
+        "title": "识别：持续较屈，腿长变化小",
+        "focus": "髋踝距离持续较短、变化很小；与回收换刃的缩短—恢复区分。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "low-flexion-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true,
+        "legLengthDiagram": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/7",
@@ -4444,14 +4667,20 @@
         "type": "short-turns",
         "variant": "round",
         "title": "可选策略 · 回收换刃",
-        "focus": "普通小弯稳定后再练缩腿过渡",
+        "focus": "转换时缩短实际腿长，随后恢复；板横向运动大于估计质心，上身保持自然变化。",
         "autoplay": false,
         "duration": 14000,
-        "transition": "retract"
+        "transition": "retract",
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true,
+        "legLengthDiagram": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/8",
@@ -4464,14 +4693,19 @@
       "config": {
         "type": "short-turn-balance",
         "variant": "nose-pivot",
-        "title": "识别：围着板头甩尾",
-        "focus": "双脚引导课中的前压对照",
+        "title": "识别：板头滑动较少，板尾集中扫动",
+        "focus": "看真实板头与板尾路径：板头仍滑动，局部位移较小，板尾扫幅更大。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "nose-pivot-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/9",
@@ -4484,14 +4718,19 @@
       "config": {
         "type": "short-turn-balance",
         "variant": "back-seat",
-        "title": "识别：后坐、板头迟转",
-        "focus": "双脚引导课中的后坐对照",
+        "title": "识别：身体偏后、转向较迟",
+        "focus": "骨盆与胸廓实际沿板长偏后，并配对稍后转向；不显示前后脚压力比例。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "back-seat-study",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-diagnosis/10",
@@ -4504,14 +4743,19 @@
       "config": {
         "type": "short-turns",
         "variant": "over-inclined",
-        "title": "识别：内倒过多、板滑出",
-        "focus": "观察身体倾斜和雪板位置；反例用于识别，不在雪上模仿",
+        "title": "姿态对照：更多整体内倾",
+        "focus": "同一路线和板角下比较胸廓更多移向工作刃一侧；本段不模拟真实滑出。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "inclination-comparison",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-adapt/1",
@@ -4525,13 +4769,18 @@
         "type": "short-turn-progression",
         "variant": "short-steady",
         "title": "保持 · 连续小弯",
-        "focus": "用完整圆弯检验稳定性",
+        "focus": "连续三组双侧小弯，在相同走廊内保持弯形与自然节奏。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "size-ladder",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-adapt/2",
@@ -4545,13 +4794,18 @@
         "type": "short-turn-progression",
         "variant": "medium-to-short",
         "title": "改变 · 中弯缩到小弯",
-        "focus": "练习后再反向放大；能改变才是主动选择",
+        "focus": "横向与沿坡尺度同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "size-ladder",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-adapt/3",
@@ -4565,14 +4819,20 @@
         "type": "short-turns",
         "variant": "round",
         "title": "选修 · 回收式小弯",
-        "focus": "先有普通小弯，再增加换刃策略",
+        "focus": "转换时缩短实际腿长，随后恢复；板横向运动大于估计质心，上身保持自然变化。",
         "autoplay": false,
         "duration": 14000,
-        "transition": "retract"
+        "transition": "retract",
+        "task": "round-linked-skid",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true,
+        "legLengthDiagram": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-adapt/4",
@@ -4586,13 +4846,18 @@
         "type": "short-turn-progression",
         "variant": "short-to-medium",
         "title": "改变：小弯放回中弯",
-        "focus": "从窄走廊回到较宽圆弯，确认能主动改变",
+        "focus": "横向与沿坡尺度逐渐放大，单弯用时随之增加；末态仍在滑行。",
         "autoplay": false,
-        "duration": 14000
+        "duration": 14000,
+        "task": "size-ladder",
+        "jointLabels": true,
+        "view": "width",
+        "skid": true,
+        "trackDiagnostics": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "s-short-adapt/5",
@@ -5078,16 +5343,19 @@
         "type": "short-turns",
         "variant": "round",
         "title": "首趟检查：容易的搓雪圆弯",
-        "focus": "先分别确认两刃能停止，再接单弯和容易的连弯；首趟不必缩成小回转。",
-        "view": "track",
+        "focus": "先分别确认两刃能停止，再接单弯和容易的较宽圆弯；首趟不必缩成小回转。",
+        "view": "width",
         "trackDiagnostics": true,
         "transition": "extend",
         "autoplay": false,
-        "duration": 16000
+        "duration": 16000,
+        "task": "easy-linked-check",
+        "jointLabels": true,
+        "skid": true
       },
-      "destination": "D5：按变体独立审阅后接入共享 3D；待迁移",
-      "renderer": "legacy-svg",
-      "status": "legacy-retained-unreviewed"
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
     },
     {
       "id": "v23-knees/1",
@@ -6919,7 +7187,7 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
+          "locator": "印刷 p.43、45、47–48、59；Position & Balance / Pivot / Separation",
           "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -7379,7 +7647,7 @@
       "citations": [
         {
           "source": "A03",
-          "locator": "印刷 p.9，Technical (Riding) Assessment / Short Radius Sliding Turns",
+          "locator": "印刷 p.7–8，Technical (Riding) Assessment；居中、膝脚引导与短弯",
           "claim": "以居中转向、膝脚引导和圆润对称作为小弯观察点；考核坡度与走廊数字不作为普适练习门槛。",
           "canonicalSource": "A03",
           "title": "二级教练课程指南：小回转观察要点（中英对照）",

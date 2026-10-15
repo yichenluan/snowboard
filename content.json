@@ -11,7 +11,7 @@
     "method": "先说清动作与雪板怎样配合，再给出具体练习、观察方法和下一步。技术依据以CASI、AASI、SBINZ教练教材为主，装备和非雪训练另列一手资料。",
     "coverage": "围绕刻滑和搓雪小回转两条重点路线组织；站姿、立刃、压力、转向等是共同基础，反脚、体能和装备可并行发展。保留原条目ID，已有个人笔记仍能对应。",
     "limitations": "运动感受是教学提示，不等于测量。原创动画是定性运动学示意，没有真实测力、精确个人角度或诊断。专项主题先说明任务与前提，具体个人动作调整需结合现场观察。视频时间只作为来源定位，章节首次课件采样约有±10秒误差。",
-    "contentRevision": 11
+    "contentRevision": 12
   },
   "modules": [
     {
@@ -4282,9 +4282,14 @@
           "type": "short-turns",
           "variant": "round",
           "title": "完整圆弯与两侧节奏",
-          "focus": "节奏随弯形配合；调播放速度仅便于观察，不是练习频率要求",
+          "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
           "autoplay": false,
-          "duration": 10000
+          "duration": 10000,
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         }
       ]
     },
@@ -5941,12 +5946,15 @@
           "type": "short-turns",
           "variant": "round",
           "title": "上下身分离：上身平顺，板继续转",
-          "focus": "观察连续过程；上身转动幅度较小，但仍可随路线调整。",
-          "view": "track",
+          "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
+          "view": "width",
           "trackDiagnostics": true,
           "transition": "extend",
           "autoplay": false,
-          "duration": 16000
+          "duration": 16000,
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "skid": true
         }
       ],
       "relatedLessons": [
@@ -6530,7 +6538,7 @@
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 p.43–48、59、157–158；Position / Pivot / Rotation",
+          "locator": "印刷 p.43、45、47–48、59；Position & Balance / Pivot / Separation",
           "claim": "关节动作、板响应和任务结果要结合转弯阶段观察；练习以能验证的板表现组织。"
         }
       ],
@@ -6538,30 +6546,37 @@
         {
           "type": "short-turns",
           "variant": "asymmetric",
-          "title": "对照：一侧弯长，一侧急刹",
-          "focus": "先比较两侧出口和弯形，再回查差异从哪个阶段开始；动画不能单独确定原因。",
-          "view": "track",
+          "title": "对照：一侧较长，一侧较短急",
+          "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
+          "view": "width",
           "trackDiagnostics": true,
           "transition": "extend",
           "autoplay": false,
-          "duration": 16000
+          "duration": 16000,
+          "task": "asymmetric-rhythm-study",
+          "jointLabels": true,
+          "skid": true
         },
         {
           "type": "short-turns",
           "variant": "round",
           "title": "目标：两侧都走完整",
-          "focus": "两侧各自完成圆弧，不靠一个急短弯追回另一侧的速度。",
-          "view": "track",
+          "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
+          "view": "width",
           "trackDiagnostics": true,
           "transition": "extend",
           "autoplay": false,
-          "duration": 16000
+          "duration": 16000,
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "skid": true
         }
       ],
       "relatedLessons": [
         "s-short-rhythm",
         "s-short-diagnosis"
-      ]
+      ],
+      "animationGuide": "两段动画分别给出不对称表现和连续圆弯基线，路线编排也不同；它们不是只改肩角的因果实验。先观察弯形与先后，再用真实滑行中的单项调整验证原因。"
     },
     {
       "id": "v-toe-closed-drill",
@@ -7380,12 +7395,15 @@
           "type": "short-turns",
           "variant": "round",
           "title": "普通搓雪小回转：上身与双腿配合",
-          "focus": "使用已经掌握的换刃方式，先完成圆弯；上身平顺不等于僵住肩膀。",
-          "view": "track",
+          "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
+          "view": "width",
           "trackDiagnostics": true,
           "transition": "extend",
           "autoplay": false,
-          "duration": 16000
+          "duration": 16000,
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "skid": true
         },
         {
           "type": "retraction-turns",
@@ -8214,27 +8232,43 @@
           "type": "short-turns",
           "variant": "round",
           "title": "完整小回转 · 伸展式过渡",
-          "focus": "同步看板轴、移动方向、刃角、腿部动作和上身路线",
+          "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
           "autoplay": false,
           "duration": 14000,
-          "transition": "extend"
+          "transition": "extend",
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "round",
           "title": "完整小回转 · 屈曲式过渡",
-          "focus": "同一滑行目标也能用不同屈伸时机完成",
+          "focus": "同一条板路线下比较腿长：转换时髋踝距离缩短，再渐进恢复；不是只改变骨盆高度。",
           "autoplay": false,
           "duration": 14000,
-          "transition": "flex"
+          "transition": "flex",
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true,
+          "legLengthDiagram": true
         },
         {
           "type": "short-turns",
           "variant": "tail-brake",
-          "title": "识别反例 · 弯尾才横刹",
-          "focus": "看直冲段与集中刹车；仅用于识别，不照着练",
+          "title": "识别反例：前段较直，后段集中转向",
+          "focus": "比较前段较直与后段集中改向；这段用于识别现象，不计算真实减速度。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "tail-brake-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         }
       ],
       "citations": [
@@ -8256,7 +8290,8 @@
         "s-short-diagnosis",
         "v14-steering",
         "v17-retract-drill"
-      ]
+      ],
+      "animationGuide": "伸展式与屈曲式使用相同的板路线作腿长对照；反例只突出前段较直、后段集中转向，没有计算刹车力。三段末态均仍在滑行，主动停止需另行完成。"
     },
     {
       "id": "s-short-sideslip",
@@ -8353,25 +8388,40 @@
           "type": "short-turn-progression",
           "variant": "side-slip",
           "title": "第一级 · 侧滑接单弯",
-          "focus": "侧滑稳定后再接一个完整弯",
+          "focus": "稳住一侧侧滑，再完成4秒换侧；每侧等待3秒，等待仍在侧滑。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "side-slip-link",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-progression",
           "variant": "side-slip-shorter",
           "title": "第二级 · 缩短侧滑段",
-          "focus": "减少等待，保留完整换侧",
+          "focus": "把每侧等待缩至1.2秒；保留相同单弯路线、身体动作和4秒换侧用时。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 10400,
+          "task": "side-slip-link",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-progression",
           "variant": "linked",
           "title": "第三级 · 连成短弯",
-          "focus": "侧滑等待逐渐消失，转为连续圆弧",
+          "focus": "取消侧滑等待，保持两次完整换侧连续衔接；每次仍为4秒，不冒充普通圆弯路线。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 8000,
+          "task": "side-slip-link",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         }
       ],
       "citations": [
@@ -8386,7 +8436,8 @@
         "v-transition-map",
         "s-short-integrated",
         "s-short-size-ladder"
-      ]
+      ],
+      "animationGuide": "三档每次换侧均为4秒，只把每侧侧滑等待从3秒缩至1.2秒再取消；秒数是便于比较的作者编排。等待期间仍在移动，第三级延续同一组换侧路线；片段结束不表示停车。"
     },
     {
       "id": "s-short-size-ladder",
@@ -8471,25 +8522,40 @@
           "type": "short-turn-progression",
           "variant": "medium-to-short",
           "title": "练习 · 中弯逐渐缩小",
-          "focus": "观察路线尺度与动作时机一起变化；时间为示意",
+          "focus": "横向与沿坡尺度同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "size-ladder",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-progression",
           "variant": "short-steady",
           "title": "复测 · 稳定小弯",
-          "focus": "对照同一走廊里的连续短弯",
+          "focus": "连续三组双侧小弯，在相同走廊内保持弯形与自然节奏。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "size-ladder",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-progression",
           "variant": "short-to-medium",
           "title": "反向复测：小弯放回中弯",
-          "focus": "放大弯也能由自己决定，不靠突然横刹",
+          "focus": "横向与沿坡尺度逐渐放大，单弯用时随之增加；末态仍在滑行。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "size-ladder",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         }
       ],
       "citations": [
@@ -8503,7 +8569,8 @@
         "s-short-rhythm",
         "s-short-integrated",
         "v20-traffic"
-      ]
+      ],
+      "animationGuide": "三段分别展示逐渐缩小、保持小弯和逐渐放大，每段包含三组双侧弯。尺度变化段的首尾弯宽不同，重播只是重新看这组；末态仍在滑行，不能代替正文的主动停止检验。"
     },
     {
       "id": "s-short-balance",
@@ -8511,7 +8578,7 @@
       "title": "双脚带板与前后平衡：不要围着板头甩尾",
       "kind": "drill",
       "level": "搓雪小回转",
-      "summary": "身体沿板长大致居中，两条腿共同引导板头板尾；用轨迹识别后坐迟转和压死板头甩尾。",
+      "summary": "身体沿板长大致居中，两条腿共同引导板头板尾；用轨迹识别偏后伴随迟转，以及板头滑动较少、板尾扫幅较大的现象。",
       "goal": "缩弯时保留两脚的控制，找到能连续换侧的前后位置。",
       "prerequisites": [
         "能在熟悉缓坡做圆润中弯。",
@@ -8538,7 +8605,7 @@
           "title": "用双腿连续引导",
           "body": "减刃后，膝和脚协调改变板朝向，前后腿接续，不把后脚一脚踢开。",
           "cue": "板头板尾一起转。",
-          "observe": "板头和板尾都走连续路线，没有板头钉住、尾巴大扫。"
+          "observe": "板头和板尾都持续移动，没有一端局部位移很小而另一端突然大扫。"
         },
         {
           "title": "缩弯后复查",
@@ -8554,7 +8621,7 @@
       ],
       "drill": {
         "terrain": "熟悉、坡度均匀的压雪缓坡，留出足够宽度和停车区；只在人少、能观察上下方时练习。",
-        "setup": "先看动画三种对照。错误姿态只在动画和自己的旧录像里识别，不故意在雪上失衡。",
+        "setup": "先看动画三种姿态与路径对照，不据此单独判断受力原因。反例只在动画和自己的旧录像里识别，不故意在雪上失衡。",
         "steps": [
           "拍一组中弯，从侧前方安全位置观察髋相对两脚的位置；摄像者固定在可见安全处。",
           "下一组只试“沿板长回到两脚之间”，比较入弯是否更及时。",
@@ -8577,7 +8644,7 @@
       },
       "mistakes": [
         {
-          "error": "板头像钉住，板尾甩很远",
+          "error": "板头局部位移较小，板尾扫幅很大",
           "cause": "可能过度前压，或以固定前脚为轴踢后脚。",
           "fix": "回中弯，减小前压，让两腿接续引导。",
           "check": "板头与板尾轨迹都连续。"
@@ -8594,31 +8661,46 @@
           "type": "short-turn-balance",
           "variant": "centered",
           "title": "双脚引导 · 居中可调",
-          "focus": "板头板尾一起改变方向，转动中心不锁死",
+          "focus": "板头与板尾持续共同移动，双腿可调整；不表示固定转轴或真实50/50压力。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "centered-pivot-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-balance",
           "variant": "nose-pivot",
-          "title": "识别反例 · 固定板头甩尾",
-          "focus": "看前压与板尾扫动，不照着练",
+          "title": "识别：板头滑动较少，板尾集中扫动",
+          "focus": "看真实板头与板尾路径：板头仍滑动，局部位移较小，板尾扫幅更大。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "nose-pivot-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-balance",
           "variant": "back-seat",
-          "title": "识别反例 · 后坐迟转",
-          "focus": "看前脚控制变弱、转向延迟",
+          "title": "识别：身体偏后、转向较迟",
+          "focus": "骨盆与胸廓实际沿板长偏后，并配对稍后转向；不显示前后脚压力比例。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "back-seat-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         }
       ],
       "citations": [
         {
           "source": "A03",
-          "locator": "印刷 p.9，Technical (Riding) Assessment / Short Radius Sliding Turns",
+          "locator": "印刷 p.7–8，Technical (Riding) Assessment；居中、膝脚引导与短弯",
           "claim": "以居中转向、膝脚引导和圆润对称作为小弯观察点；考核坡度与走廊数字不作为普适练习门槛。"
         },
         {
@@ -8631,7 +8713,8 @@
         "v-fore-aft-drill",
         "v14-steering",
         "s-short-integrated"
-      ]
+      ],
+      "animationGuide": "三段只比较身体前后位置与板头板尾路径：板头滑动较少也仍在移动，没有固定雪上转轴。身体偏前或偏后与路线是示意配对，不能由此测出压力分配或确定甩尾原因。"
     },
     {
       "id": "s-short-rhythm",
@@ -8714,17 +8797,27 @@
           "type": "short-turns",
           "variant": "round",
           "title": "两侧完整 · 自然节奏",
-          "focus": "看两个弯都有连续引导和完整出口",
+          "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "asymmetric",
           "title": "识别反例 · 一侧急、一侧拖",
-          "focus": "比较两侧弯形、出口和换侧时机",
+          "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "asymmetric-rhythm-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         }
       ],
       "citations": [
@@ -8738,7 +8831,8 @@
         "v12-rhythm-why",
         "s-short-diagnosis",
         "s-short-size-ladder"
-      ]
+      ],
+      "animationGuide": "动画比较自然圆弯与两侧长短、用时不同的表现；计数、撤去提示和主动停止是正文的真实练习步骤，未在动画中逐一演出。播放末态仍在滑行。"
     },
     {
       "id": "s-short-diagnosis",
@@ -8852,8 +8946,8 @@
           "demoKey": "short-turns:shoulder-led"
         },
         {
-          "error": "刃立得很高，弯尾挂住转不过来",
-          "cause": "可能用刻滑的大倾斜应对搓雪短弯。",
+          "error": "旧刃保持过久，弯尾难释放",
+          "cause": "可能旧刃角未及时减小，或持续用较大内倾和刃角应对搓雪短弯。",
           "fix": "放大弯、减小内倒和刃角，保留连续滑移，练及时减刃。",
           "check": "能保持可控滑移并平顺换侧。",
           "lesson": "v-active-passive-edge",
@@ -8869,7 +8963,7 @@
         },
         {
           "error": "全程蹲在最低，下一弯没空间",
-          "cause": "可能把低姿态当成稳定，腿已无屈伸余量。",
+          "cause": "可能把低姿态当成稳定，持续保持较屈而没有及时恢复活动。",
           "fix": "回中弯，用舒适高度的小幅伸展过渡，弯中再逐渐屈腿。",
           "check": "两侧都还有继续屈伸的空间。",
           "lesson": "v12-up-drill",
@@ -8889,82 +8983,134 @@
           "type": "short-turns",
           "variant": "round",
           "title": "对照基准 · 圆润小弯",
-          "focus": "先记住正确的完整循环",
+          "focus": "两侧都完成连续圆弧并保留可控滑移；肩线自然变化，双腿仍可调整。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "tail-brake",
-          "title": "识别 · Z形横刹",
-          "focus": "看转向和减速是否挤到弯尾",
+          "title": "识别：转向集中在后段",
+          "focus": "比较前段较直与后段集中改向；这段用于识别现象，不计算真实减速度。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "tail-brake-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "shoulder-led",
           "title": "识别 · 肩膀抢转",
-          "focus": "对比肩与板的先后",
+          "focus": "先看世界肩线开始变化，再看髋轴与板轴何时追转；反例用于识别先后。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "shoulder-led-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "edge-locked",
-          "title": "识别 · 旧刃卡住",
-          "focus": "看弯尾刃角和释放延迟",
+          "title": "识别：旧刃释放较迟",
+          "focus": "旧刃保持较久，随后集中释放和换侧；工作刃仍与实际移动方向相容。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "late-edge-release-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "asymmetric",
           "title": "识别 · 两侧不对称",
-          "focus": "观察两侧弧线与节奏",
+          "focus": "比较两侧沿坡长度、用时和弯形；同一不对称表现可能有多种原因。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "asymmetric-rhythm-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "low-stuck",
-          "title": "识别 · 全程蹲低",
-          "focus": "观察腿部活动余量",
+          "title": "识别：持续较屈，腿长变化小",
+          "focus": "髋踝距离持续较短、变化很小；与回收换刃的缩短—恢复区分。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "low-flexion-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true,
+          "legLengthDiagram": true
         },
         {
           "type": "short-turns",
           "variant": "round",
           "title": "可选策略 · 回收换刃",
-          "focus": "普通小弯稳定后再练缩腿过渡",
+          "focus": "转换时缩短实际腿长，随后恢复；板横向运动大于估计质心，上身保持自然变化。",
           "autoplay": false,
           "duration": 14000,
-          "transition": "retract"
+          "transition": "retract",
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true,
+          "legLengthDiagram": true
         },
         {
           "type": "short-turn-balance",
           "variant": "nose-pivot",
-          "title": "识别：围着板头甩尾",
-          "focus": "双脚引导课中的前压对照",
+          "title": "识别：板头滑动较少，板尾集中扫动",
+          "focus": "看真实板头与板尾路径：板头仍滑动，局部位移较小，板尾扫幅更大。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "nose-pivot-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-balance",
           "variant": "back-seat",
-          "title": "识别：后坐、板头迟转",
-          "focus": "双脚引导课中的后坐对照",
+          "title": "识别：身体偏后、转向较迟",
+          "focus": "骨盆与胸廓实际沿板长偏后，并配对稍后转向；不显示前后脚压力比例。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "back-seat-study",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "over-inclined",
-          "title": "识别：内倒过多、板滑出",
-          "focus": "观察身体倾斜和雪板位置；反例用于识别，不在雪上模仿",
+          "title": "姿态对照：更多整体内倾",
+          "focus": "同一路线和板角下比较胸廓更多移向工作刃一侧；本段不模拟真实滑出。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "inclination-comparison",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         }
       ],
       "citations": [
@@ -8988,7 +9134,8 @@
         "v14-steering",
         "v17-retract-drill",
         "v21-method"
-      ]
+      ],
+      "animationGuide": "下方动画只突出对应的运动现象，不能单独判定原因：集中转向不等于测出刹车力，内倾姿态不等于模拟板滑出。回收是可选策略，不列为错误；所有片段末态仍在滑行。"
     },
     {
       "id": "s-short-adapt",
@@ -9071,34 +9218,55 @@
           "type": "short-turn-progression",
           "variant": "short-steady",
           "title": "保持 · 连续小弯",
-          "focus": "用完整圆弯检验稳定性",
+          "focus": "连续三组双侧小弯，在相同走廊内保持弯形与自然节奏。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "size-ladder",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turn-progression",
           "variant": "medium-to-short",
           "title": "改变 · 中弯缩到小弯",
-          "focus": "练习后再反向放大；能改变才是主动选择",
+          "focus": "横向与沿坡尺度同时逐渐缩小；较短的弯用时也更短，继续完成两侧弧线。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "size-ladder",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "short-turns",
           "variant": "round",
           "title": "选修 · 回收式小弯",
-          "focus": "先有普通小弯，再增加换刃策略",
+          "focus": "转换时缩短实际腿长，随后恢复；板横向运动大于估计质心，上身保持自然变化。",
           "autoplay": false,
           "duration": 14000,
-          "transition": "retract"
+          "transition": "retract",
+          "task": "round-linked-skid",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true,
+          "legLengthDiagram": true
         },
         {
           "type": "short-turn-progression",
           "variant": "short-to-medium",
           "title": "改变：小弯放回中弯",
-          "focus": "从窄走廊回到较宽圆弯，确认能主动改变",
+          "focus": "横向与沿坡尺度逐渐放大，单弯用时随之增加；末态仍在滑行。",
           "autoplay": false,
-          "duration": 14000
+          "duration": 14000,
+          "task": "size-ladder",
+          "jointLabels": true,
+          "view": "width",
+          "skid": true,
+          "trackDiagnostics": true
         },
         {
           "type": "steering",
@@ -9151,7 +9319,8 @@
         "s-short-diagnosis",
         "v17-retract-drill",
         "v19-switch"
-      ]
+      ],
+      "animationGuide": "前四段分别展示保持小弯、改变两维尺度及可选回收策略，末态仍在滑行；第五、六段对照不同出口，最后一段示范单弯转向横坡并停止。这些独立示例没有把正文的全部验收步骤串成一趟，实际控制能力仍需在合适条件下验证。"
     },
     {
       "id": "v22-strength",
@@ -10604,12 +10773,15 @@
           "type": "short-turns",
           "variant": "round",
           "title": "首趟检查：容易的搓雪圆弯",
-          "focus": "先分别确认两刃能停止，再接单弯和容易的连弯；首趟不必缩成小回转。",
-          "view": "track",
+          "focus": "先分别确认两刃能停止，再接单弯和容易的较宽圆弯；首趟不必缩成小回转。",
+          "view": "width",
           "trackDiagnostics": true,
           "transition": "extend",
           "autoplay": false,
-          "duration": 16000
+          "duration": 16000,
+          "task": "easy-linked-check",
+          "jointLabels": true,
+          "skid": true
         }
       ],
       "relatedLessons": [

@@ -29,7 +29,10 @@
     "shoulder-coordination",
     "rotation",
     "counter-rotation",
-    "mixed-rotation"
+    "mixed-rotation",
+    "short-turns",
+    "short-turn-progression",
+    "short-turn-balance"
   ],
   "requiredTasks": {
     "hip-edge-change": [
@@ -59,6 +62,25 @@
     ],
     "mixed-rotation": [
       "counter-to-linked"
+    ],
+    "short-turns": [
+      "round-linked-skid",
+      "easy-linked-check",
+      "tail-brake-study",
+      "asymmetric-rhythm-study",
+      "shoulder-led-study",
+      "late-edge-release-study",
+      "low-flexion-study",
+      "inclination-comparison"
+    ],
+    "short-turn-progression": [
+      "side-slip-link",
+      "size-ladder"
+    ],
+    "short-turn-balance": [
+      "centered-pivot-study",
+      "nose-pivot-study",
+      "back-seat-study"
     ]
   },
   "partialVariants": {

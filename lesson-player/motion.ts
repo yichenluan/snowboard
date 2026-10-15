@@ -1,6 +1,7 @@
 import { applyStance, buildPose, type MotionState, type PoseOptions, type Route, type Stance, type Vec3 } from "../prototype/motion";
 import registry from "./registry.json";
 import { isRotationLesson, rotationLessonTask, sampleRotationLesson } from "./rotation";
+import { supportsShortTurnLesson, shortTurnTask, sampleShortTurnLesson } from "./short-turns";
 import { isTurningLesson, sampleTurningLesson } from "./turns";
 import { supportsPressureLesson, pressureLessonTask, samplePressureLesson } from "./pressure";
 import { supportsAdvancedPressureLesson, advancedPressureTask, sampleAdvancedPressureLesson } from "./pressure-advanced";
@@ -10,7 +11,7 @@ const partialVariants:Record<string,string[]>=registry.partialVariants;
 export const LESSON_TYPES: readonly string[] = [...registry.types,...Object.keys(partialVariants)];
 const requiredTasks:Record<string,string[]>=registry.requiredTasks;
 export const canRenderLesson=(config:LessonConfig)=>requiredTasks[config.type]
-  ?requiredTasks[config.type].includes(config.task??"")&&(supportsCoordinationLesson(config)||isRotationLesson(config))
+  ?requiredTasks[config.type].includes(config.task??"")&&(supportsCoordinationLesson(config)||isRotationLesson(config)||supportsShortTurnLesson(config))
   :registry.types.includes(config.type)||Boolean(partialVariants[config.type]?.includes(config.variant??""));
 export interface LessonConfig {
   type: string;
@@ -24,6 +25,7 @@ export interface LessonConfig {
   stance?: Stance;
   side?: "left" | "right";
   rotationComparison?: "natural" | "slightly-open";
+  transition?: "extend" | "flex" | "retract";
   duration?: number;
   autoplay?: boolean;
   jointLabels?: boolean;
@@ -58,6 +60,7 @@ const range = (t: number) => {
   return lerp([0,1,0,-1][i], [1,0,-1,0][i], smooth(t*4-i));
 };
 export function lessonTask(c: LessonConfig): string {
+  if(supportsShortTurnLesson(c))return shortTurnTask(c)!;
   if(isRotationLesson(c))return rotationLessonTask(c);
   if(supportsCoordinationLesson(c))return coordinationTask(c)!;
   if(supportsAdvancedPressureLesson(c))return advancedPressureTask(c)!;
@@ -113,6 +116,7 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
 
 export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "regular"): LessonFrame {
   if(!canRenderLesson(c)) throw new Error(`尚未实现的三维动作：${c.type}/${c.variant??"default"}`);
+  if(supportsShortTurnLesson(c))return sampleShortTurnLesson(time,c,stance);
   if(isRotationLesson(c))return sampleRotationLesson(time,c,stance);
   if(supportsCoordinationLesson(c))return sampleCoordinationLesson(time,c,stance);
   if(supportsAdvancedPressureLesson(c))return sampleAdvancedPressureLesson(time,c,stance);

@@ -20,9 +20,9 @@
 | 展示配置组合 | 91 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 小回转声明变体 | 16 | 3 个类型共享 shortState，另可选 extend/flex/retract；未取笛卡尔积虚增工作量 |
 | 3D 模式 / 课程入口 | 3 / 3 | 另有首页入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 30 / 97 | 按注册表已切换默认渲染；不代表教学认证 |
-| 全量 / 部分接入类型 | 27 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
-| 剩余旧动画引用 | 37 | 继续逐项迁移，未缩减范围 |
+| 课内三维类型 / 引用 | 33 / 131 | 按注册表已切换默认渲染；不代表教学认证 |
+| 全量 / 部分接入类型 | 30 / 3 | 部分类型仅迁移列明变体；其他引用仍走旧播放器，不按类型整体虚计完成 |
+| 剩余旧动画引用 | 3 | 继续逐项迁移，未缩减范围 |
 
 ## 当前实现的共享关系与迁移去向
 
@@ -166,7 +166,7 @@
 | `fore-aft:rear-heel` | v-heel-open-rear-foot/1、v-heel-open-loading/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `fore-aft:front-return-toe` | v-toe-front-participation/1 | 1 | D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `hip-edge-change:open` | v11-lateral/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `short-turns:round` | v12-rhythm-why/1、s-short-rhythm/1、s-short-diagnosis/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:round` | v12-rhythm-why/1、s-short-rhythm/1、s-short-diagnosis/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-up` | v12-up-drill/1、v-transition-map/1、v-transition-map/3、v15-incline-change/1、v24-heel-transition/1 | 4 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-down:lower-com` | v13-down-drill/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `edge-change-down:retraction-study` | v13-down-drill/2、v-transition-map/2 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
@@ -179,32 +179,32 @@
 | `retraction-turns` | v17-retract-drill/1、v19-stable-upper/2 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `rotation` | v-shoulder-rhythm-map/1、v18-follow/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `counter-rotation` | v-shoulder-rhythm-map/2、v19-counter/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `short-turns:round:extend` | v-shoulder-rhythm-map/3、v-toe-open-causal/2、v19-stable-upper/1、s-short-integrated/1、s22-warmup/4 | 2 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:round:extend` | v-shoulder-rhythm-map/3、v-toe-open-causal/2、v19-stable-upper/1、s-short-integrated/1、s22-warmup/4 | 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination:neutral` | v-mid-position-30/1、v18-neutral/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `mixed-rotation` | v19-mixed/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination:open-heel` | v-heel-open-progression/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `short-turns:asymmetric:extend` | v-toe-open-causal/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:asymmetric:extend` | v-toe-open-causal/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination:closed-toe` | v-toe-closed-drill/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `switch` | v19-switch/1 | 1 | D3：转向/滑移/旋转 3D + 同源俯视；当前保留旧版 |
 | `j-turn` | v-toe-low-drill/1、s-short-adapt/7 | 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `rail-track` | v20-carve/2、s20-rails/1、v24-skid-track/1、v21-method/1 | 3 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `short-turns:round:flex` | s-short-integrated/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turns:tail-brake` | s-short-integrated/3、s-short-diagnosis/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-progression:side-slip` | s-short-sideslip/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-progression:side-slip-shorter` | s-short-sideslip/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-progression:linked` | s-short-sideslip/3 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-progression:medium-to-short` | s-short-size-ladder/1、s-short-adapt/2 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-progression:short-steady` | s-short-size-ladder/2、s-short-adapt/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-progression:short-to-medium` | s-short-size-ladder/3、s-short-adapt/4 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-balance:centered` | s-short-balance/1 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-balance:nose-pivot` | s-short-balance/2、s-short-diagnosis/8 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turn-balance:back-seat` | s-short-balance/3、s-short-diagnosis/9 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turns:asymmetric` | s-short-rhythm/2、s-short-diagnosis/5 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turns:shoulder-led` | s-short-diagnosis/3 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turns:edge-locked` | s-short-diagnosis/4 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turns:low-stuck` | s-short-diagnosis/6 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turns:round:retract` | s-short-diagnosis/7、s-short-adapt/3 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
-| `short-turns:over-inclined` | s-short-diagnosis/10 | 1 | D5：按变体独立审阅后接入共享 3D；待迁移 |
+| `short-turns:round:flex` | s-short-integrated/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turns:tail-brake` | s-short-integrated/3、s-short-diagnosis/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-progression:side-slip` | s-short-sideslip/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-progression:side-slip-shorter` | s-short-sideslip/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-progression:linked` | s-short-sideslip/3 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-progression:medium-to-short` | s-short-size-ladder/1、s-short-adapt/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-progression:short-steady` | s-short-size-ladder/2、s-short-adapt/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-progression:short-to-medium` | s-short-size-ladder/3、s-short-adapt/4 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-balance:centered` | s-short-balance/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-balance:nose-pivot` | s-short-balance/2、s-short-diagnosis/8 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turn-balance:back-seat` | s-short-balance/3、s-short-diagnosis/9 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turns:asymmetric` | s-short-rhythm/2、s-short-diagnosis/5 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turns:shoulder-led` | s-short-diagnosis/3 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turns:edge-locked` | s-short-diagnosis/4 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turns:low-stuck` | s-short-diagnosis/6 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turns:round:retract` | s-short-diagnosis/7、s-short-adapt/3 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `short-turns:over-inclined` | s-short-diagnosis/10 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `dry-squat` | v22-strength/1、v22-heel-rehearsal/1、v22-squat/1、s22-warmup/2、v23-knees/1 | 4 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-calf-raise` | v22-strength/2、v22-calf/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `dry-plank` | v22-strength/3、v22-plank/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
@@ -463,8 +463,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 3a03871e01c4144847f644a1f38f3542ab0690145e960349b28d5324c278ac1e |
+| content.json | de962074ed35dcee8668fe77f0ae4d545a3c2c2f913e6012094053572063d058 |
 | animations.js | baa823eabfeeca3e0f0b29894d978605057922d374e7daf48a464de6c6126078 |
-| app.js | 25513cc789103ed8c0a498d038d1979a2107b33fe2840f673d240b2302d8e7e3 |
-| lesson-player/registry.json | 6c20ba5c4736f94dc7dafb961a8d6fb656f02af7a3ac9ce673bac21f1d09fd77 |
+| app.js | 31f5250b112d3008c527e572589a3d58e24f004b55c8288c50014755fd020ca5 |
+| lesson-player/registry.json | 9df069ab6be7f6261d940a8f276b22961278a2915a512cad09f52902d26464d2 |
 
