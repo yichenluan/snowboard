@@ -129,5 +129,25 @@
       "lower-com",
       "retraction-study"
     ]
+  },
+  "bodyOrientationStudies": {
+    "types": [
+      "jsba-carving",
+      "duck-carve",
+      "shoulder-coordination",
+      "rotation",
+      "counter-rotation",
+      "mixed-rotation"
+    ],
+    "variants": {
+      "fore-aft": [
+        "rear-heel"
+      ]
+    },
+    "tasks": {
+      "hip-edge-change": [
+        "board-coordinate-study"
+      ]
+    }
   }
 }

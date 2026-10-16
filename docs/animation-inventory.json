@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "ab10168650bedecce531e61741d5ad05ecdbf4d32eb180a7e86771b56cbbf6ad",
+    "content.json": "0d6a0b85e0229e5a890d92b225d641f5fe0e0a21391632bdbd429c7e584b9cff",
     "animations.js": "7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575",
     "app.js": "196db02499bc55277ce1416f96dba008d70f94412287e40aaaf45368b7b30457",
-    "lesson-player/registry.json": "a08d7c26e2bc048f4eb3ff83926b320cf3f7b3a4074d8d9c20ec8516067a3e49"
+    "lesson-player/registry.json": "39dec20947d196e6738083040effa6ee284c73b9f17057c7d4f27b111d4c7519"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
   "counts": {
@@ -1228,6 +1228,7 @@
       ],
       "configurations": [
         {
+          "rotationComparison": "slightly-open",
           "task": "single-arc",
           "type": "fore-aft",
           "variant": "rear-heel"
@@ -3277,26 +3278,27 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "fore-aft",
-        "focus": "观察后刃弧线中的前后位置与回中；实际承重和板尾响应另在练习中验证",
+        "focus": "切换自然朝向与略开放，在同一进度分别看胸前、骨盆前方相对板头的方向，并比较相同后刃路线中的前后位置与回中。两档只切换肩髋朝向，固定器脚位、路线与刃角相同，沿用相同的前后微调编排；肩髋打开后，骨盆和大腿仍会随固定脚位重新配合；这是作者对照示例，不规定通用角度。画面不表示真实受力，也不模拟前后脚处不同刃角或局部扭板。",
         "steps": [
           {
-            "label": "观察",
-            "detail": "看双脚位置与板尾路线；刚体雪板不表示前后脚不同刃角。"
+            "label": "对照朝向",
+            "detail": "先切自然与略开放，在同一进度分看胸前、骨盆前方与板头；转头或抬手不代替肩髋方向。"
           },
           {
-            "label": "微调",
-            "detail": "必要时后腿小幅调整承重。"
+            "label": "观察前后位置",
+            "detail": "两档沿用相同的前后微调编排，肩髋打开后骨盆和大腿仍会随固定脚位重新配合；比较身体相对双脚的位置，不把它当作两脚压力读数，也不表示开放必然要加后脚承重。"
           },
           {
-            "label": "检验",
-            "detail": "确认板尾转弯连续，下一弯也能顺畅开始。"
+            "label": "检验后刃过程",
+            "detail": "看相同后刃弧中的前后位置变化与回中；真实板尾抓雪、后脚支撑及下一弯能否顺畅开始，另在雪上验证。"
           }
         ],
         "variant": "rear-heel",
         "autoplay": false,
         "duration": 10000,
         "title": "开放站姿滑后刃：后脚也要能控刃 · 动作示意",
-        "task": "single-arc"
+        "task": "single-arc",
+        "rotationComparison": "slightly-open"
       },
       "destination": "D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
       "renderer": "lesson-3d",
@@ -3395,7 +3397,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "hip-edge-change",
-        "focus": "原地辨认板长与板宽：先在平板内调整支撑，再立小刃并回平板；后续滑行另行验证。",
+        "focus": "原地辨认板长与板宽：分别看胸前、骨盆前方和板头，理解身体前方不一定正对脚尖侧板刃。保持温和略开放，先在平板内调整支撑，再立小刃并回平板；后续滑行另行验证，不把原地示范当作高阶低位姿态。",
         "variant": "open",
         "autoplay": false,
         "duration": 10000,
@@ -3960,26 +3962,27 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "fore-aft",
-        "focus": "观察后刃弧线中的前后位置与回中；实际受力和板尾反应另在练习中验证",
+        "focus": "切换自然朝向与略开放，在同一进度分别看胸前、骨盆前方相对板头的方向，并比较相同后刃路线中的前后位置与回中。两档只切换肩髋朝向，固定器脚位、路线与刃角相同，沿用相同的前后微调编排；肩髋打开后，骨盆和大腿仍会随固定脚位重新配合；这是作者对照示例，不规定通用角度。画面不表示真实受力，也不模拟前后脚处不同刃角或局部扭板。",
         "steps": [
           {
-            "label": "观察",
-            "detail": "看双脚位置与板尾路线；刚体雪板不表示前后脚不同刃角。"
+            "label": "对照朝向",
+            "detail": "先切自然与略开放，在同一进度分看胸前、骨盆前方与板头；转头或抬手不代替肩髋方向。"
           },
           {
-            "label": "微调",
-            "detail": "必要时后腿小幅调整承重。"
+            "label": "观察前后位置",
+            "detail": "两档沿用相同的前后微调编排，肩髋打开后骨盆和大腿仍会随固定脚位重新配合；比较身体相对双脚的位置，不把它当作两脚压力读数，也不表示开放必然要加后脚承重。"
           },
           {
-            "label": "检验",
-            "detail": "确认板尾转弯连续，下一弯也能顺畅开始。"
+            "label": "检验后刃过程",
+            "detail": "看相同后刃弧中的前后位置变化与回中；真实板尾抓雪、后脚支撑及下一弯能否顺畅开始，另在雪上验证。"
           }
         ],
         "variant": "rear-heel",
         "autoplay": false,
         "duration": 10000,
         "title": "后刃开肩时：让后脚也能稳稳控刃 · 动作示意",
-        "task": "single-arc"
+        "task": "single-arc",
+        "rotationComparison": "slightly-open"
       },
       "destination": "D1：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
       "renderer": "lesson-3d",
@@ -3995,7 +3998,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "五组依次为自然姿态、只改肩髋朝向、只改屈伸时机、只改身体倾斜、恢复自然姿态；各组都与第一组比较。路线与刃角相同，只看身体怎样配合，不能据此判断真实压力或抓雪力哪组更好。",
+        "focus": "五组依次为自然姿态、只改肩髋朝向、只改屈伸时机、只改身体倾斜、恢复自然姿态；各组都与第一组比较。路线与刃角相同，只看身体怎样配合，不能据此判断真实压力或抓雪力哪组更好。第四组保持肩线转向；倾斜变化时，胸前在俯视图中的方向可能略变。",
         "variant": "open-heel",
         "autoplay": false,
         "duration": 40000,
@@ -4072,7 +4075,7 @@
       "model": "snow-keyframes-ik",
       "config": {
         "type": "shoulder-coordination",
-        "focus": "切换自然朝向与稍多开肩（胸口更多朝板头），在同一进度比较髋、肩和两腿。两档固定器脚位、路线、刃角与时长相同，都完成前刃单弯并停住；不模拟两脚压力或扭板，也不证明某个开肩角度更好。",
+        "focus": "切换自然朝向与略开放，在同一进度分别看胸前与骨盆前方相对板头的方向，再看两腿是否仍可调整；转头不算开肩，开肩也不保证骨盆同幅转动。两档固定器脚位、路线、刃角与时长相同，都完成前刃单弯并停住；不模拟两脚压力或局部扭板，也不证明某个开放角度更好。",
         "variant": "closed-toe",
         "autoplay": false,
         "duration": 10000,

@@ -583,8 +583,8 @@
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | ab10168650bedecce531e61741d5ad05ecdbf4d32eb180a7e86771b56cbbf6ad |
+| content.json | 0d6a0b85e0229e5a890d92b225d641f5fe0e0a21391632bdbd429c7e584b9cff |
 | animations.js | 7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575 |
 | app.js | 196db02499bc55277ce1416f96dba008d70f94412287e40aaaf45368b7b30457 |
-| lesson-player/registry.json | a08d7c26e2bc048f4eb3ff83926b320cf3f7b3a4074d8d9c20ec8516067a3e49 |
+| lesson-player/registry.json | 39dec20947d196e6738083040effa6ee284c73b9f17057c7d4f27b111d4c7519 |
 

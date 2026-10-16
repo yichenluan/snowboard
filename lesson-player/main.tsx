@@ -5,7 +5,7 @@ import { BODY, boardToWorld, type MotionState, type Stance, type Vec3 } from "..
 import { surfaceHalfWidthAt } from "../prototype/board-surface";
 import { LESSON_TYPES, canRenderLesson, lessonTrail, sampleLesson, type LessonConfig } from "./motion";
 import { LessonDiagnostics } from "./diagnostics";
-import {JsbaOpenDirections} from "./jsba-observation";
+import {BodyOrientationDirections,studiesBodyOrientation} from "./body-orientation";
 import { comparisonFor } from "./comparison";
 import { usePlayback, PlaybackControls, type PlayerApi } from "./player-controls";
 import { DrylandPlayer, canRenderDryland } from "./dryland-player";
@@ -147,7 +147,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
   const root=useRef<HTMLDivElement>(null);
   const short=supportsShortTurnLesson(config),shortTiming=shortTurnTiming(config);
   const expertShort=supportsExpertShortLesson(config),expertSequence=supportsExpertShortSequenceLesson(config);
-  const jsba=supportsJsbaCarvingLesson(config);
+  const jsba=supportsJsbaCarvingLesson(config),orientationStudy=studiesBodyOrientation(config);
   const expert=expertShort||expertSequence||jsba;
   const expertOptions=jsba?jsbaCarvingVariants(config):expertShort?expertShortVariants(config):expertSequence?expertShortSequenceVariants(config):[];
   const [expertVariant,setExpertVariant]=useState(config.variant);
@@ -189,7 +189,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     {shortCompare&&<div className="sl3-options"><label>同进度动作 <select aria-label="同进度动作" value={shortError?"error":"correct"} onChange={e=>{setPlaying(false);setShortError(e.target.value==="error");}}><option value="correct">连续圆弯参考</option><option value="error">反例：末段急甩尾</option></select></label></div>}
     {expertOptions.length>1&&<div className="sl3-options"><label>动作对照 <select aria-label="动作对照" value={expertVariant} onChange={e=>{setPlaying(false);setExpertVariant(e.target.value);}}>{expertOptions.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}</select></label><span className="sl3-hint">切换保留进度；可随时返回参考动作</span></div>}
     <div className="sl3-views" role="group" aria-label="观察视角">{views.map(([v,label])=><button key={v} onClick={()=>{setView(v);setFlat(false);setReset(n=>n+1);}} aria-pressed={!flat&&view===v}>{label}</button>)}<button aria-pressed={flat} onClick={()=>setFlat(v=>!v)}>平面骨架</button></div>
-    <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton||emphasis} bodyFacingCues={jsba} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail} corridor={frame.corridor} corridorSections={frame.corridorSections}/>}</div>
+    <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton||emphasis} bodyFacingCues={orientationStudy} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail} corridor={frame.corridor} corridorSections={frame.corridorSections}/>}</div>
     <div className="sl3-status"><strong>{frame.segmentEdges?`原前脚处：${edges[frame.segmentEdges.front]}；原后脚处：${edges[frame.segmentEdges.rear]}`:edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
     <PlaybackControls clock={clock} stages={frame.stages} stage={frame.stage}/>
     <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>{switchRide?"惯用前脚":"前脚"} <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
@@ -197,13 +197,13 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     {(twist||(short||expert||["single-transition","lower-transition","retraction-transition","timing-study","hip-transition","coordinated-knee-transition","linked-retraction-skid"].includes(frame.task))&&!config.fromEdge)&&<div className="sl3-options"><label>{jsba?"第一弯用哪条刃":(short||expert||frame.task==="linked-retraction-skid")?"起始板刃":"转换方向"} <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">{jsba?"先接后刃":(short||expert||frame.task==="linked-retraction-skid")?"后刃开始":"后刃 → 前刃"}</option><option value="toe">{jsba?"先接前刃":(short||expert||frame.task==="linked-retraction-skid")?"前刃开始":"前刃 → 后刃"}</option></select></label></div>}
     {frame.task==="twist-timing-compare"&&<div className="sl3-options"><label>前后段换刃时机 <select value={twistTiming} onChange={e=>{setPlaying(false);setTwistTiming(e.target.value as TwistTiming);}}><option value="near-synchronous">基本同时</option><option value="front-earlier">前脚一段稍早</option></select></label><span className="sl3-hint">在同一滑行路线、同一进度比较；动作先后不同不代表某一种一定更好</span></div>}
     {frame.task==="timing-study"&&<div className="sl3-options"><label>屈伸启动时机 <select value={timing} onChange={e=>{setPlaying(false);setTiming(e.target.value as "early"|"baseline"|"late");}}><option value="early">提前</option><option value="baseline">参考时机</option><option value="late">稍后</option></select></label><span className="sl3-hint">保持当前进度比较；只改启动时刻</span></div>}
-    {frame.task==="toe-orientation-stop"&&<div className="sl3-options"><label>肩髋朝向对照 <select value={rotationComparison} onChange={e=>{setPlaying(false);setRotationComparison(e.target.value as "natural"|"slightly-open");}}><option value="natural">自然朝向</option><option value="slightly-open">上身略多朝板头</option></select></label><span className="sl3-hint">保留当前进度；同路线、脚位与刃角比较</span></div>}
+    {(frame.task==="toe-orientation-stop"||config.type==="fore-aft"&&config.variant==="rear-heel")&&<div className="sl3-options"><label>肩髋朝向对照 <select value={rotationComparison} onChange={e=>{setPlaying(false);setRotationComparison(e.target.value as "natural"|"slightly-open");}}><option value="natural">自然朝向</option><option value="slightly-open">胸与骨盆略多朝板头</option></select></label><span className="sl3-hint">保留当前进度；同路线、脚位与刃角比较，具体幅度只是示例</span></div>}
     {frame.task==="arms-traverse-stop"&&<div className="sl3-options"><label>斜滑板刃 <select value={edgeSide} onChange={e=>{setPlaying(false);setEdgeSide(e.target.value);}}><option value="toe">前刃</option><option value="heel">后刃</option></select></label></div>}
     <p className="sl3-hint sl3-input-help">鼠标拖动旋转、滚轮缩放；再次点视角复位。触屏旋转关闭时可滚动页面。</p>
     </div><div className="sl3-explain">
     {expert&&<div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>}
     <div className="sl3-explain-body">
-    {jsba&&<JsbaOpenDirections state={frame.state} stance={stance}/>}
+    {orientationStudy&&<BodyOrientationDirections state={frame.state} stance={stance}/>}
     {expert&&(jsba||config.legLengthDiagram||config.task==="expert-load-release")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}
     <div className="sl3-stages" role="group" aria-label="动作阶段">{frame.stages.map((s,i)=><button key={i} aria-pressed={frame.stage===i} onClick={()=>seek(s.at)}><span>{i+1}</span>{s.title}</button>)}</div>
     {!expert&&<div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>}

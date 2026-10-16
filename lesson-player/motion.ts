@@ -104,9 +104,15 @@ function stagesFor(c: LessonConfig, task: string): Stage[] {
     {at:.65,title:"回到中低位",detail:"重新屈腿，胸部配合平衡；不把头肩扑向弯内。"},
   ];
   if (c.type === "fore-aft") {
-    if(c.variant === "rear-heel" || c.variant === "front-return-toe") return [
+    if(c.variant === "rear-heel") return [
+      {at:0,title:c.rotationComparison==="slightly-open"?"肩髋略朝板头":"自然朝向参考",detail:"分开看胸前短线与腰前标记。切换朝向对照时保留同一进度、路线、脚位、刃角与前后位置编排；这里的开放幅度只是作者示例，不是规定角度。"},
+      {at:.15,title:"小幅向后脚侧",detail:"在当前朝向下，两腿分别配合，骨盆和胸部沿板长适量移动；双脚不离开固定器。朝向对照与沿板长移动是两个不同变量。"},
+      {at:.45,title:"分别观察肩、髋与双腿",detail:"头部可独立看向滑行方向；转头、开肩与开髋不能混为一谈。模型只显示位置和朝向，不显示真实承重比例或板尾局部扭转。"},
+      {at:.68,title:"回到两脚之间",detail:"保持所选肩髋朝向，恢复可向前后调整的位置；这不是每一弯都必须向后脚侧移动的规定动作。"},
+    ];
+    if(c.variant === "front-return-toe") return [
       {at:0,title:"两脚之间",detail:"先在当前工作刃上保持两腿可活动；这里展示位置关系，不显示压力比例。"},
-      {at:.15,title:c.variant === "rear-heel"?"小幅向后脚侧":"小幅向前脚侧",detail:"两腿分别配合，骨盆和胸部沿板长适量移动；双脚不离开固定器。"},
+      {at:.15,title:"小幅向前脚侧",detail:"两腿分别配合，骨盆和胸部沿板长适量移动；双脚不离开固定器。"},
       {at:.45,title:"观察双腿配合",detail:"观察前后膝和髋的变化，不靠前伸手臂或探头制造重心移动。"},
       {at:.68,title:"回到两脚之间",detail:"恢复可向两侧调整的位置；这不是每一弯都必须做的前后摆动。"},
     ];
@@ -189,6 +195,11 @@ export function sampleLesson(time: number, c: LessonConfig, stance: Stance = "re
   }
   const route:Route={position,travel,yaw,roll,edgeLoad:amount,phase:stage as 0|1|2|3,half:s>0?0:1,progress:t,holding:false,lean:s*amount,extension:0,braking:0};
   const pose:PoseOptions={cuffPitch:cuff,rearCuffPitch:cuff,legBend:bend,hipYaw:yaw+.05,shoulderYaw:yaw+.09,torsoPitch:torso,shinSide:rad(4)*fore,hipTilt:rad(4)*fore,torsoAlong:.025*fore,lookDirection};
+  if(c.type==="fore-aft"&&c.variant==="rear-heel"&&c.rotationComparison==="slightly-open"){
+    // This comparison changes only authored body facing. It neither prescribes
+    // a stance angle nor simulates pressure or local tail torsion.
+    pose.hipYaw=yaw+rad(18);pose.shoulderYaw=yaw+rad(32);
+  }
   // Stationary edge awareness uses an actual external hand support. It must not
   // borrow the turn's dynamic support or claim unsupported static equilibrium.
   if(task === "static-edge") {pose.frontHand=[.24,1.04,.34];pose.rearHand=[-.24,1.04,.34];}

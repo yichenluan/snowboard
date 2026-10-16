@@ -3,7 +3,7 @@
   "reviewDate": "2026-10-16",
   "scope": {
     "expectedLessons": 118,
-    "claimCount": 2611,
+    "claimCount": 2616,
     "effectiveSourceCount": 52,
     "citationCount": 486
   },
@@ -23,7 +23,7 @@
   "counts": {
     "direct": 360,
     "synthesis": 719,
-    "suggestion": 1463,
+    "suggestion": 1468,
     "unverified": 69
   },
   "unverifiedCategories": {
@@ -50445,6 +50445,278 @@
           "reviewScope": "完整读HEAD差分；历史正文完整存档；来源层级及真人标定状态均不升级。"
         }
       ]
+    },
+    "openStanceContent": {
+      "date": "2026-10-16",
+      "baselineCommit": "f2df3dc2d660746a5ed8338c3bf765cec9b4b64b",
+      "evidenceRef": "docs/open-stance-content-source-review.md",
+      "scope": "全文读118课与全局入口；精确维护5课8对象字段与新增术语，不批量刷新原审计。",
+      "contentBeforeSha256": "f6a3aec4f744a4c27d0f04e65edd1c7127d8f43a72d2e4e0fdb76bbe63c1b384",
+      "contentAfterSha256": "f5c8cf523cbcf372f6e63cd2f8ed6b02fcec13d146c3594cb686149a2f81557f",
+      "changedLessonIds": [
+        "v-heel-open-rear-foot",
+        "v11-lateral",
+        "v-heel-open-progression",
+        "v-heel-open-loading",
+        "v-toe-closed-drill"
+      ],
+      "records": [
+        {
+          "lessonId": "v-heel-open-rear-foot",
+          "path": "mechanics[0]",
+          "assessment": "synthesis",
+          "status": "amended",
+          "beforeSha256": "8b76815be0d4456aea3f6631db0d8b9ef38f3e8951fd15808c1b47b8b614a3a6",
+          "afterSha256": "354316a530f7985defae1094fe44e798dc06aca67bd8aae33754fe33eec6c431",
+          "boundary": "保留S01关于立刃/承重/转向维度及S16原p59支持；新增定义由S16 p43–45的自然位、脚角与可动条件归纳。自然位可略开，开肩/开髋/转头分看；不声称开放必使后段刃角或承重按同一方式变化。"
+        },
+        {
+          "lessonId": "v11-lateral",
+          "path": "mechanics[0]",
+          "assessment": "synthesis",
+          "status": "amended",
+          "beforeSha256": "1209a78dea9a0a1991202cc7e23b91ceeb7cc68328ff8e09a6362769e95298ec",
+          "afterSha256": "cefa35614dd159675047f4ea258ce2dcbe59621a0e3b5dace653f11dca58ce82",
+          "boundary": "保留S01与S16对板长/板宽、转向和可动的支持；以S16 p43–45澄清舒适参考。胸前/骨盆前方的观察法属本站消歧，不是原文规定的固定角。"
+        },
+        {
+          "lessonId": "v-heel-open-progression",
+          "path": "execution[3]",
+          "assessment": "suggestion",
+          "status": "amended",
+          "beforeSha256": "42c511b453528da504809ff1bf81cd7aed34b06c60c30f1b53cf9a1b55fab1c9",
+          "afterSha256": "699f955239c1a32ab16dacbf95299c4d0f37324cf4dccd6b52624eb862a85ff3",
+          "boundary": "五组及第4组仍为本站单变量练习。只保持肩线转向，倾斜改变胸前水平投影是作者几何量定义下的派生关系；不授予所有胸髋观测量严格不变、真实压力或抓地优劣。"
+        },
+        {
+          "lessonId": "v-heel-open-rear-foot",
+          "path": "demo",
+          "assessment": "suggestion",
+          "status": "added",
+          "beforeSha256": "49383e8ef6a68c541f162a8cf61e27764914f7f1c7c27c28411541d762b4cf3f",
+          "afterSha256": "a07a7d1cd4440457e7cdb64fe99b04295017dde7839423bdd0a995df6ecf163a",
+          "boundary": "作者新增自然/略开放开关及默认档；保留同进度同路线同刃角和同一前后微调编排；固定脚位下骨盆和大腿会随新朝向重新配合，不承诺实际骨盆轨迹完全不变。只比较几何朝向和位置，不模拟真实承重、局部扭板或断言开放更好。"
+        },
+        {
+          "lessonId": "v11-lateral",
+          "path": "demo",
+          "assessment": "suggestion",
+          "status": "added",
+          "beforeSha256": "ca558f8aa6fafeb7ebb9b48416384f8db3580b79fbb18fa0c280511eb87ca91a",
+          "afterSha256": "d80fa250c36c75293f217ac42418abcb63666be78fc15b115f2105a64b8442a2",
+          "boundary": "原地板坐标辨认与温和略开放示意，分看胸前/骨盆/板头；不把静态小刃当高阶低位滑行，不新增机构标准。"
+        },
+        {
+          "lessonId": "v-heel-open-loading",
+          "path": "demos[0]",
+          "assessment": "suggestion",
+          "status": "added",
+          "beforeSha256": "f424ed7f16c281cebe885cb0baf8d90727ccc36479986863014be4d91f51b973",
+          "afterSha256": "60a1b02884f3b7dd47b82a82a59e73c74657b9624b32f12d903addc4d214eeb5",
+          "boundary": "作者新增自然/略开放开关及默认档；两档只切换朝向，沿用同一前后微调编排；固定脚位下骨盆和大腿仍会重新配合，不构成隔离人体因果的实验。两脚实际压力、局部刃角、板雪反应均不由画面推出。"
+        },
+        {
+          "lessonId": "v-heel-open-progression",
+          "path": "demo",
+          "assessment": "suggestion",
+          "status": "added",
+          "beforeSha256": "744192ef76aa61f15e9c8b39d2799d07d0ff96c759994844faea41c56eca4750",
+          "afterSha256": "be0aa4eb0d03b07ed572f5204687009a31e1a5a600d7e8695236897eed39bbe1",
+          "boundary": "保留五组作者编排；第4组明确固定肩线转向而非所有派生朝向，未因此修改动作。"
+        },
+        {
+          "lessonId": "v-toe-closed-drill",
+          "path": "demo",
+          "assessment": "suggestion",
+          "status": "added",
+          "beforeSha256": "2ba08922d16b2271dc747a91245110fd2d57105837e1433b37ec2cb2ec7b8bf7",
+          "afterSha256": "3eb7bb9e20506d2a73063806ac23628e022b3dd2dbd41800e7a8c37c8556e87e",
+          "boundary": "原有自然/略开放对照保持，新增胸髋分别观察、转头不算开肩的表述；不强制闭肩，不以任一档声称前脚受力或抓地更优。"
+        }
+      ],
+      "archivedClaims": [
+        {
+          "id": "v-heel-open-rear-foot::mechanics[0]",
+          "lessonId": "v-heel-open-rear-foot",
+          "path": "mechanics[0]",
+          "claim": {
+            "title": "承重与后段刃角是两回事",
+            "body": "本课的开放站姿，指肩和髋比自然横向站姿更朝板头方向打开，不是把固定器站距调宽。后脚踩得重，并不保证板尾一段的后刃角度合适。若转肩转髋让后段刃角意外变小，只继续向下踩未必有效；先看板尾路线和高背板接触，再判断要调整身体朝向、立刃角度还是前后重心。",
+            "sources": [
+              "S01",
+              "S16"
+            ]
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S01",
+              "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+              "evidenceRef": "rawLedgers.short.evidenceBook.W1"
+            },
+            {
+              "sourceId": "S16",
+              "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
+              "evidenceRef": "rawLedgers.short.evidenceBook.C59"
+            }
+          ],
+          "boundary": "由列出的原始原理与任务条件归纳到本课；该多句段含观察法、纠错假设或适用判断，故不把整段标为来源逐字直接支持。 边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。；前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "provenance": [
+            "rawLedgers.short.claims[320]",
+            "docs/plain-chinese-content-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mechanics[0]",
+              "sha256": "8b76815be0d4456aea3f6631db0d8b9ef38f3e8951fd15808c1b47b8b614a3a6"
+            }
+          ],
+          "plainChineseFollowup": {
+            "evidenceRef": "docs/plain-chinese-content-review.md",
+            "changedBindings": [
+              "mechanics[0]"
+            ],
+            "assessmentUnchanged": true
+          }
+        },
+        {
+          "id": "v11-lateral::mechanics[0]",
+          "lessonId": "v11-lateral",
+          "path": "mechanics[0]",
+          "claim": {
+            "title": "先按板认方向",
+            "body": "前刃是脚尖侧板刃，后刃是脚跟侧板刃；板头、板尾则是另一组方向。开放站姿指肩髋比自然横向站姿更朝板头方向打开，不是加宽固定器站距。此时身体正前方不一定正对板刃，所以要按雪板来认方向，同时检查立刃角度和两脚承重，不能只凭“把髋往前顶”判断动作。",
+            "sources": [
+              "S01",
+              "S16"
+            ]
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S01",
+              "locator": "2021-01-12，正文列出的六项Snowboarding Fundamentals",
+              "evidenceRef": "rawLedgers.short.evidenceBook.W1"
+            },
+            {
+              "sourceId": "S16",
+              "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
+              "evidenceRef": "rawLedgers.short.evidenceBook.C43"
+            }
+          ],
+          "boundary": "由列出的原始原理与任务条件归纳到本课；该多句段含观察法、纠错假设或适用判断，故不把整段标为来源逐字直接支持。 边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。；均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "provenance": [
+            "rawLedgers.short.claims[373]",
+            "docs/plain-chinese-content-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mechanics[0]",
+              "sha256": "1209a78dea9a0a1991202cc7e23b91ceeb7cc68328ff8e09a6362769e95298ec"
+            }
+          ],
+          "plainChineseFollowup": {
+            "evidenceRef": "docs/plain-chinese-content-review.md",
+            "changedBindings": [
+              "mechanics[0]"
+            ],
+            "assessmentUnchanged": true
+          }
+        },
+        {
+          "id": "v-heel-open-progression::execution[3]",
+          "lessonId": "v-heel-open-progression",
+          "path": "execution[3]",
+          "claim": {
+            "title": "回基准再比较身体倾斜",
+            "body": "朝向与屈伸时机回到原来的基准，再小幅比较腿向弯内倾斜、上身相对腿往板的方向收回的配合，也就是反弓。它靠踝、膝、髋协调，不能靠塌腰或把腰往后掰。动画保持相同刃角供观察，雪上动作仍要随弯形、速度和雪况调整。",
+            "cue": "只比较身体关系",
+            "observe": "仍能恢复平衡、释放旧刃，不据姿态推断更抓地。",
+            "sources": [
+              "S16"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S16",
+              "locator": "p.43、45、47–52、55–57：姿态、调刃、压力时序与任务结果",
+              "evidenceRef": "rawLedgers.duck.readingEvidence#read-S16"
+            }
+          ],
+          "boundary": "来源支持技术关系，具体先后提醒、幅度、镜头、对照与退阶为本站建议，不是官方逐字流程。",
+          "provenance": [
+            "rawLedgers.duck.lessons[4].records[6]",
+            "docs/plain-chinese-content-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[3]",
+              "sha256": "42c511b453528da504809ff1bf81cd7aed34b06c60c30f1b53cf9a1b55fab1c9"
+            }
+          ],
+          "plainChineseFollowup": {
+            "evidenceRef": "docs/plain-chinese-content-review.md",
+            "changedBindings": [
+              "execution[3]"
+            ],
+            "assessmentUnchanged": true
+          }
+        }
+      ],
+      "newClaimIds": [
+        "v-heel-open-rear-foot::demo",
+        "v11-lateral::demo",
+        "v-heel-open-loading::demos[0]",
+        "v-heel-open-progression::demo",
+        "v-toe-closed-drill::demo"
+      ],
+      "globalFields": [
+        {
+          "path": "meta.contentRevision",
+          "before": 22,
+          "after": 23
+        },
+        {
+          "path": "glossary[id=open-stance]",
+          "assessment": "synthesis",
+          "sourceIds": [
+            "S16"
+          ],
+          "afterSha256": "b163126a0ba4788400832db0c7c77d62c248a4a622a16e3b4f54b25833358921",
+          "claim": {
+            "id": "open-stance",
+            "name": "开放站姿（开肩、开髋）",
+            "original": "Open stance / rotationally open position",
+            "aliases": [
+              "开放朝向",
+              "开肩",
+              "开髋",
+              "肩髋开放",
+              "开放式站姿"
+            ],
+            "definition": "在本课舒适自然朝向的基础上，胸前或骨盆前方相对雪板更多朝向板头。开肩指胸廓朝向的改变，开髋指骨盆朝向的改变，两者可以不同幅度；转头看出口是另一项动作。自然位本身也可略开放，先看胸前、骨盆前方与板头，再检查两腿能否继续屈伸和换侧。",
+            "confusion": "八字（duck）是前后固定器的脚角设置，不等于胸髋一定开放；“开放弯”说的是弯出口更朝坡下。静态开放是相对朝向，不能凭一张开放姿态就断定上下身正在同时反向旋转；肩线转向和胸前在雪面上的投影也不是同一个观察量。",
+            "context": "按脚角、活动范围和任务选择幅度。基础辨方向、普通连弯与高阶个人低位示范可以不同；本站动画中的自然/略开放档是作者对照，不是机构规定的统一角度，也不表示开放越大越好。",
+            "lessons": [
+              "v11-lateral",
+              "v-heel-open-rear-foot",
+              "v-heel-open-loading",
+              "v-toe-closed-drill",
+              "v-heel-open-progression",
+              "s-jsba-duck-mechanics"
+            ],
+            "sources": [
+              "S16"
+            ],
+            "evidence": "synthesis"
+          },
+          "boundary": "中文术语及观察归纳，不固定开放幅度，不授予真人标定。"
+        }
+      ],
+      "unaltered": "未变claims、sources、videoObservations、rawLedgers及历史followup逐值保留。",
+      "videoObservationsChanged": false,
+      "realFootageCalibration": "not_performed"
     }
   },
   "sources": [
@@ -50877,6 +51149,15 @@
       ],
       "scope": "2026-10-16十主课加低位关联全文独立复读；六课32字段增量审读；S53新增17帧、S55新增10帧独立看图及个人公开字幕范围；不作真人标定。",
       "sha256": "a6250f7fac36ab875d2c0b8c83afc361d4dcb48eb03adcb4a299716f6e4633fc"
+    },
+    "openStanceContentReview": {
+      "path": "docs/open-stance-content-source-review.md",
+      "sourceIds": [
+        "S01",
+        "S16"
+      ],
+      "scope": "2026-10-16全站内容完整审读及5课8对象字段增量来源复核；新demo为作者建议，保留自然/开放/反例任务分层；不新增视频观察或真人标定。",
+      "sha256": "90949217d3b51327edeadd2644853ca13cf14875c0abe1f97424259c0c4615ae"
     }
   },
   "lessons": [
@@ -70189,7 +70470,7 @@
       "lessonId": "v-heel-open-rear-foot",
       "module": "pressure",
       "title": "开放站姿滑后刃：后脚也要能控刃",
-      "lessonSha256": "6a6903302bc07df7e418001916aeb87bad0b7f1571c27ae589fd907db60a6fc4",
+      "lessonSha256": "b1806eb2e286ad36eae9198e97de0c583e894e68bb308c13fde3e54309780cae",
       "rawLedger": "short",
       "textReview": {
         "status": "reviewed",
@@ -70407,7 +70688,7 @@
           "path": "mechanics[0]",
           "claim": {
             "title": "承重与后段刃角是两回事",
-            "body": "本课的开放站姿，指肩和髋比自然横向站姿更朝板头方向打开，不是把固定器站距调宽。后脚踩得重，并不保证板尾一段的后刃角度合适。若转肩转髋让后段刃角意外变小，只继续向下踩未必有效；先看板尾路线和高背板接触，再判断要调整身体朝向、立刃角度还是前后重心。",
+            "body": "本课以自己舒适的自然朝向为参考，比较胸前与骨盆前方略向板头更多打开；自然位本身也可略开放。开肩与开髋分别观察，转头看出口不算身体已经打开，也不是把固定器站距调宽。后脚踩得重，并不保证板尾一段的后刃角度合适。若转肩转髋让后段刃角意外变小，只继续向下踩未必有效；先看板尾路线和高背板接触，再判断要调整身体朝向、立刃角度还是前后重心。",
             "sources": [
               "S01",
               "S16"
@@ -70424,17 +70705,23 @@
               "sourceId": "S16",
               "locator": "©2021，印刷/PDF p.59，Steering / Pedalling",
               "evidenceRef": "rawLedgers.short.evidenceBook.C59"
+            },
+            {
+              "sourceId": "S16",
+              "locator": "p43–45：自然位参考前脚角并保持活动；本轮舒适自然参考消歧",
+              "evidenceRef": "rawLedgers.short.evidenceBook.C43"
             }
           ],
-          "boundary": "由列出的原始原理与任务条件归纳到本课；该多句段含观察法、纠错假设或适用判断，故不把整段标为来源逐字直接支持。 边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。；前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。",
+          "boundary": "由列出的原始原理与任务条件归纳到本课；该多句段含观察法、纠错假设或适用判断，故不把整段标为来源逐字直接支持。 边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。；前脚先行是进阶例子，不是每次换刃硬规则；没有统一时差或板形变量。 本轮增量复核：保留S01关于立刃/承重/转向维度及S16原p59支持；新增定义由S16 p43–45的自然位、脚角与可动条件归纳。自然位可略开，开肩/开髋/转头分看；不声称开放必使后段刃角或承重按同一方式变化。",
           "provenance": [
             "rawLedgers.short.claims[320]",
-            "docs/plain-chinese-content-review.md"
+            "docs/plain-chinese-content-review.md",
+            "docs/open-stance-content-source-review.md"
           ],
           "bindings": [
             {
               "path": "mechanics[0]",
-              "sha256": "8b76815be0d4456aea3f6631db0d8b9ef38f3e8951fd15808c1b47b8b614a3a6"
+              "sha256": "354316a530f7985defae1094fe44e798dc06aca67bd8aae33754fe33eec6c431"
             }
           ],
           "plainChineseFollowup": {
@@ -70443,6 +70730,12 @@
               "mechanics[0]"
             ],
             "assessmentUnchanged": true
+          },
+          "openStanceContentFollowup": {
+            "evidenceRef": "docs/open-stance-content-source-review.md",
+            "assessmentUnchanged": true,
+            "beforeSha256": "8b76815be0d4456aea3f6631db0d8b9ef38f3e8951fd15808c1b47b8b614a3a6",
+            "afterSha256": "354316a530f7985defae1094fe44e798dc06aca67bd8aae33754fe33eec6c431"
           }
         },
         {
@@ -70858,6 +71151,47 @@
             {
               "path": "drill",
               "sha256": "49addec5d1e7310c20bb311d5745e40643161f7c5dfd7dda804c29cec19ab9c7"
+            }
+          ]
+        },
+        {
+          "id": "v-heel-open-rear-foot::demo",
+          "lessonId": "v-heel-open-rear-foot",
+          "path": "demo",
+          "claim": {
+            "type": "fore-aft",
+            "focus": "切换自然朝向与略开放，在同一进度分别看胸前、骨盆前方相对板头的方向，并比较相同后刃路线中的前后位置与回中。两档只切换肩髋朝向，固定器脚位、路线与刃角相同，沿用相同的前后微调编排；肩髋打开后，骨盆和大腿仍会随固定脚位重新配合；这是作者对照示例，不规定通用角度。画面不表示真实受力，也不模拟前后脚处不同刃角或局部扭板。",
+            "steps": [
+              {
+                "label": "对照朝向",
+                "detail": "先切自然与略开放，在同一进度分看胸前、骨盆前方与板头；转头或抬手不代替肩髋方向。"
+              },
+              {
+                "label": "观察前后位置",
+                "detail": "两档沿用相同的前后微调编排，肩髋打开后骨盆和大腿仍会随固定脚位重新配合；比较身体相对双脚的位置，不把它当作两脚压力读数，也不表示开放必然要加后脚承重。"
+              },
+              {
+                "label": "检验后刃过程",
+                "detail": "看相同后刃弧中的前后位置变化与回中；真实板尾抓雪、后脚支撑及下一弯能否顺畅开始，另在雪上验证。"
+              }
+            ],
+            "variant": "rear-heel",
+            "autoplay": false,
+            "duration": 10000,
+            "title": "开放站姿滑后刃：后脚也要能控刃 · 动作示意",
+            "task": "single-arc",
+            "rotationComparison": "slightly-open"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "作者新增自然/略开放开关及默认档；保留同进度同路线同刃角和同一前后微调编排；固定脚位下骨盆和大腿会随新朝向重新配合，不承诺实际骨盆轨迹完全不变。只比较几何朝向和位置，不模拟真实承重、局部扭板或断言开放更好。 此项仅为作者动画安排，不是逐课真人标定或雪上受力验证。",
+          "provenance": [
+            "docs/open-stance-content-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "demo",
+              "sha256": "a07a7d1cd4440457e7cdb64fe99b04295017dde7839423bdd0a995df6ecf163a"
             }
           ]
         }
@@ -73062,7 +73396,7 @@
       "lessonId": "v11-lateral",
       "module": "pressure",
       "title": "开放站姿：分清板头板尾与两侧板刃",
-      "lessonSha256": "0bb302b9e498c36d525b4fb00dd7da93f1bf7261c24ed80cedbe48a20aa75ef9",
+      "lessonSha256": "d65cab37e1d7319d7053b2d7adeb748a077e01e78697e92ba0372b63479c045e",
       "rawLedger": "short",
       "textReview": {
         "status": "reviewed",
@@ -73275,7 +73609,7 @@
           "path": "mechanics[0]",
           "claim": {
             "title": "先按板认方向",
-            "body": "前刃是脚尖侧板刃，后刃是脚跟侧板刃；板头、板尾则是另一组方向。开放站姿指肩髋比自然横向站姿更朝板头方向打开，不是加宽固定器站距。此时身体正前方不一定正对板刃，所以要按雪板来认方向，同时检查立刃角度和两脚承重，不能只凭“把髋往前顶”判断动作。",
+            "body": "前刃是脚尖侧板刃，后刃是脚跟侧板刃；板头、板尾则是另一组方向。本课以自己舒适的自然朝向为参考，比较胸前与骨盆前方略向板头更多打开；自然位本身也可略开放。开肩与开髋分别看，转头不等于肩髋已转动，也不是加宽固定器站距。此时身体正前方不一定正对板刃，所以要按雪板来认方向，同时检查立刃角度和两脚承重，不能只凭“把髋往前顶”判断动作。",
             "sources": [
               "S01",
               "S16"
@@ -73292,17 +73626,23 @@
               "sourceId": "S16",
               "locator": "©2021，印刷/PDF p.43–45，Position & Balance / Neutral Position / Stance & Binding Set Up",
               "evidenceRef": "rawLedgers.short.evidenceBook.C43"
+            },
+            {
+              "sourceId": "S16",
+              "locator": "p43–45：自然位参考前脚角并保持活动；本轮舒适自然参考消歧",
+              "evidenceRef": "rawLedgers.short.evidenceBook.C43"
             }
           ],
-          "boundary": "由列出的原始原理与任务条件归纳到本课；该多句段含观察法、纠错假设或适用判断，故不把整段标为来源逐字直接支持。 边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。；均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。",
+          "boundary": "由列出的原始原理与任务条件归纳到本课；该多句段含观察法、纠错假设或适用判断，故不把整段标为来源逐字直接支持。 边界：“control the relationship”不应译成单凭COM位置决定全部受力；不是精确测力模型。；均衡是中立参考，不给所有弯固定50/50比例；不把uniform flexion译成三个关节角相等。 本轮增量复核：保留S01与S16对板长/板宽、转向和可动的支持；以S16 p43–45澄清舒适参考。胸前/骨盆前方的观察法属本站消歧，不是原文规定的固定角。",
           "provenance": [
             "rawLedgers.short.claims[373]",
-            "docs/plain-chinese-content-review.md"
+            "docs/plain-chinese-content-review.md",
+            "docs/open-stance-content-source-review.md"
           ],
           "bindings": [
             {
               "path": "mechanics[0]",
-              "sha256": "1209a78dea9a0a1991202cc7e23b91ceeb7cc68328ff8e09a6362769e95298ec"
+              "sha256": "cefa35614dd159675047f4ea258ce2dcbe59621a0e3b5dace653f11dca58ce82"
             }
           ],
           "plainChineseFollowup": {
@@ -73311,6 +73651,12 @@
               "mechanics[0]"
             ],
             "assessmentUnchanged": true
+          },
+          "openStanceContentFollowup": {
+            "evidenceRef": "docs/open-stance-content-source-review.md",
+            "assessmentUnchanged": true,
+            "beforeSha256": "1209a78dea9a0a1991202cc7e23b91ceeb7cc68328ff8e09a6362769e95298ec",
+            "afterSha256": "cefa35614dd159675047f4ea258ce2dcbe59621a0e3b5dace653f11dca58ce82"
           }
         },
         {
@@ -73753,6 +74099,34 @@
             ],
             "assessmentUnchanged": true
           }
+        },
+        {
+          "id": "v11-lateral::demo",
+          "lessonId": "v11-lateral",
+          "path": "demo",
+          "claim": {
+            "type": "hip-edge-change",
+            "focus": "原地辨认板长与板宽：分别看胸前、骨盆前方和板头，理解身体前方不一定正对脚尖侧板刃。保持温和略开放，先在平板内调整支撑，再立小刃并回平板；后续滑行另行验证，不把原地示范当作高阶低位姿态。",
+            "variant": "open",
+            "autoplay": false,
+            "duration": 10000,
+            "title": "开放站姿：分清板头板尾与两侧板刃 · 动作示意",
+            "task": "board-coordinate-study",
+            "jointLabels": true,
+            "view": "width"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "原地板坐标辨认与温和略开放示意，分看胸前/骨盆/板头；不把静态小刃当高阶低位滑行，不新增机构标准。 此项仅为作者动画安排，不是逐课真人标定或雪上受力验证。",
+          "provenance": [
+            "docs/open-stance-content-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "demo",
+              "sha256": "d80fa250c36c75293f217ac42418abcb63666be78fc15b115f2105a64b8442a2"
+            }
+          ]
         }
       ],
       "videoComparison": {
@@ -84500,7 +84874,7 @@
       "lessonId": "v-heel-open-loading",
       "module": "rotation",
       "title": "开肩后的后刃：检查前后脚是否都能控制",
-      "lessonSha256": "c85052d98287f3857c5ddb410f36e44cb42123bb44b0b450ff1cd2dd176706b5",
+      "lessonSha256": "aa40d3a0d4e51bfb20b8dfb63c25a3432bf9a7cc5582af1fcf906a35d141c76c",
       "rawLedger": "duck",
       "textReview": {
         "status": "reviewed",
@@ -85115,6 +85489,47 @@
           ],
           "bindings": [],
           "unverifiedCategory": "real_footage_calibration"
+        },
+        {
+          "id": "v-heel-open-loading::demos[0]",
+          "lessonId": "v-heel-open-loading",
+          "path": "demos[0]",
+          "claim": {
+            "type": "fore-aft",
+            "focus": "切换自然朝向与略开放，在同一进度分别看胸前、骨盆前方相对板头的方向，并比较相同后刃路线中的前后位置与回中。两档只切换肩髋朝向，固定器脚位、路线与刃角相同，沿用相同的前后微调编排；肩髋打开后，骨盆和大腿仍会随固定脚位重新配合；这是作者对照示例，不规定通用角度。画面不表示真实受力，也不模拟前后脚处不同刃角或局部扭板。",
+            "steps": [
+              {
+                "label": "对照朝向",
+                "detail": "先切自然与略开放，在同一进度分看胸前、骨盆前方与板头；转头或抬手不代替肩髋方向。"
+              },
+              {
+                "label": "观察前后位置",
+                "detail": "两档沿用相同的前后微调编排，肩髋打开后骨盆和大腿仍会随固定脚位重新配合；比较身体相对双脚的位置，不把它当作两脚压力读数，也不表示开放必然要加后脚承重。"
+              },
+              {
+                "label": "检验后刃过程",
+                "detail": "看相同后刃弧中的前后位置变化与回中；真实板尾抓雪、后脚支撑及下一弯能否顺畅开始，另在雪上验证。"
+              }
+            ],
+            "variant": "rear-heel",
+            "autoplay": false,
+            "duration": 10000,
+            "title": "后刃开肩时：让后脚也能稳稳控刃 · 动作示意",
+            "task": "single-arc",
+            "rotationComparison": "slightly-open"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "作者新增自然/略开放开关及默认档；两档只切换朝向，沿用同一前后微调编排；固定脚位下骨盆和大腿仍会重新配合，不构成隔离人体因果的实验。两脚实际压力、局部刃角、板雪反应均不由画面推出。 此项仅为作者动画安排，不是逐课真人标定或雪上受力验证。",
+          "provenance": [
+            "docs/open-stance-content-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "demos[0]",
+              "sha256": "60a1b02884f3b7dd47b82a82a59e73c74657b9624b32f12d903addc4d214eeb5"
+            }
+          ]
         }
       ],
       "videoComparison": {
@@ -85127,7 +85542,7 @@
       "lessonId": "v-heel-open-progression",
       "module": "rotation",
       "title": "开肩姿态练习：朝向、屈伸、倾斜分开试",
-      "lessonSha256": "49668d4ebe30999ec49edaa075992e21e634dc2f1837fa3238edf97fcde1bfde",
+      "lessonSha256": "4b193de9374c22692176961c6f2a61d0528d2cd37d6dbf7545c9b6437efdd5ef",
       "rawLedger": "duck",
       "textReview": {
         "status": "reviewed",
@@ -85321,7 +85736,7 @@
           "path": "execution[3]",
           "claim": {
             "title": "回基准再比较身体倾斜",
-            "body": "朝向与屈伸时机回到原来的基准，再小幅比较腿向弯内倾斜、上身相对腿往板的方向收回的配合，也就是反弓。它靠踝、膝、髋协调，不能靠塌腰或把腰往后掰。动画保持相同刃角供观察，雪上动作仍要随弯形、速度和雪况调整。",
+            "body": "肩线转向与屈伸时机回到原来的基准，再小幅比较腿向弯内倾斜、上身相对腿往板的方向收回的配合，也就是反弓。它靠踝、膝、髋协调，不能靠塌腰或把腰往后掰。动画保持相同刃角供观察，雪上动作仍要随弯形、速度和雪况调整。倾斜变化时，胸前在俯视图中的方向可能略变，这不算额外主动转肩。",
             "cue": "只比较身体关系",
             "observe": "仍能恢复平衡、释放旧刃，不据姿态推断更抓地。",
             "sources": [
@@ -85336,15 +85751,16 @@
               "evidenceRef": "rawLedgers.duck.readingEvidence#read-S16"
             }
           ],
-          "boundary": "来源支持技术关系，具体先后提醒、幅度、镜头、对照与退阶为本站建议，不是官方逐字流程。",
+          "boundary": "来源支持技术关系，具体先后提醒、幅度、镜头、对照与退阶为本站建议，不是官方逐字流程。 本轮增量复核：五组及第4组仍为本站单变量练习。只保持肩线转向，倾斜改变胸前水平投影是作者几何量定义下的派生关系；不授予所有胸髋观测量严格不变、真实压力或抓地优劣。",
           "provenance": [
             "rawLedgers.duck.lessons[4].records[6]",
-            "docs/plain-chinese-content-review.md"
+            "docs/plain-chinese-content-review.md",
+            "docs/open-stance-content-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[3]",
-              "sha256": "42c511b453528da504809ff1bf81cd7aed34b06c60c30f1b53cf9a1b55fab1c9"
+              "sha256": "699f955239c1a32ab16dacbf95299c4d0f37324cf4dccd6b52624eb862a85ff3"
             }
           ],
           "plainChineseFollowup": {
@@ -85353,6 +85769,12 @@
               "execution[3]"
             ],
             "assessmentUnchanged": true
+          },
+          "openStanceContentFollowup": {
+            "evidenceRef": "docs/open-stance-content-source-review.md",
+            "assessmentUnchanged": true,
+            "beforeSha256": "42c511b453528da504809ff1bf81cd7aed34b06c60c30f1b53cf9a1b55fab1c9",
+            "afterSha256": "699f955239c1a32ab16dacbf95299c4d0f37324cf4dccd6b52624eb862a85ff3"
           }
         },
         {
@@ -85711,6 +86133,36 @@
           ],
           "bindings": [],
           "unverifiedCategory": "real_footage_calibration"
+        },
+        {
+          "id": "v-heel-open-progression::demo",
+          "lessonId": "v-heel-open-progression",
+          "path": "demo",
+          "claim": {
+            "type": "shoulder-coordination",
+            "focus": "五组依次为自然姿态、只改肩髋朝向、只改屈伸时机、只改身体倾斜、恢复自然姿态；各组都与第一组比较。路线与刃角相同，只看身体怎样配合，不能据此判断真实压力或抓雪力哪组更好。第四组保持肩线转向；倾斜变化时，胸前在俯视图中的方向可能略变。",
+            "variant": "open-heel",
+            "autoplay": false,
+            "duration": 40000,
+            "title": "五组对照：朝向、时机与身体倾斜分别比较",
+            "task": "orientation-progression",
+            "view": "follow",
+            "jointLabels": true,
+            "skid": true,
+            "trackDiagnostics": true
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "保留五组作者编排；第4组明确固定肩线转向而非所有派生朝向，未因此修改动作。 此项仅为作者动画安排，不是逐课真人标定或雪上受力验证。",
+          "provenance": [
+            "docs/open-stance-content-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "demo",
+              "sha256": "be0aa4eb0d03b07ed572f5204687009a31e1a5a600d7e8695236897eed39bbe1"
+            }
+          ]
         }
       ],
       "videoComparison": {
@@ -86384,7 +86836,7 @@
       "lessonId": "v-toe-closed-drill",
       "module": "rotation",
       "title": "前刃双脚配合：用自然朝向找回前脚引导",
-      "lessonSha256": "a3ab2d4685ae177360f1fefe4944d0c7d5eeb9e92a1b3c29228dbc36e2172b5b",
+      "lessonSha256": "e063003cbdb2e4c1b2a00c3e59ce9185601f6bb0697693d8581deb8fcc89845d",
       "rawLedger": "duck",
       "textReview": {
         "status": "reviewed",
@@ -86952,6 +87404,37 @@
           ],
           "bindings": [],
           "unverifiedCategory": "real_footage_calibration"
+        },
+        {
+          "id": "v-toe-closed-drill::demo",
+          "lessonId": "v-toe-closed-drill",
+          "path": "demo",
+          "claim": {
+            "type": "shoulder-coordination",
+            "focus": "切换自然朝向与略开放，在同一进度分别看胸前与骨盆前方相对板头的方向，再看两腿是否仍可调整；转头不算开肩，开肩也不保证骨盆同幅转动。两档固定器脚位、路线、刃角与时长相同，都完成前刃单弯并停住；不模拟两脚压力或局部扭板，也不证明某个开放角度更好。",
+            "variant": "closed-toe",
+            "autoplay": false,
+            "duration": 10000,
+            "title": "前刃单弯：自然朝向与稍多开肩对照",
+            "task": "toe-orientation-stop",
+            "view": "follow",
+            "jointLabels": true,
+            "skid": true,
+            "trackDiagnostics": true,
+            "rotationComparison": "natural"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "原有自然/略开放对照保持，新增胸髋分别观察、转头不算开肩的表述；不强制闭肩，不以任一档声称前脚受力或抓地更优。 此项仅为作者动画安排，不是逐课真人标定或雪上受力验证。",
+          "provenance": [
+            "docs/open-stance-content-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "demo",
+              "sha256": "3eb7bb9e20506d2a73063806ac23628e022b3dd2dbd41800e7a8c37c8556e87e"
+            }
+          ]
         }
       ],
       "videoComparison": {
