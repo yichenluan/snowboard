@@ -21,4 +21,4 @@ JSBA任务和质量目标作为技术参考，低姿态八字为本站应用，�
 
 ## 发布
 
-待本轮功能提交部署后，核对正式主站、离线副本与本地构建一致，并实际打开正式首页确认默认展开、双主线内容及跳转。结果追加在本节，不将push本身视为交付。
+功能提交 `3799e2c24254c86b4c3fb023b0fdaacef54a1b13` 的 [Actions 38864886504](https://github.com/yichenluan/snowboard/actions/runs/38864886504) build/deploy 成功。正式主站、离线副本、独立原型HTML/JS/CSS五项均200且逐字节匹配本地。主站/副本2,509,371 bytes，SHA-256 `3c1d4b5686e1865ff5db1d21be22f86b103bfae5b6f4bd7282b852094c5467e3`；课内runtime SHA-256 `68a5eb8ad62dc4de7953283f5aed1bf3fe8b3a7fe9bc31b929dcefc3ca941787` 与前轮一致。正式首页默认展开、6/9个精选入口、低姿态高阶课程的route/上下课及返回首页另经实际Chrome核对，0浏览器错误；有限画面 `production.jpg`、资源证据 `production-verification.json` 均在本地QA目录。后续纯文档补记不改变功能构建。
