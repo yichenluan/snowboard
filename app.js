@@ -32,9 +32,15 @@
   function renderTechnicalMap(){
     const map=data.technicalMap||defaultTechnicalMap;
     if(!map)return '';
-    const shortTitles={overview:'六项关系',stance:'站姿',edging:'立刃',inclination:'内倾与反弓',pressure:'屈伸',transition:'换刃',rotation:'旋转',carving:'刻滑与控速','off-snow':'热身体能',equipment:'装备设置',diagnosis:'问题诊断',discussion:'练习设计'};
+    const shortTitles={overview:'六项关系',stance:'站姿',edging:'立刃',inclination:'内倾与反弓',pressure:'屈伸',transition:'换刃',rotation:'旋转',carving:'JSBA 刻滑','short-turns':'CASI 小回转','off-snow':'热身体能',equipment:'装备设置',diagnosis:'问题诊断',discussion:'练习设计'};
     const moduleButton=id=>{const m=moduleInfo(id);return m?`<button type="button" class="map-module" data-map-module="${esc(id)}" aria-label="查看${esc(m.title)}模块"><span>${esc(shortTitles[id]||m.title)}</span><small>${data.lessons.filter(l=>l.module===id).length}</small><span aria-hidden="true">↗</span></button>`:'';};
     const node=(n,className='map-node')=>{const valid=data.lessons.some(l=>l.id===n.lesson),tag=valid?'button':'div';return `<${tag}${valid?` type="button" data-lesson="${esc(n.lesson)}"`:''} class="${className}"><strong>${esc(n.title)}</strong><span>${esc(n.note)}</span>${valid?'<i aria-hidden="true">↗</i>':''}</${tag}>`;};
+    const primaryRoutes=(map.primaryRoutes||[]).map(entry=>{
+      const route=(data.navigationRoutes||[]).find(route=>route.id===entry.route);
+      if(!route)return '';
+      const lessons=entry.lessons.filter(id=>route.lessons.includes(id)).map(id=>data.lessons.find(lesson=>lesson.id===id)).filter(Boolean);
+      return `<section class="map-route" aria-labelledby="map-route-${esc(route.id)}"><header><h4 id="map-route-${esc(route.id)}">${esc(route.title)}</h4><button type="button" class="map-top-link" data-map-route="${esc(route.id)}">完整路线 · ${route.lessons.length} 课 ↗</button></header><p class="map-route-summary">${esc(route.summary)}</p><p class="map-route-entry"><strong>开始前：</strong>${esc(route.entry)}</p><p class="map-route-note">${esc(entry.note)}</p><strong class="map-route-label">关键技术入口</strong><div class="map-route-lessons">${lessons.map(lesson=>`<button type="button" data-lesson="${esc(lesson.id)}" data-route="${esc(route.id)}">${esc(lesson.title)} <span aria-hidden="true">↗</span></button>`).join('')}</div></section>`;
+    }).join('');
     return `<section class="tech-map" id="movement-map" aria-labelledby="movement-map-title">
       <header class="map-heading"><div><div class="map-kicker">TECHNIQUE AT A GLANCE · ${data.modules.length} 个模块</div><h2 id="movement-map-title">${esc(map.title)}</h2><p class="map-intro">${esc(map.intro)}</p></div><button type="button" class="map-top-link" data-map-route>完整练习路线 ↗</button></header>
       <div class="map-goal"><strong>${esc(map.goal)}</strong><span>${esc(map.goalNote)}</span></div>
@@ -45,13 +51,13 @@
         <div class="map-bridge"><span>观察结果</span><b aria-hidden="true">↔</b></div>
         <section class="map-layer map-outcome" aria-label="可观察的雪板结果"><h3 class="map-layer-title"><span>03</span> 可观察结果</h3><p class="map-layer-intro">先看板，再看人</p>${map.results.map(n=>node(n,'map-node map-result')).join('')}${moduleButton('carving')}${moduleButton('short-turns')}</section>
       </div>
-      <div class="map-paths"><div class="map-path-heading"><strong>共同基础与进阶方向</strong><small>按通过标准扩展，分支可以并行发展</small></div><div class="map-mainline">${map.baseline.map((s,i)=>`${i?'<b aria-hidden="true">→</b>':''}<span>${esc(s)}</span>`).join('')}</div><div class="map-branches">${map.branches.map(n=>node(n,'map-branch')).join('')}</div></div>
+      <section class="map-paths" aria-labelledby="map-paths-title"><div class="map-path-heading"><h3 id="map-paths-title">共同基础怎样用于两条主线</h3><small>按问题查技术；先后与通过标准见上方能力图</small></div><div class="map-mainline">${map.baseline.map((s,i)=>`${i?'<b aria-hidden="true">→</b>':''}<span>${esc(s)}</span>`).join('')}</div><div class="map-primary-routes">${primaryRoutes}</div><div class="map-branches">${map.branches.map(n=>node(n,'map-branch')).join('')}</div></section>
       <div class="map-support">${map.supports.map(n=>`<div class="map-support-card"><strong>${esc(n.title)}</strong><p>${esc(n.note)}</p>${moduleButton(n.module)}</div>`).join('')}<div class="map-feedback"><strong>${esc(map.feedback.title)}</strong><span>${map.feedback.steps.map(esc).join(' → ')}</span><div class="map-module-links">${map.feedback.modules.map(moduleButton).join('')}</div></div></div>
     </section>`;
   }
   function bindTechnicalMap(){
     $('view').querySelectorAll('[data-map-module]').forEach(b=>b.onclick=()=>{state={page:'overview',module:b.dataset.mapModule,query:'',kind:'all',lesson:null,route:null};$('search').value='';$('filter-kind').value='all';location.hash='';render();closeNav();window.scrollTo({top:0,behavior:'auto'});});
-    $('view').querySelectorAll('[data-map-route]').forEach(b=>b.onclick=()=>openRoute(''));
+    $('view').querySelectorAll('[data-map-route]').forEach(b=>b.onclick=()=>openRoute(b.dataset.mapRoute||''));
     const root=$('skill-planner-root'),map=progressionMap();
     if(root&&window.SnowProgression?.validate(map))activePlanner=window.SnowProgression.mount(root,{map,lessons:data.lessons,progress:user.skillProgress,target:user.skillTarget,selectedId:state.skillId,onProgress:progress=>{user.skillProgress=progress;save();},onTarget:target=>{user.skillTarget=target;save();},onSelect:id=>{state.skillId=id;},onLesson:openLesson});
   }
@@ -62,7 +68,7 @@
   function prototypeEntry(mode='correct',compact=false){const title=mode==='error'?'在三维场景中对照常见错误':mode==='drill'?'分阶段看侧滑怎样接成一个弯':'搓雪小回转 · 三维动作实验室';return `<section class="prototype-entry${compact?' prototype-entry-compact':''}" aria-label="搓雪小回转三维教学原型"><div><span class="prototype-kicker">搓雪小回转 · 独立三维演示</span><h2>${title}</h2><p>同步观察身体姿态、板刃与滑行方向，暂停查看动作转换。包含正确示范、错误对照和侧滑接单弯练习。对应动作已可直接在本课三维播放器中观察。</p><small>在独立场景中对照正确示范、常见错误和分阶段练习。</small></div><a class="prototype-open" href="${esc(prototypeUrl(mode))}">打开独立三维演示 <span aria-hidden="true">↗</span></a></section>`;}
   function renderOverview(){const items=data.lessons.filter(matches),m=moduleInfo(state.module);let html='';
     if(!state.query&&state.module==='all'&&state.kind==='all')html='<div class="notice"><p><strong>适合谁：</strong>已经能用两刃停止、完成受控连弯并避让来人的雪友。先在熟悉、人少、视野完整的压雪缓坡练，再提高练习要求。</p><p><strong>先分清方向：</strong>前脚 / 后脚沿板长区分；前刃 = 脚趾侧，后刃 = 脚跟侧。立刃就是让雪板倾斜、用一侧板刃控制滑行；刃角是板底与雪面的夹角。身体高度、刃角和脚下压力要分别观察。</p><button class="text-button" id="start-route">查看进阶练习路线 →</button></div>';
-    if(!state.query&&state.module==='all'&&state.kind==='all')html=`<div id="technical-map"><div id="skill-planner-root"></div><details class="map-explainer"><summary>动作技术全景：身体动作、六个板控要点与滑行结果</summary>${renderTechnicalMap()}</details></div>`+html;
+    if(!state.query&&state.module==='all'&&state.kind==='all')html=`<div id="technical-map"><div id="skill-planner-root"></div><details class="map-explainer" open><summary>动作技术全景：身体动作、板控与两条主线的技术应用</summary>${renderTechnicalMap()}</details></div>`+html;
     html+=`<div class="section-heading"><div><h2>${esc(state.query?'搜索结果':m?.title||'从理解，到可以重复的动作')}</h2><p>${esc(m?.intro||'每个技术点都讲原理、具体动作、观察结果与练习进阶。')}</p></div><small>${items.length} 个条目 · ${demoCount(items)} 个示意</small></div>`;
     if(!items.length)html+='<div class="empty"><h3>没有匹配内容</h3><p>尝试较短关键词，或切换到“全部内容”。</p></div>';
     else if(state.query||state.module!=='all'||state.kind!=='all')html+='<div class="cards">'+items.map(card).join('')+'</div>';

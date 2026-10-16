@@ -134,7 +134,7 @@ const pages = [
   ['overview', '内容总览', '课程导航、技术分类与学习入口', 'renderOverview', {modules:data.modules,navigationRoutes:data.navigationRoutes}],
   ['curriculum', '进阶练习路线', '按能力选择前置、当前练习和下一步', 'renderCurriculum', {navigationRoutes:data.navigationRoutes,curriculum:data.curriculum}],
   ['progression', '能力图与自查', '区分结果能力、必要前置、可选辅助与并行方向', 'SnowProgression', data.progressionMap],
-  ['technical-map', '动作技术全景', '联系身体动作、板控关系与滑行结果', 'renderTechnicalMap', data.technicalMap],
+  ['technical-map', '动作技术全景', '联系身体动作、板控关系与滑行结果', 'renderTechnicalMap', {map:data.technicalMap,routes:(data.technicalMap?.primaryRoutes||[]).map(entry=>({route:(data.navigationRoutes||[]).find(route=>route.id===entry.route),lessonTitles:(entry.lessons||[]).map(id=>({id,title:lessons.get(id)?.title}))}))}],
   ['sources', '资料与阅读依据', '找到来源版本和适用范围', 'renderSources', data.sources],
   ['additions', '我的补充与回收站', '保存待验证的个人观察，不自动纳入教学推荐', 'renderAdditions', { localStorage: true, authority: 'unverified-personal-notes' }],
   ['glossary', '全站术语表', '统一定义、别名、适用站姿和易混概念', 'glossary', data.glossary || []],
@@ -248,6 +248,18 @@ for(const [index,route] of (data.navigationRoutes||[]).entries()){
   else{
     if(new Set(route.lessons).size!==route.lessons.length)errors.push(`学习路线 ${route.id} 含重复课程`);
     for(const id of route.lessons)if(!lessons.has(id))errors.push(`学习路线 ${route.id} 的课程不存在：${id}`);
+  }
+}
+for(const entry of data.technicalMap?.primaryRoutes||[]){
+  const route=(data.navigationRoutes||[]).find(route=>route.id===entry.route);
+  if(!route)errors.push(`技术全景路线不存在：${entry.route}`);
+  if(!Array.isArray(entry.lessons)||!entry.lessons.length)errors.push(`技术全景路线 ${entry.route} 缺少关键课程`);
+  else{
+    if(new Set(entry.lessons).size!==entry.lessons.length)errors.push(`技术全景路线 ${entry.route} 含重复课程`);
+    for(const id of entry.lessons){
+      if(!lessons.has(id))errors.push(`技术全景课程不存在：${id}`);
+      else if(route&&!route.lessons.includes(id))errors.push(`技术全景课程 ${id} 不属于路线 ${entry.route}`);
+    }
   }
 }
 for (const [index,stage] of (data.curriculum || []).entries()) {

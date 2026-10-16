@@ -16635,53 +16635,67 @@
     {
       "id": "page:overview",
       "dimension": "pageAccessible",
+      "fingerprint": "d0112dea2b6c8fae2b96dfdaa9f34e5d245d92076f8b822d821c8030eb1b6347",
       "status": "passed",
-      "scope": "实际打开首页，确认118课、双主目标和技术手册文案；没有记录表。",
-      "evidence": [
-        "docs/jsba-restructure-release.md",
-        ".validation/jsba-carving/homepage.jpg"
-      ],
-      "fingerprint": "8bdbba0674b6cb4daebc9131404cc7a62d750e31ce92a2a3ba8ea899e88186fa",
       "date": "2026-10-16",
-      "reviewer": "root（实际Chrome/CUA）",
-      "observedBuild": {
-        "runtimeSha256": "0458cbcf1fa0a0d339f14bd253bdab2a785c2f7fcbf9cfe4fa964b78e5f27973",
-        "indexSha256": "84c13a952790561c542eeedabcaee5faf7a6619bf9b59894b47591ec0e094a21",
-        "indexBytes": 2485177
-      },
+      "reviewer": "root（实际Chrome / CUA）",
+      "scope": "本地最终单文件首页默认展开、手动折叠与刷新、双主线内容及15个精选课程入口，完整路线参数及前后课逐项核对；390px桌面视口有限画面，无实体手机或新动作教学核验。",
+      "evidence": [
+        "docs/home-panorama-review.md",
+        ".validation/home-panorama/highlight-navigation.json",
+        ".validation/home-panorama/local-narrow.jpg"
+      ],
       "previousObservation": {
         "id": "page:overview",
         "dimension": "pageAccessible",
         "status": "passed",
-        "scope": "实际打开首页，观察新八阶段能力图与专家路线入口。未以此覆盖首页所有折叠技术节点。",
-        "checks": [
-          "首页八阶段能力图",
-          "专家入口"
-        ],
-        "fingerprint": "3cf486dcf0751a4f69c350cdf1b066dd584ad1cb730eecf3afaa26f50878a0ab",
-        "date": "2026-10-15",
-        "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+        "scope": "实际打开首页，确认118课、双主目标和技术手册文案；没有记录表。",
         "evidence": [
-          "docs/level4-release-review.md",
-          ".validation/level4/release-observations.json#page:overview/pageAccessible"
+          "docs/jsba-restructure-release.md",
+          ".validation/jsba-carving/homepage.jpg"
         ],
+        "fingerprint": "8bdbba0674b6cb4daebc9131404cc7a62d750e31ce92a2a3ba8ea899e88186fa",
+        "date": "2026-10-16",
+        "reviewer": "root（实际Chrome/CUA）",
+        "observedBuild": {
+          "runtimeSha256": "0458cbcf1fa0a0d339f14bd253bdab2a785c2f7fcbf9cfe4fa964b78e5f27973",
+          "indexSha256": "84c13a952790561c542eeedabcaee5faf7a6619bf9b59894b47591ec0e094a21",
+          "indexBytes": 2485177
+        },
         "previousObservation": {
           "id": "page:overview",
           "dimension": "pageAccessible",
-          "fingerprint": "0970fcfdfc8e1174d5ed2be986fd1d727c5f704afd0b83d4bcb51fe930cb1dda",
           "status": "passed",
-          "date": "2026-10-15",
-          "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
-          "evidence": [
-            "docs/continuation-review.md",
-            ".validation/continuation/pages-results.json",
-            ".validation/continuation/core-flow-results.json"
+          "scope": "实际打开首页，观察新八阶段能力图与专家路线入口。未以此覆盖首页所有折叠技术节点。",
+          "checks": [
+            "首页八阶段能力图",
+            "专家入口"
           ],
-          "previousEvidence": [
-            ".validation/goal-audit/core-flow-results.json",
-            "log/goal-core-flow-final.log",
-            "docs/goal-upgrade-review.md"
-          ]
+          "fingerprint": "3cf486dcf0751a4f69c350cdf1b066dd584ad1cb730eecf3afaa26f50878a0ab",
+          "date": "2026-10-15",
+          "reviewer": "root（实际CUA）；inventory（证据范围核对）",
+          "evidence": [
+            "docs/level4-release-review.md",
+            ".validation/level4/release-observations.json#page:overview/pageAccessible"
+          ],
+          "previousObservation": {
+            "id": "page:overview",
+            "dimension": "pageAccessible",
+            "fingerprint": "0970fcfdfc8e1174d5ed2be986fd1d727c5f704afd0b83d4bcb51fe930cb1dda",
+            "status": "passed",
+            "date": "2026-10-15",
+            "scope": "当前构建实际浏览器入口/内容检查；103课与练习量、214诊断、13模块、135动画引用、2装备图，核心交互另测。",
+            "evidence": [
+              "docs/continuation-review.md",
+              ".validation/continuation/pages-results.json",
+              ".validation/continuation/core-flow-results.json"
+            ],
+            "previousEvidence": [
+              ".validation/goal-audit/core-flow-results.json",
+              "log/goal-core-flow-final.log",
+              "docs/goal-upgrade-review.md"
+            ]
+          }
         }
       }
     },
@@ -49474,14 +49488,28 @@
     {
       "id": "page:technical-map",
       "dimension": "pageAccessible",
-      "fingerprint": "3bd1fbeca9cc8bfc18c4d3a3cd290d1ac441e4041deecbcbe41619d814d84a3d",
+      "fingerprint": "41029e61c9f3b30f26c4339a77cc8c13311dbe9fbddba26100cd59745d103395",
       "status": "passed",
-      "date": "2026-10-15",
-      "scope": "实际展开/收起，17个课程节点逐个点击及13模块筛选、完整路线入口。",
+      "date": "2026-10-16",
+      "reviewer": "root（实际Chrome / CUA）",
+      "scope": "本地最终单文件首页默认展开、手动折叠与刷新、双主线内容及15个精选课程入口，完整路线参数及前后课逐项核对；390px桌面视口有限画面，无实体手机或新动作教学核验。",
       "evidence": [
-        "docs/remaining-ui-review.md",
-        ".validation/continuation/remaining-ui-results.json"
-      ]
+        "docs/home-panorama-review.md",
+        ".validation/home-panorama/highlight-navigation.json",
+        ".validation/home-panorama/local-narrow.jpg"
+      ],
+      "previousObservation": {
+        "id": "page:technical-map",
+        "dimension": "pageAccessible",
+        "fingerprint": "3bd1fbeca9cc8bfc18c4d3a3cd290d1ac441e4041deecbcbe41619d814d84a3d",
+        "status": "passed",
+        "date": "2026-10-15",
+        "scope": "实际展开/收起，17个课程节点逐个点击及13模块筛选、完整路线入口。",
+        "evidence": [
+          "docs/remaining-ui-review.md",
+          ".validation/continuation/remaining-ui-results.json"
+        ]
+      }
     },
     {
       "id": "feature:personal-additions",
@@ -61436,35 +61464,52 @@
     },
     {
       "id": "page:technical-map",
-      "fingerprint": "4421ecc5026e8833d080866d54fdd87fd9840cbea58419e5c2957fa12e1d3102",
+      "fingerprint": "dce7618dc27fc90a17e6719770716c34f3c71090d2d172c9394378438b7d44fc",
       "date": "2026-10-16",
-      "reviewer": "root / 路线与动作独立审读",
+      "reviewer": "root / audit_panorama（独立只读复核）",
       "parts": [
         "text",
         "references",
         "scope"
       ],
-      "summary": "审读当前双主线技术编排、引用和动作用途；只记录文字与配置审读，不由代码、引用、数值或旧截图授予画面/教学通过。",
+      "summary": "完整复读首页全景及双主线精选入口：标题、路线、课名同源；区分前置能力、技术速查与完整课序，保留JSBA与本站低姿态应用边界。未变课程正文不重新授予教学通过。",
       "evidence": [
-        "docs/jsba-restructure-review.md",
-        "docs/jsba-restructure-extra-source-review.md",
-        "docs/jsba-animation-spec.md"
+        "docs/home-panorama-review.md",
+        "content.json#/technicalMap",
+        "app.js#renderTechnicalMap"
       ],
       "previousReview": {
         "id": "page:technical-map",
-        "fingerprint": "0eabb8ac69f1c3cacb35125a54e41239acf3ff3bcca9f11f32e0fe1206b609c0",
-        "date": "2026-10-15",
-        "reviewer": "plain-chinese-review-team",
+        "fingerprint": "4421ecc5026e8833d080866d54fdd87fd9840cbea58419e5c2957fa12e1d3102",
+        "date": "2026-10-16",
+        "reviewer": "root / 路线与动作独立审读",
         "parts": [
-          "content-text",
-          "navigation-and-source-relations"
+          "text",
+          "references",
+          "scope"
         ],
-        "summary": "完整审读本页面内容载荷中的中文说明及导航、课程或来源关系；共用界面文案审读另见播放器复核。这里的指纹只绑定内容载荷，不代表重新访问页面或验证交互。",
+        "summary": "审读当前双主线技术编排、引用和动作用途；只记录文字与配置审读，不由代码、引用、数值或旧截图授予画面/教学通过。",
         "evidence": [
-          "app.js#renderTechnicalMap",
-          "docs/plain-chinese-content-review.md",
-          "docs/plain-chinese-player-review.md"
-        ]
+          "docs/jsba-restructure-review.md",
+          "docs/jsba-restructure-extra-source-review.md",
+          "docs/jsba-animation-spec.md"
+        ],
+        "previousReview": {
+          "id": "page:technical-map",
+          "fingerprint": "0eabb8ac69f1c3cacb35125a54e41239acf3ff3bcca9f11f32e0fe1206b609c0",
+          "date": "2026-10-15",
+          "reviewer": "plain-chinese-review-team",
+          "parts": [
+            "content-text",
+            "navigation-and-source-relations"
+          ],
+          "summary": "完整审读本页面内容载荷中的中文说明及导航、课程或来源关系；共用界面文案审读另见播放器复核。这里的指纹只绑定内容载荷，不代表重新访问页面或验证交互。",
+          "evidence": [
+            "app.js#renderTechnicalMap",
+            "docs/plain-chinese-content-review.md",
+            "docs/plain-chinese-player-review.md"
+          ]
+        }
       }
     },
     {
@@ -66638,7 +66683,15 @@
       "status": "partial",
       "continuousHumanFrameByFrameReview": false
     },
-    "limits": "身体开放度按任务分别编排，不将所有自然姿态改为JSBA低位。当前几何和有限画面不证明真实压力、局部扭板、膝三轴、全部表面穿插、真人精确标定或雪上认证。"
+    "limits": "身体开放度按任务分别编排，不将所有自然姿态改为JSBA低位。当前几何和有限画面不证明真实压力、局部扭板、膝三轴、全部表面穿插、真人精确标定或雪上认证。",
+    "homepagePanoramaReview": {
+      "date": "2026-10-16",
+      "scope": "首页全景默认展开、独立双主线与15个同源技术入口；仅更新首页/全景page访问与全景文字审读。",
+      "evidence": [
+        "docs/home-panorama-review.md"
+      ],
+      "limits": "未改三维、课程正文或路线前置；未将历史动作/页面过期证据批量刷新。"
+    }
   },
   "historicalEvidenceSummaries": [
     {

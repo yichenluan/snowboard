@@ -11,7 +11,7 @@
     "method": "以技术解释和三维分阶段演示为核心，分别发展CASI四级搓雪小回转与JSBA高阶刻滑能力，并在八字站姿中练低姿态控制。官方任务、教练个人示范与本站教学编排分别注明。",
     "coverage": "两条主线共用站姿、立刃、屈伸和旋转协调基础：CASI四级搓雪小回转；JSBA高阶低姿态八字刻滑。按技术问题查阅动作过程、发力传递、身体姿态与排错；个人训练记录由滑雪者在站外管理。",
     "limitations": "动作感受是练习提示，不是测量结果。原创动画用来说明动作、路线和先后顺序，不能测出真实压力，也不给出适合所有人的关节角度。具体动作调整需结合现场观察。视频时间用于定位来源，章节首次采样约有±10秒误差。",
-    "contentRevision": 23
+    "contentRevision": 24
   },
   "modules": [
     {
@@ -19845,9 +19845,9 @@
   ],
   "technicalMap": {
     "title": "两条技术主线，共用一套板控基础",
-    "intro": "身体怎样动，会怎样影响雪板的立刃、转向和受力？最后从路线、速度和板痕检查结果。点任一节点，进入对应课程或模块。",
+    "intro": "把身体动作、六个板控要点和滑行结果联系起来，再看同一套基础怎样用于搓雪小回转与刻滑。上方能力图用于自查前置，这里按技术问题直达课程。",
     "goal": "CASI 四级搓雪小回转与 JSBA 高阶低姿态八字刻滑",
-    "goalNote": "先建立双刃、圆弯和连续换刃。搓雪短弯练转向、滑移与控压；刻滑练伸展式、抱腿式、纯刻滑短弯和低位控制。八字低姿态是本站应用目标，先有正常高度基础。",
+    "goalNote": "两条主线共用双刃、圆弯和连续换刃基础。搓雪小回转主动分配滑移；刻滑主要让板沿刃上弧线转向。身体高度、刃角和压力分别观察。",
     "body": [
       {
         "title": "居中与前后调整",
@@ -19875,8 +19875,8 @@
         ]
       },
       {
-        "title": "下肢引导与旋转协调",
-        "note": "双腿带板，上身配合平衡与观察",
+        "title": "下肢引导与肩髋配合",
+        "note": "分别看双腿转向、肩髋朝向和视线；按具体任务配合，不锁死腰胯",
         "lesson": "v14-steering",
         "modules": [
           "transition",
@@ -19944,16 +19944,6 @@
     ],
     "branches": [
       {
-        "title": "CASI 四级搓雪小回转",
-        "note": "连续转向、滑移分配、承压释放与窄走廊控速",
-        "lesson": "s-short-expert-map"
-      },
-      {
-        "title": "JSBA 高阶低姿态八字刻滑",
-        "note": "完整弧线 → 两类转换 → 弯幅与纯刻短弯 → 两刃低位控制",
-        "lesson": "v20-path"
-      },
-      {
         "title": "辅助 · 上下身协调",
         "note": "双腿带板，上身平顺而不锁髋",
         "lesson": "v19-stable-upper"
@@ -19988,7 +19978,36 @@
         "diagnosis",
         "discussion"
       ]
-    }
+    },
+    "primaryRoutes": [
+      {
+        "route": "short",
+        "lessons": [
+          "s-short-expert-map",
+          "s-short-expert-steering",
+          "s-short-expert-pressure",
+          "s-short-expert-flow",
+          "s-short-expert-transfer",
+          "s-short-expert-review"
+        ],
+        "note": "用完整弯形、可控滑移与屈伸管理速度，检查整段能否持续；本站课序不是 CASI 官方课表。"
+      },
+      {
+        "route": "carving",
+        "lessons": [
+          "s-carve-expert-arc",
+          "s-jsba-basic-carve",
+          "s-jsba-dynamic-carve",
+          "s-jsba-size-control",
+          "s-jsba-short-carve",
+          "s-jsba-duck-mechanics",
+          "s-duck-low-linked",
+          "s-carve-expert-variation",
+          "s-carve-expert-review"
+        ],
+        "note": "伸展式与抱腿式是可比较的转换工具。参照 JSBA 任务与质量目标，低姿态八字为本站应用；JSBA 不统一要求八字脚角、低位或触雪。"
+      }
+    ]
   },
   "progressionMap": {
     "version": 4,
