@@ -1,6 +1,6 @@
 # 双主线技术手册：验证与发布
 
-日期：2026-10-16。实现起点 `57a3905`，内容版本21。当前为发布前实测记录，部署结果在完成后补记。
+日期：2026-10-16。实现起点 `57a3905`，内容版本21。实现、推送、构建部署及正式站核验已完成。
 
 ## 交付范围
 
@@ -38,4 +38,10 @@ JSBA采样覆盖15变体×2首刃×2前脚×241时点，共14,460主样本；骨
 
 ## 发布
 
-待实现提交推送后，核对对应Actions构建/部署、正式HTML与独立原型资源，再实际打开线上新课。发布成功将补记提交与证据；本段不预先声称通过。
+实现提交 `77b77a8996a0d6a911b39225ee33a37618716d5c` 已推送main；[Actions 38847335496](https://github.com/yichenluan/snowboard/actions/runs/38847335496)的build和deploy均成功，部署完成于2026-10-16 11:49:39（Asia/Shanghai）。
+
+正式[主站](https://jinke.me/snowboard/)与离线副本均2,485,177 bytes，SHA-256 `84c13a952790561c542eeedabcaee5faf7a6619bf9b59894b47591ec0e094a21`；主站、副本、独立原型HTML、JS和CSS均200且逐字节等于本地构建。证据为 `.validation/jsba-carving/published-verification.json`。
+
+Chrome实际核对正式首页的118课与双主线说明、抱腿式课程及其落线阶段、低姿态较低对照和放大画面、弯幅课及能力衔接。新课画布、进度控件与阶段可用，训练记录组件为0，未见横向溢出；正式站console error为0，历史本地WebGL故障注入日志另计。证据为 `published-smoke.json`、`published-dynamic.png`、`published-low.png`、`published-homepage.png`。
+
+随后仅补充本记录与统一状态，属于纯文档收尾，不改变上述网站构建或增加动作教学验收。
