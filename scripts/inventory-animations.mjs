@@ -73,7 +73,7 @@ const modelNames = {
 };
 const destinationFor = demo => {
   if(implemented(demo)&&demo.type==='expert-short-sequence')return 'D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过';
-  if(implemented(demo)&&demo.type==='expert-carving')return 'D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过';
+  if(implemented(demo)&&demo.type==='jsba-carving')return 'D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过';
   if(drylandTypes.includes(demo.type))return 'D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md';
   if(implemented(demo)) return `${['center-low','center-high','fore-aft'].includes(demo.type)?'D1':['toe-edge','heel-edge','inclination'].includes(demo.type)?'D2':['pressure-flex','pressure-extend','edge-change-up','edge-change-down','hip-edge-change','knee-edge-change','retraction-turns'].includes(demo.type)?'D4':'D3'}：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md`;
   if(partialVariants[demo.type]&&!demo.variant)return `D4：仅${partialVariants[demo.type].join('、')}已接入；其他任务仍待独立迁移`;

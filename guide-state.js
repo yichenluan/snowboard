@@ -36,24 +36,18 @@
   // Content always comes from this release. Only personal fields cross revisions.
   function readUser(saved) {
     const source = saved?.user || saved || {};
-    const user = {};
+    // Preserve unknown personal fields verbatim; retired features do not interpret them.
+    const user = { ...source };
     for (const key of [
       "bookmarks",
       "additions",
       "trash",
       "skillProgress",
-      "assessmentRecords",
     ]) {
       user[key] = Array.isArray(source[key]) ? source[key] : [];
     }
     user.skillTarget =
       typeof source.skillTarget === "string" ? source.skillTarget : "all";
-    user.assessmentDrafts =
-      source.assessmentDrafts &&
-      typeof source.assessmentDrafts === "object" &&
-      !Array.isArray(source.assessmentDrafts)
-        ? source.assessmentDrafts
-        : {};
     return user;
   }
 

@@ -21,6 +21,15 @@ test('当前正文与逐结论来源账保持一致', () => {
   assert.deepEqual(fixture().errors(), []);
 });
 
+test('个人真人示范保留作者归属，视频观察不能省略来源身份', () => {
+  const f = fixture();
+  const personal = f.audit.videoObservations.find((entry: JsonRecord) => entry.sourceId === 'S48');
+  assert.ok(personal);
+  assert.equal(personal.sourceKind, 'personal');
+  delete personal.sourceKind;
+  assert.ok(f.errors().some(error => error === `视频观察必须区分官方与个人来源：${personal.id}`));
+});
+
 test('来源证据拒绝基础类型和当前结论自证', () => {
   const primitive = fixture();
   primitive.audit.lessons[0].claims[0].provenance = ['schemaVersion'];
@@ -54,7 +63,7 @@ test('引用官方视频不继承其他课程的关键帧观察状态', () => {
 
   const target = f.content.lessons.find((lesson: JsonRecord) => lesson.id === 'v-purpose');
   const review = f.audit.lessons.find((entry: JsonRecord) => entry.lessonId === target.id);
-  assert.equal(review.officialVideoComparison.status, 'not_reviewed');
+  assert.equal(review.videoComparison.status, 'not_reviewed');
   const index = target.citations.length;
   const citation = structuredClone(observed.citations[sourceIndex]);
   target.citations.push(citation);
@@ -73,7 +82,7 @@ test('引用官方视频不继承其他课程的关键帧观察状态', () => {
 
   // The existing source reading can support a citation without observing this lesson's animation.
   assert.deepEqual(f.errors(), []);
-  review.officialVideoComparison = { status: 'limited_keyframes', sourceIds: ['S35'], observationIds: [] };
+  review.videoComparison = { status: 'limited_keyframes', sourceIds: ['S35'], observationIds: [] };
   assert.ok(f.errors().some(error => error === `有限视频对照状态与逐课独立观察不一致：${target.id}`));
 });
 
@@ -116,31 +125,4 @@ test('只更新片段文字和哈希不能制造新的实际观察时刻', () =>
   }
   review.lessonSha256 = sourceClaimHash(lesson);
   assert.ok(f.errors().some(error => error === `真人片段时刻缺少本课独立观察：${lesson.id} videoStudy.segments[0]`));
-});
-
-test('顶层验收协议独立绑定正文和人工证据', () => {
-  const changed = fixture();
-  const protocol = changed.content.assessmentProtocols[0];
-  assert.ok(protocol);
-  protocol.criteria[0].observe += ' 未经复核的新条件';
-  assert.ok(changed.errors().some(error => error === `验收协议已变化或绑定错误：${protocol.id}`));
-
-  const misbound = fixture();
-  misbound.audit.assessmentProtocols[0].path = 'lessons[0]';
-  assert.ok(misbound.errors().some(error => error.includes('验收协议已变化或绑定错误')));
-
-  const noEvidence = fixture();
-  noEvidence.audit.assessmentProtocols[0].provenance = ['schemaVersion'];
-  assert.ok(noEvidence.errors().some(error => error.includes('验收协议缺少独立人工证据')));
-
-  const selfSource = fixture();
-  selfSource.audit.assessmentProtocols[0].sources[0].evidenceRef = 'assessmentProtocols[0]';
-  assert.ok(selfSource.errors().some(error => error.includes('验收协议来源证据不可追溯')));
-});
-
-test('课程不能引用不存在的验收维度', () => {
-  const f = fixture();
-  const lesson = f.content.lessons.find((entry: JsonRecord) => entry.assessmentProtocol);
-  lesson.assessmentCriteriaIds.push('unreviewed-invented-criterion');
-  assert.ok(f.errors().some(error => error === `课程引用不存在的观察维度：${lesson.id}`));
 });

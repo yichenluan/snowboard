@@ -5,23 +5,28 @@ import { BODY, boardToWorld, type Vec3 } from "../prototype/motion.ts";
 import { canRenderLesson, sampleLesson, type LessonConfig } from "../lesson-player/motion.ts";
 import { supportsShortTurnLesson, shortTurnDurationMs } from "../lesson-player/short-turns.ts";
 import { supportsExpertShortLesson, expertShortDurationMs } from "../lesson-player/expert-short-turns.ts";
+import { supportsExpertShortSequenceLesson, expertShortSequenceDurationMs } from "../lesson-player/expert-short-sequence.ts";
+import { supportsJsbaCarvingLesson, jsbaCarvingDurationMs } from "../lesson-player/jsba-carving.ts";
 
 const content=JSON.parse(readFileSync(new URL("../content.json",import.meta.url),"utf8"));
-const refs:LessonConfig[]=content.lessons.flatMap((l:{demos?:LessonConfig[];demo?:LessonConfig})=>l.demos?.length?l.demos:l.demo?[l.demo]:[]).filter(canRenderLesson);
+const registry=JSON.parse(readFileSync(new URL("../lesson-player/registry.json",import.meta.url),"utf8"));
+const snowRefs:LessonConfig[]=content.lessons.flatMap((l:{demos?:LessonConfig[];demo?:LessonConfig})=>l.demos?.length?l.demos:l.demo?[l.demo]:[]).filter((c:LessonConfig)=>!registry.drylandTypes.includes(c.type));
+const refs=snowRefs.filter(canRenderLesson);
 const distance=(a:Vec3,b:Vec3)=>Math.hypot(...a.map((v,i)=>v-b[i]));
 const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
 const subtract=(a:Vec3,b:Vec3):Vec3=>a.map((v,i)=>v-b[i]) as Vec3;
 
 test("every migrated course preserves feet, both legs and finite equipment movement throughout its own task",()=>{
-  assert.equal(refs.length,122,"115 existing + 2 expert-short + 2 finite sequences + 3 expert-carving references");
+  assert.ok(refs.length>100,"cover all currently referenced snow animations");
+  assert.equal(refs.length,snowRefs.length,"every current snow animation must have a supported configuration");
   for(const config of refs) for(const stance of ["regular","goofy"] as const) {
     let before:ReturnType<typeof sampleLesson>|undefined;
     // The short-turn route can turn continuously faster than foundation drills.
     // Check its frame displacement at 60 fps; this is a rendering regression
     // guard, not a physiological speed limit or proof of C1 continuity. The
     // soft-limit seams have separate one-sided derivative tests.
-    const shortTurn=supportsShortTurnLesson(config),expert=supportsExpertShortLesson(config);
-    const duration=expert?expertShortDurationMs(config):shortTurn?shortTurnDurationMs(config):(config.duration??10000);
+    const shortTurn=supportsShortTurnLesson(config),expert=supportsExpertShortLesson(config),sequence=supportsExpertShortSequenceLesson(config),jsba=supportsJsbaCarvingLesson(config);
+    const duration=jsba?jsbaCarvingDurationMs(config):sequence?expertShortSequenceDurationMs(config):expert?expertShortDurationMs(config):shortTurn?shortTurnDurationMs(config):(config.duration??10000);
     const samples=Math.max(200,Math.ceil(duration/(shortTurn||expert?1000/60:50)));
     for(let i=0;i<=samples;i++) {
       const frame=sampleLesson(i/samples,config,stance),s=frame.state,j=s.joints;
@@ -33,7 +38,7 @@ test("every migrated course preserves feet, both legs and finite equipment movem
         const shin=subtract(j[`${leg}Knee`],j[`${leg}Ankle`]),boot=s.boots[leg];
         const pitch=Math.atan2(dot(shin,boot.toeDirection),dot(shin,boot.up))*180/Math.PI;
         assert.ok(pitch>=12-1e-8&&pitch<=20+1e-8,"authored cuff must not pass through highback or fold without limit");
-        assert.ok(s.metrics[`${leg}Knee`]>15&&s.metrics[`${leg}Knee`]<80,"neither locked knees nor deep crouch in these foundation tasks");
+        assert.ok(s.metrics[`${leg}Knee`]>15&&s.metrics[`${leg}Knee`]<(jsba?100:80),jsba?"authored JSBA examples stay within their declared flexion range":"foundation examples retain their original non-locked, moderate flexion range");
       }
       assert.ok(Math.abs(distance(j.pelvis,j.chest)-BODY.trunk)<1e-9);
       if(before) {

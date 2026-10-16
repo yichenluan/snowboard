@@ -12,13 +12,12 @@ if not runtime_path.is_file():
 # Inline classic script: no module fetch, external model, font or CDN dependency.
 runtime = re.sub(r"</script", r"<\\/script", runtime_path.read_text(), flags=re.IGNORECASE)
 replacements = {
-    "/* GUIDE_STYLE */": "\n".join((root / name).read_text() for name in ["styles.css", "progression.css", "assessment.css", "lesson-player/styles.css"]),
+    "/* GUIDE_STYLE */": "\n".join((root / name).read_text() for name in ["styles.css", "progression.css", "lesson-player/styles.css"]),
     "/* GUIDE_DATA */": json.dumps(data, ensure_ascii=False).replace("<", "\\u003c"),
     "/* GUIDE_ANIMATIONS */": (root / "animations.js").read_text(),
     "/* GUIDE_LESSON_RUNTIME */": runtime,
     "/* GUIDE_LESSON_BRIDGE */": (root / "lesson-player/bridge.js").read_text(),
     "/* GUIDE_PROGRESSION */": (root / "progression.js").read_text(),
-    "/* GUIDE_ASSESSMENT */": (root / "assessment.js").read_text(),
     "/* GUIDE_COMMENTS */": (root / "comments.js").read_text(),
     "/* GUIDE_STATE */": (root / "guide-state.js").read_text(),
     "/* GUIDE_APP */": (root / "app.js").read_text(),

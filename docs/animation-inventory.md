@@ -2,25 +2,25 @@
 
 由 `node scripts/inventory-animations.mjs` 生成。不要直接编辑此文件；迁移分类与人工验收说明维护在脚本，课程用途、配置和资料维护在原有源码。`node scripts/inventory-animations.mjs --check` 可检查清单是否与源码同步。完整配置、逐课资料定位和 claim 见 [JSON 清单](animation-inventory.json)。
 
-**当前课程动画接入：142/142。** 当前引用均由课内三维播放器接管，旧播放器引用为 0。另有 2 项装备交互保留二维。下文的旧模型与共享关键帧是来源盘点，不代表当前渲染。接入数量不代表教学认证或发布完成；实际观察与边界见 [课程播放器审阅](lesson-player-review.md)。
+**当前课程动画接入：150/150。** 当前引用均由课内三维播放器接管，旧播放器引用为 0。另有 2 项装备交互保留二维。下文的旧模型与共享关键帧是来源盘点，不代表当前渲染。接入数量不代表教学认证或发布完成；实际观察与边界见 [课程播放器审阅](lesson-player-review.md)。
 
 ## 数量与口径
 
 | 项目 | 数量 | 含义 |
 | --- | --- | --- |
-| 课程 / 模块 | 113 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
-| 含动画的课程 | 96 | 按 app.js：非空 demos 优先，否则 demo |
-| 迁移范围内的动画引用 | 142 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
+| 课程 / 模块 | 118 / 13 | 稳定课程 ID 与导航单元；不等于独立动画 |
+| 含动画的课程 | 102 | 按 app.js：非空 demos 优先，否则 demo |
+| 迁移范围内的动画引用 | 150 | 每个课程内每个可选示意各计 1 次，可重复引用同一模型 |
 | 装备交互图 | 2 | app.js 的 binding-stance 与 boot-clearance；非 SnowDemo 动画 |
 | 已独立审阅的装备图 | 2 | 保留二维；来源、几何与实际交互范围见 lesson-equipment-review.md |
-| 主站显示的示意总数 | 144 | 课程动画引用 + 装备图；不额外把独立 3D 链接计入 |
-| 无动作/装备图课程 | 15 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
-| 注册 / 当前有引用的类型 | 41 / 39 | 按旧预设与课内注册表并集盘点；不等于当前三维模块数 |
-| 应用变体键 | 78 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
-| 展示配置组合 | 100 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
+| 主站显示的示意总数 | 152 | 课程动画引用 + 装备图；不额外把独立 3D 链接计入 |
+| 无动作/装备图课程 | 14 | 原理与方法仍有正文，不应为凑全 3D 强制补动画 |
+| 注册 / 当前有引用的类型 | 41 / 38 | 按旧预设与课内注册表并集盘点；不等于当前三维模块数 |
+| 应用变体键 | 80 | type:variant:transition；与错误卡 demoKey 的匹配口径一致 |
+| 展示配置组合 | 104 | 去掉 title/focus/steps/autoplay/duration 后按字段去重；仍含视角/图层，不等于独立动作 |
 | 旧小回转声明变体 | 16 | animations.js 中 3 个类型共享 shortState；当前实现按独立任务和过渡方式接入，不以旧声明推定支持组合 |
 | 3D 模式 / 课程入口 | 3 / 3 | 首页已移除独立入口；三种模式共享 motion.ts 状态与 scene.tsx 场景 |
-| 课内三维类型 / 引用 | 39 / 142 | 按注册表已切换默认渲染；不代表教学认证 |
+| 课内三维类型 / 引用 | 39 / 150 | 按注册表已切换默认渲染；不代表教学认证 |
 | 类型注册 / 变体白名单接入类型 | 36 / 3 | 3 个 partial 类型仅支持列明变体；其当前课程引用均已接入，未引用的其他变体不支持；类型注册也仍受 task 门控 |
 | 当前使用旧播放器的引用 | 0 | 按逐引用 renderer 统计；保留旧源码不等于仍有旧播放器引用 |
 
@@ -34,7 +34,7 @@
 | 小回转共享时序/轨迹 + 双腿 IK | 3 / 34 | 旧 shortRaw / shortState → skeleton；当前小回转由独立任务编排，不能用旧共享关系推定动作相同 |
 | 离雪站立关节模型 | 4 / 12 | 旧 skeleton + sceneBody；当前离雪任务使用独立普通鞋模型和任务接触约束 |
 | 离雪侧面专用模型 | 4 / 8 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
-| 原生三维独立任务（无旧预设） | 4 / 8 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
+| 原生三维独立任务（无旧预设） | 4 / 16 | 旧 sceneDry；当前平板、小腿、髋和腘绳肌任务各自保留地面任务语义 |
 | 压力阶段图 | 4 | 旧来源为 scenePressure；当前保留必要二维时间图，不能解释成实测压力 |
 | 装备交互 | 2 | app.js mountIllustration；保留 2D 几何表达与型号限制 |
 
@@ -62,6 +62,7 @@
 | --- | --- | --- |
 | info | unused-preset | absorption 已注册但没有课程引用；保留，不能视作已完成迁移 |
 | info | unused-preset | pedalling 已注册但没有课程引用；保留，不能视作已完成迁移 |
+| info | unused-preset | duck-carve 已注册但没有课程引用；保留，不能视作已完成迁移 |
 
 - **共享姿态风险：** 旧小回转 `shortState` 默认使用 `hipY = edge × .64`、`shoulderY = edge × .35`，两刃为同号系数镜像；这不是可靠的前后刃非对称姿态依据，不直接拷入新原型或其他课。
 - **旧多视图风险：** 旧 `sceneBody` 使用 IK，`sceneTrack` 按比例另构膝/髋/肩；旧视图看似一致不能证明解剖关系一致。当前课内三维与平面骨架使用同一动作状态，具体画面审阅另记。
@@ -92,8 +93,8 @@
 | 控压与屈伸时机 | 10 | 12 | 0 | 0 |
 | 换刃与下肢引导 | 10 | 14 | 0 | 0 |
 | 旋转协调与反脚 | 13 | 17 | 0 | 0 |
-| 刻滑 · 从浅弧到进阶大弯 | 11 | 10 | 0 | 3 |
-| 小回转 · 从连续圆弯到进阶短弯 | 13 | 35 | 0 | 2 |
+| JSBA 刻滑 · 弧线、屈伸与低姿态八字 | 16 | 18 | 0 | 2 |
+| CASI 小回转 · 通向四级专家板控 | 13 | 35 | 0 | 2 |
 | 热身与体能 | 13 | 20 | 0 | 0 |
 | 装备与舒适站姿 | 6 | 1 | 2 | 3 |
 | 滑行问题诊断 | 6 | 6 | 0 | 0 |
@@ -140,10 +141,10 @@
 | `short-turns` | 普通搓雪小回转：圆弯、持续引导 | 小回转共享时序/轨迹 + 双腿 IK | 20 / 11 | 20/20 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 | `short-turn-progression` | 侧滑接单个换刃弯 | 小回转共享时序/轨迹 + 双腿 IK | 9 / 6 | 9/9 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 | `short-turn-balance` | 双脚居中引导：板头板尾都在转 | 小回转共享时序/轨迹 + 双腿 IK | 5 / 3 | 5/5 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
-| `duck-carve` | duck-carve | 原生三维独立任务（无旧预设） | 1 / 1 | 1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
+| `duck-carve` | duck-carve | 原生三维独立任务（无旧预设） | 0 / 0 | 旧预设保留作来源盘点；当前没有课程引用，不计入已接入引用 |
 | `expert-short-turns` | expert-short-turns | 原生三维独立任务（无旧预设） | 2 / 2 | 2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 | `expert-short-sequence` | expert-short-sequence | 原生三维独立任务（无旧预设） | 2 / 2 | 2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
-| `expert-carving` | expert-carving | 原生三维独立任务（无旧预设） | 3 / 3 | 3/3 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
+| `jsba-carving` | jsba-carving | 原生三维独立任务（无旧预设） | 12 / 6 | 12/12 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表 |
 
 ## 变体键与全部实际配置
 
@@ -191,8 +192,9 @@
 | `short-turns:asymmetric:extend` | v-toe-open-causal/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `shoulder-coordination:closed-toe` | v-toe-closed-drill/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `switch` | v19-switch/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `j-turn` | v-toe-low-drill/1、s-short-adapt/7 | 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `rail-track` | v20-carve/2、s20-rails/1、v24-skid-track/1、v21-method/1 | 3 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `j-turn` | v-toe-low-drill/1、s-short-adapt/7 | 2 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `jsba-carving:complete` | s-carve-expert-arc/1 | 1 | D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过 |
 | `short-turns:round:flex` | s-short-integrated/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `short-turns:tail-brake` | s-short-integrated/3、s-short-diagnosis/2 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `short-turn-progression:side-slip` | s-short-sideslip/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
@@ -221,14 +223,15 @@
 | `dry-shoulder-rolls` | s22-shoulder/1、s22-warmup/1 | 1 | D6：独立普通鞋课内 3D；接触、骨架与实体同源，逐任务验收见 lesson-player-review.md |
 | `shoulder-coordination` | v24-heel-pivot/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `pressure-extend:timing-study` | v21-linear/1 | 1 | D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
-| `duck-carve` | s-duck-low-linked/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
+| `jsba-carving:reference` | s-jsba-basic-carve/1、s-jsba-dynamic-carve/1、s-carve-expert-pressure/1、s-carve-expert-pressure/2、s-jsba-short-carve/1 | 3 | D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过 |
 | `expert-short-turns:progressive` | s-short-expert-steering/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `expert-short-turns:continuous` | s-short-expert-pressure/1 | 1 | D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md |
 | `expert-short-sequence:planned-recovery` | s-short-expert-flow/1 | 1 | D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过 |
 | `expert-short-sequence:guided-slide` | s-short-expert-transfer/1 | 1 | D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过 |
-| `expert-carving:linked` | s-carve-expert-arc/1 | 1 | D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过 |
-| `expert-carving:coordinated` | s-carve-expert-pressure/1 | 1 | D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过 |
-| `expert-carving:lower-recover` | s-carve-expert-variation/1 | 1 | D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过 |
+| `jsba-carving:large-to-short` | s-jsba-size-control/1 | 1 | D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过 |
+| `jsba-carving:normal-dynamic` | s-jsba-duck-mechanics/1 | 1 | D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过 |
+| `jsba-carving:recover` | s-duck-low-linked/1、s-carve-expert-variation/2 | 1 | D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过 |
+| `jsba-carving:low-dynamic` | s-carve-expert-variation/1、s-carve-expert-review/1 | 1 | D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过 |
 
 ## 逐课用途、资料与替换入口
 
@@ -296,12 +299,12 @@
 | [v19-counter](https://jinke.me/snowboard/#lesson=v19-counter) | 反向旋转：已掌握调速动作后的专项练习：小幅增加熟悉后刃调速动作中的上下身反向配合，再恢复原路线。 | 1. `counter-rotation` | [S16](#source-s16)、[T01](#source-t01) |
 | [v19-switch](https://jinke.me/snowboard/#lesson=v19-switch) | 反脚滑行：让新的前脚带路：在反脚方向上两刃都能控速、完成弯和停止。 | 1. `switch` | [S16](#source-s16) |
 | [v19-stable-upper](https://jinke.me/snowboard/#lesson=v19-stable-upper) | 上下身分离：上身走得稳，双腿继续转弯：减少无用的甩肩，同时保留双腿引导和自然平衡。 | 1. `short-turns:round:extend`<br>2. `retraction-turns` | [S16](#source-s16)、[T01](#source-t01)、[S10](#source-s10) |
-| [v-toe-touch-criterion](https://jinke.me/snowboard/#lesson=v-toe-touch-criterion) | 刻滑是否进步：看轨迹、控速、放刃和适应：用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。 | 正文保留，无动作图 | [S16](#source-s16)、[S15](#source-s15)、[S38](#source-s38) |
-| [v-toe-low-drill](https://jinke.me/snowboard/#lesson=v-toe-low-drill) | 前刃 J 弯：让雪板沿一条弧线转向横坡：完成可控的前刃单弧，知道哪里抓刃、哪里开始扫尾。 | 1. `j-turn` | [S16](#source-s16) |
+| [v20-path](https://jinke.me/snowboard/#lesson=v20-path) | 刻滑主线：从双刃控制到高阶低姿态八字：能依据失控发生的阶段选择下一项技术，分清机构质量要求、个人风格示范与本站练习编排。 | 正文保留，无动作图 | [S42](#source-s42)、[S43](#source-s43)、[S45](#source-s45)、[S47](#source-s47)、[S44](#source-s44)、[S46](#source-s46)、[S50](#source-s50)、[S51](#source-s51) |
 | [v20-carve](https://jinke.me/snowboard/#lesson=v20-carve) | 刻滑和搓雪：主动选择滑移多少：能减少或增加滑移，同时把圆弯和速度控制好。 | 1. `steering`<br>2. `rail-track` | [S16](#source-s16)、[S10](#source-s10) |
 | [v20-traffic](https://jinke.me/snowboard/#lesson=v20-traffic) | 弯形控速：用出弯方向和搓雪量控制速度：在选定滑行走廊内用完整圆弧控速，减少弯尾突然横刹。 | 1. `steering`<br>2. `steering` | [S16](#source-s16)、[S37](#source-s37) |
-| [v20-path](https://jinke.me/snowboard/#lesson=v20-path) | 刻滑怎么练：基础、进阶与低姿态选修：按当前雪板表现选出一项练习，分清基础、低姿态应用与官方高阶任务的条件和证据。 | 正文保留，无动作图 | [S16](#source-s16)、[T02](#source-t02)、[S19](#source-s19)、[S10](#source-s10)、[S38](#source-s38) |
+| [v-toe-low-drill](https://jinke.me/snowboard/#lesson=v-toe-low-drill) | 前刃 J 弯：让雪板沿一条弧线转向横坡：完成可控的前刃单弧，知道哪里抓刃、哪里开始扫尾。 | 1. `j-turn` | [S16](#source-s16) |
 | [s20-rails](https://jinke.me/snowboard/#lesson=s20-rails) | 浅刻滑：连接两侧窄痕，按计划结束：两侧各留下连续窄痕，并在预定位置主动结束。 | 1. `rail-track` | [S16](#source-s16) |
+| [s-carve-expert-arc](https://jinke.me/snowboard/#lesson=s-carve-expert-arc) | JSBA 刻滑中大弯：建刃、压弯与出口：在熟悉压雪坡连续完成可控中大弯，弯中板尾跟随，出口能衔接下一弯而不急甩尾。 | 1. `jsba-carving:complete` | [S43](#source-s43)、[S42](#source-s42)、[S46](#source-s46)、[S50](#source-s50)、[S47](#source-s47)、[S49](#source-s49) |
 | [s-short-integrated](https://jinke.me/snowboard/#lesson=s-short-integrated) | 连续小回转：圆弯不断，速度可控：在自选滑行走廊连续做出圆润、可控的搓雪小弯；能说明两向换刃的不同配合，发现问题后退回对应练习，并主动放大弯和停止。 | 1. `short-turns:round:extend`<br>2. `short-turns:round:flex`<br>3. `short-turns:tail-brake` | [A02](#source-a02)、[S10](#source-s10)、[S16](#source-s16)、[D01](#source-d01)、[S35](#source-s35) |
 | [s-short-sideslip](https://jinke.me/snowboard/#lesson=s-short-sideslip) | 侧滑接单弯：一步步连成搓雪小回转：把“能用两刃侧滑和单弯停止”接到“连续的小搓雪弯”，补上换侧练习的中间台阶。 | 1. `short-turn-progression:side-slip`<br>2. `short-turn-progression:side-slip-shorter`<br>3. `short-turn-progression:linked` | [S16](#source-s16) |
 | [s-short-size-ladder](https://jinke.me/snowboard/#lesson=s-short-size-ladder) | 从中弯到小弯：逐级缩小，再回到中弯：能主动缩小弯，也能随时放大弯，避免只会跟着固定节拍摆板。 | 1. `short-turn-progression:medium-to-short`<br>2. `short-turn-progression:short-steady`<br>3. `short-turn-progression:short-to-medium` | [S16](#source-s16)、[A02](#source-a02) |
@@ -338,17 +341,22 @@
 | [v21-method](https://jinke.me/snowboard/#lesson=v21-method) | 怎么安排练习：先滑一遍，拆一项，再自然滑：把一个滑行问题写成能执行、能比较的短组练习。 | 1. `rail-track` | [T01](#source-t01)、[S26](#source-s26) |
 | [v21-linear](https://jinke.me/snowboard/#lesson=v21-linear) | 动作时机：什么时候开始，什么时候停：能调整一段屈伸的时机与速度，同时保持圆弯。 | 1. `pressure-extend:timing-study` | [S16](#source-s16)、[T01](#source-t01)、[S26](#source-s26) |
 | [v3-index](https://jinke.me/snowboard/#lesson=v3-index) | 进阶怎么选课：两条主线与并行能力：根据当前问题和前置能力，选一项值得练的内容。 | 正文保留，无动作图 | [S16](#source-s16)、[T01](#source-t01)、[T02](#source-t02)、[T03](#source-t03)、[S26](#source-s26) |
-| [s-duck-low-linked](https://jinke.me/snowboard/#lesson=s-duck-low-linked) | 低姿态八字刻滑：保持窄痕，完成两侧转换：降低姿态后，两侧仍能连续窄痕、控制出口和速度，并保留随时调整刃角、屈伸和主动退出的能力。 | 1. `duck-carve` | [S19](#source-s19)、[S16](#source-s16)、[S10](#source-s10)、[D01](#source-d01)、[S17](#source-s17)、[T02](#source-t02)、[S36](#source-s36) |
-| [s-short-expert-map](https://jinke.me/snowboard/#lesson=s-short-expert-map) | 进阶小回转：先看任务要求，再选练习：说清高阶任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S41](#source-s41) |
+| [s-jsba-basic-carve](https://jinke.me/snowboard/#lesson=s-jsba-basic-carve) | 起身式刻滑：转换时伸展开，新弧中渐屈腿：在熟悉中大弯中用温和起身组织转换，双腿始终可调，连续弧不因上下动作而弹跳或扫尾。 | 1. `jsba-carving:reference` | [S42](#source-s42)、[S50](#source-s50)、[S51](#source-s51)、[S45](#source-s45)、[S53](#source-s53)、[S46](#source-s46)、[S43](#source-s43) |
+| [s-short-expert-map](https://jinke.me/snowboard/#lesson=s-short-expert-map) | CASI 四级搓雪小回转：目标、转向与屈伸配合：理解专家短弯的任务条件和技术构成，能用弯形、转向分配与两向换刃判断该练哪一项。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S41](#source-s41) |
 | [s-short-expert-steering](https://jinke.me/snowboard/#lesson=s-short-expert-steering) | 进阶小回转：在较窄的滑行走廊里保持完整弯形：在已能管理速度的条件下维持计划滑行走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。 | 1. `expert-short-turns:progressive` | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-pressure](https://jinke.me/snowboard/#lesson=s-short-expert-pressure) | 进阶小回转：屈伸与换刃时机：在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与雪板反应，并持续接入下一弧。 | 1. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-flow](https://jinke.me/snowboard/#lesson=s-short-expert-flow) | 进阶小回转：从入段到结束都保持控制：在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。 | 1. `expert-short-sequence:planned-recovery` | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-transfer](https://jinke.me/snowboard/#lesson=s-short-expert-transfer) | 进阶小回转：换一个条件，重新找到节奏：能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。 | 1. `expert-short-sequence:guided-slide` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-short-expert-review](https://jinke.me/snowboard/#lesson=s-short-expert-review) | 进阶小回转复盘：用完整滑段找下一步：形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、还需练习和当前条件下可重复的表现。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S39](#source-s39)、[S40](#source-s40) |
-| [s-carve-expert-arc](https://jinke.me/snowboard/#lesson=s-carve-expert-arc) | 进阶刻滑：落线前立刃，顺畅完成出弯：两侧都在雪板转到落线前建立新刃支撑，用立刃和压力调节保持刻滑弧线，并让出弯的速度与方向顺畅接入下一弯。 | 1. `expert-carving:linked` | [S38](#source-s38)、[S16](#source-s16) |
-| [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 进阶刻滑：屈伸与换刃时机：两侧承压与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。 | 1. `expert-carving:coordinated` | [S38](#source-s38)、[S16](#source-s16)、[D01](#source-d01) |
-| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 进阶刻滑：适应变化，再选练低姿态：在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。 | 1. `expert-carving:lower-recover` | [S38](#source-s38)、[S16](#source-s16)、[S19](#source-s19)、[D01](#source-d01) |
-| [s-carve-expert-review](https://jinke.me/snowboard/#lesson=s-carve-expert-review) | 进阶刻滑复盘：分清任务要求与低姿态表现：能够对照官方任务与十二项观察提出有证据的判断，保留未知，并把一个真实差距转成下一次练习。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S39](#source-s39) |
+| [s-short-expert-review](https://jinke.me/snowboard/#lesson=s-short-expert-review) | CASI 四级搓雪小回转：完整滑段常见错误与修正：能够区分路线、放刃、身体配合与疲劳造成的不同问题，选择对应修正，并在整段双向短弯中保持控速和恢复能力。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S39](#source-s39)、[S40](#source-s40) |
+| [s-jsba-dynamic-carve](https://jinke.me/snowboard/#lesson=s-jsba-dynamic-carve) | 抱腿式刻滑：收腿释放，向新弧伸开承接：用可控的收腿和重新伸开连接两侧刻滑，身体路线较连贯，旧刃释放与新弧发展清楚。 | 1. `jsba-carving:reference` | [S42](#source-s42)、[S50](#source-s50)、[S45](#source-s45)、[S46](#source-s46)、[S53](#source-s53)、[S43](#source-s43)、[S47](#source-s47) |
+| [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 刻滑发力逻辑：身体运动、刃上压力与板的反应：能说明一个动作改变了什么、板上应出现什么结果，并用逐渐建立和释放支持替代猛踩、塌腿或甩肩。 | 1. `jsba-carving:reference`<br>2. `jsba-carving:reference` | [S43](#source-s43)、[S42](#source-s42)、[S46](#source-s46)、[S47](#source-s47)、[S50](#source-s50) |
+| [s-jsba-size-control](https://jinke.me/snowboard/#lesson=s-jsba-size-control) | 刻滑弯幅与节奏：改变完整弧，保持连续支持：能在熟悉条件中有目的地改变刻滑弯幅和节奏，转换前后仍保住抓雪、出口与整体平衡。 | 1. `jsba-carving:large-to-short` | [S43](#source-s43)、[S42](#source-s42) |
+| [s-jsba-short-carve](https://jinke.me/snowboard/#lesson=s-jsba-short-carve) | 纯刻滑短弯：更快换边，仍让板沿弧线转：在适合条件下连续做出左右相称的刻滑短弯，节奏稳定，尾部基本跟随，随时能改为搓雪退出。 | 1. `jsba-carving:reference` | [S42](#source-s42)、[S43](#source-s43)、[S50](#source-s50)、[S53](#source-s53) |
+| [s-jsba-duck-mechanics](https://jinke.me/snowboard/#lesson=s-jsba-duck-mechanics) | 八字刻滑身体机制：两刃、肩髋与装备条件：在自己的舒适八字设置下，辨认两刃膝髋与胸廓关系，避免拖靴、硬扭膝和沿板长坐尾。 | 1. `jsba-carving:normal-dynamic` | [S44](#source-s44)、[S47](#source-s47)、[S46](#source-s46)、[S49](#source-s49)、[S54](#source-s54)、[S43](#source-s43) |
+| [s-duck-low-linked](https://jinke.me/snowboard/#lesson=s-duck-low-linked) | 低姿态八字刻滑：保持窄痕，完成两侧转换：从正常高度进入略低的前后刃弧线，并主动恢复正常高度；整段保持窄痕、可选出口和主动搓雪退出能力。 | 1. `jsba-carving:recover` | [S19](#source-s19)、[S16](#source-s16)、[S10](#source-s10)、[D01](#source-d01)、[S17](#source-s17)、[T02](#source-t02)、[S36](#source-s36)、[S42](#source-s42)、[S50](#source-s50) |
+| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 高阶低姿态八字：两刃承接与两向转换：连续完成较低姿态的两侧弧线和两向换刃，保持窄痕、可选出口与恢复能力。 | 1. `jsba-carving:low-dynamic`<br>2. `jsba-carving:recover` | [S43](#source-s43)、[S46](#source-s46)、[S47](#source-s47)、[S49](#source-s49)、[S50](#source-s50)、[S48](#source-s48)、[S44](#source-s44)、[S42](#source-s42) |
+| [s-carve-expert-review](https://jinke.me/snowboard/#lesson=s-carve-expert-review) | 刻滑错误诊断：抓雪、低位与换刃为什么断开：能区分至少三种相似外观的不同原因，选择与阶段对应的技术修正。 | 1. `jsba-carving:low-dynamic` | [S43](#source-s43)、[S46](#source-s46)、[S47](#source-s47)、[S42](#source-s42)、[S52](#source-s52) |
+| [v-toe-touch-criterion](https://jinke.me/snowboard/#lesson=v-toe-touch-criterion) | 刻滑是否进步：看轨迹、控速、放刃和适应：用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。 | 正文保留，无动作图 | [S16](#source-s16)、[S15](#source-s15)、[S43](#source-s43) |
 
 ## 现有资料索引
 
@@ -514,13 +522,65 @@
 
 - **S39** [Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范](https://www.youtube.com/watch?v=XFbVBdSRGgE)（CASIACMS）。小回转：40.073–41.073、46.073–50.073秒；大回转刻滑：168.293–170.793、171.293–174.293秒。2024视频任务编号与2025指南按名称对应。
 
+<a id="source-s42"></a>
+
+- **S42** [JSBA 教育规程：Basic、Dynamic 与技术认定任务](https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf)（JSBA）。PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2
+
+<a id="source-s43"></a>
+
+- **S43** [第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制](https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html)（JSBA）。各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short
+
+<a id="source-s44"></a>
+
+- **S44** [JSBA 官方示范者：脚角与器材的实际多样性](https://jsba.or.jp/education/demonstrator/)（JSBA）。田口瑞树、藤巻俊介、新野裕幸等个人装备栏
+
+<a id="source-s45"></a>
+
+- **S45** [新 JSBA 教程启用公告](https://www.jsba.or.jp/news/detail/440/)（JSBA）。正文：2025 年 9 月以后的讲习与检定
+
+<a id="source-s46"></a>
+
+- **S46** [上半身を使って低い姿勢：全身协调与低位余量](https://note.com/good_sb1976/n/nba372e41a40f)（青木玲本人技术研究日志）。上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ
+
+<a id="source-s47"></a>
+
+- **S47** [ダッグスタンスで滑った事ありますか？：脚角与可动方向](https://note.com/good_sb1976/n/nfa92842a8793)（青木玲本人技术研究日志）。テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている
+
+<a id="source-s48"></a>
+
+- **S48** [MIRATORI：前后刃转换的本人公开讲解](https://www.youtube.com/watch?v=-ES6HpVWME4)（MIRATORI Channel / 澤田剛志）。本人课程页链接的 How to carving 播放单；片长 5:39；两向转换的分段观察见课程视频卡
+
+<a id="source-s49"></a>
+
+- **S49** [日本スノーボード協会 スノーボード教程：出版方勘误](https://www.yamakei.co.jp/products/b5ad0a0ad552939e5e98233630d1c2f7.pdf)（山と溪谷社 / JSBA 教程出版方）。原书 p.30 lean / lean-out；p.159 技术体系
+
+<a id="source-s50"></a>
+
+- **S50** [第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务](https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html)（JSBA）。カービングターンロング；カービングターンミドル
+
+<a id="source-s51"></a>
+
+- **S51** [ベーシックカーブショート：公认学校真实训练记录](https://asahiprime-snowboardschool.jp/basiccurveshort/)（あさひプライムスノーボードスクール）。ベーシックカーブショートを極める；屈伸训练正文
+
+<a id="source-s53"></a>
+
+- **S53** [JSBA インストラクター検定：Basic 与 Dynamic 示范及讲解](https://www.youtube.com/watch?v=cMgNnGdsmpg)（JSBA 官方视频）。Basic Long：115.033、117.033、119.033 秒；Dynamic Short：625.033–626.833、630.033–632.433 秒；点评11:47–12:48
+
+<a id="source-s52"></a>
+
+- **S52** [MIRATORI：前刃探胸与膝髋配合的本人示范](https://www.youtube.com/watch?v=TwjZvBUY7hU)（MIRATORI Channel / 澤田剛志）。130.033、195.033秒原地对照；10.033–12.033秒剪辑滑行片头
+
+<a id="source-s54"></a>
+
+- **S54** [MIRATORI：八字后刃的本人公开示范](https://www.youtube.com/watch?v=FookVR1Ojuw)（MIRATORI Channel / 澤田剛志）。5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头
+
 
 ## 输入指纹
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 405934392ad6882b74e972da961bde64c3a9edfe3534efb2ab68b29f226b0cc2 |
+| content.json | 18e3560c0f604808133faefcd7d1e37f21b7c63d6f24e91f9e544a10e3a7a95e |
 | animations.js | 7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575 |
-| app.js | 5499d7f2e1ea2e121ae449c2ba21f2301466c8291ea66aea0a4905454a44bb47 |
-| lesson-player/registry.json | 903d8535b6ac24926a8d7cd53c064408a42bd9385b65812921372ceb4f625da9 |
+| app.js | 196db02499bc55277ce1416f96dba008d70f94412287e40aaaf45368b7b30457 |
+| lesson-player/registry.json | a08d7c26e2bc048f4eb3ff83926b320cf3f7b3a4074d8d9c20ec8516067a3e49 |
 

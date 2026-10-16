@@ -30,11 +30,13 @@ test('both carving phases align with actual edge events and the full cycle joins
     const shift=subtract(last.state.board.position,first.state.board.position);
     for(const key of Object.keys(first.state.joints) as (keyof typeof first.state.joints)[])assert(distance(first.state.joints[key],subtract(last.state.joints[key],shift))<1e-8);
     assert(distance(first.state.travel,last.state.travel)<1e-9);
+    let engaged=0;
     for(const stage of first.stages){const s=sampleLesson(stage.at,{...base,posture}).state;
-      if(stage.title==='渐建前刃')assert.equal(s.edge,'toe');
-      if(stage.title==='渐建后刃')assert.equal(s.edge,'heel');
+      if(stage.title==='逐渐立起前刃'){assert.equal(s.edge,'toe');engaged++;}
+      if(stage.title==='逐渐立起后刃'){assert.equal(s.edge,'heel');engaged++;}
       if(stage.title.includes('近平板'))assert.equal(s.edge,'flat');
     }
+    assert.equal(engaged,2,'两向建刃断言必须实际执行，不能被标题改动绕过');
     // Track the board center's derivative independently of the rendered arrow.
     for(const t of [.1,.25,.4,.6,.75,.9]){const a=sampleLesson(t-.0001,{...base,posture}).state.board.position,b=sampleLesson(t+.0001,{...base,posture}).state.board.position,s=sampleLesson(t,{...base,posture}).state;
       const v=subtract(b,a);v[1]=0;const len=Math.hypot(...v);assert(distance(v.map(x=>x/len) as Vec3,s.travel)<.00001);assert(s.metrics.skidAngle<.0001);

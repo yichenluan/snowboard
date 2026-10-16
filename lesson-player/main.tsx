@@ -12,7 +12,7 @@ import { isRotationLesson } from "./rotation";
 import { supportsShortTurnLesson, supportsShortTurnComparison, shortTurnDurationMs, shortTurnTiming } from "./short-turns";
 import { supportsExpertShortLesson, expertShortDurationMs, expertShortVariants } from "./expert-short-turns";
 import { supportsExpertShortSequenceLesson, expertShortSequenceDurationMs, expertShortSequenceVariants } from "./expert-short-sequence";
-import { supportsExpertCarvingLesson, expertCarvingDurationMs, expertCarvingVariants } from "./expert-carving";
+import {supportsJsbaCarvingLesson,jsbaCarvingDurationMs,jsbaCarvingVariants,jsbaCarvingComparison} from "./jsba-carving";
 import { supportsSwitchLesson } from "./switch";
 import { supportsTwistLesson, type TwistTiming } from "./twist";
 import { TwistSectionDiagram } from "./twist-diagram";
@@ -23,7 +23,7 @@ declare global { interface Window { SnowLesson3D: { types: readonly string[]; ca
 const edges={toe:"前刃 · 脚尖侧",heel:"后刃 · 脚跟侧",flat:"接近平板"};
 const views: [View,string][]=[["follow","斜视"],["side","看前后平衡"],["front","看两刃姿态"],["boots","雪靴近景"]];
 function evidenceFor(c:LessonConfig):string {
-  if(supportsExpertCarvingLesson(c))return "依据 CASI Level 4 Riding Module（2025年9月）第7页的 Expert Large Radius Turns (Carving)，以及 Reference Guide 第58、119–120页：在板头指向落线前开始转弯、完成出弯与连续衔接。10米为作者在7–15米官方走廊宽度范围内选取的示意宽度，既不是弯半径，也没有模拟专家滑速。八字固定器与较低姿态是本站风格示例，非四级规定；雪板沿弧线转向，没有额外主动拧转，不计算板弯曲、雪面抓地、压力、储能或回弹。";
+  if(supportsJsbaCarvingLesson(c))return "依据 JSBA 的基础、动态刻滑任务和起身系/抱腿系运动分类，分别编排伸展、收腿、完整出口、刻滑短弯、大小弯与低位应用。MIRATORI 个人换刃教学的两向有限关键帧仅支持观察髋与躯干的不同组织，不能当作 JSBA 统一标准或动态回收动作标定。本家族为独立运动学示意：板轴与路线、实际髋踝距离和关节共同生成；固定器 +18°/−9°为作者八字示例，路线尺寸、板角和播放时间均为编排值，没有模拟真实载荷、板材储能、回弹、抓地或实际滑速。";
   if(supportsExpertShortSequenceLesson(c))return "依据 CASI Level 4 Riding Module（2025年9月）第6、8页，以及 Reference Guide 第58、61页的弯形、引导多样性与连续能力。这段动画分别展示较宽的弯入段、进入2.5米目标走廊和主动放大弯恢复；两种转弯方式为本站编排的动作对照，均不代表固定雪况的唯一答案。滑移量、刃角和动作时间为示意设置，不能据此计算真实减速或抓地效果。";
   if(supportsExpertShortLesson(c))return "依据 CASI Level 4 Riding Module（2025年9月）第5–8页：Expert Short Radius 的2–3米宽的滑行走廊、适合专家滑手的压雪坡、弯形与引导控速，以及压力管理和持续运用核心/高级能力。官方没有规定本模型的刃角、腿长、周期或一种固定回收方式。本模型分别比较转向集中在哪段弯、双腿何时屈伸；示意走廊宽2.5米，动画时间不是实测滑速。第二组固定板路线与刃角，只比较身体调节时机，不计算压力、板材储能、回弹或雪况适应。";
   if(supportsCarvingLesson(c))return "依据 CASI Reference Guide 第49–52、155页的调刃、屈伸与两刃差异，以及 AASI Performance Guide v2.0 第5、15页的连续刻滑任务。本站八字指前脚正角、后脚负角的 duck stance，不是8字路线或双正角。固定器采用 +18°/−9°作者示例，不是推荐设置；正常高度与较低姿态共用路线和刃角，低姿态不证明压力更大。上身先扑向雪面的反例只改变胸部位置，便于比较身体配合，不计算失去抓地的后果。";
@@ -71,7 +71,7 @@ function PlanarDiagram({state,plane="width",supportRail}:{state:MotionState;plan
 }
 function RouteDiagram({state,trail,time,config,stance}:{state:MotionState;trail:Vec3[];time:number;config:LessonConfig;stance:Stance}) {
   const traces=useMemo(()=>config.trackDiagnostics||config.type==="rail-track"?Array.from({length:201},(_,i)=>{const b=sampleLesson(i/200,config,stance).state.board;return [boardToWorld([b.length/2,0,0],b),boardToWorld([-b.length/2,0,0],b)];}):null,[config,stance]);
-  const bounds=useMemo(()=>config.turnShape?lessonTrail({...config,turnShape:"closed"},stance):trail,[config,stance,trail]);
+  const bounds=useMemo(()=>supportsJsbaCarvingLesson(config)?[...trail,...lessonTrail(jsbaCarvingComparison(config)!.config,stance)]:config.turnShape?lessonTrail({...config,turnShape:"closed"},stance):trail,[config,stance,trail]);
   const routeFrame=useMemo(()=>sampleLesson(time,config,stance),[time,config,stance]);
   const sections=routeFrame.corridorSections??(routeFrame.corridor?[{...routeFrame.corridor,label:`${routeFrame.corridor.width}米示意走廊`}]:[]);
   const draw=(window?:{start:number;end:number})=>{
@@ -94,7 +94,7 @@ function RouteDiagram({state,trail,time,config,stance}:{state:MotionState;trail:
       <polyline points={path(board)} stroke="#b68143" strokeWidth="5" strokeLinecap="round"/><circle cx={nx} cy={ny} r="4" fill="#533b22"/>
       {Math.hypot(...state.travel)>.01&&<polyline points={path([b.position,end])} stroke="#477c95" strokeWidth="2"/>}
       {config.type==="gaze-control"&&<polyline points={path([b.position,gazeEnd])} stroke="#ac7132" strokeWidth="3"/>}
-      <text x="12" y="19">{window?"当前弯与下一弯 · 随动作移动":sections.length===1?`全段：${sections[0].width}米示意走廊 · 灰线为边界`:sections.length?"全段：入段—短弯—放大弯恢复":"俯视：雪板朝向与滑行路线"}</text><text x="12" y="195">坡下 ↓　棕：雪板朝向　蓝：移动方向</text>
+      <text x="12" y="19">{window?"当前弯与下一弯 · 随动作移动":supportsJsbaCarvingLesson(config)&&sections.length?"全段：刻滑大小弯变化":sections.length===1?`全段：${sections[0].width}米示意走廊 · 灰线为边界`:sections.length?"全段：入段—短弯—放大弯恢复":"俯视：雪板朝向与滑行路线"}</text><text x="12" y="195">坡下 ↓　棕：雪板朝向　蓝：移动方向</text>
     </svg>;
   };
   return <>{draw(routeFrame.routeWindow)}{routeFrame.routeWindow&&<details className="sl3-evidence"><summary>查看完整滑段路线</summary>{draw()}</details>}{sections.length>1&&<p className="sl3-hint">{sections.map(s=>`${s.label}：${s.width}米`).join("；")}。灰线位置固定，用来对比各段转弯占用的宽度；具体宽度为示意设置。</p>}{traces&&<><p className="sl3-hint">橙线：板头；紫线：板尾。两条线分别标出板头和板尾经过的位置；不表示两脚各留一道雪痕，图中也没有计算真实板雪接触。</p><DirectionComparison state={state}/></>}{config.type==="gaze-control"&&<p className="sl3-hint">金色线：头部朝向；短暂看向侧面后转回前方，滑行路线不变。</p>}{config.turnShape&&<p className="sl3-hint">开放弯（出弯更朝坡下）与闭合弯（出弯更多转向横坡）使用相同图幅和最小转弯半径；播放时长随路线长度变化，不计算真实滑速。</p>}</>;
@@ -145,15 +145,16 @@ function RotationDirections({state}:{state:MotionState}) {
 function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi>}}) {
   const root=useRef<HTMLDivElement>(null);
   const short=supportsShortTurnLesson(config),shortTiming=shortTurnTiming(config);
-  const expertShort=supportsExpertShortLesson(config),expertSequence=supportsExpertShortSequenceLesson(config),expertCarve=supportsExpertCarvingLesson(config);
-  const expert=expertShort||expertSequence||expertCarve;
-  const expertOptions=expertShort?expertShortVariants(config):expertSequence?expertShortSequenceVariants(config):expertCarve?expertCarvingVariants(config):[];
+  const expertShort=supportsExpertShortLesson(config),expertSequence=supportsExpertShortSequenceLesson(config);
+  const jsba=supportsJsbaCarvingLesson(config);
+  const expert=expertShort||expertSequence||jsba;
+  const expertOptions=jsba?jsbaCarvingVariants(config):expertShort?expertShortVariants(config):expertSequence?expertShortSequenceVariants(config):[];
   const [expertVariant,setExpertVariant]=useState(config.variant);
   const twist=supportsTwistLesson(config),switchRide=supportsSwitchLesson(config),carve=supportsCarvingLesson(config);
   const shortCompare=supportsShortTurnComparison(config);
   const [posture,setPosture]=useState<CarvePosture>(config.posture??"low"),[shortError,setShortError]=useState(config.task==="tail-brake-study");
   const [emphasis,setEmphasis]=useState(false),[showRoute,setShowRoute]=useState(true);
-  const duration=expertShort?expertShortDurationMs(config):expertSequence?expertShortSequenceDurationMs(config):expertCarve?expertCarvingDurationMs(config):short?shortTurnDurationMs(config):Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
+  const duration=jsba?jsbaCarvingDurationMs(config):expertShort?expertShortDurationMs(config):expertSequence?expertShortSequenceDurationMs(config):short?shortTurnDurationMs(config):Math.max(4000,config.duration??10000)*(config.turnShape==="closed"?80/35:1);
   const clock=usePlayback(duration,root,api),{time,setPlaying,seek}=clock;
   const [stance,setStance]=useState<Stance>(config.stance??"regular");
   const [fromEdge,setFromEdge]=useState<"toe"|"heel">(config.fromEdge??"heel");
@@ -161,7 +162,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
   const [rotationComparison,setRotationComparison]=useState<"natural"|"slightly-open">(config.rotationComparison??"natural");
   const [twistTiming,setTwistTiming]=useState<TwistTiming>(config.twistTiming??(config.task==="twist-timing-compare"?"near-synchronous":"front-earlier"));
   const [edgeSide,setEdgeSide]=useState(config.edgeSide??"toe");
-  const sampledConfig=useMemo(()=>({...config,...(expert?{variant:expertVariant}:{}),...(carve?{posture}:{}),...(shortCompare?{task:shortError?"tail-brake-study":"round-linked-skid",variant:shortError?"tail-brake":"round"}:{}),fromEdge,timing,rotationComparison,...(twist?{twistTiming}:{}),...(config.task==="arms-traverse-stop"?{edgeSide}:{})}),[config,fromEdge,timing,rotationComparison,edgeSide,twist,twistTiming,carve,posture,shortCompare,shortError,expert,expertVariant]);
+  const sampledConfig=useMemo(()=>({...config,...(expert?{variant:expertVariant}:{}),...(carve?{posture}:{}),...(shortCompare?{task:shortError?"tail-brake-study":"round-linked-skid",variant:shortError?"tail-brake":"round"}:{}),fromEdge,...(!jsba?{timing,rotationComparison}:{}),...(twist?{twistTiming}:{}),...(config.task==="arms-traverse-stop"?{edgeSide}:{})}),[config,fromEdge,timing,rotationComparison,edgeSide,twist,twistTiming,carve,posture,shortCompare,shortError,expert,expertVariant,jsba]);
   useEffect(()=>{clock.setLoop(null);},[sampledConfig]);
   const [view,setView]=useState<View>(toView(config.view)),[reset,setReset]=useState(0);
   const [skeleton,setSkeleton]=useState(Boolean(config.jointLabels)),[touchRotate,setTouchRotate]=useState(false),[flat,setFlat]=useState(false);
@@ -192,7 +193,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     <PlaybackControls clock={clock} stages={frame.stages} stage={frame.stage}/>
     <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>{switchRide?"惯用前脚":"前脚"} <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
     {switchRide&&<p className="sl3-hint">当前行进前脚：原后脚；原板尾朝前滑行，雪板的板头板尾标记和两腿颜色保持不变。</p>}
-    {(twist||(short||expert||["single-transition","lower-transition","retraction-transition","timing-study","hip-transition","coordinated-knee-transition","linked-retraction-skid"].includes(frame.task))&&!config.fromEdge)&&<div className="sl3-options"><label>{expertCarve?"第一弯用哪条刃":(short||expert||frame.task==="linked-retraction-skid")?"起始板刃":"转换方向"} <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">{expertCarve?"先接后刃":(short||expert||frame.task==="linked-retraction-skid")?"后刃开始":"后刃 → 前刃"}</option><option value="toe">{expertCarve?"先接前刃":(short||expert||frame.task==="linked-retraction-skid")?"前刃开始":"前刃 → 后刃"}</option></select></label></div>}
+    {(twist||(short||expert||["single-transition","lower-transition","retraction-transition","timing-study","hip-transition","coordinated-knee-transition","linked-retraction-skid"].includes(frame.task))&&!config.fromEdge)&&<div className="sl3-options"><label>{jsba?"第一弯用哪条刃":(short||expert||frame.task==="linked-retraction-skid")?"起始板刃":"转换方向"} <select value={fromEdge} onChange={e=>{setPlaying(false);setFromEdge(e.target.value as "toe"|"heel");}}><option value="heel">{jsba?"先接后刃":(short||expert||frame.task==="linked-retraction-skid")?"后刃开始":"后刃 → 前刃"}</option><option value="toe">{jsba?"先接前刃":(short||expert||frame.task==="linked-retraction-skid")?"前刃开始":"前刃 → 后刃"}</option></select></label></div>}
     {frame.task==="twist-timing-compare"&&<div className="sl3-options"><label>前后段换刃时机 <select value={twistTiming} onChange={e=>{setPlaying(false);setTwistTiming(e.target.value as TwistTiming);}}><option value="near-synchronous">基本同时</option><option value="front-earlier">前脚一段稍早</option></select></label><span className="sl3-hint">在同一滑行路线、同一进度比较；动作先后不同不代表某一种一定更好</span></div>}
     {frame.task==="timing-study"&&<div className="sl3-options"><label>屈伸启动时机 <select value={timing} onChange={e=>{setPlaying(false);setTiming(e.target.value as "early"|"baseline"|"late");}}><option value="early">提前</option><option value="baseline">参考时机</option><option value="late">稍后</option></select></label><span className="sl3-hint">保持当前进度比较；只改启动时刻</span></div>}
     {frame.task==="toe-orientation-stop"&&<div className="sl3-options"><label>肩髋朝向对照 <select value={rotationComparison} onChange={e=>{setPlaying(false);setRotationComparison(e.target.value as "natural"|"slightly-open");}}><option value="natural">自然朝向</option><option value="slightly-open">上身略多朝板头</option></select></label><span className="sl3-hint">保留当前进度；同路线、脚位与刃角比较</span></div>}
@@ -201,25 +202,25 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     </div><div className="sl3-explain">
     {expert&&<div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>}
     <div className="sl3-explain-body">
-    {expert&&(config.legLengthDiagram||config.task==="expert-load-release")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}
+    {expert&&(jsba||config.legLengthDiagram||config.task==="expert-load-release")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}
     <div className="sl3-stages" role="group" aria-label="动作阶段">{frame.stages.map((s,i)=><button key={i} aria-pressed={frame.stage===i} onClick={()=>seek(s.at)}><span>{i+1}</span>{s.title}</button>)}</div>
     {!expert&&<div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>}
     {carve&&<p className="sl3-hint">八字 = duck stance：前脚正角、后脚负角。固定器 +18°/−9°仅为本模型设置；两腿颜色始终对应原来的前后脚。较低示例只展示适量屈腿，没有蹲到极限。两档使用同一路线便于比较，未验证它们在相同速度下是否都能保持平衡；骨盆高度不代表压力。</p>}
     {config.type==="inclination"&&<p className="sl3-hint">内倾是身体整体倒向弯内；反弓是通过踝、膝、髋的配合，让腿与上身的倾斜幅度不同，帮助立刃和平衡，不能只靠折腰或挺腰。本组在相同刃角下比较两种身体关系；实际幅度要配合速度、弯形和雪况。</p>}
     {expertShort&&<p className="sl3-hint">{config.task==="expert-corridor-steering"?"两种转向节奏使用同一2.5米示意走廊和图幅。走廊宽度是连续转弯占用的横向宽度；两档弯形不同，不能当作固定路线或固定速度的对照。":"两种时机使用完全相同的滑行路线、刃角和放刃时刻，只比较双腿何时屈伸、上身如何配合。屈腿准备偏晚不等于实际放刃偏晚。"} 灰线标出走廊边界；动画时长用于观察，不能换算为专家滑速。这里没有模拟真实压力、储能回弹或硬雪/雪堆。</p>}
     {expertSequence&&<p className="sl3-hint">这段动画依次展示：较宽的弯入段、连续小回转、主动放大弯恢复；动画结束时仍在滑行，不是停车演示。重播会回到入段起点。两种转弯方式保持同一路线与进度，只比较雪板朝向与移动方向的夹角、刃角和身体配合；不推算真实减速或雪况适应。</p>}
-    {expertCarve&&<p className="sl3-hint">本图走廊宽10米，取自官方7–15米范围；走廊指连续转弯占用的横向宽度，不是单个弯的半径。观察板头朝向落线前开始立新刃、完成出弯并接入下一弯；较低姿态及八字站姿不是四级评分条件。{config.task==="expert-carve-release"?"两档固定路线、刃角和放刃时刻，只比较屈腿调节的时差；不是实际放刃延迟。":config.task==="expert-carve-adaptation"?"正常高度→稍低两弧→恢复正常，两档共用路线和刃角；没有验证相同速度下的真实平衡。":"雪板朝向始终顺着滑行路线，没有叠加主动拧转。"} 此处不计算压力、板材储能、回弹或抓地；动画结束时仍在滑行，跳回起点只是重新观看。</p>}
+    {jsba&&<p className="sl3-hint">八字指前脚正角、后脚负角；本模型 +18°/−9°只是装备示例。{config.task==="carve-load-exit"?"完整与偏浅出口改变实际路线，不能视作同路线控速试验。":config.task==="carve-size-change"?"弧长与节奏由实际空间路线连续改变；灰线仅为作者示意范围，不是官方考核走廊。":config.task==="carved-short-turns"?"参考段板轴沿实际行进切线，主动拧板反例有意增加方向差；相同路线不证明反例也能在真实雪面保持。":config.task==="low-linked-carve"?"正常/较低对照保持同路线与策略；较低伸展/收腿对照比较不同腿部时序；扑胸对照保持相同下肢。恢复段实际回到正常参考。":"对照固定雪板路线与刃释放事件，只比较身体伸缩时机；身体准备偏晚不等于板刃释放偏晚。"} 屈伸、刃角与压力分别理解。这里没有真实压力、储能、回弹或速度测量，动画结束时仍在滑行。</p>}
     {frame.task==="static-edge"&&<p className="sl3-hint">双手扶稳护栏帮助感知动作；撤去支撑后的自主平衡需另行练习。</p>}
     {["board-coordinate-study","stationary-hip-rock"].includes(frame.task)&&<><BoardDirections state={frame.state}/><p className="sl3-hint">仅演示平地原地感知，刃角小不等于身体完全不移动；先回平板再回中，滑行效果需另行验证。</p></>}
     {showRoute&&frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/>}
     {emphasis&&<div className="sl3-comparison">{reference&&<figure><figcaption>{comparison?.label}</figcaption><PlanarDiagram state={reference.state} plane={view==="side"?"length":"width"}/></figure>}<figure><figcaption>当前动作 · 同一时刻 {Math.round(time*100)}%</figcaption><PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/></figure></div>}
-    {showRoute&&emphasis&&(shortCompare||expert)&&reference&&<><p className="sl3-hint">同步路线参考：下图为参考动作，当前路线已在上方显示。{expertCarve||expertSequence?"本组共用板中心路线，具体固定条件见上方任务说明；不是同速度或同压力试验。":expertShort&&config.task==="expert-load-release"?"本组路线与刃角完全相同，比较腿长调节时机；不是压力试验。":"同进度指同一周期位置；两种路线不同，不是同速度或同压力试验。"}</p><RouteDiagram state={reference.state} trail={lessonTrail(referenceConfig,stance)} time={time} config={referenceConfig} stance={stance}/></>}
+    {showRoute&&emphasis&&(shortCompare||expert)&&reference&&<><p className="sl3-hint">同步路线参考：下图为参考动作，当前路线已在上方显示。{jsba?(config.task==="carve-size-change"||config.task==="carve-load-exit"?"本组改变实际路线，使用相同图幅观察弯形与出口；不是同速或同压力试验。":"本组共用板中心路线、刃角与释放时刻，拧板反例另改变板轴方向；其余固定条件见上方任务说明，不是压力试验。"):expertSequence?"本组共用板中心路线，具体固定条件见上方任务说明；不是同速度或同压力试验。":expertShort&&config.task==="expert-load-release"?"本组路线与刃角完全相同，比较腿长调节时机；不是压力试验。":"同进度指同一周期位置；两种路线不同，不是同速度或同压力试验。"}</p><RouteDiagram state={reference.state} trail={lessonTrail(referenceConfig,stance)} time={time} config={referenceConfig} stance={stance}/></>}
     {(isRotationLesson(config)||short||expert)&&<RotationDirections state={frame.state}/>}
     {twist&&<><TwistSectionDiagram state={frame.state} stance={stance}/><p className="sl3-hint">绿色线与圆点只标出每一段较低的一侧板刃。图中局部板刃会短暂离雪约9.2毫米；这是模型中的距离，没有模拟真实整刃接触、板材刚度或压力。前后段的刃角差按动画姿态显示。</p></>}
     {shortTiming&&<p className="sl3-hint">每次换侧 {(shortTiming.turnMs/1000).toFixed(1)} 秒；每侧侧滑等待 {(shortTiming.waitMs/1000).toFixed(1)} 秒。缩短等待时，换侧自身的路线和用时不变；等待阶段仍在侧滑。</p>}
     {!expert&&(config.pressureDiagram||config.legLengthDiagram||config.transitionReference==="snow")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}
     {config.type==="edge-change-down"&&<p className="sl3-hint">两种示例的路线和幅度不同，用来分清“身体向板降低”和“收腿让板从身下通过”；不能据此判断哪一种更省力或更有效。</p>}
-    <details className="sl3-evidence"><summary>动作依据与示意边界</summary><p>{evidenceFor(config)}关节幅度、刃角与时长为作者编排，尚未经过教练实拍逐帧标定。</p><p>动画中双脚固定在固定器内，身体各段长度不变，雪靴与固定器保持连接。小腿活动范围是本例采用的软靴设置，不是所有人的活动上限。金色圆点是按各身体部分估算的整体重心（质心），方向线不表示用力大小或两脚承重比例。</p><a href={expert?"https://members.casi-acms.com/documents/Riding_LV4_EN.pdf":"https://members.casi-acms.com/documents/Ref_Guide.pdf"} target="_blank" rel="noreferrer">阅读 CASI 原始教材 ↗</a></details>
+    <details className="sl3-evidence"><summary>动作依据与示意边界</summary><p>{evidenceFor(config)}关节幅度、刃角与时长为作者编排，尚未经过教练实拍逐帧标定。</p><p>动画中双脚固定在固定器内，身体各段长度不变，雪靴与固定器保持连接。小腿活动范围是本例采用的软靴设置，不是所有人的活动上限。金色圆点是按各身体部分估算的整体重心（质心），方向线不表示用力大小或两脚承重比例。</p><a href={jsba?"https://www.jsba.or.jp/education/badgetest/":expert?"https://members.casi-acms.com/documents/Riding_LV4_EN.pdf":"https://members.casi-acms.com/documents/Ref_Guide.pdf"} target="_blank" rel="noreferrer">{jsba?"阅读 JSBA 官方任务说明 ↗":"阅读 CASI 原始教材 ↗"}</a></details>
     </div></div></section>;
   return <><div ref={root}>{!expanded&&content}</div><dialog className="sl3-dialog" ref={dialog} aria-label={`放大观察：${config.title??config.type}`} onCancel={()=>setExpanded(false)} onClose={()=>setExpanded(false)}>{expanded&&content}</dialog></>;
 }

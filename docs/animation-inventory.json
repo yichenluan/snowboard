@@ -1,35 +1,35 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "405934392ad6882b74e972da961bde64c3a9edfe3534efb2ab68b29f226b0cc2",
+    "content.json": "18e3560c0f604808133faefcd7d1e37f21b7c63d6f24e91f9e544a10e3a7a95e",
     "animations.js": "7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575",
-    "app.js": "5499d7f2e1ea2e121ae449c2ba21f2301466c8291ea66aea0a4905454a44bb47",
-    "lesson-player/registry.json": "903d8535b6ac24926a8d7cd53c064408a42bd9385b65812921372ceb4f625da9"
+    "app.js": "196db02499bc55277ce1416f96dba008d70f94412287e40aaaf45368b7b30457",
+    "lesson-player/registry.json": "a08d7c26e2bc048f4eb3ff83926b320cf3f7b3a4074d8d9c20ec8516067a3e49"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",
   "counts": {
-    "lessons": 113,
+    "lessons": 118,
     "modules": 13,
-    "lessonsWithDemos": 96,
+    "lessonsWithDemos": 102,
     "lessonsWithIllustrations": 2,
-    "lessonsWithoutVisuals": 15,
-    "legacyDemoReferences": 142,
+    "lessonsWithoutVisuals": 14,
+    "legacyDemoReferences": 150,
     "illustrationReferences": 2,
-    "siteDisplayedDemonstrations": 144,
+    "siteDisplayedDemonstrations": 152,
     "reviewedIllustrations": 2,
     "registeredTypes": 41,
-    "referencedTypes": 39,
-    "applicationVariantKeys": 78,
-    "presentationConfigurations": 100,
+    "referencedTypes": 38,
+    "applicationVariantKeys": 80,
+    "presentationConfigurations": 104,
     "declaredShortVariants": 16,
     "prototypeModes": 3,
     "prototypeLessonEntries": 3,
     "implemented3DTypes": 39,
     "fullyImplemented3DTypes": 36,
     "partiallyImplemented3DTypes": 3,
-    "implemented3DReferences": 142,
+    "implemented3DReferences": 150,
     "remainingLegacyReferences": 0,
-    "replacedLegacyReferences": 142
+    "replacedLegacyReferences": 150
   },
   "modules": [
     {
@@ -90,15 +90,15 @@
     },
     {
       "id": "carving",
-      "title": "刻滑 · 从浅弧到进阶大弯",
-      "lessons": 11,
-      "demoReferences": 10,
+      "title": "JSBA 刻滑 · 弧线、屈伸与低姿态八字",
+      "lessons": 16,
+      "demoReferences": 18,
       "illustrationReferences": 0,
-      "withoutVisuals": 3
+      "withoutVisuals": 2
     },
     {
       "id": "short-turns",
-      "title": "小回转 · 从连续圆弯到进阶短弯",
+      "title": "CASI 小回转 · 通向四级专家板控",
       "lessons": 13,
       "demoReferences": 35,
       "illustrationReferences": 0,
@@ -809,15 +809,11 @@
       "type": "duck-carve",
       "title": "duck-carve",
       "model": "native-3d",
-      "references": [
-        "s-duck-low-linked/1"
-      ],
-      "usedKeys": [
-        "duck-carve"
-      ],
+      "references": [],
+      "usedKeys": [],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "1/1 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
+      "destination": "旧预设保留作来源盘点；当前没有课程引用，不计入已接入引用"
     },
     {
       "type": "expert-short-turns",
@@ -852,22 +848,34 @@
       "destination": "2/2 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     },
     {
-      "type": "expert-carving",
-      "title": "expert-carving",
+      "type": "jsba-carving",
+      "title": "jsba-carving",
       "model": "native-3d",
       "references": [
         "s-carve-expert-arc/1",
+        "s-jsba-basic-carve/1",
+        "s-jsba-dynamic-carve/1",
         "s-carve-expert-pressure/1",
-        "s-carve-expert-variation/1"
+        "s-carve-expert-pressure/2",
+        "s-jsba-size-control/1",
+        "s-jsba-short-carve/1",
+        "s-jsba-duck-mechanics/1",
+        "s-duck-low-linked/1",
+        "s-carve-expert-variation/1",
+        "s-carve-expert-variation/2",
+        "s-carve-expert-review/1"
       ],
       "usedKeys": [
-        "expert-carving:linked",
-        "expert-carving:coordinated",
-        "expert-carving:lower-recover"
+        "jsba-carving:complete",
+        "jsba-carving:reference",
+        "jsba-carving:large-to-short",
+        "jsba-carving:normal-dynamic",
+        "jsba-carving:recover",
+        "jsba-carving:low-dynamic"
       ],
       "declaredShortVariants": [],
       "sharedKeyframesWith": [],
-      "destination": "3/3 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
+      "destination": "12/12 个当前课程引用已接入课内 3D；实际支持范围仍按 task／变体门控；逐引用去向见下表"
     }
   ],
   "variants": [
@@ -1659,27 +1667,6 @@
       "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
-      "key": "j-turn",
-      "references": [
-        "v-toe-low-drill/1",
-        "s-short-adapt/7"
-      ],
-      "configurations": [
-        {
-          "task": "j-turn-stop",
-          "type": "j-turn"
-        },
-        {
-          "skid": true,
-          "task": "j-turn-stop",
-          "trackDiagnostics": true,
-          "type": "j-turn",
-          "view": "track"
-        }
-      ],
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
-    },
-    {
       "key": "rail-track",
       "references": [
         "v20-carve/2",
@@ -1708,6 +1695,44 @@
         }
       ],
       "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+    },
+    {
+      "key": "j-turn",
+      "references": [
+        "v-toe-low-drill/1",
+        "s-short-adapt/7"
+      ],
+      "configurations": [
+        {
+          "task": "j-turn-stop",
+          "type": "j-turn"
+        },
+        {
+          "skid": true,
+          "task": "j-turn-stop",
+          "trackDiagnostics": true,
+          "type": "j-turn",
+          "view": "track"
+        }
+      ],
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+    },
+    {
+      "key": "jsba-carving:complete",
+      "references": [
+        "s-carve-expert-arc/1"
+      ],
+      "configurations": [
+        {
+          "fromEdge": "toe",
+          "legLengthDiagram": true,
+          "task": "carve-load-exit",
+          "trackDiagnostics": true,
+          "type": "jsba-carving",
+          "variant": "complete"
+        }
+      ],
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过"
     },
     {
       "key": "short-turns:round:flex",
@@ -2215,19 +2240,41 @@
       "destination": "D4：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
     },
     {
-      "key": "duck-carve",
+      "key": "jsba-carving:reference",
       "references": [
-        "s-duck-low-linked/1"
+        "s-jsba-basic-carve/1",
+        "s-jsba-dynamic-carve/1",
+        "s-carve-expert-pressure/1",
+        "s-carve-expert-pressure/2",
+        "s-jsba-short-carve/1"
       ],
       "configurations": [
         {
-          "posture": "low",
-          "task": "linked-duck-carve",
+          "fromEdge": "toe",
+          "legLengthDiagram": true,
+          "task": "basic-linked-carve",
           "trackDiagnostics": true,
-          "type": "duck-carve"
+          "type": "jsba-carving",
+          "variant": "reference"
+        },
+        {
+          "fromEdge": "toe",
+          "legLengthDiagram": true,
+          "task": "dynamic-linked-carve",
+          "trackDiagnostics": true,
+          "type": "jsba-carving",
+          "variant": "reference"
+        },
+        {
+          "fromEdge": "toe",
+          "legLengthDiagram": true,
+          "task": "carved-short-turns",
+          "trackDiagnostics": true,
+          "type": "jsba-carving",
+          "variant": "reference"
         }
       ],
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md"
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过"
     },
     {
       "key": "expert-short-turns:progressive",
@@ -2299,57 +2346,74 @@
       "destination": "D3：独立有限短弯滑段；任务规格见 level4-short-animation-coverage.md，人工验收范围另记，不从注册或历史动作继承通过"
     },
     {
-      "key": "expert-carving:linked",
+      "key": "jsba-carving:large-to-short",
       "references": [
-        "s-carve-expert-arc/1"
+        "s-jsba-size-control/1"
       ],
       "configurations": [
         {
-          "jointLabels": true,
-          "task": "expert-carve-arc",
+          "fromEdge": "toe",
+          "legLengthDiagram": true,
+          "task": "carve-size-change",
           "trackDiagnostics": true,
-          "type": "expert-carving",
-          "variant": "linked",
-          "view": "width"
+          "type": "jsba-carving",
+          "variant": "large-to-short"
         }
       ],
-      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过"
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过"
     },
     {
-      "key": "expert-carving:coordinated",
+      "key": "jsba-carving:normal-dynamic",
       "references": [
-        "s-carve-expert-pressure/1"
+        "s-jsba-duck-mechanics/1"
       ],
       "configurations": [
         {
-          "jointLabels": true,
+          "fromEdge": "toe",
           "legLengthDiagram": true,
-          "task": "expert-carve-release",
+          "task": "low-linked-carve",
           "trackDiagnostics": true,
-          "type": "expert-carving",
-          "variant": "coordinated",
-          "view": "width"
+          "type": "jsba-carving",
+          "variant": "normal-dynamic"
         }
       ],
-      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过"
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过"
     },
     {
-      "key": "expert-carving:lower-recover",
+      "key": "jsba-carving:recover",
       "references": [
-        "s-carve-expert-variation/1"
+        "s-duck-low-linked/1",
+        "s-carve-expert-variation/2"
       ],
       "configurations": [
         {
-          "jointLabels": true,
+          "fromEdge": "toe",
           "legLengthDiagram": true,
-          "task": "expert-carve-adaptation",
+          "task": "low-linked-carve",
           "trackDiagnostics": true,
-          "type": "expert-carving",
-          "variant": "lower-recover",
-          "view": "width"
+          "type": "jsba-carving",
+          "variant": "recover"
         }
       ],
-      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过"
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过"
+    },
+    {
+      "key": "jsba-carving:low-dynamic",
+      "references": [
+        "s-carve-expert-variation/1",
+        "s-carve-expert-review/1"
+      ],
+      "configurations": [
+        {
+          "fromEdge": "toe",
+          "legLengthDiagram": true,
+          "task": "low-linked-carve",
+          "trackDiagnostics": true,
+          "type": "jsba-carving",
+          "variant": "low-dynamic"
+        }
+      ],
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过"
     }
   ],
   "references": [
@@ -4198,30 +4262,10 @@
       "status": "implemented-review-in-progress"
     },
     {
-      "id": "v-toe-low-drill/1",
-      "lesson": "v-toe-low-drill",
-      "index": 0,
-      "locator": "lessons[61].demo",
-      "entry": "https://jinke.me/snowboard/#lesson=v-toe-low-drill",
-      "key": "j-turn",
-      "model": "snow-keyframes-ik",
-      "config": {
-        "type": "j-turn",
-        "focus": "前刃 J 弯检验控制，不演示膝撞雪",
-        "autoplay": false,
-        "duration": 10000,
-        "title": "前刃 J 弯：让雪板沿一条弧线转向横坡 · 动作观察",
-        "task": "j-turn-stop"
-      },
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
-      "renderer": "lesson-3d",
-      "status": "implemented-review-in-progress"
-    },
-    {
       "id": "v20-carve/1",
       "lesson": "v20-carve",
       "index": 0,
-      "locator": "lessons[62].demos[0]",
+      "locator": "lessons[61].demos[0]",
       "entry": "https://jinke.me/snowboard/#lesson=v20-carve",
       "key": "steering",
       "model": "snow-keyframes-ik",
@@ -4244,7 +4288,7 @@
       "id": "v20-carve/2",
       "lesson": "v20-carve",
       "index": 1,
-      "locator": "lessons[62].demos[1]",
+      "locator": "lessons[61].demos[1]",
       "entry": "https://jinke.me/snowboard/#lesson=v20-carve",
       "key": "rail-track",
       "model": "snow-keyframes-ik",
@@ -4267,7 +4311,7 @@
       "id": "v20-traffic/1",
       "lesson": "v20-traffic",
       "index": 0,
-      "locator": "lessons[63].demos[0]",
+      "locator": "lessons[62].demos[0]",
       "entry": "https://jinke.me/snowboard/#lesson=v20-traffic",
       "key": "steering",
       "model": "snow-keyframes-ik",
@@ -4290,7 +4334,7 @@
       "id": "v20-traffic/2",
       "lesson": "v20-traffic",
       "index": 1,
-      "locator": "lessons[63].demos[1]",
+      "locator": "lessons[62].demos[1]",
       "entry": "https://jinke.me/snowboard/#lesson=v20-traffic",
       "key": "steering",
       "model": "snow-keyframes-ik",
@@ -4310,10 +4354,30 @@
       "status": "implemented-review-in-progress"
     },
     {
+      "id": "v-toe-low-drill/1",
+      "lesson": "v-toe-low-drill",
+      "index": 0,
+      "locator": "lessons[63].demo",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-low-drill",
+      "key": "j-turn",
+      "model": "snow-keyframes-ik",
+      "config": {
+        "type": "j-turn",
+        "focus": "前刃 J 弯检验控制，不演示膝撞雪",
+        "autoplay": false,
+        "duration": 10000,
+        "title": "前刃 J 弯：让雪板沿一条弧线转向横坡 · 动作观察",
+        "task": "j-turn-stop"
+      },
+      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
       "id": "s20-rails/1",
       "lesson": "s20-rails",
       "index": 0,
-      "locator": "lessons[65].demo",
+      "locator": "lessons[64].demo",
       "entry": "https://jinke.me/snowboard/#lesson=s20-rails",
       "key": "rail-track",
       "model": "snow-keyframes-ik",
@@ -4328,6 +4392,29 @@
         "task": "rails-then-stop"
       },
       "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-carve-expert-arc/1",
+      "lesson": "s-carve-expert-arc",
+      "index": 0,
+      "locator": "lessons[65].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-arc",
+      "key": "jsba-carving:complete",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "carve-load-exit",
+        "variant": "complete",
+        "title": "中大弯：完整出口与偏浅出口",
+        "focus": "比较真实路线与出口方向；不由动画推算加速度、压力或比赛分数。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
     },
@@ -5730,24 +5817,25 @@
       "status": "implemented-review-in-progress"
     },
     {
-      "id": "s-duck-low-linked/1",
-      "lesson": "s-duck-low-linked",
+      "id": "s-jsba-basic-carve/1",
+      "lesson": "s-jsba-basic-carve",
       "index": 0,
-      "locator": "lessons[102].demo",
-      "entry": "https://jinke.me/snowboard/#lesson=s-duck-low-linked",
-      "key": "duck-carve",
+      "locator": "lessons[102].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-basic-carve",
+      "key": "jsba-carving:reference",
       "model": "native-3d",
       "config": {
-        "type": "duck-carve",
-        "task": "linked-duck-carve",
-        "posture": "low",
-        "title": "低姿态八字刻滑：两侧连续转换",
-        "trackDiagnostics": true,
-        "focus": "先看正常高度，再比较降低姿态后的释放与余量；前后刃不是镜像。",
+        "type": "jsba-carving",
+        "task": "basic-linked-carve",
+        "variant": "reference",
+        "title": "起身式：转换伸展，新弧渐屈",
+        "focus": "比较身体准备偏晚时的实际屈伸；两条曲线只显示髋到踝距离。",
+        "fromEdge": "toe",
         "autoplay": false,
-        "duration": 14000
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：已接入课内 3D；画面审阅与证据边界见 lesson-player-review.md",
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
     },
@@ -5849,26 +5937,25 @@
       "status": "implemented-review-in-progress"
     },
     {
-      "id": "s-carve-expert-arc/1",
-      "lesson": "s-carve-expert-arc",
+      "id": "s-jsba-dynamic-carve/1",
+      "lesson": "s-jsba-dynamic-carve",
       "index": 0,
       "locator": "lessons[109].demos[0]",
-      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-arc",
-      "key": "expert-carving:linked",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-dynamic-carve",
+      "key": "jsba-carving:reference",
       "model": "native-3d",
       "config": {
-        "type": "expert-carving",
-        "task": "expert-carve-arc",
-        "variant": "linked",
-        "title": "进阶刻滑弧线：朝向坡下前立刃，顺畅出弯接下一弯",
-        "focus": "在10米宽的示意滑行走廊里观察六个弯怎样衔接。7–15米是官方要求的整组转弯宽度，不是单弯半径；动画不表示官方要求的速度或真实抓雪力。",
-        "duration": 24000,
-        "trackDiagnostics": true,
+        "type": "jsba-carving",
+        "task": "dynamic-linked-carve",
+        "variant": "reference",
+        "title": "抱腿式：收回、过板、再伸开",
+        "focus": "旧刃释放与腿收短配合，进入新弧再伸出；可比较收腿准备偏晚。",
+        "fromEdge": "toe",
         "autoplay": false,
-        "jointLabels": true,
-        "view": "width"
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过",
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
     },
@@ -5878,22 +5965,135 @@
       "index": 0,
       "locator": "lessons[110].demos[0]",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-pressure",
-      "key": "expert-carving:coordinated",
+      "key": "jsba-carving:reference",
       "model": "native-3d",
       "config": {
-        "type": "expert-carving",
-        "task": "expert-carve-release",
-        "variant": "coordinated",
-        "title": "屈腿调节时机：同板路线、同放刃时刻的身体对照",
-        "focus": "比较协调屈伸与收腿稍晚的动作。曲线表示动画里髋部到脚踝的距离，用来观察腿的收伸程度；不是压力、雪板储能或回弹曲线。两种对照的放刃时刻相同。",
-        "duration": 24000,
-        "legLengthDiagram": true,
-        "trackDiagnostics": true,
+        "type": "jsba-carving",
+        "task": "basic-linked-carve",
+        "variant": "reference",
+        "title": "伸展工具：腿的变化与板的路线",
+        "focus": "观察转换附近伸展、新弧中渐屈；髋踝距离曲线不是压力曲线。",
+        "fromEdge": "toe",
         "autoplay": false,
-        "jointLabels": true,
-        "view": "width"
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过",
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-carve-expert-pressure/2",
+      "lesson": "s-carve-expert-pressure",
+      "index": 1,
+      "locator": "lessons[110].demos[1]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-pressure",
+      "key": "jsba-carving:reference",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "dynamic-linked-carve",
+        "variant": "reference",
+        "title": "抱腿工具：收腿过渡与新弧伸开",
+        "focus": "观察腿收短经过板上方，再在新弧中伸开；板仍接雪。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-jsba-size-control/1",
+      "lesson": "s-jsba-size-control",
+      "index": 0,
+      "locator": "lessons[111].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-size-control",
+      "key": "jsba-carving:large-to-short",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "carve-size-change",
+        "variant": "large-to-short",
+        "title": "大弯 → 中弯 → 小弯 → 恢复中弯",
+        "focus": "完整弧的空间尺寸实际变化；可切反方向顺序，不是缩放路线图或只加快播速。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-jsba-short-carve/1",
+      "lesson": "s-jsba-short-carve",
+      "index": 0,
+      "locator": "lessons[112].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-short-carve",
+      "key": "jsba-carving:reference",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "carved-short-turns",
+        "variant": "reference",
+        "title": "刻滑短弯：板轴沿路线切线连续变化",
+        "focus": "与主动拧板反例比较板轴和移动方向，使用独立短弯路线，不套用搓雪走廊。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-jsba-duck-mechanics/1",
+      "lesson": "s-jsba-duck-mechanics",
+      "index": 0,
+      "locator": "lessons[113].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-duck-mechanics",
+      "key": "jsba-carving:normal-dynamic",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "low-linked-carve",
+        "variant": "normal-dynamic",
+        "title": "八字双刃：正常高度下看两腿、骨盆与胸廓",
+        "focus": "固定脚位、靴与高背保持连接；前后刃分别组织，并可同进度比较较低姿态。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-duck-low-linked/1",
+      "lesson": "s-duck-low-linked",
+      "index": 0,
+      "locator": "lessons[114].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-duck-low-linked",
+      "key": "jsba-carving:recover",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "low-linked-carve",
+        "variant": "recover",
+        "title": "较低姿态入门：降低两弧并恢复",
+        "focus": "先保住正常高度控制，再少量降低；对照髋踝距离与身体关系。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
     },
@@ -5901,24 +6101,68 @@
       "id": "s-carve-expert-variation/1",
       "lesson": "s-carve-expert-variation",
       "index": 0,
-      "locator": "lessons[111].demos[0]",
+      "locator": "lessons[115].demos[0]",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-variation",
-      "key": "expert-carving:lower-recover",
+      "key": "jsba-carving:low-dynamic",
       "model": "native-3d",
       "config": {
-        "type": "expert-carving",
-        "task": "expert-carve-adaptation",
-        "variant": "lower-recover",
-        "title": "连续弧中的姿态余量：正常高度、稍低、恢复",
-        "focus": "先稳定正常高度，再稍低两弧并恢复；两种姿态共用板路线与刃角。低姿态和八字站姿属于风格选择，不是四级刻滑达标条件。",
-        "duration": 24000,
-        "legLengthDiagram": true,
-        "trackDiagnostics": true,
+        "type": "jsba-carving",
+        "task": "low-linked-carve",
+        "variant": "low-dynamic",
+        "title": "低位连续：双刃与两向转换",
+        "focus": "正常／较低保持同路线；伸展／收腿比较不同的腿部时序；扑胸对照保持同下肢。",
+        "fromEdge": "toe",
         "autoplay": false,
-        "jointLabels": true,
-        "view": "width"
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
       },
-      "destination": "D3：独立六弧专家刻滑任务；任务规格见 level4-carving-animation-spec.md，人工验收范围另记，不从注册或历史动作继承通过",
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-carve-expert-variation/2",
+      "lesson": "s-carve-expert-variation",
+      "index": 1,
+      "locator": "lessons[115].demos[1]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-variation",
+      "key": "jsba-carving:recover",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "low-linked-carve",
+        "variant": "recover",
+        "title": "正常高度 → 较低两弧 → 恢复",
+        "focus": "比较实际身体变化；结尾恢复正常高度，动画结束仍在滑行。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
+      "renderer": "lesson-3d",
+      "status": "implemented-review-in-progress"
+    },
+    {
+      "id": "s-carve-expert-review/1",
+      "lesson": "s-carve-expert-review",
+      "index": 0,
+      "locator": "lessons[116].demos[0]",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-review",
+      "key": "jsba-carving:low-dynamic",
+      "model": "native-3d",
+      "config": {
+        "type": "jsba-carving",
+        "task": "low-linked-carve",
+        "variant": "low-dynamic",
+        "title": "错误对照：膝髋共同降低与前刃探胸",
+        "focus": "切到扑胸反例，比较同一路线、板角与下肢下的躯干关系；相同路线不证明反例能真实抓雪。",
+        "fromEdge": "toe",
+        "autoplay": false,
+        "legLengthDiagram": true,
+        "trackDiagnostics": true
+      },
+      "destination": "D3：独立 JSBA 刻滑六类任务；资料范围见 jsba-technical-source-review.md，动作编排与人工验收另记，不从注册或历史动作继承通过",
       "renderer": "lesson-3d",
       "status": "implemented-review-in-progress"
     }
@@ -9288,65 +9532,87 @@
       "illustration": null
     },
     {
-      "id": "v-toe-touch-criterion",
-      "title": "刻滑是否进步：看轨迹、控速、放刃和适应",
+      "id": "v20-path",
+      "title": "刻滑主线：从双刃控制到高阶低姿态八字",
       "module": "carving",
-      "goal": "用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。",
-      "entry": "https://jinke.me/snowboard/#lesson=v-toe-touch-criterion",
+      "goal": "能依据失控发生的阶段选择下一项技术，分清机构质量要求、个人风格示范与本站练习编排。",
+      "entry": "https://jinke.me/snowboard/#lesson=v20-path",
       "citations": [
         {
-          "source": "S16",
-          "locator": "印刷 / PDF p.61、97–98：刻滑窄痕、独立弧与触雪折腰问题",
-          "claim": "以窄痕、两侧控制和可调整姿态审查刻滑；p.98 明确讨论为触雪折腰的错误，p.99 不作为本课刻滑定位。",
+          "source": "S42",
+          "locator": "别表 A-1、B-1、B-2",
+          "claim": "官方种目区分刻滑长短弯、Basic 和 Dynamic；本站将它们组织为学习工具，不照抄考试为课序。",
           "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
         },
         {
-          "source": "S15",
-          "locator": "印刷 / PDF p.18：Level 2 Technical Skills，按目标表现与条件判断",
-          "claim": "p.18 要求按目标的弯形、大小、刻/搓、战术与装备分析表现；它不制定触雪深度或本站复测次数，重复控制优先是本站验收设计。",
-          "evidence": "synthesis",
-          "canonicalSource": "S15",
-          "title": "AASI Snowboard National Standards",
-          "url": "https://thesnowpros.org/wp-content/uploads/2025/10/AASI_Snowboard_Standards0224_updated_100325_v3.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
+          "source": "S43",
+          "locator": "共通判据",
+          "claim": "以有效板弯、弧形与尺寸、弯中速度评价高水平刻滑。",
           "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S45",
+          "locator": "新版启用公告",
+          "claim": "JSBA 公告明确，2025 年 9 月及以后的讲习与检定采用新版《スノーボード教程》。",
+          "evidence": "direct",
+          "canonicalSource": "S45",
+          "title": "新 JSBA 教程启用公告",
+          "url": "https://www.jsba.or.jp/news/detail/440/"
+        },
+        {
+          "source": "S47",
+          "locator": "脚角与动作方向",
+          "claim": "八字设备条件影响身体可用方向，具体课序与剂量为本站建议。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
+        },
+        {
+          "source": "S44",
+          "locator": "田口瑞树、藤巻俊介、新野裕幸等个人装备栏",
+          "claim": "示范者脚角存在双正、正零与八字范围；这些是个人装备资料，不是给学员的统一推荐，也不能用于反推某段视频的实际设置。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S44",
+          "title": "JSBA 官方示范者：脚角与器材的实际多样性",
+          "url": "https://jsba.or.jp/education/demonstrator/"
+        },
+        {
+          "source": "S46",
+          "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
+          "claim": "本人讨论上身、骨盆、髋与腿怎样配合降低身体，反对只靠蹲膝踝或低头圆背；这是具名个人方法，不是统一 JSBA 姿态或关节角度标准。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
+        },
+        {
+          "source": "S50",
+          "locator": "カービングターンロング；カービングターンミドル",
+          "claim": "历史长弯要求起身系与抱腿系运动展开，同届中弯允许自由运动。用于辨认运动工具和任务差异，不作为 2025 新教程完整定义。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
+        },
+        {
+          "source": "S51",
+          "locator": "ベーシックカーブショートを極める；屈伸训练正文",
+          "claim": "历史训练使用起身减重与下沉荷重口令，强调腿部屈曲、避免只折腹腰，并注意前刃内倒。正文未提供可照搬的新版本逐阶段时序。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S51",
+          "title": "ベーシックカーブショート：公认学校真实训练记录",
+          "url": "https://asahiprime-snowboardschool.jp/basiccurveshort/"
         }
       ],
       "prototypeMode": null,
       "references": [],
-      "illustration": null
-    },
-    {
-      "id": "v-toe-low-drill",
-      "title": "前刃 J 弯：让雪板沿一条弧线转向横坡",
-      "module": "carving",
-      "goal": "完成可控的前刃单弧，知道哪里抓刃、哪里开始扫尾。",
-      "entry": "https://jinke.me/snowboard/#lesson=v-toe-low-drill",
-      "citations": [
-        {
-          "source": "S16",
-          "locator": "印刷 / PDF p.61、97–98：缓坡刻滑、isolated traverses or arcs；不同于 p.74 单脚 J 弯",
-          "claim": "p.97–98 支持缓坡、双脚可调的刻滑与独立横切/弧线；本课双脚固定的短 J 形单弧与正常高度优先是本站编排，不照搬 p.74 单脚拖靴 J 弯。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [
-        "v-toe-low-drill/1"
-      ],
       "illustration": null
     },
     {
@@ -9443,61 +9709,16 @@
       "illustration": null
     },
     {
-      "id": "v20-path",
-      "title": "刻滑怎么练：基础、进阶与低姿态选修",
+      "id": "v-toe-low-drill",
+      "title": "前刃 J 弯：让雪板沿一条弧线转向横坡",
       "module": "carving",
-      "goal": "按当前雪板表现选出一项练习，分清基础、低姿态应用与官方高阶任务的条件和证据。",
-      "entry": "https://jinke.me/snowboard/#lesson=v20-path",
+      "goal": "完成可控的前刃单弧，知道哪里抓刃、哪里开始扫尾。",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-low-drill",
       "citations": [
         {
           "source": "S16",
-          "locator": "印刷 / PDF p.61、97–98、155、181–182：刻滑基础、两刃差异与装备",
-          "claim": "正常刻滑的板表现、身体非对称关系与装备条件为分支提供依据；正常高度到低姿态的具体学习顺序属于本站教学设计。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "T02",
-          "locator": "Course Overview / Am I Ready / FAQ",
-          "claim": "官方专项面向已有刻滑经验者，强调装备、定向练习与反馈；不规定本站正常高度到低姿态的课序或练习组数。",
-          "evidence": "direct",
-          "canonicalSource": "T02",
-          "title": "Carving Instructor：刻滑专项路径",
-          "url": "https://casi-acms.com/courses/carving-instructor/"
-        },
-        {
-          "source": "S19",
-          "locator": "3 Common Snowboard Binding Angle Combinations / Positive/Negative；用途与舒适性段",
-          "claim": "duck stance 为前正后负，具体脚角需匹配个人与用途；用于明确本课低姿态分支的站姿范围。",
-          "evidence": "direct",
-          "canonicalSource": "S19",
-          "title": "Snowboard Stance Angles Explained",
-          "url": "https://www.burton.com/en-au/blogs/the-burton-blog/snowboard-stance-angles"
-        },
-        {
-          "source": "S10",
-          "locator": "印刷 / PDF p.5、15、25：Carved Turn，判据与不同任务的屈伸要求",
-          "claim": "刻滑按板尾跟随板头的轨迹与各阶段控制判断，屈伸方法随任务变化；先正常高度、后小幅降低的课序是本站教学归纳。",
-          "evidence": "synthesis",
-          "canonicalSource": "S10",
-          "title": "Snowboard Performance Guide",
-          "url": "https://thesnowpros.org/wp-content/uploads/2025/01/SB_snowboard_performance_PG-nov2022.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
+          "locator": "印刷 / PDF p.61、97–98：缓坡刻滑、isolated traverses or arcs；不同于 p.74 单脚 J 弯",
+          "claim": "p.97–98 支持缓坡、双脚可调的刻滑与独立横切/弧线；本课双脚固定的短 J 形单弧与正常高度优先是本站编排，不照搬 p.74 单脚拖靴 J 弯。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
@@ -9505,7 +9726,9 @@
         }
       ],
       "prototypeMode": null,
-      "references": [],
+      "references": [
+        "v-toe-low-drill/1"
+      ],
       "illustration": null
     },
     {
@@ -9528,6 +9751,74 @@
       "prototypeMode": null,
       "references": [
         "s20-rails/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-carve-expert-arc",
+      "title": "JSBA 刻滑中大弯：建刃、压弯与出口",
+      "module": "carving",
+      "goal": "在熟悉压雪坡连续完成可控中大弯，弯中板尾跟随，出口能衔接下一弯而不急甩尾。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-arc",
+      "citations": [
+        {
+          "source": "S43",
+          "locator": "刻滑共通判据与 long/middle",
+          "claim": "高阶目标包括有效板弯、尺寸控制和弯中速度；本课建刃到出口的分段为本站教学归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S42",
+          "locator": "PDF 第12页",
+          "claim": "现行任务把抓雪、速度、弧线与动作时机共同评价。",
+          "evidence": "direct",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S46",
+          "locator": "全身协调与可动姿态",
+          "claim": "用于身体在弯中调整的个人技术视角，不给统一低位角度。",
+          "evidence": "synthesis",
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
+        },
+        {
+          "source": "S50",
+          "locator": "历史 long 展开",
+          "claim": "起身与抱腿是可区别的运动工具，本课不要求一律采用同一种。",
+          "evidence": "synthesis",
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
+        },
+        {
+          "source": "S47",
+          "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+          "claim": "本人自述曾以 +18/−6 夺冠、现用 +30/0，并说明脚角影响膝髋易动方向与两刃动作。个人经历不能变成统一脚角，也不能把正零示范直接套给八字。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
+        },
+        {
+          "source": "S49",
+          "locator": "原书 p.30 lean / lean-out；p.159 技术体系",
+          "claim": "p.30 支点说明补充为腰或膝，包括 toeside 句；p.159 应用目标强调按目的与情境掌握技术。勘误不提供完整动作序列或统一姿态角度。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S49",
+          "title": "日本スノーボード協会 スノーボード教程：出版方勘误",
+          "url": "https://www.yamakei.co.jp/products/b5ad0a0ad552939e5e98233630d1c2f7.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-carve-expert-arc/1"
       ],
       "illustration": null
     },
@@ -10905,10 +11196,715 @@
       "illustration": null
     },
     {
+      "id": "s-jsba-basic-carve",
+      "title": "起身式刻滑：转换时伸展开，新弧中渐屈腿",
+      "module": "carving",
+      "goal": "在熟悉中大弯中用温和起身组织转换，双腿始终可调，连续弧不因上下动作而弹跳或扫尾。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-basic-carve",
+      "citations": [
+        {
+          "source": "S42",
+          "locator": "PDF第12页 Basic 任务",
+          "claim": "现行要求上下运动与抓雪、弧形、位置配合，不只评高度。",
+          "evidence": "direct",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S50",
+          "locator": "历史 long 起身系/抱腿系",
+          "claim": "支持区分运动工具，具体本课分段不是新版完整官方定义。",
+          "evidence": "synthesis",
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
+        },
+        {
+          "source": "S51",
+          "locator": "历史学校 Basic 训练",
+          "claim": "支持腿部屈伸而非只折腹腰；本课转换与弯中时序为本站教学归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S51",
+          "title": "ベーシックカーブショート：公认学校真实训练记录",
+          "url": "https://asahiprime-snowboardschool.jp/basiccurveshort/"
+        },
+        {
+          "source": "S45",
+          "locator": "新版启用",
+          "claim": "JSBA 公告明确，2025 年 9 月及以后的讲习与检定采用新版《スノーボード教程》。",
+          "evidence": "direct",
+          "canonicalSource": "S45",
+          "title": "新 JSBA 教程启用公告",
+          "url": "https://www.jsba.or.jp/news/detail/440/"
+        },
+        {
+          "source": "S53",
+          "locator": "Basic Long片内标签；115.033、117.033、119.033秒有限关键帧",
+          "claim": "实际可见先较展开、中间膝髋较屈曲、随后再展开；用于定性理解起身式组织。固定器角度、精确刃角与压力未测，不能证明统一八字示范。",
+          "evidence": "synthesis",
+          "canonicalSource": "S53",
+          "title": "JSBA インストラクター検定：Basic 与 Dynamic 示范及讲解",
+          "url": "https://www.youtube.com/watch?v=cMgNnGdsmpg"
+        },
+        {
+          "source": "S46",
+          "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
+          "claim": "本人讨论上身、骨盆、髋与腿怎样配合降低身体，反对只靠蹲膝踝或低头圆背；这是具名个人方法，不是统一 JSBA 姿态或关节角度标准。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
+        },
+        {
+          "source": "S43",
+          "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
+          "claim": "高水平评价强调让板有效弯曲、弯形与尺寸控制、弯内速度及内外力配合；仅靠侧切或浅弯直冲不足以获得高评价。属于竞赛评价，不要求所有练习提高速度。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-jsba-basic-carve/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-map",
+      "title": "CASI 四级搓雪小回转：目标、转向与屈伸配合",
+      "module": "short-turns",
+      "goal": "理解专家短弯的任务条件和技术构成，能用弯形、转向分配与两向换刃判断该练哪一项。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-map",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.3、5：Am I Ready / Marking System",
+          "claim": "官方强烈建议向现任L4教练或考官获得反馈；完整L4认证含多个组成部分。考试每任务有两次计分机会，由两名考官评分取平均，最终每任务需至少6/10；原文未在此明确两次滑行的成绩如何合并，本站不自创算法。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S40",
+          "locator": "现行Level 4 Instructor课程页：Riding与准备要求",
+          "claim": "课程页强调专家水平的一致性和适应性，并强烈建议L4教练或考官反馈；本路线是一个专项的训练支持。",
+          "evidence": "direct",
+          "canonicalSource": "S40",
+          "title": "Level 4 Instructor：现行官方课程与准备要求",
+          "url": "https://casi-acms.com/courses/level-4-instructor/"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "本课练习分组、单项对照、动作提示与退阶由本站根据任务和技能原理编排，不是官方固定训练顺序、训练量、评分分界或效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S41",
+          "locator": "2026-09-08：Maintaining Our Framework；Technical Project – New Assessment Grids，并对照S38 p.15及S40现行课程页",
+          "claim": "新评估网格仍在开发测试，公告说明不改变既有课程判据；结合公开Riding指南和当前课程页，本站采用2025年9月版作为本轮可获取的标准基线，而非声称已取得2026新版评分表。",
+          "evidence": "synthesis",
+          "canonicalSource": "S41",
+          "title": "2026–27更新：课程框架与评估网格状态",
+          "url": "https://casi-acms.com/casi-blog/whats-new-for-the-2026-2027-season/"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-steering",
+      "title": "进阶小回转：在较窄的滑行走廊里保持完整弯形",
+      "module": "short-turns",
+      "goal": "在已能管理速度的条件下维持计划滑行走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-steering",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
+          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "本课练习分组、单项对照、动作提示与退阶由本站根据任务和技能原理编排，不是官方固定训练顺序、训练量、评分分界或效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-short-expert-steering/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-pressure",
+      "title": "进阶小回转：屈伸与换刃时机",
+      "module": "short-turns",
+      "goal": "在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与雪板反应，并持续接入下一弧。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-pressure",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.51–54：Pressure / Up and Down Un-weighting / Terrain",
+          "claim": "教材区分屈伸加速与收住阶段，压力受转弯和地形影响；本课不由姿态或动画输出个体压力。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "本课练习分组、单项对照、动作提示与退阶由本站根据任务和技能原理编排，不是官方固定训练顺序、训练量、评分分界或效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-short-expert-pressure/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-flow",
+      "title": "进阶小回转：从入段到结束都保持控制",
+      "module": "short-turns",
+      "goal": "在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
+          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "本课练习分组、单项对照、动作提示与退阶由本站根据任务和技能原理编排，不是官方固定训练顺序、训练量、评分分界或效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-short-expert-flow/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-transfer",
+      "title": "进阶小回转：换一个条件，重新找到节奏",
+      "module": "short-turns",
+      "goal": "能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-transfer",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
+          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6–7：Expert Short Radius / Free Run in Expert Bumpy or Un-groomed Terrain",
+          "claim": "专家短弯规定压雪地形；雪包或非压雪自由滑行是独立考核任务，不能混为同一达标条件。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "本课练习分组、单项对照、动作提示与退阶由本站根据任务和技能原理编排，不是官方固定训练顺序、训练量、评分分界或效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-short-expert-transfer/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-short-expert-review",
+      "title": "CASI 四级搓雪小回转：完整滑段常见错误与修正",
+      "module": "short-turns",
+      "goal": "能够区分路线、放刃、身体配合与疲劳造成的不同问题，选择对应修正，并在整段双向短弯中保持控速和恢复能力。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-review",
+      "citations": [
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
+          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S16",
+          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
+          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
+          "evidence": "synthesis",
+          "canonicalSource": "S16",
+          "title": "Reference Guide：技能、练习、人体与装备",
+          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.3、5：反馈建议与Technical Evaluation",
+          "claim": "官方强烈建议现任L4教练或考官反馈；考试每任务两次计分机会、两位考官评分取平均、最终每任务至少6/10。本站不推断原文未说明的两次滑行成绩合并方式，也不据此生成自测分数。",
+          "evidence": "direct",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        },
+        {
+          "source": "S39",
+          "locator": "Short turns段约0:38–0:55；本站实际观察0:40.073–0:41.073及0:46.073–0:50.073的有限关键帧",
+          "claim": "官方真人片段中可见板与下肢持续改向、上身适量顺应、两向跨中立与膝髋调节；这里只支持有限可见关系，不测压力、精确速度、2–3米走廊或官方分数。",
+          "evidence": "direct",
+          "canonicalSource": "S39",
+          "title": "Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范",
+          "url": "https://www.youtube.com/watch?v=XFbVBdSRGgE"
+        },
+        {
+          "source": "S40",
+          "locator": "现行Level 4 Instructor课程页：准备与反馈",
+          "claim": "以专家水平一致性和适应性准备，并强烈建议现任L4教练或考官反馈；理论理解不能替代专家条件下的真实表现。",
+          "evidence": "direct",
+          "canonicalSource": "S40",
+          "title": "Level 4 Instructor：现行官方课程与准备要求",
+          "url": "https://casi-acms.com/courses/level-4-instructor/"
+        },
+        {
+          "source": "S38",
+          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
+          "claim": "本课练习分组、单项对照、动作提示与退阶由本站根据任务和技能原理编排，不是官方固定训练顺序、训练量、评分分界或效果保证。",
+          "evidence": "suggestion",
+          "canonicalSource": "S38",
+          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
+          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [],
+      "illustration": null
+    },
+    {
+      "id": "s-jsba-dynamic-carve",
+      "title": "抱腿式刻滑：收腿释放，向新弧伸开承接",
+      "module": "carving",
+      "goal": "用可控的收腿和重新伸开连接两侧刻滑，身体路线较连贯，旧刃释放与新弧发展清楚。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-dynamic-carve",
+      "citations": [
+        {
+          "source": "S42",
+          "locator": "PDF第12页 Dynamic short",
+          "claim": "现行保留任务并关注腿部荷重、抜重时机与板表现；没有提供本课详细阶段处方。",
+          "evidence": "direct",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S50",
+          "locator": "历史起身/抱腿展开",
+          "claim": "历史官方确认两种可区分的运动工具；本课收腿—跨板—伸开为本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
+        },
+        {
+          "source": "S45",
+          "locator": "新版启用",
+          "claim": "JSBA 公告明确，2025 年 9 月及以后的讲习与检定采用新版《スノーボード教程》。",
+          "evidence": "direct",
+          "canonicalSource": "S45",
+          "title": "新 JSBA 教程启用公告",
+          "url": "https://www.jsba.or.jp/news/detail/440/"
+        },
+        {
+          "source": "S46",
+          "locator": "全身可动姿态",
+          "claim": "用于避免收腿时只折胸或冻结髋的个人技术视角。",
+          "evidence": "synthesis",
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
+        },
+        {
+          "source": "S53",
+          "locator": "Dynamic Short：625.033–626.833、630.033–632.433秒有限关键帧；11:47–12:48点评自动字幕",
+          "claim": "实际画面可见腿较长、收短紧凑过板、下一弧再展开。点评强调伸展需要连到有效立刃，收腿转换应清楚，可先放缓节奏；不从姿态反算压力、脚角或满分。",
+          "evidence": "synthesis",
+          "canonicalSource": "S53",
+          "title": "JSBA インストラクター検定：Basic 与 Dynamic 示范及讲解",
+          "url": "https://www.youtube.com/watch?v=cMgNnGdsmpg"
+        },
+        {
+          "source": "S43",
+          "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
+          "claim": "高水平评价强调让板有效弯曲、弯形与尺寸控制、弯内速度及内外力配合；仅靠侧切或浅弯直冲不足以获得高评价。属于竞赛评价，不要求所有练习提高速度。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S47",
+          "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+          "claim": "本人自述曾以 +18/−6 夺冠、现用 +30/0，并说明脚角影响膝髋易动方向与两刃动作。个人经历不能变成统一脚角，也不能把正零示范直接套给八字。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-jsba-dynamic-carve/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-carve-expert-pressure",
+      "title": "刻滑发力逻辑：身体运动、刃上压力与板的反应",
+      "module": "carving",
+      "goal": "能说明一个动作改变了什么、板上应出现什么结果，并用逐渐建立和释放支持替代猛踩、塌腿或甩肩。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-pressure",
+      "citations": [
+        {
+          "source": "S43",
+          "locator": "共通判据",
+          "claim": "以板的有效弯曲与全弧质量作为结果目标；本课传力解释与观察顺序为本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S42",
+          "locator": "PDF第12页动作时机与荷重、抜重",
+          "claim": "官方检查运动和板表现，不提供由姿态直接反算压力的公式。",
+          "evidence": "synthesis",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S46",
+          "locator": "全身配合降低及活动余量",
+          "claim": "个人文章支持多个关节共同组织姿态；不证明具体脚下压力。",
+          "evidence": "synthesis",
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
+        },
+        {
+          "source": "S47",
+          "locator": "脚角影响膝髋动作方向",
+          "claim": "设置是动作条件，不能脱离器材复制姿态。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
+        },
+        {
+          "source": "S50",
+          "locator": "カービングターンロング；カービングターンミドル",
+          "claim": "历史长弯要求起身系与抱腿系运动展开，同届中弯允许自由运动。用于辨认运动工具和任务差异，不作为 2025 新教程完整定义。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-carve-expert-pressure/1",
+        "s-carve-expert-pressure/2"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-jsba-size-control",
+      "title": "刻滑弯幅与节奏：改变完整弧，保持连续支持",
+      "module": "carving",
+      "goal": "能在熟悉条件中有目的地改变刻滑弯幅和节奏，转换前后仍保住抓雪、出口与整体平衡。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-size-control",
+      "citations": [
+        {
+          "source": "S43",
+          "locator": "尺寸控制共通判据；middle；short",
+          "claim": "官方按尺寸要求的运动节奏、速度和作用力配合评价，并给赛事中弯摆幅；本站不把该摆幅推广为普遍处方。",
+          "evidence": "synthesis",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S42",
+          "locator": "不同尺寸任务及其观察点",
+          "claim": "长短任务均看抓雪、弧形、速度和时机；变化顺序与练习剂量为本站建议。",
+          "evidence": "suggestion",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-jsba-size-control/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-jsba-short-carve",
+      "title": "纯刻滑短弯：更快换边，仍让板沿弧线转",
+      "module": "carving",
+      "goal": "在适合条件下连续做出左右相称的刻滑短弯，节奏稳定，尾部基本跟随，随时能改为搓雪退出。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-short-carve",
+      "citations": [
+        {
+          "source": "S42",
+          "locator": "Badge carving short、Basic short、Dynamic short；TECH short",
+          "claim": "官方为刻滑短弯设置独立位置并检查抓雪、速度、节奏与弧形。",
+          "evidence": "direct",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S43",
+          "locator": "short 与尺寸控制共通判据",
+          "claim": "要求左右均匀、节奏和尺寸控制，浅直冲不能替代高质量弧线。",
+          "evidence": "direct",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S50",
+          "locator": "运动工具的历史区分",
+          "claim": "本课允许按能力选工具；尺寸压缩与练习顺序为本站建议。",
+          "evidence": "suggestion",
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
+        },
+        {
+          "source": "S53",
+          "locator": "12:10–12:48 Dynamic Short点评自动字幕",
+          "claim": "讲解指出过急赶节奏可能省略收腿，适当放缓能使下一次伸展更明确；本课据此强调先完整再加快。",
+          "evidence": "synthesis",
+          "canonicalSource": "S53",
+          "title": "JSBA インストラクター検定：Basic 与 Dynamic 示范及讲解",
+          "url": "https://www.youtube.com/watch?v=cMgNnGdsmpg"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-jsba-short-carve/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "s-jsba-duck-mechanics",
+      "title": "八字刻滑身体机制：两刃、肩髋与装备条件",
+      "module": "carving",
+      "goal": "在自己的舒适八字设置下，辨认两刃膝髋与胸廓关系，避免拖靴、硬扭膝和沿板长坐尾。",
+      "entry": "https://jinke.me/snowboard/#lesson=s-jsba-duck-mechanics",
+      "citations": [
+        {
+          "source": "S44",
+          "locator": "示范者脚角与器材栏",
+          "claim": "官方公布多种个人设置，并未给学员统一角度。",
+          "evidence": "direct",
+          "canonicalSource": "S44",
+          "title": "JSBA 官方示范者：脚角与器材的实际多样性",
+          "url": "https://jsba.or.jp/education/demonstrator/"
+        },
+        {
+          "source": "S47",
+          "locator": "脚角、膝髋方向与当前正零设置",
+          "claim": "支持设置影响动作方向；本课两刃练法为本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
+        },
+        {
+          "source": "S46",
+          "locator": "全身配合与踝活动条件",
+          "claim": "个人技术视角支持多关节配合，不提供统一装备活动上限。",
+          "evidence": "synthesis",
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
+        },
+        {
+          "source": "S49",
+          "locator": "p.30",
+          "claim": "lean/lean-out 可涉及腰或膝，不能把反弓仅解释为折腰。",
+          "evidence": "direct",
+          "canonicalSource": "S49",
+          "title": "日本スノーボード協会 スノーボード教程：出版方勘误",
+          "url": "https://www.yamakei.co.jp/products/b5ad0a0ad552939e5e98233630d1c2f7.pdf"
+        },
+        {
+          "source": "S54",
+          "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
+          "claim": "本课真人卡仅使用明确列出的有限关键帧；可见姿态与个人讲解用于定性理解，未作压力测量或真人精确标定。",
+          "evidence": "synthesis",
+          "canonicalSource": "S54",
+          "title": "MIRATORI：八字后刃的本人公开示范",
+          "url": "https://www.youtube.com/watch?v=FookVR1Ojuw"
+        },
+        {
+          "source": "S43",
+          "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
+          "claim": "高水平评价强调让板有效弯曲、弯形与尺寸控制、弯内速度及内外力配合；仅靠侧切或浅弯直冲不足以获得高评价。属于竞赛评价，不要求所有练习提高速度。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-jsba-duck-mechanics/1"
+      ],
+      "illustration": null
+    },
+    {
       "id": "s-duck-low-linked",
       "title": "低姿态八字刻滑：保持窄痕，完成两侧转换",
       "module": "carving",
-      "goal": "降低姿态后，两侧仍能连续窄痕、控制出口和速度，并保留随时调整刃角、屈伸和主动退出的能力。",
+      "goal": "从正常高度进入略低的前后刃弧线，并主动恢复正常高度；整段保持窄痕、可选出口和主动搓雪退出能力。",
       "entry": "https://jinke.me/snowboard/#lesson=s-duck-low-linked",
       "citations": [
         {
@@ -10973,6 +11969,24 @@
           "canonicalSource": "S36",
           "title": "Carving Instructor: Riding Standards (2025)",
           "url": "https://www.youtube.com/watch?v=zaQubyopOy8"
+        },
+        {
+          "source": "S42",
+          "locator": "PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2",
+          "claim": "现行任务区分 Basic 与 Dynamic，不能把低位外观当作官方统一动作要求。本课正常高度—略低—恢复及具体腿部时序是本站编排，不是新版完整教学定义。",
+          "evidence": "synthesis",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S50",
+          "locator": "历史カービングターンロング：立ち上がり系、抱え込み系运动展开",
+          "claim": "用于区分伸展与抱腿两类历史工具。本课动画选择收腿过渡只为固定比较条件，不规定所有低位必须采用收腿；未由动作名称推定压力大小。",
+          "evidence": "synthesis",
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
         }
       ],
       "prototypeMode": null,
@@ -10982,655 +11996,184 @@
       "illustration": null
     },
     {
-      "id": "s-short-expert-map",
-      "title": "进阶小回转：先看任务要求，再选练习",
-      "module": "short-turns",
-      "goal": "说清高阶任务、自己的当前条件和下一项训练差距；不以看完教程、勾选或最好两弯替代专项能力。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-map",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
-          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
-          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.3、5：Am I Ready / Marking System",
-          "claim": "官方强烈建议向现任L4教练或考官获得反馈；完整L4认证含多个组成部分。考试每任务有两次计分机会，由两名考官评分取平均，最终每任务需至少6/10；原文未在此明确两次滑行的成绩如何合并，本站不自创算法。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S40",
-          "locator": "现行Level 4 Instructor课程页：Riding与准备要求",
-          "claim": "课程页强调专家水平的一致性和适应性，并强烈建议L4教练或考官反馈；本路线是一个专项的训练支持。",
-          "evidence": "direct",
-          "canonicalSource": "S40",
-          "title": "Level 4 Instructor：现行官方课程与准备要求",
-          "url": "https://casi-acms.com/courses/level-4-instructor/"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
-          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S41",
-          "locator": "2026-09-08：Maintaining Our Framework；Technical Project – New Assessment Grids，并对照S38 p.15及S40现行课程页",
-          "claim": "新评估网格仍在开发测试，公告说明不改变既有课程判据；结合公开Riding指南和当前课程页，本站采用2025年9月版作为本轮可获取的标准基线，而非声称已取得2026新版评分表。",
-          "evidence": "synthesis",
-          "canonicalSource": "S41",
-          "title": "2026–27更新：课程框架与评估网格状态",
-          "url": "https://casi-acms.com/casi-blog/whats-new-for-the-2026-2027-season/"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [],
-      "illustration": null
-    },
-    {
-      "id": "s-short-expert-steering",
-      "title": "进阶小回转：在较窄的滑行走廊里保持完整弯形",
-      "module": "short-turns",
-      "goal": "在已能管理速度的条件下维持计划滑行走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-steering",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
-          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
-          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
-          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
-          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [
-        "s-short-expert-steering/1"
-      ],
-      "illustration": null
-    },
-    {
-      "id": "s-short-expert-pressure",
-      "title": "进阶小回转：屈伸与换刃时机",
-      "module": "short-turns",
-      "goal": "在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与雪板反应，并持续接入下一弧。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-pressure",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
-          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
-          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.51–54：Pressure / Up and Down Un-weighting / Terrain",
-          "claim": "教材区分屈伸加速与收住阶段，压力受转弯和地形影响；本课不由姿态或动画输出个体压力。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
-          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [
-        "s-short-expert-pressure/1"
-      ],
-      "illustration": null
-    },
-    {
-      "id": "s-short-expert-flow",
-      "title": "进阶小回转：从入段到结束都保持控制",
-      "module": "short-turns",
-      "goal": "在计划条件下完成一整段连续小弯，出现轻微变化仍能作主动调整，并保留计划退出。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-flow",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
-          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
-          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
-          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
-          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [
-        "s-short-expert-flow/1"
-      ],
-      "illustration": null
-    },
-    {
-      "id": "s-short-expert-transfer",
-      "title": "进阶小回转：换一个条件，重新找到节奏",
-      "module": "short-turns",
-      "goal": "能识别条件变化带来的新要求，并以可控的任务阶梯恢复短弯表现，不把一次成功套到全部雪况。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-transfer",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
-          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
-          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：Creation of Variation / Fundamental Movement Patterns",
-          "claim": "官方强调有目的地改变条件以发展适应性；大中小技术弯主要调整技能用量与持续时间，整体动作序列不应大幅改换。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6–7：Expert Short Radius / Free Run in Expert Bumpy or Un-groomed Terrain",
-          "claim": "专家短弯规定压雪地形；雪包或非压雪自由滑行是独立考核任务，不能混为同一达标条件。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
-          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [
-        "s-short-expert-transfer/1"
-      ],
-      "illustration": null
-    },
-    {
-      "id": "s-short-expert-review",
-      "title": "进阶小回转复盘：用完整滑段找下一步",
-      "module": "short-turns",
-      "goal": "形成可供现任L4教练或考官判断的专项证据，清楚区分已观察、还需练习和当前条件下可重复的表现。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-short-expert-review",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6：Expert Short Radius Turns",
-          "claim": "官方任务要求2–3米走廊、专家压雪地形及advanced/expert速度；管理板的反弹与响应，全程保持核心和高级能力，并用弯形与转向控制速度。原文没有统一km/h、坡角或规定弯数。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59：平衡p.43–45、转向p.47–48、刃p.49–50、压力p.51–54、时序p.55–56；重点p.58 The Advanced Competencies",
-          "claim": "原文说明平衡、转向、刃、压力、时序等技能，并定义Strength & Flow、Arc to Arc、Loading & Deflection和Steering Versatility；本课把它们组织成小回转观察与练习，是情境归纳，不等于每弯必须纯刻滑或必须弹起。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.3、5：反馈建议与Technical Evaluation",
-          "claim": "官方强烈建议现任L4教练或考官反馈；考试每任务两次计分机会、两位考官评分取平均、最终每任务至少6/10。本站不推断原文未说明的两次滑行成绩合并方式，也不据此生成自测分数。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S39",
-          "locator": "Short turns段约0:38–0:55；本站实际观察0:40.073–0:41.073及0:46.073–0:50.073的有限关键帧",
-          "claim": "官方真人片段中可见板与下肢持续改向、上身适量顺应、两向跨中立与膝髋调节；这里只支持有限可见关系，不测压力、精确速度、2–3米走廊或官方分数。",
-          "evidence": "direct",
-          "canonicalSource": "S39",
-          "title": "Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范",
-          "url": "https://www.youtube.com/watch?v=XFbVBdSRGgE"
-        },
-        {
-          "source": "S40",
-          "locator": "现行Level 4 Instructor课程页：准备与反馈",
-          "claim": "以专家水平一致性和适应性准备，并强烈建议现任L4教练或考官反馈；网页阅读和本机进度不能替代真实表现。",
-          "evidence": "direct",
-          "canonicalSource": "S40",
-          "title": "Level 4 Instructor：现行官方课程与准备要求",
-          "url": "https://casi-acms.com/courses/level-4-instructor/"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：任务与变化原则；本站训练编排",
-          "claim": "下方分组、重复次数、拍摄阶段、单变量对照、退阶和本机记录均是本站训练建议，不是官方考试流程、评分分界或训练效果保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [],
-      "illustration": null
-    },
-    {
-      "id": "s-carve-expert-arc",
-      "title": "进阶刻滑：落线前立刃，顺畅完成出弯",
-      "module": "carving",
-      "goal": "两侧都在雪板转到落线前建立新刃支撑，用立刃和压力调节保持刻滑弧线，并让出弯的速度与方向顺畅接入下一弯。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-arc",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：Overall riding performance、Creation of Variation、Fundamental Movement Patterns",
-          "claim": "官方总体要求核心与高级能力、一致性和有目的的条件变化；大中小技术弯主要改变技能用量与持续时间，整体动作序列不应大幅改换。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6–8：任务与变化原则；本站训练安排",
-          "claim": "本课组数、对照顺序、撤提示复测、停止与退阶、录像分段以及记录表是本站建议，不是CASI规定的训练量、正式评分表或能力保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [
-        "s-carve-expert-arc/1"
-      ],
-      "illustration": null
-    },
-    {
-      "id": "s-carve-expert-pressure",
-      "title": "进阶刻滑：屈伸与换刃时机",
-      "module": "carving",
-      "goal": "两侧承压与释放服务于刻滑路径和下一弧，在完整段中保留支撑、活动余量与可控出弯。",
-      "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-pressure",
-      "citations": [
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.49–52、55–59：Edging、Pressure、Timing、Advanced Competencies",
-          "claim": "屈伸开始与收住阶段的作用不同，高手可结合上下减重；教材建议用动作调节板的加载，避免为制造压力而过度屈伸。应用时不能把高度、腿长或动画姿态当作真实压力。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "D01",
-          "locator": "Asymmetry in Snowboarding：advanced riders段至Comparing symmetry",
-          "claim": "官方技术文章给出两向可能不同的代偿线索；前换后过早旋转/偏前、后换前髋膝配合不足都需用连续证据区分，不是所有滑手必然出现。",
-          "evidence": "synthesis",
-          "canonicalSource": "D01",
-          "title": "Asymmetry in Snowboarding",
-          "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6–8：任务与变化原则；本站训练安排",
-          "claim": "本课组数、对照顺序、撤提示复测、停止与退阶、录像分段以及记录表是本站建议，不是CASI规定的训练量、正式评分表或能力保证。",
-          "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.155：Balanced Bending、Toeside vs. Heelside",
-          "claim": "教材说明协调屈曲与中立脊柱不同于躯干始终竖直，前后刃关节组合不同；本课用作两侧观察依据，不从照片提取统一角度。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        }
-      ],
-      "prototypeMode": null,
-      "references": [
-        "s-carve-expert-pressure/1"
-      ],
-      "illustration": null
-    },
-    {
       "id": "s-carve-expert-variation",
-      "title": "进阶刻滑：适应变化，再选练低姿态",
+      "title": "高阶低姿态八字：两刃承接与两向转换",
       "module": "carving",
-      "goal": "在可管理的条件变化后重建刻滑路径与出口；选择低姿态时仍能保持双侧控制、两向释放并恢复原高度。",
+      "goal": "连续完成较低姿态的两侧弧线和两向换刃，保持窄痕、可选出口与恢复能力。",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-variation",
       "citations": [
         {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
+          "source": "S43",
+          "locator": "共通判据",
+          "claim": "以板的质量和可控弧线作为低位训练结果；低位并非官方统一要求。",
           "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
         },
         {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：Overall riding performance、Creation of Variation、Fundamental Movement Patterns",
-          "claim": "官方总体要求核心与高级能力、一致性和有目的的条件变化；大中小技术弯主要改变技能用量与持续时间，整体动作序列不应大幅改换。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S19",
-          "locator": "Snowboard Binding Angles & Stance Explained：Positive/Negative、Duck stance",
-          "claim": "duck指前正后负，不要求两角绝对值相等；这是装备站姿定义，不是CASI四级刻滑任务的规定。",
-          "evidence": "direct",
-          "canonicalSource": "S19",
-          "title": "Snowboard Stance Angles Explained",
-          "url": "https://www.burton.com/en-au/blogs/the-burton-blog/snowboard-stance-angles"
-        },
-        {
-          "source": "D01",
-          "locator": "Asymmetry in Snowboarding：advanced riders段至Comparing symmetry",
-          "claim": "官方技术文章给出两向可能不同的代偿线索；前换后过早旋转/偏前、后换前髋膝配合不足都需用连续证据区分，不是所有滑手必然出现。",
+          "source": "S46",
+          "locator": "全身低位与余量",
+          "claim": "个人原文支持全身配合和避免只靠蹲膝踝；两刃分段属于本站归纳。",
           "evidence": "synthesis",
-          "canonicalSource": "D01",
-          "title": "Asymmetry in Snowboarding",
-          "url": "https://casi-acms.com/national-tech-team-articles/asymmetry-in-snowboarding/"
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
         },
         {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6–8：任务与变化原则；本站训练安排",
-          "claim": "本课组数、对照顺序、撤提示复测、停止与退阶、录像分段以及记录表是本站建议，不是CASI规定的训练量、正式评分表或能力保证。",
+          "source": "S47",
+          "locator": "脚角影响膝髋可动方向",
+          "claim": "八字下身体朝向必须匹配设置，不能无条件复刻另一种脚角。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
+        },
+        {
+          "source": "S49",
+          "locator": "p.30",
+          "claim": "腰或膝均可参与 lean/lean-out 关系，不给统一关节角度。",
+          "evidence": "direct",
+          "canonicalSource": "S49",
+          "title": "日本スノーボード協会 スノーボード教程：出版方勘误",
+          "url": "https://www.yamakei.co.jp/products/b5ad0a0ad552939e5e98233630d1c2f7.pdf"
+        },
+        {
+          "source": "S50",
+          "locator": "起身系与抱腿系展开",
+          "claim": "提供历史工具分类；本课具体转换口令是本站编排。",
           "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+          "canonicalSource": "S50",
+          "title": "第 21 届 JSBA 技术选：起身系与抱腿系的历史展开任务",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc21/rules.html"
         },
         {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
+          "source": "S48",
+          "locator": "本人课程页链接的 How to carving 播放单；片长 5:39；两向转换的分段观察见课程视频卡",
+          "claim": "本课真人卡仅使用明确列出的有限关键帧；可见姿态与个人讲解用于定性理解，未作压力测量或真人精确标定。",
           "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+          "canonicalSource": "S48",
+          "title": "MIRATORI：前后刃转换的本人公开讲解",
+          "url": "https://www.youtube.com/watch?v=-ES6HpVWME4"
         },
         {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.155：Balanced Bending、Toeside vs. Heelside",
-          "claim": "教材说明协调屈曲与中立脊柱不同于躯干始终竖直，前后刃关节组合不同；本课用作两侧观察依据，不从照片提取统一角度。",
+          "source": "S44",
+          "locator": "田口瑞树、藤巻俊介、新野裕幸等个人装备栏",
+          "claim": "示范者脚角存在双正、正零与八字范围；这些是个人装备资料，不是给学员的统一推荐，也不能用于反推某段视频的实际设置。 本课具体分段与练法是本站归纳。",
           "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+          "canonicalSource": "S44",
+          "title": "JSBA 官方示范者：脚角与器材的实际多样性",
+          "url": "https://jsba.or.jp/education/demonstrator/"
         },
         {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.44–45、181–182：Position & Balance、Stance & Binding Set Up、Stance Angles",
-          "claim": "稳定须保留各方向活动余量；站距脚角会影响活动。duck为前正后负，具体角度随身体、器材和目标调整，不保证所有人采用duck都更适合正脚刻滑。",
-          "evidence": "direct",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
+          "source": "S42",
+          "locator": "PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2",
+          "claim": "现行 A/B 教练检定保留 Basic 长短弯与 Dynamic 短弯；技术认定关注抓雪、弧形、位置、速度和动作时机。它是任务规范，不能代替新版完整教学大纲。 本课具体分段与练法是本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
         }
       ],
       "prototypeMode": null,
       "references": [
-        "s-carve-expert-variation/1"
+        "s-carve-expert-variation/1",
+        "s-carve-expert-variation/2"
       ],
       "illustration": null
     },
     {
       "id": "s-carve-expert-review",
-      "title": "进阶刻滑复盘：分清任务要求与低姿态表现",
+      "title": "刻滑错误诊断：抓雪、低位与换刃为什么断开",
       "module": "carving",
-      "goal": "能够对照官方任务与十二项观察提出有证据的判断，保留未知，并把一个真实差距转成下一次练习。",
+      "goal": "能区分至少三种相似外观的不同原因，选择与阶段对应的技术修正。",
       "entry": "https://jinke.me/snowboard/#lesson=s-carve-expert-review",
       "citations": [
         {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.7：Expert Large Radius Turns (Carving)",
-          "claim": "官方任务为7–15米走廊、压雪地形和专家速度下连续高效大弯；保持刻滑路径，在滑行方向正对坡下之前，让新刃稳定抓雪并开始转向，控制出弯方向与滑行动量，顺畅衔接下一弯，弯形由立刃与调压形成而不采用主动转板（轴转）。7–15米是走廊宽度，不是弯半径。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S16",
-          "locator": "©2021，印刷/PDF p.43–59、61：平衡、转向、刃、压力、时序；p.58四高级能力与p.61刻滑",
-          "claim": "教材解释关节与板控、弧线衔接、弯中承压与释放，以及各项动作怎样配合；本课将这些用于专家刻滑，是情境归纳。刻滑任务不采用使板横扫的主动转板（轴转），不等于下肢、髋和躯干必须冻结。",
-          "evidence": "synthesis",
-          "canonicalSource": "S16",
-          "title": "Reference Guide：技能、练习、人体与装备",
-          "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6、8：Overall riding performance、Creation of Variation、Fundamental Movement Patterns",
-          "claim": "官方总体要求核心与高级能力、一致性和有目的的条件变化；大中小技术弯主要改变技能用量与持续时间，整体动作序列不应大幅改换。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.3、5：Am I Ready、Marking System",
-          "claim": "官方强烈建议向现任Level 4教练或考官取得反馈。每项任务有两次计分机会，由两名考官评分取平均，最终每项至少6/10；该页未完整说明两次滑行如何合成成绩，本站不自创算法。",
-          "evidence": "direct",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
-        },
-        {
-          "source": "S40",
-          "locator": "现行Level 4 Instructor课程页：Riding准备与反馈",
-          "claim": "课程页要求专家一致性与适应性，并强烈建议现任L4教练或考官反馈；本站刻滑专项不等于完整教练资格。",
-          "evidence": "direct",
-          "canonicalSource": "S40",
-          "title": "Level 4 Instructor：现行官方课程与准备要求",
-          "url": "https://casi-acms.com/courses/level-4-instructor/"
-        },
-        {
-          "source": "S38",
-          "locator": "September 2025，印刷/PDF p.6–8：任务与变化原则；本站训练安排",
-          "claim": "本课组数、对照顺序、撤提示复测、停止与退阶、录像分段以及记录表是本站建议，不是CASI规定的训练量、正式评分表或能力保证。",
+          "source": "S43",
+          "locator": "刻滑共通判据",
+          "claim": "以可控弧形、板弯和弯中速度检验修正效果；本课排错树为本站建议。",
           "evidence": "suggestion",
-          "canonicalSource": "S38",
-          "title": "Level 4 Riding Module Course Guide：四级滑行模块与专家转弯标准",
-          "url": "https://members.casi-acms.com/documents/Riding_LV4_EN.pdf"
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
         },
         {
+          "source": "S46",
+          "locator": "低位的全身配合与余量",
+          "claim": "支持区分单独低头与全身可动姿态；不能仅凭外观推导压力。",
+          "evidence": "synthesis",
+          "canonicalSource": "S46",
+          "title": "上半身を使って低い姿勢：全身协调与低位余量",
+          "url": "https://note.com/good_sb1976/n/nba372e41a40f"
+        },
+        {
+          "source": "S47",
+          "locator": "设置与关节方向",
+          "claim": "脚角是诊断条件，不能机械套用另一种设置的开肩。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
+        },
+        {
+          "source": "S42",
+          "locator": "PDF第12页",
+          "claim": "官方将动作时机、位置、抓雪和弧形共同评价。",
+          "evidence": "direct",
+          "canonicalSource": "S42",
+          "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
+          "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S52",
+          "locator": "130.033、195.033秒原地对照；10.033–12.033秒剪辑滑行片头",
+          "claim": "本课真人卡仅使用明确列出的有限关键帧；可见姿态与个人讲解用于定性理解，未作压力测量或真人精确标定。",
+          "evidence": "synthesis",
+          "canonicalSource": "S52",
+          "title": "MIRATORI：前刃探胸与膝髋配合的本人示范",
+          "url": "https://www.youtube.com/watch?v=TwjZvBUY7hU"
+        }
+      ],
+      "prototypeMode": null,
+      "references": [
+        "s-carve-expert-review/1"
+      ],
+      "illustration": null
+    },
+    {
+      "id": "v-toe-touch-criterion",
+      "title": "刻滑是否进步：看轨迹、控速、放刃和适应",
+      "module": "carving",
+      "goal": "用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。",
+      "entry": "https://jinke.me/snowboard/#lesson=v-toe-touch-criterion",
+      "citations": [
+        {
           "source": "S16",
-          "locator": "©2021，印刷/PDF p.119–120：Piste — Expert Carving、Edge/Pressure/Steer、Suggested Tactics",
-          "claim": "专家刻滑教学面向已有大部分压雪道刻滑能力者，通过立刃、弯中受力与下肢引导的配合，并调整动作幅度和持续时间，练习不同弯形、适应不同条件；p.120的身体旋转探索不推翻正式任务无主动转板（轴转）的板表现要求。本站对照量与退阶另为建议。",
+          "locator": "印刷 / PDF p.61、97–98：刻滑窄痕、独立弧与触雪折腰问题",
+          "claim": "以窄痕、两侧控制和可调整姿态审查刻滑；p.98 明确讨论为触雪折腰的错误，p.99 不作为本课刻滑定位。",
           "evidence": "synthesis",
           "canonicalSource": "S16",
           "title": "Reference Guide：技能、练习、人体与装备",
           "url": "https://members.casi-acms.com/documents/Ref_Guide.pdf"
         },
         {
-          "source": "S39",
-          "locator": "Large Turns (Carving)：168.293–170.793秒6帧；171.293–174.293秒7帧；2026-10-15实际有限关键帧观察",
-          "claim": "实际可见两窗口内的身体展开、屈曲、侧向组织和继续滑行；中间有剪切，脚角未确认。仅作可见动作分析，不证明duck站姿、精确压力、7–15米走廊或专家速度，不属于真人标定。",
+          "source": "S15",
+          "locator": "印刷 / PDF p.18：Level 2 Technical Skills，按目标表现与条件判断",
+          "claim": "p.18 要求按目标的弯形、大小、刻/搓、战术与装备分析表现；它不制定触雪深度或本站复测次数，重复控制优先是本站验收设计。",
           "evidence": "synthesis",
-          "canonicalSource": "S39",
-          "title": "Level 4 Instructor: Riding Standards (2024)：官方四级滑行示范",
-          "url": "https://www.youtube.com/watch?v=XFbVBdSRGgE"
+          "canonicalSource": "S15",
+          "title": "AASI Snowboard National Standards",
+          "url": "https://thesnowpros.org/wp-content/uploads/2025/10/AASI_Snowboard_Standards0224_updated_100325_v3.pdf"
+        },
+        {
+          "source": "S43",
+          "locator": "カービング種目共通ポイント；long、middle、short 各种目判据",
+          "claim": "官方竞赛评价关注有效板弯、弧形与尺寸控制、弯中速度及内外力配合；本站将其用于刻滑质量自查，不把竞赛速度、低姿态、八字设置或触雪外形变成通用练习要求。",
+          "evidence": "synthesis",
+          "canonicalSource": "S43",
+          "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
+          "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
         }
       ],
       "prototypeMode": null,
@@ -11648,6 +12191,11 @@
       "level": "info",
       "code": "unused-preset",
       "detail": "pedalling 已注册但没有课程引用；保留，不能视作已完成迁移"
+    },
+    {
+      "level": "info",
+      "code": "unused-preset",
+      "detail": "duck-carve 已注册但没有课程引用；保留，不能视作已完成迁移"
     }
   ],
   "prototype": {

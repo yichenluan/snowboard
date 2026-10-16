@@ -7,11 +7,11 @@ import {supportsShortTurnComparison} from '../lesson-player/short-turns.ts';
 import {supportsCarvingLesson} from '../lesson-player/carving.ts';
 import {supportsExpertShortLesson,expertShortVariants} from '../lesson-player/expert-short-turns.ts';
 import {supportsExpertShortSequenceLesson,expertShortSequenceVariants} from '../lesson-player/expert-short-sequence.ts';
-import {supportsExpertCarvingLesson,expertCarvingVariants} from '../lesson-player/expert-carving.ts';
+import {supportsJsbaCarvingLesson,jsbaCarvingVariants} from '../lesson-player/jsba-carving.ts';
 
 const data=JSON.parse(readFileSync(new URL('../content.json',import.meta.url),'utf8'));
 const configs:LessonConfig[]=data.lessons.flatMap((l:any)=>l.demos?.length?l.demos:l.demo?[l.demo]:[]);
-const variantsFor=(config:LessonConfig)=>supportsExpertShortLesson(config)?expertShortVariants(config):supportsExpertShortSequenceLesson(config)?expertShortSequenceVariants(config):supportsExpertCarvingLesson(config)?expertCarvingVariants(config):undefined;
+const variantsFor=(config:LessonConfig)=>supportsExpertShortLesson(config)?expertShortVariants(config):supportsExpertShortSequenceLesson(config)?expertShortSequenceVariants(config):supportsJsbaCarvingLesson(config)?jsbaCarvingVariants(config):undefined;
 
 test('当前真实课程的同步参考必须不同且可采样，保留换刃策略和原配置',()=>{
   let checked=0;
@@ -30,7 +30,7 @@ test('当前真实课程的同步参考必须不同且可采样，保留换刃�
 });
 
 test('只有一个选项时不返回相同参考，缺省变体也以首个合法选项为当前值',()=>{
-  const config:LessonConfig={type:'expert-carving',task:'expert-carve-arc',variant:'linked'};
+  const config:LessonConfig={type:'comparison-fixture',variant:'linked'};
   assert.equal(comparisonFor(config,{variants:[{value:'linked',label:'连续完整弧线'}]}),null);
   assert.equal(comparisonFor({...config,variant:undefined},{variants:[{value:'linked',label:'连续完整弧线'}]}),null);
   const other=comparisonFor({...config,variant:undefined},{variants:[{value:'linked',label:'首个参考'},{value:'alternative',label:'另一个合法选项'}]});

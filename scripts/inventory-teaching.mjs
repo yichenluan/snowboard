@@ -19,7 +19,7 @@ const check = args.includes('--check');
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 const hash = value => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(stable(value))).digest('hex');
 const read = name => readFile(resolve(root, name), 'utf8');
-const names = ['content.json', 'app.js', 'guide-state.js', 'scripts/inventory-teaching.mjs', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
+const names = ['content.json', 'app.js', 'guide-state.js', 'scripts/inventory-teaching.mjs', 'progression.js', 'styles.css', 'progression.css', 'build.py', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
   ...(await readdir(resolve(root, 'lesson-player'))).filter(name => /\.(ts|tsx|js|css)$/.test(name)).map(name => `lesson-player/${name}`),
   ...(await readdir(resolve(root, 'prototype'))).filter(name => /\.(ts|tsx|css)$/.test(name)).map(name => `prototype/${name}`)];
 const input = Object.fromEntries(await Promise.all(names.map(async name => [name, await read(name)])));
@@ -41,14 +41,14 @@ const lessonChecks=lesson=>guideSandbox.window.SnowGuide.checks(lesson);
 const ref = id => `https://jinke.me/snowboard/#lesson=${encodeURIComponent(id)}`;
 const demos = lesson => lesson.demos?.length ? lesson.demos : lesson.demo ? [lesson.demo] : [];
 const entries = [], errors = [], warnings = [];
-const uiFiles = ['app.js', 'guide-state.js', 'progression.js', 'styles.css', 'progression.css', 'assessment.js', 'assessment.css', 'build.py', 'shell.html'];
+const uiFiles = ['app.js', 'guide-state.js', 'progression.js', 'styles.css', 'progression.css', 'build.py', 'shell.html'];
 const animationFiles = names.filter(name => name.startsWith('lesson-player/') || name.startsWith('prototype/'));
 // Follow actual local runtime imports. Only known dispatcher edges are gated by
 // the configured task; imports from a task to a shared helper are never pruned.
 const dependencyPolicy = 'runtime-imports-with-task-routing-v1';
-const taskModules = new Set(['carving','rotation','short-turns','expert-short-turns','expert-short-sequence','expert-carving','switch','twist','turns','pressure','pressure-advanced','coordination'].map(name=>`lesson-player/${name}.ts`));
+const taskModules = new Set(['carving','rotation','short-turns','expert-short-turns','expert-short-sequence','jsba-carving','switch','twist','turns','pressure','pressure-advanced','coordination'].map(name=>`lesson-player/${name}.ts`));
 const conditionalModules = new Set([...taskModules,'lesson-player/dryland-player.tsx','lesson-player/dryland.ts','lesson-player/diagnostics.tsx','lesson-player/twist-diagram.tsx']);
-const dispatchers = new Set(['lesson-player/main.tsx','lesson-player/motion.ts','lesson-player/diagnostics.tsx']);
+const dispatchers = new Set(['lesson-player/main.tsx','lesson-player/motion.ts','lesson-player/diagnostics.tsx','lesson-player/comparison.ts']);
 function localImports(file) {
   const source=input[file],specifiers=[];
   if(!source||!/[.](?:ts|tsx|js)$/.test(file))return [];
@@ -121,7 +121,7 @@ function add({ id, kind, title, location, goal, payload, files = [], lessonId, s
     teachingVerified: observationFor(entry, 'teachingVerified', !['source', 'feature'].includes(kind)),
   };
   entry.modification = { status: 'not-recorded', evidence: [] };
-  if (manual.baseline?.entryPayloadHashes && ['lesson','drill','diagnosis','animation','illustration','skill','curriculum','term','source','module','assessment-protocol','assessment-criterion','video-study','video-segment','navigation-route'].includes(kind)) {
+  if (manual.baseline?.entryPayloadHashes && ['lesson','drill','diagnosis','animation','illustration','skill','curriculum','term','source','module','video-study','video-segment','navigation-route'].includes(kind)) {
     const original=manual.baseline.entryPayloadHashes[id];
     entry.modification={status:original===entry.contentFingerprint?'unchanged':original?'modified':'added',evidence:[`审查起点 ${manual.baseline.commit}；按条目内容指纹比较，不表示教学通过。`],baselineFingerprint:original||null,currentFingerprint:entry.contentFingerprint};
   }
@@ -152,10 +152,9 @@ const features = [
   ['personal-additions','个人补充和回收站','本机保存待核实反馈，可编辑和恢复','app.js#renderAdditions'],
   ['comments','课程公开讨论','以稳定课程 ID 关联 GitHub 公开评论','comments.js'],
   ['lesson-player','课内动作播放器','显示当前动作阶段、视角、慢放、观察辅助和降级','lesson-player/main.tsx'],
-  ['assessment','雪上练习证据记录','保存跨课草稿、多趟条件与观察证据，不自动评分或授予能力','assessment.js'],
-  ['video-study','真人示范分析卡','区分已观察画面、教学应用和不可推断范围，按时间返回官方原片','app.js#videoStudyMarkup'],
+  ['video-study','真人示范分析卡','区分已观察画面、教学应用和不可推断范围，按时间返回具名原片','app.js#videoStudyMarkup'],
 ];
-for (const [id,title,goal,location] of features) add({id:`feature:${id}`,kind:'feature',title,goal,location,payload:{id,title},files:id==='lesson-player'?animationFiles:['app.js','guide-state.js','progression.js','comments.js',...(['assessment','video-study'].includes(id)?['assessment.js','assessment.css','build.py','shell.html']:[])],details:{verification:'功能执行及用户数据恢复必须单独实测。'}});
+for (const [id,title,goal,location] of features) add({id:`feature:${id}`,kind:'feature',title,goal,location,payload:{id,title},files:id==='lesson-player'?animationFiles:['app.js','guide-state.js','progression.js','comments.js',...(id==='video-study'?['build.py','shell.html']:[])],details:{verification:'功能执行及用户数据恢复必须单独实测。'}});
 for (const [index,module] of data.modules.entries()) add({id:`module:${module.id}`,kind:'module',title:module.title,goal:module.intro,location:`content.json#/modules/${index}`,payload:module,files:uiFiles,details:{lessons:data.lessons.filter(l=>l.module===module.id).map(l=>l.id)}});
 
 const registered = new Set([...registry.types, ...(registry.drylandTypes || [])]);
@@ -166,7 +165,7 @@ const allTypes=[...new Set([...(legacyLibrary?.types||[]),...registered,...Objec
 const implemented = demo => registered.has(demo.type) && (!registry.requiredTasks?.[demo.type] || registry.requiredTasks[demo.type].includes(demo.task)) || Boolean(registry.partialVariants?.[demo.type]?.includes(demo.variant || ''));
 const moduleFor = demo => registry.drylandTypes?.includes(demo.type) ? 'lesson-player/dryland.ts' :
   demo.type === 'expert-short-sequence' ? 'lesson-player/expert-short-sequence.ts' :
-  demo.type === 'expert-carving' ? 'lesson-player/expert-carving.ts' :
+  demo.type === 'jsba-carving' ? 'lesson-player/jsba-carving.ts' :
   demo.type === 'expert-short-turns' ? 'lesson-player/expert-short-turns.ts' :
   demo.type === 'duck-carve' ? 'lesson-player/carving.ts' :
   demo.type === 'switch' ? 'lesson-player/switch.ts' : demo.type === 'twist' ? 'lesson-player/twist.ts' :
@@ -179,7 +178,7 @@ const moduleFor = demo => registry.drylandTypes?.includes(demo.type) ? 'lesson-p
 function animationDependencies(demo) {
   const dry=registry.drylandTypes?.includes(demo.type);
   const selected=new Set(dry?['lesson-player/dryland-player.tsx','lesson-player/dryland.ts']:moduleFor(demo).split(' / '));
-  const diagnostics=!dry&&(demo.pressureDiagram||demo.legLengthDiagram||demo.transitionReference==='snow'||demo.task==='expert-load-release');
+  const diagnostics=!dry&&(demo.type==='jsba-carving'||demo.pressureDiagram||demo.legLengthDiagram||demo.transitionReference==='snow'||demo.task==='expert-load-release');
   if(diagnostics){
     selected.add('lesson-player/diagnostics.tsx');
     // Diagnostics directly calls meanLegLength from this module, independently
@@ -191,8 +190,8 @@ function animationDependencies(demo) {
 }
 const specificationsFor = demo => demo.type === 'expert-short-sequence'
   ? ['docs/level4-short-animation-coverage.md', 'docs/level4-animation-coverage-review.md', 'docs/level4-animation-source-claim-review.md']
-  : demo.type === 'expert-carving'
-    ? ['docs/level4-carving-animation-spec.md', 'docs/level4-animation-coverage-review.md', 'docs/level4-animation-source-claim-review.md'] : [];
+  : demo.type === 'jsba-carving'
+    ? ['docs/jsba-animation-spec.md', 'docs/jsba-technical-source-review.md', 'docs/jsba-video-observation.md'] : [];
 const lessonIds = new Set();
 for (const [index,lesson] of data.lessons.entries()) {
   if (lessonIds.has(lesson.id)) errors.push(`重复课程 ID：${lesson.id}`);
@@ -202,11 +201,6 @@ for (const [index,lesson] of data.lessons.entries()) {
   const required = ['goal','prerequisites','mechanics','execution','checks','drill','citations'];
   entry.structuralFindings = required.filter(field => !lesson[field] || Array.isArray(lesson[field]) && !lesson[field].length).map(field=>`缺少 ${field}`);
   for (const link of lesson.relatedLessons || []) if (!lessons.has(link)) errors.push(`${lesson.id} 的 relatedLessons 引用不存在：${link}`);
-  if(lesson.assessmentProtocol){
-    const protocol=(data.assessmentProtocols||[]).find(p=>p.id===lesson.assessmentProtocol);
-    if(!protocol)errors.push(`${lesson.id} 的评估协议不存在：${lesson.assessmentProtocol}`);
-    for(const criterion of lesson.assessmentCriteriaIds||[])if(!protocol?.criteria?.some(c=>c.id===criterion))errors.push(`${lesson.id} 的评估维度不存在：${criterion}`);
-  }
   for (const citation of lesson.citations || []) if (!sourceMap.has(citation.source) && !citation.url) errors.push(`${lesson.id} 引用来源不存在：${citation.source}`);
   for(const field of ['mechanics','execution'])for(const [i,item]of (lesson[field]||[]).entries())for(const source of item.sources||[]){
     if(!sourceMap.has(source))errors.push(`${lesson.id}.${field}[${i}] 的结论来源不存在：${source}`);
@@ -243,16 +237,7 @@ for (const [index,lesson] of data.lessons.entries()) {
     }
   }
 }
-for(const [index,protocol] of (data.assessmentProtocols||[]).entries()){
-  const lessonUses=data.lessons.filter(l=>l.assessmentProtocol===protocol.id),sources=[...new Set(lessonUses.flatMap(sourceIds))];
-  add({id:`assessment-protocol:${protocol.id}`,kind:'assessment-protocol',title:protocol.title,goal:protocol.intro,location:`content.json#/assessmentProtocols/${index}`,payload:protocol,files:uiFiles,sources,details:{...protocol,lessons:lessonUses.map(l=>l.id),boundary:'本站观察组织，不是官方评分网格；代码存在、保存成功、个人选择可重复均不构成认证。'}});
-  if(!protocol.id||!Array.isArray(protocol.criteria)||!protocol.criteria.length)errors.push(`评估协议 ${protocol.id||index} 缺少稳定ID或维度`);
-  for(const [i,criterion]of (protocol.criteria||[]).entries()){
-    add({id:`assessment-criterion:${protocol.id}:${criterion.id}`,kind:'assessment-criterion',title:criterion.title,goal:criterion.observe||criterion.description,location:`content.json#/assessmentProtocols/${index}/criteria/${i}`,payload:{protocolId:protocol.id,...criterion},files:uiFiles,sources,lessonId:criterion.lessonId,details:{...criterion,protocolId:protocol.id,renderedIn:lessonUses.map(l=>l.id)}});
-    if(!criterion.id||!criterion.title||!(criterion.observe||criterion.description))errors.push(`评估协议 ${protocol.id} 的第${i+1}项缺少ID/标题/观察方法`);
-    if(criterion.lessonId&&!lessons.has(criterion.lessonId))errors.push(`评估维度 ${protocol.id}/${criterion.id} 的课程不存在：${criterion.lessonId}`);
-  }
-}
+
 for(const [index,route] of (data.navigationRoutes||[]).entries()){
   add({id:`navigation-route:${route.id}`,kind:'navigation-route',title:route.title,goal:route.summary,location:`content.json#/navigationRoutes/${index}`,payload:route,files:uiFiles,details:{...route,boundary:'页面入口和上下课共用的路线，不等同能力达标顺序。'}});
   for(const field of ['id','title','summary','entry'])if(typeof route[field]!=='string'||!route[field].trim())errors.push(`学习路线 ${route.id||index} 缺少有效 ${field}`);

@@ -34,7 +34,7 @@ test('课程深链保留路线，旧课程链接不变且异常转义不会抛�
   assert.doesNotThrow(() => guide.parseLocation('#lesson=%XX'));
 });
 
-test('只保存个人数据并读取旧快照，旧正文不能覆盖当前课程', () => {
+test('只保存个人数据并读取旧快照，旧正文不能覆盖课程，停用字段原样保留', () => {
   const stored = {
     guide: { lessons: [{ id: 'obsolete' }], schemaVersion: 2 },
     baseRevision: 'old',
@@ -46,6 +46,7 @@ test('只保存个人数据并读取旧快照，旧正文不能覆盖当前课�
     },
   };
   const loaded = guide.readUser(stored);
+  loaded.bookmarks.push('back');
   const next = guide.userSnapshot(loaded, 'current');
   assert.equal(next.baseRevision, 'current');
   assert.equal(next.guide, undefined);
@@ -54,6 +55,10 @@ test('只保存个人数据并读取旧快照，旧正文不能覆盖当前课�
   assert.equal(next.user.trash[0].id, 'recover');
   assert.equal(next.user.assessmentRecords[0].observation, '撤提示后仍能控速');
   assert.equal(next.user.assessmentDrafts.short.criteria.balance.note, '已有证据');
+  assert.equal(next.user.assessmentRecords, stored.user.assessmentRecords, '停用数据只作不解释的个人字段保留');
+  assert.equal(next.user.assessmentDrafts, stored.user.assessmentDrafts);
+  assert.equal(guide.readUser({}).assessmentRecords, undefined, '新用户不再初始化停用的记录结构');
+  assert.equal(guide.readUser({}).assessmentDrafts, undefined);
   assert.equal(guide.readUser(stored.user).skillTarget, 'short');
   assert.equal(stored.guide.lessons[0].id, 'obsolete');
 });

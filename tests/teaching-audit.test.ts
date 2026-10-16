@@ -10,7 +10,7 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 function fixture(){
   const dir=mkdtempSync(join(tmpdir(),'snowboard-teaching-audit-'));
   mkdirSync(join(dir,'scripts'));mkdirSync(join(dir,'docs'));
-  for(const path of ['content.json','app.js','guide-state.js','progression.js','styles.css','progression.css','assessment.js','assessment.css','build.py','shell.html','comments.js','animations.js','lesson-player','prototype','scripts/inventory-teaching.mjs','docs/teaching-audit-review.json'])cpSync(join(root,path),join(dir,path),{recursive:true});
+  for(const path of ['content.json','app.js','guide-state.js','progression.js','styles.css','progression.css','build.py','shell.html','comments.js','animations.js','lesson-player','prototype','scripts/inventory-teaching.mjs','docs/teaching-audit-review.json'])cpSync(join(root,path),join(dir,path),{recursive:true});
   // Use this test's explicit observations, never any real user/browser evidence.
   const manual=JSON.parse(readFileSync(join(dir,'docs/teaching-audit-review.json'),'utf8'));manual.observations=[];manual.reviewedLessons=[];manual.reviewedEntries=[];
   const save=()=>writeFileSync(join(dir,'docs/teaching-audit-review.json'),JSON.stringify(manual));save();
@@ -75,25 +75,16 @@ test('教学通过拒绝缺乏结论来源的记录，正文修改不会沿用�
   }finally{f.clean();}
 });
 
-test('训练协议、观察维度与真人片段单独登记，存在时刻不自动授予实看状态',()=>{
+test('真人片段单独登记，存在时刻不自动授予实看状态',()=>{
   const f=fixture();try{
     generate(f);
     const report=f.report(),data=JSON.parse(readFileSync(join(f.dir,'content.json'),'utf8'));
-    assert.equal(report.byKind['assessment-protocol'].discovered,data.assessmentProtocols.length);
-    assert.equal(report.byKind['assessment-criterion'].discovered,data.assessmentProtocols.reduce((n:number,p:any)=>n+p.criteria.length,0));
     assert.equal(report.byKind['video-segment'].discovered,data.lessons.reduce((n:number,l:any)=>n+(l.videoStudy?.segments.length||0),0));
     assert.equal(report.byKind['video-segment'].dimensions.teachingVerified.passed,0);
-    assert.ok(report.inputs['assessment.js']);assert.ok(report.inputs['assessment.css']);assert.ok(report.inputs['build.py']);
-    const protocol=report.entries.find((e:any)=>e.kind==='assessment-protocol');
-    f.manual.observations=[{id:protocol.id,dimension:'pageAccessible',fingerprint:protocol.fingerprint,status:'passed',date:'test-fixture',scope:'synthetic only',evidence:['not a real browser observation']}];f.save();generate(f);
-    assert.equal(f.report().entries.find((e:any)=>e.id===protocol.id).states.pageAccessible.status,'passed');
-    writeFileSync(join(f.dir,'assessment.css'),readFileSync(join(f.dir,'assessment.css'),'utf8')+'\n/* layout changed */\n');generate(f);
-    assert.equal(f.report().entries.find((e:any)=>e.id===protocol.id).states.pageAccessible.status,'stale');
-    assert.ok(f.report().revalidation.some((e:any)=>e.id===protocol.id&&e.dimension==='pageAccessible'));
+    assert.ok(report.inputs['build.py']);
     const lesson=data.lessons.find((l:any)=>l.videoStudy);lesson.videoStudy.segments[0].end=lesson.videoStudy.segments[0].start-1;
-    data.assessmentProtocols[0].criteria[0].lessonId='missing-lesson';
     writeFileSync(join(f.dir,'content.json'),JSON.stringify(data));
-    const result=f.run();assert.notEqual(result.status,0);assert.match(result.stdout,/时间范围无效/);assert.match(result.stdout,/missing-lesson/);
+    const result=f.run();assert.notEqual(result.status,0);assert.match(result.stdout,/时间范围无效/);
   }finally{f.clean();}
 });
 
@@ -102,19 +93,22 @@ function observe(f:ReturnType<typeof fixture>,entries:any[],dimension='animation
 }
 function changeSource(f:ReturnType<typeof fixture>,file:string){writeFileSync(join(f.dir,file),readFileSync(join(f.dir,file),'utf8')+'\n// changed dependency fixture\n');}
 
-test('独立专家任务只使相依动画过期，基础动画不受无关模块影响',()=>{
+test('独立 JSBA 任务及其腿长求解只使相依动画过期，基础动画不受无关模块影响',()=>{
   const f=fixture();try{
     generate(f);
     const byId=(id:string)=>f.report().entries.find((entry:any)=>entry.id===id);
     const base=byId('animation:v-toe-tongue/1'),expert=byId('animation:s-carve-expert-pressure/1');
-    assert.ok(!base.dependencyFiles.includes('lesson-player/expert-carving.ts'));
-    assert.ok(expert.dependencyFiles.includes('lesson-player/expert-carving.ts'));
-    observe(f,[base,expert]);generate(f);
-    changeSource(f,'lesson-player/expert-carving.ts');generate(f);
-    assert.equal(byId(base.id).fingerprint,base.fingerprint);
-    assert.equal(byId(base.id).states.animationRendered.status,'passed');
-    assert.equal(byId(expert.id).states.animationRendered.status,'stale');
-    assert.notEqual(byId(expert.id).fingerprint,expert.fingerprint);
+    for(const file of ['lesson-player/jsba-carving.ts','lesson-player/leg-length.ts']){
+      const current=byId(expert.id);
+      assert.ok(!base.dependencyFiles.includes(file));
+      assert.ok(current.dependencyFiles.includes(file));
+      observe(f,[base,current]);generate(f);
+      changeSource(f,file);generate(f);
+      assert.equal(byId(base.id).fingerprint,base.fingerprint);
+      assert.equal(byId(base.id).states.animationRendered.status,'passed');
+      assert.equal(byId(expert.id).states.animationRendered.status,'stale');
+      assert.notEqual(byId(expert.id).fingerprint,current.fingerprint);
+    }
   }finally{f.clean();}
 });
 

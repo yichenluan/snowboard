@@ -38,7 +38,7 @@
     "duck-carve",
     "expert-short-turns",
     "expert-short-sequence",
-    "expert-carving"
+    "jsba-carving"
   ],
   "requiredTasks": {
     "expert-short-turns": [
@@ -106,10 +106,13 @@
       "expert-run-recovery",
       "expert-steering-range"
     ],
-    "expert-carving": [
-      "expert-carve-arc",
-      "expert-carve-release",
-      "expert-carve-adaptation"
+    "jsba-carving": [
+      "basic-linked-carve",
+      "dynamic-linked-carve",
+      "carve-load-exit",
+      "carved-short-turns",
+      "carve-size-change",
+      "low-linked-carve"
     ]
   },
   "partialVariants": {

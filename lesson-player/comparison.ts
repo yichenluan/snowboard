@@ -1,4 +1,5 @@
 import type { LessonConfig } from "./motion";
+import {supportsJsbaCarvingLesson,jsbaCarvingComparison} from "./jsba-carving";
 
 type Option={value:string;label:string};
 type Capabilities={variants?:readonly Option[];carve?:boolean;shortCompare?:boolean};
@@ -6,6 +7,7 @@ type Capabilities={variants?:readonly Option[];carve?:boolean;shortCompare?:bool
 /** The caller supplies the actual module's supported options; never invent a
  * variant or silently alter the current transition to make a comparison work. */
 export function comparisonFor(config:LessonConfig,{variants,carve,shortCompare}:Capabilities):{config:LessonConfig;label:string}|null {
+  if(supportsJsbaCarvingLesson(config))return jsbaCarvingComparison(config);
   if(variants){
     const current=config.variant??variants[0]?.value;
     const other=variants.find(option=>option.value!==current);

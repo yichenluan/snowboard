@@ -81,10 +81,11 @@ export function validateSourceClaims(content, audit) {
   };
   const observationIds = new Set();
   const videoObservations = new Map();
-  for (const observation of audit.officialVideoObservations || []) {
+  for (const observation of audit.videoObservations || []) {
     check(nonempty(observation.id) && !observationIds.has(observation.id), `重复/无效视频观察 ID：${observation.id}`);
     observationIds.add(observation.id);
     check(lessons.has(observation.lessonId), `视频观察指向未知课程：${observation.lessonId}`);
+    check(['official', 'personal'].includes(observation.sourceKind), `视频观察必须区分官方与个人来源：${observation.id}`);
     check(observation.status === 'limited_keyframes' && nonempty(observation.scope), `视频观察必须说明有限范围：${observation.id}`);
     check(Array.isArray(observation.observedTimes) && observation.observedTimes.length > 0 && observation.observedTimes.every(nonempty), `视频观察缺少实际时刻：${observation.id}`);
     check(evidenceExists(observation.evidenceRef) && evidenceSourceIds(observation.evidenceRef).includes(observation.sourceId), `视频观察缺少该来源的独立证据：${observation.id}`);
@@ -179,9 +180,9 @@ export function validateSourceClaims(content, audit) {
     check(review.textReview?.status === (gaps.length ? 'reviewed_with_source_gap' : 'reviewed') && same(review.textReview?.gapClaimIds, gaps), `文字审查状态与实际来源缺口不一致：${id}`);
     check(review.realFootageCalibration === 'not_performed', `本轮来源账不能自动授予实拍标定：${id}`);
     const observations = videoObservations.get(id) || [];
-    check(review.officialVideoComparison?.status === (observations.length ? 'limited_keyframes' : 'not_reviewed')
-      && same(review.officialVideoComparison?.sourceIds, observations.map(observation => observation.sourceId))
-      && same(review.officialVideoComparison?.observationIds, observations.map(observation => observation.id)), `有限视频对照状态与逐课独立观察不一致：${id}`);
+    check(review.videoComparison?.status === (observations.length ? 'limited_keyframes' : 'not_reviewed')
+      && same(review.videoComparison?.sourceIds, observations.map(observation => observation.sourceId))
+      && same(review.videoComparison?.observationIds, observations.map(observation => observation.id)), `有限视频对照状态与逐课独立观察不一致：${id}`);
     if (lesson.videoStudy !== undefined) {
       const study = objectRecord(lesson.videoStudy) ? lesson.videoStudy : {};
       check(sources.has(study.source) && citationSources.has(canonical(study.source)), `真人学习来源在本课不可达：${id}`);
@@ -207,49 +208,12 @@ export function validateSourceClaims(content, audit) {
       }
     }
   }
-  const protocols = Array.isArray(content.assessmentProtocols) ? content.assessmentProtocols : [];
-  const protocolReviews = new Map((audit.assessmentProtocols || []).map(review => [review.protocolId, review]));
-  check(content.assessmentProtocols === undefined || Array.isArray(content.assessmentProtocols), 'assessmentProtocols 必须为数组');
-  check(new Set(protocols.map(protocol => protocol.id)).size === protocols.length, 'assessmentProtocols 有重复 ID');
-  check(protocolReviews.size === (audit.assessmentProtocols || []).length, '来源账有重复验收协议 ID');
-  check((audit.scope?.assessmentProtocolCount || 0) === protocols.length && protocolReviews.size === protocols.length, '验收协议没有完整人工审查覆盖');
-  for (const [index, protocol] of protocols.entries()) {
-    check(nonempty(protocol.id) && Array.isArray(protocol.criteria) && protocol.criteria.length > 0, `验收协议缺少 ID 或观察维度：${protocol.id}`);
-    const criteria = Array.isArray(protocol.criteria) ? protocol.criteria : [];
-    check(new Set(criteria.map(criterion => criterion.id)).size === criteria.length, `验收协议有重复观察维度：${protocol.id}`);
-    const review = protocolReviews.get(protocol.id);
-    check(Boolean(review), `缺少验收协议人工审查：${protocol.id}`);
-    if (!review) continue;
-    check(review.path === `assessmentProtocols[${index}]` && review.sha256 === sourceClaimHash(protocol), `验收协议已变化或绑定错误：${protocol.id}`);
-    check(review.assessment === 'suggestion' && nonempty(review.boundary), `验收协议必须保留本站建议边界：${protocol.id}`);
-    check(Array.isArray(review.provenance) && review.provenance.length > 0 && review.provenance.every(evidenceExists), `验收协议缺少独立人工证据：${protocol.id}`);
-    check(Array.isArray(review.sources), `验收协议缺少显式来源数组：${protocol.id}`);
-    for (const support of review.sources || []) {
-      const sid = canonical(support.sourceId);
-      check(Boolean(sid) && nonempty(support.locator) && evidenceExists(support.evidenceRef)
-        && evidenceSourceIds(support.evidenceRef).some(sourceId => canonical(sourceId) === sid), `验收协议来源证据不可追溯：${protocol.id} ${support.sourceId}`);
-      if (sid) usedSources.add(sid);
-      check(snapshots.has(sid), `验收协议来源缺少快照：${protocol.id} ${support.sourceId}`);
-    }
-    for (const criterion of criteria) {
-      check(nonempty(criterion.id) && nonempty(criterion.title) && nonempty(criterion.observe), `验收协议观察维度不完整：${protocol.id} ${criterion.id}`);
-      if (criterion.lessonId) check(lessons.has(criterion.lessonId), `验收协议跳转课程不存在：${protocol.id} ${criterion.lessonId}`);
-    }
-  }
-  for (const lesson of lessons.values()) {
-    if (lesson.assessmentProtocol) {
-      const protocol = protocols.find(protocol => protocol.id === lesson.assessmentProtocol);
-      check(Boolean(protocol), `课程引用不存在的验收协议：${lesson.id}`);
-      check(Array.isArray(lesson.assessmentCriteriaIds) && lesson.assessmentCriteriaIds.length > 0
-        && lesson.assessmentCriteriaIds.every(id => protocol?.criteria?.some(criterion => criterion.id === id)), `课程引用不存在的观察维度：${lesson.id}`);
-    }
-  }
   for (const id of reviews.keys()) check(lessons.has(id), `来源账包含不存在的课程：${id}`);
   check(audit.scope?.claimCount === claimIds.size && same(audit.counts, counts), 'claim 数量/证据层级汇总不一致');
   check(audit.scope?.effectiveSourceCount === usedSources.size && snapshots.size === usedSources.size, '有效来源数量/快照覆盖不一致');
   check(audit.scope?.citationCount === citationCount, 'citation 数量汇总不一致');
   check(same(audit.unverifiedCategories, unverifiedCategories), '未核验类别汇总不一致');
-  return { errors, summary: { lessons: lessons.size, sources: usedSources.size, citations: citationCount, claims: claimIds.size, assessmentProtocols: protocols.length, counts, unverifiedCategories } };
+  return { errors, summary: { lessons: lessons.size, sources: usedSources.size, citations: citationCount, claims: claimIds.size, counts, unverifiedCategories } };
 }
 
 async function main() {
