@@ -19,7 +19,7 @@ const check = args.includes('--check');
 const stable = value => Array.isArray(value) ? value.map(stable) : value && typeof value === 'object' ? Object.fromEntries(Object.keys(value).sort().map(key => [key, stable(value[key])])) : value;
 const hash = value => createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(stable(value))).digest('hex');
 const read = name => readFile(resolve(root, name), 'utf8');
-const names = ['content.json', 'app.js', 'guide-state.js', 'scripts/inventory-teaching.mjs', 'progression.js', 'styles.css', 'progression.css', 'build.py', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
+const names = ['content.json', 'app.js', 'guide-state.js', 'analytics.js', 'analytics-config.json', 'vite.config.ts', 'scripts/inventory-teaching.mjs', 'progression.js', 'styles.css', 'progression.css', 'build.py', 'shell.html', 'comments.js', 'animations.js', 'lesson-player/registry.json', 'docs/teaching-audit-review.json',
   ...(await readdir(resolve(root, 'lesson-player'))).filter(name => /\.(ts|tsx|js|css)$/.test(name)).map(name => `lesson-player/${name}`),
   ...(await readdir(resolve(root, 'prototype'))).filter(name => /\.(ts|tsx|css)$/.test(name)).map(name => `prototype/${name}`)];
 const input = Object.fromEntries(await Promise.all(names.map(async name => [name, await read(name)])));
@@ -41,7 +41,8 @@ const lessonChecks=lesson=>guideSandbox.window.SnowGuide.checks(lesson);
 const ref = id => `https://jinke.me/snowboard/#lesson=${encodeURIComponent(id)}`;
 const demos = lesson => lesson.demos?.length ? lesson.demos : lesson.demo ? [lesson.demo] : [];
 const entries = [], errors = [], warnings = [];
-const uiFiles = ['app.js', 'guide-state.js', 'progression.js', 'styles.css', 'progression.css', 'build.py', 'shell.html'];
+const analyticsFiles = ['analytics.js', 'analytics-config.json'];
+const uiFiles = ['app.js', 'guide-state.js', 'progression.js', 'styles.css', 'progression.css', 'build.py', 'shell.html', ...analyticsFiles];
 const animationFiles = names.filter(name => name.startsWith('lesson-player/') || name.startsWith('prototype/'));
 // Follow actual local runtime imports. Only known dispatcher edges are gated by
 // the configured task; imports from a task to a shared helper are never pruned.
@@ -141,7 +142,7 @@ const pages = [
   ['prototype', '独立三维原型', '对照搓雪小回转、急甩尾与侧滑接单弯', 'prototype/main.tsx', { modes: ['correct','error','drill'], route: '/3d/' }],
 ];
 for (const [id, title, goal, renderer, payload] of pages) {
-  const e = add({ id: `page:${id}`, kind: 'page', title, goal, location: id === 'prototype' ? 'prototype/main.tsx' : `app.js#${renderer}`, files: id === 'prototype' ? prototypeFiles : uiFiles, payload,
+  const e = add({ id: `page:${id}`, kind: 'page', title, goal, location: id === 'prototype' ? 'prototype/main.tsx' : `app.js#${renderer}`, files: id === 'prototype' ? [...prototypeFiles, 'vite.config.ts', ...analyticsFiles] : uiFiles, payload,
     animated: id === 'prototype', details: { navigation: ['overview','prototype'].includes(id) ? '直接入口' : '站内导航／关联入口；不把源码函数存在算作页面访问' } });
   if (id === 'glossary' && !data.glossary?.length) e.states.codePresent = { status: 'missing', evidence: ['content.json 中尚无 glossary 条目'] };
 }

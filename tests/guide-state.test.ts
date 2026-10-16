@@ -16,6 +16,25 @@ const data = {
   navigationRoutes: [{ id: 'basics', lessons: ['front', 'back', 'turn'] }],
 };
 
+test('访问统计按公共语义页面归一，同课路线和私人搜索不拆分页面', () => {
+  const publicData = {
+    lessons: [{ id: 'front', title: '前刃', module: 'edge' }],
+    modules: [{ id: 'edge', title: '两刃' }],
+    navigationRoutes: [{ id: 'basics', title: '基础路线' }],
+  };
+  const a = guide.analyticsView(publicData, { page: 'overview', lesson: 'front', route: 'basics' });
+  const b = guide.analyticsView(publicData, { page: 'overview', lesson: 'front', route: null, query: 'private search' });
+  assert.equal(JSON.stringify(a), JSON.stringify(b));
+  assert.equal(a.path, '/snowboard/lesson/front');
+  assert.equal(guide.analyticsView(publicData, { page: 'overview', module: 'edge' }).path, '/snowboard/module/edge');
+  assert.equal(guide.analyticsView(publicData, { page: 'curriculum', route: 'basics' }).path, '/snowboard/route/basics');
+  assert.equal(guide.analyticsView(publicData, { page: 'curriculum', route: 'unknown private route' }).path, '/snowboard/routes');
+  const note = guide.analyticsView(publicData, { page: 'additions', title: 'private note', query: 'private search' });
+  assert.equal(note.title, '我的补充');
+  assert.equal(JSON.stringify(note).includes('private'), false);
+  assert.equal(guide.analyticsView(publicData, { page: 'overview', module: 'all' }).path, '/snowboard/');
+});
+
 test('路线中的下一课使用路线顺序，直接进入则使用模块顺序，不跟全局插入顺序跳转', () => {
   assert.equal(guide.lessonSequence(data, 'front', 'basics').next.id, 'back');
   assert.equal(guide.lessonSequence(data, 'back', 'basics').next.id, 'turn');

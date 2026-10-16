@@ -10,7 +10,7 @@
 
 | 条目类型 | 已登记 | 代码存在 | 正文已读 | 内容已变待复查 | 有修改登记 | 页面实际可访问 | 动画实际渲染 | 教学已核验 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| page | 8 | 8 | 6 | 0 | 0 | 2 | 0 | 0 |
+| page | 8 | 8 | 6 | 0 | 0 | 0 | 0 | 0 |
 | feature | 7 | 7 | 0 | 0 | 0 | 0 | 0 | 0 |
 | module | 13 | 13 | 13 | 0 | 7 | 0 | 0 | 0 |
 | lesson | 118 | 118 | 118 | 0 | 118 | 0 | 0 | 0 |
@@ -31,11 +31,11 @@
 
 | 独立观察维度 | 适用分母 | 通过 | 部分 | 失败 | 阻塞 | 历史证据过期 | 未核验 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| pageAccessible | 843 | 2 | 0 | 0 | 0 | 745 | 96 |
+| pageAccessible | 843 | 0 | 0 | 0 | 0 | 747 | 96 |
 | animationRendered | 154 | 0 | 27 | 0 | 0 | 127 | 0 |
 | teachingVerified | 893 | 0 | 27 | 0 | 0 | 586 | 280 |
 
-共享源码或条目改变后，1458 条历史观察当前标为 stale，原证据和范围仍保留在 JSON 的 revalidation；这不是本轮发现1458个教学错误，也不是重新观察通过。当前范围记录见人工账 evidenceSummary。
+共享源码或条目改变后，1460 条历史观察当前标为 stale，原证据和范围仍保留在 JSON 的 revalidation；这不是本轮发现1460个教学错误，也不是重新观察通过。当前范围记录见人工账 evidenceSummary。
 
 机器结构检查：passed；0 项错误、0 项提醒。通过只说明引用、必要字段、注册门控与能力图结构自洽。
 
@@ -94,10 +94,10 @@
 
 | 条目 ID / 位置 | 学习目标 | 现有问题 / 严重度 | 问题证据 | 修改方案 | 来源 | 修改状态 | 验证结果 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `page:overview` · `app.js#renderOverview` | 课程导航、技术分类与学习入口 | 未登记确定问题；未核验不等于已通过 | — | 按本条目未核验状态继续审查 |  | not-recorded | 正文：全文已读；代码：存在；页面：通过；渲染：不适用；教学：未核验 |
+| `page:overview` · `app.js#renderOverview` | 课程导航、技术分类与学习入口 | 未登记确定问题；未核验不等于已通过 | — | 按本条目未核验状态继续审查 |  | not-recorded | 正文：全文已读；代码：存在；页面：证据已过期；渲染：不适用；教学：未核验 |
 | `page:curriculum` · `app.js#renderCurriculum` | 按能力选择前置、当前练习和下一步 | P1 AUDIT-P1-DUCK-ROUTE: 现有主线只有泛刻滑，缺少低姿态 duck stance 的操作性定义、独立门槛和连续转换单元。；P2 AUDIT-P2-DOSE: 多数技术练习只有“几次/短组”，缺少一致的初次练习量和休息后复测建议；不能因此否定已有步骤、退出及通过标准。 | 基线 progressionMap.targets 的 carving 终点为 adjustable-carved-turns；102 课中没有低姿态八字刻滑综合课。；基线 drill 对象普遍有 terrain/setup/steps/success/stop/progression，但没有 dose 字段；部分离雪课已在正文说明 HSS/NHS 示例剂量。 | 新增独立低姿态 duck 综合课与正常高度刻滑前置，保留反脚并行能力。；增加可覆盖的本站练习建议，雪上与离雪分开；建议量不是官方门槛，质量/疲劳/失控条件优先。 |  | not-recorded | 正文：全文已读；代码：存在；页面：证据已过期；渲染：不适用；教学：未核验 |
 | `page:progression` · `app.js#SnowProgression` | 区分结果能力、必要前置、可选辅助与并行方向 | P1 AUDIT-P1-DUCK-ROUTE: 现有主线只有泛刻滑，缺少低姿态 duck stance 的操作性定义、独立门槛和连续转换单元。；P1 DUCK-01: `progressionMap` 刻滑目标止于 `adjustable-carved-turns`；没有 duck 定义、低姿态能力节点或双刃连续课。；P1 SHORT-04: 前置是能力文字，整合课缺当日雪况入口复测和失败分流；P2 L4C-P2-ROUTE-CONTEXT: 低位基础课误归专家变化节点造成专家前置；多归属课程可把本课直接建立的能力重复显示为前置；首页刻滑卡仍停在旧基础终点。 | 基线 progressionMap.targets 的 carving 终点为 adjustable-carved-turns；102 课中没有低姿态八字刻滑综合课。；docs/goal-duck-route-review.md：`progressionMap` 刻滑目标止于 `adjustable-carved-turns`；没有 duck 定义、低姿态能力节点或双刃连续课。；docs/goal-short-route-review.md：前置是能力文字，整合课缺当日雪况入口复测和失败分流；docs/level4-carving-release-review.md；.validation/level4-carving/release-observations.json | 新增独立低姿态 duck 综合课与正常高度刻滑前置，保留反脚并行能力。；保留现有 `carving` 目标键和全部旧节点，追加 `duck-height-control` → `duck-low-linked-carves`；新增 `s-duck-low-linked`。；两刃停止、中弯控速、双向释放实际自测；两条入口练习任选，非一条线全部重学；去除错误的直接课程归属但保留可选supports；课内前置仅排除同课直接节点，保留完整图依赖；更新专家任务与独立低位分支说明。 |  | not-recorded | 正文：全文已读；代码：存在；页面：证据已过期；渲染：不适用；教学：未核验 |
-| `page:technical-map` · `app.js#renderTechnicalMap` | 联系身体动作、板控关系与滑行结果 | P1 AUDIT-P1-DUCK-ROUTE: 现有主线只有泛刻滑，缺少低姿态 duck stance 的操作性定义、独立门槛和连续转换单元。 | 基线 progressionMap.targets 的 carving 终点为 adjustable-carved-turns；102 课中没有低姿态八字刻滑综合课。 | 新增独立低姿态 duck 综合课与正常高度刻滑前置，保留反脚并行能力。 |  | not-recorded | 正文：全文已读；代码：存在；页面：通过；渲染：不适用；教学：未核验 |
+| `page:technical-map` · `app.js#renderTechnicalMap` | 联系身体动作、板控关系与滑行结果 | P1 AUDIT-P1-DUCK-ROUTE: 现有主线只有泛刻滑，缺少低姿态 duck stance 的操作性定义、独立门槛和连续转换单元。 | 基线 progressionMap.targets 的 carving 终点为 adjustable-carved-turns；102 课中没有低姿态八字刻滑综合课。 | 新增独立低姿态 duck 综合课与正常高度刻滑前置，保留反脚并行能力。 |  | not-recorded | 正文：全文已读；代码：存在；页面：证据已过期；渲染：不适用；教学：未核验 |
 | `page:sources` · `app.js#renderSources` | 找到来源版本和适用范围 | P2 AUDIT-P2-SOURCE-COVERAGE: 103课全文阅读尚未覆盖33个来源对每条教学结论的逐项一手复核；20课登记的来源 partial 只表示核心关系的专项核查。 | docs/goal-short-route-review.md；docs/goal-duck-route-review.md；本轮教学维度无全课程 passed；未读取的旧来源不由引用存在自动通过。 | 按未核验命题逐项对照原始版本、定位、适用任务和结论范围；来源不能直接支持的建议标为本站归纳。 |  | not-recorded | 正文：全文已读；代码：存在；页面：证据已过期；渲染：不适用；教学：未核验 |
 | `page:additions` · `app.js#renderAdditions` | 保存待验证的个人观察，不自动纳入教学推荐 | 未登记确定问题；未核验不等于已通过 | — | 按本条目未核验状态继续审查 |  | not-recorded | 正文：未审读；代码：存在；页面：证据已过期；渲染：不适用；教学：未核验 |
 | `page:glossary` · `app.js#glossary` | 统一定义、别名、适用站姿和易混概念 | P1 AUDIT-P1-GLOSSARY: 术语散见各课，缺少可检索的统一词表及别名关系；八字、反弓、回收、前后脚等容易跨语境混读。 | 基线 content.json 无 glossary；app.js.matches 仅检索课程正文等字段，没有全站术语别名映射。 | 维护有稳定 ID 的 glossary，定义中文、原词、别名、易混项、适用条件和关联课程，并接入搜索。 |  | not-recorded | 正文：全文已读；代码：存在；页面：证据已过期；渲染：不适用；教学：未核验 |

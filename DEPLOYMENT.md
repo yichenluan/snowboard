@@ -90,6 +90,10 @@ Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，�
 
 共用页脚提供 [GitHub 仓库](https://github.com/yichenluan/snowboard)和微信（WeChat）：`Huunnter`。联系信息不参与个人记录保存或登录。
 
+## 访问统计
+
+访问统计使用 Umami Cloud，覆盖主站课程、栏目及独立三维入口，配置为 `analytics-config.json`。后台入口、指标口径、渠道分享和关闭方法见[访问统计说明](docs/analytics.md)。本地和离线文件不发送统计；无需服务器、私钥或新增 GitHub Secret。
+
 ## GitHub 评论
 
 课程评论使用 [Utterances](https://utteranc.es/)，公开存放在 `yichenluan/snowboard` 的 Issues。仓库需保持公开且启用 Issues；Utterances GitHub App 仅安装到该仓库，权限为读取 metadata、读写 Issues。它不需要本站配置 OAuth client secret，也没有代码写入权限。

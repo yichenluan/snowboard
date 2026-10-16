@@ -20,6 +20,8 @@ replacements = {
     "/* GUIDE_PROGRESSION */": (root / "progression.js").read_text(),
     "/* GUIDE_COMMENTS */": (root / "comments.js").read_text(),
     "/* GUIDE_STATE */": (root / "guide-state.js").read_text(),
+    "/* GUIDE_ANALYTICS_CONFIG */": json.dumps(json.loads((root / "analytics-config.json").read_text()), ensure_ascii=False).replace("<", "\\u003c"),
+    "/* GUIDE_ANALYTICS */": (root / "analytics.js").read_text(),
     "/* GUIDE_APP */": (root / "app.js").read_text(),
 }
 for marker, content in replacements.items():

@@ -10,7 +10,7 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 function fixture(){
   const dir=mkdtempSync(join(tmpdir(),'snowboard-teaching-audit-'));
   mkdirSync(join(dir,'scripts'));mkdirSync(join(dir,'docs'));
-  for(const path of ['content.json','app.js','guide-state.js','progression.js','styles.css','progression.css','build.py','shell.html','comments.js','animations.js','lesson-player','prototype','scripts/inventory-teaching.mjs','docs/teaching-audit-review.json'])cpSync(join(root,path),join(dir,path),{recursive:true});
+  for(const path of ['content.json','app.js','guide-state.js','analytics.js','analytics-config.json','vite.config.ts','progression.js','styles.css','progression.css','build.py','shell.html','comments.js','animations.js','lesson-player','prototype','scripts/inventory-teaching.mjs','docs/teaching-audit-review.json'])cpSync(join(root,path),join(dir,path),{recursive:true});
   // Use this test's explicit observations, never any real user/browser evidence.
   const manual=JSON.parse(readFileSync(join(dir,'docs/teaching-audit-review.json'),'utf8'));manual.observations=[];manual.reviewedLessons=[];manual.reviewedEntries=[];
   const save=()=>writeFileSync(join(dir,'docs/teaching-audit-review.json'),JSON.stringify(manual));save();
