@@ -3,9 +3,9 @@
   "reviewDate": "2026-10-16",
   "scope": {
     "expectedLessons": 118,
-    "claimCount": 2599,
-    "effectiveSourceCount": 51,
-    "citationCount": 480
+    "claimCount": 2611,
+    "effectiveSourceCount": 52,
+    "citationCount": 486
   },
   "classificationPolicy": {
     "direct": "实际原文明确支持被列出的来源命题，含情境边界；不等于整课或动画通过。",
@@ -22,8 +22,8 @@
   "hashPolicy": "SHA-256 of recursive key-sorted JSON, compact UTF-8; full lesson object including citations and dose. Source records and evidence documents are hashed separately.",
   "counts": {
     "direct": 360,
-    "synthesis": 710,
-    "suggestion": 1460,
+    "synthesis": 719,
+    "suggestion": 1463,
     "unverified": 69
   },
   "unverifiedCategories": {
@@ -49504,6 +49504,947 @@
           }
         }
       ]
+    },
+    "jsbaPostureReview": {
+      "date": "2026-10-16",
+      "reviewer": "jsba_official_research",
+      "scope": "六课精确增量，十主课加低位关联全文复核；只更新实际改动20条及新增12条，未改历史结论逐值保留。",
+      "evidenceRef": "docs/jsba-posture-source-review.md",
+      "reviewedContentSha256": "f6a3aec4f744a4c27d0f04e65edd1c7127d8f43a72d2e4e0fdb76bbe63c1b384",
+      "supersededClaims": [
+        {
+          "id": "s-jsba-basic-carve::execution[0]",
+          "lessonId": "s-jsba-basic-carve",
+          "path": "execution[0]",
+          "claim": {
+            "title": "从弯中可屈可伸的位置开始",
+            "body": "膝髋适量屈曲，胸廓与骨盆配合，双脚踏稳。不要用最深低位起练，先保留向上与向侧方调整空间。",
+            "cue": "先留余量。",
+            "observe": "两腿能继续屈，也能逐渐伸开。",
+            "sources": [
+              "S46"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S46",
+              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[0]",
+              "sha256": "a5e3aa353a578a26c200d0ac9b6b3f9e3d9ac1e6996010a03425e1caea741582"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-basic-carve::videoStudy",
+          "lessonId": "s-jsba-basic-carve",
+          "path": "videoStudy",
+          "claim": {
+            "source": "S53",
+            "title": "JSBA 官方真人示范：先看完整运动关系",
+            "url": "https://www.youtube.com/watch?v=cMgNnGdsmpg",
+            "scope": "本站实际看过以下有效关键帧和公开讲解字幕；不是全片逐帧标定。原片对应任务有片内标题。",
+            "segments": [
+              {
+                "label": "官方 Basic Long：展开—屈曲—再展开",
+                "start": 115.033,
+                "end": 119.033,
+                "observedTimes": [
+                  "115.033",
+                  "116.033",
+                  "117.033",
+                  "118.033",
+                  "119.033"
+                ],
+                "visible": "片内明确标注 Basic Long；115秒身体相对较高、腿较展开，117～118秒膝髋较屈曲，119秒再次展开。",
+                "meaning": "把转换与弧中运动连起来看，再对照本课温和伸展工具。",
+                "limits": "远机位、透视及视频质量限制细节；未确认脚角、精确刃角、压力或2025新版完整动作定义。"
+              }
+            ],
+            "practice": "本站建议：先在原片以正常速度理解连续过程，再按本课两向阶段暂停比较。只在已掌握的弯形里选一种工具练习，不复制屏幕节拍或姿态角度。"
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S53",
+              "locator": "Basic Long：115.033、117.033、119.033 秒；Dynamic Short：625.033–626.833、630.033–632.433 秒；点评11:47–12:48",
+              "evidenceRef": "docs/jsba-video-observation.md"
+            }
+          ],
+          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "provenance": [
+            "docs/jsba-video-observation.md"
+          ],
+          "bindings": [
+            {
+              "path": "videoStudy",
+              "sha256": "2f15c6e7e1e18bedb76e8bd84412b9a8765487e0b4652c33e7c4a37d7401f515"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-dynamic-carve::execution[3]",
+          "lessonId": "s-jsba-dynamic-carve",
+          "path": "execution[3]",
+          "claim": {
+            "title": "向新弧逐步伸开双腿",
+            "body": "新刃开始支持后，两腿沿当前板与身体的方向重新展开，发展新弧，而非竖直猛蹬。前刃让髋跟腿进入脚尖侧，后刃保持屈髋与胸廓配合；不追求双腿同一伸直幅度。",
+            "cue": "把新弧接回来。",
+            "observe": "抓雪与弧形继续发展，没有一下顶直或弹起。",
+            "sources": [
+              "S42",
+              "S43",
+              "S47"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S42",
+              "locator": "PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S43",
+              "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S47",
+              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[3]",
+              "sha256": "41e629673c850cbfa689171f8d710c4cb5e52f8f2dfa2bbd036073925359f7a9"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-dynamic-carve::checks[2]",
+          "lessonId": "s-jsba-dynamic-carve",
+          "path": "checks[2]",
+          "claim": "两向都能连续完成，腿收放与胸廓、骨盆关系协调。",
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "checks[2]",
+              "sha256": "333449ee22a27deef7e8ea1e24990d40dd4dc903bf4faefb4b05481b8c35adb0"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-dynamic-carve::mistakes[1]",
+          "lessonId": "s-jsba-dynamic-carve",
+          "path": "mistakes[1]",
+          "claim": {
+            "error": "新弯板一下弹起或腿顶直",
+            "cause": "可能伸腿方向与板的支持不匹配，或者太早、太急地伸展。",
+            "fix": "保持屈膝余量，等新刃开始接住再逐步展开，保留原弧形。",
+            "check": "板沿雪面连续发展弧线。",
+            "differentiate": "偶发雪面起伏不等于动作错误；若每次都在同一运动阶段弹起，才优先查伸展时机。"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mistakes[1]",
+              "sha256": "8c75856303f099cbb534b639d1ba2d19f2f76bebc641382026fbe4d2c5044503"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-dynamic-carve::videoStudy",
+          "lessonId": "s-jsba-dynamic-carve",
+          "path": "videoStudy",
+          "claim": {
+            "source": "S53",
+            "title": "JSBA 官方真人示范：先看完整运动关系",
+            "url": "https://www.youtube.com/watch?v=cMgNnGdsmpg",
+            "scope": "本站实际看过以下有效关键帧和公开讲解字幕；不是全片逐帧标定。原片对应任务有片内标题。",
+            "segments": [
+              {
+                "label": "官方 Dynamic Short：旧弧伸出—收腿过板—新弧展开",
+                "start": 630.033,
+                "end": 632.433,
+                "observedTimes": [
+                  "630.033",
+                  "630.333",
+                  "630.633",
+                  "630.933",
+                  "631.233",
+                  "631.533",
+                  "631.833",
+                  "632.133",
+                  "632.433"
+                ],
+                "visible": "片内明确标注 Dynamic Short；旧弧中腿相对较长，630.633～630.933秒身体较紧凑、板经过身下，631.233～631.833秒向新弧重新展开，随后再收回。",
+                "meaning": "先做清楚收腿和跨板，再发展新弧；结合11:47～12:48点评理解不要赶节奏而省略收腿。",
+                "limits": "这里只作有限关键帧定性比较；点评包含不同水平，不视为统一满分示范。未测脚角、速度、压力、板弯或弹性能。"
+              }
+            ],
+            "practice": "本站建议：先在原片以正常速度理解连续过程，再按本课两向阶段暂停比较。只在已掌握的弯形里选一种工具练习，不复制屏幕节拍或姿态角度。"
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S53",
+              "locator": "Basic Long：115.033、117.033、119.033 秒；Dynamic Short：625.033–626.833、630.033–632.433 秒；点评11:47–12:48",
+              "evidenceRef": "docs/jsba-video-observation.md"
+            }
+          ],
+          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "provenance": [
+            "docs/jsba-video-observation.md"
+          ],
+          "bindings": [
+            {
+              "path": "videoStudy",
+              "sha256": "e6d1e76ebb8f8a3803c41b5de98c58edd70c812c16fd1de6f6ceb1cb48f16165"
+            }
+          ]
+        },
+        {
+          "id": "s-carve-expert-pressure::execution[3]",
+          "lessonId": "s-carve-expert-pressure",
+          "path": "execution[3]",
+          "claim": {
+            "title": "释放时同时处理腿和板角",
+            "body": "弯末渐减旧刃角，再按所选策略让腿伸开或收回，使板和身体重新换侧。不要只把腿弯掉、旧刃却仍顶住雪面，也不要猛伸腿把自己弹离雪。",
+            "cue": "放刃要与身体移动衔接。",
+            "observe": "旧刃到新刃连续，板不过度跳动或拖滞。",
+            "sources": [
+              "S42",
+              "S50"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S42",
+              "locator": "PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S50",
+              "locator": "カービングターンロング；カービングターンミドル",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[3]",
+              "sha256": "ec78aa766b61d1eb70d28a5c7745f1fbbbf17efc059639f5db2f0ec1dfe62ffb"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::mechanics[4]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "mechanics[4]",
+          "claim": {
+            "title": "肩髋可转动，但转动量由任务决定",
+            "body": "视线可先看出口，胸廓和骨盆随后协调，骨盆开向受两脚固定与髋的活动约束。不是肩越先转越好，也不是所有部位永远平行雪板；看它是否帮助两腿控制板，而不是将整板甩横。",
+            "sources": [
+              "S43",
+              "S47"
+            ]
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S43",
+              "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S47",
+              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mechanics[4]",
+              "sha256": "c105cb51bcb6dfce1026c9baa1c6affe3638902d94cbc2f3406a2b955c537b0f"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::execution[2]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "execution[2]",
+          "claim": {
+            "title": "前刃做膝髋共同换侧",
+            "body": "用正常高度单弧，让腿和骨盆一起进入脚尖侧，胸廓配合，双脚稳定。确认抓雪后才增加少量屈曲，不只让胸口更低。",
+            "cue": "膝髋一起到前刃。",
+            "observe": "髋跟上腿，弧线和出口仍可控。",
+            "sources": [
+              "S46",
+              "S49"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S46",
+              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S49",
+              "locator": "原书 p.30 lean / lean-out；p.159 技术体系",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[2]",
+              "sha256": "84894325d32305cab23e814d349b3ec9d1278611103bb38b747b3b2f48af9454"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::execution[3]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "execution[3]",
+          "claim": {
+            "title": "后刃做屈膝屈髋与胸廓配合",
+            "body": "用后刃单弧体会骨盆跨板宽进入脚跟侧；胸廓调整而非单独圆背低头。前后腿仍有活动，避免整个人沿板长坐向后脚。",
+            "cue": "脚跟侧折叠，别坐尾。",
+            "observe": "后腿不锁死，随时可以放旧刃。",
+            "sources": [
+              "S46",
+              "S47"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S46",
+              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S47",
+              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[3]",
+              "sha256": "a9f6b6e921aaf1103e93b830d29bb620a9b1c39a4645b18d283788c050a0759e"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::execution[4]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "execution[4]",
+          "claim": {
+            "title": "给肩髋自然配合留下空间",
+            "body": "保持同一弧形，让视线、胸廓、骨盆和双腿在舒适范围配合。若一转肩就扫尾，减小幅度并回查腿与板的支持；若必须冻结上身才勉强稳定，也先减难度。",
+            "cue": "朝向服务脚下。",
+            "observe": "头肩不单飞，板尾继续跟随。",
+            "sources": [
+              "S43",
+              "S47"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S43",
+              "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S47",
+              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[4]",
+              "sha256": "ae1a0ecac066daa15d063aef666a24a0d082e88b8ddb996a2338d7649b5843c8"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::checks[2]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "checks[2]",
+          "claim": "肩髋能自然配合，膝不被强扭，双腿始终可调。",
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "checks[2]",
+              "sha256": "12ad5d527b9431b09e75b72664aab4fd9af5213caf0f88c394709af5f6d76556"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::citations[4]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "citations[4]",
+          "claim": "本课真人卡仅使用明确列出的有限关键帧；可见姿态与个人讲解用于定性理解，未作压力测量或真人精确标定。",
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S54",
+              "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
+              "evidenceRef": "docs/jsba-video-observation.md"
+            }
+          ],
+          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "citations[4]",
+              "sha256": "bfecdc48a6c397cc11833c3be5b49ef2ed634a7aeba5772374e6ed1aeb29f385"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::videoStudy",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "videoStudy",
+          "claim": {
+            "source": "S54",
+            "title": "个人低位后刃：看膝髋折叠与胸廓配合",
+            "url": "https://www.youtube.com/watch?v=FookVR1Ojuw",
+            "scope": "具名个人风格；实际观察片头低位后刃关键帧，不能称完整官方JSBA任务。",
+            "segments": [
+              {
+                "label": "同一镜头的较低后刃",
+                "start": 5.033,
+                "end": 5.833,
+                "observedTimes": [
+                  "5.033",
+                  "5.433",
+                  "5.833"
+                ],
+                "visible": "可见两腿屈曲、骨盆在脚跟侧较低，胸廓相对骨盆向板前方配合；手部触雪，雪雾遮挡部分靴板细节。",
+                "meaning": "把板宽方向的脚跟侧屈髋，与沿板长坐尾分开理解；身体配合要服务脚下弧线。",
+                "limits": "广角跟拍有透视畸变，手部参与支撑未测；未确认压力比例或关节角。6秒后切换镜头，不能接成完整连续换刃。"
+              }
+            ],
+            "practice": "本站建议：观察关系后仍从正常高度开始，两侧支持可靠才降低；手离雪后能控制才继续发展。"
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S54",
+              "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
+              "evidenceRef": "docs/jsba-video-observation.md"
+            }
+          ],
+          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "provenance": [
+            "docs/jsba-video-observation.md"
+          ],
+          "bindings": [
+            {
+              "path": "videoStudy",
+              "sha256": "43537f95d946094ac9619e7dc7925cda72a8f70326ec705047a8821f77dc57f8"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::videoStudy.segments[0]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "videoStudy.segments[0]",
+          "claim": {
+            "label": "同一镜头的较低后刃",
+            "start": 5.033,
+            "end": 5.833,
+            "observedTimes": [
+              "5.033",
+              "5.433",
+              "5.833"
+            ],
+            "visible": "可见两腿屈曲、骨盆在脚跟侧较低，胸廓相对骨盆向板前方配合；手部触雪，雪雾遮挡部分靴板细节。",
+            "meaning": "把板宽方向的脚跟侧屈髋，与沿板长坐尾分开理解；身体配合要服务脚下弧线。",
+            "limits": "广角跟拍有透视畸变，手部参与支撑未测；未确认压力比例或关节角。6秒后切换镜头，不能接成完整连续换刃。"
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S54",
+              "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
+              "evidenceRef": "docs/jsba-video-observation.md"
+            }
+          ],
+          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "provenance": [
+            "docs/jsba-video-observation.md"
+          ],
+          "bindings": [
+            {
+              "path": "videoStudy.segments[0]",
+              "sha256": "fe95f817053d3e0bf3eb9720e45f992e1b7761699df1078bd8479dfac34580e8"
+            }
+          ]
+        },
+        {
+          "id": "s-carve-expert-variation::mechanics[2]",
+          "lessonId": "s-carve-expert-variation",
+          "path": "mechanics[2]",
+          "claim": {
+            "title": "骨盆开向服从设置和脚下结果",
+            "body": "八字固定脚位下，骨盆和胸廓可以朝弧线前方适量转动，但不能为了开肩数值把后膝硬扭离舒适方向。不同脚角的示范需要重新理解其髋膝空间，不把双正或正零的外形直接复制。",
+            "sources": [
+              "S44",
+              "S47"
+            ]
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S44",
+              "locator": "田口瑞树、藤巻俊介、新野裕幸等个人装备栏",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S47",
+              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mechanics[2]",
+              "sha256": "aa42bb8cd095adcea980e2aa5677af83c6238bbb949f0b397b4c28d1e1d37031"
+            }
+          ]
+        },
+        {
+          "id": "s-carve-expert-variation::execution[3]",
+          "lessonId": "s-carve-expert-variation",
+          "path": "execution[3]",
+          "claim": {
+            "title": "后刃保持两腿可动，避免坐向板尾",
+            "body": "让骨盆的脚跟侧位置与胸廓配合，前后腿都参与；一旦后腿挤死或胸廓只能压向板头补平衡，就适量恢复高度。",
+            "cue": "后刃是折叠，不是坐尾。",
+            "observe": "板尾不被长期压死，身体仍能再屈或伸。",
+            "sources": [
+              "S46",
+              "S47"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S46",
+              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            },
+            {
+              "sourceId": "S47",
+              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
+              "evidenceRef": "docs/jsba-technical-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[3]",
+              "sha256": "8c7b1d77113e24760f35227094a769dcf24c231d1a2c566e171118e5e01d5a99"
+            }
+          ]
+        },
+        {
+          "id": "s-carve-expert-variation::checks[2]",
+          "lessonId": "s-carve-expert-variation",
+          "path": "checks[2]",
+          "claim": "身体与腿始终有可用余量，随时能恢复高度或转为搓雪。",
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "checks[2]",
+              "sha256": "c531abf71870399473fc0f3b68387c627a72826eabfae14c20cfb0df6092e06e"
+            }
+          ]
+        },
+        {
+          "id": "s-carve-expert-variation::mistakes[3]",
+          "lessonId": "s-carve-expert-variation",
+          "path": "mistakes[3]",
+          "claim": {
+            "error": "为了开髋把膝硬拧进去",
+            "cause": "可能复制了不同脚角示范的骨盆方向，忽略固定脚位和个人活动范围。",
+            "fix": "减小开向，回到能舒适屈伸的脚位；让肩髋配合服务板的弧线。",
+            "check": "无关节不适，尾部路径仍稳定。",
+            "differentiate": "肩髋适量转动可以正常，不以和板完全平行或完全朝板头作为统一验收。"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-technical-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mistakes[3]",
+              "sha256": "81616eaeeaffe7b2a6113da77080ea3b032d76faa76671a1360c4fdfa0e20b9b"
+            }
+          ]
+        },
+        {
+          "id": "s-duck-low-linked::execution[1]",
+          "lessonId": "s-duck-low-linked",
+          "path": "execution[1]",
+          "claim": {
+            "title": "旧刃减小，身体与板过渡",
+            "body": "弯末配合减小旧刃角，让骨盆和双腿离开旧侧。本课收腿示意在转换附近缩短髋踝距离，新刃逐渐接住后再伸开双腿，膝不锁直。前换后不先猛转肩髋压向板头；后换前让骨盆随下肢离开脚跟侧，不只抛前肩。经过接近平板的位置继续接新刃，不停在平板，也不把这一刻标成零压力。",
+            "cue": "放旧刃，给下一弯留位置。",
+            "observe": "两向都无突扫尾；膝髋移动与刃角释放相衔接。",
+            "sources": [
+              "S17",
+              "D01",
+              "S42",
+              "S50"
+            ]
+          },
+          "assessment": "suggestion",
+          "sources": [
+            {
+              "sourceId": "S17",
+              "locator": "transition / COM and BOS / re-centering 正文段",
+              "evidenceRef": "docs/jsba-restructure-extra-source-review.md"
+            },
+            {
+              "sourceId": "D01",
+              "locator": "正文第 4–7 段：advanced riders / hip and knee / comparing turns",
+              "evidenceRef": "docs/jsba-restructure-extra-source-review.md"
+            },
+            {
+              "sourceId": "S42",
+              "locator": "PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2",
+              "evidenceRef": "docs/jsba-restructure-extra-source-review.md"
+            },
+            {
+              "sourceId": "S50",
+              "locator": "カービングターンロング；カービングターンミドル",
+              "evidenceRef": "docs/jsba-restructure-extra-source-review.md"
+            }
+          ],
+          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "provenance": [
+            "docs/jsba-restructure-extra-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "execution[1]",
+              "sha256": "aa6a8304ef4876099ead529fd52bff391e7141afd73576825db18f62bf4a56c0"
+            }
+          ]
+        }
+      ],
+      "addedClaimIds": [
+        "s-jsba-basic-carve::checks[3]",
+        "s-jsba-basic-carve::mistakes[3]",
+        "s-jsba-basic-carve::citations[7]",
+        "s-jsba-basic-carve::videoStudy.segments[1]",
+        "s-jsba-dynamic-carve::videoStudy.segments[1]",
+        "s-jsba-duck-mechanics::mistakes[4]",
+        "s-jsba-duck-mechanics::citations[6]",
+        "s-jsba-duck-mechanics::citations[7]",
+        "s-jsba-duck-mechanics::videoStudy.segments[1]",
+        "s-carve-expert-variation::citations[8]",
+        "s-carve-expert-variation::citations[9]",
+        "s-carve-expert-variation::citations[10]"
+      ],
+      "previousLessonMetadata": [
+        {
+          "lessonId": "s-jsba-basic-carve",
+          "module": "carving",
+          "title": "起身式刻滑：转换时伸展开，新弧中渐屈腿",
+          "lessonSha256": "4f595fdb87705db2585eaa45cbe400840224e8b2fd886e1283a55bdeffd80ac3",
+          "reviewDocument": "docs/jsba-technical-source-review.md",
+          "videoComparison": {
+            "status": "limited_keyframes",
+            "sourceIds": [
+              "S53"
+            ],
+            "observationIds": [
+              "jsba-2026-10-16-s-jsba-basic-carve"
+            ]
+          },
+          "realFootageCalibration": "not_performed",
+          "textReview": {
+            "status": "reviewed",
+            "gapClaimIds": []
+          }
+        },
+        {
+          "lessonId": "s-jsba-dynamic-carve",
+          "module": "carving",
+          "title": "抱腿式刻滑：收腿释放，向新弧伸开承接",
+          "lessonSha256": "d5ac898fa68b39d55c81e2457b792280af68483df18429102cf67da72b85ab28",
+          "reviewDocument": "docs/jsba-technical-source-review.md",
+          "videoComparison": {
+            "status": "limited_keyframes",
+            "sourceIds": [
+              "S53"
+            ],
+            "observationIds": [
+              "jsba-2026-10-16-s-jsba-dynamic-carve"
+            ]
+          },
+          "realFootageCalibration": "not_performed",
+          "textReview": {
+            "status": "reviewed",
+            "gapClaimIds": []
+          }
+        },
+        {
+          "lessonId": "s-carve-expert-pressure",
+          "module": "carving",
+          "title": "刻滑发力逻辑：身体运动、刃上压力与板的反应",
+          "lessonSha256": "4cf00944afc7a8c4599aad62cde59ad4a53fa4c2177e07c94917761465204780",
+          "reviewDocument": "docs/jsba-technical-source-review.md",
+          "videoComparison": {
+            "status": "not_reviewed",
+            "sourceIds": [],
+            "observationIds": []
+          },
+          "realFootageCalibration": "not_performed",
+          "textReview": {
+            "status": "reviewed",
+            "gapClaimIds": []
+          }
+        },
+        {
+          "lessonId": "s-jsba-duck-mechanics",
+          "module": "carving",
+          "title": "八字刻滑身体机制：两刃、肩髋与装备条件",
+          "lessonSha256": "28ce9a4d44a1a589795ee74a89e7177960ca4b1fa078183c65bf3d98770b4736",
+          "reviewDocument": "docs/jsba-technical-source-review.md",
+          "videoComparison": {
+            "status": "limited_keyframes",
+            "sourceIds": [
+              "S54"
+            ],
+            "observationIds": [
+              "jsba-2026-10-16-s-jsba-duck-mechanics"
+            ]
+          },
+          "realFootageCalibration": "not_performed",
+          "textReview": {
+            "status": "reviewed",
+            "gapClaimIds": []
+          }
+        },
+        {
+          "lessonId": "s-carve-expert-variation",
+          "module": "carving",
+          "title": "高阶低姿态八字：两刃承接与两向转换",
+          "lessonSha256": "8e111806866e62be51298ca49a0e68b090151f3e0b255366e23f7bd1b369d9ea",
+          "reviewDocument": "docs/jsba-technical-source-review.md",
+          "videoComparison": {
+            "status": "limited_keyframes",
+            "sourceIds": [
+              "S48"
+            ],
+            "observationIds": [
+              "jsba-2026-10-16-s-carve-expert-variation"
+            ]
+          },
+          "realFootageCalibration": "not_performed",
+          "textReview": {
+            "status": "reviewed",
+            "gapClaimIds": []
+          }
+        },
+        {
+          "lessonId": "s-duck-low-linked",
+          "module": "carving",
+          "title": "低姿态八字刻滑：保持窄痕，完成两侧转换",
+          "lessonSha256": "f8ee0f47eb98102168e0284b502579bc2d65f2d9d41325d6081b9e9db7d49527",
+          "reviewDocument": "docs/jsba-restructure-extra-source-review.md",
+          "videoComparison": {
+            "status": "limited_keyframes",
+            "sourceIds": [
+              "S36"
+            ],
+            "observationIds": [
+              "root-carve-keyframes-2026-10-15"
+            ]
+          },
+          "realFootageCalibration": "not_performed",
+          "textReview": {
+            "status": "reviewed",
+            "gapClaimIds": []
+          }
+        }
+      ],
+      "supersededVideoObservations": [
+        {
+          "id": "jsba-2026-10-16-s-jsba-basic-carve",
+          "lessonId": "s-jsba-basic-carve",
+          "sourceId": "S53",
+          "sourceKind": "official",
+          "status": "limited_keyframes",
+          "reviewer": "root",
+          "observedTimes": [
+            "115.033",
+            "116.033",
+            "117.033",
+            "118.033",
+            "119.033"
+          ],
+          "evidenceRef": "docs/jsba-video-observation.md",
+          "scope": "本站实际看过以下有效关键帧和公开讲解字幕；不是全片逐帧标定。原片对应任务有片内标题。"
+        },
+        {
+          "id": "jsba-2026-10-16-s-jsba-dynamic-carve",
+          "lessonId": "s-jsba-dynamic-carve",
+          "sourceId": "S53",
+          "sourceKind": "official",
+          "status": "limited_keyframes",
+          "reviewer": "root",
+          "observedTimes": [
+            "630.033",
+            "630.333",
+            "630.633",
+            "630.933",
+            "631.233",
+            "631.533",
+            "631.833",
+            "632.133",
+            "632.433"
+          ],
+          "evidenceRef": "docs/jsba-video-observation.md",
+          "scope": "本站实际看过以下有效关键帧和公开讲解字幕；不是全片逐帧标定。原片对应任务有片内标题。"
+        },
+        {
+          "id": "jsba-2026-10-16-s-jsba-duck-mechanics",
+          "lessonId": "s-jsba-duck-mechanics",
+          "sourceId": "S54",
+          "sourceKind": "personal",
+          "status": "limited_keyframes",
+          "reviewer": "root",
+          "observedTimes": [
+            "5.033",
+            "5.433",
+            "5.833"
+          ],
+          "evidenceRef": "docs/jsba-video-observation.md",
+          "scope": "具名个人风格；实际观察片头低位后刃关键帧，不能称完整官方JSBA任务。"
+        }
+      ],
+      "newSourceIds": [
+        "S55"
+      ],
+      "retainedHistoricalEvidence": "旧S54真人卡及旧来源判断完整保存在supersededClaims/supersededVideoObservations；jsbaRebuild及其他历史账原样保留。",
+      "limitations": "新增27帧仅有限定性观察；46项真人精确标定仍未做；2025完整教材/DVD未获；个人方法不升格为JSBA统一标准。",
+      "evidenceDocumentChanges": [
+        {
+          "evidenceKey": "jsbaRebuildvideo",
+          "previousEntry": {
+            "path": "docs/jsba-video-observation.md",
+            "sourceIds": [
+              "S48",
+              "S52",
+              "S53",
+              "S54"
+            ],
+            "scope": "root实际观察官方Basic/Dynamic和个人八字示范的明确有效帧及公开字幕，不作精确标定。",
+            "sha256": "a0f7145b80df2b6c3b32df987494c6e91ca6b434e0514bfbfbc9a5f1649c4d68"
+          },
+          "previousContent": "# JSBA 与个人八字示范：实际观察记录\n\n日期：2026-10-16。用于本轮课程重构，区分任务规范、官方示范与个人方法。以下均为实际打开原片并查看的有效关键帧；不是仅搜到链接，也不是全片逐帧标定。\n\n原始截图和公开字幕私存工作区 `.research/jsba-rebuild/`，不把完整教材、视频或字幕提交到公开仓库。播放器缓冲、黑屏、旧画面和遮挡严重的截图不纳入有效依据。时刻保留到毫秒，实际帧步进会有约一帧误差。\n\n## S53：JSBA 官方教练检定讲解\n\n[JSBA インストラクター検定](https://www.youtube.com/watch?v=cMgNnGdsmpg)，作者界面确认为 JSBA Official YouTube Channel，片长32:30。片内标题区分 Basic Long、Dynamic Short，讲解包含不同水平的表现与改进意见，不能一律标为满分模板。\n\n### Basic Long\n\n实际帧：115.033、116.033、117.033、118.033、119.033秒。画面有 Basic Long 日文标签。115秒腿相对展开、身体较高；117～118秒膝髋较屈曲；119秒再次展开。支持在此例中辨认展开—屈曲—展开的组织。\n\n对应课程 `s-jsba-basic-carve`：用这些帧理解温和伸展转换和新弧屈曲，不反推每个运动的精确起止，也不把该公开视频等同2025新版教材的完整定义。远机位限制靴、刃与躯干细节；脚角、压力和精确关节角未测。\n\n### Dynamic Short\n\n620.017秒有效画面确认 Dynamic Short 片内标题。另看625.033、625.633、626.233、626.833秒；重点密看630.033、630.333、630.633、630.933、631.233、631.533、631.833、632.133、632.433秒。\n\n旧弧中腿相对伸出，630.633～630.933秒身体紧凑、板经过身下，631.233～631.833秒向下一弧重新展开，随后再收短。它支持“转换收短、新弧重新伸开”的定性组织；不支持只凭头高低判断收腿或压力。\n\n公开日文自动字幕11:47～12:48：讲解先讨论伸展加载与有效立刃，再指出抱腿转换需要更清楚；赶短弯节奏可能只剩一次次伸腿，可放缓节奏使收腿明确。自动识别存在错词，本站只采用和画面、上下文一致的运动方向，不据自动字幕推导评分算法或精确压力。\n\n对应课程 `s-jsba-dynamic-carve`，并支持 `s-jsba-short-carve` 关于先完整再加快的教学归纳。后三者的具体练习顺序和剂量为本站设计。\n\n## S48：MIRATORI 两向转换\n\n[前后刃转换的本人讲解](https://www.youtube.com/watch?v=-ES6HpVWME4)，片长约5:39。是澤田剛志个人八字方法；本人课程明确不以JSBA/SAJ考证技术训练为目的。不能由教练资历把其所有方法变成机构规定。\n\n前刃换后刃：142.033、143.033、144.033、145.033、146.033、147.033、148.033、149.033秒。分屏慢放左侧先重组到板上方附近，约146秒较平板，随后膝髋折叠进入后刃；右侧编排对照更久留在旧侧。\n\n后刃换前刃：247.791、248.191、248.591、248.991、249.391、249.991、250.591、251.191、251.791秒。左侧旧后刃折叠后腿相对展开，骨盆离开脚跟侧，胸廓允许前倾以协调新前刃。两向不能机械镜像，躯干也不是永远竖直。\n\n公开字幕4:43附近本人明确这是自己的风格、存在多种方法。这两段更适合观察展开转换，不能用来证明所有低位都收腿换刃。分屏不是严格对照实验；没有压力、板弯、脚角或速度测量。\n\n对应 `s-carve-expert-variation.videoStudy` 两段。只支持所列可见关系及据此作出的教学归纳。\n\n## S52：MIRATORI 前刃原地对照\n\n[前刃技巧](https://www.youtube.com/watch?v=TwjZvBUY7hU)。实际看130.033秒原地折胸示意、195.033秒原地髋部参与示意，以及280.033秒靴前部关系示意。原地讲解没有双脚固定滑行；不能把静态姿态冻结成动态模板，更不能从口述压力位置推断实测脚下压力。\n\n片头另看10.033、10.433、10.833、11.233、11.633、12.033秒的较低滑行。雪雾和剪辑明显，其中11秒附近切换镜头；不能串成完整连贯换刃证据。\n\n`s-carve-expert-review.videoStudy` 只采用130.033与195.033秒两帧，帮助区分“头低”和“髋参与”。两帧并非连续动作，不能用其间65秒作为一段滑行。具体支撑要回真实单弧和现场观察确认。\n\n## S54：MIRATORI 较低后刃\n\n[八字后刃技巧](https://www.youtube.com/watch?v=FookVR1Ojuw)，实际看5.033、5.433、5.833秒同一镜头；另看6.233、6.633秒切换后的镜头。前一窗口可见膝髋折叠、骨盆位于脚跟侧较低、胸廓相对配合与手触雪，雪雾遮挡部分靴板细节。\n\n广角跟拍有透视畸变；无法确定手部支撑量、压力分配或关节角。6秒后镜头已经切换，不当成连续转换。490秒截帧仍在缓冲，未作为依据。\n\n对应 `s-jsba-duck-mechanics.videoStudy`：区分板宽方向屈髋和沿板长坐尾。触雪是个人风格结果，不是本站要求，也不能依一张低位画面证明完整弧线质量。\n\n## 其他候选与舍弃范围\n\nJSBA官方2019第二日摘要 `voGwfuT3DrI` 实际看20.017、25.017秒两帧。官方日程当天有Dynamic展开和Middle，但片内未确认具体任务标签，故未用这两帧背书抱腿式时序，也未给课程新增该来源卡。\n\n旧CASI官方视频有限观察原样保留在历史独立文档；改成JSBA路线的课程不再继承旧CASI刻滑视频的当前核验状态。未做真人精确拟合、真实雪上测力或全片逐帧认证。\n\n来源账中的视频观察采用通用字段，个人来源明确标注 `personal`，官方来源标注 `official`。观看一课的片段不能自动授予其他课程视频核验；每门真人卡都有独立字段绑定与观察时刻。\n",
+          "reviewedCurrentSha256": "4b336a7b48d3cae3a6e71d4cb91083c0c4cc65e56a4a1ea03d6877ab48595d58",
+          "evidenceRef": "docs/jsba-posture-source-review.md",
+          "reviewScope": "完整读HEAD差分；历史正文完整存档；来源层级及真人标定状态均不升级。"
+        },
+        {
+          "evidenceKey": "jsbaRebuildanimation",
+          "previousEntry": {
+            "path": "docs/jsba-animation-spec.md",
+            "sourceIds": [
+              "S42",
+              "S43",
+              "S46",
+              "S47",
+              "S48",
+              "S50",
+              "S53"
+            ],
+            "scope": "新六任务的作者几何、变量控制与明确边界；测试和真人拟合分开。",
+            "sha256": "0d6f007ba07adb4100da72c5e11b701aed4bd581a6d7080b30df0fd268c54224"
+          },
+          "previousContent": "# JSBA 刻滑动画实施规范\n\n日期：2026-10-16。适用于 `type: jsba-carving` 的当前 6 类任务、15 个变体。本文件描述本站的教学示意与软件契约，不是 JSBA 教程、考试细则或动作认证。当前规范由本文、[技术来源逐字段审读](jsba-technical-source-review.md)、[真人有限片段观察](jsba-video-observation.md)和实际源码共同组成；旧 CASI 刻滑规格及历史交接文件不再作为本家族的现行规范。\n\n## 来源如何进入模型\n\n[技术来源审读](jsba-technical-source-review.md)区分一手直接结论、教学归纳和本站练习建议：JSBA 现行规程可支持 Basic、Dynamic 等任务名与质量目标；历史官方任务可支持有日期的起身系、抱腿系分类。2025 新教程完整书与 DVD 尚未取得，不能把本模型的动作时序、参数或课序称为新版原文。\n\n[真人观察记录](jsba-video-observation.md)的 S53 为官方教练检定影片，有限画面与点评支持 Basic 的展开—屈曲组织、Dynamic 的转换收短与新弧重新伸开。其脚角、精确关节角、压力和各演示的评分未知。S48、S52、S54 为个人方法，分别提供两向转换、折胸对照、较低后刃的观察背景，不构成 JSBA 统一八字或低位模板。本动画实现者实际独立查看的真人材料为下文所列 S48 的 17 帧；S53 等其他画面的观看范围与观察者以独立记录为准，不转写成实现者本人全片观看或精确拟合。\n\n本家族由独立路线与腿长目标生成，不调用旧 `expert-carving`、基础 `carving` 或 CASI `short-turns` 采样器。旧 `expert-carving` 实现、注册与测试已移除；保留基础 duck 模型和 CASI 搓雪模块的独立用途，不从其历史审阅继承 JSBA 通过状态。\n\n## 接口与教学入口\n\n`task` 与 `variant` 必须明确。支持 `fromEdge: toe | heel`、`stance: regular | goofy`、`legLengthDiagram`、`trackDiagnostics` 等展示选项。`fromEdge` 表示第一弧接入哪一刃；左右前脚改变世界镜像，不交换原前后脚或器材身份。下文所有数值例子均显式使用 `fromEdge: toe`、`stance: regular`。\n\n策略由任务/变体决定，不接受另叠 `transition`、`posture`、`turnShape`、`timing`、`rotationComparison` 或 `twistTiming`；`pressureDiagram: true` 也拒绝。未知任务、未知/缺省变体由注册门控拒绝，不静默回落为基础模型。播放器总会传入首刃选择；直接调用 sampler 的可复现检查也应显式传入 `fromEdge`。\n\n| 任务 | 变体 | 教学目标与可见变化 | 比较时固定的条件 |\n| --- | --- | --- | --- |\n| `basic-linked-carve` | `reference` | 温和伸展跨侧，新弧逐渐屈腿；保留膝髋余量并完成连续弧。 | 与 `late-body` 同一雪板状态、中心路线、刃角、靴设置与板事件。 |\n| 同上 | `late-body` | 身体腿长包络延后 0.16 弧，观察身体准备与新刃建立错开。 | 延迟的是身体组织，不是实际板刃释放；不模拟必然失刃。 |\n| `dynamic-linked-carve` | `reference` | 转换时实际髋踝距缩短，新弧中再逐渐伸开；两向都须出现。 | 与 `late-retraction` 同一雪板、路线、靴设置与板事件。 |\n| 同上 | `late-retraction` | 腿部包络延后 0.17 弧，使收腿准备偏晚可被曲线和全身关系共同辨认。 | 同一空间弧与观察进度；不把收腿偏晚称为板刃释放偏晚。 |\n| `carve-load-exit` | `complete` | 在计划弧内持续改变方向、完成出口，再准备下一侧。名称中的“加载”是教学目标，画面只显示相关运动线索。 | 两档均为 6 弧、每弧 16 m、相同刃角包络及观察时长。 |\n| 同上 | `cut-exit` | 出口相对朝坡下，实际路线及行进方向随之改变，比较出口完成度。 | 不能声称同路线、同真实速度或同压力；未计算更浅出口的实际加速度。 |\n| `carved-short-turns` | `reference` | 独立紧凑刻滑短弯；板轴随路线切线变化，完整地接续两刃。 | 与 `pivoted` 同一中心路线、刃角、弧长、进度、目标髋踝距及固定装备。 |\n| 同上 | `pivoted` | 弧中附加主动拧板，板轴偏离行进切线，最大几何夹角 15°。 | 改变板轴及随板组织的身体朝向，未改变中心路线；不是同一世界姿态的对照，也未模拟搓雪阻力。 |\n| `carve-size-change` | `large-to-short` | 大→中→小→中，改变实际空间弧长，随之改变每弧占用的观察时间。 | 两档使用同一组 8 个作者弧长、相同总长度、相同角度和刃角包络。 |\n| 同上 | `short-to-large` | 小→中→大→中，观察放大弧形的连接。 | 改变弧长顺序及实际路径，不是单独缩放俯视图或修改播放倍速。 |\n| `low-linked-carve` | `low-dynamic` | 较低身体组织中的收腿转换，前后刃分别配合膝髋、骨盆与胸廓。 | 与正常高度比较固定路线、板角和收腿策略；与 `chest-dive` 固定雪板、靴和全部下肢关节。 |\n| 同上 | `normal-dynamic` | 为降低幅度提供正常高度的同策略参照。 | 与 `low-dynamic` 同板同路线；高度差不转成压力或能力等级。 |\n| 同上 | `low-basic` | 较低应用下改用伸展转换，辨认两种策略的真实腿长时序。 | 与 `low-dynamic` 同一路线、板角；前后刃控制峰的髋踝距相同，转换段不同。 |\n| 同上 | `recover` | 正常→较低→恢复；中间两弧降低，最后两弧实际回到正常参考。 | 与 `normal-dynamic` 同一路线和板事件；开始与结束的正常段关节输出相同。 |\n| 同上 | `chest-dive` | 前刃胸部先扑入的反例，区别胸低与下肢参与。 | 与 `low-dynamic` 保持全部下肢、骨盆、雪板和靴不变，仅改变前刃躯干链；后刃与参考一致。 |\n\n低位的默认同步参考为：`low-dynamic ↔ normal-dynamic`；`low-basic → low-dynamic`；`recover → normal-dynamic`；`chest-dive → low-dynamic`。其他任务在其两个合法变体间比较。切换动作保留当前进度；不同路线的同百分比并不构成真实同速试验。\n\n## 独立路线与作者参数\n\n每弧局部进度为 `u ∈ [0,1]`，行进方位角采用 `h = sign × α × cos(πu)`，`sign` 随前后刃交替。以 16 点 Gauss–Legendre 积分对方向 `[sin(h), cos(h)]` 积分生成板中心路径，解析切线同时给 `travel`；正例板轴与切线一致。刃角为 `roll = sign × ρ × sin²(πu)`。因此中心路径、方向、工作刃和阶段来自同一状态，不另画一条“漂亮板痕”替代实际运动。\n\n| 任务 | 每段弧数与每弧长度 | 方位角幅度 α | 刃角峰值 ρ | 缺省观察时长 |\n| --- | --- | --- | --- | --- |\n| 温和伸展连续 | 6 × 13 m | 53° | 24° | 24 s |\n| 抱腿连续 | 6 × 13 m | 53° | 29° | 24 s |\n| 中大弯加载/出口 | 6 × 16 m | 完整 58°；偏浅 32° | 30° | 24 s |\n| 纯刻滑短弯 | 8 × 7.5 m | 48° | 29° | 20 s |\n| 大小弯变化 | `[17,17,12,12,7.5,7.5,12,12]` m 或 `[7.5,7.5,12,12,17,17,12,12]` m | 51° | 30° | 30 s |\n| 较低连续及比较/恢复 | 6 × 13 m | 53° | 29° | 24 s |\n\n这里的长度是换刃到换刃的中心路径长度，不是半径或官方横向摆幅；方位角相对坡下方向，刃角相对模型雪面。路线长度、角度、时长、躯干系数和阶段百分比全部为作者编排，没有由真人录像量出，也不是设置推荐。自定义 `duration` 只改变观察时钟，最短 12 s，不赋予实际雪上速度含义。\n\n总进度按累计弧长推进，大小变化的空间路径因此实际改变。相邻弧在中心路径、切向、刃角及身体运动的一阶变化上连续；完整偶数弧重播的姿态和方向可在扣除坡下平移后接续。滑段末态仍在滑行，重播不是停车示范。大小弯的灰色示意范围由当前弧长计算；它不是 CASI 或 JSBA 官方走廊。当前与同步参考路线使用共同图幅，局部窗口覆盖真实的相邻完整弧。\n\n## 实际腿长与两刃关系\n\n新 `leg-length.ts` 使用共享固定装备/骨长求解器，根据两侧髋到踝的平均直线距离二分求解姿态。骨段不会伸长。求解输入 `legBend` 的作者搜索区间为 20～105，迭代 25 次；它不是临床关节活动度或教学目标。目标超出当前装备与人体可达范围时抛错，不修改脚位、拉长骨段或默默夹到边界。\n\n温和伸展参考在转换时平均髋踝距约 0.802 m，前刃控制峰约 0.733 m、后刃约 0.74128 m；收腿参考转换约 0.715 m，前刃控制峰约 0.793 m、后刃约 0.78364 m。两条腿分别求解，平均值不要求前后膝角相等。上述“控制峰”指每弧 `u=0.5` 的作者观察点，并非压力峰。\n\n两向转换的髋与躯干组织不机械镜像。前刃弧中膝髋共同进入脚尖侧，躯干配合；后刃弧中膝髋折叠、骨盆位于脚跟侧，胸廓相对骨盆调整。后刃换前刃允许胸廓适当前俯，前刃换后刃使用不同的胸廓关系；中立脊柱不等于胸廓始终竖直。肩髋朝向、前后靴筒输入和屈腿幅度均由两刃分别组织；没有把某位示范者的开髋方向固定成全体八字滑手的处方。来源限制见[真人观察](jsba-video-observation.md)与[技术来源审读](jsba-technical-source-review.md)。\n\n较低收腿参考的转换平均髋踝距约 0.601 m；前刃控制峰约 0.620 m，后刃约 0.73964 m。较低伸展参考在转换约 0.750 m，在两刃控制峰与较低收腿参考相同。腿长与离雪高度受板角、两腿方向和骨盆位置共同影响，不能用同一个减数把两刃做成对称低位，也不能要求低位整段等高。\n\n恢复变体在连续弧相位 `p` 的 2～2.5 段逐渐降低，2.5～3.5 保持较低应用，3.5～4 恢复；0～2 和 4～6 与正常高度参考一致。变化是实际全身输出，不只切换文字标签。\n\n## 前刃图审反馈与最新复算\n\n本轮根代理实际页面初看发现：原前刃较低档的骨盆/头高度差不够清楚、膝腿仍显得接近直立。实现者实际查看了该轮前后刃模型截图，再检查世界坐标、髋踝距与膝角，独立调整前刃低位目标及与腿部联动的躯干关系。未移动固定脚位或改变共享人体约束，也未用胸部先扑代替低位。\n\n2026-10-16 从当前 sampler 重新计算以下数值。条件为 `low-linked-carve`、`fromEdge: toe`、`regular`；前刃取总进度 `t=1/12`，后刃取 `t=1/4`。世界坐标 `y` 是到模型雪平面的法向高度，不是实测重力竖直高度。膝角为几何屈曲角，0°表示伸直；以下保留的小数用于复核源码，不代表真人标定精度。\n\n| 量 | 前刃正常收腿 | 前刃较低收腿 | 后刃正常收腿 | 后刃较低收腿 |\n| --- | --- | --- | --- | --- |\n| 平均髋踝距 | 0.79300 m | 0.62000 m | 0.78364 m | 0.73964 m |\n| 骨盆 y | 0.899928 m | 0.808970 m | 0.811632 m | 0.718220 m |\n| 胸部 y | 1.249797 m | 1.150663 m | 1.121331 m | 1.018090 m |\n| 头部 y | 1.509701 m | 1.404493 m | 1.351394 m | 1.240851 m |\n| 原前脚侧膝屈曲 | 48.96° | 89.88° | 48.34° | 61.04° |\n| 原后脚侧膝屈曲 | 41.84° | 85.55° | 48.96° | 61.67° |\n| 骨盆沿板宽的水平投影位置 | +0.43530 m | +0.12553 m | −0.55378 m | −0.59101 m |\n\n板宽水平投影以板中心为原点、regular 脚尖侧为正；它不是足底压力中心或在倾斜板面上的投影。前刃骨盆实际降低 0.090958 m，胸部降低 0.099134 m；后刃骨盆降低 0.093412 m。前刃较低档骨盆仍在脚尖侧约 0.12553 m。它说明本次改动包含下肢和骨盆变化，不只压低头胸；也不能据此声称达到通用“高阶低位”认证，或证明真实同速条件下能保持平衡。\n\n同一条件的平板转换时，较低收腿参考骨盆 y≈0.672539 m、髋踝距≈0.601 m；较低伸展参考骨盆 y≈0.883287 m、髋踝距≈0.750 m。两向转换时骨盆输出相同但胸廓组织不同。`chest-dive` 在前刃控制峰维持较低参考的下肢与骨盆不变，胸部 y 改为约 1.116441 m、板宽水平投影由约 +0.20122 m 改为 +0.29270 m，供观察胸部先探出的变化；不演算抓地后果。\n\n这次复算对应源码 SHA-256 前 16 位：`jsba-carving.ts=e03c48ad1913ba46`、`leg-length.ts=1878e87d21e96af9`、共享 `prototype/motion.ts=0377cbc99798fd6e`。这些文件改动后，数值与相关图审都须重新检查。\n\n## 阶段事件与播放器含义\n\n每弧保留 6 个阶段，另加一项末态：6 弧为 37 项，8 弧为 49 项。`event` 是稳定事件 ID，`arc` 是从 0 开始的弧索引；展示标题可改，事件含义不能随文案漂移。选中阶段应采样该阶段真实时刻，播放器状态、三维、平面骨架、路线和曲线使用同一个状态。\n\n| event | 每弧位置 | 必须对应的模型事实 |\n| --- | --- | --- |\n| `edge-flat` | `u=0` | 板角为零，正处于旧刃向新侧的转换；身体按本变体伸展或收短。 |\n| `edge-engage` | 越过工作刃几何阈值时 | 新工作刃已建立，仍在通过落线之前；不是测得“已经加载”。 |\n| `arc-build` | `u=0.27` | 新弧持续形成；偏晚、拧板或扑胸变体说明指向该时刻的实际变化。 |\n| `fall-line` | `u=0.5` | 实际行进切线指向坡下；拧板反例的板轴仍可偏离切线。 |\n| `arc-exit` | `u=0.77` | 已继续改变方向，准备完成出口；浅出口变体的实际出口方向不同。 |\n| `edge-release` | 旧工作刃回到几何阈值内 | 状态已标为近平板，继续接下一弧；不表示零压力。 |\n| `sequence-end` | 总进度 1 | 仍在滑行；最后一弧可单独重播，不能变成零长度循环或停车。 |\n\n工作刃阈值为共享显示阈值 `|roll|=0.008 rad`，新刃/旧刃事件以该阈值与微小数值偏移求出，避免按钮恰好落在另一侧状态。该阈值只是可读性规则，不是雪面抓地临界角。模型 `phase` 与这些事件统一映射，错误对照不通过篡改阶段标签伪造物理事件。\n\n腿长图始终读取两侧世界坐标的 `(|frontHip−frontAnkle|+|rearHip−rearAnkle|)/2`，单位 m，161 个进度采样点。横轴为滑段进度，竖线和两圆点对应当前时刻，实线为当前变体、虚线为所选参考；纵轴按两条曲线联合范围放大，必须看刻度。它不是骨长、质心高度、肌肉力、脚下压力或板材储能。大小弯/出口比较的两条曲线属于不同实际路线，说明中必须保留这一区别。\n\n## 装备与共享人体约束\n\n本家族继续使用共享身体与装备模型：大腿/小腿各 0.43 m，躯干 0.35 m，髋宽 0.285 m、肩宽 0.39 m、站宽 0.54 m；板长 1.58 m、宽 0.265 m、厚 0.026 m。雪靴长 0.285 m、宽 0.115 m，前脚 +18°、后脚 −9°为固定作者八字示例。这些数值不是 JSBA 推荐，也不确认任何来源片段采用该设置。来源中的个人器材差异与适配边界见[技术来源审读](jsba-technical-source-review.md)。\n\n双脚固定在各自固定器局部框架内，踝关节局部位置为板长方向 ±0.27 m、离板坐标 y=0.15 m。前后脚身份及配色不随左右前脚选择交换。雪板整体滚转不算靴内踝活动；JSBA 当前编排的原前脚靴筒输入为 12～18°、原后脚为 12～17°，是胫骨相对固定鞋底的方向量，不是实测解剖踝角或靴子通用活动范围。共享高背/靴筒约束仍有效。\n\n几何下刃与雪平面相接，板的其他部分不得穿雪；这不是完整板雪接触或抓地求解。本家族没有局部板体扭转、受力弯板、板材刚度或手触雪支撑模型。不能从绿色几何接触点、刃角、`edgeLoad` 提示强度或某一身体高低，读取真实载荷/压力分布。手触雪不是本任务要求。\n\n## 已执行验证与仍需独立审阅的范围\n\n本轮实现者使用图像工具逐张查看 S48 的 17 张有效帧，并实读对应公开字幕私存文本：前刃换后刃 142.033、143.033、144.033、145.033、146.033、147.033、148.033、149.033 s；后刃换前刃 247.791、248.191、248.591、248.991、249.391、249.991、250.591、251.191、251.791 s。支持的可见关系及分屏限制均登记在[真人观察记录 S48](jsba-video-observation.md#s48miratori-两向转换)：两向膝髋/胸廓组织不同，前换后有相对展开再折叠，后换前髋跨侧并允许躯干前俯。4:43 附近本人说明这是个人风格；17 帧不能证明统一 Dynamic 时序或精确关节参数。原帧与字幕留在私有研究工作区，不随本规范公开复制。\n\n2026-10-16 在当前 sampler 上重新执行 15 变体 × 2 首刃 × 2 前脚 × 241 时点，得到 60 个组合、14,460 个主样本；本次复算的腿部骨段最大误差为 `1.1213252548714081e-14 m`。这是数值一致性证据，采样网格本身不证明全连续区间都正确；接缝和路径切向另有解析关系及单边导数收敛检查。\n\n本轮旧家族清理后，JSBA、基础刻滑、同步比较、CASI 专家搓雪、全站当前雪上引用、共享运动和教学依赖共 51 项关联测试通过：首轮 42 项动作/课程/共享检查通过；修复比较模块的审计任务路由后，9 项教学审计复跑全部通过。另已通过 TypeScript 类型检查、课内播放器构建和 `git diff --check`。这些均为工程检查，不是教学正确率、真人生物力学验证、JSBA 认证或完整发布验收。\n\n可复跑的关联命令：\n\n```sh\nnpx tsx --test tests/jsba-carving.test.ts tests/carving.test.ts tests/comparison.test.ts tests/expert-short-turns.test.ts tests/expert-short-sequence.test.ts tests/lessons.test.ts tests/motion.test.ts tests/teaching-audit.test.ts\nnpm run typecheck\nnpm run build:lessons\n```\n\n测试覆盖合法配置/拒绝配置、固定脚位与骨长、雪靴约束、实际路线切向与有意拧板、工作刃和事件入口、伸展/收腿真实腿长时序、两刃低位/恢复/同下肢扑胸、大小弯实际空间变化、左右前脚镜像、接缝及末态。依赖测试同时确认 JSBA sampler/腿长 helper 的变动只使真正相关引用过期，共享人体/场景/播放器变动仍使全部相关引用过期。\n\n本文件记录前刃反馈已经落实为可计算的修改，不代替修改后的全身连续图审结论。每个实际课程配置仍需结合实体/骨架、沿板宽/板长/斜视/靴近景，检查两刃保持和两个方向的完整转换；同时复核阶段按钮、慢放、参考切换、大小弯共同图幅、恢复及末态重播。真人有限帧与几何通过不能自动授予这些项目通过。实际页面观察、来源账、设备交互、线上部署及雪上试教分别登记；本规范未宣称实体手机、真实动力学、真人精确标定或雪上认证通过。\n",
+          "reviewedCurrentSha256": "e68d6b43be844afab3aa7f59a96e49d2b4e184a1859f4ae9476cc017946a9ba4",
+          "evidenceRef": "docs/jsba-posture-source-review.md",
+          "reviewScope": "完整读HEAD差分；历史正文完整存档；来源层级及真人标定状态均不升级。"
+        }
+      ]
     }
   },
   "sources": [
@@ -49710,6 +50651,10 @@
     {
       "sourceId": "T03",
       "sha256": "a19724dc234d15f85f6354e5a89ce2b1067ccc189730617e370230e4f8add0df"
+    },
+    {
+      "sourceId": "S55",
+      "sha256": "53f519ee05ade7422ca4f61643f7044c614a02bb3e6e522483e7f96bcbcf288a"
     }
   ],
   "evidenceDocuments": {
@@ -49875,7 +50820,7 @@
         "S54"
       ],
       "scope": "root实际观察官方Basic/Dynamic和个人八字示范的明确有效帧及公开字幕，不作精确标定。",
-      "sha256": "a0f7145b80df2b6c3b32df987494c6e91ca6b434e0514bfbfbc9a5f1649c4d68"
+      "sha256": "4b336a7b48d3cae3a6e71d4cb91083c0c4cc65e56a4a1ea03d6877ab48595d58"
     },
     "jsbaRebuildstructure": {
       "path": "docs/jsba-restructure-review.md",
@@ -49916,7 +50861,22 @@
         "S53"
       ],
       "scope": "新六任务的作者几何、变量控制与明确边界；测试和真人拟合分开。",
-      "sha256": "0d6f007ba07adb4100da72c5e11b701aed4bd581a6d7080b30df0fd268c54224"
+      "sha256": "e68d6b43be844afab3aa7f59a96e49d2b4e184a1859f4ae9476cc017946a9ba4"
+    },
+    "jsbaPostureReview": {
+      "path": "docs/jsba-posture-source-review.md",
+      "sourceIds": [
+        "S42",
+        "S43",
+        "S47",
+        "S50",
+        "S52",
+        "S53",
+        "S54",
+        "S55"
+      ],
+      "scope": "2026-10-16十主课加低位关联全文独立复读；六课32字段增量审读；S53新增17帧、S55新增10帧独立看图及个人公开字幕范围；不作真人标定。",
+      "sha256": "a6250f7fac36ab875d2c0b8c83afc361d4dcb48eb03adcb4a299716f6e4633fc"
     }
   },
   "lessons": [
@@ -117056,7 +118016,7 @@
       "lessonId": "s-jsba-basic-carve",
       "module": "carving",
       "title": "起身式刻滑：转换时伸展开，新弧中渐屈腿",
-      "lessonSha256": "4f595fdb87705db2585eaa45cbe400840224e8b2fd886e1283a55bdeffd80ac3",
+      "lessonSha256": "15d925115ec1ac54c4d66cc966058e6b043cbc4f6b2e3b72360226e19f5a270f",
       "reviewDocument": "docs/jsba-technical-source-review.md",
       "claims": [
         {
@@ -117659,29 +118619,29 @@
           "path": "execution[0]",
           "claim": {
             "title": "从弯中可屈可伸的位置开始",
-            "body": "膝髋适量屈曲，胸廓与骨盆配合，双脚踏稳。不要用最深低位起练，先保留向上与向侧方调整空间。",
-            "cue": "先留余量。",
-            "observe": "两腿能继续屈，也能逐渐伸开。",
+            "body": "膝髋适量屈曲，双脚踏稳，分别确认胸前与肚脐相对板头的舒适朝向。前正后负不等于肩髋必须完全横向，也不要求把本课开向拧到高阶低位示范的幅度。先保留能继续伸屈、两向换侧的空间，再练起身工具；不要一边学习新节奏，一边强改开髋量。",
+            "cue": "朝向舒适，屈伸留余量。",
+            "observe": "两腿可继续屈伸，胸髋没有为模仿外形被扭紧，两向仍能连续换侧。",
             "sources": [
-              "S46"
+              "S47"
             ]
           },
           "assessment": "suggestion",
           "sources": [
             {
-              "sourceId": "S46",
-              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S47",
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "S47只支持脚角影响活动方向；舒适朝向、单独练起身工具与不强套高阶开髋量是本站步骤。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[0]",
-              "sha256": "a5e3aa353a578a26c200d0ac9b6b3f9e3d9ac1e6996010a03425e1caea741582"
+              "sha256": "c456733283a3aebaf2a57c64de4bb62ffc0366055105208cd45deb10ad45add9"
             }
           ]
         },
@@ -118051,6 +119011,26 @@
                 "visible": "片内明确标注 Basic Long；115秒身体相对较高、腿较展开，117～118秒膝髋较屈曲，119秒再次展开。",
                 "meaning": "把转换与弧中运动连起来看，再对照本课温和伸展工具。",
                 "limits": "远机位、透视及视频质量限制细节；未确认脚角、精确刃角、压力或2025新版完整动作定义。"
+              },
+              {
+                "label": "本轮两向时序再核对",
+                "start": 115.12,
+                "end": 124.37,
+                "observedTimes": [
+                  "115.120",
+                  "116.370",
+                  "117.370",
+                  "118.370",
+                  "119.370",
+                  "120.370",
+                  "121.370",
+                  "122.370",
+                  "123.370",
+                  "124.370"
+                ],
+                "visible": "本轮另看115.120–124.370秒十个有效关键帧：连接弧线处腿相对展开，进入控制弧后屈曲，再向下一连接恢复展开，两向均可辨。",
+                "meaning": "对照屈伸发生在弧线连接还是控制段；不是只比较头部高低。",
+                "limits": "远景中人物较小，只作定性时序对照；不能量取精确关节角、平板瞬间或压力，也没有确认脚角。"
               }
             ],
             "practice": "本站建议：先在原片以正常速度理解连续过程，再按本课两向阶段暂停比较。只在已掌握的弯形里选一种工具练习，不复制屏幕节拍或姿态角度。"
@@ -118059,18 +119039,18 @@
           "sources": [
             {
               "sourceId": "S53",
-              "locator": "Basic Long：115.033、117.033、119.033 秒；Dynamic Short：625.033–626.833、630.033–632.433 秒；点评11:47–12:48",
-              "evidenceRef": "docs/jsba-video-observation.md"
+              "locator": "Basic新115.120–124.370秒十帧；Dynamic新630.235–633.235秒七帧；既有11:47–12:48日文自动字幕点评",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "boundary": "保留旧片段的历史证据；新增十帧独立看图，有限支持两向展开连接、弧中屈曲。",
           "provenance": [
-            "docs/jsba-video-observation.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "videoStudy",
-              "sha256": "2f15c6e7e1e18bedb76e8bd84412b9a8765487e0b4652c33e7c4a37d7401f515"
+              "sha256": "dd780b3563666d2cefc26a6e243c56cf608e570bb7afb4d29dc9e96500659e36"
             }
           ]
         },
@@ -118125,6 +119105,115 @@
             "docs/jsba-restructure-review.md"
           ],
           "bindings": []
+        },
+        {
+          "id": "s-jsba-basic-carve::checks[3]",
+          "lessonId": "s-jsba-basic-carve",
+          "path": "checks[3]",
+          "claim": "起身时胸廓和骨盆都能连续调整；舒适朝向下两腿仍可屈伸，不以高阶低位示范的开髋幅度作为Basic通过条件。",
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "可继续屈伸及不以高阶开放幅度作为通过条件，是本站观察标准。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "checks[3]",
+              "sha256": "c99344f6d4259f14b33899bd837e6f09795f8c8eb5bfe55df707c9e0a9a1f452"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-basic-carve::mistakes[3]",
+          "lessonId": "s-jsba-basic-carve",
+          "path": "mistakes[3]",
+          "claim": {
+            "error": "为模仿低位开髋外形，起身时膝髋越来越紧",
+            "cause": "可能同时强改身体朝向与屈伸节奏，或套用了不同脚角示范的骨盆方向。",
+            "fix": "先恢复正常高度和舒适朝向，只练温和伸展与身体换侧；两向稳定后，再单独比较少量朝向变化。",
+            "check": "腿可以继续伸屈，起身无需甩肩或硬拧膝，旧刃仍能连续释放。",
+            "differentiate": "回舒适朝向后恢复，先处理过大的开髋要求；朝向恢复仍卡旧刃，再查减刃与身体换侧，不把所有卡顿归于开髋不足。"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "恢复舒适朝向、再区分朝向与减刃问题，是本站差别诊断；没有声称通过实验证实病因。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mistakes[3]",
+              "sha256": "78c0bdd355cfd9089f72952968eb699ee618cce25211d32f4bdd09a0574d026f"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-basic-carve::citations[7]",
+          "lessonId": "s-jsba-basic-carve",
+          "path": "citations[7]",
+          "claim": "脚角改变身体朝向及膝髋易动方向。本站据此把舒适朝向与Basic运动工具分开练，不要求Basic复制高阶低位示范的开髋幅度。",
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S47",
+              "locator": "本人2026-09-20正文：脚角、身体朝向与膝髋可动方向",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S47本人正文支持脚角与易动方向；迁移到Basic的变量分开安排是本站归纳。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "citations[7]",
+              "sha256": "3172cadd0043aff21615835f18f32101533f5f6e9f45d97483bbc04999330bc4"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-basic-carve::videoStudy.segments[1]",
+          "lessonId": "s-jsba-basic-carve",
+          "path": "videoStudy.segments[1]",
+          "claim": {
+            "label": "本轮两向时序再核对",
+            "start": 115.12,
+            "end": 124.37,
+            "observedTimes": [
+              "115.120",
+              "116.370",
+              "117.370",
+              "118.370",
+              "119.370",
+              "120.370",
+              "121.370",
+              "122.370",
+              "123.370",
+              "124.370"
+            ],
+            "visible": "本轮另看115.120–124.370秒十个有效关键帧：连接弧线处腿相对展开，进入控制弧后屈曲，再向下一连接恢复展开，两向均可辨。",
+            "meaning": "对照屈伸发生在弧线连接还是控制段；不是只比较头部高低。",
+            "limits": "远景中人物较小，只作定性时序对照；不能量取精确关节角、平板瞬间或压力，也没有确认脚角。"
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S53",
+              "locator": "Basic新115.120–124.370秒十帧；Dynamic新630.235–633.235秒七帧；既有11:47–12:48日文自动字幕点评",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S53新十帧有Basic Long片内标签；用膝髋与弧线位置辨相对时序，未定出精确平板或压力。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "videoStudy.segments[1]",
+              "sha256": "5f338345223be47e981e6f40d3d1c8e954ba24a460df358425b9958b2c556e59"
+            }
+          ]
         }
       ],
       "videoComparison": {
@@ -118133,7 +119222,7 @@
           "S53"
         ],
         "observationIds": [
-          "jsba-2026-10-16-s-jsba-basic-carve"
+          "jsba-posture-2026-10-16-s-jsba-basic-carve"
         ]
       },
       "realFootageCalibration": "not_performed",
@@ -125023,7 +126112,7 @@
       "lessonId": "s-jsba-dynamic-carve",
       "module": "carving",
       "title": "抱腿式刻滑：收腿释放，向新弧伸开承接",
-      "lessonSha256": "d5ac898fa68b39d55c81e2457b792280af68483df18429102cf67da72b85ab28",
+      "lessonSha256": "af6dc92930c225481fc77e78b634e56e09cbaaad2d5b90023161eb8fbed71608",
       "reviewDocument": "docs/jsba-technical-source-review.md",
       "claims": [
         {
@@ -125216,17 +126305,17 @@
           "id": "s-jsba-dynamic-carve::checks[2]",
           "lessonId": "s-jsba-dynamic-carve",
           "path": "checks[2]",
-          "claim": "两向都能连续完成，腿收放与胸廓、骨盆关系协调。",
+          "claim": "两向收放都能连续完成；胸前与肚脐在适合脚角的朝向下协调调整，后刃不冻结骨盆，前刃不靠继续扭身抢转。",
           "assessment": "suggestion",
           "sources": [],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "分看胸前与肚脐、前刃不靠继续扭身抢转，是本站可观察的检查项。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "checks[2]",
-              "sha256": "333449ee22a27deef7e8ea1e24990d40dd4dc903bf4faefb4b05481b8c35adb0"
+              "sha256": "90b10d3d21f6a5c246fb0cf1db4af14583164520203ddaf6610f66d5117195d9"
             }
           ]
         },
@@ -125261,20 +126350,20 @@
           "claim": {
             "error": "新弯板一下弹起或腿顶直",
             "cause": "可能伸腿方向与板的支持不匹配，或者太早、太急地伸展。",
-            "fix": "保持屈膝余量，等新刃开始接住再逐步展开，保留原弧形。",
+            "fix": "减小突兀伸展，保留屈膝余量，让换侧、向新弧展开和新刃支持连续建立；不在平板位置等待，也不为了赶下一弧一下顶直。",
             "check": "板沿雪面连续发展弧线。",
             "differentiate": "偶发雪面起伏不等于动作错误；若每次都在同一运动阶段弹起，才优先查伸展时机。"
           },
           "assessment": "suggestion",
           "sources": [],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "去除先等新刃完全接住再伸的停顿指令；换侧、展开和新支持连续建立是本站纠错建议，不是测得受力先后。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "mistakes[1]",
-              "sha256": "8c75856303f099cbb534b639d1ba2d19f2f76bebc641382026fbe4d2c5044503"
+              "sha256": "430799ade9f8cf8bbc50876f6a4f8801eb109914964caecd0f9f15388085786f"
             }
           ]
         },
@@ -125799,10 +126888,10 @@
           "lessonId": "s-jsba-dynamic-carve",
           "path": "execution[3]",
           "claim": {
-            "title": "向新弧逐步伸开双腿",
-            "body": "新刃开始支持后，两腿沿当前板与身体的方向重新展开，发展新弧，而非竖直猛蹬。前刃让髋跟腿进入脚尖侧，后刃保持屈髋与胸廓配合；不追求双腿同一伸直幅度。",
+            "title": "让腿部逐步向新弧展开",
+            "body": "在收短、换侧并进入新弧的连续过程中，腿部向新弧方向逐步展开，伸展与新刃支持建立相互衔接，不停着等板已完全接住才开始动腿。保留适合当前脚角的胸髋朝向：前刃让骨盆跟腿跨向脚尖侧，不靠继续扭胸拉板；后刃让屈髋与胸廓配合。前后腿可不同幅度，甚至一收一展；不要把腿部整体展开理解为两膝必须同时伸直，膝不一下顶直，也不向世界正下方猛蹬。",
             "cue": "把新弧接回来。",
-            "observe": "抓雪与弧形继续发展，没有一下顶直或弹起。",
+            "observe": "新弧连续发展，分别可见前后腿的调整；胸髋没有冻结或靠大幅抢转补时间，两腿仍保留回收余量。",
             "sources": [
               "S42",
               "S43",
@@ -125813,28 +126902,28 @@
           "sources": [
             {
               "sourceId": "S42",
-              "locator": "PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "locator": "2026教育规程PDF第12页别表A-1、第21页别表B-1/B-2：任务命名与评价范围；不含本字段全部步骤",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
               "sourceId": "S43",
-              "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "locator": "第33届各種目ジャッジングポイント及カービング共通ポイント：竞赛质量要求，不是统一开放姿态处方",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
               "sourceId": "S47",
-              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "S42/S43是任务与质量范围，S47是可动方向；向新弧连续展开、胸髋配合及两腿可不同幅度均为本站步骤。“一收一展”不是从官方远景测得的统一时序。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[3]",
-              "sha256": "41e629673c850cbfa689171f8d710c4cb5e52f8f2dfa2bbd036073925359f7a9"
+              "sha256": "bf6f8b01f867082462538c60a6729959766136d053c65810db5d5e1c87a17829"
             }
           ]
         },
@@ -126094,6 +127183,23 @@
                 "visible": "片内明确标注 Dynamic Short；旧弧中腿相对较长，630.633～630.933秒身体较紧凑、板经过身下，631.233～631.833秒向新弧重新展开，随后再收回。",
                 "meaning": "先做清楚收腿和跨板，再发展新弧；结合11:47～12:48点评理解不要赶节奏而省略收腿。",
                 "limits": "这里只作有限关键帧定性比较；点评包含不同水平，不视为统一满分示范。未测脚角、速度、压力、板弯或弹性能。"
+              },
+              {
+                "label": "本轮两向时序再核对",
+                "start": 630.235,
+                "end": 633.235,
+                "observedTimes": [
+                  "630.235",
+                  "630.735",
+                  "631.235",
+                  "631.735",
+                  "632.235",
+                  "632.735",
+                  "633.235"
+                ],
+                "visible": "本轮另看630.235–633.235秒七个有效关键帧：腿较长、连接时紧凑，再向新弧展开，随后另一向同类重组。",
+                "meaning": "对照屈伸发生在弧线连接还是控制段；不是只比较头部高低。",
+                "limits": "远景中人物较小，只作定性时序对照；不能量取精确关节角、平板瞬间或压力，也没有确认脚角。"
               }
             ],
             "practice": "本站建议：先在原片以正常速度理解连续过程，再按本课两向阶段暂停比较。只在已掌握的弯形里选一种工具练习，不复制屏幕节拍或姿态角度。"
@@ -126102,18 +127208,18 @@
           "sources": [
             {
               "sourceId": "S53",
-              "locator": "Basic Long：115.033、117.033、119.033 秒；Dynamic Short：625.033–626.833、630.033–632.433 秒；点评11:47–12:48",
-              "evidenceRef": "docs/jsba-video-observation.md"
+              "locator": "Basic新115.120–124.370秒十帧；Dynamic新630.235–633.235秒七帧；既有11:47–12:48日文自动字幕点评",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "boundary": "保留原九帧片段证据；另看七帧，和既有日文点评共同支持收短转换、向新弧展开的定性组织。",
           "provenance": [
-            "docs/jsba-video-observation.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "videoStudy",
-              "sha256": "e6d1e76ebb8f8a3803c41b5de98c58edd70c812c16fd1de6f6ceb1cb48f16165"
+              "sha256": "55f0336d14612ca2023216862a19b521c0a73f161cab659dd224ef0ae6276563"
             }
           ]
         },
@@ -126172,6 +127278,46 @@
             "docs/jsba-restructure-review.md"
           ],
           "bindings": []
+        },
+        {
+          "id": "s-jsba-dynamic-carve::videoStudy.segments[1]",
+          "lessonId": "s-jsba-dynamic-carve",
+          "path": "videoStudy.segments[1]",
+          "claim": {
+            "label": "本轮两向时序再核对",
+            "start": 630.235,
+            "end": 633.235,
+            "observedTimes": [
+              "630.235",
+              "630.735",
+              "631.235",
+              "631.735",
+              "632.235",
+              "632.735",
+              "633.235"
+            ],
+            "visible": "本轮另看630.235–633.235秒七个有效关键帧：腿较长、连接时紧凑，再向新弧展开，随后另一向同类重组。",
+            "meaning": "对照屈伸发生在弧线连接还是控制段；不是只比较头部高低。",
+            "limits": "远景中人物较小，只作定性时序对照；不能量取精确关节角、平板瞬间或压力，也没有确认脚角。"
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S53",
+              "locator": "Basic新115.120–124.370秒十帧；Dynamic新630.235–633.235秒七帧；既有11:47–12:48日文自动字幕点评",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S53新七帧覆盖两次紧凑连接及随后展开；不凭头高低反算压力、关节角或脚角。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "videoStudy.segments[1]",
+              "sha256": "415181b17e2cc2ebe11afe61079cec2c42f56f8cbe52e48bb2589cb61efbb222"
+            }
+          ]
         }
       ],
       "videoComparison": {
@@ -126180,7 +127326,7 @@
           "S53"
         ],
         "observationIds": [
-          "jsba-2026-10-16-s-jsba-dynamic-carve"
+          "jsba-posture-2026-10-16-s-jsba-dynamic-carve"
         ]
       },
       "realFootageCalibration": "not_performed",
@@ -126193,7 +127339,7 @@
       "lessonId": "s-carve-expert-pressure",
       "module": "carving",
       "title": "刻滑发力逻辑：身体运动、刃上压力与板的反应",
-      "lessonSha256": "4cf00944afc7a8c4599aad62cde59ad4a53fa4c2177e07c94917761465204780",
+      "lessonSha256": "afa5c991623858e643856333d53c939967a174f692d756db3a0ddf66b16d10b0",
       "reviewDocument": "docs/jsba-technical-source-review.md",
       "claims": [
         {
@@ -126910,7 +128056,7 @@
           "path": "execution[3]",
           "claim": {
             "title": "释放时同时处理腿和板角",
-            "body": "弯末渐减旧刃角，再按所选策略让腿伸开或收回，使板和身体重新换侧。不要只把腿弯掉、旧刃却仍顶住雪面，也不要猛伸腿把自己弹离雪。",
+            "body": "逐渐减小旧刃角时，配合所选策略让双腿伸开或收回，骨盆与雪板连续换侧。减刃、腿长变化和身体移动需要衔接，不拆成先把刃完全放平、再开始动腿的两步。不要只收腿却留在旧刃，也不要猛伸腿把自己弹离雪。",
             "cue": "放刃要与身体移动衔接。",
             "observe": "旧刃到新刃连续，板不过度跳动或拖滞。",
             "sources": [
@@ -126922,23 +128068,23 @@
           "sources": [
             {
               "sourceId": "S42",
-              "locator": "PDF 第 12 页别表 A-1；第 21 页别表 B-1、B-2",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "locator": "2026教育规程PDF第12页别表A-1、第21页别表B-1/B-2：任务命名与评价范围；不含本字段全部步骤",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
               "sourceId": "S50",
-              "locator": "カービングターンロング；カービングターンミドル",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "locator": "第21届2014年历史规则：カービングターンロング的两类运动展开与ミドル自由运动",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "S42任务与S50历史运动工具支持区分策略；减刃、腿长与跨侧相衔接是本站步骤，不规定先完全放平再动腿，也不据动画认定压力。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[3]",
-              "sha256": "ec78aa766b61d1eb70d28a5c7745f1fbbbf17efc059639f5db2f0ec1dfe62ffb"
+              "sha256": "4f7062406d44193dd632808a6cb3a320423b2aacfbaeb5877fef0c090fb97866"
             }
           ]
         },
@@ -128963,7 +130109,7 @@
       "lessonId": "s-jsba-duck-mechanics",
       "module": "carving",
       "title": "八字刻滑身体机制：两刃、肩髋与装备条件",
-      "lessonSha256": "28ce9a4d44a1a589795ee74a89e7177960ca4b1fa078183c65bf3d98770b4736",
+      "lessonSha256": "c12a588fadb1ff6ef18f8eb23cf6fdf5602fc2a14ae4276ca67e4443c41404ba",
       "reviewDocument": "docs/jsba-technical-source-review.md",
       "claims": [
         {
@@ -129158,17 +130304,17 @@
           "id": "s-jsba-duck-mechanics::checks[2]",
           "lessonId": "s-jsba-duck-mechanics",
           "path": "checks[2]",
-          "claim": "肩髋能自然配合，膝不被强扭，双腿始终可调。",
+          "claim": "胸前和肚脐的朝向分别可辨；后刃骨盆参与而前膝不被硬带转，前刃不靠上身继续过旋拉板，两腿仍可调整。",
           "assessment": "suggestion",
           "sources": [],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "胸髋可辨、前膝不被强带转和两腿可调是本站检查标准；没有给统一角度或通过分数。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "checks[2]",
-              "sha256": "12ad5d527b9431b09e75b72664aab4fd9af5213caf0f88c394709af5f6d76556"
+              "sha256": "1dff3a99ddae23629d21e3c0362c9090aa42060200f3d49b2bf65c876dba1884"
             }
           ]
         },
@@ -129585,34 +130731,46 @@
           "lessonId": "s-jsba-duck-mechanics",
           "path": "mechanics[4]",
           "claim": {
-            "title": "肩髋可转动，但转动量由任务决定",
-            "body": "视线可先看出口，胸廓和骨盆随后协调，骨盆开向受两脚固定与髋的活动约束。不是肩越先转越好，也不是所有部位永远平行雪板；看它是否帮助两腿控制板，而不是将整板甩横。",
+            "title": "胸前与肚脐的开放朝向要分别观察",
+            "body": "脚角、胸廓朝向、骨盆朝向和身体跨板是四件事。开放朝向以板头作参考，看胸前和肚脐是否朝板头打开，不用“肩线朝前”代替观察。示范者澤田剛志的后刃方法强调骨盆与后腿配合，不能只转手臂和胸；前刃则避免上身先向弯内过旋，把板拖成横扫。视线看路线不等于肩、髋必须依次抢转。具体开向服从脚角、个人活动与工作刃，不规定统一角度或两刃镜像。",
             "sources": [
-              "S43",
-              "S47"
+              "S47",
+              "S52",
+              "S54",
+              "S55"
             ]
           },
           "assessment": "synthesis",
           "sources": [
             {
-              "sourceId": "S43",
-              "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S47",
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
-              "sourceId": "S47",
-              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S52",
+              "locator": "已读公开英文字幕8:38–10:10；旧已看130.033/195.033秒原地对照，原地未双脚固定滑行",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S54",
+              "locator": "旧已看5.033/5.433/5.833秒；本轮已读公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24，长窗口未逐帧核验",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "boundary": "S47脚角正文与S52/S54/S55具名个人方法共同支持区分脚角、胸廓、骨盆和跨板；前后刃具体口令归澤田本人，不升格为JSBA统一开放角。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "mechanics[4]",
-              "sha256": "c105cb51bcb6dfce1026c9baa1c6affe3638902d94cbc2f3406a2b955c537b0f"
+              "sha256": "0635003c7ea21ba720b52ebee0ce8c40fa6b2d1eaf0962bc73663f3f143b1bea"
             }
           ]
         },
@@ -129728,35 +130886,35 @@
           "path": "execution[2]",
           "claim": {
             "title": "前刃做膝髋共同换侧",
-            "body": "用正常高度单弧，让腿和骨盆一起进入脚尖侧，胸廓配合，双脚稳定。确认抓雪后才增加少量屈曲，不只让胸口更低。",
-            "cue": "膝髋一起到前刃。",
-            "observe": "髋跟上腿，弧线和出口仍可控。",
+            "body": "用正常高度前刃单弧，先保留适合脚角的胸髋朝向，让腿和骨盆一起跨向脚尖侧。胸廓随整体平衡配合，不继续向弯内扭身抢着拉板；头低、手更近雪不能代替骨盆换侧。确认弧线和出口仍可控，再少量降低。",
+            "cue": "保留朝向，膝髋一起换侧。",
+            "observe": "骨盆跟随腿进入新侧，胸没有独自下探；板尾没有随扭身突然扫开。",
             "sources": [
-              "S46",
-              "S49"
+              "S47",
+              "S52"
             ]
           },
           "assessment": "suggestion",
           "sources": [
             {
-              "sourceId": "S46",
-              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S47",
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
-              "sourceId": "S49",
-              "locator": "原书 p.30 lean / lean-out；p.159 技术体系",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S52",
+              "locator": "已读公开英文字幕8:38–10:10；旧已看130.033/195.033秒原地对照，原地未双脚固定滑行",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "S52原地对照及英文字幕帮助区分过旋/探胸和髋参与；正常高度前刃单弧、再降低是本站练习顺序。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[2]",
-              "sha256": "84894325d32305cab23e814d349b3ec9d1278611103bb38b747b3b2f48af9454"
+              "sha256": "b746c42d1480a2151fc04ad3d995f7e6b9841dcd0fcc18ae0b203fd6223215dd"
             }
           ]
         },
@@ -129765,36 +130923,42 @@
           "lessonId": "s-jsba-duck-mechanics",
           "path": "execution[3]",
           "claim": {
-            "title": "后刃做屈膝屈髋与胸廓配合",
-            "body": "用后刃单弧体会骨盆跨板宽进入脚跟侧；胸廓调整而非单独圆背低头。前后腿仍有活动，避免整个人沿板长坐向后脚。",
-            "cue": "脚跟侧折叠，别坐尾。",
-            "observe": "后腿不锁死，随时可以放旧刃。",
+            "title": "后刃让骨盆开放与两腿屈伸配合",
+            "body": "用正常高度后刃单弧，先在舒适脚位内让肚脐朝板头打开，后膝可更多屈曲，前膝保留活动而不被一同扭向弯内。随后按弧线需要屈髋，骨盆向脚跟侧降低，胸廓向板头一侧协调；不要只转胸口，也不要因臀部靠近后腿就单独认定后坐。两腿始终能调整，下一次仍可减刃换侧。",
+            "cue": "髋真正参与，前膝不被带转。",
+            "observe": "胸前和肚脐朝向都可辨，后腿可屈、前腿仍可调；减小动作后板尾仍跟随弧线。",
             "sources": [
-              "S46",
-              "S47"
+              "S47",
+              "S54",
+              "S55"
             ]
           },
           "assessment": "suggestion",
           "sources": [
             {
-              "sourceId": "S46",
-              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S47",
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
-              "sourceId": "S47",
-              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S54",
+              "locator": "旧已看5.033/5.433/5.833秒；本轮已读公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24，长窗口未逐帧核验",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "S54/S55有限后刃观察与本人字幕支持骨盆及两腿参与；从正常高度、舒适幅度和检查前膝的安排是本站建议。臀部投影不能单独测出后坐或压力。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[3]",
-              "sha256": "a9f6b6e921aaf1103e93b830d29bb620a9b1c39a4645b18d283788c050a0759e"
+              "sha256": "bf0ff9a6add8cefba9ddcb675fdb33cc35208a6f5d9ed66394ac38fe6a6a5953"
             }
           ]
         },
@@ -129803,36 +130967,48 @@
           "lessonId": "s-jsba-duck-mechanics",
           "path": "execution[4]",
           "claim": {
-            "title": "给肩髋自然配合留下空间",
-            "body": "保持同一弧形，让视线、胸廓、骨盆和双腿在舒适范围配合。若一转肩就扫尾，减小幅度并回查腿与板的支持；若必须冻结上身才勉强稳定，也先减难度。",
-            "cue": "朝向服务脚下。",
-            "observe": "头肩不单飞，板尾继续跟随。",
+            "title": "比较两刃朝向，不用上身替板转弯",
+            "body": "分别看胸前与肚脐相对板头的朝向，再看前膝、后膝和板尾路径。后刃可主动协调骨盆开放；进入前刃时保留合适朝向，让身体跨向新刃，不继续向弯内过旋。若一开髋就扫尾，先减小转动并查前膝是否被带转；只有胸口打开则先回正常高度重做骨盆与后腿配合。",
+            "cue": "开向板头，换侧另看。",
+            "observe": "能区分只开胸、骨盆参与和扭身拉板；两刃仍可连续释放。",
             "sources": [
-              "S43",
-              "S47"
+              "S47",
+              "S52",
+              "S54",
+              "S55"
             ]
           },
           "assessment": "suggestion",
           "sources": [
             {
-              "sourceId": "S43",
-              "locator": "各種目ジャッジングポイント；カービング種目共通ポイント；long、middle、short",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S47",
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
-              "sourceId": "S47",
-              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S52",
+              "locator": "已读公开英文字幕8:38–10:10；旧已看130.033/195.033秒原地对照，原地未双脚固定滑行",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S54",
+              "locator": "旧已看5.033/5.433/5.833秒；本轮已读公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24，长窗口未逐帧核验",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "胸前、肚脐、两膝、板尾分开观察，以及扫尾时退回单弧，是本站诊断流程。个人两刃意象不作全体滑手的必做旋转。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[4]",
-              "sha256": "ae1a0ecac066daa15d063aef666a24a0d082e88b8ddb996a2338d7649b5843c8"
+              "sha256": "643d876268595c4583962b13a3820cd8efa51f9f933c32715043ee9bb2edcd66"
             }
           ]
         },
@@ -129936,23 +131112,23 @@
           "id": "s-jsba-duck-mechanics::citations[4]",
           "lessonId": "s-jsba-duck-mechanics",
           "path": "citations[4]",
-          "claim": "本课真人卡仅使用明确列出的有限关键帧；可见姿态与个人讲解用于定性理解，未作压力测量或真人精确标定。",
+          "claim": "有限帧可见低位后刃身体关系；已读字幕另讨论后刃骨盆开放、后腿参与、仅转胸未转髋及避免把前膝带转。均是具名个人方法的定性依据，未测压力、精确角度或确认长字幕窗口的每一帧；本课步骤为本站归纳。",
           "assessment": "synthesis",
           "sources": [
             {
               "sourceId": "S54",
-              "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
-              "evidenceRef": "docs/jsba-video-observation.md"
+              "locator": "5.033、5.433、5.833秒已看帧；本人后刃视频公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "boundary": "S54仅有旧三帧后刃图像；本轮实际读长窗口公开英文字幕。字幕涉及后腿/前膝/髋胸区分，不表示已逐帧看完这些字幕窗口。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "citations[4]",
-              "sha256": "bfecdc48a6c397cc11833c3be5b49ef2ed634a7aeba5772374e6ed1aeb29f385"
+              "sha256": "814d214e9204377f7d6871868c41f3d38fac3c7b388a04159ddb9fca6129eaf4"
             }
           ]
         },
@@ -130013,43 +131189,59 @@
           "lessonId": "s-jsba-duck-mechanics",
           "path": "videoStudy",
           "claim": {
-            "source": "S54",
-            "title": "个人低位后刃：看膝髋折叠与胸廓配合",
-            "url": "https://www.youtube.com/watch?v=FookVR1Ojuw",
-            "scope": "具名个人风格；实际观察片头低位后刃关键帧，不能称完整官方JSBA任务。",
+            "source": "S55",
+            "title": "个人八字示范：分别看胸前、骨盆和两条腿",
+            "url": "https://www.youtube.com/watch?v=R7xBPS_axN4",
+            "scope": "澤田剛志本人方法；本站实际观察以下有限关键帧，并读取公开英文字幕。不是JSBA统一模板，也未确认片内固定器的精确角度。",
             "segments": [
               {
-                "label": "同一镜头的较低后刃",
-                "start": 5.033,
-                "end": 5.833,
+                "label": "胸髋朝向与后刃两腿配合",
+                "start": 317.24,
+                "end": 352.24,
                 "observedTimes": [
-                  "5.033",
-                  "5.433",
-                  "5.833"
+                  "317.240",
+                  "327.240",
+                  "332.240",
+                  "337.240",
+                  "342.240",
+                  "347.240",
+                  "352.240"
                 ],
-                "visible": "可见两腿屈曲、骨盆在脚跟侧较低，胸廓相对骨盆向板前方配合；手部触雪，雪雾遮挡部分靴板细节。",
-                "meaning": "把板宽方向的脚跟侧屈髋，与沿板长坐尾分开理解；身体配合要服务脚下弧线。",
-                "limits": "广角跟拍有透视畸变，手部参与支撑未测；未确认压力比例或关节角。6秒后切换镜头，不能接成完整连续换刃。"
+                "visible": "胸前与骨盆正面可见朝板头打开；较低后刃中前腿相对更长、后腿更屈，随后还可恢复较高位置。342秒起片内标有REGULAR。",
+                "meaning": "胸前和肚脐分别观察；开髋不只是转头或转胸，两腿不必同幅伸屈。",
+                "limits": "关键帧间隔较大，不能据此标定完整换刃先后、精确开放角、膝角或压力。弧中前后关系也不能推广为全周期固定的前伸后屈。"
+              },
+              {
+                "label": "另一前脚方向的同类意象",
+                "start": 384.28,
+                "end": 389.28,
+                "observedTimes": [
+                  "384.280",
+                  "389.280"
+                ],
+                "visible": "片内标有GOOFY，可见另一前脚方向的两刃身体配合；字幕分别提示前脚或后脚向外的意象。",
+                "meaning": "换成右脚在前仍保留原前后脚身份；示意动画应整体镜像，而不是把前后腿互换。",
+                "limits": "这两帧不是连续完整弧；公开英文字幕6:51–6:59明确说明雪板仍抓刃，“向外”不是真的横踢板或移动固定脚位。"
               }
             ],
-            "practice": "本站建议：观察关系后仍从正常高度开始，两侧支持可靠才降低；手离雪后能控制才继续发展。"
+            "practice": "本站建议：先在正常高度区分胸髋朝向与身体跨板，再看两腿如何调整。低位不是先决条件；不靠强拧膝或手触雪复制外形。"
           },
           "assessment": "synthesis",
           "sources": [
             {
-              "sourceId": "S54",
-              "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
-              "evidenceRef": "docs/jsba-video-observation.md"
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "boundary": "当前真人卡改用S55本人十帧中的九帧；历史S54卡完整归档。卡内应用与练法属本站归纳，不授予真人精确拟合。",
           "provenance": [
-            "docs/jsba-video-observation.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "videoStudy",
-              "sha256": "43537f95d946094ac9619e7dc7925cda72a8f70326ec705047a8821f77dc57f8"
+              "sha256": "ffbc80441dfadca4813d7b851376f8de85f123ee85c765e0be4ba94071291a51"
             }
           ]
         },
@@ -130058,34 +131250,38 @@
           "lessonId": "s-jsba-duck-mechanics",
           "path": "videoStudy.segments[0]",
           "claim": {
-            "label": "同一镜头的较低后刃",
-            "start": 5.033,
-            "end": 5.833,
+            "label": "胸髋朝向与后刃两腿配合",
+            "start": 317.24,
+            "end": 352.24,
             "observedTimes": [
-              "5.033",
-              "5.433",
-              "5.833"
+              "317.240",
+              "327.240",
+              "332.240",
+              "337.240",
+              "342.240",
+              "347.240",
+              "352.240"
             ],
-            "visible": "可见两腿屈曲、骨盆在脚跟侧较低，胸廓相对骨盆向板前方配合；手部触雪，雪雾遮挡部分靴板细节。",
-            "meaning": "把板宽方向的脚跟侧屈髋，与沿板长坐尾分开理解；身体配合要服务脚下弧线。",
-            "limits": "广角跟拍有透视畸变，手部参与支撑未测；未确认压力比例或关节角。6秒后切换镜头，不能接成完整连续换刃。"
+            "visible": "胸前与骨盆正面可见朝板头打开；较低后刃中前腿相对更长、后腿更屈，随后还可恢复较高位置。342秒起片内标有REGULAR。",
+            "meaning": "胸前和肚脐分别观察；开髋不只是转头或转胸，两腿不必同幅伸屈。",
+            "limits": "关键帧间隔较大，不能据此标定完整换刃先后、精确开放角、膝角或压力。弧中前后关系也不能推广为全周期固定的前伸后屈。"
           },
           "assessment": "synthesis",
           "sources": [
             {
-              "sourceId": "S54",
-              "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
-              "evidenceRef": "docs/jsba-video-observation.md"
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "boundary": "317.240–352.240秒七个实际帧可辨胸髋朝向及较低后刃两腿差异；帧间隔较大，不能拼成精确先后或全周期前长后短。",
           "provenance": [
-            "docs/jsba-video-observation.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "videoStudy.segments[0]",
-              "sha256": "fe95f817053d3e0bf3eb9720e45f992e1b7761699df1078bd8479dfac34580e8"
+              "sha256": "3b62cd01d70683c2b422053aa387246ff811eb4babc813de9b380cd862cb1b6b"
             }
           ]
         },
@@ -130102,15 +131298,122 @@
             "docs/jsba-restructure-review.md"
           ],
           "bindings": []
+        },
+        {
+          "id": "s-jsba-duck-mechanics::mistakes[4]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "mistakes[4]",
+          "claim": {
+            "error": "胸口已经打开，肚脐仍朝板侧",
+            "cause": "可能只转了胸廓和手臂，后腿仍僵直，或当前脚角与活动范围不适合所试幅度。",
+            "fix": "先回正常高度，减小转动量，让后腿适量屈曲并与骨盆小幅配合；前膝不跟着硬转，再接一个容易后刃弧。",
+            "check": "能分辨胸廓和骨盆各自朝向，腿仍可动，板尾没有新增横扫。",
+            "differentiate": "本次若选择开放髋练法，只有胸转开需查骨盆与后腿；若骨盆已打开但板尾扫开，应查转动过量和前膝被带转。正常舒适朝向本已能完成当前任务时，不为姿态外观强加更大幅度。"
+          },
+          "assessment": "suggestion",
+          "sources": [],
+          "boundary": "区分仅开胸、髋参与不足与开向过量，并先回正常高度，是本站鉴别建议；不强迫已能完成任务者扩大开向。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "mistakes[4]",
+              "sha256": "8eeca67dec0a15002ee7152dba89d7738f6f457dccf2c597a506412a31d82b51"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::citations[6]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "citations[6]",
+          "claim": "本人区分前刃上身过旋、探胸与骨盆换侧，供本站两刃观察归纳。字幕窗口不是本课新完成的逐帧标定，也不把个人口令作为JSBA统一动作。",
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S52",
+              "locator": "本人前刃视频公开英文字幕8:38–10:10；原地对照130.033、195.033秒",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S52旧原地帧与本轮已读英文字幕用于两刃观察归纳；原地未固定滑行，不当动态模板。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "citations[6]",
+              "sha256": "b4e6a83b1b7eb7287c8a5cdd2f811033299e67cabe08c8d2be0bdb275f64d172"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::citations[7]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "citations[7]",
+          "claim": "实际有限帧可见胸髋开放及两刃、两种前脚下的不同腿部配合。本站据此分别观察胸前、肚脐与前后腿；“脚向外”仅为本人意象，不是在雪板上移动脚或主动横踢雪板，不规定统一开放角。",
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S55",
+              "locator": "317.240、327.240、332.240、337.240、342.240、347.240、352.240、364.280秒；384.280、389.280秒另一前脚；字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S55新十帧与已读英文字幕有限支持胸髋开放、两刃及两前脚方向；脚向外是本人意象，不代表靴移位、横踢板或统一开角。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "citations[7]",
+              "sha256": "c231918d487c5d8753ae73676dd18a5f11f6101fddfbf2e6162a42625e5134a4"
+            }
+          ]
+        },
+        {
+          "id": "s-jsba-duck-mechanics::videoStudy.segments[1]",
+          "lessonId": "s-jsba-duck-mechanics",
+          "path": "videoStudy.segments[1]",
+          "claim": {
+            "label": "另一前脚方向的同类意象",
+            "start": 384.28,
+            "end": 389.28,
+            "observedTimes": [
+              "384.280",
+              "389.280"
+            ],
+            "visible": "片内标有GOOFY，可见另一前脚方向的两刃身体配合；字幕分别提示前脚或后脚向外的意象。",
+            "meaning": "换成右脚在前仍保留原前后脚身份；示意动画应整体镜像，而不是把前后腿互换。",
+            "limits": "这两帧不是连续完整弧；公开英文字幕6:51–6:59明确说明雪板仍抓刃，“向外”不是真的横踢板或移动固定脚位。"
+          },
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "384.280/389.280两帧含GOOFY标签；确认另一前脚方向的人体配合。全身镜像与保留前后脚身份是本站模型应用，非官方教材规定。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "videoStudy.segments[1]",
+              "sha256": "563822f2ad24b0d7129051cbf1e02f63935ae66e889ef5bedc4c3191b8762c5c"
+            }
+          ]
         }
       ],
       "videoComparison": {
         "status": "limited_keyframes",
         "sourceIds": [
-          "S54"
+          "S55"
         ],
         "observationIds": [
-          "jsba-2026-10-16-s-jsba-duck-mechanics"
+          "jsba-posture-2026-10-16-s-jsba-duck-mechanics"
         ]
       },
       "realFootageCalibration": "not_performed",
@@ -130123,7 +131426,7 @@
       "lessonId": "s-duck-low-linked",
       "module": "carving",
       "title": "低姿态八字刻滑：保持窄痕，完成两侧转换",
-      "lessonSha256": "f8ee0f47eb98102168e0284b502579bc2d65f2d9d41325d6081b9e9db7d49527",
+      "lessonSha256": "d705c7fa8c1b2da951d32ef08f3c469378a6ee7974397ba53322717746825061",
       "reviewDocument": "docs/jsba-restructure-extra-source-review.md",
       "claims": [
         {
@@ -131208,7 +132511,7 @@
           "path": "execution[1]",
           "claim": {
             "title": "旧刃减小，身体与板过渡",
-            "body": "弯末配合减小旧刃角，让骨盆和双腿离开旧侧。本课收腿示意在转换附近缩短髋踝距离，新刃逐渐接住后再伸开双腿，膝不锁直。前换后不先猛转肩髋压向板头；后换前让骨盆随下肢离开脚跟侧，不只抛前肩。经过接近平板的位置继续接新刃，不停在平板，也不把这一刻标成零压力。",
+            "body": "弯末配合减小旧刃角，让骨盆和双腿离开旧侧。本课收腿示意在转换附近缩短髋踝距离，腿部向新弧展开与新侧支持逐步建立相衔接；前后腿可不同幅度，不必两膝同时伸直。前换后不先猛转肩髋压向板头；后换前让骨盆随下肢离开脚跟侧，不只抛前肩。经过接近平板的位置继续接新刃，不停在平板，也不把这一刻标成零压力。",
             "cue": "放旧刃，给下一弯留位置。",
             "observe": "两向都无突扫尾；膝髋移动与刃角释放相衔接。",
             "sources": [
@@ -131241,14 +132544,15 @@
               "evidenceRef": "docs/jsba-restructure-extra-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "保留S17/D01原已核的重心/支撑和生物力学边界；S42/S50只给任务与历史工具范围。删去先接住再伸的硬顺序，连续建立与两腿可不同幅度均为本站示意与步骤，不冒充测力。",
           "provenance": [
-            "docs/jsba-restructure-extra-source-review.md"
+            "docs/jsba-restructure-extra-source-review.md",
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[1]",
-              "sha256": "aa6a8304ef4876099ead529fd52bff391e7141afd73576825db18f62bf4a56c0"
+              "sha256": "3f3c50158cb31d898fec5b65dc763fe7539a89ac2f97f9e6acc125be02adb756"
             }
           ]
         },
@@ -131651,7 +132955,7 @@
       "lessonId": "s-carve-expert-variation",
       "module": "carving",
       "title": "高阶低姿态八字：两刃承接与两向转换",
-      "lessonSha256": "8e111806866e62be51298ca49a0e68b090151f3e0b255366e23f7bd1b369d9ea",
+      "lessonSha256": "2c0c6c9a9b335bf2a60ca6e9b72026aa5fc7225ef9139b60ed81697ad5a7f17d",
       "reviewDocument": "docs/jsba-technical-source-review.md",
       "claims": [
         {
@@ -131865,17 +133169,17 @@
           "id": "s-carve-expert-variation::checks[2]",
           "lessonId": "s-carve-expert-variation",
           "path": "checks[2]",
-          "claim": "身体与腿始终有可用余量，随时能恢复高度或转为搓雪。",
+          "claim": "开放时分别看胸前与肚脐朝向；前刃不靠继续扭身拉板，后刃屈髋后两腿仍可调整，能恢复高度或转搓雪。",
           "assessment": "suggestion",
           "sources": [],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "分别看胸/髋与两刃可调、能恢复或转搓雪，是本站检查项。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "checks[2]",
-              "sha256": "c531abf71870399473fc0f3b68387c627a72826eabfae14c20cfb0df6092e06e"
+              "sha256": "017bf0604ab2376e9ae2846df162cc52db98e2374a1824f40e67d2c94fee9177"
             }
           ]
         },
@@ -131956,22 +133260,22 @@
           "lessonId": "s-carve-expert-variation",
           "path": "mistakes[3]",
           "claim": {
-            "error": "为了开髋把膝硬拧进去",
-            "cause": "可能复制了不同脚角示范的骨盆方向，忽略固定脚位和个人活动范围。",
-            "fix": "减小开向，回到能舒适屈伸的脚位；让肩髋配合服务板的弧线。",
-            "check": "无关节不适，尾部路径仍稳定。",
-            "differentiate": "肩髋适量转动可以正常，不以和板完全平行或完全朝板头作为统一验收。"
+            "error": "为了开髋把前膝带转，或只有胸口转开",
+            "cause": "可能把开髋当成全身一起旋转，也可能复制另一组脚角的外形，胸和手臂转了而骨盆没有配合。",
+            "fix": "先恢复正常高度，分别看胸前、肚脐和前膝；在舒适脚位内小幅协调骨盆与后腿，前膝不被强带向弯内。若板尾横扫就减小转动，再回单弧。",
+            "check": "胸髋朝向可以分别辨认，两腿仍可调，板尾不因扭身突然扫开。",
+            "differentiate": "胸口打开但骨盆仍横向，与髋已打开却把前膝和整板一起带转，是两种不同问题；先确认哪一种，不统一要求开得更多或更少。"
           },
           "assessment": "suggestion",
           "sources": [],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "仅开胸与连前膝整板一起带转的区分是本站排错；不能统一要求更大或更小开向。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "mistakes[3]",
-              "sha256": "81616eaeeaffe7b2a6113da77080ea3b032d76faa76671a1360c4fdfa0e20b9b"
+              "sha256": "355454a1ecd5ea19358cfeed95990a511c89fd8d7ed846566ecaac4b28bb631a"
             }
           ]
         },
@@ -132214,34 +133518,46 @@
           "lessonId": "s-carve-expert-variation",
           "path": "mechanics[2]",
           "claim": {
-            "title": "骨盆开向服从设置和脚下结果",
-            "body": "八字固定脚位下，骨盆和胸廓可以朝弧线前方适量转动，但不能为了开肩数值把后膝硬扭离舒适方向。不同脚角的示范需要重新理解其髋膝空间，不把双正或正零的外形直接复制。",
+            "title": "开放朝向与身体换侧分开看",
+            "body": "八字说的是前正后负的固定器角度；开放朝向看胸前和肚脐相对板头转向多少，两者不是同一个量。后刃可在舒适脚位内让骨盆朝板头打开，再配合屈髋；只转胸和手臂不代表髋已打开。进入前刃时还要让腿与骨盆跨向脚尖侧，不用上身继续向弯内过旋把板拉横。身体朝向与跨板移动要分别观察，不把个人示范的幅度或当前正零设置直接套给所有八字滑手。",
             "sources": [
-              "S44",
-              "S47"
+              "S47",
+              "S52",
+              "S54",
+              "S55"
             ]
           },
           "assessment": "synthesis",
           "sources": [
             {
-              "sourceId": "S44",
-              "locator": "田口瑞树、藤巻俊介、新野裕幸等个人装备栏",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S47",
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
-              "sourceId": "S47",
-              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S52",
+              "locator": "已读公开英文字幕8:38–10:10；旧已看130.033/195.033秒原地对照，原地未双脚固定滑行",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S54",
+              "locator": "旧已看5.033/5.433/5.833秒；本轮已读公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24，长窗口未逐帧核验",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "依据已读资料与所列有限观察的情境归纳；没有个体测力、统一关节处方或2025新版全文背书。",
+          "boundary": "S47/S52/S54/S55支持区分脚角与胸髋朝向、开放与跨板；个人后刃/前刃方法具名，当前正零设置不能套给所有八字滑手。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "mechanics[2]",
-              "sha256": "aa42bb8cd095adcea980e2aa5677af83c6238bbb949f0b397b4c28d1e1d37031"
+              "sha256": "18bbfde5a78fb7f46dfe4a2117b9a9b5d9945597622979602529fa2ade685c35"
             }
           ]
         },
@@ -132442,36 +133758,42 @@
           "lessonId": "s-carve-expert-variation",
           "path": "execution[3]",
           "claim": {
-            "title": "后刃保持两腿可动，避免坐向板尾",
-            "body": "让骨盆的脚跟侧位置与胸廓配合，前后腿都参与；一旦后腿挤死或胸廓只能压向板头补平衡，就适量恢复高度。",
-            "cue": "后刃是折叠，不是坐尾。",
-            "observe": "板尾不被长期压死，身体仍能再屈或伸。",
+            "title": "后刃开髋与屈髋配合，两腿仍能调整",
+            "body": "后刃弧中，在舒适脚位内让肚脐朝板头打开，后腿可以比前腿更多屈曲，前膝仍保留活动，不随转髋一起向弯内硬拧。骨盆向脚跟侧降低时，胸廓向板头一侧配合；臀部投影偏向后腿不自动等于后坐，还要看前腿能否继续控板、下一次能否释放。若只有胸口打开而肚脐仍横向，先恢复高度、小幅协调后腿和骨盆，不在深低位硬转。",
+            "cue": "胸髋分别看，两腿都能动。",
+            "observe": "可分辨胸前和肚脐的朝向；后腿可屈而不挤死，前腿仍可调整，下一次释放连续。",
             "sources": [
-              "S46",
-              "S47"
+              "S47",
+              "S54",
+              "S55"
             ]
           },
           "assessment": "suggestion",
           "sources": [
             {
-              "sourceId": "S46",
-              "locator": "上半身を使っても、バランスは取れる；腰を落とすだけでは届かない姿勢；低さではなく、動ける姿勢へ",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S47",
+              "locator": "本人2026-09-20全文：脚角变化、身体朝向与膝髋易动方向；+18/-6与现+30/0是个人经历",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             },
             {
-              "sourceId": "S47",
-              "locator": "テク選で優勝したときは18°／−6°；ターンを深く考えたら角度も変わった；今は30°／0°で落ち着いている",
-              "evidenceRef": "docs/jsba-technical-source-review.md"
+              "sourceId": "S54",
+              "locator": "旧已看5.033/5.433/5.833秒；本轮已读公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24，长窗口未逐帧核验",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            },
+            {
+              "sourceId": "S55",
+              "locator": "实际317.240/327.240/332.240/337.240/342.240/347.240/352.240/364.280及384.280/389.280秒十帧；已读公开英文字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
             }
           ],
-          "boundary": "本站教学组织、练法、观察或作者运动学示意；不是官方统一处方或实测结论。",
+          "boundary": "个人后刃帧与字幕支持可见关系；舒适脚位、正常高度退阶、分看前膝及释放能力是本站步骤，不将骨盆后方投影直接等同后坐。",
           "provenance": [
-            "docs/jsba-technical-source-review.md"
+            "docs/jsba-posture-source-review.md"
           ],
           "bindings": [
             {
               "path": "execution[3]",
-              "sha256": "8c7b1d77113e24760f35227094a769dcf24c231d1a2c566e171118e5e01d5a99"
+              "sha256": "715cdeb27a0910148a17f4d43ffff7e02e30f614122280e345f40b19fec9eecd"
             }
           ]
         },
@@ -132958,6 +134280,78 @@
             "docs/jsba-restructure-review.md"
           ],
           "bindings": []
+        },
+        {
+          "id": "s-carve-expert-variation::citations[8]",
+          "lessonId": "s-carve-expert-variation",
+          "path": "citations[8]",
+          "claim": "有限帧可见低位后刃身体关系；已读字幕另讨论后刃骨盆开放、后腿参与、仅转胸未转髋及避免把前膝带转。均是具名个人方法的定性依据，未测压力、精确角度或确认长字幕窗口的每一帧；本课步骤为本站归纳。",
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S54",
+              "locator": "5.033、5.433、5.833秒已看帧；本人后刃视频公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S54旧三帧只见后刃，长窗口只实际读字幕；不能暗示完整换刃已看或测得前后脚压力。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "citations[8]",
+              "sha256": "814d214e9204377f7d6871868c41f3d38fac3c7b388a04159ddb9fca6129eaf4"
+            }
+          ]
+        },
+        {
+          "id": "s-carve-expert-variation::citations[9]",
+          "lessonId": "s-carve-expert-variation",
+          "path": "citations[9]",
+          "claim": "本人区分前刃上身过旋、探胸与骨盆换侧，供本站两刃观察归纳。字幕窗口不是本课新完成的逐帧标定，也不把个人口令作为JSBA统一动作。",
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S52",
+              "locator": "本人前刃视频公开英文字幕8:38–10:10；原地对照130.033、195.033秒",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S52英文字幕与旧原地对照用于说明前刃过旋风险，不将本人方法当JSBA规范。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "citations[9]",
+              "sha256": "b4e6a83b1b7eb7287c8a5cdd2f811033299e67cabe08c8d2be0bdb275f64d172"
+            }
+          ]
+        },
+        {
+          "id": "s-carve-expert-variation::citations[10]",
+          "lessonId": "s-carve-expert-variation",
+          "path": "citations[10]",
+          "claim": "实际有限帧可见胸髋开放及两刃、两种前脚下的不同腿部配合。本站据此分别观察胸前、肚脐与前后腿；“脚向外”仅为本人意象，不是在雪板上移动脚或主动横踢雪板，不规定统一开放角。",
+          "assessment": "synthesis",
+          "sources": [
+            {
+              "sourceId": "S55",
+              "locator": "317.240、327.240、332.240、337.240、342.240、347.240、352.240、364.280秒；384.280、389.280秒另一前脚；字幕4:21–6:59",
+              "evidenceRef": "docs/jsba-posture-source-review.md"
+            }
+          ],
+          "boundary": "S55十帧和字幕是新增阅读依据，但本课真人卡仍为S48；引用S55不自动新增本课S55逐课视频核验状态。",
+          "provenance": [
+            "docs/jsba-posture-source-review.md"
+          ],
+          "bindings": [
+            {
+              "path": "citations[10]",
+              "sha256": "c231918d487c5d8753ae73676dd18a5f11f6101fddfbf2e6162a42625e5134a4"
+            }
+          ]
         }
       ],
       "videoComparison": {
@@ -168928,29 +170322,42 @@
       "sourceKind": "official"
     },
     {
-      "id": "jsba-2026-10-16-s-jsba-basic-carve",
+      "id": "jsba-posture-2026-10-16-s-jsba-basic-carve",
       "lessonId": "s-jsba-basic-carve",
       "sourceId": "S53",
       "sourceKind": "official",
       "status": "limited_keyframes",
-      "reviewer": "root",
+      "reviewer": "root；jsba_official_research独立查看本轮新增有效原图",
       "observedTimes": [
         "115.033",
         "116.033",
         "117.033",
         "118.033",
-        "119.033"
+        "119.033",
+        "115.120",
+        "116.370",
+        "117.370",
+        "118.370",
+        "119.370",
+        "120.370",
+        "121.370",
+        "122.370",
+        "123.370",
+        "124.370"
       ],
-      "evidenceRef": "docs/jsba-video-observation.md",
-      "scope": "本站实际看过以下有效关键帧和公开讲解字幕；不是全片逐帧标定。原片对应任务有片内标题。"
+      "evidenceRef": "docs/jsba-posture-source-review.md",
+      "scope": "S53官方片内任务标签明确；原时刻由历史独立观察支持，本轮新增十张Basic原图或七张Dynamic原图由根代理取帧并由独立审读者查看。两向腿部相对时序定性可辨；不测压力、关节角、脚角或精确平板瞬间。",
+      "retainedEvidenceRefs": [
+        "docs/jsba-video-observation.md"
+      ]
     },
     {
-      "id": "jsba-2026-10-16-s-jsba-dynamic-carve",
+      "id": "jsba-posture-2026-10-16-s-jsba-dynamic-carve",
       "lessonId": "s-jsba-dynamic-carve",
       "sourceId": "S53",
       "sourceKind": "official",
       "status": "limited_keyframes",
-      "reviewer": "root",
+      "reviewer": "root；jsba_official_research独立查看本轮新增有效原图",
       "observedTimes": [
         "630.033",
         "630.333",
@@ -168960,25 +170367,42 @@
         "631.533",
         "631.833",
         "632.133",
-        "632.433"
+        "632.433",
+        "630.235",
+        "630.735",
+        "631.235",
+        "631.735",
+        "632.235",
+        "632.735",
+        "633.235"
       ],
-      "evidenceRef": "docs/jsba-video-observation.md",
-      "scope": "本站实际看过以下有效关键帧和公开讲解字幕；不是全片逐帧标定。原片对应任务有片内标题。"
+      "evidenceRef": "docs/jsba-posture-source-review.md",
+      "scope": "S53官方片内任务标签明确；原时刻由历史独立观察支持，本轮新增十张Basic原图或七张Dynamic原图由根代理取帧并由独立审读者查看。两向腿部相对时序定性可辨；不测压力、关节角、脚角或精确平板瞬间。",
+      "retainedEvidenceRefs": [
+        "docs/jsba-video-observation.md"
+      ]
     },
     {
-      "id": "jsba-2026-10-16-s-jsba-duck-mechanics",
+      "id": "jsba-posture-2026-10-16-s-jsba-duck-mechanics",
       "lessonId": "s-jsba-duck-mechanics",
-      "sourceId": "S54",
+      "sourceId": "S55",
       "sourceKind": "personal",
       "status": "limited_keyframes",
-      "reviewer": "root",
+      "reviewer": "root；jsba_official_research独立查看本轮新增有效原图",
       "observedTimes": [
-        "5.033",
-        "5.433",
-        "5.833"
+        "317.240",
+        "327.240",
+        "332.240",
+        "337.240",
+        "342.240",
+        "347.240",
+        "352.240",
+        "364.280",
+        "384.280",
+        "389.280"
       ],
-      "evidenceRef": "docs/jsba-video-observation.md",
-      "scope": "具名个人风格；实际观察片头低位后刃关键帧，不能称完整官方JSBA任务。"
+      "evidenceRef": "docs/jsba-posture-source-review.md",
+      "scope": "澤田剛志本人方法；根代理实际播放取帧，独立审读者另看所列十张原图并读公开英文字幕。两刃、两前脚方向仅作有限定性对照；非完整换刃先后、精确开放角或压力标定。S54旧观察完整归档。"
     },
     {
       "id": "jsba-2026-10-16-s-carve-expert-variation",

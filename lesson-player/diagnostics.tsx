@@ -4,6 +4,7 @@ import { sampleLesson, type LessonConfig } from "./motion";
 import { meanLegLength } from "./pressure-advanced";
 import { supportsExpertShortLesson } from "./expert-short-turns";
 import { supportsJsbaCarvingLesson,jsbaCarvingComparison,jsbaCarvingVariants } from "./jsba-carving";
+import {JsbaLegDetails} from "./jsba-observation";
 
 /** Both diagrams read world-space output. Neither creates a pressure signal. */
 export function LessonDiagnostics({config,stance,time}:{config:LessonConfig;stance:Stance;time:number}) {
@@ -31,7 +32,7 @@ export function LessonDiagnostics({config,stance,time}:{config:LessonConfig;stan
       {expertNow?<><path d={`M${now[0]} 50V170`} stroke="#b4b9b0" strokeDasharray="3 3"/>{expertNow.map(c=><circle key={c.timing} cx={p(time*160,c.value)[0]} cy={p(time*160,c.value)[1]} r={c.timing===selected?4.5:3.5} fill={c.color} stroke="#fffdf6" strokeWidth="1"/>)}</>:<circle cx={now[0]} cy={now[1]} r="4" fill="#8b5038"/>}
       <text x="38" y="189">0%</text><text x="162" y="189">50%</text><text x="300" y="189">100%</text>
       <text x="12" y="211">{compareVariants?"竖线：当前进度；实线当前，虚线对照":timingCurves?"竖虚线：同一平板时刻；纵轴放大看差异":"纵轴已放大，便于看清腿部伸缩"}</text>
-    </svg><p className="sl3-hint">{compareVariants&&(jsba&&(config.task==="carve-size-change"||config.task==="carve-load-exit")?"两条曲线为两组实际路线中的腿部动作，路线不同，不能视为同路线或同速对照。": "两条曲线与圆点分别对应当前动作和参考动作的同一时刻，共用板路线、板角与放刃时刻；纵轴放大看差异。")}这里用髋到脚踝的直线距离表示双腿的屈伸程度，骨骼本身没有变长；它不是质心高度、肌肉力或压力。</p></div>;
+    </svg><p className="sl3-hint">{compareVariants&&(jsba&&(config.task==="carve-size-change"||config.task==="carve-load-exit")?"两条曲线为两组实际路线中的腿部动作，路线不同，不能视为同路线或同速对照。": "两条曲线与圆点分别对应当前动作和参考动作的同一时刻，共用板路线、板角与放刃时刻；纵轴放大看差异。")}这里用髋到脚踝的直线距离表示双腿的屈伸程度，骨骼本身没有变长；它不是质心高度、肌肉力或压力。</p>{jsba&&<JsbaLegDetails samples={samples} current={current} stance={stance} time={time}/>}</div>;
   }
   if(config.pressureDiagram) {
     const heights=samples.map(s=>s.com[1]),lo=Math.min(...heights)-.01,hi=Math.max(...heights)+.01;

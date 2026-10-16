@@ -47,7 +47,7 @@ const animationFiles = names.filter(name => name.startsWith('lesson-player/') ||
 // the configured task; imports from a task to a shared helper are never pruned.
 const dependencyPolicy = 'runtime-imports-with-task-routing-v1';
 const taskModules = new Set(['carving','rotation','short-turns','expert-short-turns','expert-short-sequence','jsba-carving','switch','twist','turns','pressure','pressure-advanced','coordination'].map(name=>`lesson-player/${name}.ts`));
-const conditionalModules = new Set([...taskModules,'lesson-player/dryland-player.tsx','lesson-player/dryland.ts','lesson-player/diagnostics.tsx','lesson-player/twist-diagram.tsx']);
+const conditionalModules = new Set([...taskModules,'lesson-player/dryland-player.tsx','lesson-player/dryland.ts','lesson-player/diagnostics.tsx','lesson-player/twist-diagram.tsx','lesson-player/jsba-observation.tsx']);
 const dispatchers = new Set(['lesson-player/main.tsx','lesson-player/motion.ts','lesson-player/diagnostics.tsx','lesson-player/comparison.ts']);
 function localImports(file) {
   const source=input[file],specifiers=[];
@@ -178,6 +178,7 @@ const moduleFor = demo => registry.drylandTypes?.includes(demo.type) ? 'lesson-p
 function animationDependencies(demo) {
   const dry=registry.drylandTypes?.includes(demo.type);
   const selected=new Set(dry?['lesson-player/dryland-player.tsx','lesson-player/dryland.ts']:moduleFor(demo).split(' / '));
+  if(demo.type==='jsba-carving')selected.add('lesson-player/jsba-observation.tsx');
   const diagnostics=!dry&&(demo.type==='jsba-carving'||demo.pressureDiagram||demo.legLengthDiagram||demo.transitionReference==='snow'||demo.task==='expert-load-release');
   if(diagnostics){
     selected.add('lesson-player/diagnostics.tsx');

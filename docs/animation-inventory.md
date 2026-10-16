@@ -341,7 +341,7 @@
 | [v21-method](https://jinke.me/snowboard/#lesson=v21-method) | 怎么安排练习：先滑一遍，拆一项，再自然滑：把一个滑行问题写成能执行、能比较的短组练习。 | 1. `rail-track` | [T01](#source-t01)、[S26](#source-s26) |
 | [v21-linear](https://jinke.me/snowboard/#lesson=v21-linear) | 动作时机：什么时候开始，什么时候停：能调整一段屈伸的时机与速度，同时保持圆弯。 | 1. `pressure-extend:timing-study` | [S16](#source-s16)、[T01](#source-t01)、[S26](#source-s26) |
 | [v3-index](https://jinke.me/snowboard/#lesson=v3-index) | 进阶怎么选课：两条主线与并行能力：根据当前问题和前置能力，选一项值得练的内容。 | 正文保留，无动作图 | [S16](#source-s16)、[T01](#source-t01)、[T02](#source-t02)、[T03](#source-t03)、[S26](#source-s26) |
-| [s-jsba-basic-carve](https://jinke.me/snowboard/#lesson=s-jsba-basic-carve) | 起身式刻滑：转换时伸展开，新弧中渐屈腿：在熟悉中大弯中用温和起身组织转换，双腿始终可调，连续弧不因上下动作而弹跳或扫尾。 | 1. `jsba-carving:reference` | [S42](#source-s42)、[S50](#source-s50)、[S51](#source-s51)、[S45](#source-s45)、[S53](#source-s53)、[S46](#source-s46)、[S43](#source-s43) |
+| [s-jsba-basic-carve](https://jinke.me/snowboard/#lesson=s-jsba-basic-carve) | 起身式刻滑：转换时伸展开，新弧中渐屈腿：在熟悉中大弯中用温和起身组织转换，双腿始终可调，连续弧不因上下动作而弹跳或扫尾。 | 1. `jsba-carving:reference` | [S42](#source-s42)、[S50](#source-s50)、[S51](#source-s51)、[S45](#source-s45)、[S53](#source-s53)、[S46](#source-s46)、[S43](#source-s43)、[S47](#source-s47) |
 | [s-short-expert-map](https://jinke.me/snowboard/#lesson=s-short-expert-map) | CASI 四级搓雪小回转：目标、转向与屈伸配合：理解专家短弯的任务条件和技术构成，能用弯形、转向分配与两向换刃判断该练哪一项。 | 正文保留，无动作图 | [S38](#source-s38)、[S16](#source-s16)、[S40](#source-s40)、[S41](#source-s41) |
 | [s-short-expert-steering](https://jinke.me/snowboard/#lesson=s-short-expert-steering) | 进阶小回转：在较窄的滑行走廊里保持完整弯形：在已能管理速度的条件下维持计划滑行走廊，让新弯较早产生有效方向变化，再逐步接近官方2–3米高阶任务。 | 1. `expert-short-turns:progressive` | [S38](#source-s38)、[S16](#source-s16) |
 | [s-short-expert-pressure](https://jinke.me/snowboard/#lesson=s-short-expert-pressure) | 进阶小回转：屈伸与换刃时机：在既有可控弧线中识别受力和释放的作用，管理不需要的弹跳与雪板反应，并持续接入下一弧。 | 1. `expert-short-turns:continuous` | [S38](#source-s38)、[S16](#source-s16) |
@@ -352,9 +352,9 @@
 | [s-carve-expert-pressure](https://jinke.me/snowboard/#lesson=s-carve-expert-pressure) | 刻滑发力逻辑：身体运动、刃上压力与板的反应：能说明一个动作改变了什么、板上应出现什么结果，并用逐渐建立和释放支持替代猛踩、塌腿或甩肩。 | 1. `jsba-carving:reference`<br>2. `jsba-carving:reference` | [S43](#source-s43)、[S42](#source-s42)、[S46](#source-s46)、[S47](#source-s47)、[S50](#source-s50) |
 | [s-jsba-size-control](https://jinke.me/snowboard/#lesson=s-jsba-size-control) | 刻滑弯幅与节奏：改变完整弧，保持连续支持：能在熟悉条件中有目的地改变刻滑弯幅和节奏，转换前后仍保住抓雪、出口与整体平衡。 | 1. `jsba-carving:large-to-short` | [S43](#source-s43)、[S42](#source-s42) |
 | [s-jsba-short-carve](https://jinke.me/snowboard/#lesson=s-jsba-short-carve) | 纯刻滑短弯：更快换边，仍让板沿弧线转：在适合条件下连续做出左右相称的刻滑短弯，节奏稳定，尾部基本跟随，随时能改为搓雪退出。 | 1. `jsba-carving:reference` | [S42](#source-s42)、[S43](#source-s43)、[S50](#source-s50)、[S53](#source-s53) |
-| [s-jsba-duck-mechanics](https://jinke.me/snowboard/#lesson=s-jsba-duck-mechanics) | 八字刻滑身体机制：两刃、肩髋与装备条件：在自己的舒适八字设置下，辨认两刃膝髋与胸廓关系，避免拖靴、硬扭膝和沿板长坐尾。 | 1. `jsba-carving:normal-dynamic` | [S44](#source-s44)、[S47](#source-s47)、[S46](#source-s46)、[S49](#source-s49)、[S54](#source-s54)、[S43](#source-s43) |
+| [s-jsba-duck-mechanics](https://jinke.me/snowboard/#lesson=s-jsba-duck-mechanics) | 八字刻滑身体机制：两刃、肩髋与装备条件：在自己的舒适八字设置下，辨认两刃膝髋与胸廓关系，避免拖靴、硬扭膝和沿板长坐尾。 | 1. `jsba-carving:normal-dynamic` | [S44](#source-s44)、[S47](#source-s47)、[S46](#source-s46)、[S49](#source-s49)、[S54](#source-s54)、[S43](#source-s43)、[S52](#source-s52)、[S55](#source-s55) |
 | [s-duck-low-linked](https://jinke.me/snowboard/#lesson=s-duck-low-linked) | 低姿态八字刻滑：保持窄痕，完成两侧转换：从正常高度进入略低的前后刃弧线，并主动恢复正常高度；整段保持窄痕、可选出口和主动搓雪退出能力。 | 1. `jsba-carving:recover` | [S19](#source-s19)、[S16](#source-s16)、[S10](#source-s10)、[D01](#source-d01)、[S17](#source-s17)、[T02](#source-t02)、[S36](#source-s36)、[S42](#source-s42)、[S50](#source-s50) |
-| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 高阶低姿态八字：两刃承接与两向转换：连续完成较低姿态的两侧弧线和两向换刃，保持窄痕、可选出口与恢复能力。 | 1. `jsba-carving:low-dynamic`<br>2. `jsba-carving:recover` | [S43](#source-s43)、[S46](#source-s46)、[S47](#source-s47)、[S49](#source-s49)、[S50](#source-s50)、[S48](#source-s48)、[S44](#source-s44)、[S42](#source-s42) |
+| [s-carve-expert-variation](https://jinke.me/snowboard/#lesson=s-carve-expert-variation) | 高阶低姿态八字：两刃承接与两向转换：连续完成较低姿态的两侧弧线和两向换刃，保持窄痕、可选出口与恢复能力。 | 1. `jsba-carving:low-dynamic`<br>2. `jsba-carving:recover` | [S43](#source-s43)、[S46](#source-s46)、[S47](#source-s47)、[S49](#source-s49)、[S50](#source-s50)、[S48](#source-s48)、[S44](#source-s44)、[S42](#source-s42)、[S54](#source-s54)、[S52](#source-s52)、[S55](#source-s55) |
 | [s-carve-expert-review](https://jinke.me/snowboard/#lesson=s-carve-expert-review) | 刻滑错误诊断：抓雪、低位与换刃为什么断开：能区分至少三种相似外观的不同原因，选择与阶段对应的技术修正。 | 1. `jsba-carving:low-dynamic` | [S43](#source-s43)、[S46](#source-s46)、[S47](#source-s47)、[S42](#source-s42)、[S52](#source-s52) |
 | [v-toe-touch-criterion](https://jinke.me/snowboard/#lesson=v-toe-touch-criterion) | 刻滑是否进步：看轨迹、控速、放刃和适应：用能重复观察的结果决定下一步，而不是凭一个好看的姿势升级。 | 正文保留，无动作图 | [S16](#source-s16)、[S15](#source-s15)、[S43](#source-s43) |
 
@@ -574,12 +574,16 @@
 
 - **S54** [MIRATORI：八字后刃的本人公开示范](https://www.youtube.com/watch?v=FookVR1Ojuw)（MIRATORI Channel / 澤田剛志）。5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头
 
+<a id="source-s55"></a>
+
+- **S55** [MIRATORI：八字站姿中胸髋开放与两腿配合的本人演示](https://www.youtube.com/watch?v=R7xBPS_axN4)（MIRATORI Channel / 澤田剛志）。317.240、327.240、332.240、337.240、342.240、347.240、352.240、364.280秒；384.280、389.280秒另一前脚；字幕4:21–6:59
+
 
 ## 输入指纹
 
 | 文件 | SHA-256 |
 | --- | --- |
-| content.json | 18e3560c0f604808133faefcd7d1e37f21b7c63d6f24e91f9e544a10e3a7a95e |
+| content.json | ab10168650bedecce531e61741d5ad05ecdbf4d32eb180a7e86771b56cbbf6ad |
 | animations.js | 7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575 |
 | app.js | 196db02499bc55277ce1416f96dba008d70f94412287e40aaaf45368b7b30457 |
 | lesson-player/registry.json | a08d7c26e2bc048f4eb3ff83926b320cf3f7b3a4074d8d9c20ec8516067a3e49 |

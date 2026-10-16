@@ -5,6 +5,7 @@ import { BODY, boardToWorld, type MotionState, type Stance, type Vec3 } from "..
 import { surfaceHalfWidthAt } from "../prototype/board-surface";
 import { LESSON_TYPES, canRenderLesson, lessonTrail, sampleLesson, type LessonConfig } from "./motion";
 import { LessonDiagnostics } from "./diagnostics";
+import {JsbaOpenDirections} from "./jsba-observation";
 import { comparisonFor } from "./comparison";
 import { usePlayback, PlaybackControls, type PlayerApi } from "./player-controls";
 import { DrylandPlayer, canRenderDryland } from "./dryland-player";
@@ -188,7 +189,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     {shortCompare&&<div className="sl3-options"><label>同进度动作 <select aria-label="同进度动作" value={shortError?"error":"correct"} onChange={e=>{setPlaying(false);setShortError(e.target.value==="error");}}><option value="correct">连续圆弯参考</option><option value="error">反例：末段急甩尾</option></select></label></div>}
     {expertOptions.length>1&&<div className="sl3-options"><label>动作对照 <select aria-label="动作对照" value={expertVariant} onChange={e=>{setPlaying(false);setExpertVariant(e.target.value);}}>{expertOptions.map(option=><option key={option.value} value={option.value}>{option.label}</option>)}</select></label><span className="sl3-hint">切换保留进度；可随时返回参考动作</span></div>}
     <div className="sl3-views" role="group" aria-label="观察视角">{views.map(([v,label])=><button key={v} onClick={()=>{setView(v);setFlat(false);setReset(n=>n+1);}} aria-pressed={!flat&&view===v}>{label}</button>)}<button aria-pressed={flat} onClick={()=>setFlat(v=>!v)}>平面骨架</button></div>
-    <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton||emphasis} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail} corridor={frame.corridor} corridorSections={frame.corridorSections}/>}</div>
+    <div className="sl3-scene">{flat?<PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/>:<TeachingScene state={frame.state} trail={trail} time={time} mode="correct" stance={stance} hold={0} view={view} layer="posture" skeleton={skeleton||emphasis} bodyFacingCues={jsba} motion={false} reset={reset} touchRotate={touchRotate} fallback={fallback} supportRail={frame.supportRail} corridor={frame.corridor} corridorSections={frame.corridorSections}/>}</div>
     <div className="sl3-status"><strong>{frame.segmentEdges?`原前脚处：${edges[frame.segmentEdges.front]}；原后脚处：${edges[frame.segmentEdges.rear]}`:edges[frame.state.edge]}</strong><span>{frame.moving?"示意路线":"原地观察"} · {Math.round(time*100)}%</span></div>
     <PlaybackControls clock={clock} stages={frame.stages} stage={frame.stage}/>
     <div className="sl3-options"><label><input type="checkbox" checked={skeleton} onChange={e=>setSkeleton(e.target.checked)}/>透视关节</label><label><input type="checkbox" checked={touchRotate} onChange={e=>setTouchRotate(e.target.checked)}/>触屏旋转</label><label>{switchRide?"惯用前脚":"前脚"} <select value={stance} onChange={e=>setStance(e.target.value as Stance)}><option value="regular">左脚</option><option value="goofy">右脚</option></select></label></div>
@@ -202,6 +203,7 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     </div><div className="sl3-explain">
     {expert&&<div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>}
     <div className="sl3-explain-body">
+    {jsba&&<JsbaOpenDirections state={frame.state} stance={stance}/>}
     {expert&&(jsba||config.legLengthDiagram||config.task==="expert-load-release")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}
     <div className="sl3-stages" role="group" aria-label="动作阶段">{frame.stages.map((s,i)=><button key={i} aria-pressed={frame.stage===i} onClick={()=>seek(s.at)}><span>{i+1}</span>{s.title}</button>)}</div>
     {!expert&&<div className="sl3-cue"><strong>{frame.stages[frame.stage].title}</strong><p>{frame.stages[frame.stage].detail}</p></div>}
@@ -209,13 +211,13 @@ function Player({config,api}:{config:LessonConfig;api:{current:Partial<PlayerApi
     {config.type==="inclination"&&<p className="sl3-hint">内倾是身体整体倒向弯内；反弓是通过踝、膝、髋的配合，让腿与上身的倾斜幅度不同，帮助立刃和平衡，不能只靠折腰或挺腰。本组在相同刃角下比较两种身体关系；实际幅度要配合速度、弯形和雪况。</p>}
     {expertShort&&<p className="sl3-hint">{config.task==="expert-corridor-steering"?"两种转向节奏使用同一2.5米示意走廊和图幅。走廊宽度是连续转弯占用的横向宽度；两档弯形不同，不能当作固定路线或固定速度的对照。":"两种时机使用完全相同的滑行路线、刃角和放刃时刻，只比较双腿何时屈伸、上身如何配合。屈腿准备偏晚不等于实际放刃偏晚。"} 灰线标出走廊边界；动画时长用于观察，不能换算为专家滑速。这里没有模拟真实压力、储能回弹或硬雪/雪堆。</p>}
     {expertSequence&&<p className="sl3-hint">这段动画依次展示：较宽的弯入段、连续小回转、主动放大弯恢复；动画结束时仍在滑行，不是停车演示。重播会回到入段起点。两种转弯方式保持同一路线与进度，只比较雪板朝向与移动方向的夹角、刃角和身体配合；不推算真实减速或雪况适应。</p>}
-    {jsba&&<p className="sl3-hint">八字指前脚正角、后脚负角；本模型 +18°/−9°只是装备示例。{config.task==="carve-load-exit"?"完整与偏浅出口改变实际路线，不能视作同路线控速试验。":config.task==="carve-size-change"?"弧长与节奏由实际空间路线连续改变；灰线仅为作者示意范围，不是官方考核走廊。":config.task==="carved-short-turns"?"参考段板轴沿实际行进切线，主动拧板反例有意增加方向差；相同路线不证明反例也能在真实雪面保持。":config.task==="low-linked-carve"?"正常/较低对照保持同路线与策略；较低伸展/收腿对照比较不同腿部时序；扑胸对照保持相同下肢。恢复段实际回到正常参考。":"对照固定雪板路线与刃释放事件，只比较身体伸缩时机；身体准备偏晚不等于板刃释放偏晚。"} 屈伸、刃角与压力分别理解。这里没有真实压力、储能、回弹或速度测量，动画结束时仍在滑行。</p>}
+    {jsba&&<p className="sl3-hint">八字指前脚正角、后脚负角；本模型 +18°/−9°只是装备示例。{config.task==="carve-load-exit"?"完整与偏浅出口改变实际路线，不能视作同路线控速试验。":config.task==="carve-size-change"?"弧长与节奏由实际空间路线连续改变；灰线仅为作者示意范围，不是官方考核走廊。":config.task==="carved-short-turns"?"参考段板轴沿实际行进切线，主动拧板反例有意增加方向差；相同路线不证明反例也能在真实雪面保持。":config.task==="low-linked-carve"?"正常/较低对照保持同路线与策略；较低伸展/收腿对照比较不同腿部时序；额外探胸对照保持相同下肢与动作时序。恢复段实际回到正常参考。":"对照固定雪板路线与刃释放事件，只比较身体伸缩时机；身体准备偏晚不等于板刃释放偏晚。"} 屈伸、刃角与压力分别理解。这里没有真实压力、储能、回弹或速度测量，动画结束时仍在滑行。</p>}
     {frame.task==="static-edge"&&<p className="sl3-hint">双手扶稳护栏帮助感知动作；撤去支撑后的自主平衡需另行练习。</p>}
     {["board-coordinate-study","stationary-hip-rock"].includes(frame.task)&&<><BoardDirections state={frame.state}/><p className="sl3-hint">仅演示平地原地感知，刃角小不等于身体完全不移动；先回平板再回中，滑行效果需另行验证。</p></>}
     {showRoute&&frame.moving&&<RouteDiagram state={frame.state} trail={trail} time={time} config={sampledConfig} stance={stance}/>}
     {emphasis&&<div className="sl3-comparison">{reference&&<figure><figcaption>{comparison?.label}</figcaption><PlanarDiagram state={reference.state} plane={view==="side"?"length":"width"}/></figure>}<figure><figcaption>当前动作 · 同一时刻 {Math.round(time*100)}%</figcaption><PlanarDiagram state={frame.state} plane={view==="side"?"length":"width"} supportRail={frame.supportRail}/></figure></div>}
     {showRoute&&emphasis&&(shortCompare||expert)&&reference&&<><p className="sl3-hint">同步路线参考：下图为参考动作，当前路线已在上方显示。{jsba?(config.task==="carve-size-change"||config.task==="carve-load-exit"?"本组改变实际路线，使用相同图幅观察弯形与出口；不是同速或同压力试验。":"本组共用板中心路线、刃角与释放时刻，拧板反例另改变板轴方向；其余固定条件见上方任务说明，不是压力试验。"):expertSequence?"本组共用板中心路线，具体固定条件见上方任务说明；不是同速度或同压力试验。":expertShort&&config.task==="expert-load-release"?"本组路线与刃角完全相同，比较腿长调节时机；不是压力试验。":"同进度指同一周期位置；两种路线不同，不是同速度或同压力试验。"}</p><RouteDiagram state={reference.state} trail={lessonTrail(referenceConfig,stance)} time={time} config={referenceConfig} stance={stance}/></>}
-    {(isRotationLesson(config)||short||expert)&&<RotationDirections state={frame.state}/>}
+    {!jsba&&(isRotationLesson(config)||short||expert)&&<RotationDirections state={frame.state}/>}
     {twist&&<><TwistSectionDiagram state={frame.state} stance={stance}/><p className="sl3-hint">绿色线与圆点只标出每一段较低的一侧板刃。图中局部板刃会短暂离雪约9.2毫米；这是模型中的距离，没有模拟真实整刃接触、板材刚度或压力。前后段的刃角差按动画姿态显示。</p></>}
     {shortTiming&&<p className="sl3-hint">每次换侧 {(shortTiming.turnMs/1000).toFixed(1)} 秒；每侧侧滑等待 {(shortTiming.waitMs/1000).toFixed(1)} 秒。缩短等待时，换侧自身的路线和用时不变；等待阶段仍在侧滑。</p>}
     {!expert&&(config.pressureDiagram||config.legLengthDiagram||config.transitionReference==="snow")&&<LessonDiagnostics config={sampledConfig} stance={stance} time={time}/>}

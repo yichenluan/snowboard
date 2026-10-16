@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "inputs": {
-    "content.json": "18e3560c0f604808133faefcd7d1e37f21b7c63d6f24e91f9e544a10e3a7a95e",
+    "content.json": "ab10168650bedecce531e61741d5ad05ecdbf4d32eb180a7e86771b56cbbf6ad",
     "animations.js": "7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575",
     "app.js": "196db02499bc55277ce1416f96dba008d70f94412287e40aaaf45368b7b30457",
     "lesson-player/registry.json": "a08d7c26e2bc048f4eb3ff83926b320cf3f7b3a4074d8d9c20ec8516067a3e49"
@@ -11264,6 +11264,15 @@
           "canonicalSource": "S43",
           "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
           "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S47",
+          "locator": "本人2026-09-20正文：脚角、身体朝向与膝髋可动方向",
+          "claim": "脚角改变身体朝向及膝髋易动方向。本站据此把舒适朝向与Basic运动工具分开练，不要求Basic复制高阶低位示范的开髋幅度。",
+          "evidence": "synthesis",
+          "canonicalSource": "S47",
+          "title": "ダッグスタンスで滑った事ありますか？：脚角与可动方向",
+          "url": "https://note.com/good_sb1976/n/nfa92842a8793"
         }
       ],
       "prototypeMode": null,
@@ -11877,8 +11886,8 @@
         },
         {
           "source": "S54",
-          "locator": "5.033、5.433、5.833秒低位后刃；6.233–6.633秒另一个剪辑镜头",
-          "claim": "本课真人卡仅使用明确列出的有限关键帧；可见姿态与个人讲解用于定性理解，未作压力测量或真人精确标定。",
+          "locator": "5.033、5.433、5.833秒已看帧；本人后刃视频公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24",
+          "claim": "有限帧可见低位后刃身体关系；已读字幕另讨论后刃骨盆开放、后腿参与、仅转胸未转髋及避免把前膝带转。均是具名个人方法的定性依据，未测压力、精确角度或确认长字幕窗口的每一帧；本课步骤为本站归纳。",
           "evidence": "synthesis",
           "canonicalSource": "S54",
           "title": "MIRATORI：八字后刃的本人公开示范",
@@ -11892,6 +11901,24 @@
           "canonicalSource": "S43",
           "title": "第 33 届 JSBA 全日本技术选：刻滑质量与弯形控制",
           "url": "https://www.jsba.or.jp/ajstc_site/ajstc33/regulations.html"
+        },
+        {
+          "source": "S52",
+          "locator": "本人前刃视频公开英文字幕8:38–10:10；原地对照130.033、195.033秒",
+          "claim": "本人区分前刃上身过旋、探胸与骨盆换侧，供本站两刃观察归纳。字幕窗口不是本课新完成的逐帧标定，也不把个人口令作为JSBA统一动作。",
+          "evidence": "synthesis",
+          "canonicalSource": "S52",
+          "title": "MIRATORI：前刃探胸与膝髋配合的本人示范",
+          "url": "https://www.youtube.com/watch?v=TwjZvBUY7hU"
+        },
+        {
+          "source": "S55",
+          "locator": "317.240、327.240、332.240、337.240、342.240、347.240、352.240、364.280秒；384.280、389.280秒另一前脚；字幕4:21–6:59",
+          "claim": "实际有限帧可见胸髋开放及两刃、两种前脚下的不同腿部配合。本站据此分别观察胸前、肚脐与前后腿；“脚向外”仅为本人意象，不是在雪板上移动脚或主动横踢雪板，不规定统一开放角。",
+          "evidence": "synthesis",
+          "canonicalSource": "S55",
+          "title": "MIRATORI：八字站姿中胸髋开放与两腿配合的本人演示",
+          "url": "https://www.youtube.com/watch?v=R7xBPS_axN4"
         }
       ],
       "prototypeMode": null,
@@ -12073,6 +12100,33 @@
           "canonicalSource": "S42",
           "title": "JSBA 教育规程：Basic、Dynamic 与技术认定任务",
           "url": "https://www.jsba.or.jp/education/rules/pdf/education_rules.pdf"
+        },
+        {
+          "source": "S54",
+          "locator": "5.033、5.433、5.833秒已看帧；本人后刃视频公开英文字幕2:09–3:26、5:43–6:21、7:34–8:24",
+          "claim": "有限帧可见低位后刃身体关系；已读字幕另讨论后刃骨盆开放、后腿参与、仅转胸未转髋及避免把前膝带转。均是具名个人方法的定性依据，未测压力、精确角度或确认长字幕窗口的每一帧；本课步骤为本站归纳。",
+          "evidence": "synthesis",
+          "canonicalSource": "S54",
+          "title": "MIRATORI：八字后刃的本人公开示范",
+          "url": "https://www.youtube.com/watch?v=FookVR1Ojuw"
+        },
+        {
+          "source": "S52",
+          "locator": "本人前刃视频公开英文字幕8:38–10:10；原地对照130.033、195.033秒",
+          "claim": "本人区分前刃上身过旋、探胸与骨盆换侧，供本站两刃观察归纳。字幕窗口不是本课新完成的逐帧标定，也不把个人口令作为JSBA统一动作。",
+          "evidence": "synthesis",
+          "canonicalSource": "S52",
+          "title": "MIRATORI：前刃探胸与膝髋配合的本人示范",
+          "url": "https://www.youtube.com/watch?v=TwjZvBUY7hU"
+        },
+        {
+          "source": "S55",
+          "locator": "317.240、327.240、332.240、337.240、342.240、347.240、352.240、364.280秒；384.280、389.280秒另一前脚；字幕4:21–6:59",
+          "claim": "实际有限帧可见胸髋开放及两刃、两种前脚下的不同腿部配合。本站据此分别观察胸前、肚脐与前后腿；“脚向外”仅为本人意象，不是在雪板上移动脚或主动横踢雪板，不规定统一开放角。",
+          "evidence": "synthesis",
+          "canonicalSource": "S55",
+          "title": "MIRATORI：八字站姿中胸髋开放与两腿配合的本人演示",
+          "url": "https://www.youtube.com/watch?v=R7xBPS_axN4"
         }
       ],
       "prototypeMode": null,

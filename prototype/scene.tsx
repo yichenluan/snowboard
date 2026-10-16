@@ -193,11 +193,13 @@ function Rider({
   skeleton,
   layer,
   stance,
+  bodyFacingCues = false,
 }: {
   state: MotionState;
   skeleton: boolean;
   layer: Layer;
   stance: Stance;
+  bodyFacingCues?: boolean;
 }) {
   const j = state.joints,
     b = state.board;
@@ -383,6 +385,20 @@ function Rider({
           depthWrite={!xray}
         />
       </mesh>
+      {bodyFacingCues&&<>
+        <group position={j.chest} quaternion={chestQuaternion}>
+          <mesh position={[0,.065,.130]}>
+            <boxGeometry args={[.018,.10,.012]}/>
+            <meshStandardMaterial color="#fff3c9" roughness={.9}/>
+          </mesh>
+        </group>
+        <group position={j.pelvis} quaternion={hipQuaternion}>
+          <mesh position={[0,0,.130]}>
+            <boxGeometry args={[.070,.032,.012]}/>
+            <meshStandardMaterial color="#edce86" roughness={.9}/>
+          </mesh>
+        </group>
+      </>}
       <Segment a={j.chest} b={j.neck} r={0.065} color="#dcb18e" />
       <mesh
         position={j.head}
@@ -854,6 +870,7 @@ export function TeachingScene({
   supportRail,
   corridor,
   corridorSections,
+  bodyFacingCues,
 }: {
   state: MotionState;
   trail: Vec3[];
@@ -871,6 +888,7 @@ export function TeachingScene({
   supportRail?: [Vec3, Vec3];
   corridor?: {width:number;start:number;end:number};
   corridorSections?: {width:number;start:number;end:number;label:string}[];
+  bodyFacingCues?: boolean;
 }) {
   return (
     <SceneBoundary fallback={fallback}>
@@ -917,6 +935,7 @@ export function TeachingScene({
           skeleton={skeleton}
           layer={layer}
           stance={stance}
+          bodyFacingCues={bodyFacingCues}
         />
         {layer === "force" ? (
           <Forces state={state} />

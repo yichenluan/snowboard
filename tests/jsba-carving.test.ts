@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import {test} from "node:test";
-import {BODY,boardToWorld,type MotionState,type Vec3} from "../prototype/motion.ts";
+import {BODY,boardToWorld,boardVectorToWorld,type MotionState,type Vec3} from "../prototype/motion.ts";
 import {canRenderLesson,sampleLesson,type LessonConfig} from "../lesson-player/motion.ts";
 import {supportsJsbaCarvingLesson,jsbaCarvingVariants,jsbaCarvingComparison,jsbaCarvingDurationMs,sampleJsbaCarvingLesson as sample} from "../lesson-player/jsba-carving.ts";
 import {actualMeanLegLength as length} from "../lesson-player/leg-length.ts";
@@ -18,6 +18,20 @@ const base:LessonConfig[]=[
 const configs=base.flatMap(c=>jsbaCarvingVariants(c).map(v=>({...c,variant:v.value})));
 const sub=(a:Vec3,b:Vec3)=>a.map((v,i)=>v-b[i]) as Vec3,dist=(a:Vec3,b:Vec3)=>Math.hypot(...sub(a,b));
 const near=(a:number,b:number,tol=1e-8)=>assert.ok(Math.abs(a-b)<tol,`${a} vs ${b}`);
+const dot=(a:Vec3,b:Vec3)=>a.reduce((sum,v,i)=>sum+v*b[i],0);
+const unit=(v:Vec3)=>v.map(n=>n/Math.hypot(...v)) as Vec3;
+const cross=(a:Vec3,b:Vec3):Vec3=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const boardComponents=(s:MotionState,v:Vec3):Vec3=>[dot(v,boardVectorToWorld([1,0,0],s.board)),v[1],dot(v,[Math.sin(s.board.yaw),0,Math.cos(s.board.yaw)])];
+function opening(s:MotionState,stance:"regular"|"goofy",part:"hip"|"chest"){
+  const j=s.joints,axis=unit(part==="hip"?sub(j.frontHip,j.rearHip):sub(j.frontShoulder,j.rearShoulder));
+  const side=stance==="regular"?1:-1,nose=boardVectorToWorld([1,0,0],s.board),toe=([Math.sin(s.board.yaw),0,Math.cos(s.board.yaw)] as Vec3).map(n=>n*side) as Vec3;
+  if(part==="hip")return Math.atan2(-dot(axis,toe),dot(axis,nose))*180/Math.PI;
+  // The visible chest's forward axis, rather than the tilted shoulder line's
+  // horizontal projection. This is the same geometric frame used by scene.tsx.
+  const forward=unit(cross(axis.map(n=>n*side) as Vec3,unit(sub(j.chest,j.pelvis))));
+  return Math.atan2(dot(forward,nose),dot(forward,toe))*180/Math.PI;
+}
+const legLengths=(s:MotionState)=>(["front","rear"] as const).map(k=>dist(s.joints[`${k}Hip`],s.joints[`${k}Ankle`]));
 
 test("JSBA family has six independent tasks, exact variants and no silently ignored strategy options",()=>{
   assert.equal(base.length,6);assert.equal(configs.length,15);
@@ -83,7 +97,7 @@ test("basic extension and dynamic retraction differ in actual leg motion and bot
     assert.ok(length(sample(0,basic).state)-length(sample(1/12,basic).state)>.05);
     assert.ok(length(sample(1/12,dynamic).state)-length(sample(0,dynamic).state)>.06);
     const toeFlat=sample(0,{...dynamic,fromEdge:"toe"}).state,heelFlat=sample(0,{...dynamic,fromEdge:"heel"}).state;
-    assert.ok(Math.abs(toeFlat.joints.chest[1]-toeFlat.joints.pelvis[1]-(heelFlat.joints.chest[1]-heelFlat.joints.pelvis[1]))>.005);
+    assert.ok(dist(boardComponents(toeFlat,sub(toeFlat.joints.chest,toeFlat.joints.pelvis)),boardComponents(heelFlat,sub(heelFlat.joints.chest,heelFlat.joints.pelvis)))>.012,"two transition directions retain a real trunk difference in the same board-relative frame");
     for(const [c,shift,kind] of [[basic,.16,"late-body"],[dynamic,.17,"late-retraction"]] as const){
       const delayed={...c,variant:kind};const samples=Array.from({length:1001},(_,i)=>length(sample(i/6000,delayed).state));
       const extreme=c.task==="basic-linked-carve"?Math.max(...samples):Math.min(...samples);
@@ -106,6 +120,71 @@ test("low posture, strategy comparison and recovery are real changes with declar
   for(const t of [1/12,3/12])near(length(sample(t,basic).state),length(sample(t,low).state),1e-7);
   assert.ok(dist(sample(1/12,low).state.joints.chest,sample(1/12,dive).state.joints.chest)>.08);
   assert.deepEqual(sample(3/12,low).state.joints,sample(3/12,dive).state.joints);
+});
+
+test("open pelvis and chest are observable outputs, while each low comparison retains the same opening policy",()=>{
+  for(const c of configs)for(const fromEdge of ["toe","heel"] as const)for(const stance of ["regular","goofy"] as const){
+    const ss=sample(0,{...c,fromEdge},stance).stages;
+    for(const stage of ss.filter(s=>s.event==="edge-flat"||s.event==="fall-line")){
+      const s=sample(stage.at,{...c,fromEdge},stance).state,hip=opening(s,stance,"hip"),chest=opening(s,stance,"chest");
+      const basic=c.task==="basic-linked-carve",low=c.task==="low-linked-carve";
+      assert.ok(hip>(basic?17:low?32:25)&&hip<50,`${c.task}: observable author pelvis opening, not a universal joint limit`);
+      assert.ok(chest>(basic?29:low?48:39)&&chest<70,"chest faces toward the nose without forcing the feet to follow");
+      for(const k of ["front","rear"] as const){
+        const shin=unit(sub(s.joints[`${k}Knee`],s.joints[`${k}Ankle`]));
+        near(dot(shin,cross(s.boots[k].up,s.boots[k].toeDirection)),0,1e-10);
+      }
+    }
+  }
+  for(const fromEdge of ["toe","heel"] as const)for(let i=0;i<=60;i++){
+    const t=i/60,reference=sample(t,{...base[5],fromEdge}).state;
+    for(const variant of ["normal-dynamic","low-basic","recover","chest-dive"]){
+      const s=sample(t,{...base[5],fromEdge,variant}).state;
+      near(opening(s,"regular","hip"),opening(reference,"regular","hip"),1e-8);
+      near(opening(s,"regular","chest"),opening(reference,"regular","chest"),1e-8);
+    }
+  }
+  const heel=sample(1/4,base[5]).state,toe=sample(1/12,base[5]).state;
+  assert.ok(boardComponents(heel,sub(heel.joints.chest,heel.joints.pelvis))[0]>.05,"heel trunk flexion includes a real board-nose component after pelvis opening");
+  assert.ok(boardComponents(toe,sub(toe.joints.chest,toe.joints.pelvis))[0]>.03,"toe trunk direction is constructed with the opened pelvis, beyond a yaw-only edit");
+});
+
+test("low basic and dynamic have visible strokes on both edges and independently coordinated front and rear legs",()=>{
+  for(const fromEdge of ["toe","heel"] as const){
+    const dynamic={...base[5],fromEdge},basic={...dynamic,variant:"low-basic"};
+    const stages=sample(0,dynamic).stages;
+    for(const edge of ["toe","heel"] as const){
+      const peak=stages.find(s=>s.event==="fall-line"&&sample(s.at,dynamic).state.edge===edge)!;
+      const flat=stages.find(s=>s.event==="edge-flat"&&s.arc===peak.arc)!;
+      const d0=sample(flat.at,dynamic).state,d1=sample(peak.at,dynamic).state,b0=sample(flat.at,basic).state,b1=sample(peak.at,basic).state;
+      assert.ok(length(d1)-length(d0)>(edge==="toe"?.045:.10),"retraction variant has visible extension into each new arc");
+      assert.ok(length(b0)-length(b1)>(edge==="toe"?.115:.055),"extension variant has visible shortening into each new arc");
+      for(const k of Object.keys(d1.joints) as (keyof typeof d1.joints)[])assert.ok(dist(d1.joints[k],b1.joints[k])<1e-8,"same low control pose isolates the transition strategy");
+      const [front,rear]=legLengths(d1),[frontFlat,rearFlat]=legLengths(d0);
+      if(edge==="toe"){
+        assert.ok(rear-front>.04,"rear leg is relatively more open through the toe arc");
+        assert.ok((rear-rearFlat)-(front-frontFlat)>.03,"rear and front stroke differ instead of both legs moving equally");
+      }else{
+        assert.ok(front-rear>.025,"heel front leg is relatively longer while the rear stays closer");
+        assert.ok(d1.metrics.rearKnee-d1.metrics.frontKnee>5);
+      }
+    }
+  }
+});
+
+test("recovery labels follow the actual posture blend and extra chest reach is an amplitude-only lower-body control",()=>{
+  const c={...base[5],variant:"recover"},stages=sample(0,c).stages;
+  const lowering=stages.find(s=>s.arc===2&&s.event==="arc-build")!,restoring=stages.find(s=>s.arc===3&&s.event==="arc-exit")!;
+  for(const [stage,word] of [[lowering,"降低"],[restoring,"恢复"]] as const){
+    assert.match(stage.title,new RegExp(word));
+    assert.match(stage.detail,stage===lowering?/正常参考.*叠加降低/:/回到同进度.*正常高度参考/);
+    const r=length(sample(stage.at,c).state),normal=length(sample(stage.at,{...c,variant:"normal-dynamic"}).state),low=length(sample(stage.at,{...c,variant:"low-dynamic"}).state);
+    assert.ok(r>low+1e-4&&r<normal-1e-4,"intermediate labels identify an actual blend of normal and low targets");
+  }
+  const dive={...base[5],variant:"chest-dive"},label=jsbaCarvingVariants(dive).find(v=>v.value==="chest-dive")!.label;
+  assert.match(label,/额外探胸/);assert.doesNotMatch(label,/先|提前/);
+  for(const s of sample(0,dive).stages.filter(s=>s.title.includes("反例"))){assert.match(s.title,/额外探胸/);assert.doesNotMatch(s.title,/先|提前/);}
+  assert.deepEqual(sample(0,dive).state.joints,sample(0,base[5]).state.joints,"additional reach has no advance before the new edge develops");
 });
 
 test("size changes exist in physical arc lengths and outlet comparison changes the actual route",()=>{
