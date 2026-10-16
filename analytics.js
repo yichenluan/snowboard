@@ -8,8 +8,10 @@
   window.SnowAnalytics = disabled;
   const config = window.SNOW_ANALYTICS_CONFIG;
   const optedOut = () => navigator.doNotTrack === '1' || navigator.globalPrivacyControl === true;
+  const production = location.origin === 'https://snowboardguide.cn' ||
+    (location.origin === 'https://jinke.me' && location.pathname.startsWith('/snowboard/'));
   if (!config || typeof config.websiteId !== 'string' || !config.websiteId.trim() ||
-      location.origin !== 'https://jinke.me' || !location.pathname.startsWith('/snowboard/') || optedOut()) return;
+      !production || optedOut()) return;
 
   let scriptUrl;
   try {
@@ -85,7 +87,7 @@
         'data-exclude-search': 'true',
         'data-exclude-hash': 'true',
         'data-do-not-track': 'true',
-        'data-domains': 'jinke.me',
+        'data-domains': 'snowboardguide.cn,jinke.me',
       })) script.setAttribute(key, value);
       script.onload = () => {
         if (status !== 'loading') return;

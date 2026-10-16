@@ -8,14 +8,14 @@
 
 在仓库 **Settings → Pages → Build and deployment → Source** 中选择 **GitHub Actions**。工作流中的 `configure-pages` 负责读取站点配置；它不尝试用默认令牌自动开通 Pages。
 
-滑雪手册的正式站点为 `https://jinke.me/snowboard/`，独立原型为 `https://jinke.me/snowboard/3d/`。根域 `https://jinke.me/` 用于个人博客，由用户站仓库 [yichenluan/yichenluan.github.io](https://github.com/yichenluan/yichenluan.github.io) 发布。
+滑雪手册的正式站点为 `https://snowboardguide.cn/`，主域名根路径直接显示手册，独立原型为 `https://snowboardguide.cn/3d/`。旧 `https://jinke.me/snowboard/` 由 GitHub Pages 重定向到新域；根域 `https://jinke.me/` 仍用于个人博客，由用户站仓库 [yichenluan/yichenluan.github.io](https://github.com/yichenluan/yichenluan.github.io) 发布。
 
 两个仓库的 Pages 配置各自维护：
 
 - 用户站 `yichenluan.github.io` 使用 **Deploy from a branch**（API 中的 `legacy`），来源为 `master` 分支根目录，由 GitHub Jekyll 构建；其 **Custom domain** 为 `jinke.me`，根目录 `CNAME` 文件内容为 `jinke.me`。
-- 滑雪项目 `snowboard` 使用 **GitHub Actions**，自己的 **Custom domain** 留空，也不配置 `CNAME`。GitHub Pages 从用户站继承 `jinke.me`，并按项目仓库名挂载到 `/snowboard/`。
+- 滑雪项目 `snowboard` 使用 **GitHub Actions**，自己的 **Custom domain** 为 `snowboardguide.cn`，覆盖用户站域名继承。Actions 发布不需要 `CNAME` 文件；构建产物仍放在 artifact 根目录。
 
-阿里云 DNS 配置如下，TTL 使用免费版默认600秒：
+阿里云 `snowboardguide.cn` DNS 配置如下，TTL 使用免费版默认600秒：
 
 | 主机记录 | 类型 | 记录值 |
 | --- | --- | --- |
@@ -25,7 +25,9 @@
 | `@` | A | `185.199.111.153` |
 | `www` | CNAME | `yichenluan.github.io` |
 
-上述四条 A 记录和 `www` CNAME 保持不变；`www.jinke.me` 作为个人博客的兼容入口跳转到根域。等待用户站的 GitHub DNS 检查和证书签发成功后启用 **Enforce HTTPS**。正式发布需分别验证根域博客、`/snowboard/` 手册、HTTPS、课程锚点和原型资源；配置依据见 [GitHub 自定义域名说明](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)。
+`www.snowboardguide.cn` 由 GitHub Pages 自动跳转到根域。`jinke.me` 保持相同的四条 A 记录及 `www` CNAME，不因滑雪新域接入而修改；`www.jinke.me` 继续跳转到博客根域。先绑定仓库自定义域，再添加 DNS，等待 GitHub DNS 检查和证书签发成功后启用 **Enforce HTTPS**。配置依据见 [GitHub 自定义域名说明](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)。
+
+正式发布需验证新根域、`www`、HTTP 到 HTTPS、旧 `/snowboard/` 首页与课程锚点、原型 query 和资源，以及博客根域。评论使用稳定课程 ID，讨论仍共用原 Issues；正式新旧入口的 OAuth 各自返回当前域，离线/预览入口指向新域。统计允许两个正式入口并保留历史 `/snowboard/` 虚拟内容路径，详见[统计口径](docs/analytics.md)。
 
 仓库从 `snowboard-guide` 重命名为 `snowboard` 后，旧 GitHub 仓库 URL 会自动重定向，仍应将本地 `origin` 更新为 `https://github.com/yichenluan/snowboard.git`。GitHub 的仓库重命名不自动重定向旧 Pages 项目网址；本次由个人博客提供兼容跳转页：`/snowboard-guide/`、`/snowboard-guide/3d/` 和 `/snowboard-guide/snowboard-guide.html` 分别转到 `/snowboard/` 下对应入口，并通过 JavaScript 保留查询参数和课程锚点，禁用 JavaScript 时可点击页面链接继续。根域旧 `/3d/`、`/snowboard-guide.html` 也提供兼容页；首页只有出现 `#lesson=` 时才转到滑雪课程，普通根路径仍显示博客。2026-10-15 已实测旧课程与原型地址能保留参数转到新项目。旧项目首页的历史301可能仍被边缘或浏览器缓存为根域，此时可用博客导航中的 Snowboard 入口；不把缓存过期时间当作确定承诺。对外分享使用新的正式网址。
 
@@ -73,20 +75,22 @@ Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，�
 
 - `index.html`：在线入口。
 - `snowboard-guide.html`：同一内容的单文件副本，保留已有离线阅读能力。
-- `3d/`：小回转三维原型与打包资源，网址为 `https://jinke.me/snowboard/3d/`。
+- `3d/`：小回转三维原型与打包资源，网址为 `https://snowboardguide.cn/3d/`。
 - `.nojekyll`：注明静态发布；Actions 发布本身不运行 Jekyll。
 
-这些文件保持在 artifact 根目录。`/snowboard/` 由 GitHub Pages 按项目名挂载，不要另建 `_site/snowboard/` 嵌套目录，否则会产生多余的一层路径。
+这些文件保持在 artifact 根目录。新域直接挂载 artifact 根目录；不要另建 `_site/snowboard/` 嵌套目录，否则会产生多余的一层路径。
 
 公开仓库应只提交可维护手册源码、README、部署配置和经过检查的展示图片。不要提交研究用原视频、音频、逐字字幕、原始课件、个人备份或笔记、日志、依赖目录以及测试中间文件。
 
 `.gitignore` 已忽略本地构建、研究及验证输出，包括 `_site/`、`3d/`、`log/`、`.validation/`、`research/`、`node_modules/`、`index.html` 和 `snowboard-guide.html`。生成网页由工作流重建，不手改、不提交。
 
-离线教材仍是单个 HTML：课内三维使用内联 IIFE、内联样式与程序生成模型，不请求 CDN、外部字体或模型；无 WebGL 时降级为同一状态的可播放骨架。`build.py` 缺少课内三维构建时会明确失败。独立原型在 `file:` 教材中的入口指向 `https://jinke.me/snowboard/3d/`，不加入单文件。历史版本曾核对“保存网页”的导出内容，该按钮和对应代码现已移除；`file:` 直接重开和断网运行仍未实测，具体范围见[播放器审阅](docs/lesson-player-review.md)。
+离线教材仍是单个 HTML：课内三维使用内联 IIFE、内联样式与程序生成模型，不请求 CDN、外部字体或模型；无 WebGL 时降级为同一状态的可播放骨架。`build.py` 缺少课内三维构建时会明确失败。独立原型在 `file:` 教材中的入口指向 `https://snowboardguide.cn/3d/`，不加入单文件。历史版本曾核对“保存网页”的导出内容，该按钮和对应代码现已移除；`file:` 直接重开和断网运行仍未实测，具体范围见[播放器审阅](docs/lesson-player-review.md)。
 
 收藏、学习进度和个人补充仍通过 localStorage 保存在访问者自己的浏览器中，推送源码不会上传浏览器记录。发布时使用原始源码构建，个人记录不得进入公开构建产物。网站不再提供数据导入、导出或“保存网页”按钮；清理网站数据、换设备或换浏览器后，个人记录不会自动恢复。
 
-从 `https://jinke.me/` 移到 `https://jinke.me/snowboard/` 只改变路径，origin 不变，且本项目保留原 localStorage 存储键，因此原有个人记录可以继续读取。此前 `https://yichenluan.github.io` 下的记录仍因跨 origin 隔离，不能自动读取；当时的备份迁移流程属于历史版本，不是当前操作入口。
+本次从 `https://jinke.me/snowboard/` 接入 `https://snowboardguide.cn/` 会改变 origin：收藏、能力进度、个人补充及评论登录会话不会跨域自动迁移，旧记录仍保存在旧域的浏览器存储。网站没有恢复已退休的数据导入导出入口，公开评论因稳定课程 ID 继续共享。
+
+历史上从 `https://jinke.me/` 移到 `https://jinke.me/snowboard/` 只改变路径，origin 不变，且本项目保留原 localStorage 存储键，因此原有个人记录可以继续读取。此前 `https://yichenluan.github.io` 下的记录仍因跨 origin 隔离，不能自动读取；当时的备份迁移流程属于历史版本，不是当前操作入口。
 
 共用页脚提供 [GitHub 仓库](https://github.com/yichenluan/snowboard)和微信（WeChat）：`Huunnter`。联系信息不参与个人记录保存或登录。
 

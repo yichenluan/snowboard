@@ -3,7 +3,7 @@
   "inputs": {
     "content.json": "738cf65ac3e90a42082c112e819a74a3505f8850e1b3ed9cfc58226ae0860c7b",
     "animations.js": "7eedde7b1efa12617bf2b768445141ed9d61625e90d96475ff4811208ec38575",
-    "app.js": "f99b019523a736f544e546df4ce86e52b56ac195bf66e9062d2076fd9e23b048",
+    "app.js": "a172dc489354831d1b75be9e8d6be8207d75750011d5e3e90c565b7527968537",
     "lesson-player/registry.json": "39dec20947d196e6738083040effa6ee284c73b9f17057c7d4f27b111d4c7519"
   },
   "scope": "静态源码覆盖盘点：model、共享关键帧与预设名称描述 animations.js 的旧实现来源，renderer 和注册表计数描述当前课程接入；legacyDemoReferences 是迁移范围总数，不是当前旧播放器数量。课程资料未在此脚本重新核验；接入数量不证明教学正确、生物力学正确或发布完成",

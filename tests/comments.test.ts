@@ -23,7 +23,7 @@ class Element {
   setAttribute(name:string,value:string){this.attributes[name]=value;}
 }
 
-function browser({href='https://jinke.me/snowboard/#lesson=s-short',online=true,storageDisabled=false,lazy=false,savedSession=''}={}){
+function browser({href='https://snowboardguide.cn/#lesson=s-short',online=true,storageDisabled=false,lazy=false,savedSession=''}={}){
   const root=new Element(),location=new URL(href),navigator={onLine:online};
   const storage=new Map<string,string>([['snowboard-field-guide-BV161TT6gE7L-v1','{"user":{"bookmarks":["s-short"]}}']]);
   if(savedSession)storage.set('snowboard-utterances-session',savedSession);
@@ -76,8 +76,8 @@ test('each stable lesson ID maps to an independent issue and OAuth returns to it
     assert.equal(url.origin,'https://utteranc.es');
     assert.equal(url.pathname,'/utterances.html');
     assert.equal(url.searchParams.get('repo'),'yichenluan/snowboard');
-    assert.equal(url.searchParams.get('url'),'https://jinke.me/snowboard/#lesson='+encodeURIComponent(lessonId));
-    assert.equal(url.searchParams.get('origin'),'https://jinke.me');
+    assert.equal(url.searchParams.get('url'),'https://snowboardguide.cn/#lesson='+encodeURIComponent(lessonId));
+    assert.equal(url.searchParams.get('origin'),'https://snowboardguide.cn');
     assert.match(term,/^[a-z0-9]+$/);
     for(const previous of terms){assert.ok(!term.includes(previous));assert.ok(!previous.includes(term));}
     terms.push(term);
@@ -85,6 +85,31 @@ test('each stable lesson ID maps to an independent issue and OAuth returns to it
     const renamed=b.mount(lessonId,'改过标题的同一课程');
     assert.equal(new URL(b.frame().src).searchParams.get('issue-term'),term);
     renamed.destroy();
+  }
+});
+
+test('official entry points keep their own OAuth course URL and previews link to the new domain',()=>{
+  let term='';
+  for(const [href,siteUrl,preview] of [
+    ['https://snowboardguide.cn/','https://snowboardguide.cn/',false],
+    ['https://snowboardguide.cn/index.html','https://snowboardguide.cn/',false],
+    ['https://snowboardguide.cn/snowboard-guide.html','https://snowboardguide.cn/',false],
+    ['https://jinke.me/snowboard/','https://jinke.me/snowboard/',false],
+    ['https://jinke.me/snowboard/snowboard-guide.html','https://jinke.me/snowboard/',false],
+    ['https://jinke.me/','https://snowboardguide.cn/',true],
+    ['http://localhost:5173/','https://snowboardguide.cn/',true],
+    ['https://snowboardguide.cn:8443/','https://snowboardguide.cn/',true],
+    ['https://snowboardguide.cn.example/','https://snowboardguide.cn/',true],
+  ] as const){
+    const b=browser({href}),mounted=b.mount(),url=new URL(b.frame().src);
+    assert.equal(url.searchParams.get('url'),siteUrl+'#lesson=s-short',href);
+    assert.equal(url.searchParams.get('origin'),new URL(href).origin,href);
+    assert.equal(b.root.children.some(child=>child.className==='comments-preview'),preview,href);
+    assert.equal(b.root.children[1].children[1].hidden,!preview,href);
+    const currentTerm=url.searchParams.get('issue-term')!;
+    if(term)assert.equal(currentTerm,term,'changing an entry point must not split the course discussion');
+    term=currentTerm;
+    mounted.destroy();
   }
 });
 
@@ -151,7 +176,7 @@ test('saved files and offline pages do not request comments; retry recovers afte
   assert.equal(file.frame(),undefined);
   assert.match(file.status().textContent,/离线网页/);
   const onlineLink=file.root.children[1].children[1];
-  assert.equal(onlineLink.href,'https://jinke.me/snowboard/#lesson=s-short');
+  assert.equal(onlineLink.href,'https://snowboardguide.cn/#lesson=s-short');
   assert.equal(onlineLink.hidden,false);
   saved.destroy();
   const b=browser({online:false}),mounted=b.mount();
@@ -165,8 +190,8 @@ test('saved files and offline pages do not request comments; retry recovers afte
 });
 
 test('OAuth callback is consumed at startup, preserves the course and stays separate from user records',()=>{
-  const b=browser({href:'https://jinke.me/snowboard/?keep=1&utterances=test-session#lesson=s-short'});
-  assert.equal(b.location.href,'https://jinke.me/snowboard/?keep=1#lesson=s-short');
+  const b=browser({href:'https://snowboardguide.cn/?keep=1&utterances=test-session#lesson=s-short'});
+  assert.equal(b.location.href,'https://snowboardguide.cn/?keep=1#lesson=s-short');
   assert.equal(b.storage.get('snowboard-utterances-session'),'test-session');
   assert.equal(b.storage.get('snowboard-field-guide-BV161TT6gE7L-v1'),'{"user":{"bookmarks":["s-short"]}}');
   assert.deepEqual(Object.keys(b.window.SnowComments!),['mount'],'the public API must not expose session state');

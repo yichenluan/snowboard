@@ -1,7 +1,9 @@
 (() => {
   'use strict';
   const serviceOrigin='https://utteranc.es',repo='yichenluan/snowboard';
-  const siteUrl='https://jinke.me/snowboard/',sessionKey='snowboard-utterances-session';
+  const siteUrl=location.origin==='https://jinke.me'&&location.pathname.startsWith('/snowboard/')
+    ?'https://jinke.me/snowboard/':'https://snowboardguide.cn/';
+  const sessionKey='snowboard-utterances-session';
 
   // Match the official client/page-attributes/measure protocol, without running
   // third-party code in the parent page. Keep OAuth state out of guide exports.

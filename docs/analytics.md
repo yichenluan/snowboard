@@ -1,12 +1,12 @@
 # 网站访问统计
 
-本站使用 [Umami Cloud](https://cloud.umami.is) 接收匿名访问统计，后台网站名称为“snowboard”，域名为 `jinke.me`。配置文件为 [`analytics-config.json`](../analytics-config.json)；其中 website ID 是公开站点标识，不是管理后台凭据。后台只有账号所有者可以访问，本站没有公开访客看板。
+本站使用 [Umami Cloud](https://cloud.umami.is) 接收匿名访问统计，后台网站名称为“snowboard”。新正式入口 `https://snowboardguide.cn/` 与旧正式路径 `https://jinke.me/snowboard/` 共用原网站 ID；新域接入不拆分历史数据。配置文件为 [`analytics-config.json`](../analytics-config.json)；其中 website ID 是公开站点标识，不是管理后台凭据。后台只有账号所有者可以访问，本站没有公开访客看板。
 
 ## 查看数据
 
 登录 Umami Cloud 并打开网站，可按日期查看访客、浏览量、实时访问、来源、页面、设备及地域。免费 Hobby 档目前为每月 100,000 事件、1 个网站、6 个月数据留存；浏览量和自定义时长事件都会占用额度。定价核验于 2026-10-16，后续以[官方定价](https://umami.is/pricing)为准。
 
-页面表内的 URL 是**统计用路径**，课程实际分享链接仍使用原有 `#lesson=`，不要直接把统计路径作为访问地址。
+页面表内的 URL 是**统计用路径**，课程实际分享链接仍使用原有 `#lesson=`，不要直接把统计路径作为访问地址。新域仍统一发送 `/snowboard/` 开头的虚拟内容路径，以便与历史数据按同一课程或栏目汇总；这不要求新域的实际访问地址带 `/snowboard/`。Umami 保留实际访问 hostname，可按域名分别查看新旧入口。
 
 | 统计路径 | 含义 |
 | --- | --- |
@@ -37,7 +37,7 @@ Umami 自带的 Visit duration 是访问层面的估计，不能当作每页阅�
 为不同渠道使用 UTM，例如：
 
 ```text
-https://jinke.me/snowboard/?utm_source=wechat&utm_medium=social&utm_campaign=winter#lesson=s-short-integrated
+https://snowboardguide.cn/?utm_source=wechat&utm_medium=social&utm_campaign=winter#lesson=s-short-integrated
 ```
 
 只允许 `utm_source`、`utm_medium`、`utm_campaign`、`utm_content`、`utm_term` 进入统计；不要在 UTM 中填写姓名、邮箱、手机号或个人内容。其他查询参数和原始 hash 不上传，尤其不上传评论登录的 `utterances` 参数。
@@ -46,7 +46,7 @@ https://jinke.me/snowboard/?utm_source=wechat&utm_medium=social&utm_campaign=win
 
 - 不调用身份识别接口，不发送 GitHub 登录会话、搜索词、个人补充、收藏或学习记录，不启用录屏、热图或输入采集。
 - 浏览器开启 Do Not Track 或 Global Privacy Control 时不加载统计脚本。
-- 只在 `https://jinke.me/snowboard/` 下的正式入口运行；本地 HTTP、`file:`、其他域名和博客根路径不运行。线上 `snowboard-guide.html` 归并到主站统计。
+- 只在 `https://snowboardguide.cn/` 和 `https://jinke.me/snowboard/` 下的正式入口运行；本地 HTTP、`file:`、其他域名和博客根路径不运行。两个入口的线上 `snowboard-guide.html` 均归并到主站统计，独立三维归并到 `/snowboard/3d/`。官方脚本的 `data-domains` 使用逗号分隔这两个域名。
 - 统计脚本按需异步加载，上报失败不影响阅读和三维。没有配置 website ID 时完全禁用；删除 ID 后按正常流程构建发布即可关闭。
 - `build.py` 内联主站代码；Vite 在独立原型 HTML 注入同一配置与模块。不要直接修改生成的 HTML。
 

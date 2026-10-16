@@ -81,6 +81,8 @@ test('unconfigured, non-production and privacy opt-out visits make no requests o
     {href:'http://jinke.me/snowboard/'}, {href:'https://jinke.me:8443/snowboard/'},
     {href:'https://jinke.me/'}, {href:'https://jinke.me/snowboard-other/'},
     {href:'https://localhost/snowboard/'}, {href:'https://mirror.example/snowboard/'},
+    {href:'http://snowboardguide.cn/'}, {href:'https://snowboardguide.cn:8443/'},
+    {href:'https://snowboardguide.cn.example/'}, {href:'https://www.snowboardguide.cn/'},
     {doNotTrack:'1'}, {globalPrivacyControl:true}, {scriptUrl:'javascript:alert(1)'},
     {scriptUrl:'https://user:password@cloud.umami.is/script.js'},
   ]) {
@@ -89,6 +91,24 @@ test('unconfigured, non-production and privacy opt-out visits make no requests o
     assert.equal(b.scripts.length, 0, JSON.stringify(options));
     assert.equal(b.timers.size, 0, JSON.stringify(options));
     assert.equal(b.calls.length, 0);
+  }
+});
+
+test('new root-domain pages and legacy pages keep the same stable content paths', () => {
+  for (const href of [
+    'https://snowboardguide.cn/', 'https://snowboardguide.cn/index.html',
+    'https://snowboardguide.cn/snowboard-guide.html', 'https://snowboardguide.cn/3d/',
+    'https://snowboardguide.cn/3d/index.html', 'https://jinke.me/snowboard/',
+    'https://jinke.me/snowboard/snowboard-guide.html', 'https://jinke.me/snowboard/3d/',
+  ]) {
+    const b = browser({href});
+    const path = href.includes('/3d/') ? '/snowboard/3d/' : '/snowboard/lesson/s-short';
+    b.view(path); b.load();
+    assert.equal(b.calls[0].url, path, href);
+    assert.ok(b.scripts[0].attributes['data-domains'].split(',').includes(new URL(href).hostname), href);
+    b.advance(1500); b.hide();
+    assert.equal(b.calls[1].url, path, href);
+    assert.equal(b.calls[1].data!.seconds, 1.5, href);
   }
 });
 
@@ -108,6 +128,7 @@ test('only canonical paths are accepted and the tracker is lazy, asynchronous an
   assert.equal(script.attributes['data-exclude-search'], 'true');
   assert.equal(script.attributes['data-exclude-hash'], 'true');
   assert.equal(script.attributes['data-website-id'], websiteId);
+  assert.equal(script.attributes['data-domains'], 'snowboardguide.cn,jinke.me');
   b.repeatSource();
   b.view('/snowboard/lesson/s-short');
   assert.equal(b.scripts.length, 1);
