@@ -1,6 +1,6 @@
 # 网站访问统计
 
-本站使用 [Umami Cloud](https://cloud.umami.is) 接收匿名访问统计，网站名称为“单板技术手册”，域名为 `jinke.me`。配置文件为 [`analytics-config.json`](../analytics-config.json)；其中 website ID 是公开站点标识，不是管理后台凭据。后台只有账号所有者可以访问，本站没有公开访客看板。
+本站使用 [Umami Cloud](https://cloud.umami.is) 接收匿名访问统计，后台网站名称为“snowboard”，域名为 `jinke.me`。配置文件为 [`analytics-config.json`](../analytics-config.json)；其中 website ID 是公开站点标识，不是管理后台凭据。后台只有账号所有者可以访问，本站没有公开访客看板。
 
 ## 查看数据
 
@@ -24,7 +24,7 @@
 
 Umami 自带的 Visit duration 是访问层面的估计，不能当作每页阅读时长。官方定义为访问事件首末时间差；单页访问和最后一页存在遗漏，详见[指标定义](https://docs.umami.is/docs/metric-definitions)。
 
-本站额外发送 `page_visible` 事件，`seconds` 为该页面**新增的可见秒数**。切换课程、页面隐藏、离开网页，以及每 60 秒结算一次；后台标签页时间不计入，重复隐藏/关闭不重复结算。在 Events 中筛选 `page_visible`，再用 URL 筛选课程，在 Properties 中查看 `seconds`。同页可能对应多个增量事件，不能把事件条数当成阅读人数，也不能把所有增量的简单平均当成平均页面停留。总可见时长为各 `seconds` 值乘对应次数后求和；除以同时间段同页面浏览量可得到每次浏览的平均可见时长估计。普通后台的 Visit duration 仍是 Umami 自身口径，没有被改名为阅读时长。
+本站额外发送 `page_visible` 事件，`seconds` 为该页面**新增的可见秒数**。切换课程、页面隐藏、离开网页，以及每 60 秒结算一次；后台标签页时间不计入，重复隐藏/关闭不重复结算。打开 Events → Properties，Event 选择 `page_visible`，Property 选择 `seconds`，可查看页面和秒数明细；也可用 URL 筛选课程。同页可能对应多个增量事件，不能把事件条数当成阅读人数，也不能把所有增量的简单平均当成平均页面停留。总可见时长为明细 `seconds` 相加（若按值分组则乘对应次数后求和）；除以同时间段同页面浏览量可得到每次浏览的平均可见时长估计。普通后台的 Visit duration 仍是 Umami 自身口径，没有被改名为阅读时长。
 
 页面可见不代表人在阅读或学会动作；脚本加载慢、被拦截、断网、浏览器直接终止、最后一次尚未结算的时间都可能漏报。加载前最多暂存 32 个事件，15 秒未加载成功即停止本次统计；暂存事件集中发送也会影响 Umami 自带的访问时长，自定义 `seconds` 保留实际可见增量。发送使用 Umami 官方脚本的 keepalive 请求，关闭时尽力上报，不承诺全部送达。时长精度为毫秒。
 
