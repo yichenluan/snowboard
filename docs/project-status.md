@@ -1,6 +1,16 @@
 # 当前项目状态与新会话入口
 
-更新日期：2026-10-16。双主线为CASI四级搓雪小回转与JSBA高阶低姿态八字刻滑。当前功能发布基线为 `5065836`：新增 Umami 匿名访问统计及页面可见时长，后台已收到真实验证访问。首页仍沿用 `3799e2c` 的展开全景与双主线15个入口；三维朝向基线仍为 `88e1207`，前轮JSBA姿态基线为 `35bf0a6`，双主线重构基线为 `77b77a8`。
+更新日期：2026-10-16。双主线为CASI四级搓雪小回转与JSBA高阶低姿态八字刻滑。当前域名适配发布基线为 `df1b9f4`，正式入口 `https://snowboardguide.cn/`；访问统计仍基于 `5065836` 的 Umami 匿名访问与页面可见时长，已适配并实际接收新域访问。首页仍沿用 `3799e2c` 的展开全景与双主线15个入口；三维朝向基线仍为 `88e1207`，前轮JSBA姿态基线为 `35bf0a6`，双主线重构基线为 `77b77a8`。
+
+## 2026-10-16 新根域与统计接入（当前）
+
+新增正式入口 [https://snowboardguide.cn/](https://snowboardguide.cn/)，根路径直接显示手册。阿里云根域四条 GitHub Pages A 记录及 `www` CNAME 已生效；`snowboard` 仓库独立 Custom domain 为 `snowboardguide.cn`，证书覆盖根域及 `www`，`https_enforced=true`。HTTP、www、旧 `jinke.me/snowboard/` 和 GitHub 项目入口均跳转到新 HTTPS 根域；旧课程 hash、原型路径/query 已核对，`jinke.me` 博客根域仍为200。
+
+功能提交 `df1b9f469a27afd82a381a3f6fb623c1c7207f90` 的 [Actions 38878905937](https://github.com/yichenluan/snowboard/actions/runs/38878905937) build/deploy 成功。168/168 测试、类型检查、两项构建、单文件及来源/库存检查通过；正式主站、副本、原型HTML/JS/CSS五资源200且逐字节匹配本地。主站/副本2,517,305 bytes，SHA `7f5d8317202164a863ff1a7edfda2f4b479d12d229f9036caed4855a30ef926d`。
+
+Umami 网站设置的 Domain 已改为 `snowboardguide.cn`，保留原网站 ID 与历史数据；脚本精确允许新根域和旧正式路径，继续用 `/snowboard/` 虚拟内容路径归并课程。真实后台已收到新域首页、课程、三维PV及首页/课程 `page_visible` 事件；官方tracker联合VM另验新域hostname和敏感参数清洗，未向后台发送模拟访问。评论仍用稳定课程 ID，新域回调返回新域。跨域浏览器个人记录不会自动迁移。
+
+Chrome 已实际检查HTTPS首页、旧课程hash到新域、课内播放、独立三维播放/返回与评论iframe回调地址。此轮为域名与运行兼容检查，不新增动作教学审阅；旧人工证据保留，源码指纹变化正常失效。私有证据在 `.validation/domain/`、日志 `log/domain-*`，不提交账户、会话或私人记录。完整配置见[部署说明](../DEPLOYMENT.md)。
 
 ## 当前已实现范围
 

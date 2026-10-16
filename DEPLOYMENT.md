@@ -102,7 +102,7 @@ Pages 会自动构建和发布。可以用 `gh run list` 查看运行状态，�
 
 课程评论使用 [Utterances](https://utteranc.es/)，公开存放在 `yichenluan/snowboard` 的 Issues。仓库需保持公开且启用 Issues；Utterances GitHub App 仅安装到该仓库，权限为读取 metadata、读写 Issues。它不需要本站配置 OAuth client secret，也没有代码写入权限。
 
-`comments.js` 按稳定课程 ID 生成唯一 Issue 搜索标识，切换课程会销毁旧 iframe 与监听器；不要改成 pathname 映射，因为本站全部课程共用 `/snowboard/` 路径。课程标题和网址变化不改变讨论标识。iframe 参数与 [官方 client.ts](https://github.com/utterance/utterances/blob/master/src/client.ts) 保持一致，显式传入含课程 hash 的正式网址，以便 GitHub 登录后返回原课程。此处使用官方脚本生成的 iframe 协议，上游协议变动时需复核。
+`comments.js` 按稳定课程 ID 生成唯一 Issue 搜索标识，切换课程会销毁旧 iframe 与监听器；不要改成 pathname 映射，因为本站全部课程共用首页路径，以 `#lesson=` 区分。课程标题和网址变化不改变讨论标识。iframe 参数与 [官方 client.ts](https://github.com/utterance/utterances/blob/master/src/client.ts) 保持一致，显式传入含课程 hash 的正式网址，以便 GitHub 登录后返回原课程。此处使用官方脚本生成的 iframe 协议，上游协议变动时需复核。
 
 登录回调的 `utterances` 参数会从地址栏移除，会话放在独立存储键中，不写入课程数据或个人记录。第三方评论代码运行在跨域 iframe 内。高度消息必须来自当前 iframe 和 `https://utteranc.es`；离课会清理监听器。`file:` 离线文件不加载评论，保留当前课程在线入口；离线进入课程时显示重试入口。
 

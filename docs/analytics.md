@@ -1,6 +1,6 @@
 # 网站访问统计
 
-本站使用 [Umami Cloud](https://cloud.umami.is) 接收匿名访问统计，后台网站名称为“snowboard”。新正式入口 `https://snowboardguide.cn/` 与旧正式路径 `https://jinke.me/snowboard/` 共用原网站 ID；新域接入不拆分历史数据。配置文件为 [`analytics-config.json`](../analytics-config.json)；其中 website ID 是公开站点标识，不是管理后台凭据。后台只有账号所有者可以访问，本站没有公开访客看板。
+本站使用 [Umami Cloud](https://cloud.umami.is) 接收匿名访问统计，后台网站名称为“snowboard”，网站设置中的 Domain 已改为 `snowboardguide.cn`。新正式入口 `https://snowboardguide.cn/` 与旧正式路径 `https://jinke.me/snowboard/` 共用原网站 ID；新域接入不拆分历史数据。配置文件为 [`analytics-config.json`](../analytics-config.json)；其中 website ID 是公开站点标识，不是管理后台凭据。后台只有账号所有者可以访问，本站没有公开访客看板。
 
 ## 查看数据
 
