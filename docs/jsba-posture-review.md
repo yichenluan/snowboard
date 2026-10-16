@@ -325,3 +325,14 @@ recover另以`fromEdge=heel`、`stance=goofy`慢放，从15%实际运行至100%�
 根代理最终工程回报为完整测试154/154、typecheck、两项build、build.py、sourceclaims、两inventory及diff通过；最终HTML指纹与上表`d9d2…2645`一致。本代理只转录明确执行回报，不把它改写成自己的完整测试，工程结果也不授予教学全帧正确。
 
 本文件与对应人工教学账在本次更新后冻结交接。最终提交、部署和线上核对由根代理按真实结果另补；上述本地事实不是正式线上发布记录。
+
+
+## 10. 最终发布与正式站核对
+
+功能提交`35bf0a6d3aadfcfc5d7ca2141cd9f12d90e5a6aa`已推送main；[Actions 38857860830](https://github.com/yichenluan/snowboard/actions/runs/38857860830)的build和deploy均成功。发布后的纯文档补记不改变网站构建。
+
+2026-10-16正式[主站](https://jinke.me/snowboard/)和离线副本均为2,501,191 bytes，SHA-256 `d9d2c23ee477bfb144175d31240f6ae3806a39edfa732dcdcecc10ef39c52645`。主站、副本、独立原型HTML/JS/CSS五项均HTTP 200并与本地逐字节一致；私有原始核对为`.validation/jsba-posture-review/published-verification.json`。
+
+根代理实际打开正式低位variation课程，原生输入前后刃代表时刻并复位相机，独立查看完成绘制的实体：胸前/腰前标记、开放朝向图、正常/较低曲线均存在；前刃分腿读数约.605/.695m与当前模型一致。保存`published-heel.png`、`published-toe.png`。另实际查看duck课S55具名真人卡及边界说明，保存`published-video-card.png`；Basic、Dynamic和低位基础最终文案与朝向图也逐页可见，正式站console error为0。范围见`published-smoke.json`。
+
+这些线上检查确认当前发布物与本地一致，并验证上述具体入口/画面，不扩大为十二引用全部线上全周期、全部组合、生物力学、全表面穿插或真人精确标定通过。原有69项来源未知保留；共享场景变化后的无关历史观察仍可失效，未批量刷新成全站通过。
